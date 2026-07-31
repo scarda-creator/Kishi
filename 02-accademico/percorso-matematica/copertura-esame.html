@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8">
+<title>Copertura d'esame — cosa chiedono i due corsi, e dove sta nel percorso</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+ @page{size:A4;margin:19mm 17mm 20mm}
+ body{font-family:Georgia,'Times New Roman',serif;font-size:10.6pt;line-height:1.48;color:#14171c;margin:0}
+ h1{font-size:20pt;margin:0 0 2mm;line-height:1.2}
+ h2{font-size:13.5pt;margin:8mm 0 2mm;padding-bottom:1mm;border-bottom:1px solid #c9ced6;page-break-after:avoid}
+ h3{font-size:11.6pt;margin:5mm 0 1.5mm;color:#1e3a5f;page-break-after:avoid}
+ h4{font-size:10.6pt;margin:4mm 0 1mm;font-style:italic;page-break-after:avoid}
+ p{margin:0 0 2.2mm;text-align:justify}
+ ul{margin:0 0 2.6mm;padding-left:5.5mm} li{margin:0 0 1.2mm}
+ hr{border:none;border-top:1px solid #d6dae0;margin:6mm 0}
+ blockquote{margin:2.5mm 0;padding:2mm 4mm;background:#f4f6f9;border-left:2.5pt solid #4a6fa5;font-size:10pt}
+ table{border-collapse:collapse;width:100%;margin:2.5mm 0;font-size:9.6pt}
+ td{border:1px solid #ccd2da;padding:1.4mm 2.2mm;vertical-align:top}
+ tr:first-child td{background:#eef1f5;font-weight:bold}
+ code{background:#eef1f5;padding:0 1mm;border-radius:2px;font-family:Consolas,monospace;font-size:9.2pt}
+ a{color:#1e4a80;text-decoration:none}
+ .katex{font-size:1.02em}
+ .katex-display{margin:2.5mm 0;page-break-inside:avoid}
+ h2,h3{page-break-after:avoid} table,blockquote{page-break-inside:avoid}
+</style></head><body>
+<h1>Copertura d'esame — cosa chiedono i due corsi, e dove sta nel percorso</h1>
+<p>Verifica fatta da Dedalo il 2026-07-21, su richiesta di Giuseppe («ci devono essere tutti»).</p>
+<p><b>Nessun requisito è inventato</b>: le fonti sono il programma ufficiale di Metodi</p>
+<p>(<code>02-accademico/corsi/metodi-e-modelli/programma-ufficiale.md</code>) e la mappa dell'Argonauta</p>
+<p>(<code>01-mappa-argonauta.md</code>), che ricostruisce il programma di AV (Terracina) e conta le frequenze</p>
+<p>sugli ~19 scritti reali di Metodi 2023-2026.</p>
+<p>Il tag in pagina è generato da <code>nuclei/esame-tag.js</code>: <b>57 requisiti mappati</b>, ognuno verificato</p>
+<p>puntare a una tappa che esiste davvero (controllo automatico contro <code>nuclei-indice.json</code>).</p>
+<hr>
+<h2>Verdetto — aggiornato il 2026-07-21, sera: i tre buchi sono CHIUSI</h2>
+<ul>
+<li><b>57 voci d'esame mappate e marcate</b> in pagina, ognuna verificata puntare a una tappa esistente.</li>
+<li>I tre buchi trovati nella verifica sono stati colmati lo stesso giorno:</li>
+</ul>
+<table>
+<tr><td>buco</td><td>rimedio</td><td>dove</td></tr>
+<tr><td>Integrali doppi/tripli e cambio di variabili (AV, <b>Es.1 sistematico</b>)</td><td><b>nucleo nuovo</b> — 4 tappe, 2 figure, Fubini + jacobiano + tripli in cilindriche/sferiche</td><td><code>nuclei/18-integrali-multipli.html</code>, nel percorso come <b>Nucleo 02-bis</b> (Movimento I, dopo Dini)</td></tr>
+<tr><td>Gram–Schmidt in $L^2$ (Metodi, B5, ~4/19)</td><td><b>esercizio guidato</b> — da $\{1,x,x^2\}$ ai polinomi di Legendre, con l'aggancio a Sturm–Liouville</td><td>nucleo 09, tappa 02</td></tr>
+<tr><td>Espansioni asintotiche (programma ufficiale, mai negli scritti)</td><td><b>nucleo nuovo <code>[+]</code></b> — Laplace, fase stazionaria, punto di sella, Stirling</td><td><code>nuclei/19-asintotica.html</code>, nel percorso come <b>Nucleo 14-bis</b> (Movimento III)</td></tr>
+</table>
+<p><b>Il percorso è ora a 20 nuclei, 7295 formule verificate, 0 errori.</b></p>
+<p>Ogni conto nuovo è stato verificato <b>numericamente</b>, non a occhio: Stirling (errore 0,83% a</p>
+<p>$n=10$ e 0,083% a $n=100$, come predice $1/12n$) e l'ortonormalità di Gram–Schmidt (norme = 1,</p>
+<p>prodotti scalari incrociati = 0, $\lVert x^2-1/3Vert^2=8/45$).</p>
+<h3>Una nota sulla numerazione</h3>
+<p>I due nuclei nuovi hanno <b>numero di file 18 e 19</b> ma <b>posizione logica 02-bis e 14-bis</b>: la</p>
+<p>numerazione dei file è rimasta stabile di proposito, perché rinumerare tutto avrebbe rotto i link</p>
+<p>già pubblicati, le chiavi dei progressi salvati e i riferimenti incrociati dentro i nuclei. La</p>
+<p><b>mappa</b> li mostra al posto giusto (<code>mappa-percorso.py</code> tiene la posizione, i file tengono</p>
+<p>l'identità). È una scelta di struttura: preferire un numero un po' buffo a una rinumerazione che</p>
+<p>rompe cose vive.</p>
+<h2>Copertura per corso</h2>
+<h3>Analisi Vettoriale (Terracina) — 27 voci mappate</h3>
+<p>Parte I (topologia, differenziale, Dini, Taylor, estremi) → nuclei 00, 01, 02 ✔</p>
+<p>Parte II.7 (integrali multipli, cambio di variabili) → <b>nucleo 02-bis</b> (file 18) ✔</p>
+<p>Parte II.8-11 (curve, superfici, campi, teoremi integrali) → nuclei 03, 04, 05 ✔</p>
+<p>Parte III (successioni e serie di funzioni) → nucleo 07 ✔</p>
+<p>Parte IV (EDO, Cauchy, autonome, Eulero) → nucleo 06 ✔</p>
+<p>Marcati con ★ (dimostrazione tipicamente richiesta): Green, Gauss, Stokes, Picard–Lindelöf,</p>
+<p>limite uniforme (continuità/integrabilità/derivabilità), irrotazionale ⇏ conservativo,</p>
+<p>convergenza puntuale vs uniforme.</p>
+<h3>Metodi e Modelli (Caprini/Esposito, canale 3) — 30 voci mappate</h3>
+<p><b>Blocco A — analisi complessa (~50%)</b> → nuclei 11, 12, 13 ✔</p>
+<p>A1 Laurent + residui + integrale su curva <b>19/19</b>; A2 integrale reale per contorni <b>19/19</b>;</p>
+<p>A3 Cauchy–Riemann e armoniche coniugate; A4 polidrome e determinazioni.</p>
+<p><b>Asintotica</b> (nel programma ufficiale, mai negli scritti) → <b>nucleo 14-bis</b> (file 19) ✔ — materia da orale.</p>
+<p><b>Blocco B — analisi funzionale (~50%)</b> → nuclei 08, 09, 15, 16, 17 ✔ (B5 Gram–Schmidt: nucleo 09, tappa 02)</p>
+<p>B1 spettro <b>19/19</b>; B2 Green per EDO (trabocchetto δ′); B3 Fourier serie e trasformata;</p>
+<p>B4 EDP per separazione.</p>
+<hr>
+<h2>Come si legge il tag in pagina</h2>
+<p>Sull'intestazione della tappa compare un riquadro <b>«richiesto all'esame»</b> con:</p>
+<ul>
+<li>il <b>corso</b> (oro = Analisi Vettoriale, azzurro = Metodi);</li>
+<li>la <b>prova</b>: <code>scritto</code>, <code>orale</code> o <code>scritto+orale</code>;</li>
+<li>il <b>riferimento</b>: numero dell'esercizio tipico (<code>Es.3</code>) o del blocco (<code>A1</code>, <code>B2</code>);</li>
+<li>la <b>frequenza</b> dove è nota (<code>19/19</code> = in tutti gli scritti esaminati);</li>
+<li><b>★</b> quando il punto è richiesto <i>con dimostrazione</i>;</li>
+<li>passando il mouse sul badge, la nota estesa con la voce di programma.</li>
+</ul>
+<h2>Manutenzione</h2>
+<p>La mappa dei requisiti vive <b>in un posto solo</b>: l'array <code>REQ</code> in cima a <code>nuclei/esame-tag.js</code>.</p>
+<p>Aggiungere un requisito = aggiungere una riga. Il controllo che ogni riga punti a una tappa</p>
+<p>esistente si rifà con:</p>
+<p>```bash</p>
+<p>node -e "…"   # incluso nel passo di build; vedi APP.md</p>
+<p>```</p>
+<script>window.addEventListener('DOMContentLoaded',function(){
+ renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});
+});</script>
+</body></html>

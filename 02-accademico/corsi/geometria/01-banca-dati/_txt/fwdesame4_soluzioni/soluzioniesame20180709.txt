@@ -1,0 +1,380 @@
+===== PAGINA 1 =====
+Geometria
+Prova scritta, II appello, sessione estiva
+Corso di laurea in ﬁsica — A.A 2017/2018
+Canali A – C, e L – Pa
+Durata: 2 ore e 30 minuti
+Simone Diverio
+Alessandro D’Andrea
+Paolo Piccinni
+9 luglio 2018
+Esercizio 1. Si consideri la matrice A ∈M3,3(R) data da
+A =
+
+
+3
+1
+−2
+1
+3
+2
+−1
+1
+2
+
+,
+e l’operatore lineare ad essa associato
+LA : R3 →R3.
+(i) Determinare autovalori e autospazi di A e stabilire se A è diagonalizzabile.
+(ii) Esibire una base diagonalizzante.
+(iii) Decidere se A2018 sia diagonalizzabile.
+Esercizio 2. Discutere la compatibilità del sistema lineare
+
+
+
+
+
+kx1 + x2 + kx3 = k
+x1 −x2 −x3 = k
+x1 + kx2 + x3 = k,
+essendo k un parametro reale, e determinarne le soluzioni nei casi in cui esse
+esistono.
+Esercizio 3. Sia V = M2,2(R) lo spazio vettoriale delle matrici quadrate di
+ordine 2 a coeﬃcienti reali. Dimostrare o confutare, se necessario mediante un
+controesempio, le seguenti aﬀermazioni.
+(i) Il sottoinsieme U ⊂V deﬁnito da U = {A ∈V | A2 = 0} è un sottospazio
+vettoriale.
+1
+
+
+===== PAGINA 2 =====
+(ii) Il sottoinsieme L ⊂V deﬁnito da L = {A ∈V | A + At = Id2} è un
+sottospazio aﬃne.
+(iii) L’applicazione
+T : V →V
+A 7→A + At
+è lineare e iniettiva.
+Esercizio 4. Si considerino i seguenti sottospazi vettoriali di C4:
+U = Span
+
+
+
+
+
+
+
+
+
+
+
+1
+i
+−1
+−i
+
+
+
+,
+
+
+
+
+1
+−1
+1
+−1
+
+
+
+,
+
+
+
+
+1
+−i
+−1
+i
+
+
+
+
+
+
+
+
+
+
+
+,
+V :
+(
+z1 −iz2 + z4 = 0
+z2 −iz3 = 0.
+(i) Esibire una base per entrambi i sottospazi.
+(ii) Determinare un insieme minimale di equazioni cartesiane per U ∩V .
+(iii) Determinare la dimensione di U + V .
+Esercizio 5. Sia V = M2,2(R) lo spazio vettoriale delle matrici quadrate reali
+di ordine 2.
+(i) Veriﬁcare che il sottoinsieme
+U =
+x1
+x2
+x3
+x4
+
+∈V tali che x2 + x3 = 0
+
+è un sottospazio vettoriale di V .
+(ii) Determinare una base BU di U.
+(iii) Determinare un sottospazio vettoriale W di V tale che V = U ⊕W.
+Soluzioni
+Esercizio 1. Il polinomio caratteristico è dato da pA(λ) = −λ(λ −4)2. Quindi
+gli autovalori sono λ = 0 con molteplicità algebrica 1 e λ = 4 con molteplicità
+algebrica 2. Gli autospazi sono dati da
+V0 = ker LA = Span
+
+
+
+
+
+1
+−1
+1
+
+
+
+
+,
+V4 = Span
+
+
+
+
+
+0
+2
+1
+
+,
+
+
+1
+1
+0
+
+
+
+
+.
+Dunque molteplicità algebriche e geometriche rispettive sono uguali e ne dedu-
+ciamo che LA è diagonalizzabile.
+2
+
+
+===== PAGINA 3 =====
+Una base diagonalizzante è data da
+
+
+
+
+
+1
+−1
+1
+
+,
+
+
+0
+2
+1
+
+,
+
+
+1
+1
+0
+
+
+
+
+.
+La matrice A2018 è diagonalizzabile, infatti sia Λ = C−1AC una forma diagonale
+di A. Allora
+Λ2018 = C−1A
+=Id3
+z }| {
+C · C−1 A
+=Id3
+z }| {
+C · C−1 AC · · · C−1AC
+|
+{z
+}
+2018 volte
+= C−1A2018C.
+Esercizio 2.
+Il sistema è compatibile quando k̸ = ±1 (e in questo caso la
+matrice dei coeﬃcienti ha rango massimo, dunque il sistema ammette una e una
+sola soluzione), oppure quando k = 1 (e in questo caso il rango della matrice
+dei coeﬃcienti così come quello della matrice completa è 2, e dunque il sistema
+ammette ∞1 soluzioni).
+L’unica soluzione nel caso k̸ = ±1 è data da
+
+
+
+
+
+x1 = k(3+k)
+2(1+k)
+x2 =
+k
+1+k
+x3 = −k
+2.
+Le ∞1 soluzioni nel caso k = 1 sono invece parametrizzate al variare di t ∈R
+da
+
+
+
+
+
+x1 = 1
+x2 = t
+x3 = −t.
+Esercizio 3.
+Il sottoinsieme U non è un sottospazio vettoriale, infatti ad
+esempio le matrici
+A =
+0
+1
+0
+0
+
+,
+B =
+0
+0
+1
+0
+
+,
+sono tali che A2 = B2 = 0, ma (A + B)2 = Id2̸ = 0.
+Il sottoinsieme L è invece uno spazio aﬃne: esso si può scrivere come L =
+L0 + Id2 dove L0 è il sottospazio vettoriale delle matrici tali che A = −At (cioè
+delle matrici antisimmetriche). Che L0 sia un sottospazio vettoriale si veriﬁca
+immediatamente, infatti date A, B matrici quadrate di ordine 2 antisimmetriche
+e α, β ∈R, abbiamo
+(αA + βB)t = αAt + βBt = −αA −βB = −(αA + βB).
+Inﬁne, l’applicazione T è lineare, infatti date A, B matrici quadrate di ordine
+2 e α, β ∈R si ha
+T(αA + βB) = (αA + βB) + (αA + βB)t
+= αA + βB + αAt + βBt
+= α(A + At) + β(B + Bt) = αT(A) + βT(B).
+3
+
+
+===== PAGINA 4 =====
+Essa non è iniettiva:
+per veriﬁcarlo basta prendere una matrice non nulla
+antisimmetrica, ad esempio
+C =
+
+0
+−1
+1
+0
+
+.
+Per tale matrice vale T(C) = C + Ct = C −C = 0, per cui il nucleo di T è non
+banale.
+Esercizio 4. I generatori di U proposti sono linearmente indipendenti, quindi
+formano una base per U. Una base per V è data invece da
+
+
+
+
+
+
+
+
+
+
+
+−1
+i
+1
+0
+
+
+
+,
+
+
+
+
+−1
+0
+0
+1
+
+
+
+
+
+
+
+
+
+
+
+.
+Equazioni cartesiane per U sono date da
+U = {z1 + z2 + z3 + z4 = 0.
+Quindi un sistema minimale di equazioni cartesiane per U ∩V è dato da
+U ∩V =
+
+
+
+
+
+z1 + z4 = 0
+z2 = 0
+z3 = 0.
+In particolare dim(U ∩V ) = 1 e la formula di Grassmann fornisce dim(U +V ) =
+4.
+Esercizio 5. Il sottoinsieme U è chiaramente un sottospazio in quanto deﬁnito
+da un’equazione lineare omogenea. Una base è data ad esempio da
+BU =
+
+1
+0
+0
+0
+
+,
+
+0
+0
+0
+1
+
+,
+ 0
+1
+−1
+0
+
+.
+Ad esempio, la matrice
+A =
+
+0
+0
+1
+0
+
+completa BU ad una base di V e dunque W = Span{A} è tale che V = U ⊕W.
+4

@@ -1,0 +1,248 @@
+===== PAGINA 1 =====
+Secondo appello di Geometria per Fisica, a.a. 2012-13, lettere Cf-K (Prof. P. Piccinni)
+13 febbraio 2013
+a. Scrivere subito Matricola, Cognome e Nome.
+b. Utilizzare questi fogli per le risposte. I fogli protocollo sono invece per riﬂessioni o calcoli, e non vanno consegnati.
+c. Durante la prova non si possono consultare testi e appunti n´e usare fogli diversi da quelli distribuiti.
+d. Durante la prova non `e consentito uscire dall’aula.
+Tempo a disposizione: 2 ore
+Matricola.............................Cognome...........................................................Nome................................................
+1. Matrici del tipo
+A2 =
+ a
+a
+a
+a
+
+,
+A3 =
+
+
+a
+b
+a
+b
+c
+b
+a
+b
+a
+
+,
+A4 =
+
+
+
+
+a
+b
+c
+a
+c
+d
+d
+b
+b
+d
+d
+c
+a
+c
+b
+a
+
+
+
+,
+A5 =
+
+
+
+
+
+
+a
+b
+c
+d
+a
+d
+e
+f
+e
+b
+c
+f
+g
+f
+c
+b
+e
+f
+e
+d
+a
+d
+c
+b
+a
+
+
+
+
+
+
+si dicono invarianti per rotazioni (di 90o, 180o, 270o attorno al centro della matrice-tabella), e questa nozione
+pu`o essere deﬁnita per matrici di ogni ordine n, p. es. per elementi di Mn(R). Stabilire quali tra le seguenti
+aﬀermazioni sono vere (anche pi`u risposte).
+1
+Le matrici invarianti per rotazioni formano un sottospazio vettoriale di Mn(R), per ogni n ≥2
+2
+Le matrici invarianti per rotazioni formano un sottospazio vettoriale di Mn(R), per n = 2, 3
+3
+Le matrici invarianti per rotazioni sono necessariamente simmetriche, per ogni n ≥2
+4
+Le matrici invarianti per rotazioni sono necessariamente simmetriche, per n = 2, 3
+5
+Il determinante di una matrice invariante per rotazioni `e necessariamente nullo, per ogni n ≥2
+6
+Il determinante di una matrice invariante per rotazioni `e necessariamente nullo, per n = 2, 3
+7
+Nessuna delle precedenti
+2. Sia V = R≤2[x] = {a0 + a1x + a2x2} lo spazio vettoriale dei polinomi in x di grado ≤2 a coeﬃcienti in R. Si
+consideri in V la base
+E′ = (1, 1 + x, (1 + x)2)
+e l’endomorﬁsmo T deﬁnito dalle formule:
+T(1) = 1,
+T(1 + x) = 1 −x,
+T[(1 + x)2] = (1 −x)2.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+Si passa dalla base canonica E = (1, x, x2) di V alla base E′ mediante da relazione matriciale E′ = EC dove
+la matrice del cambiamento di base `e
+C =
+
+
+1
+1
+1
+0
+1
+2
+0
+0
+1
+
+
+2
+La matrice associata a T alla base E′, `e
+A =
+
+
+1
+2
+4
+0
+−1
+−4
+0
+0
+1
+
+
+3
+La matrice associata a T alla base E `e C−1AC
+4
+T `e iniettivo e suriettivo
+5
+T `e diagonalizzabile
+6
+Nessuna delle precedenti
+
+
+===== PAGINA 2 =====
+3. Si consideri il sistema lineare a coeﬃcienti reali:
+
+3
+√
+2 x
+−
+9 y
+=
+21
+√
+8 x
+−
+6 y
+=
+14
+Stabilire quale tra le seguenti aﬀermazioni `e vera:
+1
+Il sistema ammette un’unica soluzione (x0, y0), costituita da una coppia di numeri razionali
+2
+Il sistema ammette un’unica soluzione (x0, y0), costituita da una coppia di reali non entrambi razionali
+3
+Il sistema ammette inﬁnite soluzioni, ma nessuna di esse consiste di una coppia di numeri razionali
+4
+Il sistema ammette inﬁnite soluzioni, e alcune di esse consistono di coppie di numeri razionali
+5
+Il sistema non ammette soluzioni reali
+4. Si considerino nello spazio euclideo R3 i piani
+α1 : x + y + z = 0,
+α2 : x + y + z = 1,
+α3 : 2x −y −z = 0,
+α4 : 2x −y −z = 1,
+α5 : y −z = 0,
+α6 : y −z = 1.
+essendo (x, y, z) le coordinate di R3. Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+α1, α2, α3, α4, α5, α6, sono a due a due paralleli
+2
+Ogni coppia di piani non paralleli tra α1, α2, α3, α4, α5, α6 consiste di piani perpendicolari
+3
+α1, α2, α3, α4, α5, α6, delimitano in R3 un parallelepipedo Π a facce rettangolari
+4
+Ognuno dei punti O = (0, 0, 0) e Q = ( 2
+3, 2
+3, −1
+3) `e comune a tre dei piani e pertanto O e Q sono vertici di Π
+5
+Π `e un cubo
+6
+Nessuna delle precedenti
+5. Si consideri la matrice
+A =
+
+1 + i
+1 −i
+i
+−i
+
+∈M2(C).
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+det A = 0
+2
+A `e diagonalizzabile su C, avendo autovalori distinti
+3
+A `e diagonalizzabile su C, pur avendo autovalori coincidenti
+4
+A non `e diagonalizzabile su C
+5
+Gli autovalori di A sono reali
+6. Si considerino in R3 i vettori⃗v = (1, 1, 0),⃗w = (1, 0, 2),⃗z = (0, 1, 1) e si denoti con il simbolo ∧il prodotto
+vettoriale. Stabilire quali tra le seguenti aﬀermazioni sono corrette (anche pi`u risposte):
+1
+Risulta (⃗v ∧⃗w) ∧⃗z =⃗v ∧(⃗w ∧⃗z)
+2
+Risulta (⃗v ∧⃗w) ∧⃗z̸ =⃗v ∧(⃗w ∧⃗z)
+3
+Il prodotto vettoriale `e associativo
+4
+Il prodotto vettoriale non `e associativo
+5
+Il prodotto vettoriale non `e associativo, ma in modulo s`ı:
+|(⃗v1 ∧⃗v2) ∧⃗v3| = |⃗v1 ∧(⃗v2 ∧⃗v3)| per ogni⃗v1,⃗v2,⃗v3 ∈R3
+6
+Per qualche scelta di⃗v1,⃗v2,⃗v3 ∈R3 pu`o risultare (⃗v1 ∧⃗v2) ∧⃗v3 =⃗0, ma⃗v1 ∧(⃗v2 ∧⃗v3)̸ =⃗0
+2

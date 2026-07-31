@@ -1,0 +1,66 @@
+===== PAGINA 1 =====
+Geometria
+Appello II— Sessione Invernale
+Corso di laurea in ﬁsica — a.a. 2019/2020
+Tutti i Canali
+Durata: 2 ore e 30 minuti
+Paolo Bravi
+Simone Diverio
+Gabriele Mondello
+Paolo Piccinni
+Riccardo Salvati Manni
+4 febbraio 2020
+Esercizio 1. Si determinino, nel campo complesso C, tutte le soluzioni per ognuna delle seguenti due
+equazioni:
+z2 = ¯z2
+e
+z2 = −¯z2
+dove z = a + ib ∈C e ¯z = a −ib è il suo coniugato.
+Esercizio 2. Sia A =
+1
+1
+0
+1
+
+, e si considerino i sottospazi vettoriali di M2(R):
+U =
+n
+X =
+x1
+x2
+x3
+x4
+
+, con AX = XA
+o
+, V =
+n
+X =
+x1
+x2
+x3
+x4
+
+, con AX = −XA
+o
+.
+Determinare dimensioni e basi dei sottospazi vettoriali U, V, U ∩V, U + V .
+Esercizio 3. Si consideri l’endomorﬁsmo F : R3 →R3 deﬁnito da
+F(x1, x2, x3) = (−x1 −3x2 −3x3, 5x2 + 6x3, −3x2 −4x3).
+Veriﬁcare che F è diagonalizzabile, determinando una base di suoi autovettori e una matrice non singolare
+C tale che, se A è la matrice di F, A′ = C−1AC sia diagonale.
+Esercizio 4. Si consideri in M2(C) la matrice A =
+1
+i
+i
+−1
+
+.
+Calcolare la traccia e il determinante di A e dedurne (possibilmente senza polinomio caratteristico) quali
+sono gli autovalori di A. Si può concludere da ciò se A è diagonalizzabile? A è simmetrica e/o hermitiana
+e/o unitaria?
+Esercizio 5. Si consideri la forma bilineare simmetrica g : R4 × R4 →R deﬁnita da
+g(⃗x,⃗y) = 3x1y1 + x1y4 + x2y2 + x3y3 + x4y1.
+Stabilire se g è deﬁnita positiva e determinare, se esiste, un vettore non nullo⃗x ∈R4 isotropo rispetto a
+g, ovvero tale che g(⃗x,⃗x) = 0.
+(Compito A)

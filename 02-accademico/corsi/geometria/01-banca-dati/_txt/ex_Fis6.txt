@@ -1,0 +1,200 @@
+===== PAGINA 1 =====
+Esercizi del corso di Geometria - Foglio 6
+30 Novembre ottobre 2013
+Esercizio 1.
+Sia f : R2 7→R2 l’applicazione lineare data da
+f(x, y) = (3x −2y, x + 3y).
+Calcolare la matrice di f nella base {(2, 1), (1, 3)}.
+Esercizio 2. Siano dati i vettori di R3
+v1 = (1, 2, 3)
+v2 = (1, 2, 0)
+v3 = (2, 1, 1)
+v = (−1, 2, −1).
+Calcolare le coordinate dei vettori della base standard e di v rispetto alla base {v1, v2, v3}.
+Esercizio 3. Siano v1, v2 e v3 come nell’esercizio 2. Sia f : R3 7→R3 l’applicazione la cui matrice
+nella base {v1, v2, v3} ¨ı¿ 1
+2
+
+
+1
+2
+−1
+0
+0
+1
+1
+1
+−1
+
+.
+Calcolare la matrice di f nella base standard.
+Esercizio 4. Sia V = Q[x]≤2 e sia f : V 7→V l’applicazione lineare data da
+f(p(x)) = p(x) −p(0)
+x
++ p(x).
+Veriﬁcare che f ¨ı¿ 1
+2 lineare e calcolare la matrice di f nella base {2, 2 + x, x −x2}.
+Esercizio 5. Vediamo C come spazio vettoriale su R. Dato z = a + ib ∈C sia Lz : C 7→C
+l’applicazione lineare data dalla moltiplicazione per z. Mostrare che la matrice di Lz nella base
+{1, i} ¨ı¿ 1
+2
+a
+−b
+b
+a
+
+.
+Esercizio 6. Siano v1, v2 e v3 come nell’esercizio 2. Sia f : R3 7→R3 l’applicazione lineare data,
+nella base {v1, v2, v3}, dalla matrice
+
+
+−1
+0
+−1
+0
+−1
+2
+1
+1
+−1
+
+.
+Calcolare la dimensione di ker f e trovare una base del nucleo.
+
+
+===== PAGINA 2 =====
+Esercizio 7. Per chi ha visto un po’ di derivate.
+(1) Sia V = R[x]≤3 e sia D: V 7→V la derivata. Mostrare che D ¨ı¿ 1
+2 un’applicazione lineare e
+calcolarne la matrice rispetto alla base {1, 1 + x, 1 + x2, x2 + x3}.
+(2) Sia W lo spazio vettoriale generato dalle funzioni sin x e cos x. Mostrare che la derivata
+d¨ı¿ 1
+2 luogo ad un’applicazione lineare D: W 7→W e calcolarne la matrice rispetto alla base
+{sin x, sin x + cos x}.
+Esercizio 8. Calcolare il determinante delle seguenti matrici:
+3
+5
+6
+2
+
+;
+
+
+3
+5
+1
+6
+2
+−1
+9
+1
+5
+
+;
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+.
+Esercizio 9. Sia V = R[x]≤2 e consideriamo l’applicazione lineare f : V 7→V data da
+f(p(x)) = p(x) −p(0)
+x
++ p(x).
+Scelta una base di V , trovare la matrice di f rispetto a questa base e calcolarne il determinante.
+Veriﬁcare una scelta diversa della base d`a lo stesso risultato.
+Esercizio 10. Consideriamo le matrici
+A =
+
+
+1
+2
+−1
+0
+0
+1
+1
+1
+−1
+
+;
+B =
+
+
+3
+4
+5
+1
+0
+−1
+1
+−2
+−4
+
+
+Veriﬁcate che det(AB) = det(A) det(B), ma det(A + B)̸ = det(A) + det(B).
+Esercizio 11. Dati n + 1 numeri α0, . . . , αn consideriamo la matrice di Vandermonde
+V =
+
+
+
+
+
+
+
+1
+1
+1
+. . .
+1
+α0
+α1
+α2
+. . .
+αn
+α2
+0
+α2
+1
+α2
+2
+. . .
+α2
+n
+...
+...
+...
+...
+αn
+0
+αn
+1
+αn
+2
+. . .
+αn
+n
+
+
+
+
+
+
+
+.
+Dimostrare per induzione che il determinante di V ¨ı¿ 1
+2 pari al prodotto di tutte le diﬀerenze tra
+gli αi, ovvero
+det(V ) =
+Y
+0≤i<j≤n
+(αi −αj).
+In particolare il determinante si annulla se e solo se due degli αi coincidono.
+(Sugg: iniziate sottraendo ad ogni riga la precedente moltiplicata per α0.)

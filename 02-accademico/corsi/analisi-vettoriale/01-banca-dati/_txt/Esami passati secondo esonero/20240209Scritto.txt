@@ -1,0 +1,62 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 09/02/2024
+Nome:
+Cognome:
+Matricola:
+F. De Marchis □
+A. Terracina □
+Se ammesso, sosterr`o la prova orale:
+⃝settimana del 12 febbraio
+⃝settimana del 19 febbraio
+⃝in un appello successivo
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere
+adeguatamente motivati!
+Esercizio 1. (6 punti) Dato il dominio
+T = {(x, y, z) ∈3 : y ≥0, 1 ≤x2 + y2 + z2 ≤4, z ≤
+p
+x2 + y2}.
+i) determinare il suo volume.
+ii) Calcolare il ﬂusso del campo vettoriale
+F(x, y, z) = (x + arctg(yz) + 3y, yz2 + sin(z) + x, −z −cos(x))
+uscente dall’insieme T.
+Esercizio 2. (6 punti) Data la funzione f(x, y, z) = 2x3 + yx2 + y2z −9z
+i) si determinino i punti critici;
+ii) si studi il carattere dei punti critici determinati nel punto i;
+iii) si dica se la funzione f ammette max o min assoluti in tutto 3;
+Esercizio 3. (6,5 punti) Sia
+fn(x) = (1 + sen( x
+n))
+x2
+x2+ 3
+n ,
+x ∈.
+i) Studiare la convergenza puntuale della successione di funzioni;
+ii) stabilire se la successione converge uniformemente negli intervalli: [−2, 2], [2, +∞) e [2, 10];
+iii) calcolare lim
+n→+∞
+R 10
+2
+fn(x) dx.
+Esercizio 4. (7 punti) Sia Σ il sostegno della superﬁcie di parametrizzazione
+
+x = x
+y = y
+z = 2x + 2y + 5
+(x, y) ∈D = {(x, y) ∈2 : x ≥0, x2 + 1 ≤y ≤x2 + 5, y ≤−x + 7}.
+i) Spiegare perch´e Σ `e il sostegno di una superﬁcie regolare;
+ii) calcolare l’area di Σ;
+iii) scrivere una parametrizzazione delle quattro curve regolari che compongono ∂Σ;
+iv) calcolare il lavoro compiuto dal campo F = (y + sen(x), 5 + ey, z2 −x) per percorrere ∂Σ nel verso orario se
+visto dall’alto.
+Esercizio 5. (6,5 punti) Dato il problema di Cauchy
+
+y′(t) =
+p
+4y2(t) + et + 1
+y(0) = 2,
+i) dire perch´e il problema ammette un’unica soluzione locale;
+ii) provare che la soluzione massimale y(t) del problema di Cauchy `e globale;
+iii) provare che y(t) `e positiva in [0, +∞);
+iv) provare che y(t) `e convessa in [0, +∞);
+v) calcolare, se esiste, lim
+t→+∞y(t).

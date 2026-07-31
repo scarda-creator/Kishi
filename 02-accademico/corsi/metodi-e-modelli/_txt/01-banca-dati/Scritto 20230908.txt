@@ -1,0 +1,502 @@
+===== PAGINA 1 =====
+Modelli e metodi matematici della fisica
+Esame scritto del 08/09/2023 – Canale Pf - Z
+Angelo Esposito e Fabio Riccioni
+1. [9 pt.] Si calcoli l’integrale
+I =
+Z +∞
+0
+x3dx
+1 + x6
+utilizzando il teorema dei residui.
+2. [6 pt.] Si consideri la funzione polidroma
+f(z) =
+zi
+1 + z3 .
+Considerando il taglio lungo l’asse reale positivo, e la determinazione tale che f(1) = 1
+2 sopra al taglio, deter-
+minare:
+• il valore della funzione in z = −2;
+• il valore della funzione in z = −i;
+• il residuo in z = −1.
+3. [6 pt.] Si consideri la seguente matrice,
+A =
+
+
+1
+0
+0
+0
+1
+2
+−1
+2 + i
+0 −1
+2 + i
+1
+2
+
+,
+(1)
+la quale viene diagonalizzata dalla seguente matrice di cambio di base,
+S =
+
+
+1
+0
+0
+0
+1
+√
+2
+1
+√
+2
+0
+1
+√
+2 −1
+√
+2
+
+.
+(2)
+Si utilizzi la rappresentazione spettrale per scrivere le funzioni di matrice f1(A) = e(A2) e f2(A) = log A, dove
+nella seconda si sceglie il taglio lungo l’asse reale negativo e il logaritmo reale sull’asse reale positivo. [Nota:
+potrebbe essere utile sapere che √−3 −4i = ±(1 −2i).]
+4. [9 pt.] Si consideri l’operatore A = −d2
+dx2 −δ(x), ed il problema agli autovalori associato, Af(x) = λf(x). Si
+trovino autovalori e autofunzioni (a meno di una costante di normalizzazione), nei seguenti due casi:
+• Per λ < 0 si cerchino autofunzioni f(x) ∈L2(R).
+• Per λ > 0 si cerchino autofunzioni generalizzate, f(x) ∈L2
+loc(R). Le si esprima in forma esponenziale e si
+imponga la condizione al bordo tale che, per x →+∞, siano onde piane con fase positiva.
+
+
+===== PAGINA 2 =====
+Angelo Esposito e Fabio Riccioni
+SOLUZIONI
+1. Consideriamo nel piano complesso la funzione
+f(z) =
+z3
+1 + z6 .
+Osserviamo che prendendo z = xe
+iπ
+3 abbiamo
+f(xe
+iπ
+3 ) = −
+x3
+1 + x6 = −f(x) .
+Consideriamo il percorso chiuso in figura, dove ˜γ `e un arco di angolo π
+3 e raggio R.
+z1
+z2
+z3
+z4
+z5
+z6
+γ1
+γ2
+˜γ
+Per quanto detto sopra, integrando f(z) lungo questo percorso, e considerando il limite R →∞, abbiamo
+Z
+f(z)dz = (1 + e
+πi
+3 )I ,
+dove I `e l’integrale che dobbiamo calcolare e abbiamo usato il fatto che dz = dxe
+πi
+3 lungo γ2, e il segno relativo
+`e dovuto al fatto che x che va +∞a 0 lungo γ2.
+Calcoliamo l’integrale usando il teorema dei residui. La funzione f(z) ha poli semplici per z6 = −1, ovvero
+zk = e
+πi
+6 + kπi
+3
+.
+I poli sono disegnati in figura, ed `e evidente che solo z1 `e interno al percorso. Quindi
+(1 + e
+πi
+3 )I = 2πiResz=z1f(z) = 2πi z3
+6z5
+
+z=z1 = πi
+3z2
+1
+= πi
+3 e−πi
+3 = π
+3 e
+πi
+6
+da cui troviamo
+I =
+π
+6 cos π
+6
+2
+
+
+===== PAGINA 3 =====
+Angelo Esposito e Fabio Riccioni
+ovvero
+I =
+π
+3
+√
+3 .
+L’integrale pu`o essere calcolato anche considerando la funzione
+g(z) = f(z) log z ,
+dove prendiamo il taglio lungo l’asse reale positivo e il logaritmo reale sopra il taglio. Integrando g(z) lungo il
+percorso in figura
+z1
+z2
+z3
+z4
+z5
+z6
+abbiamo
+Z
+g(z)dz = 2πi
+6
+X
+k=1
+Resz=zkg(z) = 2πi
+6
+X
+k=1
+log zk
+6z2
+k
+= πi
+3
+4πi
+3 e−iπ
+3 −2πi + 8πi
+3 e
+iπ
+3
+
+= −2π2i
+3
+√
+3 .
+Osservando che
+Z
+g(z)dz = −2πiI ,
+otteniamo
+I =
+π
+3
+√
+3 .
+2. Sul foglio dato, abbiamo
+−2 = 2eπi
+−i = e
+3πi
+2
+−1 = eπi .
+Quindi
+f(−2) = ei log(−2)
+1 −8
+= −e−πei log 2
+7
+;
+3
+
+
+===== PAGINA 4 =====
+Angelo Esposito e Fabio Riccioni
+f(−i) = e−3π
+2
+1 + i ;
+Resz=−1f(z) = zi
+3z2
+
+z=−1 = e−π
+3
+.
+3. Per prima cosa notiamo che le colonne della matrice S formano un set di vettori ortonormali. Ne segue che
+possiamo immediatamente dedurre gli autovettori dell’operatore A, ossia, vT
+1 = (1 0 0), vT
+2 =
+1
+√
+2(0 1 1) e
+vT
+3 =
+1
+√
+2(0 1 −1). Applicando la matrice A a questi vettori, si trovano gli autovalori corrispondenti, ossia
+λ1 = 1, λ2 = i e λ3 = 1 −i. (Alternativamente, si pu`o risolvere l’equazione caratteristica, che richiede un po’
+pi`u di lavoro.)
+Poich´e gli autovettori sono ortonormali e reali, anche i proiettori vengono trovati in modo semplice:
+P1 = v1 ⊗v1 =
+
+
+1 0 0
+0 0 0
+0 0 0
+
+,
+P2 = v2 ⊗v2 = 1
+2
+
+
+0 0 0
+0 1 1
+0 1 1
+
+,
+P3 = v3 ⊗v3 = 1
+2
+
+
+0
+0
+0
+0
+1
+−1
+0 −1
+1
+
+.
+(3)
+A questo punto si hanno tutti gli ingredienti per applicare la rappresentazione spettrale alle funzioni di matrice
+richieste. In particolare,
+f1(A) = eλ2
+1P1 + eλ2
+2P2 + eλ2
+3P3 =
+
+
+e 0 0
+0 0 0
+0 0 0
+
++ 1
+2
+
+
+0
+0
+0
+0 e−1 e−1
+0 e−1 e−1
+
++ 1
+2
+
+
+0
+0
+0
+0
+e−2i
+−e−2i
+0 −e−2i
+e−2i
+
+
+=
+
+
+e
+0
+0
+0
+e−1+e−2i
+2
+e−1−e−2i
+2
+0
+e−1−e−2i
+2
+e−1+e−2i
+2
+
+.
+(4)
+Per trovare f2(A) scriviamo prima gli autovalori in forma polare. Avendo scelto il taglio sull’asse reale negativo,
+abbiamo λ1 = 1, λ2 = eiπ/2 e λ3 =
+√
+2 e−iπ/4. Poich`e, inoltre, abbiamo preso la determinazione del logaritmo
+tale che sia reale sull’asse reale positivo, ne segue che,
+f2(A) = log λ1P1 + log λ2P2 + log λ3P3 = 1
+2
+
+
+0
+0
+0
+0 i π
+2 i π
+2
+0 i π
+2 i π
+2
+
++ 1
+2
+
+
+0
+0
+0
+0
+1
+2 log 2 −i π
+4
+−1
+2 log 2 + i π
+4
+0 −1
+2 log 2 + i π
+4
+1
+2 log 2 −i π
+4
+
+
+=
+
+
+0
+0
+0
+0
+1
+4 log 2 + i π
+8
+−1
+4 log 2 + i 3π
+8
+0 −1
+4 log 2 + i 3π
+8
+1
+4 log 2 + i π
+8
+
+.
+(5)
+4. L’equazione differenziale associata al problema agli autovalori `e data da,
+−f ′′(x) −δ(x)f(x) = λf(x) .
+(6)
+Partiamo dal caso λ < 0. Per x̸ = 0, la δ di Dirac `e nulla e l’equazione diventa semplicemente −f ′′(x) = −|λ|f(x).
+La soluzione a questa equazione `e, in linea di principio, diversa per x > 0 e x < 0. Ossia,
+f(x) =
+(
+a e−√
+|λ|x + b e
+√
+|λ|x
+per x > 0
+c e−√
+|λ|x + d e
+√
+|λ|x
+per x < 0
+,
+(7)
+con a, b, c e d costanti. Poich´e f(x) ∈L2(R), si deve annullare all’infinito, da cui segue che deve essere b = c = 0.
+Dalla presenza della δ(x) nell’Eq. (6) deduciamo che la funzione f(x) `e continua in x = 0, mentre la sua derivata
+ha una discontinuit`a. La relazione di continuit`a, f(0+) = f(0−), implica a = d. Per trovare l’equazione per la
+discontinuit`a integriamo l’equazione sull’intervallo [−ϵ, ϵ], prendendo il limite ϵ →0. Questo ci da,
+−
+Z ϵ
+−ϵ
+dx f ′′(x) −
+Z ϵ
+−ϵ
+dx δ(x)f(x) = λ
+Z ϵ
+−ϵ
+dx f(x)
+⇒
+−f ′(0+) + f ′(0−) −f(0) = 0 ,
+(8)
+4
+
+
+===== PAGINA 5 =====
+Angelo Esposito e Fabio Riccioni
+dove abbiamo usato il fatto che, poich´e f(x) `e continua in x = 0, il suo integrale su un intervallo infinitesimo
+tende a zero. L’equazione precedente implica,
+2
+p
+|λ| = 1
+⇒
+λ = −1/4 ,
+(9)
+ossia, per λ < 0 lo spettro discreto `e composto da un solo autovalore. La corrispondente autofunzione `e,
+f(x) = a e−|x|/2 .
+(10)
+Consideriamo ora il caso λ > 0. In modo del tutto analogo al caso precedente, per x̸ = 0 le autofunzioni sono
+date da,
+f(x) =
+(
+a e−i
+√
+λ x + b ei
+√
+λ x
+per x > 0
+c e−i
+√
+λ x + d ei
+√
+λ x
+per x < 0 .
+(11)
+Affinch`e, come richiesto, per x →+∞la soluzione abbia comportamento di onda piana con fase positiva, deve
+essere a = 0. A questo punto, le condizioni di continuit`a di f(x) e discontinuit`a di f ′(x) in x = 0 rimangono le
+stesse del caso precedente. In questo caso, restituiscono il seguente sistema, che possiamo risolvere, ad esempio,
+per b e c,
+(
+b = c + d
+−i
+√
+λ(b + c −d) = b
+⇒
+(
+b =
+2i
+√
+λ
+1+2i
+√
+λ d
+c = −
+1
+1+2i
+√
+λ d
+.
+(12)
+In questo caso, non abbiamo dovuto imporre nessuna condizione sull’autovalore e, quindi, ogni λ > 0 `e un buon
+autovalore, corrispondente all’autofunzione,
+f(x) = d
+(
+2i
+√
+λ
+1+2i
+√
+λei
+√
+λx
+per x > 0
+ei
+√
+λx −
+1
+1+2i
+√
+λe−i
+√
+λx
+per x < 0 .
+(13)
+5

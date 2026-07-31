@@ -1,0 +1,27 @@
+<!doctype html><meta charset="utf-8">
+<style>body{background:#0e1117;color:#eef3f8;font:13px Georgia;margin:0;padding:14px}
+.g{display:grid;grid-template-columns:repeat(3,580px);gap:10px}
+.k{border:1px solid #2b333d;border-radius:10px;padding:6px;background:#161b22}
+h4{margin:2px 0 4px;color:#8fb0ff;font-size:12px}</style>
+<div class="g" id="g"></div>
+<script src="motore-plot.js"></script>
+<script>
+var S=[
+["1a palle euclidee",{kind:'contour',f:'hypot(x,y)',levels:[0.5,1,1.5,2],xr:[-2.3,2.3],yr:[-2.3,2.3],height:300,title:'palle euclidee B_r(0)'}],
+["1b tre norme",{kind:'contour',f:'hypot(x,y)',levels:[1],col:'#5eead4',label:'euclidea',xr:[-1.6,1.6],yr:[-1.6,1.6],height:300,title:'tre norme, stessa vicinanza',overlays:[{f:'abs(x)+abs(y)',levels:[1],col:'#d8a13a',label:'taxi'},{f:'max(abs(x),abs(y))',levels:[1],col:'#b98cff',label:'sup'}]}],
+["2a spirale",{kind:'curve',x:'exp(-0.30*t)*cos(t)',y:'exp(-0.30*t)*sin(t)',tr:[0,22],xr:[-1.15,1.15],yr:[-1.15,1.15],height:330,title:'x_k -> 0'}],
+["2b palle",{kind:'contour',f:'hypot(x,y)',levels:[1,0.5,0.2],xr:[-1.15,1.15],yr:[-1.15,1.15],height:330,title:'B_1, B_0.5, B_0.2'}],
+["3 anello semiaperto",{kind:'contour',f:'hypot(x,y)',levels:[1],col:'#4c8dff',label:'||x||=1 (incluso)',width:2.6,xr:[-1.35,1.35],yr:[-1.35,1.35],height:340,title:'ne aperto ne chiuso',overlays:[{f:'hypot(x,y)',levels:[0.5],col:'#ff6b6b',label:'||x||=0.5 (escluso)',dash:true,width:2.6}]}],
+["4a sella 3D",{kind:'surface3d',f:'x*y/(x*x+y*y+1e-9)',xr:[-1.5,1.5],yr:[-1.5,1.5],n:44,height:360,yaw:0.9,pitch:0.95,zscale:1.15,title:'z = xy/(x^2+y^2)'}],
+["4b livelli rette",{kind:'contour',f:'x*y/(x*x+y*y+1e-9)',levels:[-0.45,-0.3,0,0.3,0.45],xr:[-1.5,1.5],yr:[-1.5,1.5],height:360,title:'i livelli sono RETTE'}],
+["4c parabole",{kind:'contour',f:'x*x*y/(x*x*x*x+y*y+1e-9)',levels:[0.1,0.25,0.4,0.49],xr:[-1.6,1.6],yr:[-1.2,1.6],height:340,title:'livelli = PARABOLE',overlays:[{f:'y-x*x',levels:[0],col:'#ff6b6b',label:'y = x^2',dash:true,width:2.4}]}],
+["4d cresta 3D",{kind:'surface3d',f:'x*x*y/(x*x*x*x+y*y+1e-9)',xr:[-1.4,1.4],yr:[-1,1.4],n:46,height:340,yaw:1.15,pitch:0.85,zscale:1.2,title:'cresta lungo la parabola'}],
+["5 appiattimento",{kind:'surface3d',f:'x*x*x/(x*x+y*y+1e-9)',xr:[-1.5,1.5],yr:[-1.5,1.5],n:44,height:370,yaw:0.65,pitch:0.62,zscale:1.45,title:'z = x^3/(x^2+y^2)'}],
+["6 Weierstrass",{kind:'contour',f:'x*x-x*y+y*y',levels:[0.15,0.5,1.0,1.5],col:'#5eead4',label:'livelli di f',xr:[-1.9,1.9],yr:[-1.9,1.9],height:380,title:'i livelli salgono finche il bordo li ferma',overlays:[{f:'hypot(x,y)',levels:[1],col:'#4c8dff',label:'bordo di B (incluso)',width:2.8}],marks:[{x:0,y:0,label:'min f=0',col:'#ffffff'},{x:0.7071,y:-0.7071,label:'max f=3/2',col:'#d8a13a'},{x:-0.7071,y:0.7071,label:'max f=3/2',col:'#d8a13a',left:true,up:true}]}],
+["7a due componenti",{kind:'contour',f:'(x*x+y*y-1)*((x-3)*(x-3)+y*y-1)',levels:[0],col:'#ff6b6b',xr:[-1.6,4.6],yr:[-2.2,2.2],height:300,title:'NON connesso'}],
+["7b corona",{kind:'contour',f:'hypot(x,y)',levels:[1,2],col:'#5eead4',xr:[-2.4,2.4],yr:[-2.4,2.4],height:300,title:'connesso, non semplicemente'}]
+];
+var g=document.getElementById('g');
+S.forEach(function(p){var d=document.createElement('div');d.className='k';
+ d.innerHTML='<h4>'+p[0]+'</h4>';var b=document.createElement('div');d.appendChild(b);g.appendChild(d);PM_Plot.render(b,p[1]);});
+</script>

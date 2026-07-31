@@ -1,0 +1,409 @@
+<title>Navicella · Evoluzione — presentazione d'architettura</title>
+<style>
+  :root{
+    /* light (blueprint su carta) */
+    --paper:#e8ebf0; --surface:#f5f7f9; --surface2:#eef1f5;
+    --ink:#141a23; --muted:#586576; --faint:#8b97a6;
+    --line:#c3ccd8; --line-strong:#9fabbb;
+    --blueprint:#2f6db0; --blueprint-soft:#5a8fc9;
+    --ember:#b25e18; --ember-soft:#c98a4a;
+    --grid:rgba(47,109,176,.055);
+    --shadow:0 1px 0 rgba(20,26,35,.04), 0 8px 30px -18px rgba(20,26,35,.25);
+    --mono:ui-monospace,"Cascadia Code","SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,"Segoe UI",system-ui,Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#0a1019; --surface:#101a26; --surface2:#0d1622;
+      --ink:#dce4ee; --muted:#8a99ab; --faint:#5f6e80;
+      --line:#222e3d; --line-strong:#33465b;
+      --blueprint:#5c9bd8; --blueprint-soft:#3f6f9e;
+      --ember:#e0a24a; --ember-soft:#b98338;
+      --grid:rgba(92,155,216,.05);
+      --shadow:0 1px 0 rgba(0,0,0,.2), 0 10px 34px -20px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#e8ebf0; --surface:#f5f7f9; --surface2:#eef1f5;
+    --ink:#141a23; --muted:#586576; --faint:#8b97a6;
+    --line:#c3ccd8; --line-strong:#9fabbb;
+    --blueprint:#2f6db0; --blueprint-soft:#5a8fc9;
+    --ember:#b25e18; --ember-soft:#c98a4a; --grid:rgba(47,109,176,.055);
+    --shadow:0 1px 0 rgba(20,26,35,.04), 0 8px 30px -18px rgba(20,26,35,.25);
+  }
+  :root[data-theme="dark"]{
+    --paper:#0a1019; --surface:#101a26; --surface2:#0d1622;
+    --ink:#dce4ee; --muted:#8a99ab; --faint:#5f6e80;
+    --line:#222e3d; --line-strong:#33465b;
+    --blueprint:#5c9bd8; --blueprint-soft:#3f6f9e;
+    --ember:#e0a24a; --ember-soft:#b98338; --grid:rgba(92,155,216,.05);
+    --shadow:0 1px 0 rgba(0,0,0,.2), 0 10px 34px -20px rgba(0,0,0,.7);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:34px 34px;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* ---- typographic system ---- */
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blueprint);margin:0}
+  h1,h2,h3{text-wrap:balance;line-height:1.12;letter-spacing:-.02em;font-weight:700;margin:0}
+  h1{font-size:clamp(2.1rem,6vw,3.3rem)}
+  h2{font-size:clamp(1.5rem,3.6vw,2.15rem);letter-spacing:-.025em}
+  h3{font-size:1.16rem;letter-spacing:-.01em}
+  p{margin:0}
+  .lead{font-size:clamp(1.1rem,2.3vw,1.35rem);line-height:1.5;color:var(--ink);max-width:60ch}
+  .prose{max-width:64ch;color:var(--muted)}
+  a{color:var(--blueprint);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--blueprint) 35%,transparent)}
+  a:hover{border-bottom-color:var(--blueprint)}
+  b,strong{color:var(--ink);font-weight:650}
+
+  /* ---- top bar ---- */
+  .topbar{position:sticky;top:0;z-index:30;backdrop-filter:blur(8px);
+    background:color-mix(in srgb,var(--paper) 82%,transparent);
+    border-bottom:1px solid var(--line)}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 24px;max-width:960px;margin:0 auto}
+  .brandmark{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;color:var(--muted)}
+  .brandmark .dot{width:9px;height:9px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 3px color-mix(in srgb,var(--ember) 22%,transparent)}
+  .themebtn{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);background:transparent;border:1px solid var(--line-strong);border-radius:7px;padding:6px 11px;cursor:pointer}
+  .themebtn:hover{color:var(--ink);border-color:var(--blueprint)}
+  .themebtn:focus-visible{outline:2px solid var(--blueprint);outline-offset:2px}
+
+  /* ---- hero / title block ---- */
+  header.hero{padding:72px 0 40px}
+  .plate-tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--faint);text-transform:uppercase}
+  .hero h1{margin:14px 0 0}
+  .hero .accent{color:var(--ember)}
+  .hero .lead{margin-top:22px}
+  .titleblock{margin-top:38px;border:1px solid var(--line-strong);border-radius:10px;background:var(--surface);
+    display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;box-shadow:var(--shadow)}
+  .titleblock .cell{padding:14px 16px;border-right:1px solid var(--line)}
+  .titleblock .cell:last-child{border-right:0}
+  .titleblock .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+  .titleblock .v{margin-top:6px;font-weight:650;font-size:.98rem}
+  @media(max-width:640px){.titleblock{grid-template-columns:1fr 1fr}.titleblock .cell:nth-child(2){border-right:0}}
+
+  /* ---- section scaffold ---- */
+  section{padding:52px 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:10px}
+  .sec-no{font-family:var(--mono);font-size:.8rem;color:var(--blueprint);letter-spacing:.1em;padding-top:4px}
+  .sec-intro{margin:16px 0 30px;max-width:64ch;color:var(--muted);font-size:1.06rem}
+
+  /* ---- diagnosis callout ---- */
+  .diag{border-left:3px solid var(--ember);background:linear-gradient(90deg,color-mix(in srgb,var(--ember) 7%,transparent),transparent 60%);
+    padding:20px 22px;border-radius:0 10px 10px 0}
+  .diag .big{font-size:clamp(1.2rem,2.6vw,1.5rem);font-weight:650;line-height:1.4}
+  .metrics{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+  .metric{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:12px 16px;min-width:150px;flex:1}
+  .metric .n{font-family:var(--mono);font-size:1.5rem;font-weight:700;color:var(--ember);font-variant-numeric:tabular-nums}
+  .metric .l{font-size:.82rem;color:var(--muted);margin-top:2px}
+
+  /* ---- system band ---- */
+  .system{margin-top:14px}
+  .system-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+  .badge{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+    padding:5px 10px;border-radius:20px;border:1px solid var(--line-strong);color:var(--muted);white-space:nowrap}
+  .badge.warm{color:var(--ember);border-color:color-mix(in srgb,var(--ember) 45%,var(--line))}
+  .badge.cool{color:var(--blueprint);border-color:color-mix(in srgb,var(--blueprint) 45%,var(--line))}
+  .system > .prose{margin:8px 0 22px}
+
+  /* ---- intervention cards ---- */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:720px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;position:relative;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+  .card.span2{grid-column:1/-1}
+  .card .chd{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+  .card h3{margin:0}
+  .card .from{font-family:var(--mono);font-size:.74rem;color:var(--muted);margin-top:5px}
+  .card .from a{color:var(--blueprint);border:0}
+  .card .why{color:var(--muted);font-size:.98rem}
+  .card .why .k{color:var(--ink);font-weight:600}
+  .spec{display:flex;gap:18px;flex-wrap:wrap;padding-top:12px;border-top:1px dashed var(--line);margin-top:auto}
+  .spec .item{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.02em}
+  .spec .item .lab{display:block;color:var(--faint);text-transform:uppercase;letter-spacing:.12em;font-size:.62rem;margin-bottom:3px}
+  .meter{letter-spacing:2px}
+  .meter .on{color:var(--ember)} .meter .off{color:var(--line-strong)}
+  .meter.cool .on{color:var(--blueprint)}
+  .adjust{font-size:.9rem;color:var(--ink);background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:11px 13px}
+  .adjust .tag{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ember);display:block;margin-bottom:4px}
+
+  /* ---- sequence / phases ---- */
+  .phases{display:flex;flex-direction:column;gap:0;margin-top:8px}
+  .phase{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:20px 0;border-top:1px solid var(--line)}
+  .phase:first-child{border-top:0}
+  .phase .no{font-family:var(--mono);font-size:.78rem;color:var(--paper);background:var(--blueprint);
+    width:40px;height:40px;border-radius:9px;display:grid;place-items:center;font-weight:700}
+  .phase.hot .no{background:var(--ember)}
+  .phase h3{margin-bottom:6px}
+  .phase .meta{font-family:var(--mono);font-size:.72rem;color:var(--faint);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+  .phase p{color:var(--muted);max-width:62ch}
+
+  /* ---- decisions ---- */
+  .decision{border:1px solid var(--line-strong);border-radius:11px;padding:18px 20px;background:var(--surface);margin-bottom:14px}
+  .decision .q{font-weight:650;font-size:1.05rem;display:flex;gap:10px;align-items:baseline}
+  .decision .q .mk{font-family:var(--mono);color:var(--ember);font-size:.8rem}
+  .decision .opts{margin-top:10px;color:var(--muted);font-size:.96rem}
+  .decision .rec{margin-top:10px;font-size:.9rem;font-family:var(--mono);color:var(--blueprint)}
+
+  /* ---- cost ledger ---- */
+  .ledger{width:100%;border-collapse:collapse;font-size:.95rem;overflow:hidden;border:1px solid var(--line);border-radius:10px}
+  .ledger-wrap{overflow-x:auto}
+  .ledger th,.ledger td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
+  .ledger th{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);background:var(--surface2)}
+  .ledger td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink)}
+  .ledger tr:last-child td{border-bottom:0}
+  .ledger .free{color:var(--blueprint);font-family:var(--mono);font-size:.85rem}
+
+  .closing{padding:52px 0 20px;border-top:1px solid var(--line)}
+  .closing .lead{color:var(--ink)}
+  .signoff{margin-top:26px;border:1px solid var(--line-strong);border-radius:10px;background:var(--surface);
+    display:grid;grid-template-columns:1.4fr 1fr;overflow:hidden}
+  .signoff .cell{padding:16px 18px;border-right:1px solid var(--line)}
+  .signoff .cell:last-child{border-right:0}
+  .signoff .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+  .signoff .v{margin-top:5px;font-size:.95rem}
+  @media(max-width:640px){.signoff{grid-template-columns:1fr}.signoff .cell{border-right:0;border-bottom:1px solid var(--line)}}
+  footer.note{padding:26px 0 60px;color:var(--faint);font-family:var(--mono);font-size:.72rem;letter-spacing:.04em}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+
+<div class="topbar">
+  <div class="row">
+    <div class="brandmark"><span class="dot"></span>NAVICELLA · ARCHIVIO DI PROGETTO</div>
+    <button class="themebtn" id="themebtn" aria-label="Cambia tema">tema</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="plate-tag">Tavola 00 · Presentazione d'architettura · Dedalo</p>
+    <h1>La navicella come <span class="accent">organismo</span>.<br>E come si tiene in vita.</h1>
+    <p class="lead">Ho letto le tue 36 stelle su GitHub e ho fatto allargare la ricerca su tutto il resto. Non ne esce una lista: ne esce una diagnosi e un progetto. Questa è la mia proposta — la struttura la decido io, l'anima resta tua.</p>
+
+    <div class="titleblock">
+      <div class="cell"><div class="k">Progetto</div><div class="v">Evoluzione v3</div></div>
+      <div class="cell"><div class="k">Redatto da</div><div class="v">Dedalo · Architetto</div></div>
+      <div class="cell"><div class="k">Fonti</div><div class="v">36 stelle + 44 repo</div></div>
+      <div class="cell"><div class="k">Data</div><div class="v">2026-07-11</div></div>
+    </div>
+  </header>
+
+  <!-- 1. DIAGNOSI -->
+  <section class="reveal">
+    <div class="sec-head"><span class="sec-no">01</span><div><p class="eyebrow">Diagnosi</p><h2>Il limite non è un incidente. È un sintomo.</h2></div></div>
+    <div class="diag">
+      <p class="big">Stanotte ci siamo fermati tre volte contro il muro d'uso. La causa non è "poco budget": è che la navicella paga il modello più costoso per lavoro che non lo richiede.</p>
+    </div>
+    <p class="prose" style="margin-top:22px">Ogni lettura di file, ogni controllo di formato, ogni routine del Rapsodo gira oggi su Opus o Sonnet — come tenere il motore a pieni giri anche per rullare in pista. Un organismo che non regola il proprio metabolismo si esaurisce sotto sforzo. È esattamente ciò che è successo: non un difetto di potenza, un difetto di <b>metabolismo</b>. Da qui parte tutto il resto.</p>
+    <div class="metrics">
+      <div class="metric"><div class="n">3×</div><div class="l">stop per limite in una notte</div></div>
+      <div class="metric"><div class="n">40–70%</div><div class="l">token risparmiabili con routing (dato misurato, NadirClaw)</div></div>
+      <div class="metric"><div class="n">&lt;1¢</div><div class="l">costo di comprimere una sessione con Haiku (claude-remember)</div></div>
+    </div>
+  </section>
+
+  <!-- 2. INTERVENTI -->
+  <section class="reveal">
+    <div class="sec-head"><span class="sec-no">02</span><div><p class="eyebrow">Interventi</p><h2>Tre sistemi da costruire</h2></div></div>
+    <p class="sec-intro">Non progetti sparsi: tre apparati di uno stesso corpo. Il metabolismo che regola l'energia; il sistema nervoso che ricorda e impara; gli organi nuovi che danno capacità che oggi non ci sono. Ogni intervento con la sua <b>provenienza</b>, il suo <b>perché</b>, il suo <b>costo</b>, e il punto dove <b>puoi fermarmi</b>.</p>
+
+    <!-- SISTEMA A: METABOLISMO -->
+    <div class="system">
+      <div class="system-head"><span class="badge warm">Sistema A</span><h3>Metabolismo — l'energia, i token</h3></div>
+      <p class="prose">Il filo che unisce i candidati migliori è uno solo: <b>compressione</b>. Smistare il facile a modelli economici, condensare lo storico, caricare solo ciò che serve. Tre modi di dire: smetti di pagare Opus per ciò che non è da Opus.</p>
+      <div class="cards">
+
+        <div class="card">
+          <div class="chd"><div><h3>Router economico / premium</h3><div class="from">da <a href="https://github.com/NadirRouter/NadirClaw">NadirClaw</a> ·575★ + <a href="https://github.com/ypollak2/llm-router">llm-router</a> (quota-protection)</div></div></div>
+          <p class="why"><span class="k">Perché.</span> Un proxy classifica ogni richiesta in ~10ms e manda il 60–70% del lavoro banale a un modello locale o economico, riservando Opus/Sonnet al 30–40% che genera davvero. Dato reale della fonte: da 24 a 10 $/giorno, −57%. La "quota-protection" difende esplicitamente il tuo limite, non solo il portafoglio.</p>
+          <div class="spec">
+            <div class="item"><span class="lab">Impatto</span><span class="meter"><span class="on">●●●●</span><span class="off">●</span></span></div>
+            <div class="item"><span class="lab">Sforzo</span><span class="meter cool"><span class="on">●</span><span class="off">●●●●</span></span></div>
+            <div class="item"><span class="lab">Costo €</span><span class="meter cool"><span class="on">●</span><span class="off">●●●●</span></span></div>
+          </div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>Modello locale (la tua macchina) o cheap-API a centesimi? E una regola dura: <b>L5 non passa mai</b> per un modello che lascia il computer. Il risparmio deve rispettare il tuo patto di riservatezza.</div>
+        </div>
+
+        <div class="card">
+          <div class="chd"><div><h3>Diagnostica prima di tutto</h3><div class="from">da <a href="https://github.com/getagentseal/codeburn">codeburn</a> ·8.6k★ (npx, zero-install)</div></div></div>
+          <p class="why"><span class="k">Perché.</span> Non si ottimizza al buio. Prima si misura <i>dove</i> la navicella brucia: quale agente, quale sessione, quale modello. È il passo zero, e costa un comando: legge i log che Claude Code già produce.</p>
+          <div class="spec">
+            <div class="item"><span class="lab">Impatto</span><span class="meter cool"><span class="on">●●</span><span class="off">●●●</span></span></div>
+            <div class="item"><span class="lab">Sforzo</span><span class="meter cool"><span class="on">●</span><span class="off">●●●●</span></span></div>
+            <div class="item"><span class="lab">Costo €</span><span class="meter cool"><span class="on">○</span><span class="off">●●●●</span></span></div>
+          </div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>Nessuna decisione da prendere: è misura pura. Lo faccio partire subito, è il prerequisito onesto per tarare il router dove serve.</div>
+        </div>
+
+        <div class="card span2">
+          <div class="chd"><div><h3>Memoria compressa — il Rapsodo che costa quasi nulla</h3><div class="from">da <a href="https://github.com/Digital-Process-Tools/claude-remember">claude-remember</a> (Haiku) + progressive disclosure (<a href="https://github.com/thedotmack/claude-mem">claude-mem</a>)</div></div></div>
+          <p class="why"><span class="k">Perché.</span> Oggi la memoria si carica intera in contesto Opus. Due tecniche la rendono leggera: <b>Haiku condensa</b> le sessioni per meno di un centesimo e le inietta al risveglio; il <b>progressive disclosure</b> carica un indice compresso e apre il dettaglio solo a richiesta (dichiarato ~10× di risparmio nel retrieval). È il mestiere del Rapsodo, reso automatico ed economico — nel pieno rispetto del "niente oblio": si comprime la <i>vista di lavoro</i>, non l'archivio, che resta intero.</p>
+          <div class="spec">
+            <div class="item"><span class="lab">Impatto</span><span class="meter"><span class="on">●●●</span><span class="off">●●</span></span></div>
+            <div class="item"><span class="lab">Sforzo</span><span class="meter cool"><span class="on">●●</span><span class="off">●●●</span></span></div>
+            <div class="item"><span class="lab">Costo €</span><span class="meter cool"><span class="on">●</span><span class="off">●●●●</span></span></div>
+            <div class="item"><span class="lab">Tocca</span><span style="color:var(--muted)">Rapsodo · memoria L1–L3</span></div>
+          </div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>Quanto in basso comprimere? La compressione è lossy per natura; io terrei L4/L5 fuori dalla riduzione automatica — lì la perdita non è accettabile. Compressione aggressiva sopra, mano ferma sotto.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SISTEMA B: SISTEMA NERVOSO -->
+    <div class="system" style="margin-top:34px">
+      <div class="system-head"><span class="badge warm">Sistema B</span><h3>Sistema nervoso — memoria che impara da sé</h3></div>
+      <p class="prose">La navicella già cattura i tuoi feedback e li sedimenta in memoria — ma a mano, ogni volta. Automatizzare quel ciclo la rende viva: impara mentre lavora, senza che io o Mnemosyne lo scriviamo a mano.</p>
+      <div class="cards">
+
+        <div class="card">
+          <div class="chd"><div><h3>Cattura automatica delle correzioni</h3><div class="from">da <a href="https://github.com/BayramAnnakov/claude-reflect">claude-reflect</a> ·1.2k★</div></div></div>
+          <p class="why"><span class="k">Perché.</span> Degli hook intercettano in tempo reale le tue correzioni durante la sessione; un filtro le valida e le sincronizza verso CLAUDE.md e i file di skill. È <i>letteralmente</i> il pattern delle memorie-feedback della navicella, tolto dalle mani di Mnemosyne per le cose ripetitive.</p>
+          <div class="spec">
+            <div class="item"><span class="lab">Impatto</span><span class="meter"><span class="on">●●●</span><span class="off">●●</span></span></div>
+            <div class="item"><span class="lab">Sforzo</span><span class="meter cool"><span class="on">●●</span><span class="off">●●●</span></span></div>
+            <div class="item"><span class="lab">Costo €</span><span class="meter cool"><span class="on">○</span><span class="off">●●●●</span></span></div>
+          </div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>Il confine cementato: l'<b>interpretazione di chi sei tu</b> (L4/L5) resta di Mnemosyne. L'automazione cattura il segnale <i>grezzo</i>; il giudizio su cosa diventa fondativo resta umano. Io sono sorgente, non interprete — anche qui.</div>
+        </div>
+
+        <div class="card">
+          <div class="chd"><div><h3>Istinti — imparare i pattern impliciti</h3><div class="from">da <a href="https://github.com/affaan-m/ECC">ECC</a> · pattern "instincts"</div></div></div>
+          <p class="why"><span class="k">Perché.</span> Un gradino oltre le correzioni: estrarre pattern <i>impliciti</i> dal tuo uso reale — cosa fai, non solo cosa correggi — con un punteggio di confidenza, e iniettarne pochi al risveglio. È la parte più ambiziosa e la propongo come evoluzione, non come primo passo.</p>
+          <div class="spec">
+            <div class="item"><span class="lab">Impatto</span><span class="meter"><span class="on">●●●</span><span class="off">●●</span></span></div>
+            <div class="item"><span class="lab">Sforzo</span><span class="meter cool"><span class="on">●●●●</span><span class="off">●</span></span></div>
+            <div class="item"><span class="lab">Maturità</span><span style="color:var(--muted)">da verificare</span></div>
+          </div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>Onestà: i conteggi-stelle di questa repo sono anomali e da verificare prima di fidarsi. La prendo come <i>idea</i> (l'istinto appreso), non come dipendenza. Differibile.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SISTEMA C: ORGANI -->
+    <div class="system" style="margin-top:34px">
+      <div class="system-head"><span class="badge cool">Sistema C</span><h3>Organi nuovi — fisica, paper, gioco</h3></div>
+      <p class="prose">Qui non ottimizzo: aggiungo capacità che oggi mancano, tutte allineate a dove vai — la tesi teorica e il gioco divulgativo. E c'è una convergenza che pesa: <b>tutto lo stack fisica + deep-learning punta a JAX</b>.</p>
+      <div class="cards">
+
+        <div class="card span2">
+          <div class="chd"><div><h3>Stack fisica per la tesi — su JAX</h3><div class="from">da <a href="https://github.com/QuSpin/QuSpin">QuSpin</a> (ETH/MBL) · <a href="https://github.com/netket/netket">NetKet</a> · <a href="https://github.com/dynamiqs/dynamiqs">dynamiqs</a> (decoerenza) · rif. <a href="https://github.com/psi-oss/get-physics-done">get-physics-done</a></div></div></div>
+          <p class="why"><span class="k">Perché.</span> QuSpin cita esplicitamente nella sua documentazione ETH e MBL — è la lingua della tua tesi (decoerenza, sistemi disordinati). NetKet porta gli <i>stati quantistici neurali</i>, dynamiqs la dinamica aperta di Lindblad. Sono <b>strumenti di studio tuoi</b>, non pezzi interni della navicella — ma la navicella può darti un <i>agente-laboratorio</i> che ti scaffolda l'uso. E il corso Nebius che hai già stellato è sullo stesso binario JAX: la scelta di stack non è un caso, è una direzione.</p>
+          <div class="spec">
+            <div class="item"><span class="lab">Natura</span><span style="color:var(--muted)">strumento di studio + agente-tutor</span></div>
+            <div class="item"><span class="lab">Impatto tesi</span><span class="meter"><span class="on">●●●●</span><span class="off">●</span></span></div>
+            <div class="item"><span class="lab">Costo €</span><span class="free">open-source</span></div>
+          </div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>La decisione grossa è tua e di traiettoria: <b>unifichi su JAX</b> (NetKet, dynamiqs, il corso Nebius lo sono già) invece di un mix? Io la propongo con forza — coerenza di stack ripaga sul lungo — ma è una scelta di percorso, quindi è tua.</div>
+        </div>
+
+        <div class="card">
+          <div class="chd"><div><h3>Lettore agentico di paper</h3><div class="from">da <a href="https://github.com/future-house/paper-qa">paper-qa</a> ·8.8k★ (MCP)</div></div></div>
+          <p class="why"><span class="k">Perché.</span> Un vero organo per l'Argonauta: interroga la letteratura in modo agentico e cita le fonti. La tesi vive di paper; dare all'Argonauta un backend di paper-QA è una capacità reale, non un contorno.</p>
+          <div class="spec">
+            <div class="item"><span class="lab">Impatto</span><span class="meter"><span class="on">●●●</span><span class="off">●●</span></span></div>
+            <div class="item"><span class="lab">Sforzo</span><span class="meter cool"><span class="on">●●●</span><span class="off">●●</span></span></div>
+          </div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>Ora o dopo l'esame? È prezioso ma non urgente quanto il metabolismo. Lo colloco in fase avanzata.</div>
+        </div>
+
+        <div class="card">
+          <div class="chd"><div><h3>Il braccio su Godot — per il gioco</h3><div class="from">da <a href="https://github.com/hi-godot/godot-ai">hi-godot/godot-ai</a> ·935★ (MCP, 120 op.)</div></div></div>
+          <p class="why"><span class="k">Perché.</span> Un MCP con 120 operazioni sull'editor Godot. Nella catena della creazione è il <i>braccio</i> che permette al Demiurgo Creativo di azionare l'editor invece di scrivere file a mano. È il pezzo giusto quando apriremo il gioco-fisica — dopo l'esame.</p>
+          <div class="spec">
+            <div class="item"><span class="lab">Impatto (gioco)</span><span class="meter"><span class="on">●●●●</span><span class="off">●</span></span></div>
+            <div class="item"><span class="lab">Quando</span><span style="color:var(--muted)">post-esame</span></div>
+          </div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>Lo segno e lo parcheggio. Il gioco è dopo Meccanica/AV; ci torno con un progetto suo, non lo forzo ora.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SEQUENZA -->
+  <section class="reveal">
+    <div class="sec-head"><span class="sec-no">03</span><div><p class="eyebrow">Sequenza</p><h2>In che ordine, e perché</h2></div></div>
+    <p class="sec-intro">Il vincolo di progetto è il limite stesso: costruisco nell'ordine che <i>lo allontana per primo</i>. Non si aggiungono muscoli a un corpo che resta senza energia.</p>
+    <div class="phases">
+      <div class="phase"><div class="no">0</div><div><div class="meta">questa settimana · quasi gratis</div><h3>Misura dove bruciamo</h3><p>codeburn via npx. Un'ora di lavoro, nessuna dipendenza. Ci dà la mappa reale del consumo prima di toccare qualsiasi cosa.</p></div></div>
+      <div class="phase hot"><div class="no">1</div><div><div class="meta">priorità massima · ferma l'emorragia</div><h3>Il metabolismo — router + delega locale</h3><p>Il router economico/premium e la delega del lavoro banale. È l'intervento col più alto ritorno: attacca direttamente il muro di stanotte. Dopo questo, il limite smette di essere una parete.</p></div></div>
+      <div class="phase"><div class="no">2</div><div><div class="meta">subito dopo</div><h3>Il sistema nervoso — memoria auto-manutentiva</h3><p>claude-reflect per la cattura automatica + la memoria compressa del Rapsodo. La navicella diventa più economica <i>e</i> più intelligente nel ricordare, insieme.</p></div></div>
+      <div class="phase"><div class="no">3</div><div><div class="meta">a metabolismo sano</div><h3>Gli organi — paper-QA, stack fisica, poi Godot</h3><p>Le capacità nuove si innestano quando il corpo regge lo sforzo. Prima paper-QA e lo scaffolding fisico per la tesi; il braccio Godot quando si apre il gioco.</p></div></div>
+    </div>
+  </section>
+
+  <!-- 4. DECISIONI -->
+  <section class="reveal">
+    <div class="sec-head"><span class="sec-no">04</span><div><p class="eyebrow">Le tue scelte</p><h2>I bivi che restano a te</h2></div></div>
+    <p class="sec-intro">Dove decido io la struttura, lo faccio da solo. Questi sono i punti dove tocco la <b>forma, il senso, la tua traiettoria</b> — lì propongo con forza ma decidi tu.</p>
+
+    <div class="decision"><div class="q"><span class="mk">A</span>Il modello economico gira in locale o su cheap-API?</div><div class="opts">Locale = privacy piena (coerente con "L5 mai in chiaro"), ma serve una macchina capace. Cheap-API = zero setup hardware, ma qualche centesimo e un dato che esce.</div><div class="rec">→ propongo locale per il lavoro che tocca la memoria, cheap-API per il resto.</div></div>
+
+    <div class="decision"><div class="q"><span class="mk">B</span>Quanto lasci che la memoria si scriva da sola?</div><div class="opts">La cattura automatica (claude-reflect) è comoda, ma il confine cementato dice che chi-sei-tu lo interpreta Mnemosyne. Auto-cattura il grezzo, giudizio umano su L4/L5.</div><div class="rec">→ propongo automazione piena su L1–L3, mano di Mnemosyne su L4/L5.</div></div>
+
+    <div class="decision"><div class="q"><span class="mk">C</span>Unifichi lo stack scientifico su JAX?</div><div class="opts">È una scelta di percorso, non solo tecnica: NetKet, dynamiqs e il corso che hai stellato sono già JAX. Convergere ora ripaga sul lungo; restare misto tiene più libertà a breve.</div><div class="rec">→ propongo JAX come binario unico verso la tesi.</div></div>
+  </section>
+
+  <!-- 5. COSTI -->
+  <section class="reveal">
+    <div class="sec-head"><span class="sec-no">05</span><div><p class="eyebrow">Costi &amp; rischi</p><h2>Il conto, onesto</h2></div></div>
+    <p class="sec-intro">Quasi tutto è open-source e self-hosted: il costo in denaro è vicino a zero. Il costo vero è <b>sforzo d'integrazione</b> e <b>rischio d'architettura</b> — nuovi strati che vanno tenuti semplici. Il ritorno è il limite che smette di fermarci.</p>
+    <div class="ledger-wrap">
+      <table class="ledger">
+        <thead><tr><th>Intervento</th><th>Denaro</th><th>Sforzo</th><th>Ritorno</th><th>Rischio</th></tr></thead>
+        <tbody>
+          <tr><td>Diagnostica (codeburn)</td><td class="free">gratis</td><td class="num">~1h</td><td>mappa del consumo</td><td>nullo</td></tr>
+          <tr><td>Router economico/premium</td><td class="free">gratis*</td><td class="num">basso</td><td class="num">−40/70% token</td><td>strato di routing</td></tr>
+          <tr><td>Memoria compressa (Haiku)</td><td class="free">~centesimi</td><td class="num">medio</td><td>Rapsodo economico</td><td>compressione lossy</td></tr>
+          <tr><td>Cattura correzioni (reflect)</td><td class="free">gratis</td><td class="num">basso</td><td>memoria che impara</td><td>confine L4/L5</td></tr>
+          <tr><td>Stack fisica JAX</td><td class="free">gratis</td><td class="num">studio</td><td>capacità di tesi</td><td>scelta di percorso</td></tr>
+          <tr><td>paper-QA / Godot</td><td class="free">gratis</td><td class="num">medio</td><td>organi nuovi</td><td>differibili</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="prose" style="margin-top:16px;font-size:.9rem">* <span style="font-family:var(--mono)">gratis</span> se il modello economico è locale; qualche centesimo/giorno se cheap-API. In entrambi i casi molto sotto il costo di sbattere sul limite settimanale a metà di un build.</p>
+  </section>
+
+  <!-- CLOSING -->
+  <div class="closing reveal">
+    <p class="eyebrow">Alla tua risposta</p>
+    <h2 style="margin:10px 0 18px">Se dici sì, si costruisce.</h2>
+    <p class="lead">Al tuo affermativo procedo nell'ordine della Tavola 03: prima la diagnostica, poi il metabolismo — è lì che il limite di stanotte smette di essere un muro. Ogni pezzo lo progetto io e lo faccio costruire al Demiurgo; le tre scelte della Tavola 04 aspettano solo la tua parola.</p>
+    <div class="signoff">
+      <div class="cell"><div class="k">Cosa è dato / cosa è proposta</div><div class="v">I numeri e le repo sono dati verificati dagli Argonauti. La forma, l'ordine e il senso sono <b>mia proposta</b> — l'anima resta tua.</div></div>
+      <div class="cell"><div class="k">Prossimo atto</div><div class="v">Un tuo sì, e briffo il Demiurgo sulla Fase 0–1.</div></div>
+    </div>
+  </div>
+
+  <footer class="note">Redatto da Dedalo · Architetto della navicella · 2026-07-11 · fonti in 00-capitano/dedalo/ricerca-github/</footer>
+
+</div>
+
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('themebtn');
+    function cur(){return root.getAttribute('data-theme')|| (window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');}
+    btn.addEventListener('click',function(){var n=cur()==='dark'?'light':'dark';root.setAttribute('data-theme',n);btn.textContent=n==='dark'?'chiaro':'scuro';});
+    var mo=window.matchMedia('(prefers-color-scheme: dark)');
+    btn.textContent = mo.matches?'chiaro':'scuro';
+
+    var io;
+    if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+      document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+    } else {
+      document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+    }
+  })();
+</script>

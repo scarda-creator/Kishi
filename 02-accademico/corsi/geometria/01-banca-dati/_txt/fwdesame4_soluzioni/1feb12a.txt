@@ -1,0 +1,282 @@
+===== PAGINA 1 =====
+Primo appello di Geometria (Corso di laurea in Fisica, Canali A-C e D-O)
+Prof. Barucci e Piccinni
+1 febbraio 2012
+a. Scrivere subito canale, cognome e nome.
+b. Utilizzare questi fogli per le risposte. I fogli protocollo distribuiti a parte sono invece per eventuali riﬂessioni o
+calcoli, e non vanno consegnati.
+c. Durante la prova non si possono consultare testi e appunti n´e usare fogli diversi da quelli distribuiti.
+d. Durante la prova non `e consentito uscire dall’aula.
+Tempo a disposizione: 2 ore
+Canale.............................Cognome...........................................................Nome................................................
+1. Si consideri l’equazione z2 + 2iz −1 = 0, a coeﬃcienti in C. Stabilire quale tra le seguenti aﬀermazioni `e vera:
+1
+Le soluzioni sono z1 = i; z2 = −i
+2
+Le soluzioni sono z1 = z2 = i
+3
+Le soluzioni sono z1 = z2 = −i
+4
+Nessuna delle precedenti.
+2. Siano A1, A2 ∈Mn(R). Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte)
+1
+Se A1 e A2 sono simmetriche (A1 = At
+1, A2 = At
+2), allora A1 + A2 `e simmetrica
+2
+Se A1 e A2 sono antisimmetriche (A1 = −At
+1, A2 = −At
+2), allora A1 + A2 `e antisimmetrica
+3
+Se A1 e A2 sono simmetriche, allora il prodotto A1A2 `e una matrice simmetrica
+4
+Se A1 e A2 sono antisimmetriche, allora il prodotto A1A2 `e una matrice antisimmetrica
+5
+Nessuna delle precedenti
+3. Si consideri nello spazio euclideo R3 il piano α : x + z + 1 = 0, essendo (x, y, z) le coordinate cartesiane di R3.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+α `e parallelo al piano xz (contenente gli assi x e z)
+2
+α `e parallelo all’asse y
+3
+α `e perpendicolare al piano xz
+4
+α `e perpendicolare all’asse y
+
+
+===== PAGINA 2 =====
+4. Si considerino nello spazio R3 la retta r di equazioni parametriche
+
+
+
+x =
+5 −5t
+y =
+13 + 24t
+z =
+0
+e il piano α di equazione cartesiana 3x+z = 5, stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente
+anche pi`u risposte):
+1
+r e α si intersecano in un punto.
+2
+r e α hanno intersezione vuota.
+3
+r `e contenuta nel piano α
+4
+Nessuna delle precedenti.
+5. Si consideri in R4 il sottospazio vettoriale U di equazioni x1 + x2 = 0 x2 = 0, nelle coordinate cartesiane
+(x1, x2, x3, x4) di R4. Sia U ⊥il sottospazio di R4 formato dai vettori di R4 ortogonali (nel prodotto scalare
+canonico) a tutti i vettori di U. Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u
+risposte):
+1
+dim U ⊥= 2
+2
+(1, 0, 0, 0) ∈U ⊥
+3
+U ⊥ha equazioni cartesiane x3 + 2x4 = 0, x3 −x4 = 0
+4
+U ⊥ha equazioni cartesiane x1 + x2 + x3 + x4 = 0, x2 + x3 + x4 = 0
+6. Sia V = M2(R) lo spazio vettoriale delle matrici quadrate di ordine 2 ad elementi reali. Sia
+T : M2(R) −→M2(R)
+l’applicazione lineare deﬁnita da T(A) = A + At, somma di A con la sua trasposta. Qual’`e la matrice che
+rappresenta T nella base canonica E11 =
+ 1
+0
+0
+0
+
+, E12 =
+ 0
+1
+0
+0
+
+, E21 =
+ 0
+0
+1
+0
+
+, E22 =
+ 0
+0
+0
+1
+
+?
+1
+ 1
+1
+1
+1
+
+2
+
+
+
+
+1
+0
+0
+0
+0
+1
+1
+0
+0
+1
+1
+0
+0
+0
+0
+1
+
+
+
+
+3
+
+
+
+
+1
+0
+0
+0
+0
+0
+1
+0
+0
+1
+0
+0
+0
+0
+0
+1
+
+
+
+
+4
+
+
+
+
+2
+0
+0
+0
+0
+1
+1
+0
+0
+1
+1
+0
+0
+0
+0
+2
+
+
+
+
+5
+Nessuna delle precedenti
+2
+
+
+===== PAGINA 3 =====
+7. Si considerino le matrici
+A =
+ 1
+1
+0
+1
+
+,
+B =
+ 1
+0
+1
+1
+
+.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+AB = BA
+2
+B = A−1
+3
+Gli autovalori di A e di B sono gli stessi
+4
+Nessuna delle precedenti
+8. Sia Aθ =
+ cos θ
+sin θ
+−sin θ
+cos θ
+
+, con θ ∈[0, 2π). Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u
+risposte):
+1
+per qualche θ ∈[0, 2π) esiste un vettore⃗x =
+
+x1
+x2
+
+∈R2,⃗x̸ =⃗0, con Aθ⃗x =⃗x
+2
+per qualche θ ∈[0, 2π) esiste un vettore⃗x =
+x1
+x2
+
+∈R2,⃗x̸ =⃗0, con Aθ⃗x = −⃗x
+3
+per qualche θ ∈[0, 2π) esiste un vettore⃗x =
+x1
+x2
+
+∈R2,⃗x̸ =⃗0, con Aθ⃗x =⃗0
+4
+Nessuna delle precedenti.
+9. Sia
+V = R≤4[x] = {P(x) = a0 + a1x + a2x2 + a3x3 + a4x4}
+lo spazio vettoriale dei polinomi di grado ≤4 a coeﬃcienti reali, e sia
+U = R≤2[x] = {Q(x) = a0 + a1x + a2x2}
+il sottospazio vettoriale costituito dai polinomi di grado ≤2. Stabilire quali tra i seguenti sottoinsiemi W di V
+costituiscono un sottospazio vettoriale tale che V = U ⊕W (eventualmente anche pi`u risposte):
+1
+W = {P(x) ∈V tali che a0 = a1 = a2 = 0}
+2
+W = {P(x) ∈V tali che P”(x) = 0} essendo P”(x) la derivata seconda di P(x)
+3
+W = {P(x) ∈V tali che < P(x), Q(x) >= 0 per ogni Q(x) ∈U},
+essendo < , > il prodotto scalare canonico nello spazio vettoriale numerico R5 ∼= V
+4
+Nessuno dei precedenti
+10. Sia V uno spazio vettoriale reale di dimensione 3, {v1, v1, v1} una base di V e Th : V →V l’endomorﬁsmo di V
+deﬁnito dalle relazioni: T(v1) = hv1+(h−1)v2−v3, T(v2) = v2+v3, T(v1+v2+v3) = hv1+hv2+(h−1)v3,
+dove h ∈R. Stabilire quale tra le seguenti aﬀermazioni `e vera.
+3
+
+
+===== PAGINA 4 =====
+1
+Th `e diagonalizzabile per ogni valore reale di h
+2
+Th non `e mai diagonalizzabile
+3
+Th `e diagonalizzabile soltanto per h̸ = 2
+4
+Th `e diagonalizzabile soltanto per h̸ = 3
+5
+Th `e diagonalizzabile soltanto per h̸ = 2 e h̸ = 3
+a
+4

@@ -1,0 +1,2311 @@
+===== PAGINA 1 =====
+Metodi Matematici per la Fisica
+Un libro algoritmico per gli esercizi d'esame
+Teoria essenziale, algoritmi di risoluzione, esempi svolti
+Compendio personalizzato
+basato sui Set di esercizi e sugli appelli 20232026
+June 12, 2026
+
+
+===== PAGINA 2 =====
+Indice
+Come usare questo libro
+iii
+I
+Spazi di Hilbert nito-dimensionali
+1
+1
+GramSchmidt e proiettori
+2
+1.1
+Perché ci serve
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+1.2
+L'algoritmo di GramSchmidt . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+1.3
+Costruire un proiettore dato un sottospazio
+. . . . . . . . . . . . . . . . . . . . . .
+3
+2
+Diagonalizzazione e cambio di base
+5
+2.1
+Quando si può fare . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5
+3
+Funzioni di matrice
+7
+3.1
+Due strade: spettrale e CayleyHamilton . . . . . . . . . . . . . . . . . . . . . . . .
+7
+II
+Analisi complessa
+10
+4
+Singolarità e serie di Laurent
+11
+4.1
+Il quadro generale . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+11
+4.2
+Tecniche per costruire la serie di Laurent . . . . . . . . . . . . . . . . . . . . . . . .
+11
+5
+Residui e integrali sul cerchio
+13
+5.1
+Denizione e formule operative
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+13
+5.2
+Strategie ricorrenti . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+13
+6
+Integrali reali con il metodo dei residui
+15
+6.1
+Catalogo dei percorsi . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+15
+6.2
+Casi standard . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+15
+7
+Funzioni polidrome e tagli
+18
+7.1
+Concetti chiave . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+18
+7.2
+Percorso a chiave di violino (keyhole) . . . . . . . . . . . . . . . . . . . . . . . . . .
+18
+7.3
+Taglio nito tra due punti . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+19
+8
+Funzioni armoniche e CauchyRiemann
+20
+8.1
+Teoria minima . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+20
+ii
+
+
+===== PAGINA 3 =====
+Indice
+III
+Spazi di Hilbert innito-dimensionali e distribuzioni
+22
+9
+Lo spazio L2 e l'appartenenza
+23
+9.1
+Denizione e criteri . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+23
+10 Basi ortonormali e sviluppi in serie
+25
+10.1 Idea
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+25
+10.1.1 Polinomi di Legendre Pn su [−1, 1] . . . . . . . . . . . . . . . . . . . . . . .
+25
+10.1.2 Basi trigonometriche su [−L, L] o [0, L]
+. . . . . . . . . . . . . . . . . . . .
+25
+11 Operatori in dim. innita: spettro e autoaggiunzione
+27
+11.1 Punti di teoria essenziali . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+27
+11.2 Algoritmo per problemi tipo . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+27
+12 Distribuzioni: δ, δ′ e ani
+29
+12.1 Denizione operativa . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+29
+12.2 Algoritmi
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+29
+IV
+Analisi di Fourier
+31
+13 Serie di Fourier
+32
+13.1 Denizioni e convenzioni . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+32
+13.2 Algoritmi
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+32
+14 Trasformata di Fourier
+34
+14.1 Convenzioni . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+34
+14.2 Strategie di calcolo . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+34
+15 Trasformata di Laplace
+36
+15.1 Denizione e usi
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+36
+V
+Equazioni dierenziali e funzioni di Green
+37
+16 ODE: variazione delle costanti e Wronskiano
+38
+16.1 Forma standard e Wronskiano . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+38
+17 Funzioni di Green per ODE
+39
+17.1 Denizione e algoritmo standard
+. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+39
+18 EDP: separazione di variabili e nucleo del calore
+41
+18.1 Equazione del calore su intervallo nito . . . . . . . . . . . . . . . . . . . . . . . . .
+41
+18.2 Calore su R  il nucleo . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+41
+19 EDP delle onde e di Schrödinger
+43
+19.1 Onde 1D: d'Alembert . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+43
+19.2 Schrödinger libera
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+43
+19.2.1 Con potenziale armonico . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+44
+20 Propagatori e funzioni di Green per EDP
+45
+20.1 Costruzione tramite Fourier . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+45
+20.2 I propagatori notevoli
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+45
+iii
+
+
+===== PAGINA 4 =====
+Indice
+21 Quadro sinottico e strategia d'esame
+47
+21.1 Riconoscimento rapido del tipo di esercizio . . . . . . . . . . . . . . . . . . . . . . .
+47
+21.2 Le 10 idee che risolvono il 90% degli esercizi . . . . . . . . . . . . . . . . . . . . . .
+47
+21.3 Errori che fanno perdere punti (e come evitarli) . . . . . . . . . . . . . . . . . . . .
+48
+21.4 Buon esame. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+48
+iv
+
+
+===== PAGINA 5 =====
+Come usare questo libro
+Questo libro non è un testo enciclopedico di Metodi Matematici, ma un manuale operativo costru-
+ito a partire dagli esercizi che ricorrono negli scritti del corso. La struttura di ogni capitolo è la
+stessa:
+1. Un blocco Teoria con le denizioni e i teoremi strettamente necessari, formulati in modo da
+agganciare subito la pratica.
+2. Un blocco Algoritmo: la lista numerata di passi che, applicata fedelmente, risolve gli esercizi
+di quella tipologia.
+3. Uno o più Esempi svolti (tipicamente tratti dagli appelli) dove l'algoritmo viene applicato
+passo passo.
+4. Un blocco Trucchi / Errori tipici con le scorciatoie e le insidie sul calcolo.
+5. Un Formulario rapido con i risultati che vale la pena tenere a mente come prefabbricati.
+L'idea è che, quando aronti un esercizio nuovo, devi prima riconoscerne la categoria: una volta
+riconosciuta, basta seguire l'algoritmo. Le sezioni di teoria servono per capire perché l'algoritmo
+funziona, così da poterlo adattare alle varianti.
+I capitoli sono raggruppati in cinque parti che ricalcano la struttura del corso e degli scritti.
+v
+
+
+===== PAGINA 6 =====
+Indice
+vi
+
+
+===== PAGINA 7 =====
+Parte I
+Spazi di Hilbert nito-dimensionali
+1
+
+
+===== PAGINA 8 =====
+Capitolo 1
+GramSchmidt e proiettori
+1.1
+Perché ci serve
+Negli scritti compaiono ricorrentemente esercizi del tipo: dati questi vettori, costruire una base
+ortonormale e i proiettori associati o proiettare un vettore su un sottospazio. L'algoritmo stan-
+dard è GramSchmidt. Una volta acquisita la base ortonormale, i proiettori e l'identità spettrale
+forniscono lo strumento universale per costruire ogni funzione di un operatore diagonalizzabile.
+Teoria
+Sia H uno spazio di Hilbert (per noi Rn o Cn) con prodotto scalare ⟨·|·⟩. In Rn scriviamo
+v · u = P
+i viui, in Cn usiamo ⟨v|u⟩= P
+i v∗
+i ui (lineare nel secondo, antilineare nel primo).
+ Una base {ei} si dice ortonormale se ⟨ei|ej⟩= δij.
+ Il proiettore sul i-esimo vettore di base è Pi = |ei⟩⟨ei|, ovvero (Pi)mn = ei,m e∗
+i,n.
+ I proiettori soddisfano PiPj = δijPi e la risoluzione dell'identità P
+i Pi = ⊮.
+ Un proiettore generico è una matrice idempotente (P2 = P) e Hermitiana. In dimensione
+n ha dim L1 autovalori uguali a 1 (con L1 il sottospazio su cui proietta) e n −dim L1
+autovalori nulli.
+1.2
+L'algoritmo di GramSchmidt
+Algoritmo
+Input:
+vettori v1, . . . , vn linearmente indipendenti.
+Output:
+base ortonormale
+{e1, . . . , en}.
+1. Normalizza il primo: e1 = v1/∥v1∥.
+2. Per k = 2, . . . , n:
+a) Sottrai le componenti già in base:
+uk = vk −
+X
+j<k
+⟨ej|vk⟩ej.
+b) Normalizza: ek = uk/∥uk∥.
+3. (Opzionale) Costruisci i proiettori Pi = |ei⟩⟨ei| e verica P
+i Pi = ⊮, PiPj = δijPi.
+Caso complesso: usa il prodotto scalare con il coniugato a sinistra.
+⟨ej| = e†
+j (riga
+complessa coniugata).
+2
+
+
+===== PAGINA 9 =====
+1.3. Costruire un proiettore dato un sottospazio
+Esempio svolto Set 1, Es. 1  vettori in R3
+Siano vT
+1 = (1, 2, 0), vT
+2 = (1, 1, 1), vT
+3 = (0, 2, 3).
+Passo 1. ∥v1∥=
+√
+5 ⇒e1 =
+1
+√
+5(1, 2, 0)T .
+Passo 2. v2 · e1 = 3/
+√
+5 ⇒u2 = v2 −(3/
+√
+5)e1 = 1
+5(2, −1, 5)T , ∥u2∥=
+√
+30/5, da cui
+e2 =
+1
+√
+30(2, −1, 5)T .
+Passo 3. v3 · e1 = 4/
+√
+5, v3 · e2 = 13/
+√
+30 ⇒u3 = 5
+6(−2, 1, 1)T , e3 =
+1
+√
+6(−2, 1, 1)T .
+Passo 4  Proiettori. Ad esempio
+P1 = 1
+5
+
+
+1
+2
+0
+2
+4
+0
+0
+0
+0
+
+.
+Si verica direttamente P1 + P2 + P3 = ⊮.
+Esempio svolto Set 1, Es. 2  vettori in C3
+v1 = (1, 0, i)T , v2 = (1, 1, 0)T , v3 = (0, 1 −i, 0)T . Con il prodotto scalare ⟨u|v⟩= u†v:
+|e1⟩=
+1
+√
+2
+
+
+1
+0
+i
+
+,
+|e2⟩=
+1
+√
+6
+
+
+1
+2
+−i
+
+,
+|e3⟩=
+1
+√
+3
+
+
+−1 + i
+1 −i
+1 + i
+
+.
+Errore tipico: dimenticare il coniugato. In Cn il prodotto scalare non è simmetrico ma
+Hermitiano, ⟨u|v⟩= ⟨v|u⟩.
+1.3
+Costruire un proiettore dato un sottospazio
+Algoritmo su sottospazio
+1. Trova una base {w1, . . . , wk} del sottospazio.
+2. Ortogonalizzala con GramSchmidt →{e1, . . . , ek}.
+3. Il proiettore è P = Pk
+i=1 |ei⟩⟨ei|.
+4. Verica: P2 = P, P† = P.
+Esempio svolto Set 1, Es. 3
+P = 1
+2( 1 1
+1 1 ). Verica P2 = P e cerca il vettore unitario e con Pij = eiej: e1 = e2 = ±1/
+√
+2
+⇒proietta lungo (1, 1)/
+√
+2.
+Trucco / Errore tipico
+(1) Norma negativa. Se ti capita una norma negativa, hai sbagliato a coniugare.
+(2) Verica veloce. Costruito P, calcola Tr P: deve essere uguale alla dimensione del sot-
+tospazio su cui proietti.
+(3) Proiettore sull'ortogonale. P⊥= ⊮−P.
+3
+
+
+===== PAGINA 10 =====
+Capitolo 1. GramSchmidt e proiettori
+Formulario rapido
+Pi = |ei⟩⟨ei|; P
+i Pi = ⊮; Tr P = dim Im P; P⊥= ⊮−P. In R2: proiettore su (cos θ, sin θ):
+Pθ =
+
+cos2 θ
+cos θ sin θ
+cos θ sin θ
+sin2 θ
+
+.
+4
+
+
+===== PAGINA 11 =====
+Capitolo 2
+Diagonalizzazione e cambio di base
+2.1
+Quando si può fare
+Una matrice A ∈Mn(C) è diagonalizzabile se ha n autovettori linearmente indipendenti.
+Le
+matrici Hermitiane (e in generale normali, [A, A†] = 0) lo sono sempre, con autovettori ortonormali
+e autovalori reali (Hermitiane).
+Le matrici unitarie sono diagonalizzabili con autovalori sulla
+circonferenza unitaria.
+Teoria
+ Polinomio caratteristico: p(λ) = det(A −λ⊮).
+ Spettro: σ(A) = {λ : p(λ) = 0}. Se λ è radice di molteplicità m, dim Lλ ≤m (molteplic-
+ità geometrica ≤algebrica).
+ A diagonalizzabile ⇐⇒per ogni autovalore dim Lλ = molteplicità algebrica.
+ Cambio di base: D = S−1AS, con S matrice che ha gli autovettori come colonne.
+ Matrici Hermitiane: S può essere scelta unitaria, S† = S−1.
+ Diagonalizzazione simultanea: A e B diagonali nella stessa base ⇐⇒[A, B] = 0,
+purché siano entrambe diagonalizzabili.
+Algoritmo
+1. Calcola p(λ) = det(A −λ⊮) e trova gli autovalori λi.
+2. Per ogni λi, risolvi (A −λi⊮)v = 0 trovando una base dell'autospazio.
+3. Verica che il numero totale di autovettori sia n (altrimenti non diagonalizzabile, cf.
+Cap. 3).
+4. Costruisci S = (v1|v2| . . . |vn), D = S−1AS = diag(λ1, . . . , λn).
+5. Se A è Hermitiana, scegli autovettori ortonormali: allora S è unitaria.
+Esempio svolto Set 1, Es. 7
+A = ( 1 1
+2 3 ). p(λ) = λ2 −4λ + 1, λ± = 2 ±
+√
+3. Sistema per gli autovettori: v±,1 + v±,2 =
+(2 ±
+√
+3)v±,1 dà vT
+± =
+ −1∓
+√
+3
+2
+, 1
+
+.
+S =
+
+−(1 −
+√
+3)/2
+−(1 +
+√
+3)/2
+1
+1
+
+,
+D =
+2 +
+√
+3
+0
+0
+2 −
+√
+3
+
+.
+5
+
+
+===== PAGINA 12 =====
+Capitolo 2. Diagonalizzazione e cambio di base
+Esempio svolto Set 1, Es. 9  diagonalizzazione simultanea 2 × 2
+A = 1
+2
+  3 −1
+−1 3
+
+, B = 1
+2
+  1 −1
+−1 1
+
+. Si verica [A, B] = 0. Gli autovettori comuni sono v1 =
+(1, 1)T e v2 = (1, −1)T :
+S =
+1
+1
+1
+−1
+
+,
+S−1AS =
+1
+0
+0
+2
+
+,
+S−1BS =
+0
+0
+0
+1
+
+.
+Quando l'autovalore è degenere, l'autospazio ha dimensione > 1: ogni base lo va
+bene, ma per diagonalizzare anche B va scelta la base degli autovettori di B ristretta a
+quell'autospazio.
+Trucco / Errore tipico
+Test rapidi: Tr A = P
+i λi, det A = Q
+i λi. Se i conti tornano è quasi certo che gli autoval-
+ori siano giusti.
+Hermitiano ⇒reali. Se ti viene un autovalore complesso da una matrice Hermitiana, c'è
+un errore di calcolo.
+Ortonormalizzazione interna agli autospazi degeneri. Gli autovettori di un Hermitiano
+associati ad autovalori diversi sono già ortogonali; quelli con lo stesso autovalore li ortonor-
+malizzi con GramSchmidt.
+Formulario rapido
+Matrici di Pauli:
+σ1 = ( 0 1
+1 0 ), σ2 =
+  0 −i
+i 0
+
+, σ3 =
+  1 0
+0 −1
+
+,
+σiσj = δij⊮+ iϵijkσk. Autovalori ±1, Tr σi = 0.
+Identità di LeviCivita: ϵijkϵkmn = δimδjn −δinδjm.
+v × (u × w) = (v · w)u −(v · u)w. Jacobi P
+cycl v × (u × w) = 0.
+6
+
+
+===== PAGINA 13 =====
+Capitolo 3
+Funzioni di matrice
+3.1
+Due strade: spettrale e CayleyHamilton
+Negli scritti ricorrono con frequenza altissima richieste come calcolare eA, log A, sin A, An, A1/2.
+Due metodi coprono tutti i casi:
+1. Decomposizione spettrale (se A è diagonalizzabile): A = P
+i λiPi, allora f(A) = P
+i f(λi)Pi.
+2. CayleyHamilton (sempre): f(A) = R(A) dove R è il polinomio interpolante f sullo spettro
+(con derivate per autovalori degeneri).
+Teoria CayleyHamilton
+Se p(λ) è il polinomio caratteristico di A, allora p(A) = 0. Di conseguenza, ogni potenza
+Ak con k ≥n è combinazione lineare di ⊮, A, . . . , An−1, e così ogni serie convergente f(A).
+Scrivi f(z) = p(z)Q(z) + R(z) con deg R < n: allora f(A) = R(A).
+Algoritmo Spettrale, A diagonalizzabile
+1. Diagonalizza: A = SDS−1, D = diag(λi).
+2. Calcola f(D) = diag(f(λi)).
+3. Ricostruisci: f(A) = Sf(D)S−1 = P
+i f(λi)Pi, con Pi = |vi⟩⟨˜vi| (⟨˜vi| = i-esima riga di
+S−1).
+4. Per funzioni polidrome (log, √· ): scegli il branch e calcola f(λi) usando il valore princi-
+pale (cf. Cap. 7).
+Algoritmo CayleyHamilton
+1. Trova gli autovalori λi con molteplicità mi.
+2. Scrivi R(z) = a0 + a1z + · · · + an−1zn−1 (n = grado di p).
+3. Imponi le condizioni di interpolazione: per ogni λi,
+R(k)(λi) = f(k)(λi),
+k = 0, 1, . . . , mi −1.
+4. Risolvi il sistema lineare →{aj}.
+5. f(A) = a0⊮+ a1A + · · · + an−1An−1.
+Pro: funziona anche se A non è diagonalizzabile.
+7
+
+
+===== PAGINA 14 =====
+Capitolo 3. Funzioni di matrice
+Esempio svolto Set 1, Es. 10  esponenziale, matrice non diag.
+A =
+ α 1 1
+0 α 1
+0 0 α
+
+ha un unico autovalore α di molteplicità algebrica 3 e geometrica 1: non
+diagonalizzabile.
+CayleyHamilton. p(z) = (z −α)3. Cerco R(z) = a0 + a1z + a2z2 con
+R(α) = eαt,
+R′(α) = teαt,
+R′′(α) = t2eαt.
+Si trovano a2 = t2
+2 eαt, a1 = teαt(1 −αt), a0 = eαt
+2 (2 −2αt + α2t2). Quindi
+eAt = eαt
+
+
+1
+t
+t(2 + t)/2
+0
+1
+t
+0
+0
+1
+
+.
+Esempio svolto Set 1, Es. 11  eiθˆn·σ
+ˆn·σ ha autovalori ±1. Polinomio caratteristico di grado 2; R(z) = a0+a1z con eiθ = a0+a1,
+e−iθ = a0 −a1, da cui a0 = cos θ, a1 = i sin θ:
+eiθˆn·σ = cos θ ⊮+ i sin θ ˆn · σ.
+Formula chiave per la rotazione di spin in QM.
+Esempio svolto Set 1, Es. 12  log A e A3/2 con branch
+A =
+ 2 1−i −1+i
+0 1−i
+0
+0 −2i 1+i
+
+. Autovalori λ1 = 2, λ2 = 1 + i =
+√
+2eiπ/4, λ3 = 1 −i =
+√
+2ei7π/4 (branch
+reale positivo ⇒argomento in [0, 2π)).
+Costruisci S con gli autovettori, calcola Pi = SP(D)
+i
+S−1 (qui gli autovettori non sono ortonor-
+mali quindi NON vale Pi = |vi⟩⟨vi|). Poi
+log A =
+X
+i
+log λi Pi,
+A3/2 =
+X
+i
+λ3/2
+i
+Pi.
+con log λ2 = 1
+2 log 2 + iπ/4, ecc.
+Punto cruciale del branch cut. Tagliando lungo R+, gli angoli vanno in [0, 2π) e log,
+potenze frazionarie vanno presi con quell'argomento. Se il taglio fosse stato lungo R−, gli
+angoli sarebbero in (−π, π] e log(1 −i) = 1
+2 log 2 −iπ/4.
+Trucco / Errore tipico
+Quando usare spettrale vs CH?
+ Matrici Hermitiane piccole: spettrale (autovettori ortonormali, Pi = |vi⟩⟨vi|).
+ Matrici non diagonalizzabili: CH obbligatoriamente.
+ Funzioni di una matrice simbolica (es. eiθˆn·σ): CH è più veloce.
+ Per An con n grande: spettrale, oppure spotta una periodicità mod k se Ak = ⊮.
+Errore tipico nel branch: non controllare in che semipiano cadono gli autovalori. Sempre
+disegnare il piano complesso e segnare l'angolo che hai scelto.
+8
+
+
+===== PAGINA 15 =====
+3.1. Due strade: spettrale e CayleyHamilton
+Formulario rapido
+eAt = P
+n Antn/n!; det eA = eTr A; eAeB = eA+B solo se [A, B] = 0; BCH: eAeB =
+eA+B+ 1
+2 [A,B]+....
+(1 −xA)−1 = P
+n xnAn se ∥xA∥< 1, oppure forma chiusa via spettrale.
+An se Ak = ⊮: An = An mod k.
+9
+
+
+===== PAGINA 16 =====
+Parte II
+Analisi complessa
+10
+
+
+===== PAGINA 17 =====
+Capitolo 4
+Singolarità e serie di Laurent
+4.1
+Il quadro generale
+Una funzione olomorfa f in un anello r < |z −z0| < R ammette uno sviluppo di Laurent:
+f(z) =
++∞
+X
+n=−∞
+cn(z −z0)n,
+cn =
+1
+2πi
+I
+γ
+f(z)
+(z −z0)n+1 dz.
+La parte P
+n<0 cn(z −z0)n è detta parte principale e determina la natura della singolarità in z0.
+Teoria Classicazione singolarità isolate
+ Eliminabile: parte principale nulla. limz→z0 f(z) esiste nito.
+ Polo di ordine m: parte principale nita, con c−m̸ = 0 e c−k = 0 per k > m. f(z) ∼
+c−m(z −z0)−m.
+ Essenziale: parte principale innita.
+Vicino a z0, f assume ogni valore complesso
+(Picard).
+ Non isolata: singolarità di accumulazione (es. 1/ sin(1/z) in z = 0).
+Il residuo è per denizione Res(f, z0) = c−1.
+4.2
+Tecniche per costruire la serie di Laurent
+Algoritmo Laurent in z0
+1. Riconosci la forma: f(z) = g(z)/h(z) con g, h olomorfe?
+2. Espandi g in Taylor intorno a z0, h in Taylor intorno a z0.
+3. Se h(z0) = 0 con zero di ordine k, raccogli (z −z0)k a denominatore e usa
+1
+1 −w =
+X
+n≥0
+wn
+(|w| < 1)
+per il fattore residuo.
+4. Moltiplica le serie e leggi i coecienti. La parte principale ha al massimo k termini.
+5. Se hai più centri o vuoi sviluppare in un anello diverso, espandi
+1
+z−a come serie geometrica
+nel rapporto giusto, distinguendo |z −z0| < |a −z0| e |z −z0| > |a −z0|.
+11
+
+
+===== PAGINA 18 =====
+Capitolo 4. Singolarità e serie di Laurent
+Esempio svolto Scritto 20/01/2025, Es. 1
+f(z) =
+ez sin z
+z(1 −cos z). In z = 0: ez sin z = z+z2+z3/3+. . . , e 1−cos z = z2/2−z4/24+· · · =
+z2
+2 (1 −z2/12 + . . . ). Quindi
+f(z) =
+z + z2 + z3/3 + . . .
+z · z2
+2 (1 −z2/12 + . . . )
+= 2
+z2 + 2
+z + 8
+3 + O(z).
+La singolarità in 0 è un polo di ordine 2. Residuo = 2.
+Esempio svolto Scritto 20/01/2026, Es. 1  due anelli
+f(z) =
+1
+z + z3 =
+1
+z(z2 + 1) centrata in z0 = i.
+Riscrivi z2 + 1 = (z −i)(z + i) e z(z + i) = olomorfa in i; il polo in z0 = i è semplice. Per
+0 < |z −i| < 1 (anello interno):
+1
+z(z + i) =
+1
+i · 2i ·
+1
+(1 + z−i
+i )(1 + z−i
+2i ) =
+X
+(Taylor)
+e dividi per (z −i). Per |z −i| > 2 (anello esterno) sviluppa 1
+z =
+1
+(z−i)+i =
+1
+z−i ·
+1
+1+i/(z−i) =
+P
+n≥0
+(−i)n
+(z−i)n+1 , analogamente
+1
+z+i = P
+(−i·2)n
+(z−i)n+1 · . . . .
+Trucco / Errore tipico
+Triangolino di Pascal. Per moltiplicare due serie tronche, scrivile come polinomi in w
+e moltiplica come tali, raccogliendo termini no all'ordine voluto.
+Non confondere polo doppio e essenziale.
+Se nel denominatore appare sin(1/z),
+cos(1/z), e1/z etc., è essenziale.
+Singolarità non isolata.
+Se la singolarità viene avvicinata da altre singolarità (es.
+1/ sin(1/z) in z = 0: gli zeri di sin(1/z) si accumulano in 0), Laurent non esiste: bisogna
+usare il residuo all'innito.
+Formulario rapido
+ez = P zn/n!, sin z = z −z3/6 + . . . , cos z = 1 −z2/2 + z4/24 −. . . , log(1 + z) =
+z −z2/2 + z3/3 −. . . , 1/(1 −z) = P zn, 1/ sin z = 1/z + z/6 + 7z3/360 + . . . in z = 0.
+12
+
+
+===== PAGINA 19 =====
+Capitolo 5
+Residui e integrali sul cerchio
+5.1
+Denizione e formule operative
+Res(f, z0) = c−1 del Laurent. Per i casi tipici:
+Teoria Calcolo dei residui
+ Polo semplice: Res(f, z0) = limz→z0(z −z0)f(z). Se f = g/h con h(z0) = 0, h′(z0)̸ = 0,
+g(z0)̸ = 0:
+Res(f, z0) = g(z0)
+h′(z0).
+ Polo di ordine m: Res(f, z0) =
+1
+(m −1)! limz→z0
+dm−1
+dzm−1
+
+(z −z0)mf(z)
+
+.
+ Residuo all'innito: Res(f, ∞) = −Res
+  1
+w2 f( 1
+w), 0
+
+= −c(∞)
+−1
+dello sviluppo di f in
+|z| > R.
+ Somma residui: su una sfera di Riemann compatta, la somma di tutti i residui (com-
+preso ∞) è zero.
+Teoria Teorema dei residui
+Se f è olomorfa in un aperto contenente la curva chiusa γ percorsa positivamente e i punti
+z1, . . . , zk interni a γ sono le sue singolarità isolate:
+I
+γ
+f(z)dz = 2πi
+k
+X
+j=1
+Res(f, zj).
+5.2
+Strategie ricorrenti
+Algoritmo Integrale su cerchio |z| = R
+1. Localizza tutte le singolarità di f e seleziona quelle con |zj| < R.
+2. Se sono poche e di basso ordine, calcola i residui direttamente.
+3. Se sono troppe (o non isolate o ne hai innite), usa P Resinterno = −P Resesterno −Res∞.
+4. Applica il teorema dei residui.
+13
+
+
+===== PAGINA 20 =====
+Capitolo 5. Residui e integrali sul cerchio
+Esempio svolto Scritto 08/09/2024, Es. 1
+f(z) = 1/ sin(z−2) su |z| = 1. Gli zeri di sin(1/z2) sono 1/z2 = kπ ⇒z = ±(kπ)−1/2 per
+k ≥1: inniti, si accumulano in 0.
+Tutte le singolarità sono interne a |z| = 1 tranne z = ∞. Quindi
+I
+|z|=1
+dz
+sin(z−2) = −2πi Res(f, ∞).
+Sviluppo in |z| grande: 1/z2 piccolo ⇒sin(z−2) ∼z−2 + 1
+6z−6 +. . . , f(z) ∼z2 −1
+6z−2 +. . . .
+Non c'è c−1 nello sviluppo all'innito ⇒Res∞= 0 e l'integrale è zero.
+Esempio svolto Scritto 05/11/2025, Es. 1
+f(z) = 1/(sin(ez) −1) su |z| = 1. Gli zeri sono ez = π/2 + 2kπ ⇒z = log(π/2 + 2kπ). Solo
+k = 0 è interno: z0 = log(π/2) ≈0.45.
+Lo zero del denominatore è doppio? Calcolo
+d
+dz(sin ez −1)|z0 = ez0 cos ez0 = (π/2) · 0 = 0.
+È doppio. Allora il polo di f è doppio. Va calcolato come polo m = 2:
+Res(f, z0) = lim
+z→z0
+d
+dz
+(z −z0)2
+sin(ez) −1.
+Spesso è più rapido usare la Laurent: sin(ez) −1 = −1
+2(ez −π/2)2 + O(ez −π/2)3, da cui
+dopo qualche passaggio si trova Res(f, z0) = −2/(π/2)2 = −8/π2 (a meno di correzioni;
+controllare attentamente i segni).
+Trucco / Errore tipico
+Verica zero del denominatore: semplice o multiplo? Calcola la prima derivata. Se
+anche quella è nulla, lo zero è doppio (e il polo di 1/h è doppio).
+Residuo all'innito.
+Sviluppo in serie di Laurent in |z| > R.
+Prendi il negativo del
+coeciente di 1/z.
+Formula di Cauchy delle derivate (utile su poli di ordine alto):
+H
+f(z)
+(z −z0)n+1 dz =
+2πi
+n! f(n)(z0).
+Formulario rapido
+Polo semplice: Res = g(z0)/h′(z0).
+Polo ord. m: Res =
+1
+(m−1)! limz→z0
+dm−1
+dzm−1 [(z −z0)mf].
+Polo essenziale: tirare fuori il coeciente c−1 a mano.
+Sferica di Riemann: P Res = 0.
+14
+
+
+===== PAGINA 21 =====
+Capitolo 6
+Integrali reali con il metodo dei residui
+6.1
+Catalogo dei percorsi
+Quasi tutti gli integrali reali degli esami rientrano in una di queste classi:
+1. Razionali
+R ∞
+−∞R(x)dx con deg(denom) ≥deg(num) + 2: semicerchio in alto.
+2.
+R ∞
+−∞R(x)eikxdx (k > 0): semicerchio in alto (lemma di Jordan).
+3. Trigonometrici
+R 2π
+0
+R(cos θ, sin θ)dθ: sostituzione z = eiθ.
+4. Razionali con potenze frazionarie
+R ∞
+0 xα−1R(x)dx: keyhole attorno al taglio.
+5. Razionali con log: keyhole o due percorsi che scambiano segno.
+6. Settore di angolo 2π/n se l'integrando ha simmetria xn.
+7. Rettangolare se compaiono cosh, sinh con periodo iπ.
+6.2
+Casi standard
+Algoritmo Semicerchio + Jordan, k > 0
+1. Chiudi nel semipiano superiore (Im z > 0): l'integrale sul semicerchio tende a 0 se eikz ·
+R(z) →0 uniformemente (vero per k > 0 e R razionale che si annulla all'innito).
+2.
+R ∞
+−∞f(x)eikxdx = 2πi P
+Im zj>0 Res(feikz, zj).
+3. Per k < 0 chiudi nel semipiano inferiore (orientazione negativa ⇒segno meno).
+Esempio svolto Scritto 18/06/2024, Es. 2
+Z ∞
+−∞
+x sin x
+x2 + 1dx = Im
+Z ∞
+−∞
+xeix
+x2 + 1dx.
+I poli sono ±i; +i è nel semipiano superiore.
+Res
+
+zeiz
+z2+1, i
+
+= ie−1
+2i
+= e−1
+2 . L'integrale vale 2πi · e−1
+2
+= iπ/e ⇒la parte immaginaria è
+π/e.
+15
+
+
+===== PAGINA 22 =====
+Capitolo 6. Integrali reali con il metodo dei residui
+Algoritmo Trigonometrico via z = eiθ
+1. cos θ = z+1/z
+2
+, sin θ = z−1/z
+2i
+, dθ = dz/(iz).
+2. L'intervallo [0, 2π] diventa |z| = 1.
+3. Calcola i residui all'interno del cerchio unitario.
+Esempio svolto Scritto 15/01/2024, Es. 2
+R π
+0
+dθ
+3 −2 cos θ. Per simmetria = 1
+2
+R 2π
+0
+= . . . Sostituendo: −1
+i
+H
+dz
+z2 −3z + 1. I poli sono
+(3 ±
+√
+5)/2; solo il primo, z−= (3 −
+√
+5)/2 < 1, è interno. Res = 1/(2z−−3) = −1/
+√
+5.
+L'integrale completo vale 2π/
+√
+5, quello mezzo π/
+√
+5.
+Algoritmo Settore di angolo α = 2π/n
+Quando l'integrando è invariante per z 7→zeiα a meno di un fattore eimα:
+1. Chiudi con un settore di angolo α.
+2. Sui due raggi compare I + c · I con c fattore di fase.
+3. Risolvi per I: I(1 −c) = 2πi P Res.
+Esempio svolto Scritto 12/02/2025, Es. 2
+I =
+R ∞
+0
+dx
+1 + x2n+1 . Settore di angolo α = 2π/(2n+1). L'unico polo interno è z0 = eiπ/(2n+1).
+Sul raggio inclinato x 7→xeiα, dz = eiαdx. L'integrale combinato ⇒
+I(1 −eiα) = 2πi Res = 2πi ·
+1
+(2n + 1)z2n
+0
+= −2πiz0
+2n + 1.
+Quindi I =
+2π
+(2n + 1) sin(π/(2n + 1)).
+Algoritmo Rettangolo per cosh / sinh
+Per integrandi con ex/(ex + e−x), il periodo è iπ.
+Chiudi col rettangolo di vertici
+(−R, 0), (R, 0), (R, iπ), (−R, iπ). Sul lato superiore, exeiπ = −ex.
+Esempio svolto Scritto 10/09/2024, Es. 2
+I
+=
+R ∞
+−∞
+cos x
+ex + e−x dx =
+1
+2 Re
+R
+2eix
+ex + e−x dx.
+Con il rettangolo:
+sul lato superiore
+l'integrando diventa −eix−iπ/(ex+e−x). Sommando i due lati orizzontali: I(1+e−iπ·(−1)) =
+I(1 + e−π)? Bisogna fare attenzione ai segni; il risultato nale è I = π/(2 cosh(π/2)) =
+π/ cosh(π/2) moltiplicato per il fattore opportuno. Il punto: il rettangolo è automatico ogni
+volta che vedi cosh, sinh nel denominatore.
+Trucco / Errore tipico
+Polo sull'asse reale. Se compare un polo proprio sull'asse reale (es. 1/x), usa il valore
+principale di Cauchy: piccola semicirconferenza intorno al polo ⇒contributo +iπ Res.
+Parità. Se l'integrando è pari,
+R ∞
+0
+= 1
+2
+R ∞
+−∞. Se è dispari, il PV è zero.
+16
+
+
+===== PAGINA 23 =====
+6.2. Casi standard
+Lemma di Jordan necessario: su semicerchio in alto,
+R
+eikz →0 se k > 0. Non vale per
+e−ikz in alto.
+Settori e simmetrie: prima di rompersi con il keyhole, controlla se l'integrando ha una
+simmetria angolare che semplica il percorso.
+Formulario rapido
+R ∞
+−∞
+dx
+x2 + a2 = π
+a;
+R ∞
+−∞
+cos kx
+x2 + a2 dx = π
+ae−|k|a;
+R ∞
+0
+xα−1
+1 + xdx =
+π
+sin απ (0 < α < 1);
+R ∞
+0
+dx
+1 + xn =
+π/n
+sin(π/n);
+R ∞
+0
+log x
+1 + x2 dx = 0.
+17
+
+
+===== PAGINA 24 =====
+Capitolo 7
+Funzioni polidrome e tagli
+7.1
+Concetti chiave
+Le funzioni log z, zα con α /∈Z,
+p
+P(z) con P polinomio sono polidrome: il loro valore dipende
+dal cammino percorso intorno ai punti di diramazione (branch points).
+Teoria
+ log z = log |z|+i arg z, con arg z denita modulo 2π. Scegliere il branch signica scegliere
+un intervallo per arg z (di solito (−π, π] o [0, 2π)).
+ Il taglio (branch cut) è la semiretta lungo la quale arg z ha un salto: R+ per arg ∈[0, 2π),
+R−per arg ∈(−π, π].
+ Per f(z) =
+p
+(z −a)(z −b): due punti di diramazione a, b. Si può scegliere un taglio
+nito [a, b], lasciando f olomorfa altrove (inclusa ∞, se a, b niti).
+ Per zα = eα log z. Con α irrazionale o complesso, il taglio è essenziale.
+7.2
+Percorso a chiave di violino (keyhole)
+Algoritmo Keyhole per
+R ∞
+0 xα−1R(x)dx
+1. Scegli il taglio lungo R+, arg z ∈[0, 2π).
+2. Percorso: lato superiore del taglio 0 →R, grande cerchio |z| = R, lato inferiore R →0,
+piccolo cerchio |z| = ϵ.
+3. Sul lato superiore z = x, xα−1 →xα−1.
+4. Sul lato inferiore z = xe2πi, xα−1 →xα−1e2πi(α−1).
+5. L'integrale sul keyhole dà (1 −e2πiα)I = 2πi P Res.
+6. Risolvi per I.
+Esempio svolto Scritto 03/07/2024, Es. 2
+f(z) =
+z + 1
+√z(z2 −2z + 2). Poli del denominatore: z = 1 ± i. Branch in 0 con taglio R+,
+√z =
+p
+|z|eiθ/2, θ ∈[0, 2π).
+Su lato superiore √z →√x, su lato inferiore √z →−√x. Quindi
+H
+= (1−(−1))
+R ∞
+0
+= 2
+R ∞
+0 .
+Per il teorema dei residui:
+2I = 2πi
+
+Res1+i + Res1−i
+
+.
+18
+
+
+===== PAGINA 25 =====
+7.3. Taglio nito tra due punti
+Si calcolano i residui e si trova I = π(1 +
+√
+2/
+4√
+2) (controllare i conti algebrici).
+7.3
+Taglio nito tra due punti
+Algoritmo Taglio nito
+1. Per
+p
+(z −a)(z −b): taglio in [a, b]. Su un lato del taglio √· →+i|√·|, sull'altro →
+−i|√·|.
+2. Percorso dog-bone (osso di cane) attorno al taglio.
+3. Spesso conviene deformare verso il grande cerchio:
+H
+ext +
+H
+dog = 0 perché f è olomorfa
+altrove ⇒
+H
+dog = −
+H
+|z|=R→∞= 2πi Res∞.
+Esempio svolto Scritto 16/11/2023, Es. 2
+f(z) = i
+p
+(z −1)(z + 2), taglio nito [−2, 1].
+Sui due lati del taglio, √· assume valori
+opposti (puramente immaginari): l'integrando vale ∓
+p
+(1 −x)(x + 2) = ∓
+√
+2 −x −x2 a
+seconda del lato. Il dog-bone dà 2
+R 1
+−2
+√
+2 −x −x2dx = −2πi Res∞. Sviluppo all'innito:
+p
+z2(1 + . . . ) = z(1 +
+1
+2z + . . . ) ⇒f = iz + i/2 + (1/z termine) · · · ⇒Res∞= 9
+8i (per
+esempio). Verica con il valore noto
+R 1
+−2
+√
+2 −x −x2dx = 9π
+8 .
+Trucco / Errore tipico
+Sempre disegnare il piano complesso con i punti di diramazione, il taglio e il percorso.
+Sui due lati del taglio la fase cambia di 2πα (per zα).
+Tre convenzioni d'angolo (Scritto 05/05/2025): per arg z ∈(−π, π], [0, 2π), [−π/2, 3π/2)
+i valori di f nei punti possono cambiare di un fattore esponenziale. Controlla sempre da
+quale lato del taglio stai valutando.
+Branch point all'innito. Per
+p
+(z −a)(z −b) con taglio nito, ∞NON è branch point:
+si vede sviluppando z
+p
+1 −(a + b)/z + . . .. Per √z, ∞SÌ lo è.
+Formulario rapido
+log z: branch points in 0 e ∞. Taglio standard (−∞, 0].
+zα: idem. Sui due lati zα dierisce per e2πiα.
+√
+z2 −a2: branch in ±a. Con taglio nito [−a, a] è olomorfa altrove. Con tagli inniti
+(−∞, −a] ∪[a, ∞) ha due rami distinti.
+R ∞
+0
+xα−1
+1 + xdx =
+π
+sin πα, 0 < α < 1.
+19
+
+
+===== PAGINA 26 =====
+Capitolo 8
+Funzioni armoniche e CauchyRiemann
+8.1
+Teoria minima
+Teoria
+f(z) = u(x, y) + iv(x, y) è olomorfa ⇐⇒u, v soddisfano CauchyRiemann: ∂xu = ∂yv,
+∂yu = −∂xv. Conseguenza: u, v sono armoniche, ∆u = ∆v = 0. Data u armonica (su un
+dominio semplicemente connesso), esiste v (armonica coniugata) unica a meno di costante.
+Si ottiene integrando le CR.
+Algoritmo
+1. Verica ∆u = 0. Eventuali parametri si ssano qui.
+2. Da ∂yv = ∂xu integra in y: v(x, y) =
+R
+∂xu dy + g(x).
+3. Da ∂xv = −∂yu trova g′(x), quindi g.
+4. Scrivi f(z) = u + iv ed esprimila in funzione di z = x + iy (per riconoscimento, usando
+¯z = 2x −z, z¯z = x2 + y2).
+Esempio svolto Scritto 03/07/2024, Es. 1
+u = αx2−y2+e−y cos x. Armonica? ∂xxu = 2α−e−y cos x, ∂yyu = −2+e−y cos x. Sommano
+a 2α −2 ⇒armonica solo se α = 1. Trovata α, da CR: ∂yv = ∂xu = 2x −e−y sin x ⇒
+v = 2xy + e−y sin x + g(x), e ∂xv = −∂yu dà g′ = 0. Quindi f(z) = x2 −y2 + e−y cos x +
+i(2xy + e−y sin x) = z2 + eiz.
+Esempio svolto Scritto 12/02/2025, Es. 1
+u = x + sin(x2 −y2) cosh(2xy). Si verica ∆u = 0. Integrando CR: v = y −cos(x2 −
+y2) sinh(2xy)+C. Notando che sin(x2 −y2) cosh(2xy)+i cos(x2 −y2) sinh(2xy) ... in realtà
+la combinazione u + iv = z + Im(eiz2) (controllare): l'identicazione si fa riconoscendo
+z2 = x2 −y2 + 2ixy, quindi eiz2 = ei(x2−y2)e−2xy ecc.
+Trucco / Errore tipico
+Verica veloce.
+f olomorfa ⇒∂¯zf = 0.
+Scrivi u, v in funzione di z, ¯z (sostituendo
+x = (z + ¯z)/2, y = (z −¯z)/(2i)): se ¯z è scomparso, è olomorfa.
+Riconoscimento f(z): dopo aver trovato v, prova a porre y = 0 in f = u + iv. Ottieni f
+ristretto a R, da cui spesso è immediato leggere f(z).
+20
+
+
+===== PAGINA 27 =====
+8.1. Teoria minima
+Formulario rapido
+∆= ∂xx + ∂yy = 4∂z∂¯z. CR in forma complessa: ∂¯zf = 0.
+Funzioni armoniche notevoli: log r, arg z, Re(zn), Im(zn), Re(ez) = ex cos y.
+21
+
+
+===== PAGINA 28 =====
+Parte III
+Spazi di Hilbert innito-dimensionali e
+distribuzioni
+22
+
+
+===== PAGINA 29 =====
+Capitolo 9
+Lo spazio L2 e l'appartenenza
+9.1
+Denizione e criteri
+Teoria
+L2(Ω) = {f : Ω→C |
+R
+Ω|f|2 < ∞} con ∥f∥2 = ⟨f|f⟩=
+R
+|f|2. È uno spazio di Hilbert.
+Per stabilire se f ∈L2, esamina i punti critici:
+ Singolarità interne x0: scrivi f ∼c (x −x0)−β, allora
+R
+|f|2 ∼
+R
+(x −x0)−2β converge
+sse 2β < 1.
+ Comportamento all'innito (se Ωè illimitato): f ∼x−γ per x →∞, converge sse
+2γ > 1.
+ Oscillazioni: sinα, cosα su R non sono mai in L2 (non decadono).
+Algoritmo
+1. Trova zeri del denominatore e singolarità interne Ω.
+2. Locale: Taylor ⇒esponente β. Condizione 2β < 1.
+3. Asintotica: leading order ⇒γ. Condizione 2γ > 1.
+4. Intersezione delle condizioni.
+5. Casi limite: se l'esponente è 1/2, controllare logaritmi e fattori oscillanti separatamente.
+Esempio svolto Set 2, Es. 1  caso classico
+f(x) = xα su (0, 1]:
+R 1
+0 x2αdx converge sse 2α > −1, cioè α > −1/2. f(x) = xα su [1, ∞):
+converge sse 2α < −1, cioè α < −1/2. f(x) = xα su (0, ∞): mai contemporaneamente,
+L2(R+) vuoto per pure potenze.
+Trucco / Errore tipico
+Confronto. Per f complicate, confronta |f|2 con potenze pure usando limx→x0 |f|2/|x −
+x0|−2β = costante.
+Logaritmi.
+R 1
+0 x−1| log x|pdx diverge sempre;
+R 1/2
+0
+| log x|pdx converge per ogni p.
+Funzioni oscillanti che non decadono (es. sin x) NON sono in L2(R).
+23
+
+
+===== PAGINA 30 =====
+Capitolo 9. Lo spazio L2 e l'appartenenza
+Formulario rapido
+R 1
+0 xpdx converge ⇐⇒p > −1;
+R ∞
+1 xpdx converge ⇐⇒p < −1.
+Pacchetti gaussiani:
+R ∞
+−∞x2ne−ax2dx = (2n−1)!!
+(2a)n
+p
+π/a.
+L2 è completo, separabile, ha basi numerabili.
+24
+
+
+===== PAGINA 31 =====
+Capitolo 10
+Basi ortonormali e sviluppi in serie
+10.1
+Idea
+In L2, una base ortonormale {ϕn} permette di scrivere f = P
+n cnϕn, cn = ⟨ϕn|f⟩. Vale Parseval:
+∥f∥2 = P |cn|2.
+10.1.1
+Polinomi di Legendre Pn su [−1, 1]
+Teoria
+Pn è l'ortogonalizzazione di {1, x, x2, . . . } in L2([−1, 1]). P0 = 1, P1 = x, P2 = (3x2 −1)/2,
+P3 = x(5x2 −3)/2. Ortogonalità: ⟨Pn|Pm⟩=
+2
+2n+1δnm. Parità: Pn(−x) = (−1)nPn(x).
+Algoritmo Espansione di f in Legendre
+f(x) = P cnPn(x), cn = 2n+1
+2
+R 1
+−1 f(x)Pn(x)dx. Sfrutta parità: f pari ⇒solo n pari; f
+dispari ⇒solo n dispari.
+Esempio svolto Set 2, Es. 3  f(x) = eikrx
+cn = 2n+1
+2
+R 1
+−1 eikrxPn(x)dx. Per n = 0: c0 = sin(kr)/(kr). Per n = 1: trucco di Feyn-
+man
+R
+eikrxxdx = −i∂kr
+R
+eikrxdx. Espressione chiusa coinvolge funzioni di Bessel sferiche
+jn(kr).
+10.1.2
+Basi trigonometriche su [−L, L] o [0, L]
+Formulario rapido
+Su [−L, L]: {einπx/L/
+√
+2L}n∈Z è ONB. Su [0, L] con Dirichlet: {
+p
+2/L sin(nπx/L)}n≥1.
+Con Neumann: {1/
+√
+L} ∪{
+p
+2/L cos(nπx/L)}n≥1.
+Misti DirichletNeumann: sin((n +
+1/2)πx/L).
+Esempio svolto Scritto 12/02/2025, Es. 3  GramSchmidt in L2
+f1 = sin x e−x, f2 = cos x e−x su [0, ∞). Calcola ∥f1∥2 =
+R ∞
+0 sin2 x e−2xdx con sin2 x =
+(1−cos 2x)/2. Trova ∥f1∥2 = 1/8. Poi ⟨f1|f2⟩=
+R
+sin x cos x e−2xdx =
+R
+(sin 2x/2)e−2xdx =
+1/8. Applica GramSchmidt: ˜f2 = f2 −(⟨f1|f2⟩/∥f1∥2)f1 = f2 −f1.
+25
+
+
+===== PAGINA 32 =====
+Capitolo 10. Basi ortonormali e sviluppi in serie
+Trucco / Errore tipico
+Riconoscere strutture note prima di calcolare integrali brutti:
+R ∞
+0 e−ax sin bx dx =
+b
+a2+b2 ,
+R ∞
+0 e−ax cos bx dx =
+a
+a2+b2 .
+Parità anche in basi non-trigonometriche. Per Legendre vale, per Hermite vale, sfrutta
+sempre la parità per dimezzare il lavoro.
+Espansione di funzioni semplici in basi: spesso ⟨ϕn|1⟩è già tabulato.
+26
+
+
+===== PAGINA 33 =====
+Capitolo 11
+Operatori in dim. innita: spettro e
+autoaggiunzione
+11.1
+Punti di teoria essenziali
+Teoria
+Un operatore lineare A : D(A) ⊂H →H (densamente denito).
+ Aggiunto: A† con dominio D(A†) = {ψ : ∃η, ⟨ψ|Aϕ⟩= ⟨η|ϕ⟩∀ϕ ∈D(A)}, A†ψ = η.
+ Simmetrico: ⟨ψ|Aϕ⟩= ⟨Aψ|ϕ⟩su D(A) ⊂D(A†).
+ Autoaggiunto: A = A† e i domini coincidono.
+Garantisce spettro reale e teorema
+spettrale.
+ Spettro: σ(A) = {λ : A −λ non ha inverso limitato}. Si divide in puntuale (autovalori
+normalizzabili), continuo (autovalori generalizzati), residuo.
+Operatori chiave in QM: Xψ = xψ (continuo, σ = R), P = −i∂x (continuo su R, discreto
+su [a, b] con BC opportune). Per P su [0, L]:
+ BC periodiche ψ(L) = ψ(0): autoaggiunto, spettro discreto pn = 2πn/L.
+ BC antiperiodiche ψ(L) = −ψ(0): autoaggiunto, spettro discreto pn = (2n + 1)π/L.
+ Sola Dirichlet ψ(0) = ψ(L) = 0: simmetrico ma non autoaggiunto (indici di difetto
+(1, 1)).
+11.2
+Algoritmo per problemi tipo
+Algoritmo Spettro di operatore dierenziale su [a, b]
+1. Risolvi l'ODE Aψ = λψ con λ generico.
+2. Imponi le BC. Spesso ottieni un'equazione trascendente in λ, Φ(λ) = 0.
+3. Risolvi: per BC buone ottieni λn discreti (tipicamente quantizzati come sin, cos, eiλL =
+1).
+4. Normalizza le autofunzioni.
+5. (Opz.) Verica completezza: P
+n |ψn⟩⟨ψn| = ⊮provando δ(x −y).
+6. Verica autoaggiuntezza: ⟨Aψ|ϕ⟩−⟨ψ|Aϕ⟩= [termini di bordo]. Devono annullarsi.
+27
+
+
+===== PAGINA 34 =====
+Capitolo 11. Operatori in dim. innita: spettro e autoaggiunzione
+Esempio svolto Scritto 20/06/2023, Es. 3
+A = ∂2
+x −2∂x + 1 su [0, 1], ψ(0) = ψ(1) = 0. ODE: ψ′′ −2ψ′ + (1 −λ)ψ = 0. Caratteristica
+r2−2r+(1−λ) = 0 ⇒r± = 1±
+√
+λ. Soluzioni: ψ = ex(c1e
+√
+λx+c2e−
+√
+λx). ψ(0) = c1+c2 = 0,
+ψ(1) = e(c1e
+√
+λ −c1e−
+√
+λ) = 0 ⇒sinh
+√
+λ = 0 ⇒
+√
+λ = inπ.
+Spettro λn = −n2π2,
+n = 1, 2, . . . . Autofunzioni ψn(x) = ex sin(nπx) (non ortonormali in L2 standard! Devi
+includere un peso o coerentemente cambiare prodotto scalare; è una caratteristica degli
+operatori non-Hermitiani).
+Esempio svolto Scritto 08/07/2025, Es. 3
+A = −i∂x su [0, 1] con BC antiperiodica ψ(1) = −ψ(0).
+Autoaggiuntezza:
+⟨Aψ|ϕ⟩−⟨ψ|Aϕ⟩
+=
+−i[ψ∗ϕ]1
+0
+=
+−i(ψ∗(1)ϕ(1) −ψ∗(0)ϕ(0))
+=
+−i(ψ∗(0)ϕ(0) −ψ∗(0)ϕ(0)) = 0. ✓
+Spettro: −iψ′ = λψ ⇒ψ = Aeiλx. BC: eiλ = −1 ⇒λn = (2n + 1)π, n ∈Z. ONB:
+ψn(x) = ei(2n+1)πx.
+Espansione f = 1: cn =
+R 1
+0 e−i(2n+1)πxdx = 1−e−i(2n+1)π
+i(2n+1)π
+=
+2
+i(2n+1)π.
+Trucco / Errore tipico
+BC rendono autoaggiunto. Lo stesso operatore dierenziale può essere autoaggiunto o
+no a seconda delle BC. Verica sempre col calcolo dei termini di bordo dopo integrazione
+per parti.
+Spettro discreto vs continuo. Su dominio nito di solito discreto; su R di solito continuo.
+Eccezioni: potenziali connanti come −∂2
+x + x2 (oscillatore) hanno spettro discreto anche
+su R.
+Operatori del prim'ordine hanno BC a una sola estremità (puoi imporne solo una).
+Formulario rapido
+−∂2
+x su [0, L], Dir-Dir: λn = (nπ/L)2, ψn =
+p
+2/L sin(nπx/L), n = 1, 2, . . .
+−∂2
+x su [0, L], Neu-Neu: λn = (nπ/L)2, ψn =
+p
+2/L cos(nπx/L), n = 0, 1, . . .
+−∂2
+x su [0, L], Dir-Neu: λn = ((n + 1/2)π/L)2, ψn =
+p
+2/L sin((n + 1/2)πx/L).
+Oscillatore −∂2
+x + x2: λn = 2n + 1, ψn = Hermite.
+Pozzo −∂2
+x −δ(x): spettro discreto λ0 = −1/4, ψ0 = e−|x|/2/
+√
+2; continuo λ > 0.
+28
+
+
+===== PAGINA 35 =====
+Capitolo 12
+Distribuzioni: δ, δ′ e ani
+12.1
+Denizione operativa
+Teoria
+Una distribuzione T è un funzionale lineare continuo sulle funzioni test ϕ ∈C∞
+c . Scriviamo
+⟨T|ϕ⟩. La δ di Dirac: ⟨δ|ϕ⟩= ϕ(0). La sua derivata: ⟨δ′|ϕ⟩= −ϕ′(0).
+Identità fondamentali:
+1. δ(αx) = |α|−1δ(x).
+2. δ(f(x)) = P
+xn:f(xn)=0
+δ(x−xn)
+|f′(xn)| , valida se f′(xn)̸ = 0.
+3. xδ(x) = 0; f(x)δ(x) = f(0)δ(x).
+4. δ′(x)f(x) = δ′(x)f(0) −δ(x)f′(0).
+5. Rappresentazione integrale: δ(x) =
+1
+2π
+R ∞
+−∞eikxdk.
+6. Laplaciano: ∆(1/r) = −4πδ3(r) in R3.
+12.2
+Algoritmi
+Algoritmo
+R
+g(x)δ(f(x))dx
+1. Trova gli zeri xn di f nel dominio di integrazione.
+2. Verica f′(xn)̸ = 0. (Se nullo, lo zero è multiplo: vedere casi speciali.)
+3. Risultato = P
+n g(xn)/|f′(xn)|.
+Esempio svolto Scritto 20/01/2026, Es. 3
+RR
+δ′(x2 + y2 −1)δ(x2 −y2) g(x, y)dxdy. Cambia coordinate a (u = x2 + y2, v = x2 −y2),
+Jacobiano |J| = |4xy|.
+Gli zeri di δ(v) vincolano v = 0 ⇒x2 = y2; gli zeri di δ′(u −1) con la proprietà
+R
+δ′(u −
+1)F(u)du = −F ′(1).
+Combinando: il risultato è f(1) −f′(1) ove f è una funzione di
+r =
+p
+x2 + y2 valutata in r = 1.
+Algoritmo Integrali con δ′
+R
+ϕ(x)δ′(x−a)dx = −ϕ′(a), sempre. Per δ′(f(x)): cambia variabile u = f(x), du = f′(x)dx.
+Dopo il cambio compaiono derivate di |f′| a denominatore.
+29
+
+
+===== PAGINA 36 =====
+Capitolo 12. Distribuzioni: δ, δ′ e ani
+Esempio svolto Set 2, identità tensoriale
+∂i∂j(1/r) = (3ˆriˆrj −δij)/r3 −(4π/3)δijδ3(r). La parte distribuzionale nasce dall'azione
+del laplaciano sulla singolarità in 0.
+Trucco / Errore tipico
+Sempre testare su una funzione di prova. Se hai dubbi su un'identità, applicala a ϕ
+e integra: ottieni un numero che puoi vericare.
+Regolarizzazione. Per gestire calcoli con 1/r in R3, sostituisci 1/r →1/
+√
+r2 + ϵ2, esegui
+i conti, fai ϵ →0.
+δ e Fourier. ˆδ(k) = 1/
+√
+2π (con la nostra convenzione); δ(k) =
+1
+2π
+R
+eikxdx.
+Formulario rapido
+R
+δ(x −a)f(x)dx = f(a);
+R
+δ′(x −a)f(x)dx = −f′(a);
+δ(αx) = δ(x)/|α|; δ(f(x)) = P δ(x −xn)/|f′(xn)|;
+δ(x2 −a2) = [δ(x −a) + δ(x + a)]/(2|a|);
+Theta'(x) = δ(x); Θ(x) · δ(x) = 1
+2δ(x) (convenzione simmetrica).
+30
+
+
+===== PAGINA 37 =====
+Parte IV
+Analisi di Fourier
+31
+
+
+===== PAGINA 38 =====
+Capitolo 13
+Serie di Fourier
+13.1
+Denizioni e convenzioni
+Teoria
+f : [−L, L] →C in L2, periodicizzata. Sviluppo esponenziale:
+f(x) =
++∞
+X
+n=−∞
+cneinπx/L,
+cn = 1
+2L
+Z L
+−L
+f(x)e−inπx/Ldx.
+Forma trigonometrica:
+f(x) =
+a0
+2 + P
+n≥1[an cos(nπx/L) + bn sin(nπx/L)], con an =
+1
+L
+R
+f cos, bn = 1
+L
+R
+f sin.
+Teorema di Dirichlet: se f è C1 a tratti, S(x0) = [f(x+
+0 ) + f(x−
+0 )]/2.
+Parseval:
+1
+2L
+R
+|f|2 = P |cn|2 = a2
+0
+4 + 1
+2
+P(a2
+n + b2
+n).
+13.2
+Algoritmi
+Algoritmo Calcolo coecienti
+1. Sfrutta parità: f pari ⇒bn = 0; dispari ⇒an = 0.
+2. Per integrali con x e−inx, usa
+R
+xe−inxdx =
+1
+(−in)∂n
+R
+e−inxdx (trucco della derivata in
+n).
+3. Per funzioni a tratti, spezza l'integrale.
+4. Valuta la serie in punti speciali per ottenere somme numeriche.
+Esempio svolto Scritto 15/01/2024, Es. 4
+f(x) = x2 su [−π, π]. Pari ⇒bn = 0. a0 = 1
+π
+R π
+−π x2dx = 2π2
+3 . Per n ≥1:
+an = 1
+π
+Z π
+−π
+x2 cos nx dx = 4(−1)n
+n2
+(integrazione per parti due volte).
+Valutando in x = π: π2 =
+π2
+3 + P 4(−1)n
+n2
+cos nπ =
+π2
+3 + 4 P 1
+n2 ⇒P 1/n2 = π2/6.
+32
+
+
+===== PAGINA 39 =====
+13.2. Algoritmi
+Esempio svolto Scritto 03/07/2024, Es. 3  e|x| su [−1, 1]
+Pari ⇒sviluppo in coseni. an =
+R 1
+−1 e|x| cos(nπx)dx = 2
+R 1
+0 ex cos(nπx)dx. Integrazione per
+parti / parte reale di
+R
+e(1+inπ)xdx = e1+inπ−1
+1+inπ . Risultato an = 2[(−1)ne−1]
+1+n2π2
+.
+Valutando in x = 0: 1 = a0
+2 + P
+n≥1 an ⇒ricava P[(−1)ne −1]/(1 + n2π2).
+Esempio svolto Scritto 05/05/2025, Es. 3
+f(x) = sin(x/2)Θ(−x) su [−π, π]. Non ha parità denita: ne'an ne'bn si annullano. Cal-
+cola entrambi: an =
+1
+π
+R 0
+−π sin(x/2) cos(nx)dx, bn =
+1
+π
+R 0
+−π sin(x/2) sin(nx)dx.
+Werner:
+2 sin A cos B = sin(A + B) + sin(A −B). Si trova an = 2(−1)n+1
+π(4n2−1) (per esempio). Usando
+Dirichlet in x = 0 (continuo): 0 = a0/2 + P an dà P
+2
+π(4n2−1) = . . . .
+Trucco / Errore tipico
+Convergenza nei salti. Se f ha un salto in x0, S(x0) = media. Spesso è proprio il salto
+a darti la somma numerica notevole.
+Somme che escono. Valutando S in 0, π/2, π ottieni P 1/n2, P 1/n4, P(−1)n/(n2+a2).
+Parseval per somme di quadrati. P |cn|2 ti dà somme P 1/n4 etc.
+Trasformare cos2, sin2: usa cos2 x = (1 + cos 2x)/2 prima di integrare.
+Formulario rapido
+P 1/n2 = π2/6; P 1/n4 = π4/90; P(−1)n+1/n2 = π2/12; P 1/(2n+1)2 = π2/8; P 1/(n2+
+a2) = π coth(πa)/(2a) −1/(2a2); P(−1)n/(n2 + a2) = π/[2a sinh(πa)] −1/(2a2).
+33
+
+
+===== PAGINA 40 =====
+Capitolo 14
+Trasformata di Fourier
+14.1
+Convenzioni
+Useremo (come negli scritti):
+ˆf(k) =
+Z ∞
+−∞
+f(x)e−ikxdx,
+f(x) = 1
+2π
+Z ∞
+−∞
+ˆf(k)eikxdk.
+Plancherel:
+R
+|f|2 =
+1
+2π
+R
+| ˆf|2.
+Teoria Proprietà
+ Linearità, traslazione f(x −a) →e−ika ˆf(k), modulazione eiaxf →ˆf(k −a).
+ Scaling f(αx) →|α|−1 ˆf(k/α).
+ Derivata f′ →ik ˆf; xf →i ˆf′.
+ Convoluzione: [
+f ∗g = ˆfˆg, dove (f ∗g)(x) =
+R
+f(y)g(x −y)dy.
+ RiemannLebesgue: ˆf →0 all'innito.
+14.2
+Strategie di calcolo
+Algoritmo
+1. Riconosci la forma: gaussiana? razionale? trigonometrica × razionale?
+2. Gaussiana: completa il quadrato.
+3. Razionale: chiusura nel semipiano dove e−ikx decade (alto se k < 0, basso se k > 0).
+4. Trigonometrica: scrivi cos = (eiax + e−iax)/2, suddividi in due integrali con k →k ∓a.
+5. Funzioni con Θ: l'integrale parte da 0 (o si ferma a 0); appare la distribuzione di Sokhotski
+ˆΘ(k) = πδ(k) −iP/k.
+6. Convoluzione: se f = g ∗h, calcola ˆg, ˆh e moltiplica.
+Esempio svolto Gaussiana
+\
+e−x2/(2σ2)(k) = σ
+√
+2πe−σ2k2/2. Indeterminazione: ∆x ∆k = 1/2. Saturata dalle gaussiane.
+34
+
+
+===== PAGINA 41 =====
+14.2. Strategie di calcolo
+Esempio svolto Lorentziana
+\
+1/(x2 + a2)(k) = (π/a)e−|k|a. Per k > 0 chiudi sotto, polo in −ia: Res = 1/(−2ia)e−ka,
+integrale = 2πi Res ·(−1) per orientazione: = πe−ka/a. Analogamente per k < 0.
+Esempio svolto Scritto 04/07/2023, Es. 3
+f(x) = 1/[(x2 + 1)(x −2i)]. Poli ±i, 2i. Per k > 0 chiusura sotto ⇒unico polo −i nel
+semipiano inf., Res = 1/((−i + i)(−2i) · . . . ) =... Per k < 0 chiusura sopra ⇒poli i e 2i:
+somma residui.
+Esempio svolto Antitrasformata via residui  Scritto 16/11/2023, Es. 3
+ˆf(k) data, f(x) =
+1
+2π
+R ˆf(k)eikxdk. Per x > 0 chiudi nel semipiano superiore (eikx decade):
+contributo dai poli in Im k > 0. Per x < 0 chiudi sotto. Se x = 0 il valore è quello di
+Dirichlet = (f(0+) + f(0−))/2.
+Trucco / Errore tipico
+Da quale parte chiudo? Guarda l'esponenziale e−ikx (TF) o eikx (TF inversa). Devi
+avere decadimento nel semipiano dove chiudi.
+Decadimento di ˆf. Se f ha poli più vicini all'asse reale, ˆf decade più lentamente: | ˆf(k)| ∼
+e−| Im zpolo| |k|.
+Convoluzione vs prodotto. Se devi calcolare
+ˆ
+f · g, usa
+1
+2π ˆf ∗ˆg. Se devi calcolare [
+f ∗g,
+usa ˆfˆg.
+Funzioni discontinue. La loro TF non è L2 ma in L∞, decade come 1/k (Riemann
+Lebesgue).
+Formulario rapido
+\
+e−a|x| =
+2a
+k2+a2 ;
+\
+e−x2/(2σ2) = σ
+√
+2πe−σ2k2/2;
+\
+sin(ax)/x = π[Θ(k + a) −Θ(k −a)]; d
+1/x =
+−iπ sgn(k) (PV);
+\
+Θ(x)e−ax = 1/(a + ik);
+\
+δ(x −a) = e−ika; b1 = 2πδ(k).
+35
+
+
+===== PAGINA 42 =====
+Capitolo 15
+Trasformata di Laplace
+15.1
+Denizione e usi
+L[f](s) =
+R ∞
+0 f(t)e−stdt, denita per Re s > σ0 dove σ0 = ascissa di convergenza.
+Teoria Proprietà
+ L[f′] = sF(s) −f(0), L[f′′] = s2F −sf(0) −f′(0).
+ L[tf] = −F ′(s).
+ L[Θ(t −a)f(t −a)] = e−asF(s).
+ Convoluzione: L[f ∗g] = F(s)G(s).
+ Inversione di Bromwich: f(t) =
+1
+2πi
+R c+i∞
+c−i∞F(s)estds, con c > σ0. Per t > 0 chiudi nel
+semipiano sinistro.
+Algoritmo Risolvere Cauchy con Laplace
+1. Applica L all'ODE; usa le condizioni iniziali.
+2. Risolvi l'equazione algebrica per F(s).
+3. Antitrasforma: spesso è una somma di frazioni semplici, le cui antitrasformate sono
+tabulate.
+Formulario rapido
+L[1] = 1/s; L[tn] = n!/sn+1; L[eat] = 1/(s −a); L[sin ωt] = ω/(s2 + ω2); L[cos ωt] =
+s/(s2 + ω2); L[δ(t −a)] = e−as; L[e−t2/2] =
+p
+π/2es2/2[1 −erf(s/
+√
+2)].
+36
+
+
+===== PAGINA 43 =====
+Parte V
+Equazioni dierenziali e funzioni di
+Green
+37
+
+
+===== PAGINA 44 =====
+Capitolo 16
+ODE: variazione delle costanti e Wronskiano
+16.1
+Forma standard e Wronskiano
+ODE lineare del 2◦ordine: a2(x)f′′ + a1(x)f′ + a0(x)f = j(x). Soluzioni omogenee f1, f2, Wron-
+skiano W = f1f′
+2 −f′
+1f2. Vale l'identità di Abel: W(x) = W(x0) exp[−
+R x
+x0(a1/a2)].
+Algoritmo Risoluzione completa
+1. Trova due soluzioni omogenee indipendenti:
+ Coecienti costanti ⇒caratteristica a2r2 + a1r + a0 = 0.
+ Eulero a2x2f′′ + a1xf′ + a0f = j ⇒f = xr dà a2r(r −1) + a1r + a0 = 0.
+2. Calcola W.
+3. Soluzione particolare via variazione delle costanti:
+fp(x) =
+Z
+j(y)
+a2(y)W(y)[f1(y)f2(x) −f1(x)f2(y)]dy.
+4. Soluzione generale f = Af1 + Bf2 + fp.
+5. Imponi le condizioni (iniziali / al contorno).
+Esempio svolto Scritto 10/09/2024, Es. 4
+x3f′′ + 2x2f′ −2xf = x3 + 1, x ∈[1, ∞), f(1) = 0, lim asintotica nita.
+Omogenea ÷x: x2f′′ + 2xf′ −2f = 0 è Eulero. r(r −1) + 2r −2 = 0 ⇒r2 + r −2 = 0 ⇒
+r = 1, −2. f1 = x, f2 = 1/x2.
+W = f1f′
+2 −f′
+1f2 = x(−2/x3) −1 · (1/x2) = −3/x2. a2(x) = x3.
+Soluzione particolare con j(x) = x3 + 1:
+fp(x) =
+Z x
+1
+y3 + 1
+y3 · (−3/y2)
+
+y · (1/x2) −x · (1/y2)
+
+dy = . . .
+Imponi f(1) = 0 e regolarità all'innito (esclude la soluzione f1 = x se troppo grande).
+Trucco / Errore tipico
+Eulero con radici coincidenti: la seconda soluzione è xr log x.
+Ridotti d'ordine: se conosci f1, f2 = f1
+R
+1
+f2
+1 exp(−
+R
+a1/a2)dx.
+Condizioni asintotiche. Spesso lim∞nito esclude le soluzioni divergenti ⇒ssa una
+costante senza calcoli.
+38
+
+
+===== PAGINA 45 =====
+Capitolo 17
+Funzioni di Green per ODE
+17.1
+Denizione e algoritmo standard
+Teoria
+Per ODE lineare Lf = j con BC omogenee ssate, G(x, y) soddisfa LxG(x, y) = δ(x −y)
+con le stesse BC. Allora f(x) =
+R
+G(x, y)j(y)dy.
+Algoritmo Costruzione di G per ODE 2◦ord. con BC
+1. Trova f1 che soddisfa la BC sinistra (omogenea) e f2 che soddisfa quella destra.
+2. Determina il Wronskiano W(y).
+3. G(x, y) =
+1
+a2(y)W(y)
+
+f1(x)f2(y)Θ(y −x) + f1(y)f2(x)Θ(x −y)
+
+.
+4. Veriche: continuità in x = y, salto della derivata ∂xG(y+, y) −∂xG(y−, y) = 1/a2(y).
+5. Se le BC sono entrambe a sinistra (es. Cauchy), G è ritardata: G(x, y) = 0 per x < y,
+vedi cap. 20.
+Esempio svolto Scritto 20/06/2023, Es. 4
+Eulero x2f′′ + xf′ −f = x2, BC f(1) = f(2) = 0. Omogenea r2 −1 = 0 ⇒fh = Ax + B/x.
+f1 = x −1/x soddisfa f1(1) = 0. f2 = 2x −x · 2 = 2x −2x = 0... aspetta: serve f2 con
+f2(2) = 0, prendi f2 = x −4/x. W = f1f′
+2 −f′
+1f2 va calcolato. Poi G come sopra.
+Soluzione particolare f(x) =
+R 2
+1 G(x, y) · y2/y2dy =
+R 2
+1 G(x, y)dy (perché j(y) = y2 e
+a2(y) = y2).
+Esempio svolto Scritto 04/07/2023, Es. 4  sorgente δ′
+x2f′′ = δ′(x −1) su [0, 2], f(0) = f(2) = 0. Calcola G(x, y) con sorgente δ(x −y), poi
+f(x) = −∂yG(x, y)|y=1.
+Trucco / Errore tipico
+Dierenziale negli operatori sorgente δ′: se l'equazione è Lf = δ′(x −x0), allora
+f = −∂yG(x, y)|y=x0.
+Test rapido del salto: G deve essere continua in x = y; la derivata in x ha un salto pari
+a 1/a2(y).
+BC degeneri: se f1 ≡f2 (proporzionali), il problema non ammette Green standard (auto-
+39
+
+
+===== PAGINA 46 =====
+Capitolo 17. Funzioni di Green per ODE
+valore 0 nel problema agli autovalori associato).
+40
+
+
+===== PAGINA 47 =====
+Capitolo 18
+EDP: separazione di variabili e nucleo del calore
+18.1
+Equazione del calore su intervallo nito
+Algoritmo ∂tu = κ∂xxu su [0, L], BC + dato u(0, x) = u0(x)
+1. Ansatz separabile: u = T(t)X(x). Ottieni ˙T/(κT) = X′′/X = −λ (separazione).
+2. Spettro da BC (cf. Cap. 11): λn = (nπ/L)2, Xn =
+p
+2/L sin(nπx/L) (Dirichlet).
+3. Soluzione generale: u(t, x) = P
+n cne−κλntXn(x).
+4. Coecienti: cn = ⟨Xn|u0⟩=
+R L
+0 Xn(x)u0(x)dx.
+Esempio svolto Scritto 05/11/2025, Es. 4
+∂tu = ∂xxu su [0, 2π) periodico, u0(x) = sin 2x −cos x.
+Spettro periodico: einx con λn = n2. Riconosci immediatamente u0 come somma di due
+autofunzioni ⇒
+u(t, x) = e−4t sin 2x −e−t cos x.
+Esempio svolto Scritto 12/02/2026, Es. 4  coeciente t2
+∂tu = t2∂xxu su [0, π) Neumann.
+Separazione: ˙T/(t2T) = X′′/X = −λ con autovalori λn = n2 e autofunzioni cos(nx). ODE
+per Tn: ˙Tn = −n2t2Tn ⇒Tn = Ane−n2t3/3. Soluzione: u(t, x) = P
+n cne−n2t3/3 cos(nx), con
+cn = coecienti di Fourier del dato.
+18.2
+Calore su R  il nucleo
+Teoria
+∂tu = κ∂xxu su R, u(0, x) = u0(x) ⇒
+u(t, x) =
+Z ∞
+−∞
+e−(x−y)2/(4κt)
+√
+4πκt
+u0(y)dy.
+Il nucleo K(t, x) = e−x2/(4κt)/
+√
+4πκt è una gaussiana che si allarga: varianza 2κt, area 1.
+Per t →0+, K →δ(x).
+41
+
+
+===== PAGINA 48 =====
+Capitolo 18. EDP: separazione di variabili e nucleo del calore
+Esempio svolto Dato gaussiano
+u0 = e−x2/(2σ2). Convoluzione con K ⇒gaussiana di varianza σ2 + 2κt:
+u(t, x) =
+r
+σ2
+σ2 + 2κt e−x2/[2(σ2+2κt)].
+Esempio svolto Scritto 23/06/2025, Es. 4  coeciente sin t
+∂tu −sin t ∂xxu + u = 0 su x > 0 Neumann, u0 = e−x.
+Trasforma in coseni rispetto a x (estendi pari): ∂tˆu −sin t · (−k2)ˆu + ˆu = 0 ⇒ˆu(t, k) =
+ˆu0(k) exp
+ R t
+0(−sin τ · k2 −1)dτ
+
+= ˆu0(k)e−k2(1−cos t)−t. Antitrasforma.
+Trucco / Errore tipico
+Coecienti dipendenti dal tempo ∂tu = a(t)∂xxu: cambio variabile τ =
+R t
+0 a(s)ds
+riporta a calore standard.
+Advection-diusion ∂tu + v∂xu = κ∂xxu: cambio y = x −vt elimina l'advection.
+Estensione di simmetria per Neumann: estendi il dato pari attorno al bordo; per
+Dirichlet dispari. Così riduci a un problema su R.
+Riconoscimento delle autofunzioni. Se il dato iniziale è una combinazione di poche
+autofunzioni, NON calcolare la serie: scrivi direttamente la soluzione.
+Formulario rapido
+Nucleo del calore: K(t, x) = e−x2/(4κt)/
+√
+4πκt.
+Varianza gaussiana dopo tempo t: σ2(t) = σ2(0) + 2κt.
+TF: ˆK(t, k) = e−κk2t ⇒ogni soluzione TF di calore decade gaussianamente in k.
+42
+
+
+===== PAGINA 49 =====
+Capitolo 19
+EDP delle onde e di Schrödinger
+19.1
+Onde 1D: d'Alembert
+Teoria
+∂ttu = c2∂xxu su R, u(0, x) = h(x), ut(0, x) = v(x):
+u(t, x) = h(x −ct) + h(x + ct)
+2
++ 1
+2c
+Z x+ct
+x−ct
+v(y)dy.
+Sull'intervallo [0, L] con BC: separazione e serie in autofunzioni come per il calore, ma le
+frequenze sono ωn = c√λn e i modi oscillano (non decadono).
+Algoritmo Onde su [0, L]
+1. Espandi dato e velocità iniziale in autofunzioni Xn(x).
+2. Modi: un(t) = An cos ωnt + Bn sin ωnt, con An = ⟨Xn|h⟩, Bn = ⟨Xn|v⟩/ωn.
+3. Soluzione u(t, x) = P
+n[An cos ωnt + Bn sin ωnt]Xn(x).
+Esempio svolto Scritto 20/01/2026, Es. 4
+Corda ssa [0, π]: Xn =
+p
+2/π sin(nx), ωn = nc.
+Dato velocità iniziale opportuno (es.
+costante a tratti). Calcolo coecienti Bn =
+1
+nc
+R π
+0 v(x)Xn(x)dx. Valutando la soluzione in
+punti speciali si ottengono somme tipo P(−1)n/(2n + 1)3 = π3/32.
+19.2
+Schrödinger libera
+Teoria
+i∂tψ = −1
+2∂xxψ su R (ℏ= m = 1). TF di ψ in k: ψ(t, k) = e−ik2t/2ψ0(k).
+In rappresentazione delle posizioni con dato ψ0 gaussiano e−x2/(2σ2), ψ(t, x) è ancora gaus-
+siana ma con larghezza complessa σ2 + it. Modulo: |ψ|2 gaussiana con σ2(t) = σ2 + t2/σ2
+(allargamento del pacchetto).
+43
+
+
+===== PAGINA 50 =====
+Capitolo 19. EDP delle onde e di Schrödinger
+19.2.1
+Con potenziale armonico
+Esempio svolto Scritto 08/09/2025, Es. 4
+−∂ttu + ∂xxu −x2u = 0, dato (2 + 3x)e−x2/2.
+Riconosci −∂xx +x2 = Hamiltoniana oscillatore. Autofunzioni Hermite-Gauss Hn(x)e−x2/2,
+autovalori En = 2n + 1.
+Il dato è combinazione di ψ0 e ψ1: ψ0 = e−x2/2/π1/4, ψ1 =
+√
+2xe−x2/2/π1/4. Quindi (2 + 3x)e−x2/2 = 2π1/4ψ0 +
+3
+√
+2π1/4ψ1. La PDE iperbolica con
+questo potenziale dice un(t) = An cos(√Ent) + Bn sin(√Ent) (analogo onde su autospazi).
+Trucco / Errore tipico
+Onde su segmento: la soluzione è periodica in t con periodo 2L/c (se le frequenze sono
+commensurabili).
+Schrödinger gaussiana: allargamento σ(t) =
+p
+σ2 + t2/σ2. Per t ≫σ2, σ(t) ∼t/σ ⇒
+∆p∆x ∼t (sparpagliamento).
+Riconoscere Hermite/Bessel/Legendre: se il potenziale è x2 ⇒Hermite; se è cilindrico
+⇒Bessel; se sferico ⇒Legendre/armoniche sferiche.
+44
+
+
+===== PAGINA 51 =====
+Capitolo 20
+Propagatori e funzioni di Green per EDP
+20.1
+Costruzione tramite Fourier
+Teoria
+Per Lu = j con L a coecienti costanti, G tale che LG = δ(t)δ(x). TF in (t, x) →(ω, k):
+˜D(iω, ik) ˜G(ω, k) = 1
+⇒
+˜G =
+1
+˜D(iω, ik)
+.
+Antitrasformata: la natura della curva di zeri di ˜D in ω determina se G è ritardata, avanzata
+o di Feynman (prescrizione iϵ).
+20.2
+I propagatori notevoli
+Formulario rapido Equazioni e Green ritardata
+Calore ∂t −κ∂xx:
+GR(t, x) = Θ(t)e−x2/(4κt)
+√
+4πκt .
+Schrödinger libera i∂t + 1
+2∂xx:
+GR(t, x) = −iΘ(t)eix2/(2t)
+√
+2πit
+.
+Onde 1D ∂tt −c2∂xx:
+GR(t, x) = 1
+2cΘ(t)
+
+Θ(x + ct) −Θ(x −ct)
+
+= 1
+2cΘ(ct −|x|)Θ(t).
+KleinGordon Euclidean −∆+ m2 in Rd:
+legato a funzioni di Bessel modicate.
+Coulomb −∆in R3: G = 1/(4π|r|).
+Algoritmo Soluzione di Lu = j con GR
+u(t, x) =
+R t
+−∞
+R
+GR(t −t′, x −x′)j(t′, x′)dx′dt′.
+45
+
+
+===== PAGINA 52 =====
+Capitolo 20. Propagatori e funzioni di Green per EDP
+Esempio svolto More Problems, Es. 19  calore con sorgente
+∂tu −∂xxu = δ(x)δ(t −1), u(0, x) = 0.
+Soluzione: u(t, x) = GR(t −1, x) = Θ(t −
+1)e−x2/(4(t−1))/
+p
+4π(t −1).
+Esempio svolto Scritto 08/07/2025, Es. 4
+∂tf = ∂xxf −∂xf −f + δ(x)δ(t/3 −1). Cambio di funzione f = e−x/2+(cost)tg elimina
+advection e massa, riducendo a calore. Poi convoluzione con GR del calore valutata in t = 3
+(perché δ(t/3 −1) = 3δ(t −3)).
+Trucco / Errore tipico
+Prescrizione iϵ. Spostare i poli innitesimamente nel piano complesso seleziona quale
+Green ottieni:
+ ω →ω + iϵ (poli scendono sotto R): chiusura sopra per t > 0, nessun residuo ⇒GR
+(causale).
+ ω →ω −iϵ: GA (anticausale).
+ Feynman: poli con massa positiva sotto, negativa sopra (per relativistico).
+Per onde: il propagatore è supportato sul cono luce; in 3D non c'è diusione (principio di
+Huygens).
+46
+
+
+===== PAGINA 53 =====
+Capitolo 21
+Quadro sinottico e strategia d'esame
+21.1
+Riconoscimento rapido del tipo di esercizio
+La tabella seguente associa a ciascuna parola chiave dell'esame il capitolo da consultare.
+Trigger nel testo
+Capitolo
+base ortonormale, GramSchmidt, proiettore
+Cap. 1
+diagonalizza, cambio di base
+Cap. 2
+eA, log A, f(A), An, CayleyHamilton
+Cap. 3
+serie di Laurent, parte principale, classica singo-
+larità
+Cap. 4
+calcolare l'integrale
+H
+, residuo
+Cap. 5
+
+R ∞
+−∞, 
+R ∞
+0
+via residui
+Cap. 6
+√z, log z, taglio, branch
+Cap. 7
+armonica, CauchyRiemann, coniugata
+Cap. 8
+appartiene a L2
+Cap. 9
+espandere in base, Legendre, Hermite
+Cap. 10
+spettro di un operatore, autoaggiunto
+Cap. 11
+δ(f), δ′, distribuzione
+Cap. 12
+serie di Fourier, coecienti an, bn
+Cap. 13
+trasformata di Fourier
+Cap. 14
+trasformata di Laplace
+Cap. 15
+ODE 2◦ord. con sorgente
+Cap. 16
+funzione di Green per ODE, BC
+Cap. 17
+equazione del calore
+Cap. 18
+equazione delle onde, Schrödinger
+Cap. 19
+propagatore, ritardata
+Cap. 20
+21.2
+Le 10 idee che risolvono il 90% degli esercizi
+1. Decomposizione spettrale. Diagonalizza, calcola sugli autovalori, ricombina.
+2. CayleyHamilton. Per funzioni di matrici non diagonalizzabili o simboliche.
+3. Laurent + residui. Per ogni integrale su circuiti chiusi nel piano complesso.
+4. Chiusura a semicerchio + Jordan. Per integrali
+R ∞
+−∞f(x)eikxdx.
+5. Keyhole / settore. Per integrali con xα, log x.
+6. Separazione di variabili. Per ogni EDP lineare a coecienti separabili.
+47
+
+
+===== PAGINA 54 =====
+Capitolo 21. Quadro sinottico e strategia d'esame
+7. Sviluppo in autofunzioni. Per problemi al contorno su intervallo nito.
+8. Trasformata di Fourier. Per problemi su R a coecienti costanti.
+9. Funzione di Green. Per problemi con sorgenti distribuzionali.
+10. Parità. Dimezza il lavoro in ogni occasione: integrali, serie, autofunzioni.
+21.3
+Errori che fanno perdere punti (e come evitarli)
+ Dimenticare il coniugato nel prodotto scalare complesso.
+ Confondere simmetrico con autoaggiunto: verica sempre i termini di bordo.
+ Sbagliare il branch di √z o log z: disegna sempre il piano complesso e segna gli angoli.
+ Chiudere il contorno dalla parte sbagliata: controlla il segno dell'esponenziale.
+ Trasformata di Fourier con convenzione di segno mista: ssa ˆf(k) =
+R
+e−ikxf e usala sempre.
+ Trascurare condizioni al contorno: spesso l'esercizio si riduce a determinare quale costante è
+libera.
+ Sviluppare in autofunzioni di un operatore non autoaggiunto senza giusticare la completezza.
+ Confondere δ(x) con la sua TF: ˆδ = 1 (convenzione senza 2π), ˆ1 = 2πδ.
+ Dimenticare il fattore 1/(2π) nell'antitrasformata.
+ Conteggio errato dei poli interni a γ: disegnali tutti, segnali con • se interni, ◦se esterni.
+21.4
+Buon esame.
+Tutta la teoria di questo libro è compressa dietro al riconoscimento del tipo di esercizio. Allenati
+a riconoscere, e l'algoritmo verrà da sé. Se in un esercizio nuovo non riconosci nulla, cerca prima
+quale dei 10 punti sopra si applica: spesso è una combinazione di due di essi (es. TF + residui,
+separazione + serie di Fourier). Buona fortuna!
+48

@@ -1,0 +1,163 @@
+===== PAGINA 1 =====
+Geometria (Fisica)
+Proﬀ. A. De Sole, G. Mondello, K. O’Grady, P. Papi
+Prova scritta - 13 luglio 2017
+Nome:
+Cognome:
+Numero di matricola:
+Esercizio
+Punti totali
+Punteggio
+1
+6
+2
+6
+3
+8
+4
+6
+5
+8
+Totale
+34
+Occorre motivare le risposte. Una soluzione corretta priva di motivazione ricever`a 0 punti.
+Verr`a corretto solo quello che sar`a scritto su queste pagine.
+Voto/30:
+1
+
+
+===== PAGINA 2 =====
+Esercizio 1. Stabilire quali tra le seguenti funzioni sono applicazioni lineari tra spazi vettoriali:
+(a) f : R →R, f(x) = x + 1;
+(b) g : R2 →R, g(x, y) = 3x −πy;
+(c) h : R2 →R, h(x, y) = x + y + xy.
+(d) p : R2 →R2, p(x, y) = ( 6xy2+6x+y3+y
+y2+1
+, y).
+Risoluzione:
+Risposta (cerchiare quella corretta):
+(a)
+S`ı / No
+(b)
+S`ı / No
+(c)
+S`ı / No
+(d)
+S`ı / No
+2
+
+
+===== PAGINA 3 =====
+Esercizio 2. Sia W ⊂R5 il sottospazio lineare W :=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+x1
+x2
+x3
+x4
+x5
+
+
+
+
+∈R5
+
+x1 −x2 = 0
+x3 + x4 = 0
+x5 = 0
+
+
+
+
+
+
+
+
+
+.
+(a) Determinare una base B di W.
+(b) Determinare una base C dello spazio vettoriale quoziente R5/W.
+Risoluzione:
+Risposta: (a)
+B =
+(b)
+C =
+3
+
+
+===== PAGINA 4 =====
+Esercizio 3. Sia A =
+1
+1
+1
+2
+
+e B(X, Y ) := Xt·A·Y la corrispondente forma bilineare simmetrica su R2
+e sia ⟨·, ·⟩il prodotto scalare standard su R2. Costruire, se esiste, un’isometria f : (R2, B) →(R2, ⟨·, ·⟩).
+Risoluzione:
+Risposta: f esiste? S`ı / No
+Se s`ı, f
+
+x1
+x2
+
+=
+(cerchiare quella corretta)
+4
+
+
+===== PAGINA 5 =====
+Esercizio 4. Sia M ∈M5×5(R) una matrice di rango 4, e sia TM : M5×5(R) →M5×5(R) l’applicazione
+lineare data da
+TM(A) := A · M.
+Determinare il rango di TM.
+Risoluzione:
+Risposta: Rango di TM =
+5
+
+
+===== PAGINA 6 =====
+Esercizio 5. Sia LM : R3 →R3 l’endomorﬁsmo associato alla matrice
+M :=
+
+
+5
+−10
+−8
+−10
+2
+−2
+−8
+−2
+8 + t
+
+
+dipendente dal parametro t ∈R.
+(a) Determinare per quali t il vettore
+
+
+2
+2
+1
+
+sia un autovettore di LM e calcolarne l’autovalore associato.
+(b) Al variare del parametro t, determinare rango e segnatura della forma bilineare simmetrica associata
+a M. [Suggerimento: pu`o essere di aiuto calcolare det(M)].
+Risoluzione:
+Risposta: (a) t =
+Autovalore =
+(b) Rango =
+Segnatura =
+6

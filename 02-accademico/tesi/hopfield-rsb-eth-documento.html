@@ -1,0 +1,363 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8">
+<title>Memoria, vetri di spin e termalizzazione quantistica</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+ @page{size:A4;margin:19mm 17mm 20mm}
+ body{font-family:Georgia,'Times New Roman',serif;font-size:10.6pt;line-height:1.48;color:#14171c;margin:0}
+ h1{font-size:20pt;margin:0 0 2mm;line-height:1.2}
+ h2{font-size:13.5pt;margin:8mm 0 2mm;padding-bottom:1mm;border-bottom:1px solid #c9ced6;page-break-after:avoid}
+ h3{font-size:11.6pt;margin:5mm 0 1.5mm;color:#1e3a5f;page-break-after:avoid}
+ h4{font-size:10.6pt;margin:4mm 0 1mm;font-style:italic;page-break-after:avoid}
+ p{margin:0 0 2.2mm;text-align:justify}
+ ul{margin:0 0 2.6mm;padding-left:5.5mm} li{margin:0 0 1.2mm}
+ hr{border:none;border-top:1px solid #d6dae0;margin:6mm 0}
+ blockquote{margin:2.5mm 0;padding:2mm 4mm;background:#f4f6f9;border-left:2.5pt solid #4a6fa5;font-size:10pt}
+ table{border-collapse:collapse;width:100%;margin:2.5mm 0;font-size:9.6pt}
+ td{border:1px solid #ccd2da;padding:1.4mm 2.2mm;vertical-align:top}
+ tr:first-child td{background:#eef1f5;font-weight:bold}
+ code{background:#eef1f5;padding:0 1mm;border-radius:2px;font-family:Consolas,monospace;font-size:9.2pt}
+ a{color:#1e4a80;text-decoration:none}
+ .katex{font-size:1.02em}
+ .katex-display{margin:2.5mm 0;page-break-inside:avoid}
+ h2,h3{page-break-after:avoid} table,blockquote{page-break-inside:avoid}
+</style></head><body>
+<h1>Memoria, vetri di spin e termalizzazione quantistica</h1>
+<h2>Un documento di lavoro per decidere una tesi</h2>
+<p>*Scritto da Dedalo per Giuseppe Scarda, 22 luglio 2026. Materiale grezzo verificato dall'Argonauta</p>
+<p>in <code>hopfield-rsb-eth-findings.md</code>; l'inquadramento, i giudizi e le proposte sono miei e vanno</p>
+<p>discussi, non presi per buoni.*</p>
+<hr>
+<h2>0. Il punto, prima di tutto il resto</h2>
+<p>C'è un buco preciso nella letteratura, e ha la forma giusta per una tesi.</p>
+<p>Nel 2017 Baldwin, Laumann, Pal e Scardicchio hanno mostrato che nella fase vetrosa di un modello</p>
+<p>$p$-spin quantistico l'ipotesi di termalizzazione degli autostati <b>viene violata</b>: gli autostati</p>
+<p>si organizzano in <i>cluster</i>, e la violazione non è del tipo noto (non è localizzazione a molti</p>
+<p>corpi). È il collegamento più diretto che esista fra la struttura gerarchica degli stati di un</p>
+<p>vetro di spin e il modo in cui un sistema quantistico chiuso raggiunge — o non raggiunge —</p>
+<p>l'equilibrio.</p>
+<p>Quel lavoro riguarda i modelli con $p \ge 3$. Il modello di Hopfield, cioè il modello di **memoria</p>
+<p>associativa**, è il caso $p = 2$. E i due casi non sono varianti dello stesso problema: hanno</p>
+<p>strutture di rottura delle repliche <b>qualitativamente diverse</b> — un salto netto nel primo caso,</p>
+<p>una gerarchia continua nel secondo.</p>
+<p><b>Per il caso $p=2$, l'analisi ETH non è stata fatta.</b></p>
+<p>Questo è il buco. Non è un buco perché nessuno ci ha pensato: è un buco perché richiede di tenere</p>
+<p>insieme due tradizioni che parlano lingue diverse — la meccanica statistica dei sistemi disordinati</p>
+<p>e la fisica quantistica dei molti corpi. Tu sei nella posizione di impararle entrambe, e sei nel</p>
+<p>posto dove la prima è nata.</p>
+<p>Il resto di questo documento serve a mettere quel buco a fuoco: cosa c'è da sapere prima, quanto è</p>
+<p>grande, e quali domande ci si possono ritagliare dentro con quattro-sei mesi di lavoro.</p>
+<hr>
+<h1>Parte I — Il modello di Hopfield è un vetro di spin</h1>
+<h2>1.1 Il modello, in tre righe</h2>
+<p>Prendi $N$ neuroni binari $S_i = \pm 1$ e $p$ configurazioni da memorizzare (i <i>pattern</i>)</p>
+<p>$\xi_i^\mu$, con $\mu = 1,\dots,p$, ognuna una stringa casuale di $\pm 1$. Costruisci i pesi</p>
+<p>sinaptici con la regola di Hebb,</p>
+<p>$$J_{ij} = \frac{1}{N}\sum_{\mu=1}^{p}\xi_i^\mu \xi_j^\mu ,$$</p>
+<p>e definisci l'energia</p>
+<p>$$H = -\frac{1}{2}\sum_{i \ne j} J_{ij} S_i S_j .$$</p>
+<p>È un modello di Ising con interazioni a due corpi — quindi $p=2$ nel senso del numero di spin</p>
+<p>accoppiati, da non confondere con $p$ = numero di pattern — con accoppiamenti costruiti dai</p>
+<p>pattern. Hopfield (1982) osservò che ogni pattern è un <b>minimo locale</b> dell'energia: partendo da</p>
+<p>una configurazione corrotta, la dinamica di discesa la ripara. È la memoria associativa: si</p>
+<p>recupera il ricordo intero da un frammento.</p>
+<p>La domanda quantitativa è: **quanti pattern si possono memorizzare prima che il sistema smetta di</p>
+<p>funzionare?** Se ne metti troppi, i minimi si confondono e il recupero fallisce.</p>
+<h2>1.2 Perché serve la meccanica statistica</h2>
+<p>La risposta dipende dal rapporto</p>
+<p>$$\alpha = \frac{p}{N},$$</p>
+<p>e si ottiene trattando il modello come un sistema termodinamico: temperatura $T$ (rumore nella</p>
+<p>dinamica neurale), energia libera, transizioni di fase. Ma c'è una complicazione seria: gli</p>
+<p>accoppiamenti $J_{ij}$ sono <b>casuali</b>, perché costruiti da pattern casuali. Il sistema è</p>
+<p><i>disordinato</i>, e l'energia libera dipende dalla particolare realizzazione del disordine.</p>
+<p>Quello che interessa è la media sul disordine dell'energia libera, cioè $\overline{\ln Z}$ e non</p>
+<p>$\ln \overline{Z}$ — la media del logaritmo, non il logaritmo della media. Le due cose sono diverse,</p>
+<p>e la prima è quella fisica (l'energia libera è <i>autoaverageante</i>: per $N$ grande ogni campione dà</p>
+<p>lo stesso risultato).</p>
+<p>Il <b>metodo delle repliche</b> serve esattamente a calcolare $\overline{\ln Z}$. Il trucco è</p>
+<p>l'identità</p>
+<p>$$\ln Z = \lim_{n \to 0}\frac{Z^n - 1}{n},$$</p>
+<p>che permette di calcolare $\overline{Z^n}$ — la media su $n$ copie identiche del sistema, che è</p>
+<p>fattibile — e poi continuare analiticamente a $n \to 0$.</p>
+<p>*(Sì: è la continuazione analitica del nucleo 14 del tuo percorso, usata su un intero. Non è un</p>
+<p>dettaglio pittoresco — è precisamente il punto in cui il metodo delle repliche è matematicamente</p>
+<p>delicato, ed è da lì che nascono i suoi problemi e la sua bellezza.)*</p>
+<h2>1.3 Le quantità che descrivono le fasi</h2>
+<p>Dal calcolo emergono tre parametri d'ordine, e capire cosa significano è metà del lavoro.</p>
+<p><b>L'overlap col pattern</b>, $m^\mu = \frac{1}{N}\sum_i \xi_i^\mu \langle S_i\rangle$: quanto la</p>
+<p>configurazione somiglia al ricordo $\mu$. Se $m \approx 1$ il ricordo è stato recuperato.</p>
+<p><b>Il parametro di Edwards–Anderson</b>, $q = \frac{1}{N}\sum_i \langle S_i\rangle^2$: quanto il</p>
+<p>sistema è <i>congelato</i>. Se $q = 0$ gli spin fluttuano liberamente; se $q \ne 0$ ognuno ha una</p>
+<p>direzione preferita, anche se globalmente non somiglia a nessun pattern. È il marchio della fase</p>
+<p>vetrosa.</p>
+<p><b>La suscettività</b> $\chi = \beta(1-q)$: quanto il sistema risponde a una perturbazione.</p>
+<p>Da qui il <b>diagramma di fase</b>, tre regioni:</p>
+<table>
+<tr><td>fase</td><td>$m$</td><td>$q$</td><td>cosa vuol dire</td></tr>
+<tr><td><b>recupero</b></td><td>$\ne 0$</td><td>$\ne 0$</td><td>la memoria funziona: il sistema cade sul pattern</td></tr>
+<tr><td><b>vetro di spin</b></td><td>$0$</td><td>$\ne 0$</td><td>congelato, ma su stati che <b>non</b> sono ricordi: memoria distrutta</td></tr>
+<tr><td><b>paramagnete</b></td><td>$0$</td><td>$0$</td><td>troppo rumore: nessuna struttura</td></tr>
+</table>
+<p>E il numero che porta il peso di tutta la teoria:</p>
+<p>$$\boxed{\ \alpha_c \approx 0{,}138\ }$$</p>
+<p>Oltre $0{,}138\,N$ pattern, la memoria collassa <b>bruscamente</b> nella fase vetrosa. Non degrada:</p>
+<p>crolla. È una transizione di fase del primo ordine nell'overlap, ed è il risultato di</p>
+<p>Amit–Gutfreund–Sompolinsky (1985, 1987).</p>
+<p>*Vale la pena fermarsi su cosa dice questo numero: un sistema di memoria associativa costruito con</p>
+<p>la regola più semplice possibile ha una capacità <b>finita e universale</b>, indipendente dai dettagli</p>
+<p>— circa il 14% del numero di neuroni. È il tipo di risultato per cui vale la pena fare fisica</p>
+<p>statistica.*</p>
+<h2>1.4 Dove entra la rottura delle repliche, e perché è il punto interessante</h2>
+<p>Il calcolo AGS assume che le $n$ repliche siano <b>simmetriche</b>: l'overlap fra due repliche</p>
+<p>qualsiasi, $q_{ab}$, è lo stesso per ogni coppia. È l'ansatz <i>replica-simmetrico</i> (RS).</p>
+<p>Ma quell'ansatz può essere <b>instabile</b>. Il criterio è la linea di <b>de Almeida–Thouless</b>: si</p>
+<p>calcola l'Hessiana dell'energia libera nello spazio delle repliche e si guarda l'autovalore detto</p>
+<p><i>replicon</i>. Dove diventa negativo, la soluzione RS è un punto di sella instabile e la fisica vera</p>
+<p>richiede la <b>rottura della simmetria delle repliche</b> (RSB).</p>
+<p>Nel modello di Hopfield la situazione è questa, ed è più interessante di quanto sembri:</p>
+<ul>
+<li>nella <b>fase di recupero</b> ($\alpha \lt  \alpha_c$, $T$ bassa) la soluzione RS è AT-<b>stabile</b>.   Per questo il valore $\alpha_c \approx 0{,}138$ resta corretto anche dopo aver introdotto RSB:   la rottura non sposta la capacità di memoria;</li>
+<li>nella <b>fase vetrosa</b> ($\alpha \gt  \alpha_c$) la soluzione RS è <b>instabile</b>: lì il sistema è   formalmente un modello di Sherrington–Kirkpatrick con campi casuali, e la sua struttura è quella   di Parisi — <b>full RSB</b>, con una funzione $q(x)$ continua.</li>
+</ul>
+<p>E qui arriva la distinzione che regge l'intero documento:</p>
+<blockquote>
+<b>$p = 2$ dà full RSB (gerarchia continua di stati); $p \ge 3$ dà 1RSB (un salto netto).</b> 
+</blockquote>
+<p>Nel primo caso gli stati puri si organizzano in un albero <b>ultrametrico</b> con infiniti livelli di</p>
+<p>ramificazione: la distanza fra tre stati qualsiasi soddisfa $d(A,C) \le \max\{d(A,B), d(B,C)\}$,</p>
+<p>cioè non esistono triangoli "generici" — solo isosceli con la base corta. Nel secondo caso l'albero</p>
+<p>ha un solo livello: cluster ben separati, senza sottostruttura.</p>
+<p><b>Questa differenza è il cuore di tutto ciò che segue.</b></p>
+<h2>1.5 Le reti dense, e cosa si sa già</h2>
+<p>Krotov e Hopfield (2016) hanno generalizzato il modello sostituendo l'energia quadratica con termini</p>
+<p>di ordine più alto, ottenendo capacità superlineari (e, in una variante, esponenziali). Sono le</p>
+<p>"dense associative memories", oggi note anche perché la loro regola di aggiornamento è</p>
+<p>sostanzialmente l'<i>attention</i> dei Transformer.</p>
+<p>Per queste reti la struttura RSB è stata studiata: Albanese e collaboratori (2021, 2023) mostrano</p>
+<p>che è <b>1RSB</b>, e ne hanno calcolato la linea AT. Il che è coerente: le reti dense sono $p \ge 3$.</p>
+<p>Quindi: il caso $p \ge 3$ è coperto sia sul lato classico sia — grazie a Baldwin et al. — sul lato</p>
+<p>quantistico. Il caso $p = 2$, cioè l'Hopfield originale, è coperto solo sul lato classico.</p>
+<hr>
+<h1>Parte II — L'ipotesi di termalizzazione degli autostati</h1>
+<h2>2.1 Il problema che risolve</h2>
+<p>Un sistema quantistico isolato evolve unitariamente: $|\psi(t)\rangle = e^{-iHt/\hbar}|\psi(0)\rangle$.</p>
+<p>Nella base degli autostati dell'energia non succede nulla — solo fasi che ruotano, e i moduli</p>
+<p>$|c_n|$ restano costanti per sempre. L'entropia di von Neumann di uno stato puro è zero e resta</p>
+<p>zero. <b>Un sistema quantistico chiuso non termalizza</b>, in senso stretto.</p>
+<p>Eppure i sistemi quantistici isolati, in laboratorio, termalizzano: le osservabili si assestano su</p>
+<p>valori d'equilibrio e ci restano.</p>
+<p>*(È esattamente la tensione del nucleo 22 del tuo percorso. Qui la si formula in modo che si possa</p>
+<p>attaccare.)*</p>
+<h2>2.2 L'ansatz, scritto per esteso</h2>
+<p>La risposta di Deutsch (1991) e Srednicki (1994, 1999) sposta la domanda dallo <b>stato</b> alle</p>
+<p><b>osservabili</b>. L'ipotesi è che gli elementi di matrice di un'osservabile fisica ragionevole</p>
+<p>$\hat O$ negli autostati dell'energia abbiano la forma</p>
+<p>$$\langle m|\hat O|n\rangle \;=\; \mathcal{O}(\bar E)\,\delta_{mn} \;+\; e^{-S(\bar E)/2}\,f_O(\bar E,\omega)\,R_{mn},$$</p>
+<p>dove $\bar E = (E_m+E_n)/2$, $\omega = E_n - E_m$, $S(\bar E) = \ln \rho(\bar E)$ è l'entropia</p>
+<p>microcanonica, $\mathcal{O}$ e $f_O$ sono funzioni <b>lisce</b>, e $R_{mn}$ è una variabile</p>
+<p>pseudo-casuale a media nulla e varianza uno.</p>
+<p>Va letta un pezzo alla volta.</p>
+<p><b>Il termine diagonale</b> $\mathcal{O}(\bar E)$ dice che il valor medio dell'osservabile in un</p>
+<p>singolo autostato è una funzione liscia dell'energia — cioè <b>coincide col valore microcanonico</b>.</p>
+<p>Questa è l'affermazione forte: <i>un solo autostato contiene già l'informazione termica</i>. Non serve</p>
+<p>una media d'insieme; l'insieme statistico è già dentro ogni singolo autostato.</p>
+<p><b>Il termine fuori diagonale</b> è soppresso da $e^{-S/2}$, cioè come l'inverso della radice della</p>
+<p>dimensione dello spazio di Hilbert: esponenzialmente piccolo in $N$. Sono questi termini a</p>
+<p>governare la <i>dinamica</i>: le fluttuazioni attorno all'equilibrio e il tempo che ci vuole a</p>
+<p>raggiungerlo. La loro struttura pseudo-casuale è ciò che fa cancellare le fasi.</p>
+<p><b>Perché questo spiega la termalizzazione.</b> Se vale l'ansatz, il valor medio</p>
+<p>$\langle\hat O\rangle(t)$ di uno stato iniziale che sovrappone molti autostati vicini in energia</p>
+<p>converge al valore microcanonico, e le ricorrenze sono soppresse esponenzialmente. Non si è persa</p>
+<p>informazione: le fasi si cancellano, ed è irreversibile solo perché nessuno può riallinearle.</p>
+<h2>2.3 Le violazioni: dove ETH non vale</h2>
+<p>L'ETH è un'ipotesi, non un teorema, ed è la sua <b>falsificabilità</b> a renderla fisica.</p>
+<p><b>Localizzazione a molti corpi (MBL).</b> Con disordine forte, <i>tutti</i> gli autostati violano l'ETH:</p>
+<p>il sistema conserva memoria del proprio stato iniziale per sempre. Le firme sono nette: la statistica</p>
+<p>delle spaziature dei livelli passa da Wigner–Dyson a Poisson, e l'entropia di entanglement degli</p>
+<p>autostati segue una <i>area law</i> invece che una <i>volume law</i>. È una vera <b>fase</b> della materia.</p>
+<p><b>Cicatrici a molti corpi (quantum many-body scars).</b> Un numero $O(1)$ di autostati anomali immersi</p>
+<p>in uno spettro per il resto termale. Non è una fase: è un'eccezione misura-quasi-nulla, ma</p>
+<p>dinamicamente visibile.</p>
+<p><b>Frammentazione dello spazio di Hilbert.</b> Senza disordine: lo spazio degli stati si spezza in</p>
+<p>settori dinamicamente disconnessi per via di vincoli. Ogni settore può termalizzare per conto suo,</p>
+<p>ma non c'è termalizzazione globale.</p>
+<h2>2.4 Come si misura, in pratica</h2>
+<p>Tre diagnostiche, tutte numeriche, tutte alla portata di un calcolo su un computer normale:</p>
+<ul>
+<li><b>Rapporto $r$ delle spaziature</b> fra livelli consecutivi. Vale circa $0{,}386$ per uno spettro    di Poisson (integrabile/localizzato) e circa $0{,}530$ per l'ensemble GOE (caotico/termale). È    il primo test che si fa, e costa poche righe di codice. *(È la figura del nucleo 16 del tuo    percorso, resa numero.)*</li>
+<li><b>Entropia di entanglement degli autostati</b>: volume law → termale, area law → localizzato.</li>
+<li><b>Scalatura degli elementi fuori diagonale</b>: si verifica che $|\langle m|\hat O|n\rangle|^2$    decresca come $e^{-S(\bar E)}$ al crescere della taglia.</li>
+</ul>
+<hr>
+<h1>Parte III — Il ponte: cosa c'è e cosa manca</h1>
+<h2>3.1 Il lavoro che apre la strada</h2>
+<p><b>Baldwin, Laumann, Pal, Scardicchio, <i>Phys. Rev. Lett.</i> 118, 127201 (2017)</b> — "Clustering of</p>
+<p>nonergodic eigenstates in quantum spin glasses".</p>
+<p>Modello: $p$-spin classico più un campo trasverso $\Gamma$, che è il modo standard di rendere</p>
+<p>quantistico un vetro di spin (il campo trasverso introduce l'effetto tunnel fra configurazioni).</p>
+<p>Risultati:</p>
+<ul>
+<li>a $\Gamma$ <b>grande</b> il sistema è ergodico, l'ETH vale, la statistica dei livelli è   Wigner–Dyson: il termine quantistico mescola tutto;</li>
+<li>a $\Gamma$ <b>piccolo</b> compare una fase <b>non ergodica</b> in cui l'ETH è violata — ma <b>non</b> si   tratta di MBL. Gli autostati si organizzano in <b>cluster</b>, caratterizzabili con un parametro di   Edwards–Anderson <i>risolto per autostato</i>;</li>
+<li>esiste un <b>mobility edge</b> in energia: autostati ergodici e non ergodici coesistono nello stesso   spettro, separati da una soglia.</li>
+</ul>
+<p>La cosa che rende questo lavoro il punto di partenza giusto: la transizione in temperatura dentro</p>
+<p>la fase non ergodica <b>ricorda la transizione di clustering del $p$-spin classico</b>. Cioè: la</p>
+<p>struttura del paesaggio classico si vede negli autostati quantistici.</p>
+<h2>3.2 Cosa manca — e ha la forma di una tesi</h2>
+<p>Tre assenze, in ordine di quanto sono attaccabili.</p>
+<p><b>(a) Il caso $p = 2$, cioè Hopfield.</b> Il lavoro di Baldwin et al. è per $p \ge 3$, dove il</p>
+<p>paesaggio classico è 1RSB — cluster netti, un solo livello. Nel caso $p=2$ il paesaggio è **full</p>
+<p>RSB**, con una gerarchia continua e ultrametrica. La domanda naturale è:</p>
+<blockquote>
+*La struttura ultrametrica continua del paesaggio classico produce, negli autostati del modello 
+quantistico, una gerarchia di cluster invece di una singola separazione?* 
+</blockquote>
+<p>Nessuno l'ha guardato. E non è una domanda ornamentale: è la differenza fra "gli autostati si</p>
+<p>dividono in gruppi" e "gli autostati si organizzano ad albero".</p>
+<p><b>(b) La mappa fra $q(x)$ e la struttura degli autostati.</b> Il collegamento fra paesaggio RSB e</p>
+<p>lentezza della termalizzazione è fisicamente motivato — e c'è un lavoro vicino (Rademaker e Abanin,</p>
+<p>2020, su vetri di spin unidimensionali) — ma <b>non esiste una mappa formulata</b> che porti dalla</p>
+<p>funzione di Parisi $q(x)$ del modello classico alla distribuzione degli overlap fra autostati del</p>
+<p>modello quantistico. È il contributo che manca sul piano concettuale.</p>
+<p><b>(c) Il Hopfield quantistico esiste in letteratura, ma per altri scopi.</b> C'è una letteratura</p>
+<p>crescente su memorie associative quantistiche, orientata al <i>quantum computing</i> e all'annealing:</p>
+<p>si chiede quanto si può memorizzare e quanto velocemente si recupera, <b>non</b> come sono fatti gli</p>
+<p>autostati. La domanda ETH su questo modello non è stata posta.</p>
+<h2>3.3 Il quadro onesto</h2>
+<p>Il ponte fra RSB e ETH <b>non è un campo consolidato</b>: è una frontiera con due o tre lavori vicini.</p>
+<p>Questo taglia in due direzioni, e vanno viste entrambe.</p>
+<p><i>A favore</i>: lo spazio è reale, la domanda è ben posta, gli strumenti esistono, e chi ci lavora è</p>
+<p>poca gente. Una tesi triennale non può risolvere il problema, ma può **misurare qualcosa che</p>
+<p>nessuno ha misurato** — che è già un contributo vero.</p>
+<p><i>Contro</i>: nessuna guida pronta. Ogni passo va deciso, e senza un relatore che conosca il terreno si</p>
+<p>rischiano mesi su una strada già chiusa. **Questa direzione richiede un relatore, non è</p>
+<p>autodidattica.**</p>
+<hr>
+<h1>Parte IV — Cinque domande, e quanto costano</h1>
+<p>Le ordino per fattibilità reale in quattro-sei mesi, non per bellezza.</p>
+<h2>D1 — ETH nella fase vetrosa del Hopfield quantistico <i>(numerica; la consiglio)</i></h2>
+<p>Si costruisce il modello di Hopfield con campo trasverso,</p>
+<p>$$H = -\frac{1}{2}\sum_{i\ne j}J_{ij}\sigma^z_i\sigma^z_j \;-\; \Gamma\sum_i \sigma^x_i,$$</p>
+<p>lo si diagonalizza esattamente per taglie accessibili, e si misurano le tre diagnostiche del</p>
+<p>§2.4 al variare di $\alpha$ (carico di memoria) e $\Gamma$ (quantisticità).</p>
+<p><b>Cosa si ottiene:</b> una mappa nel piano $(\alpha,\Gamma)$ che dice dove l'ETH vale e dove no, per</p>
+<p>il caso $p=2$ che nessuno ha guardato. Se le tre regioni classiche (recupero / vetro / paramagnete)</p>
+<p>lasciano una traccia negli autostati, si vede lì.</p>
+<p><b>Onestà sui numeri, ed è la cosa che devi sapere prima di innamorartene.</b> La diagonalizzazione</p>
+<p><i>completa</i> di uno spin-$1/2$ a $N$ siti tratta matrici $2^N \times 2^N$: a $N=14$ sono $16\,384$</p>
+<p>stati, gestibile su un portatile; a $N=16$ sono $65\,536$, pesante ma fattibile; a $N=20$ sono un</p>
+<p>milione, e lo spettro completo <b>non</b> si ottiene con un portatile. Per $N$ grandi si usa Lanczos e</p>
+<p>si prendono pochi autostati vicino a un'energia scelta. Chi ti dice "$N \le 20$" senza distinguere</p>
+<p>i due casi non ha fatto il conto. Nel disordinato, in più, serve mediare su molte realizzazioni dei</p>
+<p>pattern: il costo va moltiplicato per il numero di campioni.</p>
+<p><b>Strumenti:</b> Python con NumPy/SciPy (<code>scipy.sparse.linalg.eigsh</code>), oppure QuSpin che è fatto</p>
+<p>apposta. Un mese-mese e mezzo per avere codice funzionante e testato, poi la produzione dei dati.</p>
+<p><b>Rischio:</b> le taglie accessibili sono piccole e il vetro di spin è un fenomeno di $N$ grande.</p>
+<p>Molta della fatica sarà nell'analisi di <i>scaling</i>. È un rischio noto e gestibile, non un vicolo cieco.</p>
+<h2>D2 — Analisi 1RSB del Hopfield quantistico <i>(analitica; serve un relatore stretto)</i></h2>
+<p>Estendere il calcolo a repliche del Hopfield con campo trasverso oltre l'ansatz replica-simmetrico.</p>
+<p>Serve il formalismo repliche + integrale sui cammini con decomposizione di Trotter: la parte</p>
+<p>quantistica introduce una dimensione immaginaria in più, e i parametri d'ordine diventano funzioni.</p>
+<p>Bella, tecnica, e <b>non si improvvisa</b>. Da tenere come possibile evoluzione se la triennale va bene</p>
+<p>e il relatore ti segue.</p>
+<h2>D3 — Parametro di Edwards–Anderson risolto per autostato <i>(numerica; estensione naturale di D1)</i></h2>
+<p>È la misura che Baldwin et al. usano per i cluster, applicata al caso $p=2$: si guarda se gli</p>
+<p>autostati si raggruppano in <b>una</b> separazione netta (come nel $p\ge3$) o in una <b>gerarchia</b> —</p>
+<p>cioè se l'ultrametricità classica lascia una firma quantistica.</p>
+<p>Concettualmente è la domanda più bella del documento. Operativamente è D1 più un'analisi di</p>
+<p>clustering sugli autostati. **Se D1 funziona, questa è la sua continuazione, ed è dove la tesi</p>
+<p>diventa una tesi con un'idea.**</p>
+<h2>D4 — Linea AT nel Hopfield quantistico <i>(analitica)</i></h2>
+<p>Estendere il calcolo della linea di de Almeida–Thouless al caso con campo trasverso. Circoscritta e</p>
+<p>onesta, ma tecnica; stesso avvertimento di D2.</p>
+<h2>D5 — Confronto $p=2$ contro $p=3$ <i>(esplorativa)</i></h2>
+<p>Confronto sistematico fra i due casi nello stesso schema numerico: la differenza full-RSB contro</p>
+<p>1RSB si traduce in una differenza visibile nella struttura degli autostati? È D1+D3 fatti due volte.</p>
+<p>Il rischio è la dispersione: due modelli in quattro mesi sono tanti.</p>
+<h2>La mia raccomandazione</h2>
+<p><b>D1 come corpo della tesi, D3 come sua ultima sezione.</b> D1 garantisce un risultato consegnabile</p>
+<p>anche se l'idea grossa non paga; D3 è dove c'è l'idea. È la struttura giusta per una tesi</p>
+<p>ambiziosa che non rischia di finire senza niente in mano: *un lavoro che produce un risultato certo</p>
+<p>e apre a uno incerto.*</p>
+<hr>
+<h1>Parte V — Cosa studiare prima, e in quanto tempo</h1>
+<p>Il metodo delle repliche non si impara leggendo AGS: si impara su un testo che lo spiega, e poi si</p>
+<p>legge AGS in un pomeriggio. Le stime sono per due-tre ore al giorno.</p>
+<table>
+<tr><td>#</td><td>lettura</td><td>costo</td><td>cosa ti porti via</td></tr>
+<tr><td>1</td><td>Castellani–Cavagna, <i>Spin-glass theory for pedestrians</i> (2005)</td><td>2 sett.</td><td>il metodo delle repliche fatto passo passo: è <b>il</b> testo da cui partire</td></tr>
+<tr><td>2</td><td>Amit–Gutfreund–Sompolinsky, PRL 55, 1530 (1985)</td><td>1 giorno</td><td>il risultato $\alpha_c$, letto dopo il #1 diventa leggibile</td></tr>
+<tr><td>3</td><td>AGS, <i>Ann. Phys.</i> 173, 30 (1987)</td><td>2 sett.</td><td>il calcolo completo, il diagramma di fase, la stabilità AT</td></tr>
+<tr><td>4</td><td>Nishimori, <i>Statistical Physics of Spin Glasses</i>, capp. 2–4</td><td>2 sett.</td><td>l'inquadramento sistematico; utile come riferimento continuo</td></tr>
+<tr><td>5</td><td>Mézard–Parisi–Virasoro (1987), capp. 5–8</td><td>2 sett.</td><td>ultrametricità e albero degli stati: la parte che ti interessa di più</td></tr>
+<tr><td>6</td><td>D'Alessio, Kafri, Polkovnikov, Rigol, <i>Adv. Phys.</i> 65, 239 (2016)</td><td>2 sett.</td><td>la rassegna standard su ETH: da qui si impara ETH per bene</td></tr>
+<tr><td>7</td><td>Rigol–Dunjko–Olshanii, <i>Nature</i> 452, 854 (2008)</td><td>1 giorno</td><td>la verifica numerica che ha reso ETH mainstream</td></tr>
+<tr><td>8</td><td>Abanin–Altman–Bloch–Serbyn, RMP (2019)</td><td>1 sett.</td><td>MBL: la violazione più studiata</td></tr>
+<tr><td>9</td><td><b>Baldwin–Laumann–Pal–Scardicchio, PRL 118, 127201 (2017)</b></td><td>2 giorni</td><td>il ponte. Cinque pagine che richiedono tutte le precedenti</td></tr>
+<tr><td>10</td><td>Albanese et al., arXiv:2111.12997 e 2303.06375</td><td>1–2 sett.</td><td>RSB e linea AT nelle reti dense: lo stato dell'arte sul lato $p\ge3$</td></tr>
+</table>
+<p><b>Totale: otto-dieci settimane</b>, cioè un'estate o un semestre in parallelo ai corsi. Le prime tre</p>
+<p>voci sono il minimo per poter parlare con un relatore da pari; le voci 6 e 9 sono ciò che rende la</p>
+<p>proposta <i>tua</i> invece che generica.</p>
+<p>Una nota pratica: le voci 1, 6 e 9 sono liberamente accessibili su arXiv. Nishimori e MPV sono</p>
+<p>libri; MPV si trova in biblioteca a Fisica.</p>
+<hr>
+<h1>Parte VI — Come si presenta questa cosa, senza bruciarsela</h1>
+<p>Hai detto che vuoi un progetto identitario, e che vorresti arrivare alla coscienza. Ti dico come</p>
+<p>si tiene insieme l'ambizione con la credibilità, perché è una questione di forma e la forma qui</p>
+<p>conta quanto il contenuto.</p>
+<p><b>Cosa NON promettere.</b> Non presentare una tesi che promette la coscienza e consegna un modello di</p>
+<p>spin. Il pubblico che conta lo riconosce in tre secondi, e da quel momento non ti ascolta più.</p>
+<p>Soprattutto: non appoggiarti alla via quantistica ingenua della coscienza (microtubuli e affini) —</p>
+<p>ha contro un conto preciso sui tempi di decoerenza in ambiente biologico, e citarla come ispirazione</p>
+<p>ti costa la fiducia di chiunque possa esserti utile.</p>
+<p><b>Cosa promettere invece.</b> La domanda vera che ti muove, e che regge:</p>
+<blockquote>
+Come fa un ordine macroscopico coerente a emergere — o a non emergere — da un'enormità di gradi 
+di libertà che interagiscono in modo disordinato? 
+</blockquote>
+<p>La memoria associativa è il primo caso in cui questa domanda ha una risposta <b>quantitativa</b>: c'è</p>
+<p>un numero, $\alpha_c$, che dice esattamente quando l'ordine collassa. La termalizzazione quantistica</p>
+<p>è la stessa domanda in un mondo dove nulla si perde e tutto è unitario. **Metterle insieme non è</p>
+<p>un'associazione poetica: è chiedersi se la gerarchia di stati che rende una memoria una memoria</p>
+<p>sopravviva quando il sistema è quantistico.**</p>
+<p>Detta così, la coscienza non compare — ma è chiaro a chiunque legga in che direzione stai andando.</p>
+<p>È il modo di essere ambiziosi che non ti fa perdere la platea: **l'orizzonte si dichiara, l'oggetto</p>
+<p>si delimita.**</p>
+<p><b>Con il relatore.</b> Ricci-Tersenghi e Agliari lavorano <i>adesso</i> su Hopfield e RSB. Presentarsi con</p>
+<p>"vorrei fare qualcosa sui sistemi complessi" non porta lontano; presentarsi con *«ho letto AGS e</p>
+<p>Baldwin et al., mi chiedo se la struttura full-RSB del $p=2$ dia clustering gerarchico degli</p>
+<p>autostati, e vorrei provare a guardarlo numericamente»* è un'altra conversazione. La differenza fra</p>
+<p>le due frasi sono le otto settimane della Parte V.</p>
+<hr>
+<h1>Parte VII — Cosa è verificato e cosa no</h1>
+<p>Regola della navicella: chi legge deve sapere di cosa fidarsi.</p>
+<p><b>Verificato</b> (riferimento completo e reperibile): AGS 1985 e 1987; Baldwin et al. 2017 (PRL</p>
+<p>118, 127201, arXiv:1611.02296); Albanese et al. 2021 (arXiv:2111.12997) e 2023 (arXiv:2303.06375);</p>
+<p>Castellani–Cavagna 2005; D'Alessio et al. 2016 (arXiv:1509.06411); Rigol–Dunjko–Olshanii 2008;</p>
+<p>Rademaker–Abanin 2020; Ramsauer et al. 2021; Nishimori 2001; MPV 1987.</p>
+<p><b>Non verificato</b>, da controllare prima di citarlo: l'attribuzione precisa dell'analisi 1RSB del</p>
+<p>Hopfield (Crisanti–Amit–Gutfreund, 1986) — il risultato è noto e riportato in letteratura</p>
+<p>secondaria, il riferimento primario va confermato; alcuni preprint recenti su memorie associative</p>
+<p>quantistiche, che ho indicato come esistenti ma di cui non ho valutato la qualità; le stime di</p>
+<p>tempo delle letture, che sono mie e non di qualcun altro.</p>
+<p><b>Mio, non della letteratura</b>: l'inquadramento del §0 e della Parte III (dove sta il buco e perché</p>
+<p>ha la forma di una tesi); la scelta e l'ordinamento delle cinque domande; i conti sulle taglie di</p>
+<p>diagonalizzazione; tutta la Parte VI. Sono giudizi, e come tali si discutono — soprattutto con un</p>
+<p>relatore vero, che di questo terreno sa più di me.</p>
+<hr>
+<h2>Un'ultima cosa</h2>
+<p>Il percorso di matematica che hai alle spalle non è preparazione generica a questo lavoro: ne è</p>
+<p><b>esattamente</b> il linguaggio. Gli spazi di Hilbert e le basi ortonormali (nucleo 09); il teorema</p>
+<p>spettrale, i proiettori e la statistica delle spaziature dei livelli (16); la misura e il «quasi</p>
+<p>ovunque» (10); la sella e il limite $N\to\infty$ (14-bis); il flusso incomprimibile, l'ergodicità e</p>
+<p>il coarse-graining (20-22). E la continuazione analitica del nucleo 14, che è il trucco su cui</p>
+<p>poggia il metodo delle repliche.</p>
+<p>Non l'avevo progettato per questo. È venuto fuori così perché le domande che ti interessano hanno</p>
+<p>tutte la stessa forma — e quella forma, adesso, ce l'hai in mano.</p>
+<script>window.addEventListener('DOMContentLoaded',function(){
+ renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});
+});</script>
+</body></html>

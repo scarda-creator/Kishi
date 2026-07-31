@@ -1,0 +1,144 @@
+===== PAGINA 1 =====
+Terzo appello di Geometria per Fisica, a.a. 2012-13, lettere Cf-K (Prof. P. Piccinni)
+21 giugno 2013
+a. Scrivere subito Matricola, Cognome e Nome.
+b. Utilizzare questi fogli per le risposte. I fogli protocollo sono invece per riﬂessioni o calcoli, e non vanno consegnati.
+c. Durante la prova non si possono consultare testi e appunti n´e usare fogli diversi da quelli distribuiti.
+d. Durante la prova non `e consentito uscire dall’aula.
+Tempo a disposizione: 2 ore
+Matricola.............................Cognome...........................................................Nome................................................
+1. Si consideri la matrice A ∈Mn(R) il cui elemento di posto (i, j) `e aij = (−1)i+ja, essendo a un ﬁssato numero
+reale diverso da zero. Sia S ⊂Mn(R) l’insieme di tali matrici A, al variare di a ∈R −{0}.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte).
+1
+Per ogni n ≥2, e per ogni A ∈S risulta det A = 0
+2
+Per ogni A ∈S risulta rg A = 1
+3
+Ogni A ∈S ha tutti gli autovalori reali
+4
+Ogni A ∈S ha solo due autovalori distinti
+5
+Ogni A ∈S `e diagonalizzabile
+6
+Nessuna delle precedenti
+2. Sia V = R≤2[x] = {P(x) = a0 + a1x + a2x2} lo spazio vettoriale dei polinomi in x di grado ≤2 a coeﬃcienti in
+R. Si consideri l’applicazione T : V →V deﬁnita da:
+T(P(x)) = P(0) + P(1)x + P(2)x2.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+T `e un endomorﬁsmo di V
+2
+T `e un’applicazione suriettiva
+3
+T `e un’applicazione iniettiva
+4
+Nessuna delle precedenti
+3. Si consideri il sistema lineare a coeﬃcienti reali:
+
+
+
+x
++
+y
+=
+10
+x
++
+z
+=
+100
+y
++
+z
+=
+1000
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+Il sistema ammette un’unica soluzione
+2
+Le tre equazioni rappresentano in R3 tre piani che si intersecano solo in un punto
+3
+Le tre equazioni rappresentano in R3 tre piani che sono facce laterali di un prisma a base triangolare
+4
+Nessuna delle precedenti
+
+
+===== PAGINA 2 =====
+4. Si considerino nello spazio euclideo R3 le rette r : x = z, y = z, s : x = −z, y = z e t : x = z, y = −z, essendo
+(x, y, z) le coordinate cartesiane di R3. Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+r, s e t sono a due a due perpendicolari
+2
+Solo due tra r, s e t sono perpendicolari
+3
+r, s e t sono parallele
+4
+r, s e t sono complanari
+5
+Nessuna delle precedenti
+5. Si consideri la matrice A =
+
+
+1
+0
+1
+1
+1
+0
+0
+3
+−1
+
+. Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u
+risposte):
+1
+A non ammette autovalori reali
+2
+A ammette tre autovalori reali distinti
+3
+A ammette autovalori reali non distinti, ma tutte le molt. algebriche coincidono con le molt. geometriche
+4
+A ammette un solo autovalore reale
+5
+A `e diagonalizzabile in Mn(R)
+6
+Nessuna delle precedenti
+6. Sia
+g : R2 × R2 −→R
+l’applicazione deﬁnita da
+ 
+x1
+x2
+
+,
+
+y1
+y2
+ 
+−→2x1y1 + x1y2 + x2y1 + x2y2
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+g `e una forma bilineare, ma non `e simmetrica
+2
+g `e una forma bilineare simmetrica, ma non `e deﬁnita positiva
+3
+g `e una forma bilineare simmetrica, deﬁnita positiva
+4
+La matrice che rappresenta g nella base canonica `e A =
+2
+1
+1
+1
+
+5
+La matrice che rappresenta g nella base canonica `e A =
+
+2
+1
+2
+1
+2
+1
+
+2

@@ -1,0 +1,1311 @@
+\documentclass[11pt,a4paper,openany]{book}
+
+% --------------- PACCHETTI ---------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% \usepackage[italian]{babel}  % italian.ldf non sempre presente; uso configurazione manuale
+\usepackage[english]{babel}
+\addto\captionsenglish{%
+  \renewcommand{\contentsname}{Indice}%
+  \renewcommand{\chaptername}{Capitolo}%
+  \renewcommand{\partname}{Parte}%
+  \renewcommand{\bibname}{Bibliografia}%
+  \renewcommand{\appendixname}{Appendice}%
+  \renewcommand{\figurename}{Figura}%
+  \renewcommand{\tablename}{Tabella}%
+}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{geometry}
+\geometry{margin=2.4cm}
+\usepackage[final,protrusion=true,expansion=false]{microtype}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems,skins,breakable}
+\usepackage{enumitem}
+\setlist{leftmargin=1.2em,itemsep=2pt,topsep=2pt}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black,citecolor=blue!50!black}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+
+% --------------- HEADER/FOOTER ---------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\nouppercase{\leftmark}}
+\fancyhead[RO]{\nouppercase{\rightmark}}
+\fancyfoot[C]{\thepage}
+
+% --------------- TITOLI CAPITOLI ---------------
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{blue!40!black}}
+  {\filleft\Large Capitolo \thechapter}
+  {0.5ex}
+  {\titlerule\vspace{1ex}\filleft}
+  [\vspace{1ex}\titlerule]
+
+% --------------- BOX PERSONALIZZATI ---------------
+\newtcolorbox{teoria}[1][]{enhanced,breakable,
+  colback=blue!4,colframe=blue!55!black,
+  fonttitle=\bfseries,title={Teoria #1},
+  arc=2pt,boxrule=0.6pt}
+
+\newtcolorbox{algoritmo}[1][]{enhanced,breakable,
+  colback=orange!6,colframe=orange!75!black,
+  fonttitle=\bfseries,title={Algoritmo #1},
+  arc=2pt,boxrule=0.6pt}
+
+\newtcolorbox{esempio}[1][]{enhanced,breakable,
+  colback=green!4,colframe=green!55!black,
+  fonttitle=\bfseries,title={Esempio svolto #1},
+  arc=2pt,boxrule=0.6pt}
+
+\newtcolorbox{trucco}[1][]{enhanced,breakable,
+  colback=red!4,colframe=red!60!black,
+  fonttitle=\bfseries,title={Trucco / Errore tipico #1},
+  arc=2pt,boxrule=0.6pt}
+
+\newtcolorbox{formulario}[1][]{enhanced,breakable,
+  colback=gray!8,colframe=gray!60!black,
+  fonttitle=\bfseries,title={Formulario rapido #1},
+  arc=2pt,boxrule=0.6pt}
+
+% --------------- AMBIENTI MATEMATICI ---------------
+\newtheorem{teo}{Teorema}[chapter]
+\newtheorem{prop}[teo]{Proposizione}
+\newtheorem{lem}[teo]{Lemma}
+\newtheorem{coroll}[teo]{Corollario}
+\theoremstyle{definition}
+\newtheorem{defi}[teo]{Definizione}
+\newtheorem{oss}[teo]{Osservazione}
+
+% --------------- MACRO ---------------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\Dom}{\mathcal{D}}
+\newcommand{\Four}{\mathcal{F}}
+\newcommand{\Lap}{\mathcal{L}}
+\newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\bra}[1]{\langle#1|}
+\newcommand{\braket}[2]{\langle#1|#2\rangle}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\eu}{\mathrm{e}}
+\newcommand{\iu}{\mathrm{i}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+
+% --------------- TITOLO ---------------
+\title{\Huge\bfseries Metodi Matematici per la Fisica\\[0.5em]
+\Large Un libro algoritmico per gli esercizi d'esame\\[0.3em]
+\large Teoria essenziale, algoritmi di risoluzione, esempi svolti}
+\author{Compendio personalizzato \\ basato sui Set di esercizi e sugli appelli 2023--2026}
+\date{\today}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+\tableofcontents
+
+% =========================================================
+\chapter*{Come usare questo libro}
+\addcontentsline{toc}{chapter}{Come usare questo libro}
+
+Questo libro \emph{non} \`e un testo enciclopedico di Metodi Matematici, ma un manuale operativo costruito a partire dagli esercizi che ricorrono negli scritti del corso. La struttura di ogni capitolo \`e la stessa:
+
+\begin{enumerate}
+\item Un blocco \textbf{Teoria} con le definizioni e i teoremi strettamente necessari, formulati in modo da agganciare subito la pratica.
+\item Un blocco \textbf{Algoritmo}: la lista numerata di passi che, applicata fedelmente, risolve gli esercizi di quella tipologia.
+\item Uno o pi\`u \textbf{Esempi svolti} (tipicamente tratti dagli appelli) dove l'algoritmo viene applicato passo passo.
+\item Un blocco \textbf{Trucchi / Errori tipici} con le scorciatoie e le insidie sul calcolo.
+\item Un \textbf{Formulario rapido} con i risultati che vale la pena tenere a mente come prefabbricati.
+\end{enumerate}
+
+L'idea \`e che, quando affronti un esercizio nuovo, devi prima riconoscerne la \emph{categoria}: una volta riconosciuta, basta seguire l'algoritmo. Le sezioni di teoria servono per capire \emph{perch\'e} l'algoritmo funziona, cos\`i da poterlo adattare alle varianti.
+
+I capitoli sono raggruppati in cinque parti che ricalcano la struttura del corso e degli scritti.
+
+\mainmatter
+
+% =========================================================
+% PARTE I
+% =========================================================
+\part{Spazi di Hilbert finito-dimensionali}
+
+% =========================================================
+\chapter{Gram--Schmidt e proiettori}
+
+\section{Perch\'e ci serve}
+Negli scritti compaiono ricorrentemente esercizi del tipo: \emph{``dati questi vettori, costruire una base ortonormale e i proiettori associati''} o \emph{``proiettare un vettore su un sottospazio''}. L'algoritmo standard \`e Gram--Schmidt. Una volta acquisita la base ortonormale, i proiettori e l'identit\`a spettrale forniscono lo strumento universale per costruire \emph{ogni} funzione di un operatore diagonalizzabile.
+
+\begin{teoria}
+Sia $\H$ uno spazio di Hilbert (per noi $\R^n$ o $\C^n$) con prodotto scalare $\braket{\cdot}{\cdot}$. In $\R^n$ scriviamo $\bm v\cdot \bm u=\sum_i v_i u_i$, in $\C^n$ usiamo $\braket{v}{u}=\sum_i v_i^* u_i$ (lineare nel secondo, antilineare nel primo).
+\begin{itemize}
+\item Una base \(\{\bm e_i\}\) si dice \emph{ortonormale} se $\braket{e_i}{e_j}=\delta_{ij}$.
+\item Il proiettore sul $i$-esimo vettore di base \`e $\mathbb P_i=\ket{e_i}\bra{e_i}$, ovvero $(\mathbb P_i)_{mn}=e_{i,m}\,e_{i,n}^*$.
+\item I proiettori soddisfano $\mathbb P_i \mathbb P_j=\delta_{ij}\mathbb P_i$ e la \emph{risoluzione dell'identit\`a} $\sum_i\mathbb P_i=\mathbb 1$.
+\item Un proiettore generico \`e una matrice idempotente ($\mathbb P^2=\mathbb P$) e Hermitiana. In dimensione $n$ ha $\dim L_1$ autovalori uguali a $1$ (con $L_1$ il sottospazio su cui proietta) e $n-\dim L_1$ autovalori nulli.
+\end{itemize}
+\end{teoria}
+
+\section{L'algoritmo di Gram--Schmidt}
+
+\begin{algoritmo}
+\textbf{Input:} vettori $\bm v_1,\dots,\bm v_n$ linearmente indipendenti.
+\textbf{Output:} base ortonormale $\{\bm e_1,\dots,\bm e_n\}$.
+\begin{enumerate}
+\item Normalizza il primo: $\bm e_1=\bm v_1/\|\bm v_1\|$.
+\item Per $k=2,\dots,n$:
+  \begin{enumerate}[label=\alph*)]
+  \item Sottrai le componenti gi\`a in base:
+  $$\bm u_k=\bm v_k-\sum_{j<k}\braket{e_j}{v_k}\,\bm e_j.$$
+  \item Normalizza: $\bm e_k=\bm u_k/\|\bm u_k\|$.
+  \end{enumerate}
+\item (Opzionale) Costruisci i proiettori $\mathbb P_i=\ket{e_i}\bra{e_i}$ e verifica $\sum_i\mathbb P_i=\mathbb 1$, $\mathbb P_i\mathbb P_j=\delta_{ij}\mathbb P_i$.
+\end{enumerate}
+\textbf{Caso complesso:} usa il prodotto scalare con il coniugato a sinistra. $\bra{e_j}=\bm e_j^\dagger$ (riga complessa coniugata).
+\end{algoritmo}
+
+\begin{esempio}[Set 1, Es. 1 -- vettori in $\R^3$]
+Siano $\bm v_1^T=(1,2,0)$, $\bm v_2^T=(1,1,1)$, $\bm v_3^T=(0,2,3)$.
+
+\emph{Passo 1.} $\|\bm v_1\|=\sqrt 5$ $\Rightarrow$ $\bm e_1=\tfrac{1}{\sqrt 5}(1,2,0)^T$.
+
+\emph{Passo 2.} $\bm v_2\cdot \bm e_1=3/\sqrt 5$ $\Rightarrow$ $\bm u_2=\bm v_2-(3/\sqrt 5)\bm e_1=\tfrac 1 5(2,-1,5)^T$, $\|\bm u_2\|=\sqrt{30}/5$, da cui $\bm e_2=\tfrac{1}{\sqrt{30}}(2,-1,5)^T$.
+
+\emph{Passo 3.} $\bm v_3\cdot\bm e_1=4/\sqrt 5$, $\bm v_3\cdot\bm e_2=13/\sqrt{30}$ $\Rightarrow$ $\bm u_3=\tfrac{5}{6}(-2,1,1)^T$, $\bm e_3=\tfrac{1}{\sqrt 6}(-2,1,1)^T$.
+
+\emph{Passo 4 -- Proiettori.} Ad esempio
+$$\mathbb P_1=\tfrac{1}{5}\begin{pmatrix}1&2&0\\2&4&0\\0&0&0\end{pmatrix}.$$
+Si verifica direttamente $\mathbb P_1+\mathbb P_2+\mathbb P_3=\mathbb 1$.
+\end{esempio}
+
+\begin{esempio}[Set 1, Es. 2 -- vettori in $\C^3$]
+$\bm v_1=(1,0,i)^T$, $\bm v_2=(1,1,0)^T$, $\bm v_3=(0,1-i,0)^T$. Con il prodotto scalare $\braket{u}{v}=\bm u^\dagger\bm v$:
+$$\ket{e_1}=\tfrac{1}{\sqrt 2}\begin{pmatrix}1\\0\\i\end{pmatrix},\quad \ket{e_2}=\tfrac{1}{\sqrt 6}\begin{pmatrix}1\\2\\-i\end{pmatrix},\quad \ket{e_3}=\tfrac{1}{\sqrt 3}\begin{pmatrix}-1+i\\1-i\\1+i\end{pmatrix}.$$
+\textbf{Errore tipico:} dimenticare il coniugato. In $\C^n$ il prodotto scalare \emph{non} \`e simmetrico ma Hermitiano, $\braket{u}{v}=\overline{\braket{v}{u}}$.
+\end{esempio}
+
+\section{Costruire un proiettore dato un sottospazio}
+
+\begin{algoritmo}[su sottospazio]
+\begin{enumerate}
+\item Trova una base $\{\bm w_1,\dots,\bm w_k\}$ del sottospazio.
+\item Ortogonalizzala con Gram--Schmidt $\to$ $\{\bm e_1,\dots,\bm e_k\}$.
+\item Il proiettore \`e $\mathbb P=\sum_{i=1}^k\ket{e_i}\bra{e_i}$.
+\item Verifica: $\mathbb P^2=\mathbb P$, $\mathbb P^\dagger=\mathbb P$.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Set 1, Es. 3]
+$\mathbb P=\tfrac 1 2\begin{psmallmatrix}1&1\\1&1\end{psmallmatrix}$. Verifica $\mathbb P^2=\mathbb P$ e cerca il vettore unitario $\bm e$ con $\mathbb P_{ij}=e_i e_j$: $e_1=e_2=\pm 1/\sqrt 2$ $\Rightarrow$ proietta lungo $(1,1)/\sqrt 2$.
+\end{esempio}
+
+\begin{trucco}
+\textbf{(1)} \emph{Norma negativa.} Se ti capita una ``norma negativa'', hai sbagliato a coniugare. \\
+\textbf{(2)} \emph{Verifica veloce.} Costruito $\mathbb P$, calcola $\Tr\mathbb P$: deve essere uguale alla dimensione del sottospazio su cui proietti. \\
+\textbf{(3)} \emph{Proiettore sull'ortogonale.} $\mathbb P^\perp=\mathbb 1-\mathbb P$.
+\end{trucco}
+
+\begin{formulario}
+$\mathbb P_i=\ket{e_i}\bra{e_i}$; $\sum_i\mathbb P_i=\mathbb 1$; $\Tr\mathbb P=\dim\mathrm{Im}\,\mathbb P$; $\mathbb P^\perp=\mathbb 1-\mathbb P$. In $\R^2$: proiettore su $(\cos\theta,\sin\theta)$:
+$$\mathbb P_\theta=\begin{pmatrix}\cos^2\theta & \cos\theta\sin\theta\\ \cos\theta\sin\theta & \sin^2\theta\end{pmatrix}.$$
+\end{formulario}
+
+% =========================================================
+\chapter{Diagonalizzazione e cambio di base}
+
+\section{Quando si pu\`o fare}
+Una matrice $A\in M_n(\C)$ \`e diagonalizzabile se ha $n$ autovettori linearmente indipendenti. Le matrici Hermitiane (e in generale normali, $[A,A^\dagger]=0$) lo sono sempre, con autovettori ortonormali e autovalori reali (Hermitiane). Le matrici unitarie sono diagonalizzabili con autovalori sulla circonferenza unitaria.
+
+\begin{teoria}
+\begin{itemize}
+\item Polinomio caratteristico: $p(\lambda)=\det(A-\lambda\mathbb 1)$.
+\item Spettro: $\sigma(A)=\{\lambda: p(\lambda)=0\}$. Se $\lambda$ \`e radice di molteplicit\`a $m$, $\dim L_\lambda\le m$ (\emph{molteplicit\`a geometrica $\le$ algebrica}).
+\item $A$ diagonalizzabile $\iff$ per ogni autovalore $\dim L_\lambda$ = molteplicit\`a algebrica.
+\item Cambio di base: $D=S^{-1}AS$, con $S$ matrice che ha gli autovettori come colonne.
+\item Matrici Hermitiane: $S$ pu\`o essere scelta unitaria, $S^\dagger=S^{-1}$.
+\item \textbf{Diagonalizzazione simultanea:} $A$ e $B$ diagonali nella stessa base $\iff [A,B]=0$, purch\'e siano entrambe diagonalizzabili.
+\end{itemize}
+\end{teoria}
+
+\begin{algoritmo}
+\begin{enumerate}
+\item Calcola $p(\lambda)=\det(A-\lambda\mathbb 1)$ e trova gli autovalori $\lambda_i$.
+\item Per ogni $\lambda_i$, risolvi $(A-\lambda_i\mathbb 1)\bm v=0$ trovando una base dell'autospazio.
+\item Verifica che il numero totale di autovettori sia $n$ (altrimenti non diagonalizzabile, cf. Cap.~\ref{ch:fun-matrice}).
+\item Costruisci $S=(\bm v_1|\bm v_2|\dots|\bm v_n)$, $D=S^{-1}AS=\operatorname{diag}(\lambda_1,\dots,\lambda_n)$.
+\item Se $A$ \`e Hermitiana, scegli autovettori \emph{ortonormali}: allora $S$ \`e unitaria.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Set 1, Es. 7]
+$A=\begin{psmallmatrix}1&1\\2&3\end{psmallmatrix}$. $p(\lambda)=\lambda^2-4\lambda+1$, $\lambda_\pm=2\pm\sqrt 3$. Sistema per gli autovettori: $v_{\pm,1}+v_{\pm,2}=(2\pm\sqrt 3)v_{\pm,1}$ d\`a $\bm v_\pm^T=\bigl(-\tfrac{1\mp\sqrt 3}{2},1\bigr)$.
+$$S=\begin{pmatrix}-(1-\sqrt 3)/2 & -(1+\sqrt 3)/2\\ 1 & 1\end{pmatrix},\quad D=\begin{pmatrix}2+\sqrt 3 & 0\\ 0 & 2-\sqrt 3\end{pmatrix}.$$
+\end{esempio}
+
+\begin{esempio}[Set 1, Es. 9 -- diagonalizzazione simultanea $2\times 2$]
+$A=\tfrac{1}{2}\begin{psmallmatrix}3&-1\\-1&3\end{psmallmatrix}$, $B=\tfrac{1}{2}\begin{psmallmatrix}1&-1\\-1&1\end{psmallmatrix}$. Si verifica $[A,B]=0$. Gli autovettori comuni sono $\bm v_1=(1,1)^T$ e $\bm v_2=(1,-1)^T$:
+$$S=\begin{pmatrix}1&1\\1&-1\end{pmatrix},\quad S^{-1}AS=\begin{pmatrix}1&0\\0&2\end{pmatrix},\quad S^{-1}BS=\begin{pmatrix}0&0\\0&1\end{pmatrix}.$$
+\textbf{Quando l'autovalore \`e degenere}, l'autospazio ha dimensione $>1$: ogni base lo va bene, ma per diagonalizzare anche $B$ va scelta la base degli autovettori di $B$ ristretta a quell'autospazio.
+\end{esempio}
+
+\begin{trucco}
+\textbf{Test rapidi:} $\Tr A=\sum_i\lambda_i$, $\det A=\prod_i\lambda_i$. Se i conti tornano \`e quasi certo che gli autovalori siano giusti.\\
+\textbf{Hermitiano $\Rightarrow$ reali.} Se ti viene un autovalore complesso da una matrice Hermitiana, c'\`e un errore di calcolo.\\
+\textbf{Ortonormalizzazione interna} agli autospazi degeneri. Gli autovettori di un Hermitiano associati ad autovalori \emph{diversi} sono gi\`a ortogonali; quelli con lo \emph{stesso} autovalore li ortonormalizzi con Gram--Schmidt.
+\end{trucco}
+
+\begin{formulario}
+Matrici di Pauli:
+$$\sigma_1=\begin{psmallmatrix}0&1\\1&0\end{psmallmatrix},\;\sigma_2=\begin{psmallmatrix}0&-i\\i&0\end{psmallmatrix},\;\sigma_3=\begin{psmallmatrix}1&0\\0&-1\end{psmallmatrix},$$
+$\sigma_i\sigma_j=\delta_{ij}\mathbb 1+i\epsilon_{ijk}\sigma_k$. Autovalori $\pm 1$, $\Tr\sigma_i=0$.\\
+Identit\`a di Levi--Civita: $\epsilon_{ijk}\epsilon_{kmn}=\delta_{im}\delta_{jn}-\delta_{in}\delta_{jm}$.\\
+$\bm v\times(\bm u\times\bm w)=(\bm v\cdot\bm w)\bm u-(\bm v\cdot\bm u)\bm w$. Jacobi $\sum_{\text{cycl}}\bm v\times(\bm u\times\bm w)=0$.
+\end{formulario}
+
+% =========================================================
+\chapter{Funzioni di matrice}\label{ch:fun-matrice}
+
+\section{Due strade: spettrale e Cayley--Hamilton}
+Negli scritti ricorrono con frequenza altissima richieste come \emph{calcolare} $\eu^{A}$, $\log A$, $\sin A$, $A^{n}$, $A^{1/2}$. Due metodi coprono \emph{tutti} i casi:
+\begin{enumerate}
+\item \textbf{Decomposizione spettrale} (se $A$ \`e diagonalizzabile): $A=\sum_i \lambda_i\mathbb P_i$, allora $f(A)=\sum_i f(\lambda_i)\mathbb P_i$.
+\item \textbf{Cayley--Hamilton} (sempre): $f(A)=R(A)$ dove $R$ \`e il polinomio interpolante $f$ sullo spettro (con derivate per autovalori degeneri).
+\end{enumerate}
+
+\begin{teoria}[Cayley--Hamilton]
+Se $p(\lambda)$ \`e il polinomio caratteristico di $A$, allora $p(A)=0$. Di conseguenza, ogni potenza $A^k$ con $k\ge n$ \`e combinazione lineare di $\mathbb 1, A,\dots,A^{n-1}$, e cos\`i ogni serie convergente $f(A)$. Scrivi $f(z)=p(z)Q(z)+R(z)$ con $\deg R<n$: allora $f(A)=R(A)$.
+\end{teoria}
+
+\begin{algoritmo}[Spettrale, $A$ diagonalizzabile]
+\begin{enumerate}
+\item Diagonalizza: $A=SDS^{-1}$, $D=\operatorname{diag}(\lambda_i)$.
+\item Calcola $f(D)=\operatorname{diag}(f(\lambda_i))$.
+\item Ricostruisci: $f(A)=Sf(D)S^{-1}=\sum_i f(\lambda_i)\mathbb P_i$, con $\mathbb P_i=\ket{v_i}\bra{\tilde v_i}$ ($\bra{\tilde v_i}$ = $i$-esima riga di $S^{-1}$).
+\item Per funzioni polidrome ($\log,\sqrt{\,\cdot\,}$): scegli il branch e calcola $f(\lambda_i)$ usando il valore principale (cf. Cap.~\ref{ch:polidrome}).
+\end{enumerate}
+\end{algoritmo}
+
+\begin{algoritmo}[Cayley--Hamilton]
+\begin{enumerate}
+\item Trova gli autovalori $\lambda_i$ con molteplicit\`a $m_i$.
+\item Scrivi $R(z)=a_0+a_1 z+\dots+a_{n-1}z^{n-1}$ ($n$ = grado di $p$).
+\item Imponi le condizioni di interpolazione: per ogni $\lambda_i$,
+$$R^{(k)}(\lambda_i)=f^{(k)}(\lambda_i),\quad k=0,1,\dots,m_i-1.$$
+\item Risolvi il sistema lineare $\to$ $\{a_j\}$.
+\item $f(A)=a_0\mathbb 1+a_1 A+\dots+a_{n-1}A^{n-1}$.
+\end{enumerate}
+\textbf{Pro:} funziona anche se $A$ non \`e diagonalizzabile.
+\end{algoritmo}
+
+\begin{esempio}[Set 1, Es. 10 -- esponenziale, matrice non diag.]
+$A=\begin{psmallmatrix}\alpha&1&1\\0&\alpha&1\\0&0&\alpha\end{psmallmatrix}$ ha un unico autovalore $\alpha$ di molteplicit\`a algebrica 3 e geometrica 1: non diagonalizzabile.
+
+\emph{Cayley--Hamilton.} $p(z)=(z-\alpha)^3$. Cerco $R(z)=a_0+a_1 z+a_2 z^2$ con
+\begin{align*}
+R(\alpha)&=\eu^{\alpha t},\\
+R'(\alpha)&=t\eu^{\alpha t},\\
+R''(\alpha)&=t^2\eu^{\alpha t}.
+\end{align*}
+Si trovano $a_2=\tfrac{t^2}{2}\eu^{\alpha t}$, $a_1=t\eu^{\alpha t}(1-\alpha t)$, $a_0=\tfrac{\eu^{\alpha t}}{2}(2-2\alpha t+\alpha^2 t^2)$. Quindi
+$$\eu^{At}=\eu^{\alpha t}\begin{pmatrix}1 & t & t(2+t)/2\\ 0 & 1 & t\\ 0 & 0 & 1\end{pmatrix}.$$
+\end{esempio}
+
+\begin{esempio}[Set 1, Es. 11 -- $\eu^{i\theta\hat n\cdot\bm\sigma}$]
+$\hat n\cdot\bm\sigma$ ha autovalori $\pm 1$. Polinomio caratteristico di grado 2; $R(z)=a_0+a_1 z$ con
+$\eu^{i\theta}=a_0+a_1$, $\eu^{-i\theta}=a_0-a_1$, da cui $a_0=\cos\theta$, $a_1=i\sin\theta$:
+$$\eu^{i\theta\hat n\cdot\bm\sigma}=\cos\theta\,\mathbb 1+i\sin\theta\,\hat n\cdot\bm\sigma.$$
+Formula chiave per la rotazione di spin in QM.
+\end{esempio}
+
+\begin{esempio}[Set 1, Es. 12 -- $\log A$ e $A^{3/2}$ con branch]
+$A=\begin{psmallmatrix}2 & 1-i & -1+i\\ 0 & 1-i & 0\\ 0 & -2i & 1+i\end{psmallmatrix}$. Autovalori $\lambda_1=2$, $\lambda_2=1+i=\sqrt 2\eu^{i\pi/4}$, $\lambda_3=1-i=\sqrt 2\eu^{i7\pi/4}$ (branch reale positivo $\Rightarrow$ argomento in $[0,2\pi)$).
+
+Costruisci $S$ con gli autovettori, calcola $\mathbb P_i=S\mathbb P^{(D)}_i S^{-1}$ (qui gli autovettori \emph{non} sono ortonormali quindi NON vale $\mathbb P_i=\ket{v_i}\bra{v_i}$). Poi
+$$\log A=\sum_i\log\lambda_i\,\mathbb P_i,\qquad A^{3/2}=\sum_i\lambda_i^{3/2}\mathbb P_i.$$
+con $\log\lambda_2=\tfrac{1}{2}\log 2+i\pi/4$, ecc.
+
+\textbf{Punto cruciale del branch cut.} Tagliando lungo $\R^+$, gli angoli vanno in $[0,2\pi)$ e $\log$, potenze frazionarie vanno presi con quell'argomento. Se il taglio fosse stato lungo $\R^-$, gli angoli sarebbero in $(-\pi,\pi]$ e $\log(1-i)=\tfrac 1 2\log 2-i\pi/4$.
+\end{esempio}
+
+\begin{trucco}
+\textbf{Quando usare spettrale vs CH?}
+\begin{itemize}
+\item Matrici Hermitiane piccole: spettrale (autovettori ortonormali, $\mathbb P_i=\ket{v_i}\bra{v_i}$).
+\item Matrici non diagonalizzabili: CH obbligatoriamente.
+\item Funzioni di una matrice ``simbolica'' (es. $\eu^{i\theta\hat n\cdot\bm\sigma}$): CH \`e pi\`u veloce.
+\item Per $A^n$ con $n$ grande: spettrale, oppure spotta una \emph{periodicit\`a} mod $k$ se $A^k=\mathbb 1$.
+\end{itemize}
+
+\textbf{Errore tipico nel branch:} non controllare in che semipiano cadono gli autovalori. Sempre disegnare il piano complesso e segnare l'angolo che hai scelto.
+\end{trucco}
+
+\begin{formulario}
+$\eu^{At}=\sum_n A^n t^n/n!$; $\det \eu^A=\eu^{\Tr A}$; $\eu^A\eu^B=\eu^{A+B}$ \emph{solo se} $[A,B]=0$; BCH: $\eu^A\eu^B=\eu^{A+B+\frac 1 2[A,B]+\dots}$.
+\\$(1-xA)^{-1}=\sum_n x^n A^n$ se $\|xA\|<1$, oppure forma chiusa via spettrale.
+\\$A^n$ se $A^k=\mathbb 1$: $A^n=A^{n\bmod k}$.
+\end{formulario}
+
+% =========================================================
+% PARTE II
+% =========================================================
+\part{Analisi complessa}
+
+% =========================================================
+\chapter{Singolarit\`a e serie di Laurent}\label{ch:laurent}
+
+\section{Il quadro generale}
+Una funzione olomorfa $f$ in un anello $r<|z-z_0|<R$ ammette uno sviluppo \emph{di Laurent}:
+$$f(z)=\sum_{n=-\infty}^{+\infty}c_n(z-z_0)^n,\qquad c_n=\frac{1}{2\pi i}\oint_\gamma \frac{f(z)}{(z-z_0)^{n+1}}\dd z.$$
+La parte $\sum_{n<0}c_n(z-z_0)^n$ \`e detta \emph{parte principale} e determina la natura della singolarit\`a in $z_0$.
+
+\begin{teoria}[Classificazione singolarit\`a isolate]
+\begin{itemize}
+\item \textbf{Eliminabile:} parte principale nulla. $\lim_{z\to z_0}f(z)$ esiste finito.
+\item \textbf{Polo di ordine $m$:} parte principale finita, con $c_{-m}\neq 0$ e $c_{-k}=0$ per $k>m$. $f(z)\sim c_{-m}(z-z_0)^{-m}$.
+\item \textbf{Essenziale:} parte principale infinita. Vicino a $z_0$, $f$ assume \emph{ogni} valore complesso (Picard).
+\item \textbf{Non isolata:} singolarit\`a di accumulazione (es. $1/\sin(1/z)$ in $z=0$).
+\end{itemize}
+Il \textbf{residuo} \`e per definizione $\Res(f,z_0)=c_{-1}$.
+\end{teoria}
+
+\section{Tecniche per costruire la serie di Laurent}
+
+\begin{algoritmo}[Laurent in $z_0$]
+\begin{enumerate}
+\item Riconosci la forma: $f(z)=g(z)/h(z)$ con $g,h$ olomorfe?
+\item Espandi $g$ in Taylor intorno a $z_0$, $h$ in Taylor intorno a $z_0$.
+\item Se $h(z_0)=0$ con zero di ordine $k$, raccogli $(z-z_0)^k$ a denominatore e usa
+$$\frac{1}{1-w}=\sum_{n\ge 0}w^n\quad (|w|<1)$$
+per il fattore residuo.
+\item Moltiplica le serie e leggi i coefficienti. La parte principale ha al massimo $k$ termini.
+\item Se hai pi\`u centri o vuoi sviluppare in un anello diverso, espandi $\frac{1}{z-a}$ come serie geometrica nel rapporto giusto, distinguendo $|z-z_0|<|a-z_0|$ e $|z-z_0|>|a-z_0|$.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Scritto 20/01/2025, Es. 1]
+$f(z)=\dfrac{\eu^z\sin z}{z(1-\cos z)}$. In $z=0$: $\eu^z\sin z=z+z^2+z^3/3+\dots$, e $1-\cos z=z^2/2-z^4/24+\dots=\tfrac{z^2}{2}(1-z^2/12+\dots)$. Quindi
+$$f(z)=\frac{z+z^2+z^3/3+\dots}{z\cdot \tfrac{z^2}{2}(1-z^2/12+\dots)}=\frac{2}{z^2}+\frac{2}{z}+\frac{8}{3}+O(z).$$
+La singolarit\`a in $0$ \`e un polo di ordine 2. Residuo $=2$.
+\end{esempio}
+
+\begin{esempio}[Scritto 20/01/2026, Es. 1 -- due anelli]
+$f(z)=\dfrac{1}{z+z^3}=\dfrac{1}{z(z^2+1)}$ centrata in $z_0=i$.
+
+Riscrivi $z^2+1=(z-i)(z+i)$ e $z(z+i)=$ olomorfa in $i$; il polo in $z_0=i$ \`e semplice. Per $0<|z-i|<1$ (anello interno):
+$$\frac{1}{z(z+i)}=\frac{1}{i\cdot 2i}\cdot\frac{1}{(1+\frac{z-i}{i})(1+\frac{z-i}{2i})}=\sum (\text{Taylor})$$
+e dividi per $(z-i)$. Per $|z-i|>2$ (anello esterno) sviluppa
+$\frac{1}{z}=\frac{1}{(z-i)+i}=\frac{1}{z-i}\cdot\frac{1}{1+i/(z-i)}=\sum_{n\ge 0}\frac{(-i)^n}{(z-i)^{n+1}}$,
+analogamente $\frac{1}{z+i}=\sum\frac{(-i\cdot 2)^n}{(z-i)^{n+1}}\cdot\dots$.
+\end{esempio}
+
+\begin{trucco}
+\textbf{Triangolino di Pascal.} Per moltiplicare due serie tronche, scrivile come ``polinomi in $w$'' e moltiplica come tali, raccogliendo termini fino all'ordine voluto.\\
+\textbf{Non confondere polo doppio e essenziale.} Se nel denominatore appare $\sin(1/z)$, $\cos(1/z)$, $\eu^{1/z}$ etc., \`e essenziale.\\
+\textbf{Singolarit\`a non isolata.} Se la singolarit\`a viene avvicinata da altre singolarit\`a (es. $1/\sin(1/z)$ in $z=0$: gli zeri di $\sin(1/z)$ si accumulano in $0$), \emph{Laurent non esiste}: bisogna usare il residuo all'infinito.
+\end{trucco}
+
+\begin{formulario}
+$\eu^z=\sum z^n/n!$, $\sin z=z-z^3/6+\dots$, $\cos z=1-z^2/2+z^4/24-\dots$, $\log(1+z)=z-z^2/2+z^3/3-\dots$, $1/(1-z)=\sum z^n$, $1/\sin z=1/z+z/6+7z^3/360+\dots$ in $z=0$.
+\end{formulario}
+
+% =========================================================
+\chapter{Residui e integrali sul cerchio}\label{ch:residui}
+
+\section{Definizione e formule operative}
+$\Res(f,z_0)=c_{-1}$ del Laurent. Per i casi tipici:
+
+\begin{teoria}[Calcolo dei residui]
+\begin{itemize}
+\item \textbf{Polo semplice:} $\Res(f,z_0)=\lim_{z\to z_0}(z-z_0)f(z)$. Se $f=g/h$ con $h(z_0)=0$, $h'(z_0)\neq 0$, $g(z_0)\neq 0$:
+$$\Res(f,z_0)=\frac{g(z_0)}{h'(z_0)}.$$
+\item \textbf{Polo di ordine $m$:} $\Res(f,z_0)=\dfrac{1}{(m-1)!}\lim_{z\to z_0}\dfrac{\dd^{m-1}}{\dd z^{m-1}}\big[(z-z_0)^m f(z)\big]$.
+\item \textbf{Residuo all'infinito:} $\Res(f,\infty)=-\Res\!\left(\tfrac{1}{w^2}f(\tfrac 1 w),0\right)=-c_{-1}^{(\infty)}$ dello sviluppo di $f$ in $|z|>R$.
+\item \textbf{Somma residui:} su una sfera di Riemann compatta, la somma di \emph{tutti} i residui (compreso $\infty$) \`e zero.
+\end{itemize}
+\end{teoria}
+
+\begin{teoria}[Teorema dei residui]
+Se $f$ \`e olomorfa in un aperto contenente la curva chiusa $\gamma$ percorsa positivamente e i punti $z_1,\dots,z_k$ interni a $\gamma$ sono le sue singolarit\`a isolate:
+$$\oint_\gamma f(z)\dd z=2\pi i\sum_{j=1}^k\Res(f,z_j).$$
+\end{teoria}
+
+\section{Strategie ricorrenti}
+
+\begin{algoritmo}[Integrale su cerchio $|z|=R$]
+\begin{enumerate}
+\item Localizza tutte le singolarit\`a di $f$ e seleziona quelle con $|z_j|<R$.
+\item Se sono poche e di basso ordine, calcola i residui direttamente.
+\item Se sono troppe (o non isolate o ne hai infinite), usa $\sum\Res_{\text{interno}}=-\sum\Res_{\text{esterno}}-\Res_\infty$.
+\item Applica il teorema dei residui.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Scritto 08/09/2024, Es. 1]
+$f(z)=1/\sin(z^{-2})$ su $|z|=1$. Gli zeri di $\sin(1/z^2)$ sono $1/z^2=k\pi$ $\Rightarrow$ $z=\pm(k\pi)^{-1/2}$ per $k\ge 1$: infiniti, si accumulano in $0$.
+
+Tutte le singolarit\`a sono interne a $|z|=1$ tranne $z=\infty$. Quindi
+$$\oint_{|z|=1}\frac{\dd z}{\sin(z^{-2})}=-2\pi i\,\Res(f,\infty).$$
+Sviluppo in $|z|$ grande: $1/z^2$ piccolo $\Rightarrow$ $\sin(z^{-2})\sim z^{-2}+\tfrac{1}{6}z^{-6}+\dots$, $f(z)\sim z^2-\tfrac{1}{6}z^{-2}+\dots$. Non c'\`e $c_{-1}$ nello sviluppo all'infinito $\Rightarrow$ $\Res_\infty=0$ e l'integrale \`e zero.
+\end{esempio}
+
+\begin{esempio}[Scritto 05/11/2025, Es. 1]
+$f(z)=1/(\sin(\eu^z)-1)$ su $|z|=1$. Gli zeri sono $\eu^z=\pi/2+2k\pi$ $\Rightarrow$ $z=\log(\pi/2+2k\pi)$. Solo $k=0$ \`e interno: $z_0=\log(\pi/2)\approx 0.45$.
+
+Lo zero del denominatore \`e doppio? Calcolo $\frac{\dd}{\dd z}(\sin\eu^z-1)|_{z_0}=\eu^{z_0}\cos\eu^{z_0}=(\pi/2)\cdot 0=0$. \`E doppio. Allora il polo di $f$ \`e doppio. Va calcolato come polo $m=2$:
+$$\Res(f,z_0)=\lim_{z\to z_0}\frac{\dd}{\dd z}\frac{(z-z_0)^2}{\sin(\eu^z)-1}.$$
+Spesso \`e pi\`u rapido usare la Laurent: $\sin(\eu^z)-1=-\tfrac 1 2(\eu^z-\pi/2)^2+O(\eu^z-\pi/2)^3$, da cui dopo qualche passaggio si trova $\Res(f,z_0)=-2/(\pi/2)^2=-8/\pi^2$ (a meno di correzioni; controllare attentamente i segni).
+\end{esempio}
+
+\begin{trucco}
+\textbf{Verifica zero del denominatore: semplice o multiplo?} Calcola la prima derivata. Se anche quella \`e nulla, lo zero \`e doppio (e il polo di $1/h$ \`e doppio).\\
+\textbf{Residuo all'infinito.} Sviluppo in serie di Laurent in $|z|>R$. Prendi il \emph{negativo} del coefficiente di $1/z$.\\
+\textbf{Formula di Cauchy delle derivate} (utile su poli di ordine alto): $\oint\dfrac{f(z)}{(z-z_0)^{n+1}}\dd z=\dfrac{2\pi i}{n!}f^{(n)}(z_0)$.
+\end{trucco}
+
+\begin{formulario}
+Polo semplice: $\Res = g(z_0)/h'(z_0)$.\\
+Polo ord. $m$: $\Res = \frac{1}{(m-1)!}\lim_{z\to z_0}\frac{\dd^{m-1}}{\dd z^{m-1}}[(z-z_0)^m f]$.\\
+Polo essenziale: tirare fuori il coefficiente $c_{-1}$ a mano.\\
+Sferica di Riemann: $\sum\Res = 0$.
+\end{formulario}
+
+% =========================================================
+\chapter{Integrali reali con il metodo dei residui}
+
+\section{Catalogo dei percorsi}
+Quasi tutti gli integrali reali degli esami rientrano in una di queste classi:
+\begin{enumerate}
+\item Razionali $\int_{-\infty}^\infty R(x)\dd x$ con $\deg(\text{denom})\ge\deg(\text{num})+2$: semicerchio in alto.
+\item $\int_{-\infty}^\infty R(x)\eu^{i k x}\dd x$ ($k>0$): semicerchio in alto (lemma di Jordan).
+\item Trigonometrici $\int_0^{2\pi}R(\cos\theta,\sin\theta)\dd\theta$: sostituzione $z=\eu^{i\theta}$.
+\item Razionali con potenze frazionarie $\int_0^\infty x^{\alpha-1}R(x)\dd x$: \emph{keyhole} attorno al taglio.
+\item Razionali con $\log$: keyhole o ``due percorsi'' che scambiano segno.
+\item Settore di angolo $2\pi/n$ se l'integrando ha simmetria $x^n$.
+\item Rettangolare se compaiono $\cosh,\sinh$ con periodo $i\pi$.
+\end{enumerate}
+
+\section{Casi standard}
+
+\begin{algoritmo}[Semicerchio + Jordan, $k>0$]
+\begin{enumerate}
+\item Chiudi nel semipiano superiore ($\Im z>0$): l'integrale sul semicerchio tende a $0$ se $\eu^{ikz}\cdot R(z)\to 0$ uniformemente (vero per $k>0$ e $R$ razionale che si annulla all'infinito).
+\item $\int_{-\infty}^\infty\!\! f(x)\eu^{ikx}\dd x=2\pi i\sum_{\Im z_j>0}\Res(f\eu^{ikz},z_j)$.
+\item Per $k<0$ chiudi nel semipiano inferiore (orientazione negativa $\Rightarrow$ segno meno).
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Scritto 18/06/2024, Es. 2]
+$\displaystyle\int_{-\infty}^\infty\frac{x\sin x}{x^2+1}\dd x=\Im\int_{-\infty}^\infty\frac{x\eu^{ix}}{x^2+1}\dd x$. I poli sono $\pm i$; $+i$ \`e nel semipiano superiore.
+$\Res\!\left(\tfrac{z\eu^{iz}}{z^2+1},i\right)=\tfrac{i\eu^{-1}}{2i}=\tfrac{\eu^{-1}}{2}$. L'integrale vale $2\pi i\cdot\tfrac{\eu^{-1}}{2}=i\pi/e$ $\Rightarrow$ la parte immaginaria \`e $\pi/e$.
+\end{esempio}
+
+\begin{algoritmo}[Trigonometrico via $z=\eu^{i\theta}$]
+\begin{enumerate}
+\item $\cos\theta=\tfrac{z+1/z}{2}$, $\sin\theta=\tfrac{z-1/z}{2i}$, $\dd\theta=\dd z/(iz)$.
+\item L'intervallo $[0,2\pi]$ diventa $|z|=1$.
+\item Calcola i residui all'interno del cerchio unitario.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Scritto 15/01/2024, Es. 2]
+$\int_0^\pi \dfrac{\dd\theta}{3-2\cos\theta}$. Per simmetria $=\tfrac 1 2\int_0^{2\pi}=\dots$ Sostituendo: $-\tfrac{1}{i}\oint\dfrac{\dd z}{z^2-3z+1}$. I poli sono $(3\pm\sqrt 5)/2$; solo il primo, $z_-=(3-\sqrt 5)/2<1$, \`e interno. $\Res=1/(2z_--3)=-1/\sqrt 5$. L'integrale completo vale $2\pi/\sqrt 5$, quello mezzo $\pi/\sqrt 5$.
+\end{esempio}
+
+\begin{algoritmo}[Settore di angolo $\alpha=2\pi/n$]
+Quando l'integrando \`e invariante per $z\mapsto z\eu^{i\alpha}$ a meno di un fattore $\eu^{im\alpha}$:
+\begin{enumerate}
+\item Chiudi con un settore di angolo $\alpha$.
+\item Sui due raggi compare $I+c\cdot I$ con $c$ fattore di fase.
+\item Risolvi per $I$: $I(1-c)=2\pi i\sum\Res$.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Scritto 12/02/2025, Es. 2]
+$I=\int_0^\infty\dfrac{\dd x}{1+x^{2n+1}}$. Settore di angolo $\alpha=2\pi/(2n+1)$. L'unico polo interno \`e $z_0=\eu^{i\pi/(2n+1)}$. Sul raggio inclinato $x\mapsto x\eu^{i\alpha}$, $\dd z=\eu^{i\alpha}\dd x$. L'integrale combinato $\Rightarrow$
+$$I(1-\eu^{i\alpha})=2\pi i\Res=2\pi i\cdot\frac{1}{(2n+1)z_0^{2n}}=-\frac{2\pi i z_0}{2n+1}.$$
+Quindi $I=\dfrac{2\pi}{(2n+1)\sin(\pi/(2n+1))}$.
+\end{esempio}
+
+\begin{algoritmo}[Rettangolo per $\cosh/\sinh$]
+Per integrandi con $\eu^x/(\eu^x+\eu^{-x})$, il periodo \`e $i\pi$. Chiudi col rettangolo di vertici $(-R,0),(R,0),(R,i\pi),(-R,i\pi)$. Sul lato superiore, $\eu^x\eu^{i\pi}=-\eu^x$.
+\end{algoritmo}
+
+\begin{esempio}[Scritto 10/09/2024, Es. 2]
+$I=\int_{-\infty}^\infty\dfrac{\cos x}{\eu^x+\eu^{-x}}\dd x=\tfrac 1 2\Re\int\dfrac{2\eu^{ix}}{\eu^x+\eu^{-x}}\dd x$. Con il rettangolo: sul lato superiore l'integrando diventa $-\eu^{ix-i\pi}/(\eu^x+\eu^{-x})$. Sommando i due lati orizzontali: $I(1+\eu^{-i\pi}\cdot(-1))=I(1+\eu^{-\pi})$? Bisogna fare attenzione ai segni; il risultato finale \`e $I=\pi/(2\cosh(\pi/2))=\pi/\cosh(\pi/2)$ moltiplicato per il fattore opportuno. Il punto: il rettangolo \`e \emph{automatico} ogni volta che vedi $\cosh,\sinh$ nel denominatore.
+\end{esempio}
+
+\begin{trucco}
+\textbf{Polo sull'asse reale.} Se compare un polo proprio sull'asse reale (es. $1/x$), usa il \emph{valore principale} di Cauchy: piccola semicirconferenza intorno al polo $\Rightarrow$ contributo $+i\pi\Res$.\\
+\textbf{Parit\`a.} Se l'integrando \`e pari, $\int_0^\infty=\tfrac 1 2\int_{-\infty}^\infty$. Se \`e dispari, il PV \`e zero.\\
+\textbf{Lemma di Jordan necessario:} su semicerchio in alto, $\int\eu^{ikz}\to 0$ se $k>0$. \emph{Non} vale per $\eu^{-ikz}$ in alto.\\
+\textbf{Settori e simmetrie:} prima di rompersi con il keyhole, controlla se l'integrando ha una simmetria angolare che semplifica il percorso.
+\end{trucco}
+
+\begin{formulario}
+$\int_{-\infty}^\infty\dfrac{\dd x}{x^2+a^2}=\dfrac{\pi}{a}$;
+$\int_{-\infty}^\infty\dfrac{\cos kx}{x^2+a^2}\dd x=\dfrac{\pi}{a}\eu^{-|k|a}$;
+$\int_0^\infty\dfrac{x^{\alpha-1}}{1+x}\dd x=\dfrac{\pi}{\sin\alpha\pi}$ ($0<\alpha<1$);
+$\int_0^\infty\dfrac{\dd x}{1+x^n}=\dfrac{\pi/n}{\sin(\pi/n)}$;
+$\int_0^\infty\dfrac{\log x}{1+x^2}\dd x=0$.
+\end{formulario}
+
+% =========================================================
+\chapter{Funzioni polidrome e tagli}\label{ch:polidrome}
+
+\section{Concetti chiave}
+Le funzioni $\log z$, $z^\alpha$ con $\alpha\notin\Z$, $\sqrt{P(z)}$ con $P$ polinomio sono \emph{polidrome}: il loro valore dipende dal cammino percorso intorno ai \emph{punti di diramazione} (branch points).
+
+\begin{teoria}
+\begin{itemize}
+\item $\log z=\log|z|+i\arg z$, con $\arg z$ definita modulo $2\pi$. Scegliere il \emph{branch} significa scegliere un intervallo per $\arg z$ (di solito $(-\pi,\pi]$ o $[0,2\pi)$).
+\item Il \emph{taglio} (\emph{branch cut}) \`e la semiretta lungo la quale $\arg z$ ha un salto: $\R^+$ per $\arg\in[0,2\pi)$, $\R^-$ per $\arg\in(-\pi,\pi]$.
+\item Per $f(z)=\sqrt{(z-a)(z-b)}$: due punti di diramazione $a,b$. Si pu\`o scegliere un \emph{taglio finito} $[a,b]$, lasciando $f$ olomorfa altrove (inclusa $\infty$, se $a,b$ finiti).
+\item Per $z^\alpha=\eu^{\alpha\log z}$. Con $\alpha$ irrazionale o complesso, il taglio \`e essenziale.
+\end{itemize}
+\end{teoria}
+
+\section{Percorso a chiave di violino (keyhole)}
+
+\begin{algoritmo}[Keyhole per $\int_0^\infty x^{\alpha-1}R(x)\dd x$]
+\begin{enumerate}
+\item Scegli il taglio lungo $\R^+$, $\arg z\in[0,2\pi)$.
+\item Percorso: lato superiore del taglio $0\to R$, grande cerchio $|z|=R$, lato inferiore $R\to 0$, piccolo cerchio $|z|=\epsilon$.
+\item Sul lato superiore $z=x$, $x^{\alpha-1}\to x^{\alpha-1}$.
+\item Sul lato inferiore $z=x\eu^{2\pi i}$, $x^{\alpha-1}\to x^{\alpha-1}\eu^{2\pi i(\alpha-1)}$.
+\item L'integrale sul keyhole d\`a $(1-\eu^{2\pi i\alpha})I=2\pi i\sum\Res$.
+\item Risolvi per $I$.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Scritto 03/07/2024, Es. 2]
+$f(z)=\dfrac{z+1}{\sqrt z(z^2-2z+2)}$. Poli del denominatore: $z=1\pm i$. Branch in $0$ con taglio $\R^+$, $\sqrt z=\sqrt|z|\eu^{i\theta/2}$, $\theta\in[0,2\pi)$.
+
+Su lato superiore $\sqrt z\to\sqrt x$, su lato inferiore $\sqrt z\to-\sqrt x$. Quindi $\oint=(1-(-1))\int_0^\infty=2\int_0^\infty$. Per il teorema dei residui:
+$$2I=2\pi i\big[\Res_{1+i}+\Res_{1-i}\big].$$
+Si calcolano i residui e si trova $I=\pi(1+\sqrt 2/\sqrt[4]{2})$ (controllare i conti algebrici).
+\end{esempio}
+
+\section{Taglio finito tra due punti}
+
+\begin{algoritmo}[Taglio finito]
+\begin{enumerate}
+\item Per $\sqrt{(z-a)(z-b)}$: taglio in $[a,b]$. Su un lato del taglio $\sqrt{\cdot}\to +i|\sqrt{\cdot}|$, sull'altro $\to -i|\sqrt{\cdot}|$.
+\item Percorso ``dog-bone'' (osso di cane) attorno al taglio.
+\item Spesso conviene deformare verso il grande cerchio: $\oint_{\text{ext}}+\oint_{\text{dog}}=0$ perch\'e f \`e olomorfa altrove $\Rightarrow$ $\oint_{\text{dog}}=-\oint_{|z|=R\to\infty}=2\pi i\Res_\infty$.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Scritto 16/11/2023, Es. 2]
+$f(z)=i\sqrt{(z-1)(z+2)}$, taglio finito $[-2,1]$. Sui due lati del taglio, $\sqrt{\cdot}$ assume valori opposti (puramente immaginari): l'integrando vale $\mp\sqrt{(1-x)(x+2)}=\mp\sqrt{2-x-x^2}$ a seconda del lato. Il dog-bone d\`a $2\int_{-2}^1\sqrt{2-x-x^2}\dd x=-2\pi i\Res_\infty$. Sviluppo all'infinito: $\sqrt{z^2(1+\dots)}=z(1+\tfrac{1}{2z}+\dots)\Rightarrow f=iz+i/2+(\text{$1/z$ termine})\dots\Rightarrow\Res_\infty=\tfrac{9}{8}i$ (per esempio). Verifica con il valore noto $\int_{-2}^1\sqrt{2-x-x^2}\dd x=\tfrac{9\pi}{8}$.
+\end{esempio}
+
+\begin{trucco}
+\textbf{Sempre disegnare il piano complesso} con i punti di diramazione, il taglio e il percorso. Sui due lati del taglio la fase cambia di $2\pi\alpha$ (per $z^\alpha$).\\
+\textbf{Tre convenzioni d'angolo} (Scritto 05/05/2025): per $\arg z\in(-\pi,\pi]$, $[0,2\pi)$, $[-\pi/2,3\pi/2)$ i valori di $f$ nei punti possono cambiare di un fattore esponenziale. Controlla sempre da quale lato del taglio stai valutando.\\
+\textbf{Branch point all'infinito.} Per $\sqrt{(z-a)(z-b)}$ con taglio finito, $\infty$ NON \`e branch point: si vede sviluppando $z\sqrt{1-(a+b)/z+\dots}$. Per $\sqrt z$, $\infty$ S\`I lo \`e.
+\end{trucco}
+
+\begin{formulario}
+$\log z$: branch points in $0$ e $\infty$. Taglio standard $(-\infty,0]$.\\
+$z^\alpha$: idem. Sui due lati $z^\alpha$ differisce per $\eu^{2\pi i\alpha}$.\\
+$\sqrt{z^2-a^2}$: branch in $\pm a$. Con taglio finito $[-a,a]$ \`e olomorfa altrove. Con tagli infiniti $(-\infty,-a]\cup[a,\infty)$ ha due rami distinti.\\
+$\int_0^\infty\dfrac{x^{\alpha-1}}{1+x}\dd x=\dfrac{\pi}{\sin\pi\alpha}$, $0<\alpha<1$.
+\end{formulario}
+
+% =========================================================
+\chapter{Funzioni armoniche e Cauchy--Riemann}
+
+\section{Teoria minima}
+
+\begin{teoria}
+$f(z)=u(x,y)+iv(x,y)$ \`e olomorfa $\iff$ $u,v$ soddisfano \emph{Cauchy--Riemann}: $\partial_x u=\partial_y v$, $\partial_y u=-\partial_x v$.
+Conseguenza: $u,v$ sono \emph{armoniche}, $\Delta u=\Delta v=0$.
+Data $u$ armonica (su un dominio semplicemente connesso), esiste $v$ (\emph{armonica coniugata}) unica a meno di costante. Si ottiene integrando le CR.
+\end{teoria}
+
+\begin{algoritmo}
+\begin{enumerate}
+\item Verifica $\Delta u=0$. Eventuali parametri si fissano qui.
+\item Da $\partial_y v=\partial_x u$ integra in $y$: $v(x,y)=\int\partial_x u\,\dd y+g(x)$.
+\item Da $\partial_x v=-\partial_y u$ trova $g'(x)$, quindi $g$.
+\item Scrivi $f(z)=u+iv$ ed esprimila in funzione di $z=x+iy$ (per riconoscimento, usando $\bar z=2x-z$, $z\bar z=x^2+y^2$).
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Scritto 03/07/2024, Es. 1]
+$u=\alpha x^2-y^2+\eu^{-y}\cos x$. Armonica? $\partial_{xx}u=2\alpha-\eu^{-y}\cos x$, $\partial_{yy}u=-2+\eu^{-y}\cos x$. Sommano a $2\alpha-2$ $\Rightarrow$ armonica solo se $\alpha=1$. Trovata $\alpha$, da CR: $\partial_y v=\partial_x u=2x-\eu^{-y}\sin x$ $\Rightarrow$ $v=2xy+\eu^{-y}\sin x+g(x)$, e $\partial_x v=-\partial_y u$ d\`a $g'=0$. Quindi $f(z)=x^2-y^2+\eu^{-y}\cos x+i(2xy+\eu^{-y}\sin x)=z^2+\eu^{iz}$.
+\end{esempio}
+
+\begin{esempio}[Scritto 12/02/2025, Es. 1]
+$u=x+\sin(x^2-y^2)\cosh(2xy)$. Si verifica $\Delta u=0$. Integrando CR: $v=y-\cos(x^2-y^2)\sinh(2xy)+C$. Notando che $\sin(x^2-y^2)\cosh(2xy)+i\cos(x^2-y^2)\sinh(2xy)\,$... in realt\`a la combinazione $u+iv=z+\Im(\eu^{iz^2})$ (controllare): l'identificazione si fa riconoscendo $z^2=x^2-y^2+2ixy$, quindi $\eu^{iz^2}=\eu^{i(x^2-y^2)}\eu^{-2xy}$ ecc.
+\end{esempio}
+
+\begin{trucco}
+\textbf{Verifica veloce.} $f$ olomorfa $\Rightarrow$ $\partial_{\bar z}f=0$. Scrivi $u,v$ in funzione di $z,\bar z$ (sostituendo $x=(z+\bar z)/2$, $y=(z-\bar z)/(2i)$): se $\bar z$ \`e scomparso, \`e olomorfa.\\
+\textbf{Riconoscimento $f(z)$:} dopo aver trovato $v$, prova a porre $y=0$ in $f=u+iv$. Ottieni $f$ ristretto a $\R$, da cui spesso \`e immediato leggere $f(z)$.
+\end{trucco}
+
+\begin{formulario}
+$\Delta=\partial_{xx}+\partial_{yy}=4\partial_z\partial_{\bar z}$. CR in forma complessa: $\partial_{\bar z}f=0$.\\
+Funzioni armoniche notevoli: $\log r$, $\arg z$, $\Re(z^n)$, $\Im(z^n)$, $\Re(\eu^z)=\eu^x\cos y$.
+\end{formulario}
+
+% =========================================================
+% PARTE III
+% =========================================================
+\part{Spazi di Hilbert infinito-dimensionali e distribuzioni}
+
+% =========================================================
+\chapter{Lo spazio $L^2$ e l'appartenenza}
+
+\section{Definizione e criteri}
+
+\begin{teoria}
+$L^2(\Omega)=\{f:\Omega\to\C\mid \int_\Omega|f|^2<\infty\}$ con $\|f\|^2=\braket{f}{f}=\int|f|^2$. \`E uno spazio di Hilbert. Per stabilire se $f\in L^2$, esamina i punti critici:
+\begin{itemize}
+\item \textbf{Singolarit\`a interne} $x_0$: scrivi $f\sim c\,(x-x_0)^{-\beta}$, allora $\int|f|^2\sim\int(x-x_0)^{-2\beta}$ converge sse $2\beta<1$.
+\item \textbf{Comportamento all'infinito} (se $\Omega$ \`e illimitato): $f\sim x^{-\gamma}$ per $x\to\infty$, converge sse $2\gamma>1$.
+\item \textbf{Oscillazioni}: $\sin^\alpha,\cos^\alpha$ su $\R$ non sono mai in $L^2$ (non decadono).
+\end{itemize}
+\end{teoria}
+
+\begin{algoritmo}
+\begin{enumerate}
+\item Trova zeri del denominatore e singolarit\`a interne $\Omega$.
+\item Locale: Taylor $\Rightarrow$ esponente $\beta$. Condizione $2\beta<1$.
+\item Asintotica: leading order $\Rightarrow$ $\gamma$. Condizione $2\gamma>1$.
+\item Intersezione delle condizioni.
+\item Casi limite: se l'esponente \`e $1/2$, controllare logaritmi e fattori oscillanti separatamente.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Set 2, Es. 1 -- caso classico]
+$f(x)=x^\alpha$ su $(0,1]$: $\int_0^1 x^{2\alpha}\dd x$ converge sse $2\alpha>-1$, cio\`e $\alpha>-1/2$.
+$f(x)=x^\alpha$ su $[1,\infty)$: converge sse $2\alpha<-1$, cio\`e $\alpha<-1/2$.
+$f(x)=x^\alpha$ su $(0,\infty)$: \emph{mai} contemporaneamente, $L^2(\R^+)$ vuoto per pure potenze.
+\end{esempio}
+
+\begin{trucco}
+\textbf{Confronto.} Per $f$ complicate, confronta $|f|^2$ con potenze pure usando $\lim_{x\to x_0}|f|^2/|x-x_0|^{-2\beta}=$ costante.\\
+\textbf{Logaritmi.} $\int_0^1 x^{-1}|\log x|^p\dd x$ \emph{diverge} sempre; $\int_0^{1/2}|\log x|^p\dd x$ converge per ogni $p$.\\
+\textbf{Funzioni oscillanti che non decadono} (es. $\sin x$) NON sono in $L^2(\R)$.
+\end{trucco}
+
+\begin{formulario}
+$\int_0^1 x^p\dd x$ converge $\iff p>-1$; $\int_1^\infty x^p\dd x$ converge $\iff p<-1$.
+\\Pacchetti gaussiani: $\int_{-\infty}^\infty x^{2n}\eu^{-ax^2}\dd x=\frac{(2n-1)!!}{(2a)^n}\sqrt{\pi/a}$.
+\\$L^2$ \`e completo, separabile, ha basi numerabili.
+\end{formulario}
+
+% =========================================================
+\chapter{Basi ortonormali e sviluppi in serie}
+
+\section{Idea}
+In $L^2$, una \emph{base ortonormale} $\{\phi_n\}$ permette di scrivere $f=\sum_n c_n\phi_n$, $c_n=\braket{\phi_n}{f}$. Vale Parseval: $\|f\|^2=\sum|c_n|^2$.
+
+\subsection{Polinomi di Legendre $P_n$ su $[-1,1]$}
+\begin{teoria}
+$P_n$ \`e l'ortogonalizzazione di $\{1,x,x^2,\dots\}$ in $L^2([-1,1])$. $P_0=1$, $P_1=x$, $P_2=(3x^2-1)/2$, $P_3=x(5x^2-3)/2$. Ortogonalit\`a: $\braket{P_n}{P_m}=\frac{2}{2n+1}\delta_{nm}$. Parit\`a: $P_n(-x)=(-1)^n P_n(x)$.
+\end{teoria}
+
+\begin{algoritmo}[Espansione di $f$ in Legendre]
+$f(x)=\sum c_n P_n(x)$, $c_n=\frac{2n+1}{2}\int_{-1}^1 f(x)P_n(x)\dd x$.
+Sfrutta parit\`a: $f$ pari $\Rightarrow$ solo $n$ pari; $f$ dispari $\Rightarrow$ solo $n$ dispari.
+\end{algoritmo}
+
+\begin{esempio}[Set 2, Es. 3 -- $f(x)=\eu^{ikrx}$]
+$c_n=\frac{2n+1}{2}\int_{-1}^1\eu^{ikrx}P_n(x)\dd x$. Per $n=0$: $c_0=\sin(kr)/(kr)$. Per $n=1$: trucco di Feynman $\int\eu^{ikrx}x\dd x=-i\partial_{kr}\int\eu^{ikrx}\dd x$. Espressione chiusa coinvolge funzioni di Bessel sferiche $j_n(kr)$.
+\end{esempio}
+
+\subsection{Basi trigonometriche su $[-L,L]$ o $[0,L]$}
+\begin{formulario}
+Su $[-L,L]$: $\{\eu^{i n\pi x/L}/\sqrt{2L}\}_{n\in\Z}$ \`e ONB. Su $[0,L]$ con Dirichlet: $\{\sqrt{2/L}\sin(n\pi x/L)\}_{n\ge 1}$. Con Neumann: $\{1/\sqrt L\}\cup\{\sqrt{2/L}\cos(n\pi x/L)\}_{n\ge 1}$. Misti Dirichlet--Neumann: $\sin((n+1/2)\pi x/L)$.
+\end{formulario}
+
+\begin{esempio}[Scritto 12/02/2025, Es. 3 -- Gram--Schmidt in $L^2$]
+$f_1=\sin x\,\eu^{-x}$, $f_2=\cos x\,\eu^{-x}$ su $[0,\infty)$. Calcola $\|f_1\|^2=\int_0^\infty\sin^2 x\,\eu^{-2x}\dd x$ con $\sin^2 x=(1-\cos 2x)/2$. Trova $\|f_1\|^2=1/8$. Poi $\braket{f_1}{f_2}=\int\sin x\cos x\,\eu^{-2x}\dd x=\int(\sin 2x/2)\eu^{-2x}\dd x=1/8$. Applica Gram--Schmidt: $\tilde f_2=f_2-(\braket{f_1}{f_2}/\|f_1\|^2)f_1=f_2-f_1$.
+\end{esempio}
+
+\begin{trucco}
+\textbf{Riconoscere strutture note} prima di calcolare integrali brutti: $\int_0^\infty\eu^{-ax}\sin bx\,\dd x=\frac{b}{a^2+b^2}$, $\int_0^\infty\eu^{-ax}\cos bx\,\dd x=\frac{a}{a^2+b^2}$.\\
+\textbf{Parit\`a anche in basi non-trigonometriche.} Per Legendre vale, per Hermite vale, sfrutta sempre la parit\`a per dimezzare il lavoro.\\
+\textbf{Espansione di funzioni semplici} in basi: spesso $\langle\phi_n|1\rangle$ \`e gi\`a tabulato.
+\end{trucco}
+
+% =========================================================
+\chapter{Operatori in dim. infinita: spettro e autoaggiunzione}\label{ch:operatori}
+
+\section{Punti di teoria essenziali}
+
+\begin{teoria}
+Un operatore lineare $A:\Dom(A)\subset\H\to\H$ (densamente definito).
+\begin{itemize}
+\item \textbf{Aggiunto:} $A^\dagger$ con dominio $\Dom(A^\dagger)=\{\psi:\exists \eta, \braket{\psi}{A\phi}=\braket{\eta}{\phi}\forall\phi\in\Dom(A)\}$, $A^\dagger\psi=\eta$.
+\item \textbf{Simmetrico:} $\braket{\psi}{A\phi}=\braket{A\psi}{\phi}$ su $\Dom(A)\subset\Dom(A^\dagger)$.
+\item \textbf{Autoaggiunto:} $A=A^\dagger$ \emph{e i domini coincidono}. Garantisce spettro reale e teorema spettrale.
+\item \textbf{Spettro:} $\sigma(A)=\{\lambda:A-\lambda$ non ha inverso limitato$\}$. Si divide in puntuale (autovalori normalizzabili), continuo (autovalori generalizzati), residuo.
+\end{itemize}
+Operatori chiave in QM: $X\psi=x\psi$ (continuo, $\sigma=\R$), $P=-i\partial_x$ (continuo su $\R$, discreto su $[a,b]$ con BC opportune).
+Per $P$ su $[0,L]$:
+\begin{itemize}
+\item BC periodiche $\psi(L)=\psi(0)$: autoaggiunto, spettro discreto $p_n=2\pi n/L$.
+\item BC antiperiodiche $\psi(L)=-\psi(0)$: autoaggiunto, spettro discreto $p_n=(2n+1)\pi/L$.
+\item Sola Dirichlet $\psi(0)=\psi(L)=0$: \emph{simmetrico ma non autoaggiunto} (indici di difetto $(1,1)$).
+\end{itemize}
+\end{teoria}
+
+\section{Algoritmo per problemi tipo}
+
+\begin{algoritmo}[{Spettro di operatore differenziale su $[a,b]$}]
+\begin{enumerate}
+\item Risolvi l'ODE $A\psi=\lambda\psi$ con $\lambda$ generico.
+\item Imponi le BC. Spesso ottieni un'equazione trascendente in $\lambda$, $\Phi(\lambda)=0$.
+\item Risolvi: per BC ``buone'' ottieni $\lambda_n$ discreti (tipicamente quantizzati come $\sin,\cos$, $\eu^{i\lambda L}=1$).
+\item Normalizza le autofunzioni.
+\item (Opz.) Verifica completezza: $\sum_n\ket{\psi_n}\bra{\psi_n}=\mathbb 1$ provando $\delta(x-y)$.
+\item Verifica autoaggiuntezza: $\braket{A\psi}{\phi}-\braket{\psi}{A\phi}=[\text{termini di bordo}]$. Devono annullarsi.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Scritto 20/06/2023, Es. 3]
+$A=\partial_x^2-2\partial_x+1$ su $[0,1]$, $\psi(0)=\psi(1)=0$. ODE: $\psi''-2\psi'+(1-\lambda)\psi=0$. Caratteristica $r^2-2r+(1-\lambda)=0$ $\Rightarrow$ $r_\pm=1\pm\sqrt\lambda$. Soluzioni: $\psi=\eu^x(c_1\eu^{\sqrt\lambda x}+c_2\eu^{-\sqrt\lambda x})$. $\psi(0)=c_1+c_2=0$, $\psi(1)=\eu(c_1\eu^{\sqrt\lambda}-c_1\eu^{-\sqrt\lambda})=0$ $\Rightarrow$ $\sinh\sqrt\lambda=0$ $\Rightarrow$ $\sqrt\lambda=i n\pi$. Spettro $\lambda_n=-n^2\pi^2$, $n=1,2,\dots$. Autofunzioni $\psi_n(x)=\eu^x\sin(n\pi x)$ (non ortonormali in $L^2$ standard! Devi includere un peso o coerentemente cambiare prodotto scalare; \`e una caratteristica degli operatori non-Hermitiani).
+\end{esempio}
+
+\begin{esempio}[Scritto 08/07/2025, Es. 3]
+$A=-i\partial_x$ su $[0,1]$ con BC antiperiodica $\psi(1)=-\psi(0)$.
+
+Autoaggiuntezza: $\braket{A\psi}{\phi}-\braket{\psi}{A\phi}=-i[\psi^*\phi]_0^1=-i(\psi^*(1)\phi(1)-\psi^*(0)\phi(0))=-i(\psi^*(0)\phi(0)-\psi^*(0)\phi(0))=0$. \checkmark
+
+Spettro: $-i\psi'=\lambda\psi$ $\Rightarrow$ $\psi=A\eu^{i\lambda x}$. BC: $\eu^{i\lambda}=-1$ $\Rightarrow$ $\lambda_n=(2n+1)\pi$, $n\in\Z$. ONB: $\psi_n(x)=\eu^{i(2n+1)\pi x}$.
+
+Espansione $f=1$: $c_n=\int_0^1\eu^{-i(2n+1)\pi x}\dd x=\frac{1-\eu^{-i(2n+1)\pi}}{i(2n+1)\pi}=\frac{2}{i(2n+1)\pi}$.
+\end{esempio}
+
+\begin{trucco}
+\textbf{BC \emph{rendono} autoaggiunto.} Lo stesso operatore differenziale pu\`o essere autoaggiunto o no a seconda delle BC. Verifica sempre col calcolo dei termini di bordo dopo integrazione per parti.\\
+\textbf{Spettro discreto vs continuo.} Su dominio finito di solito discreto; su $\R$ di solito continuo. Eccezioni: potenziali confinanti come $-\partial_x^2+x^2$ (oscillatore) hanno spettro discreto anche su $\R$.\\
+\textbf{Operatori del prim'ordine} hanno BC ``a una sola estremit\`a'' (puoi imporne solo una).
+\end{trucco}
+
+\begin{formulario}
+$-\partial_x^2$ su $[0,L]$, Dir-Dir: $\lambda_n=(n\pi/L)^2$, $\psi_n=\sqrt{2/L}\sin(n\pi x/L)$, $n=1,2,\dots$\\
+$-\partial_x^2$ su $[0,L]$, Neu-Neu: $\lambda_n=(n\pi/L)^2$, $\psi_n=\sqrt{2/L}\cos(n\pi x/L)$, $n=0,1,\dots$\\
+$-\partial_x^2$ su $[0,L]$, Dir-Neu: $\lambda_n=((n+1/2)\pi/L)^2$, $\psi_n=\sqrt{2/L}\sin((n+1/2)\pi x/L)$.\\
+Oscillatore $-\partial_x^2+x^2$: $\lambda_n=2n+1$, $\psi_n=$ Hermite.
+\\Pozzo $-\partial_x^2-\delta(x)$: spettro discreto $\lambda_0=-1/4$, $\psi_0=\eu^{-|x|/2}/\sqrt 2$; continuo $\lambda>0$.
+\end{formulario}
+
+% =========================================================
+\chapter{Distribuzioni: $\delta$, $\delta'$ e affini}
+
+\section{Definizione operativa}
+
+\begin{teoria}
+Una distribuzione $T$ \`e un funzionale lineare continuo sulle funzioni test $\phi\in C^\infty_c$. Scriviamo $\braket{T}{\phi}$. La $\delta$ di Dirac: $\braket{\delta}{\phi}=\phi(0)$. La sua derivata: $\braket{\delta'}{\phi}=-\phi'(0)$.
+
+Identit\`a fondamentali:
+\begin{enumerate}
+\item $\delta(\alpha x)=|\alpha|^{-1}\delta(x)$.
+\item $\delta(f(x))=\sum_{x_n:f(x_n)=0}\frac{\delta(x-x_n)}{|f'(x_n)|}$, valida se $f'(x_n)\neq 0$.
+\item $x\delta(x)=0$; $f(x)\delta(x)=f(0)\delta(x)$.
+\item $\delta'(x)f(x)=\delta'(x)f(0)-\delta(x)f'(0)$.
+\item Rappresentazione integrale: $\delta(x)=\frac{1}{2\pi}\int_{-\infty}^\infty\eu^{ikx}\dd k$.
+\item Laplaciano: $\Delta(1/r)=-4\pi\delta^3(\bm r)$ in $\R^3$.
+\end{enumerate}
+\end{teoria}
+
+\section{Algoritmi}
+
+\begin{algoritmo}[$\int g(x)\delta(f(x))\dd x$]
+\begin{enumerate}
+\item Trova gli zeri $x_n$ di $f$ \emph{nel dominio} di integrazione.
+\item Verifica $f'(x_n)\neq 0$. (Se nullo, lo zero \`e multiplo: vedere casi speciali.)
+\item Risultato $=\sum_n g(x_n)/|f'(x_n)|$.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Scritto 20/01/2026, Es. 3]
+$\iint\delta'(x^2+y^2-1)\delta(x^2-y^2)\,g(x,y)\dd x\dd y$. Cambia coordinate a $(u=x^2+y^2,v=x^2-y^2)$, Jacobiano $|J|=|4xy|$.
+
+Gli zeri di $\delta(v)$ vincolano $v=0$ $\Rightarrow$ $x^2=y^2$; gli zeri di $\delta'(u-1)$ con la propriet\`a $\int\delta'(u-1)F(u)\dd u=-F'(1)$. Combinando: il risultato \`e $f(1)-f'(1)$ ove $f$ \`e una funzione di $r=\sqrt{x^2+y^2}$ valutata in $r=1$.
+\end{esempio}
+
+\begin{algoritmo}[Integrali con $\delta'$]
+$\int\phi(x)\delta'(x-a)\dd x=-\phi'(a)$, sempre.
+Per $\delta'(f(x))$: cambia variabile $u=f(x)$, $\dd u=f'(x)\dd x$. Dopo il cambio compaiono derivate di $|f'|$ a denominatore.
+\end{algoritmo}
+
+\begin{esempio}[Set 2, identit\`a tensoriale]
+$\partial_i\partial_j(1/r)=(3\hat r_i\hat r_j-\delta_{ij})/r^3-(4\pi/3)\delta_{ij}\delta^3(\bm r)$. La parte ``distribuzionale'' nasce dall'azione del laplaciano sulla singolarit\`a in $0$.
+\end{esempio}
+
+\begin{trucco}
+\textbf{Sempre testare su una funzione di prova.} Se hai dubbi su un'identit\`a, applicala a $\phi$ e integra: ottieni un numero che puoi verificare.\\
+\textbf{Regolarizzazione.} Per gestire calcoli con $1/r$ in $\R^3$, sostituisci $1/r\to 1/\sqrt{r^2+\epsilon^2}$, esegui i conti, fai $\epsilon\to 0$.\\
+\textbf{$\delta$ e Fourier.} $\hat\delta(k)=1/\sqrt{2\pi}$ (con la nostra convenzione); $\delta(k)=\frac{1}{2\pi}\int\eu^{ikx}\dd x$.
+\end{trucco}
+
+\begin{formulario}
+$\int\delta(x-a)f(x)\dd x=f(a)$; $\int\delta'(x-a)f(x)\dd x=-f'(a)$;
+\\$\delta(\alpha x)=\delta(x)/|\alpha|$; $\delta(f(x))=\sum\delta(x-x_n)/|f'(x_n)|$;
+\\$\delta(x^2-a^2)=[\delta(x-a)+\delta(x+a)]/(2|a|)$;
+\\Theta'$(x)=\delta(x)$; $\Theta(x)\cdot\delta(x)=\frac{1}{2}\delta(x)$ (convenzione simmetrica).
+\end{formulario}
+
+% =========================================================
+% PARTE IV
+% =========================================================
+\part{Analisi di Fourier}
+
+% =========================================================
+\chapter{Serie di Fourier}\label{ch:serie-fourier}
+
+\section{Definizioni e convenzioni}
+\begin{teoria}
+$f:[-L,L]\to\C$ in $L^2$, periodicizzata. Sviluppo esponenziale:
+$$f(x)=\sum_{n=-\infty}^{+\infty}c_n\eu^{in\pi x/L},\quad c_n=\frac{1}{2L}\int_{-L}^L f(x)\eu^{-in\pi x/L}\dd x.$$
+Forma trigonometrica: $f(x)=\frac{a_0}{2}+\sum_{n\ge 1}[a_n\cos(n\pi x/L)+b_n\sin(n\pi x/L)]$, con $a_n=\frac{1}{L}\int f\cos$, $b_n=\frac{1}{L}\int f\sin$.
+
+\textbf{Teorema di Dirichlet:} se $f$ \`e $C^1$ a tratti, $S(x_0)=[f(x_0^+)+f(x_0^-)]/2$.
+
+\textbf{Parseval:} $\frac{1}{2L}\int|f|^2=\sum|c_n|^2=\frac{a_0^2}{4}+\frac{1}{2}\sum(a_n^2+b_n^2)$.
+\end{teoria}
+
+\section{Algoritmi}
+
+\begin{algoritmo}[Calcolo coefficienti]
+\begin{enumerate}
+\item Sfrutta parit\`a: $f$ pari $\Rightarrow$ $b_n=0$; dispari $\Rightarrow$ $a_n=0$.
+\item Per integrali con $x\,\eu^{-inx}$, usa $\int x\eu^{-inx}\dd x=\frac{1}{(-in)}\partial_n\int\eu^{-inx}\dd x$ (trucco della derivata in $n$).
+\item Per funzioni a tratti, spezza l'integrale.
+\item Valuta la serie in punti speciali per ottenere somme numeriche.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Scritto 15/01/2024, Es. 4]
+$f(x)=x^2$ su $[-\pi,\pi]$. Pari $\Rightarrow$ $b_n=0$. $a_0=\frac{1}{\pi}\int_{-\pi}^\pi x^2\dd x=\frac{2\pi^2}{3}$. Per $n\ge 1$:
+$$a_n=\frac{1}{\pi}\int_{-\pi}^\pi x^2\cos nx\,\dd x=\frac{4(-1)^n}{n^2}$$
+(integrazione per parti due volte). Valutando in $x=\pi$: $\pi^2=\frac{\pi^2}{3}+\sum\frac{4(-1)^n}{n^2}\cos n\pi=\frac{\pi^2}{3}+4\sum\frac{1}{n^2}$ $\Rightarrow$ $\sum 1/n^2=\pi^2/6$.
+\end{esempio}
+
+\begin{esempio}[{Scritto 03/07/2024, Es. 3 -- $\eu^{|x|}$ su $[-1,1]$}]
+Pari $\Rightarrow$ sviluppo in coseni. $a_n=\int_{-1}^1\eu^{|x|}\cos(n\pi x)\dd x=2\int_0^1\eu^x\cos(n\pi x)\dd x$. Integrazione per parti / parte reale di $\int\eu^{(1+in\pi)x}\dd x=\frac{\eu^{1+in\pi}-1}{1+in\pi}$. Risultato $a_n=\frac{2[(-1)^n\eu-1]}{1+n^2\pi^2}$.
+
+Valutando in $x=0$: $1=\frac{a_0}{2}+\sum_{n\ge 1}a_n$ $\Rightarrow$ ricava $\sum[(-1)^n\eu-1]/(1+n^2\pi^2)$.
+\end{esempio}
+
+\begin{esempio}[Scritto 05/05/2025, Es. 3]
+$f(x)=\sin(x/2)\Theta(-x)$ su $[-\pi,\pi]$. Non ha parit\`a definita: ne'a$_n$ ne'b$_n$ si annullano. Calcola entrambi: $a_n=\frac{1}{\pi}\int_{-\pi}^0\sin(x/2)\cos(nx)\dd x$, $b_n=\frac{1}{\pi}\int_{-\pi}^0\sin(x/2)\sin(nx)\dd x$. Werner: $2\sin A\cos B=\sin(A+B)+\sin(A-B)$. Si trova $a_n=\frac{2(-1)^{n+1}}{\pi(4n^2-1)}$ (per esempio). Usando Dirichlet in $x=0$ (continuo): $0=a_0/2+\sum a_n$ d\`a $\sum\frac{2}{\pi(4n^2-1)}=\dots$.
+\end{esempio}
+
+\begin{trucco}
+\textbf{Convergenza nei salti.} Se $f$ ha un salto in $x_0$, $S(x_0)=$ media. Spesso \`e proprio il salto a darti la somma numerica notevole.\\
+\textbf{Somme che escono.} Valutando $S$ in $0,\pi/2,\pi$ ottieni $\sum 1/n^2$, $\sum 1/n^4$, $\sum(-1)^n/(n^2+a^2)$.\\
+\textbf{Parseval per somme di quadrati.} $\sum|c_n|^2$ ti d\`a somme $\sum 1/n^4$ etc.\\
+\textbf{Trasformare cos$^2$, sin$^2$:} usa $\cos^2 x=(1+\cos 2x)/2$ prima di integrare.
+\end{trucco}
+
+\begin{formulario}
+$\sum 1/n^2=\pi^2/6$; $\sum 1/n^4=\pi^4/90$; $\sum (-1)^{n+1}/n^2=\pi^2/12$; $\sum 1/(2n+1)^2=\pi^2/8$; $\sum 1/(n^2+a^2)=\pi\coth(\pi a)/(2a)-1/(2a^2)$; $\sum(-1)^n/(n^2+a^2)=\pi/[2a\sinh(\pi a)]-1/(2a^2)$.
+\end{formulario}
+
+% =========================================================
+\chapter{Trasformata di Fourier}
+
+\section{Convenzioni}
+Useremo (come negli scritti):
+$$\hat f(k)=\int_{-\infty}^\infty f(x)\eu^{-ikx}\dd x,\quad f(x)=\frac{1}{2\pi}\int_{-\infty}^\infty\hat f(k)\eu^{ikx}\dd k.$$
+Plancherel: $\int|f|^2=\frac{1}{2\pi}\int|\hat f|^2$.
+
+\begin{teoria}[Propriet\`a]
+\begin{itemize}
+\item Linearit\`a, traslazione $f(x-a)\to\eu^{-ika}\hat f(k)$, modulazione $\eu^{iax}f\to\hat f(k-a)$.
+\item Scaling $f(\alpha x)\to|\alpha|^{-1}\hat f(k/\alpha)$.
+\item Derivata $f'\to ik\hat f$; $xf\to i\hat f'$.
+\item Convoluzione: $\widehat{f*g}=\hat f\hat g$, dove $(f*g)(x)=\int f(y)g(x-y)\dd y$.
+\item Riemann--Lebesgue: $\hat f\to 0$ all'infinito.
+\end{itemize}
+\end{teoria}
+
+\section{Strategie di calcolo}
+
+\begin{algoritmo}
+\begin{enumerate}
+\item Riconosci la forma: gaussiana? razionale? trigonometrica $\times$ razionale?
+\item Gaussiana: completa il quadrato.
+\item Razionale: chiusura nel semipiano dove $\eu^{-ikx}$ decade (alto se $k<0$, basso se $k>0$).
+\item Trigonometrica: scrivi $\cos=(\eu^{ia x}+\eu^{-iax})/2$, suddividi in due integrali con $k\to k\mp a$.
+\item Funzioni con $\Theta$: l'integrale parte da $0$ (o si ferma a $0$); appare la distribuzione di Sokhotski $\hat\Theta(k)=\pi\delta(k)-iP/k$.
+\item Convoluzione: se $f=g*h$, calcola $\hat g,\hat h$ e moltiplica.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Gaussiana]
+$\widehat{\eu^{-x^2/(2\sigma^2)}}(k)=\sigma\sqrt{2\pi}\eu^{-\sigma^2 k^2/2}$. Indeterminazione: $\Delta x\,\Delta k=1/2$. Saturata dalle gaussiane.
+\end{esempio}
+
+\begin{esempio}[Lorentziana]
+$\widehat{1/(x^2+a^2)}(k)=(\pi/a)\eu^{-|k|a}$. Per $k>0$ chiudi sotto, polo in $-ia$: $\Res=1/(-2ia)\eu^{-ka}$, integrale $=2\pi i\Res\cdot(-1)$ per orientazione: $=\pi\eu^{-ka}/a$. Analogamente per $k<0$.
+\end{esempio}
+
+\begin{esempio}[Scritto 04/07/2023, Es. 3]
+$f(x)=1/[(x^2+1)(x-2i)]$. Poli $\pm i,2i$. Per $k>0$ chiusura sotto $\Rightarrow$ unico polo $-i$ nel semipiano inf., $\Res=1/((-i+i)(-2i)\cdot\dots)=$... Per $k<0$ chiusura sopra $\Rightarrow$ poli $i$ e $2i$: somma residui.
+\end{esempio}
+
+\begin{esempio}[Antitrasformata via residui -- Scritto 16/11/2023, Es. 3]
+$\hat f(k)$ data, $f(x)=\frac{1}{2\pi}\int\hat f(k)\eu^{ikx}\dd k$. Per $x>0$ chiudi nel semipiano superiore ($\eu^{ikx}$ decade): contributo dai poli in $\Im k>0$. Per $x<0$ chiudi sotto.
+Se $x=0$ il valore \`e quello di Dirichlet $=(f(0^+)+f(0^-))/2$.
+\end{esempio}
+
+\begin{trucco}
+\textbf{Da quale parte chiudo?} Guarda l'esponenziale $\eu^{-ikx}$ (TF) o $\eu^{ikx}$ (TF inversa). Devi avere decadimento nel semipiano dove chiudi.\\
+\textbf{Decadimento di $\hat f$.} Se $f$ ha poli pi\`u vicini all'asse reale, $\hat f$ decade pi\`u lentamente: $|\hat f(k)|\sim\eu^{-|\Im z_{\text{polo}}|\,|k|}$.\\
+\textbf{Convoluzione vs prodotto.} Se devi calcolare $\hat{f\cdot g}$, usa $\frac{1}{2\pi}\hat f*\hat g$. Se devi calcolare $\widehat{f*g}$, usa $\hat f\hat g$.\\
+\textbf{Funzioni discontinue.} La loro TF non \`e $L^2$ ma in $L^\infty$, decade come $1/k$ (Riemann--Lebesgue).
+\end{trucco}
+
+\begin{formulario}
+$\widehat{\eu^{-a|x|}}=\frac{2a}{k^2+a^2}$;
+$\widehat{\eu^{-x^2/(2\sigma^2)}}=\sigma\sqrt{2\pi}\eu^{-\sigma^2 k^2/2}$;
+$\widehat{\sin(ax)/x}=\pi[\Theta(k+a)-\Theta(k-a)]$;
+$\widehat{1/x}=-i\pi\sgn(k)$ (PV);
+$\widehat{\Theta(x)\eu^{-ax}}=1/(a+ik)$;
+$\widehat{\delta(x-a)}=\eu^{-ika}$;
+$\widehat{1}=2\pi\delta(k)$.
+\end{formulario}
+
+% =========================================================
+\chapter{Trasformata di Laplace}
+
+\section{Definizione e usi}
+$\Lap[f](s)=\int_0^\infty f(t)\eu^{-st}\dd t$, definita per $\Re s>\sigma_0$ dove $\sigma_0=$ ascissa di convergenza.
+
+\begin{teoria}[Propriet\`a]
+\begin{itemize}
+\item $\Lap[f']=s F(s)-f(0)$, $\Lap[f'']=s^2F-sf(0)-f'(0)$.
+\item $\Lap[tf]=-F'(s)$.
+\item $\Lap[\Theta(t-a)f(t-a)]=\eu^{-as}F(s)$.
+\item Convoluzione: $\Lap[f*g]=F(s)G(s)$.
+\item Inversione di Bromwich: $f(t)=\frac{1}{2\pi i}\int_{c-i\infty}^{c+i\infty}F(s)\eu^{st}\dd s$, con $c>\sigma_0$. Per $t>0$ chiudi nel semipiano sinistro.
+\end{itemize}
+\end{teoria}
+
+\begin{algoritmo}[Risolvere Cauchy con Laplace]
+\begin{enumerate}
+\item Applica $\Lap$ all'ODE; usa le condizioni iniziali.
+\item Risolvi l'equazione algebrica per $F(s)$.
+\item Antitrasforma: spesso \`e una somma di frazioni semplici, le cui antitrasformate sono tabulate.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{formulario}
+$\Lap[1]=1/s$; $\Lap[t^n]=n!/s^{n+1}$; $\Lap[\eu^{at}]=1/(s-a)$; $\Lap[\sin\omega t]=\omega/(s^2+\omega^2)$; $\Lap[\cos\omega t]=s/(s^2+\omega^2)$; $\Lap[\delta(t-a)]=\eu^{-as}$; $\Lap[\eu^{-t^2/2}]=\sqrt{\pi/2}\eu^{s^2/2}[1-\mathrm{erf}(s/\sqrt 2)]$.
+\end{formulario}
+
+% =========================================================
+% PARTE V
+% =========================================================
+\part{Equazioni differenziali e funzioni di Green}
+
+% =========================================================
+\chapter{ODE: variazione delle costanti e Wronskiano}
+
+\section{Forma standard e Wronskiano}
+ODE lineare del 2$^\circ$ ordine: $a_2(x)f''+a_1(x)f'+a_0(x)f=j(x)$.
+Soluzioni omogenee $f_1,f_2$, Wronskiano $W=f_1f_2'-f_1'f_2$. Vale l'\emph{identit\`a di Abel}: $W(x)=W(x_0)\exp[-\int_{x_0}^x(a_1/a_2)]$.
+
+\begin{algoritmo}[Risoluzione completa]
+\begin{enumerate}
+\item Trova due soluzioni omogenee indipendenti:
+  \begin{itemize}
+  \item Coefficienti costanti $\Rightarrow$ caratteristica $a_2 r^2+a_1 r+a_0=0$.
+  \item Eulero $a_2 x^2 f''+a_1 x f'+a_0 f=j$ $\Rightarrow$ $f=x^r$ d\`a $a_2 r(r-1)+a_1 r+a_0=0$.
+  \end{itemize}
+\item Calcola $W$.
+\item Soluzione particolare via variazione delle costanti:
+$$f_p(x)=\int\frac{j(y)}{a_2(y)W(y)}[f_1(y)f_2(x)-f_1(x)f_2(y)]\dd y.$$
+\item Soluzione generale $f=Af_1+Bf_2+f_p$.
+\item Imponi le condizioni (iniziali / al contorno).
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Scritto 10/09/2024, Es. 4]
+$x^3 f''+2x^2 f'-2xf=x^3+1$, $x\in[1,\infty)$, $f(1)=0$, lim asintotica finita.
+
+Omogenea $\div x$: $x^2 f''+2xf'-2f=0$ \`e Eulero. $r(r-1)+2r-2=0$ $\Rightarrow$ $r^2+r-2=0$ $\Rightarrow$ $r=1,-2$. $f_1=x$, $f_2=1/x^2$.
+
+$W=f_1 f_2'-f_1'f_2=x(-2/x^3)-1\cdot(1/x^2)=-3/x^2$. $a_2(x)=x^3$.
+
+Soluzione particolare con $j(x)=x^3+1$:
+$$f_p(x)=\int_1^x\frac{y^3+1}{y^3\cdot(-3/y^2)}\big[y\cdot(1/x^2)-x\cdot(1/y^2)\big]\dd y=\dots$$
+
+Imponi $f(1)=0$ e regolarit\`a all'infinito (esclude la soluzione $f_1=x$ se troppo grande).
+\end{esempio}
+
+\begin{trucco}
+\textbf{Eulero con radici coincidenti:} la seconda soluzione \`e $x^r\log x$.\\
+\textbf{Ridotti d'ordine:} se conosci $f_1$, $f_2=f_1\int\frac{1}{f_1^2}\exp(-\int a_1/a_2)\dd x$.\\
+\textbf{Condizioni asintotiche.} Spesso ``$\lim_\infty$ finito'' esclude le soluzioni divergenti $\Rightarrow$ fissa una costante senza calcoli.
+\end{trucco}
+
+% =========================================================
+\chapter{Funzioni di Green per ODE}
+
+\section{Definizione e algoritmo standard}
+
+\begin{teoria}
+Per ODE lineare $L f=j$ con BC omogenee fissate, $G(x,y)$ soddisfa $L_x G(x,y)=\delta(x-y)$ con le stesse BC. Allora $f(x)=\int G(x,y)j(y)\dd y$.
+\end{teoria}
+
+\begin{algoritmo}[Costruzione di $G$ per ODE 2$^\circ$ ord. con BC]
+\begin{enumerate}
+\item Trova $f_1$ che soddisfa la BC sinistra (omogenea) e $f_2$ che soddisfa quella destra.
+\item Determina il Wronskiano $W(y)$.
+\item $G(x,y)=\frac{1}{a_2(y)W(y)}\big[f_1(x)f_2(y)\Theta(y-x)+f_1(y)f_2(x)\Theta(x-y)\big]$.
+\item Verifiche: continuit\`a in $x=y$, salto della derivata $\partial_x G(y^+,y)-\partial_x G(y^-,y)=1/a_2(y)$.
+\item Se le BC sono entrambe ``a sinistra'' (es. Cauchy), $G$ \`e \emph{ritardata}: $G(x,y)=0$ per $x<y$, vedi cap.~\ref{ch:propagatori}.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Scritto 20/06/2023, Es. 4]
+Eulero $x^2 f''+xf'-f=x^2$, BC $f(1)=f(2)=0$. Omogenea $r^2-1=0$ $\Rightarrow$ $f_h=Ax+B/x$. $f_1=x-1/x$ soddisfa $f_1(1)=0$. $f_2=2x-x\cdot 2=2x-2x=0$... aspetta: serve $f_2$ con $f_2(2)=0$, prendi $f_2=x-4/x$. $W=f_1f_2'-f_1'f_2$ va calcolato. Poi $G$ come sopra.
+
+Soluzione particolare $f(x)=\int_1^2 G(x,y)\cdot y^2/y^2\dd y=\int_1^2 G(x,y)\dd y$ (perch\'e $j(y)=y^2$ e $a_2(y)=y^2$).
+\end{esempio}
+
+\begin{esempio}[Scritto 04/07/2023, Es. 4 -- sorgente $\delta'$]
+$x^2 f''=\delta'(x-1)$ su $[0,2]$, $f(0)=f(2)=0$. Calcola $G(x,y)$ con sorgente $\delta(x-y)$, poi $f(x)=-\partial_y G(x,y)|_{y=1}$.
+\end{esempio}
+
+\begin{trucco}
+\textbf{Differenziale negli operatori sorgente $\delta'$:} se l'equazione \`e $Lf=\delta'(x-x_0)$, allora $f=-\partial_y G(x,y)|_{y=x_0}$.\\
+\textbf{Test rapido del salto:} $G$ deve essere continua in $x=y$; la derivata in $x$ ha un salto pari a $1/a_2(y)$.\\
+\textbf{BC degeneri:} se $f_1\equiv f_2$ (proporzionali), il problema non ammette Green standard (autovalore $0$ nel problema agli autovalori associato).
+\end{trucco}
+
+% =========================================================
+\chapter{EDP: separazione di variabili e nucleo del calore}
+
+\section{Equazione del calore su intervallo finito}
+
+\begin{algoritmo}[{$\partial_t u=\kappa\partial_{xx}u$ su $[0,L]$, BC + dato $u(0,x)=u_0(x)$}]
+\begin{enumerate}
+\item Ansatz separabile: $u=T(t)X(x)$. Ottieni $\dot T/(\kappa T)=X''/X=-\lambda$ (separazione).
+\item Spettro da BC (cf. Cap.~\ref{ch:operatori}): $\lambda_n=(n\pi/L)^2$, $X_n=\sqrt{2/L}\sin(n\pi x/L)$ (Dirichlet).
+\item Soluzione generale: $u(t,x)=\sum_n c_n\eu^{-\kappa\lambda_n t}X_n(x)$.
+\item Coefficienti: $c_n=\braket{X_n}{u_0}=\int_0^L X_n(x)u_0(x)\dd x$.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Scritto 05/11/2025, Es. 4]
+$\partial_t u=\partial_{xx}u$ su $[0,2\pi)$ periodico, $u_0(x)=\sin 2x-\cos x$.
+
+Spettro periodico: $\eu^{inx}$ con $\lambda_n=n^2$. Riconosci immediatamente $u_0$ come somma di due autofunzioni $\Rightarrow$
+$$u(t,x)=\eu^{-4t}\sin 2x-\eu^{-t}\cos x.$$
+\end{esempio}
+
+\begin{esempio}[Scritto 12/02/2026, Es. 4 -- coefficiente $t^2$]
+$\partial_t u=t^2\partial_{xx}u$ su $[0,\pi)$ Neumann.
+
+Separazione: $\dot T/(t^2 T)=X''/X=-\lambda$ con autovalori $\lambda_n=n^2$ e autofunzioni $\cos(nx)$. ODE per $T_n$: $\dot T_n=-n^2 t^2 T_n$ $\Rightarrow$ $T_n=A_n\eu^{-n^2 t^3/3}$. Soluzione: $u(t,x)=\sum_n c_n\eu^{-n^2 t^3/3}\cos(nx)$, con $c_n=$ coefficienti di Fourier del dato.
+\end{esempio}
+
+\section{Calore su $\R$ -- il nucleo}
+
+\begin{teoria}
+$\partial_t u=\kappa\partial_{xx}u$ su $\R$, $u(0,x)=u_0(x)$ $\Rightarrow$
+$$u(t,x)=\int_{-\infty}^\infty\frac{\eu^{-(x-y)^2/(4\kappa t)}}{\sqrt{4\pi\kappa t}}u_0(y)\dd y.$$
+Il nucleo $K(t,x)=\eu^{-x^2/(4\kappa t)}/\sqrt{4\pi\kappa t}$ \`e una gaussiana che si allarga: varianza $2\kappa t$, area $1$. Per $t\to 0^+$, $K\to\delta(x)$.
+\end{teoria}
+
+\begin{esempio}[Dato gaussiano]
+$u_0=\eu^{-x^2/(2\sigma^2)}$. Convoluzione con $K$ $\Rightarrow$ gaussiana di varianza $\sigma^2+2\kappa t$:
+$$u(t,x)=\sqrt{\frac{\sigma^2}{\sigma^2+2\kappa t}}\,\eu^{-x^2/[2(\sigma^2+2\kappa t)]}.$$
+\end{esempio}
+
+\begin{esempio}[Scritto 23/06/2025, Es. 4 -- coefficiente $\sin t$]
+$\partial_t u-\sin t\,\partial_{xx}u+u=0$ su $x>0$ Neumann, $u_0=\eu^{-x}$.
+
+Trasforma in coseni rispetto a $x$ (estendi pari): $\partial_t \hat u-\sin t\cdot(-k^2)\hat u+\hat u=0$ $\Rightarrow$ $\hat u(t,k)=\hat u_0(k)\exp\big[\int_0^t(-\sin\tau\cdot k^2-1)\dd\tau\big]=\hat u_0(k)\eu^{-k^2(1-\cos t)-t}$. Antitrasforma.
+\end{esempio}
+
+\begin{trucco}
+\textbf{Coefficienti dipendenti dal tempo} $\partial_t u=a(t)\partial_{xx}u$: cambio variabile $\tau=\int_0^t a(s)\dd s$ riporta a calore standard.\\
+\textbf{Advection-diffusion} $\partial_t u+v\partial_x u=\kappa\partial_{xx}u$: cambio $y=x-vt$ elimina l'advection.\\
+\textbf{Estensione di simmetria per Neumann:} estendi il dato \emph{pari} attorno al bordo; per Dirichlet \emph{dispari}. Cos\`i riduci a un problema su $\R$.\\
+\textbf{Riconoscimento delle autofunzioni.} Se il dato iniziale \`e una combinazione di poche autofunzioni, NON calcolare la serie: scrivi direttamente la soluzione.
+\end{trucco}
+
+\begin{formulario}
+Nucleo del calore: $K(t,x)=\eu^{-x^2/(4\kappa t)}/\sqrt{4\pi\kappa t}$.\\
+Varianza gaussiana dopo tempo $t$: $\sigma^2(t)=\sigma^2(0)+2\kappa t$.\\
+TF: $\hat K(t,k)=\eu^{-\kappa k^2 t}$ $\Rightarrow$ ogni soluzione TF di calore decade gaussianamente in $k$.
+\end{formulario}
+
+% =========================================================
+\chapter{EDP delle onde e di Schr\"odinger}
+
+\section{Onde 1D: d'Alembert}
+
+\begin{teoria}
+$\partial_{tt}u=c^2\partial_{xx}u$ su $\R$, $u(0,x)=h(x)$, $u_t(0,x)=v(x)$:
+$$u(t,x)=\frac{h(x-ct)+h(x+ct)}{2}+\frac{1}{2c}\int_{x-ct}^{x+ct}v(y)\dd y.$$
+Sull'intervallo $[0,L]$ con BC: separazione e serie in autofunzioni come per il calore, ma le frequenze sono $\omega_n=c\sqrt{\lambda_n}$ e i modi oscillano (non decadono).
+\end{teoria}
+
+\begin{algoritmo}[{Onde su $[0,L]$}]
+\begin{enumerate}
+\item Espandi dato e velocit\`a iniziale in autofunzioni $X_n(x)$.
+\item Modi: $u_n(t)=A_n\cos\omega_n t+B_n\sin\omega_n t$, con $A_n=\braket{X_n}{h}$, $B_n=\braket{X_n}{v}/\omega_n$.
+\item Soluzione $u(t,x)=\sum_n[A_n\cos\omega_n t+B_n\sin\omega_n t]X_n(x)$.
+\end{enumerate}
+\end{algoritmo}
+
+\begin{esempio}[Scritto 20/01/2026, Es. 4]
+Corda fissa $[0,\pi]$: $X_n=\sqrt{2/\pi}\sin(nx)$, $\omega_n=n c$. Dato velocit\`a iniziale opportuno (es. costante a tratti). Calcolo coefficienti $B_n=\frac{1}{nc}\int_0^\pi v(x)X_n(x)\dd x$. Valutando la soluzione in punti speciali si ottengono somme tipo $\sum(-1)^n/(2n+1)^3=\pi^3/32$.
+\end{esempio}
+
+\section{Schr\"odinger libera}
+
+\begin{teoria}
+$i\partial_t\psi=-\tfrac{1}{2}\partial_{xx}\psi$ su $\R$ ($\hbar=m=1$). TF di $\psi$ in $k$: $\psi(t,k)=\eu^{-ik^2 t/2}\psi_0(k)$.
+
+In rappresentazione delle posizioni con dato $\psi_0$ gaussiano $\eu^{-x^2/(2\sigma^2)}$, $\psi(t,x)$ \`e ancora gaussiana ma con larghezza complessa $\sigma^2+it$. Modulo: $|\psi|^2$ gaussiana con $\sigma^2(t)=\sigma^2+t^2/\sigma^2$ (allargamento del pacchetto).
+\end{teoria}
+
+\subsection{Con potenziale armonico}
+\begin{esempio}[Scritto 08/09/2025, Es. 4]
+$-\partial_{tt}u+\partial_{xx}u-x^2 u=0$, dato $(2+3x)\eu^{-x^2/2}$.
+
+Riconosci $-\partial_{xx}+x^2$ = Hamiltoniana oscillatore. Autofunzioni Hermite-Gauss $H_n(x)\eu^{-x^2/2}$, autovalori $E_n=2n+1$. Il dato \`e combinazione di $\psi_0$ e $\psi_1$:
+$\psi_0=\eu^{-x^2/2}/\pi^{1/4}$, $\psi_1=\sqrt 2 x\eu^{-x^2/2}/\pi^{1/4}$.
+Quindi $(2+3x)\eu^{-x^2/2}=2\pi^{1/4}\psi_0+\frac{3}{\sqrt 2}\pi^{1/4}\psi_1$.
+La PDE iperbolica con questo potenziale dice $u_n(t)=A_n\cos(\sqrt{E_n}t)+B_n\sin(\sqrt{E_n}t)$ (analogo onde su autospazi).
+\end{esempio}
+
+\begin{trucco}
+\textbf{Onde su segmento:} la soluzione \`e periodica in $t$ con periodo $2L/c$ (se le frequenze sono commensurabili).\\
+\textbf{Schr\"odinger gaussiana:} allargamento $\sigma(t)=\sqrt{\sigma^2+t^2/\sigma^2}$. Per $t\gg\sigma^2$, $\sigma(t)\sim t/\sigma$ $\Rightarrow$ $\Delta p\Delta x\sim t$ (sparpagliamento).\\
+\textbf{Riconoscere Hermite/Bessel/Legendre:} se il potenziale \`e $x^2$ $\Rightarrow$ Hermite; se \`e cilindrico $\Rightarrow$ Bessel; se sferico $\Rightarrow$ Legendre/armoniche sferiche.
+\end{trucco}
+
+% =========================================================
+\chapter{Propagatori e funzioni di Green per EDP}\label{ch:propagatori}
+
+\section{Costruzione tramite Fourier}
+
+\begin{teoria}
+Per $Lu=j$ con $L$ a coefficienti costanti, $G$ tale che $L G=\delta(t)\delta(x)$. TF in $(t,x)\to(\omega,k)$:
+$$\tilde D(i\omega,ik)\tilde G(\omega,k)=1\quad\Rightarrow\quad \tilde G=\frac{1}{\tilde D(i\omega,ik)}.$$
+Antitrasformata: la natura della curva di zeri di $\tilde D$ in $\omega$ determina se $G$ \`e \emph{ritardata}, \emph{avanzata} o \emph{di Feynman} (prescrizione $i\epsilon$).
+\end{teoria}
+
+\section{I propagatori notevoli}
+
+\begin{formulario}[Equazioni e Green ritardata]
+\textbf{Calore} $\partial_t-\kappa\partial_{xx}$:
+$$G_R(t,x)=\Theta(t)\frac{\eu^{-x^2/(4\kappa t)}}{\sqrt{4\pi\kappa t}}.$$
+\textbf{Schr\"odinger libera} $i\partial_t+\frac{1}{2}\partial_{xx}$:
+$$G_R(t,x)=-i\Theta(t)\frac{\eu^{ix^2/(2t)}}{\sqrt{2\pi i t}}.$$
+\textbf{Onde 1D} $\partial_{tt}-c^2\partial_{xx}$:
+$$G_R(t,x)=\frac{1}{2c}\Theta(t)\big[\Theta(x+ct)-\Theta(x-ct)\big]=\frac{1}{2c}\Theta(ct-|x|)\Theta(t).$$
+\textbf{Klein--Gordon Euclidean} $-\Delta+m^2$ in $\R^d$: legato a funzioni di Bessel modificate.
+\textbf{Coulomb} $-\Delta$ in $\R^3$: $G=1/(4\pi|\bm r|)$.
+\end{formulario}
+
+\begin{algoritmo}[Soluzione di $Lu=j$ con $G_R$]
+$u(t,x)=\int_{-\infty}^t\int G_R(t-t',x-x')j(t',x')\dd x'\dd t'$.
+\end{algoritmo}
+
+\begin{esempio}[More Problems, Es. 19 -- calore con sorgente]
+$\partial_t u-\partial_{xx}u=\delta(x)\delta(t-1)$, $u(0,x)=0$. Soluzione: $u(t,x)=G_R(t-1,x)=\Theta(t-1)\eu^{-x^2/(4(t-1))}/\sqrt{4\pi(t-1)}$.
+\end{esempio}
+
+\begin{esempio}[Scritto 08/07/2025, Es. 4]
+$\partial_t f=\partial_{xx}f-\partial_x f-f+\delta(x)\delta(t/3-1)$. Cambio di funzione $f=\eu^{-x/2+(\text{cost})t}g$ elimina advection e massa, riducendo a calore. Poi convoluzione con $G_R$ del calore valutata in $t=3$ (perch\'e $\delta(t/3-1)=3\delta(t-3)$).
+\end{esempio}
+
+\begin{trucco}
+\textbf{Prescrizione $i\epsilon$.} Spostare i poli infinitesimamente nel piano complesso seleziona quale Green ottieni:
+\begin{itemize}
+\item $\omega\to\omega+i\epsilon$ (poli scendono sotto $\R$): chiusura sopra per $t>0$, nessun residuo $\Rightarrow$ $G_R$ (causale).
+\item $\omega\to\omega-i\epsilon$: $G_A$ (anticausale).
+\item Feynman: poli con massa positiva sotto, negativa sopra (per relativistico).
+\end{itemize}
+\textbf{Per onde:} il propagatore \`e supportato sul cono luce; in 3D non c'\`e diffusione (principio di Huygens).
+\end{trucco}
+
+% =========================================================
+\chapter{Quadro sinottico e strategia d'esame}
+
+\section{Riconoscimento rapido del tipo di esercizio}
+La tabella seguente associa a ciascuna parola chiave dell'esame il capitolo da consultare.
+
+\begin{center}
+\begin{tabular}{p{0.55\linewidth}p{0.35\linewidth}}
+\textbf{Trigger nel testo} & \textbf{Capitolo} \\\hline
+``base ortonormale'', ``Gram--Schmidt'', ``proiettore'' & Cap.~1 \\
+``diagonalizza'', ``cambio di base'' & Cap.~2 \\
+``$\eu^A$'', ``$\log A$'', ``$f(A)$'', ``$A^n$'', ``Cayley--Hamilton'' & Cap.~3 \\
+``serie di Laurent'', ``parte principale'', ``classifica singolarit\`a'' & Cap.~4 \\
+``calcolare l'integrale $\oint$'', ``residuo'' & Cap.~5 \\
+``$\int_{-\infty}^\infty$, ``$\int_0^\infty$ via residui'' & Cap.~6 \\
+``$\sqrt z$, $\log z$, taglio, branch'' & Cap.~7 \\
+``armonica'', ``Cauchy--Riemann'', ``coniugata'' & Cap.~8 \\
+``appartiene a $L^2$'' & Cap.~9 \\
+``espandere in base'', ``Legendre'', ``Hermite'' & Cap.~10 \\
+``spettro di un operatore'', ``autoaggiunto'' & Cap.~11 \\
+``$\delta(f)$'', ``$\delta'$'', ``distribuzione'' & Cap.~12 \\
+``serie di Fourier'', ``coefficienti $a_n,b_n$'' & Cap.~13 \\
+``trasformata di Fourier'' & Cap.~14 \\
+``trasformata di Laplace'' & Cap.~15 \\
+``ODE 2$^\circ$ ord. con sorgente'' & Cap.~16 \\
+``funzione di Green per ODE'', ``BC'' & Cap.~17 \\
+``equazione del calore'' & Cap.~18 \\
+``equazione delle onde'', ``Schr\"odinger'' & Cap.~19 \\
+``propagatore'', ``ritardata'' & Cap.~20 \\
+\end{tabular}
+\end{center}
+
+\section{Le 10 idee che risolvono il 90\% degli esercizi}
+\begin{enumerate}
+\item \textbf{Decomposizione spettrale.} Diagonalizza, calcola sugli autovalori, ricombina.
+\item \textbf{Cayley--Hamilton.} Per funzioni di matrici non diagonalizzabili o ``simboliche''.
+\item \textbf{Laurent + residui.} Per ogni integrale su circuiti chiusi nel piano complesso.
+\item \textbf{Chiusura a semicerchio + Jordan.} Per integrali $\int_{-\infty}^\infty f(x)\eu^{ikx}\dd x$.
+\item \textbf{Keyhole / settore.} Per integrali con $x^\alpha$, $\log x$.
+\item \textbf{Separazione di variabili.} Per ogni EDP lineare a coefficienti separabili.
+\item \textbf{Sviluppo in autofunzioni.} Per problemi al contorno su intervallo finito.
+\item \textbf{Trasformata di Fourier.} Per problemi su $\R$ a coefficienti costanti.
+\item \textbf{Funzione di Green.} Per problemi con sorgenti distribuzionali.
+\item \textbf{Parit\`a.} Dimezza il lavoro in ogni occasione: integrali, serie, autofunzioni.
+\end{enumerate}
+
+\section{Errori che fanno perdere punti (e come evitarli)}
+\begin{itemize}
+\item Dimenticare il \emph{coniugato} nel prodotto scalare complesso.
+\item Confondere ``simmetrico'' con ``autoaggiunto'': verifica sempre i termini di bordo.
+\item Sbagliare il \emph{branch} di $\sqrt z$ o $\log z$: disegna sempre il piano complesso e segna gli angoli.
+\item Chiudere il contorno dalla parte sbagliata: controlla il segno dell'esponenziale.
+\item Trasformata di Fourier con \emph{convenzione} di segno mista: fissa $\hat f(k)=\int\eu^{-ikx}f$ e usala sempre.
+\item Trascurare condizioni al contorno: spesso l'esercizio si riduce a determinare \emph{quale} costante \`e libera.
+\item Sviluppare in autofunzioni di un operatore non autoaggiunto senza giustificare la completezza.
+\item Confondere $\delta(x)$ con la sua TF: $\hat\delta=1$ (convenzione senza $2\pi$), $\hat 1=2\pi\delta$.
+\item Dimenticare il fattore $1/(2\pi)$ nell'antitrasformata.
+\item Conteggio errato dei poli interni a $\gamma$: disegnali tutti, segnali con $\bullet$ se interni, $\circ$ se esterni.
+\end{itemize}
+
+\section{Buon esame.}
+Tutta la teoria di questo libro \`e ``compressa'' dietro al riconoscimento del tipo di esercizio. Allenati a riconoscere, e l'algoritmo verr\`a da s\'e. Se in un esercizio nuovo non riconosci nulla, cerca prima quale dei 10 punti sopra si applica: spesso \`e una combinazione di due di essi (es.\ TF + residui, separazione + serie di Fourier). Buona fortuna!
+
+\end{document}

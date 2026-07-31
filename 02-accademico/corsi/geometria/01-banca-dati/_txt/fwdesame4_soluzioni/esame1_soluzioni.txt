@@ -1,0 +1,719 @@
+===== PAGINA 1 =====
+Geometria (Fisica)
+Canale L-P
+Esame - 7 febbraio 2017
+Nome e Cognome:
+Numero di Matricola:
+Esercizio
+Punti totali
+Punteggio
+1
+7,5
+2
+7,5
+3
+7,5
+4
+7,5
+Totale
+30
+Occorre motivare le risposte. Una soluzione corretta priva di motivazione riceverà 0 punti.
+Verrà corretto solo quello che sarà scritto su queste pagine.
+Voto/30:
+1
+
+
+===== PAGINA 2 =====
+Esercizio 1. Si considerino i sistemi lineari omogenei
+(1)
+
+
+
+
+
+
+
+2x
++
+5y
+−
+8z
+=
+0
+4x
++
+3y
+−
+9z
+=
+0
+−10x
++
+3y
++
+12z
+=
+0
+y
+−
+z
+=
+0
+e
+(2)
+
+
+
+x
++
+y
+−
+2z
+=
+0
+−x
++
+3y
+−
+2z
+=
+0
+x
++
+17y
+−
+18z
+=
+0
+• Determinare basi dei sottospazi vettoriali U, W ⊂R3 costituiti dalle soluzioni dei sistemi rispetti-
+vamente (1) e (2).
+• Determinare basi dei sottospazi vettoriali U ∩W e U + W.
+Risoluzione:
+Per trovare le soluzioni dei due sistemi, applichiamo il procedimento di eliminazione. Il primo sistema
+conduce a:
+
+
+
+
+2
+5
+−8
+4
+3
+−9
+−10
+3
+12
+0
+1
+−1
+
+
+
+⇝
+
+
+
+
+2
+5
+−8
+0
+−7
+7
+0
+28
+−28
+0
+1
+−1
+
+
+
+⇝
+
+
+
+
+2
+5
+−8
+0
+1
+−1
+0
+−7
+7
+0
+28
+−28
+
+
+
+⇝
+
+
+
+
+2
+5
+−8
+0
+1
+−1
+0
+0
+0
+0
+0
+0
+
+
+
+⇝
+
+
+
+
+2
+0
+−3
+0
+1
+−1
+0
+0
+0
+0
+0
+0
+
+
+
+.
+Il primo sistema è quindi equivalente a
+(
+2x = 3z
+y = z
+e l’insieme U delle sue soluzioni è costituito da tutte e sole le terne del tipo (3t/2, t, t). Una base di U è
+data, ad esempio, da (3, 2, 2).
+Allo stesso modo, il secondo sistema conduce a:
+
+
+1
+1
+−2
+−1
+3
+−2
+1
+17
+−18
+
+⇝
+
+
+1
+1
+−2
+0
+4
+−4
+0
+16
+−16
+
+⇝
+
+
+1
+1
+−2
+0
+1
+−1
+0
+0
+0
+
+⇝
+
+
+1
+0
+−1
+0
+1
+−1
+0
+0
+0
+
+.
+Il secondo sistema è quindi equivalente a
+(
+x = z
+y = z
+e l’insieme W delle sue soluzioni è costituito da tutte e sole le terne del tipo (s, s, s). Una base di W è
+data, ad esempio, da (1, 1, 1).
+Essendo U e W rette distinte di R3, la loro intersezione è U ∩W = {(0, 0, 0)}, che ha dimensione 0 e
+base vuota. Ma allora dim(U + W) = dim U + dim W −dim(U ∩W) = 2, e quindi due qualsiasi vettori
+linearmente indipendenti di U + W ne sono una base.
+Risposta: Base di U:
+(3, 2, 2)
+Base di W:
+(1, 1, 1)
+Risposta: Base di U∩W:
+vuota
+Base di U+W:
+(3, 2, 2), (1, 1, 1)
+2
+
+
+===== PAGINA 3 =====
+Esercizio 2. L’applicazione lineare F : R3 →R4 ha matrice
+
+
+
+
+1
+2
+3
+1
+3
+5
+2
+t
+0
+1
+1
+t
+
+
+
+.
+Dire, al variare del parametro reale t, se F sia iniettiva, suriettiva, invertibile.
+Risoluzione:
+F non può essere suriettiva, poiché la dimensione dello spazio vettoriale di arrivo è superiore a quella
+dello spazio vettoriale di partenza. Non essendo suriettiva, non è nemmeno invertibile.
+Per quanto riguarda l’iniettività, bisogna veriﬁcare che il rango della matrice associata ad F sia
+uguale alla dimensione dello spazio di partenza (che è 3). Possiamo calcolare il rango o procedendo con
+un’eliminazione di Gauss:
+
+
+
+
+1
+2
+3
+1
+3
+5
+2
+t
+0
+1
+1
+t
+
+
+
+⇝
+
+
+
+
+1
+2
+3
+0
+1
+2
+0
+t −4
+−6
+0
+−1
+t −3
+
+
+
+⇝
+
+
+
+
+1
+2
+3
+0
+1
+2
+0
+0
+−2(t −1)
+0
+0
+t −1
+
+
+
+⇝
+
+
+
+
+1
+2
+3
+0
+1
+2
+0
+0
+t −1
+0
+0
+0
+
+
+
+
+che in questo caso particolare funziona bene, ma in presenza di parametri può essere pericolosa. Il rango
+di F è il numero di pivot al termine dell’eliminazione di Gauss, ed è 2 se t = 1, ma è 3 per ogni altro
+valore di t. In conclusione, F è iniettiva esattamente quando t̸ = 1.
+Un metodo più sicuro è calcolare il rango con minori e teorema dell’orlato. Dopo aver notato che il
+minore
+1
+2
+1
+3
+
+è non nullo, siamo certi che il rango di F è almeno 2. Il teorema dell’orlato ci assicura
+allora che il rango è 3 non appena uno dei due minori che lo orlano sia non nullo. Svolgendo i conti:
+det
+
+
+1
+2
+3
+1
+3
+5
+2
+t
+0
+
+= −2(t −1),
+det
+
+
+1
+2
+3
+1
+3
+5
+1
+1
+t
+
+= t −1,
+e quindi i minori si annullano entrambi esattamente quando t = 1. In conclusione, se t = 1, l’applicazione
+F ha rango 2 e non è quindi iniettiva. Per ogni altro valore di t, F ha rango 3, ed è quindi iniettiva.
+Risposta: Valori di t per i quali F è iniettiva
+t̸ = 1
+Valori di t per i quali F è suriettiva
+mai
+Valori di t per i quali F è invertibile
+mai
+3
+
+
+===== PAGINA 4 =====
+Esercizio 3. Siano
+A =
+ 1
+1
+1
+2
+
+,
+B =
+ 1
+1
+2
+1
+
+.
+• Mostrare che A, B sono invertibili.
+• Calcolare A−1, B−1.
+• E’ vero che l’inversa di AB è A−1B−1?
+Risoluzione:
+Si vede facilmente che det A = 1, det B = −1. Entrambe le matrici hanno determinante non nullo, e
+sono quindi invertibili.
+L’inversa di ciascuna matrice si ottiene con il vostro metodo preferito, che dovrebbe dare la seguente
+risposta:
+A−1 =
+ 2
+−1
+−1
+1
+
+,
+B−1 =
+−1
+1
+2
+−1
+
+.
+In generale, se A e B sono matrici invertibili, lo è anche AB — sia perché la composizione di
+applicazioni invertibili è invertibile, sia perché il determinante di AB è il prodotto dei determinanti non
+nulli di A e B, ed è quindi non nullo.
+Si capisce subito, però, che l’inversa di AB è B−1A−1. In questo caso concreto, si vede che
+AB =
+3
+2
+5
+3
+
+,
+A−1B−1 =
+−4
+3
+3
+−2
+
+,
+(AB)(A−1B−1) =
+ −6
+5
+−11
+9
+̸
+=
+1
+0
+0
+1
+
+Risposta: A−1 =
+
+2
+−1
+−1
+1
+
+B−1 =
+
+−1
+1
+2
+−1
+
+(AB)−1 = A−1B−1?
+No
+4
+
+
+===== PAGINA 5 =====
+Esercizio 4. Si considerino le matrici:
+B =
+
+
+
+
+0
+0
+0
+1
+0
+0
+1
+0
+0
+1
+0
+0
+0
+0
+0
+0
+
+
+
+,
+C =
+
+
+
+
+0
+1
+0
+0
+3/5
+0
+−4/5
+0
+4/5
+0
+3/5
+0
+0
+0
+0
+1
+
+
+
+,
+• Stabilire quali tra le matrici B, C sono ortogonali.
+• Stabilire quali tra le matrici B, C ammettono l’autovalore λ = 1, e per esse determinare il relativo
+autospazio.
+Risoluzione:
+Una matrice n×n M a coeﬃcienti reali è ortogonale se MM t è la matrice identità o, equivalentemente,
+se le colonne (o anche le righe) della matrice formano una base ortonormale rispetto al prodotto scalare
+canonico di Rn.
+La matrice B è sicuramente non ortogonale, perché la prima colonna è nulla.
+La
+matrice C è invece ortogonale perché le colonne hanno lunghezza 1 e sono a due a due ortogonali.
+Alternativamente, svolgendo i conti:
+CCt =
+
+
+
+
+0
+1
+0
+0
+3/5
+0
+−4/5
+0
+4/5
+0
+3/5
+0
+0
+0
+0
+1
+
+
+
+·
+
+
+
+
+0
+3/5
+4/5
+0
+1
+0
+0
+0
+0
+−4/5
+3/5
+0
+0
+0
+0
+1
+
+
+
+=
+
+
+
+
+1
+0
+0
+0
+0
+1
+0
+0
+0
+0
+1
+0
+0
+0
+0
+1
+
+
+
+.
+Entrambe le matrici hanno 1 come autovalore, poiché
+B −Id =
+
+
+
+
+−1
+0
+0
+1
+0
+−1
+1
+0
+0
+1
+−1
+0
+0
+0
+0
+−1
+
+
+
+,
+C −Id =
+
+
+
+
+−1
+1
+0
+0
+3/5
+−1
+−4/5
+0
+4/5
+0
+−2/5
+0
+0
+0
+0
+0
+
+
+
+
+hanno entrambe determinante nullo. La prima matrice ha infatti la seconda colonna multipla della terza,
+mentre la seconda matrice ha l’ultima colonna nulla.
+L’autospazio relativo all’autovalore 1 si ottiene calcolando i nuclei delle (applicazioni lineari corri-
+spondenti alle) matrici appena scritte. Con una rapida eliminazione di Gauss si scopre che l’1-autospazio
+di B è ⟨(0, 1, 1, 0)⟩, mentre l’1-autospazio di C è ⟨(0, 0, 0, 1)⟩. I conti fateli da voi!
+Risposta: E’ ortogonale:
+□B
+□× C
+Ammette 1 come autovalore: □× B
+□× C
+Autospazi:
+B : ⟨(0, 1, 1, 0)⟩, C : ⟨(0, 0, 0, 1)⟩
+5

@@ -1,0 +1,14 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><style>
+body{background:#0d0b18;color:#d9d4ea;font-family:Georgia;padding:16px;margin:0}
+h2{color:#b98cff;font-size:16px}
+</style></head><body>
+<h2>Demo motore-plot</h2>
+<div id="p1"></div><div id="p2"></div><div id="p3"></div><div id="p4"></div><div id="p5"></div>
+<script src="motore-plot.js"></script>
+<script>
+PM_Plot.render(p1,{kind:'surface3d',f:'x*y/(x*x+y*y+0.002)',xr:[-2,2],yr:[-2,2],n:30,title:'la sella xy/(x^2+y^2) — il limite che non esiste'});
+PM_Plot.render(p2,{kind:'field2d',fx:'-y',fy:'x',xr:[-2,2],yr:[-2,2],n:14,title:'campo rotazionale (-y, x)'});
+PM_Plot.render(p3,{kind:'contour',f:'x*x+y*y',xr:[-2,2],yr:[-2,2],levels:[0.25,1,2,3.5],title:'curve di livello x^2+y^2'});
+PM_Plot.render(p4,{kind:'phase',fx:'y',fy:'-sin(x)-0.2*y',xr:[-6,6],yr:[-3,3],seeds:[[-4,0.5],[0,2.5],[3,0]],title:'ritratto di fase: pendolo smorzato'});
+PM_Plot.render(p5,{kind:'func2d',f:'sin(x)/x',xr:[-12,12],title:'y = sin(x)/x'});
+</script></body></html>

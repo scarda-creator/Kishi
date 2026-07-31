@@ -1,0 +1,404 @@
+===== PAGINA 1 =====
+Geometria
+Appello II — Sessione Estiva
+Corso di Laurea in Fisica — A.A 2018/2019
+Canali A – C, L – Pa, Pb – Z
+Durata: 2 ore e 30 minuti
+Alessandro D’Andrea
+Simone Diverio
+Paolo Piccinni
+Riccardo Salvati Manni
+15 luglio 2019
+Esercizio 1. Si considerino i seguenti sottoinsiemi di R3:
+Z1 = {(x, y, z)t ∈R3 | x + y = 0},
+Z2 = {(x, y, z)t ∈R3 | x + z = 1},
+Z3 = {(x, y, z)t ∈R3 | x + y = 0, x + z = 1},
+Z4 = {(x, y, z)t ∈R3 | x2 + y2 + z2 = 0},
+Z5 = {(x, y, z)t ∈R3 | x2 + y2 + z2 = 1}.
+(i) Stabilire quali Zj, con j = 1, 2, 3, 4, 5, sono sottospazi vettoriali e quali
+sottospazi aﬃni di R3.
+(ii) Per ognuno dei sottospazi vettoriali determinare una base e per ognuno
+dei sottospazi aﬃni una base del sottospazio vettoriale di giacitura
+associato.
+Esercizio 2. Stabilire per quali valori di k ∈R la seguente matrice
+A =
+
+
+0
+0
+k
+0
+k
+k
+k
+k
+k
+
+
+è invertibile. Scrivere per tali valori k la sua inversa A−1.
+Esercizio 3.
+Si consideri l’applicazione T : M2,2(R) →M2,2(R) data da
+T(A) = A + At, essendo At la trasposta di A.
+1
+
+
+===== PAGINA 2 =====
+(i) Veriﬁcare che T è lineare.
+(ii) Determinare i sottospazi vettoriali di M2,2(R) che sono rispettivamente
+nucleo e immagine di T.
+(iii) Osservando che T opera in uno spazio vettoriale di dimensione 4, cal-
+colare gli autovalori di T. Determinare poi i sottospazi vettoriali di
+M2,2(R) che sono suoi autospazi.
+Esercizio 4. Si considerino le matrici:
+A(h) =
+
+
+2
+0
+−1
+h
+2 + h
+2 + h
+−1
+−1
+0
+
+,
+B(k) =
+
+
+1
+−1
+k
+2
+4
+6 + k
+−1
+−1
+2 + k
+
+.
+(i) Determinare, al variare di h e k, i determinanti e le tracce di A(h) e di
+B(k).
+(ii) Veriﬁcare che esiste un’unica coppia (h0, k0) tale che
+det A(h0) = det B(k0),
+tr A(h0) = tr B(k0).
+(iii) Siano A0 = A(h0) e B0 = B(k0). Stabilire se A0 e B0 hanno gli stessi
+autovalori.
+(iv) Stabilire inﬁne se A0 e B0 sono matrici coniugate.
+Esercizio 5. Sia R2[x] = {p(x) = a0 + a1x + a2x2 | a0, a1, a2 ∈R} lo spazio
+vettoriale dei polinomi di grado ≤2 a coeﬃcienti in R.
+Si consideri l’applicazione:
+b: R2[x] × R2[x] →R
+(p(x), q(x)) 7→p(0)q(0) + p(1)q(1) + p(−1)q(−1).
+(i) Veriﬁcare che b è bilineare, simmetrica, e deﬁnita positiva, dunque un
+prodotto scalare deﬁnito positivo in R2[x].
+(ii) Scrivere la matrice A di b rispetto alla base standard E = {1, x, x2} di
+R2[x] e determinare gli autovalori di A.
+(iii) Costruire una base ortogonale (non necessariamente ortonormale) F =
+{p1(x), p2(x), p3(x)} formata da autovettori di A.
+2
+
+
+===== PAGINA 3 =====
+Soluzioni
+Esercizio 1. I sottospazi vettoriali sono Z1 e Z4 (quest’ultimo coincidente
+con il solo vettore nullo): una base di Z1, di dimensione 2, essendo p. es.
+data dalle terne (1, −1, 0) e (0, 0, 1). I sottospazi aﬃni sono Z2 e Z3, il primo
+un piano aﬃne, con sottospazio vettoriale associato di giacitura x + z = 0, il
+secondo una retta aﬃne con sottospazio vettoriale associato di giacitura la
+retta vettoriale x + y = 0, x + z = 0.
+Esercizio 2. Sia⃗x =
+
+
+x1
+x2
+x3
+
+. Denotando con A⃗x il prodotto righe per
+colonna, si ha che i tre sistemi
+A⃗x =
+
+
+1
+0
+0
+
+,
+A⃗x =
+
+
+0
+1
+0
+
+,
+A⃗x =
+
+
+0
+0
+1
+
+,
+hanno soluzione se e solo se k̸ = 0, e in questo caso le soluzioni sono
+rispettivamente:⃗
+x =
+
+
+0
+−1
+k1
+k
+
+,⃗
+x =
+
+
+−1
+k1
+k
+0
+
+,⃗
+x =
+
+
+1
+k
+0
+0
+
+.
+Ne segue, nei tre casi, e sempre con notazione di prodotto righe per colonna:
+
+
+0
+−1
+k1
+k
+
+= A−1
+
+
+1
+0
+0
+
+,
+
+
+−1
+k1
+k
+0
+
+= A−1
+
+
+0
+1
+0
+
+,
+
+
+1
+k
+0
+0
+
+= A−1
+
+
+0
+0
+1
+
+,
+e ciò fornisce subito gli elementi di
+A−1 =
+
+
+a11
+a12
+a13
+a21
+a22
+a23
+a31
+a32
+a33
+
+:
+a11 = 0, a21 = −1
+k, a31 = 1
+k, a12 = −1
+k, a22 = 1
+k, a32 = 0, a13 = 1
+k, a23 =
+0, a33 = 0. Ne segue che A−1 è invertibile per ogni k̸ = 0 e per tali k è:
+A−1 =
+
+
+0
+−1
+k
+1
+k
+−1
+k
+1
+k
+0
+1
+k
+0
+0
+
+.
+Il calcolo del prodotto righe per colonne mostra d’altronde che:
+AA−1 =
+
+
+0
+0
+k
+0
+k
+k
+k
+k
+k
+
+
+
+
+0
+−1
+k
+1
+k
+−1
+k
+1
+k
+0
+1
+k
+0
+0
+
+=
+
+
+1
+0
+0
+0
+1
+0
+0
+0
+1
+
+= I.
+3
+
+
+===== PAGINA 4 =====
+Esercizio 3. (i) La veriﬁca della linearità di T è la seguente: T(A + B) =
+A + B + (A + B)t = A + B + At + Bt = A + At + B + Bt = T(A) + T(B),
+T(kA) = kA + (kA)t = kA + kAt = k(A + At) = kT(A).
+(ii) Il nucleo di T è costituito dalle matrici A tali che A + At = 0, ovvero
+dalle matrici antisimmetriche, caratterizzate da A = −At. L’immagine di
+T è costituita dalle matrici B che possono essere scritte come B = A + At
+per qualche A ∈M2(R).
+Ogni tale B è simmetrica: Bt = (A + At)t =
+At + (At)t = At + A = B, e d’altronde ogni B simmetrica può essere scritta
+come B = A + At per A = 1
+2B. Ne segue che l’immagine di T è costituita
+dal sottospazio vettoriale delle matrici simmetriche.
+(iii) La relazione A+At = λA è equivalente a At = (λ−1)A, e guardando
+agli elementi diagonali abbiamo dunque a11 = (λ −1)a11, a22 = (λ −1)a22,
+da cui i possibili autovalori λ = 2 (con a11, a22 qualsiasi) e λ qualsiasi con
+a11 = a22 = 0. Abbiamo anche a12 = (λ −1)a21, a21 = (λ −1)a12, da cui
+a12 = (λ −1)2a12. In conclusione gli autovalori sono λ = 2 con autospazio
+le matrici simmetriche e λ = 0 con autospazio le matrici antisimmetriche. le
+rispettive molteplicità, sia algebriche che geometriche, sono 3 per l’autovalore
+2 e 1 per l’autovalore 0.
+Esercizio 4. (i) det A(h) = 2h + 2, det B(k) = 10k + 24, e tr A(h) = 4 + h,
+tr B(k) = 7 + k.
+(ii) Il sistema 2h+2 = 10k +24, 4+h = 7+k ammette l’unica soluzione
+(h0, k0) = (1, −2).
+(iii) Il calcolo dei polinomi caratteristici det(A0 −λI) = (2 −λ)(λ −
+2)(λ −1), det(B0 −λI) = (1 −λ)(λ −2)2 fornisce sia per A0 che per B0 gli
+autovalori 1 (di molteplicità algebrica 1) e 2 (di molteplicità algebrica 2).
+(iv) Gli autovettori (x1, x2, x3) corrispondenti a λ = 2 sono, per le due
+matrici, le soluzioni dei sistemi omogenei rispettivamente
+−x3 = 0, x1 + x2 + 3x3 = 0, −x1 −x2 −2x3 = 0,
+e
+−x1 −x2 −2x3 = 0, 2x1 + 2x2 + 4x3 = 0, −x1 −x2 −2x3 = 0,
+nei quali la matrice dei coeﬃcienti ha rispettivamente rango 2 e 1. Ne segue
+che λ = 2 ha molteplicità geometrica 1 per A0 e 2 per B0 e che A0 e B0 non
+sono coniugate.
+Esercizio 5. (i) b è chiaramente simmetrica:
+b(p(x), q(x)) = p(0)q(0) + p(1)q(1) + p(−1)q(−1) = b(q(x)p(x)),
+ed è dunque suﬃciente mostrare la linearità nel primo argomento:
+b(α1p1 + α2p2, q) = (α1p1 + α2p2)(0)q(0) + (α1p1 + α2p2)(1)q(1) + (α1p1 + α2p2)(−1)q(−1) =
+= (α1p1(0) + α2p2(0))q(0) + (α1p1(1) + α2p2(1))q(1) + (α1p1(−1) + α2p2(−1))q(−1) =
+4
+
+
+===== PAGINA 5 =====
+= α1p1(0)q(0) + α2p2(0)q(0) + α1p1(1)q(1) + α2p2(1)q(1) + α1p1(−1)q(−1) + α2p2(−1)q(−1) =
+α1b(p1, q) + α2b(p2, q).
+Inﬁne B è deﬁnita positiva:
+b(p, p) = p2(0) + p2(1) + p2(−1) = a2
+0 + (a0 + a1 + a2)2 + (a0 −a1 + a2)2 ≥0,
+e b(p, p) = 0 se e solo se a0 = 0, a0 + a1 + a2 = 0, a0 −a1 + a2 = 0 o,
+equivalentemente se e solo se a0 = a1 = a2 = 0.
+(ii) La matrice associata a b nella base canonica dei polinomi è evidente-
+mente
+A =
+
+
+3
+0
+2
+0
+2
+0
+2
+0
+2
+
+
+con polinomio caratteristico
+det(A −λI) = (2 −λ)(2 −5λ + λ2) = (2 −λ)(5 +
+√
+17
+2
+−λ)(5 −
+√
+17
+2
+−λ).
+(iii) Gli autovettori corrispondenti ai tre autovalori distinti 2, 5+
+√
+17
+2
+, 5−
+√
+17
+2
+risultano essere generati dai seguenti tre polinomi:
+p1(x) = x,
+p2(x) = 4 + (−1 +
+√
+17)x2,
+p3(x) = 4 + (−1 −
+√
+17)x2,
+che risultano essere una base ortogonale di R2[x].
+5

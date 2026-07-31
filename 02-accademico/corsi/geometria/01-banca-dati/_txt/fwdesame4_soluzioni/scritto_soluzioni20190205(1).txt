@@ -1,0 +1,573 @@
+===== PAGINA 1 =====
+Geometria
+Appello II — Sessione Invernale
+Corso di laurea in ﬁsica — A.A 2018/2019
+Canale A–C
+Durata: 2 ore
+Simone Diverio
+5 febbraio 2019
+Esercizio 1. Nello spazio vettoriale numerico reale R4 si considerino i vet-
+tori u1 = (1, −1, 0, 1)t, u2 = (1, 1, 1, 0)t e u3 = (1, 3, 2, −1)t, e sia U =
+Span{u1, u2, u3}.
+(i) Determinare una base BU di U.
+(ii) Completare la base BU ad una base di R4.
+(iii) Determinare una base del sottospazio U⊥complemento ortogonale di
+U rispetto al prodotto scalare standard di R4.
+Esercizio 2. Siano assegnati i sottospazi vettoriali U e V di R3, deﬁniti
+come segue:
+U = Span
+
+
+
+
+
+1
+0
+1
+
+,
+
+
+1
+k
+1
+
+,
+
+
+1
+2k
+1
+
+
+
+
+,
+V :
+(
+2x1 −x2 + x3 = 0
+x1 + x2 + 2x3 = 0.
+(i) Determinare, al variare di k in R, una base e la dimensione di U e di
+V .
+(ii) Determinare, al variare di k in R, una base e la dimensione di U + V
+e di U ∩V .
+(iii) Determinare, se esistono, i valori di k per cui R3 = U ⊕V .
+Esercizio 3. Sia assegnato, nello spazio vettoriale R3, l’endomorﬁsmo F
+deﬁnito da
+F
+
+
+x1
+x2
+x3
+
+=
+
+
+x1 + 2x2 + 2x3
+2x1 + x2
+2x1 + x3
+
+.
+1
+
+
+===== PAGINA 2 =====
+(i) Scrivere la matrice associata a F nella base canonica e dedurne che F
+è un endomorﬁsmo simmetrico (o autoaggiunto) rispetto al prodotto
+scalare standard di R3.
+(ii) Determinare una base ortonormale di R3 formata da autovettori di F.
+Esercizio 4. Siano assegnate le matrici quadrate
+A =
+
+
+−1
+2
+0
+0
+1
+0
+0
+2
+−1
+
+,
+B =
+
+
+−1
+0
+0
+1
+−1
+0
+0
+0
+1
+
+.
+(i) Veriﬁcare che A è diagonalizzabile.
+(ii) Veriﬁcare che se A e M sono simili, dove M ∈M3,3(R) (ovvero se
+esiste una matrice invertibile D tale che M = D−1AD), allora M è
+diagonalizzabile.
+(iii) Stabilire se le matrici A e B sono o non sono simili.
+2
+
+
+===== PAGINA 3 =====
+Soluzioni
+Esercizio 1. La matrice A che ha per colonne le coordinate di u1, u2, e u3
+è
+A =
+
+
+
+
+1
+1
+1
+−1
+1
+3
+0
+1
+2
+1
+0
+−1
+
+
+
+.
+La sottomatrice B di ordine 2 evidenziata ha determinante non nullo, quindi
+è r = rgA ≥2. Le sottomatrici quadrate di ordine 3 che orlano B hanno
+determinante rispettivamente
+
+1
+1
+1
+−1
+1
+3
+0
+1
+2
+
+= 0
+e
+
+1
+1
+1
+−1
+1
+3
+1
+0
+−1
+
+= 0.
+Per il teorema di Kronecker è allora r = 2. Allora i vettori u1, u2, e u3 sono
+linearmente dipendenti, mentre i primi due sono linearmente indipendenti.
+Ne segue che BU = (u1, u2) è una base di U.
+Un sistema di generatori di V è costituito dai vettori u1, u2, e1, e2, e3
+e e4, essendo (e1, e2, e3, e4) la base canonica di V . La matrice che ha per
+colonne le coordinate di tali generatori rispetto alla base canonica è
+C =
+
+
+
+
+1
+1
+1
+0
+0
+0
+−1
+1
+0
+1
+0
+0
+0
+1
+0
+0
+1
+0
+1
+0
+0
+0
+0
+1
+
+
+
+
+Applichiamo a C l’algoritmo di Gauss per estrarre una base da tale sistema
+di generatori. Si ha
+
+
+
+
+1
+1
+1
+0
+0
+0
+−1
+1
+0
+1
+0
+0
+0
+1
+0
+0
+1
+0
+1
+0
+0
+0
+0
+1
+
+
+
+→
+
+
+
+
+1
+1
+1
+0
+0
+0
+0
+2
+1
+1
+0
+0
+0
+1
+0
+0
+1
+0
+0
+−1
+−1
+0
+0
+1
+
+
+
+
+→
+
+
+
+
+1
+1
+1
+0
+0
+0
+0
+1
+0
+0
+1
+0
+0
+2
+1
+1
+0
+0
+0
+−1
+−1
+0
+0
+1
+
+
+
+→
+
+
+
+
+1
+1
+1
+0
+0
+0
+0
+1
+0
+0
+1
+0
+0
+0
+1
+1
+−2
+0
+0
+0
+−1
+0
+1
+1
+
+
+
+
+→
+
+
+
+
+1
+1
+1
+0
+0
+0
+0
+1
+0
+0
+1
+0
+0
+0
+1
+1
+−2
+0
+0
+0
+0
+1
+−1
+1
+
+
+
+= S.
+3
+
+
+===== PAGINA 4 =====
+dove S è una matrice a scala che ha i pivots sulle colonne 1, 2, 3 e 4. Ne
+segue che una base BV di V che completa BU è quella costituita dai vettori
+u1, u2, e1 e e2.
+Per determinare una base del sottospazio U⊥complemento ortogonale di
+U in V , occorre sostituire la scelta di e1, e2 con una costituita da vettori
+ortogonali a u1 e u2. E’ immediato veriﬁcare che f1 = (0, 1, −1, 1) e f2 =
+(−1, 0, 1, 1) sono ortogonali a u1 e a a2.
+Esercizio 2.
+(i) La matrice che ha per colonne i vettori⃗u1,⃗u2,⃗u3 è A =
+
+
+1
+1
+1
+0
+k
+2k
+1
+1
+1
+
+.
+Essendo la prima e terza riga uguali, il rango è lo stesso di B =
+ 1
+1
+1
+0
+k
+2k
+
+.
+Le righe di B sono proporzionali solo per k = 0, e dunque rgA = rg B = 2
+se k̸ = 0 e rgA = rg B = 1 se k = 0. Due vettori indipendenti, per k̸ = 0,
+sono ad esempio⃗u1 e⃗u2, mentre il solo⃗u1 è vettore indipendente se k = 0.
+Dunque una base di U è (⃗u1,⃗u2) se k̸ = 0, e il solo⃗u1 se k = 0.
+Il sistema lineare omogeneo che deﬁnisce V ammette come soluzione non
+nulla la terna (−3, −3, 3) e ogni soluzione non nulla è multipla di questa.
+Dunque una base di V è data dal solo vettore⃗w = (1, 1, −1) e dim V = 1.
+(ii) Per k̸ = 0 un sistema di generatori di U + V è per esempio (⃗u1,⃗u2,⃗w).
+Essendo det
+
+
+1
+1
+1
+0
+k
+1
+1
+1
+−1
+
+= −2k̸ = 0 se k̸ = 0, i vettori (⃗u1,⃗u2,⃗w) co-
+stituiscono una base di U + V e risulta dim (U + V ) = 3. Per k = 0, un
+sistema di generatori è (⃗u1,⃗w), ed essendo essi indipendenti, è anche una
+base di U + V ; in tal caso dim (U + V ) = 2.
+Per ottenere una base di U∩V , dobbiamo anche distinguere i due casi k̸ =
+0 e k = 0. Nel primo caso aggiungiamo l’equazione det
+
+
+1
+1
+x1
+0
+k
+x2
+1
+1
+x3
+
+= 0
+di U, ossia x1 −x3 = 0 alle equazioni di V , ottenendo che il sistema delle tre
+equazioni ha solo la soluzione nulla. Dunque U ∩V = 0 per k̸ = 0, dunque
+in tal caso U ∩V non ammette basi e dim (U ∩V ) = 0. Se k = 0 invece U si
+rappresenta con il sistema x2 = 0, x1 −x3 = 0, e anche in tal caso il sistema
+di quattro equazioni che rappresenta U ∩V = 0 ammette solo la soluzione
+nulla. Ancora è quindi U ∩V = 0.
+(iii) Per k̸ = 0 abbiamo già visto che dim (U + V ) = 3; dunque in tal caso
+U +V = R3. Essendo poi U ∩V = 0, si ha che per k̸ = 0 risulta R3 = U ⊕V .
+Per k = 0, essendo dim (U + V ) = 2, risulta che pur essendo U ∩V = 0, lo
+spazio R3 non è somma diretta dei due sottospazi U e V .
+4
+
+
+===== PAGINA 5 =====
+Esercizio 3.
+(i) La matrice associate a F rispetto alla base canonica è:
+A =
+
+
+1
+2
+2
+2
+1
+0
+2
+0
+1
+
+,
+ed essendo A simmetrica si ha subito che F è autoaggiunto.
+(ii) Gli autovalori di F si ottengono subito dall’equazione caratteristica della
+matrice A
+det(λI −A) = det
+
+
+λ −1
+−2
+−2
+−2
+λ −1
+0
+−2
+0
+λ −1
+
+= 0,
+che sviluppata fornisce l’equazione (λ −1)3 −8(λ −1) = 0, ovvero (λ −
+1)(λ2 −2λ −7) = 0. Si hanno dunque i tre autovalori λ1 = 1, λ2 = 1 −
+√
+8,
+λ3 = 1 +
+√
+8.
+I sistemi che forniscono i rispettivi autospazi sono: V1 :
+x1+2x2+2x3 = x1, 2x1+x2 = x2, 2x1+x3 = x3, e un autovettore di modulo
+1 è⃗w1 = (0,
+1
+√
+2, −1
+√
+2); V1−
+√
+8 : x1 + 2x2 + 2x3 = (1 −
+√
+8)x1, 2x1 + x2 =
+(1 −
+√
+8)x2, 2x1 + x3 = (1 −
+√
+8)x3, e un autovettore di modulo 1 è ora⃗
+w2 = (−1
+√
+2, 1
+2, 1
+2); inﬁne V1+
+√
+8 : x1 + 2x2 + 2x3 = (1 +
+√
+8)x1, 2x1 + x2 =
+(1 +
+√
+8)x2, 2x1 + x3 = (1 +
+√
+8)x3, e un autovettore di modulo 1 è ora⃗
+w3 = ( 1
+√
+2, 1
+2, 1
+2). I tre versori⃗w1,⃗w2,⃗w3 formano una base ortonormale di
+autovettori.
+Esercizio 4.
+(i) L’ equazione caratteristica di A risulta (−1−λ)2(1−λ) = 0, e fornisce i due
+autovalori λ1 = −1 con molteplicità algebrica 2 e λ2 = 1, con molteplicità
+algebrica 1. Gli autospazi corrispondenti Vλ1 e Vλ2 si ottengono risolvendo i
+sistemi lineari omogenei rispettivamente
+( 2x2 = 0
+2x2 = 0
+2x2 = 0
+e
+n −2x1 + 2x2 = 0
+2x2 −2x3 = 0 ,
+da cui Vλ1 = {(t1, 0, t2)}t1,t2∈R e Vλ2 = {(t, t, t)}t∈R. Dunque le molteplicità
+geometriche, rispettivamente 2 = dim Vλ1 e 1 = dim Vλ2, coincidono con
+quelle algebriche, e ciò assicura che A è diagonalizzabile.
+(ii) Essendo A diagonalizzabile, esiste una matrice invertibile C tale che
+C−1AC = ∆sia diagonale. Se risulta M = D−1AD, è anche A = DMD−1,
+e dunque ∆= C−1AC = C−1(DMD−1)C = (D−1C)−1M(D−1C), e dunque
+anche M è diagonalizzabile.
+(iii) L’ equazione caratteristica di B è (−1 −λ)2(1 −λ) = 0.
+Pertanto
+gli autovalori di B coincidono con quelli di A e hanno le stesse rispettive
+5
+
+
+===== PAGINA 6 =====
+molteplicità algebriche. Non così è però per la molteplicità geometrica di
+λ1 = −1. Infatti il relativo autospazio Wλ1 di B è dato dalle soluzioni del
+sistema
+n
+x1 = 0
+2x2 = 0 , da cui segue che la dimensione di Wλ1 è 1. Dunque
+l’autovalore λ1 ha per B molteplicità algebrica 2 e molteplicità geometrica
+1. Ciò implica che B non è diagonalizzabile, e dunque non simile alla matrice
+A.
+6

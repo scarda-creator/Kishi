@@ -1,0 +1,177 @@
+===== PAGINA 1 =====
+Esercitazione di Geometria del 9.11.2012 (Corso di laurea in Fisica, Canale Cf-K)
+Prof. P. Piccinni
+1. Si consideri l’equazione 4z3 + z = 0, a coeﬃcienti in C. Stabilire quali tra le seguenti aﬀermazioni sono vere
+(eventualmente anche pi`u risposte):
+1
+Le soluzioni sono z1 = 2i; z2 = −2i, z3 = 0
+2
+Le soluzioni sono z1 = 1
+2i, z2 = −1
+2i, z3 = 0
+3
+Le soluzioni sono z1 = i
+2, z2 = −i
+2, z3 = 0
+4
+Nessuna delle precedenti.
+2. Si consideri la matrice A =
+
+
+2/3
+2/3
+1/3
+1/3
+−2/3
+2/3
+2/3
+−1/3
+−2/3
+
+. Stabilire quali tra le seguenti aﬀermazioni `e vera:
+1
+A `e invertibile e la sua inversa `e
+
+
+2/3
+1/3
+2/3
+2/3
+−2/3
+−1/3
+1/3
+2/3
+2/3
+
+
+2
+A `e invertibile e la sua inversa `e
+
+
+2/3
+1/3
+−2/3
+2/3
+−2/3
+1/3
+1/3
+2/3
+−2/3
+
+
+3
+A `e invertibile e la sua inversa `e
+
+
+2/3
+1/3
+2/3
+2/3
+−2/3
+−1/3
+1/3
+2/3
+−2/3
+
+
+4
+A `e una matrice ortogonale
+3. Si considerino nello spazio R3 i seguenti cinque vettori⃗v1 = (1, 1, 3),⃗v2 = (2, −1, 1),⃗v3 = (−1, 5, 7),⃗v4 =
+(4, −5, −3),⃗v5 = (6, 0, 8). Stabilire quali tra le seguenti aﬀermazioni `e vera (eventualmente anche pi`u risposte):
+1⃗
+v1,⃗v2,⃗v3,⃗v4,⃗v5 sono linearmente dipendenti
+2⃗
+v1,⃗v2,⃗v3,⃗v4,⃗v5 sono complanari
+3⃗
+v1,⃗v2,⃗v3,⃗v4,⃗v5 sono paralleli
+4
+Nessuna delle precedenti
+4. Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte)
+1
+Sia A ∈M2(R) simmetrica (A = At). Allora det A ≥0
+2
+Sia A ∈M2(R) antisimmetrica (A = −At). Allora det A ≥0
+3
+Sia A ∈M3(R) simmetrica (A = At). Allora det A = 0
+4
+Sia A ∈M3(R) antisimmetrica (A = −At). Allora det A = 0
+5
+Nessuna delle precedenti
+
+
+===== PAGINA 2 =====
+5. Siano A1, A2 ∈M2(R). Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte)
+1
+Se A1 e A2 sono simmetriche (A1 = At
+1, A2 = At
+2), allora A1 + A2 `e simmetrica
+2
+Se A1 e A2 sono antisimmetriche (A1 = −At
+1, A2 = −At
+2), allora A1 + A2 `e antisimmetrica
+3
+Se A1 e A2 sono simmetriche, allora il prodotto A1A2 `e una matrice simmetrica
+4
+Se A1 e A2 sono antisimmetriche, allora il prodotto A1A2 `e una matrice antisimmetrica
+5
+Nessuna delle precedenti
+6. Sia A ∈Mn(R), sia M la sua trasposta e siano I e 0 risp. la matrice identica e la matrice nulla. Stabilire quali
+tra le seguente implicazioni sono corrette (anche pi`u risposte)
+1
+AAt = I ⇒det A = ±1
+2
+det A = 1 ⇒AAt = I
+3
+AAt = 0 ⇒A = 0
+4
+AAt = 0 ⇒det A = 0
+7. Sia V = M2(R) lo spazio vettoriale delle matrici quadrate di ordine 2 ad elementi reali. Si considerino le matrici
+A11 =
+ 0
+1
+1
+1
+
+, A12 =
+ 1
+0
+1
+1
+
+, A21 =
+ 1
+1
+0
+1
+
+, A22 =
+ 1
+1
+1
+0
+
+.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte)
+1
+A11, A12, A21, A22 sono linearmente indipendenti
+2
+A11, A12, A21, A22 sono una base di V
+3
+A11, A12, A21, A22 generano un sottospazio vettoriale proprio di V
+4
+Nessuna delle precedenti
+8. Sia V = {p(x) = a0 + a1x + a2x2; ai ∈R} lo spazio vettoriale dei polinomi di grado ≤2 a coeﬃcienti reali, e
+si consideri la sua base E = {p1(x) = 1 + x, p2(x) = 1 + x2, p3(x) = x + x2}. Dire quali sono le coordinate del
+polinomio 1 + x + x2 in tale base:
+1
+(1, 1, 1).
+2
+( 1
+2, 1
+2, 1
+2).
+3
+(2, 2, 2).
+4
+Nessuna delle precedenti.
+2

@@ -1,0 +1,421 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 04/05/2023
+proﬀ. F. De Marchis, F. Lanzara, A. Terracina
+COGNOME, NOME e MATRICOLA:
+DOCENTE:
+⃝De Marchis
+⃝Lanzara
+⃝Terracina
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere adeguatamente motivati!
+Esercizio 1.
+f(x, y) =
+
+sin(y)(1 −cos(xy))
+(x2 + y2)β
+(x, y) , (0, 0)
+0
+(x, y) = (0, 0)
+Al variare di β > 0 studiare nell’origine
+i. la continuit`a;
+ii. la derivabilit`a;
+iii. la diﬀerenziabilit`a;
+iv. l’esistenza delle derivate direzionali.
+Soluzione. Ricordiamo innanzitutto che:
+(1)
+sin(t) = t(1 + o(1))
+e
+1 −cos(t) = t2
+2 (1 + o(1)),
+per t ≃0.
+i. La funzione risulta continua nell’origine se lim(x,y)→(0,0) f(x, y) = f(0, 0)(= 0). Quindi, essendo
+lim
+(x,y)→(0,0) f(x, y)
+∗=
+lim
+(x,y)→(0,0)
+x2y3(1 + o(1))
+2(x2 + y2)β
+= lim
+ρ→0+
+ρ5 cos2 θ sin3 θ(1 + o(1))
+2ρ2β
+= lim
+ρ→0+
+ρ5−2β cos2 θ sin3 θ(1 + o(1))
+2
+,
+dove in ∗abbiamo usato che y →0, xy →0 e (1), mentre nel passaggio successivo siamo passati in coordinate polari.
+Essendo | cos2 θ sin3 θ(1 + o(1))| ≤2 per ρ ≃0 e per ogni θ ed essendo 5 −2β > 0 se β < 5
+2, la funzione risulta continua se
+β < 5
+2. Se invece β ≥5
+2 la funzione non risulta continua nell’origine, infatti restringendo la funzione a y = x, x > 0 abbiamo:
+lim
+x→0+ f(x, x)= lim
+x→0+
+x5−2β(1 + o(1))
+21+2β
+=
+(
+1
+26
+se β = 5
+2
++∞
+se β > 5
+2.
+ii. La funzione f `e nulla (in particolare `e costante) sugli assi coordinati per ogni β > 0, da cui deduciamo che la funzione `e
+derivabile per ogni β > 0.
+iii. Per veriﬁcare la diﬀerenziabilit`a calcoliamo
+lim
+(h,k)→(0,0)
+f(h, k) −f(0, 0) −∇f(0, 0) · (h, k)
+√
+h2 + k2
+=
+lim
+(h,k)→(0,0)
+f(h, k)
+√
+h2 + k2 =
+lim
+(h,k)→(0,0)
+sin(k)(1 −cos(hk))
+(h2 + k2)β+ 1
+2
+.
+Ragionando come per la continuit`a ci riconduciamo a calcolare
+lim
+ρ→0+
+ρ5−(2β+1) cos2 θ sin3 θ(1 + o(1))
+2
+= lim
+ρ→0+
+ρ4−2β cos2 θ sin3 θ(1 + o(1))
+2
+.
+Analogamente alla continuit`a questo limite risulta nullo (e quindi la funzione risulta diﬀerenziabile) se 4 −2β > 0, cio`e se
+β < 2. Mentre se β ≥2 la funzione non risulta diﬀerenziabile nell’origine in quanto calcolando il limite lungo la semiretta
+y = x, x > 0 abbiamo:
+lim
+x→0+
+f(x, x)
+√
+2x2 = lim
+x→0+
+x4−2β(1 + o(1))
+21+2β
+=
+(
+1
+25
+se β = 2
++∞
+se β > 2.
+iv. Dato v = (v1, v2) versore normale calcoliamo, usando nuovamente gli sviluppi in (1) e il fatto che |v2
+1v3
+2(1 + o(1))| ≤2 per
+t ≃0,
+lim
+t→0
+f(tv1, tv2) −f(0, 0)
+t
+= lim
+t→0
+t5v2
+1v3
+2(1 + o(1))
+2|t|2βt
+= lim
+t→0
+|t|4−2βv2
+1v3
+2(1 + o(1))
+2
+=
+
+0
+se β < 2
+v2
+1v3
+2
+se β = 2
+sgn(v2)∞
+se β > 2 e v1v2 , 0.
+0
+per ogni β > 0 se v1v2 = 0.
+In conclusione la funzione ammette derivata direzionale Dv f(0, 0) se β ≤2 o se v1v2 = 0.
+
+
+===== PAGINA 2 =====
+Esercizio 2. Data la successione di funzioni {fn(x)} con
+fn(x) = e−(n−x)2,
+n ∈,
+x ∈,
+i. studiare la convergenza puntuale in ;
+ii. studiare la convergenza uniforme in ;
+iii. calcolare
+lim
+n→∞
+Z 1
+0
+fn(x)dx.
+Soluzione. i. Fissato x ∈, poich´e n −x →+∞per n →+∞, fn(x) →0 per n →+∞. Dunque abbiamo che la successione
+di funzioni converge puntualmente in  alla funzione f(x) = 0.
+ii. Essendo fn(n) = 1 si ha che supx∈ | fn(x) −f(x)| = supx∈ | fn(x)| ≥|fn(n)| = 1, dunque non c’`e convergenza uniforme in 
+(non potendo essere limn→+∞(supx∈ | fn(x) −f(x)|) = 0).
+Per giungere alla conclusione si poteva alternativamente calcolare supx∈ | fn(x) −f(x)| = supx∈ | fn(x)| = supx∈( fn(x))
+calcolando la derivata di fn e studiandone il segno:
+f ′
+n(x) = e−(n−x)22(n −x)
+
+> 0
+se x < n
+= 0
+se x = n
+< 0
+se x > n.
+Si vede perci`o facilmente che supx∈ fn(x) = fn(1) e perci`o non c’`e convergenza uniforme in  essendo limn→+∞(supx∈ | fn(x)−
+f(x)|) = 1 , 0.
+iii. Grazie al Teorema di Lebesgue, essendo | fn(x)| ≤1 e grazie alla convergenza puntuale delle fn alla funzione nulla possiamo
+passare al limite sotto al segno di integrale e ottenere che
+lim
+n→∞
+Z 1
+0
+fn(x)dx =
+Z 1
+0
+0dx = 0.
+Alternativamente si poteva applicare il Teorema di passaggio al limite sotto il segno di integrale dopo aver mostrato che la
+successione di funzioni continue fn converge uniformemente a 0 in [0, 1] . . .
+2
+
+
+===== PAGINA 3 =====
+Esercizio 3. Sia
+E = {(x, y, z) ∈3 : x2 + y2 + z2 ≤2, z ≥x2 + y2 }.
+i. Calcolare il volume di E.
+ii. Determinare una rappresentazione regolare per le due superﬁci che compongono la frontiera di E.
+iii. Individuare il bordo di ognuna delle due superﬁci del punto ii.
+iv. Posto F = (x + y2 + z, cos(x + z) + y2, x2 + y3), calcolare il ﬂusso di F uscente dal dominio E.
+Soluzione. i. E `e un dominio normale, infatti
+E = {(x, y, z) ∈3 : x2 + y2 ≤z ≤
+q
+2 −x2 −y2, (x, y) ∈D}
+dove
+D = {(x, y) ∈2 : x2 + y2 ≤
+q
+2 −x2 −y2} = {(x, y) ∈2 : x2 + y2 ≤1},
+infatti, ponendo t =
+p
+x2 + y2 ed elevando al quadrato t2 ≤
+√
+2 −t2 otteniamo t4 ≤2 −t2, cio`e t4 + t2 −2 ≤0; ponendo s = t2
+e risolvendo s2 + s −2 ≤0 otteniamo che s ∈[−2, 1], ma essendo s ≥0 abbiamo x2 + y2 = t2 = s ≤1. Perci`o
+Vol(E)
+=
+$
+E
+1 dxdydz =
+"
+D
+Z √
+2−x2−y2
+x2+y2
+1 dz dxdy
+=
+"
+D
+(
+q
+2 −x2 −y2 −x2 + y2) dxdy =
+Z 2π
+0
+Z 1
+0
+(
+q
+2 −ρ2 −ρ2)ρ dρdθ
+=
+π[−2
+3(2 −ρ2)
+3
+2 −ρ4
+2 ]
+1
+0 = 8
+√
+2 −7
+6
+π.
+ii. La frontiera di E `e composta dalle due superﬁci regolari Σ1 e Σ2 con parametrizzazione rispettivamente r1, r2:
+r1
+
+x = x
+y = y
+(x, y) ∈D
+z =
+q
+2 −x2 −y2
+|          {z          }
+=:f1(x,y)
+r2
+
+x = x
+y = y
+(x, y) ∈D
+z = x2y2
+|{z}
+=:f2(x,y)
+Osserviamo che r1, r2 sono superﬁci regolari essendo cartesiane con f1, f2 ∈C1(D).
+iii.
+∂Σ1 = ∂Σ2 = {(x, y, z) ∈3 : x2 + y2 = 1, z = 1},
+iv. Osserviamo che F ∈C1(3), perci`o possiamo applicare il Teorema della divergenza per calcolare il ﬂusso uscente da E.
+Essendo divF = 1 + 2y
+ΦΣ3(F) =
+$
+E
+1 + 2y dxdydz = Vol(E) +
+$
+E
+2y dxdydz = Vol(E) = 8
+√
+2 −7
+6
+π,
+dove nel penultimo passaggio abbiamo osservato che per la simmetria di E rispetto al piano {y = 0} l’integrale
+#
+E 2y dxdydz
+`e nullo.
+Se non ce ne fossimo accorti subito avremmo calcolato l’integrale
+#
+E 2y dxdydz in coordinate polari ottenendo
+$
+E
+2y dxdydz =
+Z 2π
+0
+Z 1
+0
+2ρ2 sin θ dρ dθ =
+Z 2π
+0
+sin θ dθ
+|         {z         }
+=0
+Z 1
+0
+2ρ2 dρ = 0.
+3
+
+
+===== PAGINA 4 =====
+Esercizio 4. Sia F : 3 →3 il campo vettoriale
+F = (x + f(y) + z2, x f(y), 2xz).
+i. Determinare la funzione f :  → con f ∈C1() e f(0) = 1 tale che F sia un campo conservativo in 3.
+ii. In corrispondenza della funzione f trovata in i., determinare il lavoro del campo F lungo la curva
+(x(t), y(t), z(t)) = (cos(t), sin(t), 3),
+t ∈[0, 2π].
+iii. Veriﬁcare che la curva di rappresentazione parametrica
+(x(t), y(t), z(t)) = (1 + et2, log(t4 + 1), sin((πt)6)),
+t ∈[0, 1]
+`e una curva regolare.
+iv. In corrispondenza della funzione f trovata in i., determinare il lavoro del campo F lungo la curva in iii.
+Soluzione. i. Essendo F ∈C1(3) (se f ∈C1()), con 3 semplicemente connesso, se F `e irrotazionale `e anche conservativo.
+Essendo rot F = (0, 0, f(y) −f ′(y)), aﬃnch´e il campo sia irrotazionale f deve risolvere l’equazione diﬀerenziale lineare
+f ′(y) = f(y). Dalla condizione iniziale f(0) = 1 segue che f(y) = ey, perci`o
+F = (x + ey + z2, xey, 2xz).
+ii. Essendo la curva regolare e chiusa ed il campo conservativo il lavoro del campo lungo la curva `e nullo.
+iii. La curva `e regolare essendo di classe C1 ed essendo
+x′(t) = 2tet2 , 0
+(e quindi (x′(t), y′(t), z′(t)) , (0, 0, 0))
+per ogni t ∈(0, 1).
+iv. Essendo il campo conservativo per calcolare il lavoro determiniamo un potenziale. Integrando la prima componente del
+campo otteniamo
+U(x, y, z) = x2
+2 + xey + xz2 + φ(y, z)
+e derivando rispetto a y e z e confrontando con le seconde due componenti del campo si ottiene facilmente che otteniamo che
+U(x, y, z) = x2
+2 + xey + xz2
+`e un potenziale, da cui
+L = U(1 + e, log 2, sin(π6)) −U(2, 0, 0) = (1 + e)2
+2
++ 2(1 + e) + (1 + e) sin2(π6) −4 = −7
+4 + (3 + sin2(π6)) e + e2
+2 .
+4
+
+
+===== PAGINA 5 =====
+Esercizio 5. Posto
+D = {(x, y) ∈R2 : 1 ≤x2 + y2 ≤16},
+sia F : R2 →R deﬁnita da
+F(x, y) = x2 + y2 −5y.
+i. Determinare eventuali punti di massimo o minimo relativo di F in 2.
+ii. Dire perch`e F ammette massimo e minimo assoluti in D.
+iii. Determinare massimo e minimo assoluto di F in D.
+iv. La funzione F ammette massimo assoluto e minimo assoluto in 2?
+Soluzione. i. La funzione F `e di classe C2(2), perci`o per determinarne eventuali punti di massimo e minimo relativo cerchi-
+amo innanzitutto eventuali punti critici.
+∇F(x, y, z) = (2x, 2y −5)
+quindi l’unico punto critico `e P = (0, 5
+2). Dallo studio dell’Hessiano:
+HF(x, y) =
+ 2
+0
+0
+2
+!
+si vede immediatamente che HF(P) ammette due autovalori positivi e dunque P `e un punto di minimo locale stretto.
+ii. Essendo h(x, y) = x2+y2 una funzione continua su 2 ed essendo D la preimmagine tramite h dell’intervallo chiuso [1, 16],
+l’insieme D risulta chiuso; inoltre esso `e limitato essendo D ⊂{x2 + y2 < 17}. Inﬁne dalla continuit`a di F segue che, grazie al
+Teorema di Weierstrass, F ammette massimo e minimo assoluti in D.
+iii. Poich´e la funzione non ha punti di non derivabilit`a, eventuali punti di massimo/minimo assoluto vanno ricercati tra i punti
+critici interni (veriﬁchiamo che P ∈D essendo 1 ≤25
+4 ≤16) e nel bordo di D (∂D = {x2 + y2 = 1} ∪{x2 + y2 = 16}). Per
+determinare eventuali punti estremali di F in ∂D, essendo F, h ∈C1(3), possiamo applicare il Teorema dei moltiplicatori di
+Lagrange (separatamente a {h(x, y) = 1} e h(x, y) = 16), ottenendo i due sistemi:
+
+det
+ 2x
+2y −5
+2x
+2y
+!
+= 0
+h(x, y) = 1
+
+det
+ 2x
+2y −5
+2x
+2y
+!
+= 0
+h(x, y) = 16
+che si risolvono facilmente ottenendo
+( x = 0
+y2 = 1
+( x = 0
+y2 = 16
+e cio`e i punti Q± = (0, ±1) e R± = (0, ±4).
+Confrontando i valori assunti da F nei punti determinati: F(P) = −25
+4 , F(Q−) = 6, F(Q+) = −4, F(R−) = 36, F(R+) = −4, si
+conclude che il minimo di F in D `e −25
+4 , mentre il massimo `e 36.
+iv. Essendo l’Hessiano di F strettamente deﬁnito positivo in tutto 2, la funzione `e strettamente convessa e dunque F(P) =
+−25
+4 risulta il minimo assoluto (stretto) di F in 2. Invece, essendo limx→+∞F(x, 0) = +∞, la funzione risulta illimitata
+superiormente e non ammette quindi massimo assoluto in 2.
+Alternativamente si poteva ragionare anche nel seguente modo: essendo la funzione coerciva, in quanto
+lim
+∥(x,y)∥→+∞F(x, y) = lim
+ρ→+∞(ρ2 −5ρ sin θ) ≥lim
+ρ→+∞ρ2(1 −5
+ρ2 ) = +∞,
+si ottiene subito che F non ammette massimo assoluto in 2 ed essendo F continua, per il Teorema di Weierstrass generaliz-
+zato, la funzione ammette minimo assoluto. Questo deve essere assunto in un punto critico (essendo F ovunque derivabile) e
+dunque F(P) = −25
+4 risulta il minimo assoluto (stretto) di F in 2.
+5

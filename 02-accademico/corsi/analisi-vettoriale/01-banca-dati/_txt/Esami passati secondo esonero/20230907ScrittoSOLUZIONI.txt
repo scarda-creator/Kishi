@@ -1,0 +1,287 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 05/09/2023
+proﬀ. F. De Marchis, F. Lanzara, A. Terracina
+COGNOME, NOME e MATRICOLA:
+DOCENTE:
+⃝De Marchis
+⃝Lanzara
+⃝Terracina
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere adeguatamente motivati!
+Esercizio 1. Sia f : 2 → la funzione deﬁnita da
+f(x, y) =
+
+x4+y4−sen(xy2)
+x2+y2
+(x, y) , (0, 0)
+0
+(x, y) = (0, 0).
+i. Studiare la continuit`a, derivabilit`a, diﬀerenziabilit`a e l’esistenza delle derivate direzionali di f nell’origine;
+ii. mostrare che l’equazione f(x, y) = 1 deﬁnisce implicitamente una funzione y = g(x) in un intorno del punto (0, 1).
+Soluzione: i) Usando il limite notevole si pu`o considerare al posto del termine sen(xy2) il suo argomento (che tende a 0 quando
+(x, y) tende a (0, 0)). A questo punto usando, ad esempio le coordinate polari si prova che la funzione f `e continua nell’origine. La
+funzione inoltre ammette derivate parziali nell’origine e sono entrambe nulle, basta osservare che f(x, 0) = x2 e f(0, y) = y2. Quindi
+per studiare la diﬀerenziabilit`a in questo caso bisogna considerare
+lim
+(x,y)→(0,0)
+f(x, y)
+p
+x2 + y2 ,
+di nuovo usiamo che al posto di sen(xy2) possiamo usare xy2 e tramite coordinate polari ci accorgiamo che il limite per ρ che tende
+a 0+, in generale, non `e nullo per cui la funzione non `e diﬀerenziabile.
+Poich´e la funzione non `e diﬀerenziabile non possiamo concludere nulla a priori circa l’esistenza delle derivate direzionali. Queste
+invece esistono se solo se per deﬁnizione esiste ﬁnito
+lim
+t→0
+f(ν1t, ν2t)
+t
+,
+di nuovo usando il limite notevole ci si pu`o ridurre allo studio del limite
+lim
+t→0
+ν1t4 + ν2t4 −t3ν1ν2
+2
+t3
+= ν1ν2
+2,
+per cui la funzione ammette derivate direzionali per ogni scelta del versore (ν1, ν2).
+ii) Basta osservare che si pu`o applicare il Th del Dini. Infatti si ha f(0, 1) = 1 e fy(x, y) =
+(4y3−2xy cos(xy2))(x2+y2)−2y(x4+y4−sen(xy2))
+(x2+y2)2
+,
+fy(0, 1) = 2 , 0.
+Esercizio 2. Al variare del parametro α si consideri il campo di vettori
+F(x, y) =
+ −αx + y
+x2 + y2 , αy −x
+x2 + y2
+!
+,
+(x, y) , (0, 0).
+i. Dire per quali valori di α il campo F `e irrotazionale nel suo insieme di deﬁnizione;
+ii. per i valori di α per i quali il campo `e irrotazionale, calcolare il lavoro di F lungo la curva γ(t) = (sen(2t), cos(2t)), t ∈[0, π];
+iii. dire per quali valori di α il campo F `e conservativo nel suo insieme di deﬁnizione.
+Soluzione: i. rot F = −
+4αxy
+(x2+y2)2 , da cui il campo `e irrotazionale se e solo se α = 0;
+ii. Sia ˜γ(t) = (cos t, sen t), t ∈[0, 2π]. Essendo ˜γ′(t) = (−sen t, cos t):
+Z
+˜γ
+F · T ds =
+Z 2π
+0
+(−1)dt = −2π.
+iii. Poich´e la curva γ compie un giro in senso orario intorno alla lacuna (l’origine), mentre la curva ˜γ compie un giro in senso
+antiorario intorno alla lacuna e il campo `e irrotazionale:
+Z
+γ
+F · T ds = −
+Z
+˜γ
+F · T ds = 2π.
+
+
+===== PAGINA 2 =====
+Esercizio 3.
+Sia
+T = {(x, y, z) : (x −(1 −z))2 + y2 ≤(1 −z)2, 0 ≤z ≤1 }.
+i. Descrivere gli insiemi E0 = T ∩{(x, y, z) : z = 0}, E 1
+3 = T ∩{(x, y, z) : z = 1
+3} e E1 = T ∩{(x, y, z) : z = 1}.
+ii. Calcolare per strati il volume di T.
+iii. Dato il campo vettoriale F(x, y, z) = (ez + 2x2, 2y, −2z + e(x−1)2+y2) calcolare il ﬂusso totale di F uscente dalla frontiera di T.
+Soluzione. i.
+ii. Posto
+Ez = {(x, y) ∈2 | (x −(1 −z))2 + y2 ≤(1 −z)2} = {(1 −z + ρ cos θ, ρ sin θ) | ρ ∈[0, 1 −z], θ ∈[0, 2π]},
+si ha areaEz = π(1 −z)2. Quindi
+$
+T
+1 dxdydz =
+Z 1
+0
+"
+Ez
+dx dy dz =
+Z 1
+0
+areaEzdz = π
+Z 1
+0
+(1 −z)2 dz = π
+3.
+iii. Si ha div(F) = 4x e per strati
+4
+$
+T
+x dxdydz = 4
+Z 1
+0
+"
+Ez
+x dx dy dz =
+Z 1
+0
+Z 2π
+0
+Z 1−z
+0
+(1 −z + ρ cos θ)ρ dρ dθdz = 4π
+Z 1
+0
+(1 −z)3 dz = π.
+Esercizio 4.
+i. Si calcoli l’area della superﬁcie Σ = {(x, y, z) ∈3 : z = 2 + x2 + (y −1)2, (x, y) ∈D} con D := {(x, y) ∈2 : x2 + (y −1)2 ≤1}.
+ii. Si determini il bordo di Σ.
+iii. Dato il campo vettoriale F(x, y, z) = (2z, x + y, x + y), si calcoli rot F.
+iv. Sia ∂Σ+ il bordo di Σ percorso in modo che sia compatibile, secondo il Teorema di Stokes, con la superﬁcie Σ orientata con la
+terza componente della normale positiva. Si calcoli il lavoro del campo F su ∂Σ+.
+Soluzione. Si tratta di una superﬁcie cartesiana z = f(x, y), (x, y) ∈D con f(x, y) = 2 + x2 + (y −1)2 e l’insieme D corrisponde al
+disco di centro (0, 1) e raggio 1. Essendo f ∈C∞(2) ⊂C1(2) la superﬁcie cartesiana risulta regolare e si ha
+Area(Σ) =
+"
+D
+q
+1 + f 2x + f 2y dxdy =
+"
+D
+q
+1 + 4(x2 + (y −1)2) dxdy.
+Passando in coordinate polari
+x = ρ cos θ,
+y = 1 + ρ sin θ,
+si ottiene
+Area(Σ) =
+Z 1
+0
+Z 2π
+0
+q
+1 + 4ρ2ρ dθdρ = 2π
+Z 1
+0
+q
+1 + 4ρ2ρ dρ = ... = 1
+6
+
+5
+√
+5 −1
+
+π.
+ii. Poich´e si tratta di una superﬁcie cartesiana, il bordo di Σ, che indichiamo con ∂Σ ,coincide con l’immagine della frontiera di D
+rispetto alla funzione f. Quindi ∂Σ corrisponde al luogo geometrico {(x, y, z) ∈3 : x2 + (y −1)2 = 1, z = 3}.
+iii. In generale per un campo F = (F1, F2, F3) si ha rot F = ( ∂F3
+∂y −∂F2
+∂z , ∂F1
+∂z −∂F3
+∂x , ∂F2
+∂x −∂F1
+∂y ). Nel nostro caso
+rot F = (1, 1, 1).
+iv. Si pu`o procedere in due modi.
+Primo modo: applichiamo il teorema di Stokes. Con la superﬁcie espressa in forma cartesiana, si ha
+N = (
+−fx, −fy, 1
+q
+1 + f 2x + f 2y
+) = (−
+2x
+p
+4x2 + 4(y −1)2 + 1
+, −
+2(y −1)
+p
+4x2 + 4(y −1)2 + 1
+,
+1
+p
+4x2 + 4(y −1)2 + 1
+)
+da cui
+Z
+∂Σ+(F, T) ds =
+"
+Σ
+(rot F, N) dσ =
+"
+D
+(1, 1, 1) · (−2x, −2(y −1), 1) dxdy =
+"
+D
+(1 −2x −2(y −1) dxdy.
+Passando a coordinate polari l’integrale diventa
+Z 1
+0
+dρ
+Z 2π
+0
+(1 −2ρ cos(θ) −2ρ sin(θ))ρdθ = 2π
+Z 1
+0
+ρdρ = π.
+Secondo modo: con la deﬁnizione. La curva ∂Σ ha rappresentazione parametrica
+x = cos θ,
+y = 1 + sin θ,
+z = 3,
+θ ∈[0, 2π]
+2
+
+
+===== PAGINA 3 =====
+con orientamento antiorario se visto dall’alto. Il versore normale positivo ha la terza componente positiva. Il versore tangente `e dato
+da
+T = (−sin θ, cos θ, 0),
+θ ∈[0, 2π]
+Quindi
+(F, T)|∂Σ = ((2zT1 + (x + y)T2 + (x + y)T3)|∂Σ = −6 sin θ + sin θ cos θ + cos2 θ.
+Ne segue che
+Z
+∂Σ+(F, T) ds =
+Z 2π
+0
+(−6 sin θ + sin θ cos θ + cos2 θ)dθ = π.
+Esercizio 5. Si consideri il seguente problema di Cauchy
+
+y′(t) = y(t)(y(t) −1)
+t2 + 1
+y(0) = 1
+2
+si risponda ai seguenti quesiti seguendo l’ordine proposto:
+i. si spieghi perch´e possiede un’unica soluzione y(t),
+ii. si provi che la soluzione y(t) esiste in tutto 
+iii. si provi che la soluzione y(t) ammette limite per t −→±∞,
+iv. si calcoli esplicitamente la soluzione del problema di Cauchy.
+Soluzione. i. Osserviamo che la funzione f(t, y) = y(y−1)
+t2+1 `e C1( × ). Per il Teorema di Cauchy-Lipschitz, il problema ha un’unica
+soluzione locale.
+ii. Le funzioni y0(t) = 0 e y1(t) = 1 sono soluzioni costanti dell’equazione diﬀerenziale. Quindi per l’unicit`a, essendo 0 < y(0) =
+1
+2 < 1, la soluzione y(t) veriﬁca per ogni t per cui `e deﬁnita la relazione 0 < y(t) = 1
+2 < 1, percio`o siamo nelle ipotesi del secondo
+Teorema di esistenza globale e possiamo dedurre che la soluzione `e deﬁnita in Imax = .
+iii. Dato che 0 < y(t) = 1
+2 < 1, dall’equazione abbiamo che y′(t) = y(t)(y(t)−1)
+t2+1
+< 0. Ne segue che la soluzione `e monotona decrescente.
+Dalla monotonia e dalla limitatezza esistono i limiti per t →±∞e vale
+ℓ+ = lim
+t→+∞y(t) = [0, 1
+2),
+ℓ−= lim
+t→−∞y(t) = (1
+2, 1].
+Non viene richiesto il calcolo dei limiti.
+iv. Usando la separazione delle variabili si ottiene
+Z
+dy
+y(y −1) =
+Z
+dt
+t2 + 1 ⇒log(1 −y) −log y = arctan t + c ⇒1 −y
+y
+= Kearctan t
+da cui
+y(t) =
+1
+1 + Kearctan t
+Imponendo la condizione iniziale si trova K = 1.
+3

@@ -1,0 +1,6535 @@
+===== PAGINA 1 =====
+Appunti di
+ANALISI COMPLESSA
+Roberto Bonciani∗
+Dipartimento di Fisica, Università di Roma “La Sapienza”
+e INFN Sezione di Roma,
+Piazzale Aldo Moro 2,
+00185 Roma
+Corso di Modelli e Metodi Matematici della Fisica
+Università degli Studi di Roma “La Sapienza”
+Dipartimento di Fisica
+Anni Accademici 2017-2018, 2018-2019, 2019-2020
+∗Email: roberto.bonciani@roma1.infn.it
+
+
+===== PAGINA 2 =====
+Indice
+1
+Appunti sui NUMERI COMPLESSI
+4
+1.1
+Introduzione . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4
+1.2
+Numeri Complessi . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+6
+1.2.1
+Radice Quadrata . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+10
+1.2.2
+Rappresentazione geometrica dei Complessi
+. . . . . . . . . . . . . . . .
+11
+1.2.3
+Rppresentazione Polare . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+12
+1.2.4
+Potenza n−esima . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+15
+1.2.5
+Radice n−esima . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+15
+1.2.6
+Radici dell’unità
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+17
+1.3
+Disuguaglianze
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+17
+1.4
+Alcuni Esercizi
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+18
+1.4.1
+Esercizio . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+18
+1.4.2
+Esercizio . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+18
+1.4.3
+Esercizio . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+19
+1.4.4
+Esercizio . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+20
+1.4.5
+Esercizio . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+20
+1.4.6
+Esercizio . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+21
+1.4.7
+Esercizio . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+21
+2
+Appunti sulle FUNZIONI DI UNA VARIABILE COMPLESSA
+22
+2.1
+Introduzione . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+22
+2.2
+Dominio ...
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+22
+2.3
+Funzioni di una variabile complessa . . . . . . . . . . . . . . . . . . . . . . . . .
+24
+2.4
+Limiti e continuità
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+25
+2.5
+Funzioni analitiche . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+27
+2.5.1
+Funzioni analitiche e condizioni di Cauchy-Riemann . . . . . . . . . . . .
+29
+2.5.2
+Funzioni analitiche e funzioni armoniche
+. . . . . . . . . . . . . . . . . .
+33
+2.5.3
+Zeri di una funzione analitica
+. . . . . . . . . . . . . . . . . . . . . . . .
+34
+2.5.4
+Singolarità di una funzione analitica . . . . . . . . . . . . . . . . . . . . .
+34
+2.6
+Alcuni Esercizi
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+36
+3
+Appunti sulle SERIE DI POTENZE
+39
+3.1
+Successioni . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+39
+3.2
+Successioni di funzioni
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+40
+3.3
+Serie di funzioni . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+41
+3.3.1
+Serie di potenze . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+42
+1
+
+
+===== PAGINA 3 =====
+4
+Appunti sulle FUNZIONI ANALITICHE ELEMENTARI
+47
+4.1
+Esponenziale complesso . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+47
+4.2
+Funzioni trigonometriche . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+49
+4.3
+Funzioni iperboliche
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+53
+4.4
+Funzioni inverse e polidromia
+. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+54
+4.4.1
+Logaritmo complesso . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+55
+4.5
+Radice n-esima
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+58
+4.6
+Punti di diramazione multipli
+. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+60
+4.7
+Funzioni trigonometriche inverse . . . . . . . . . . . . . . . . . . . . . . . . . . .
+64
+5
+Appunti sull’INTEGRAZIONE NEI COMPLESSI
+67
+5.1
+Curve in C . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+68
+5.1.1
+Omotopia . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+70
+5.2
+Integrali . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+70
+5.2.1
+Esempi . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+73
+5.3
+Teorema di Cauchy (forma debole)
+. . . . . . . . . . . . . . . . . . . . . . . . .
+76
+5.3.1
+Una conseguenza del Teorema di Cauchy: primitiva . . . . . . . . . . . .
+82
+2
+
+
+===== PAGINA 4 =====
+Questi appunti non vogliono essere una
+trattazione esaustiva dell’analisi com-
+plessa, ma soltanto una schematica pre-
+sentazione di ciò che è stato trattato a
+lezione.
+3
+
+
+===== PAGINA 5 =====
+Capitolo 1
+Appunti sui NUMERI COMPLESSI
+In questo capitolo introduciamo i numeri complessi.
+1.1
+Introduzione
+Storicamente i numeri complessi vengono introdotti nel XVI secolo da alcuni matematici italiani
+impegnati nella ricerca della formula risolutrice delle equazioni di terzo grado.
+Si può pensare all’introduzione di numeri complessi coinvolgendo la chiusura di un certo
+insieme sotto particolari operazioni. La mancanza di tale chiusura può essere risolta allargando
+l’insieme. Per esempio, I numeri naturali sono chiusi rispetto alla somma di due numeri. Infatti.
+se n1, n2 ∈N, si ha che
+n = n1 + n2 ∈N .
+(1.1)
+Invece, se consideriamo la diﬀerenza di due numeri naturali,
+n = n1 −n2 ,
+(1.2)
+questa è ancora nell’insieme soltanto se n1 > n2. Altrimenti ho bisgno di un allargamento
+dell’insieme.
+Si deve passare ai numeri interi per poter avere chiusura anche rispetto alla
+diﬀerenza.
+La stessa cosa viene fuori se consideriamo l’insieme dei numeri interi, Z, e si vuole considerare
+la chiusura rispetto al quoziente. In generale, se z1, z2 ∈Z,
+z = z1
+z2̸
+∈Z .
+(1.3)
+Allargando Z ai numeri razionali, Q, si fa sì che z sia un razionale.
+Analogamente potremmo cercare una chiusura rispetto all’estrazione della radice quadrata
+e dovremmo introdurre l’insieme dei numeri reali, R.
+Inﬁne, se vogliamo estrarre la radice quadrata di un numero negativo, dobbiamo allargare
+ulteriormente all’insieme dei complessi, C.
+Un altro modo di dire la stessa cosa e rifarsi alla soluzione di un’equazione algebrica su un
+certo insieme (corpo). Se consideriamo per esempio l’equazione
+2x + 3 = 0
+(1.4)
+4
+
+
+===== PAGINA 6 =====
+e la vogliamo risolvere negli interi Z, l’equazione non avrà soluzioni. Se invece allarghiamo gli
+interi ai razionali, Q, allora l’Eq. (2.63) avrà una soluzione
+x = −2
+3 .
+(1.5)
+La stessa cosa se consideriamo l’equazione di secondo grado
+x2 + 1 = 0 .
+(1.6)
+Nei reali, l’Eq. (1.6) non ha soluzioni, ma se introduciamo i numeri complessi, C, allora possiamo
+deﬁnire l’unità immaginaria
+i =
+√
+−1 ,
+(1.7)
+e l’Eq. (1.6) ha due soluzioni:
+x = ±i .
+(1.8)
+L’Eq. (1.6) può derivare per esempio da un problema ﬁsico, come lo studio delle soluzioni
+dell’equazione del moto armonico
+y′′ + y = 0 .
+(1.9)
+Se cerchiamo una soluzione del tipo esponenziale
+y(t) ∼eαt ,
+(1.10)
+troviamo un’equazione indiciale del tipo (1.6). Ovvero
+α1,2 = ±i .
+(1.11)
+Quindi una soluzione generale dell’equazione diﬀerenziale può essere scritta nella forma seguente
+y(t) = ˜Aeit + ˜Be−it .
+(1.12)
+D’altra parte si vede immediatamente che due soluzioni indipendenti reali (e la soluzione ﬁnale
+deve essere reale poiché y(t) rappresenta per esempio la coordinata del punto materiale soggetto
+alla forza di richiamo elastico) della (1.9) sono
+y1(t) = sin t ,
+y2(t) = cos t ,
+(1.13)
+ovvero la soluzione generale dell’equazione diﬀerenziale è
+y(t) = A sin t + B cos t .
+(1.14)
+Se ne deduce che ˜A e ˜B dovranno essere dei numeri complessi (in maniera tale da far venire
+l’espressione (1.12) reale) e che l’esponenziale e±it ha a che fare con le funzioni seno e coseno
+... Vedremo che ciò è corretto, introducendo la formula di Eulero.
+5
+
+
+===== PAGINA 7 =====
+1.2
+Numeri Complessi
+Deﬁnizione 1.2.1 L’insieme dei numeri complessi C è l’insieme delle coppie ordinate (x, y)
+con x, y ∈R.
+Con questa deﬁnizione è immediato capire che c’e’ una corrispondenza biunivoca fra C e
+R × R, cioè C è isomorfo al prodotto cartesiano di R con sé stesso.
+Un elemento di C, z ∈C, si può rappresentare usando l’unità immaginaria nel seguente
+modo
+z = x + iy .
+(1.15)
+La x e la y vengono dette parte reale e parte immaginaria del numero complesso z e si indicano
+con
+x
+=
+ℜ(z) ,
+(1.16)
+y
+=
+ℑ(z) .
+(1.17)
+La rappresentazione (1.15) è unica, cioè il numero z è individuato da una sola ℜ(z) e da una
+sola ℑ(z). Se così non fosse si avrebbe
+z = x + iy = x′ + iy′
+(1.18)
+e quindi
+(x −x′) = i(y′ −y) ,
+(1.19)
+che è veriﬁcata soltanto se x = x′ e y = y′.
+Deﬁnito l’insieme abbiamo bisogno di deﬁnirci sopra una struttura, cioè delle operarazioni
+rispetto alle quali l’insieme è chiuso e che ci permettano di lavorare con gli z ∈C.
+Deﬁnizione 1.2.2 Detti z1 e z2 due numeri complessi, si ha
+1. z1 = z2 se e solo se ℜ(z1) = ℜ(z2) e ℑ(z1) = ℑ(z2).
+2. Si deﬁnisce la somma. Per ∀z1, z2 ∈C
+z = z1 + z2 = (x1 + iy1) + (x2 + iy2) = (x1 + x2) + i(y1 + y2) ∈C .
+(1.20)
+3. Si deﬁnisce il prodotto. Per ∀z1, z2 ∈C
+z = z1z2 = (x1 + iy1)(x2 + iy2) = (x1x2 −y1y2) + i(x1y2 + x2y1) ∈C .
+(1.21)
+NB.
+Valgono le usuali regole dell’aritmetica dei numeri reali con l’aggiunta della regola i2 =
+−1.
+Proprietà 1.2.3 Per somma e prodotto valgono le seguenti proprietà (che seguono banalmente
+dalle analoghe proprietà dei reali):
+1. (Commutativa): per ∀z1, z2 ∈C si ha
+z1 + z2 = z2 + z1 ,
+(1.22)
+z1z2 = z2z1 .
+(1.23)
+6
+
+
+===== PAGINA 8 =====
+2. (Associativa): per ∀z1, z2, z3 ∈C si ha
+(z1 + z2) + z3 = z1 + (z2 + z3) = ...
+(1.24)
+(z1z2)z3 = z1(z2z3) = ...
+(1.25)
+3. (Distributiva): per ∀z1, z2, z3 ∈C si ha che
+z1(z2 + z3) = z1z2 + z1z3 .
+(1.26)
+4. (Elemento neutro della somma): ∀z ∈C , ∃! 0 tale che
+z + 0 = 0 + z = z .
+(1.27)
+5. (Elemento neutro del prodotto): ∀z ∈C , ∃! 1 tale che
+z · 1 = 1 · z = z .
+(1.28)
+si avrà 0 = (0, 0) e 1 = (1, 0).
+6. (Inverso della somma): ∀z ∈C , ∃! −z tale che
+z + (−z) = (−z) + z = 0 .
+(1.29)
+7. (Reciproco del prodotto): ∀z ∈C con z̸ = 0, ∃! z−1 tale che
+zz−1 = z−1z = 1 .
+(1.30)
+L’inverso sarà il numero complesso z′ = −z con ℜ(z′) = −ℜ(z) e ℑ(z′) = −ℑ(z)
+z′ = −z = −x −iy = (−x, −y)
+(1.31)
+Da qui si può deﬁnire la diﬀerenza di z1 da z2 come la somma di z1 e dell’inverso di z2.
+Il reciproco, invece, è leggermente più complicato. Infatti, dalla deﬁnizione abbiamo che
+z′ = 1/z deve essere tale che zz′ = 1.
+Allora possiamo cercare la sua parte reale e parte
+immaginaria in termini della parte reale e immaginaria di z risolvendo un sistema:
+z z′ = (xx′ −yy′) + i(x′y + xy′) = 1 ,
+(1.32)
+ovvero
+xx′ −yy′
+=
+1
+(1.33)
+x′y + xy′
+=
+0 .
+(1.34)
+La soluzione del sistema dà
+x′
+=
+x
+x2 + y2 ,
+(1.35)
+y′
+=
+−
+y
+x2 + y2 .
+(1.36)
+7
+
+
+===== PAGINA 9 =====
+Se consideriamo z1, z2 ∈C, il rapporto z1/z2 potrà essere visto come il prodotto di z1 per il
+reciproco di z2 e quindi
+z = z1
+z2
+= x + iy ,
+(1.37)
+tale che
+x
+=
+x1
+x2
+x2
+2 + y2
+2
+−y1
+
+−
+y2
+x2
+2 + y2
+2
+
+= x1x2 + y1y2
+x2
+2 + y2
+2
+,
+(1.38)
+y
+=
+x1
+
+−
+y2
+x2
+2 + y2
+2
+
++ y1
+x2
+x2
+2 + y2
+2
+= x2y1 −x1y2
+x2
+2 + y2
+2
+.
+(1.39)
+NB. Regola semplice:
+1
+z =
+1
+x + iy =
+1
+x + iy
+x −iy
+x −iy = x −iy
+x2 + y2 =
+z
+|z|2 .
+(1.40)
+Deﬁnizione 1.2.4 Si dice modulo di z ∈C, e si indica con |z|, il seguente numero reale
+|z| =
+p
+x2 + y2 ∈R .
+(1.41)
+Si ha che |z| = 0 se e solo se z = 0.
+Deﬁnizione 1.2.5 Si dice coniugato di z ∈C, e si indica con z, il seguente numero complesso
+z = x −iy ,
+(1.42)
+ovvero il numero complesso che abbia la stessa parte reale e l’inversa della parte immaginaria
+di z.
+Proprietà 1.2.6 Si possono veriﬁcare facilmente le seguenti proprietà:
+|z| =
+√
+zz ,
+(1.43)
+1
+z =
+z
+|z|2 ,
+∀z̸ = 0 ,
+(1.44)
+ℜ(z) = z + z
+2
+,
+(1.45)
+ℑ(z) = z −z
+2i
+,
+(1.46)
+z1 ± z2 = z1 ± z2 ,
+(1.47)
+z1z2 = z1z2 ,
+(1.48)
+z1
+z2
+
+= z1
+z2
+,
+z2̸ = 0 ,
+(1.49)
+z = z .
+(1.50)
+Si ha anche
+8
+
+
+===== PAGINA 10 =====
+Proprietà 1.2.7
+|z| = |z| ,
+(1.51)
+|z1z2|2 = (z1z2)(z1z2) = z1z1z2z2 = |z1|2|z2|2 =⇒|z1z2| = |z1||z2| ,
+(1.52)
+|z1z2...zn| = |z1||z2|...|zn| ,
+(1.53)
+
+z1
+z2
+ = |z1|
+|z2| ,
+(1.54)
+|z1 + z2|2 = (z1 + z2)((z1 + z2) = (z1 + z2)(z1 + z2)
+= z1z1 + z1z2 + z1z2 + z2z2
+=
+poiché
+z1z2 = z1z2 ,
+= z1z1 + z1z2 + z1z2 + z2z2
+= |z1|2 + 2ℜ(z1z2) + |z2|2 ,
+(1.55)
+|z1 −z2|2 = ... = |z1|2 −2ℜ(z1z2) + |z2|2 ,
+(1.56)
+|z1 + z2|2 + |z1 −z2|2 = 2(|z1|2 + |z2|2) .
+(1.57)
+Proprietà 1.2.8 L’insieme dei numeri complessi, C, con le operazioni di somma e prodotto
+discusse sopra, è un campo (o corpo).
+NB. C NON è un insieme ordinato, a diﬀerenza di R.
+Utilizzando le regole che abbiamo derivato possiamo dimostrare per esempio che, se
+N
+X
+i=0
+aizi = 0
+(1.58)
+è un’equazione a coeﬃcienti reali, ai ∈R (cioè ai = ai), allora il fatto che z0 sia una radice
+complessa di (1.58) implica che anche z0 lo sia.
+Infatti, se z0 è radice di (1.58), vuol dire che PN
+i=0 aizi
+0 = 0. Ma allora
+0 =
+N
+X
+i=0
+aizi
+0 =
+N
+X
+i=0
+aizi
+0 =
+N
+X
+i=0
+aiz0
+i =
+N
+X
+i=0
+aiz0
+i ,
+(1.59)
+quindi z0 è soluzione della stessa equazione.
+Deﬁnizione 1.2.9 Si dice potenza n−esima di z ∈C (n ∈N)
+zn = z z z ... z
+n volte
+(1.60)
+Se z̸ = 0 si ha
+z−n = 1
+zn = 1
+z ... 1
+z
+1
+z
+n volte
+(1.61)
+Inoltre si ha z0 = 1.
+9
+
+
+===== PAGINA 11 =====
+1.2.1
+Radice Quadrata
+Deﬁniamo adesso la radice quadrata di un numero complesso. Questa sarà un numero complesso
+w = √z = α + iβ ,
+(1.62)
+tale che
+(α + iβ)2 = z = x + iy .
+(1.63)
+La relazione (1.63) equivale al seguente sistema
+α2 −β2 = x ,
+(1.64)
+2 α β = y .
+(1.65)
+Se sommiamo i quadrati delle due equazioni otteniamo
+(α2 −β2)2 + 4α2β2 = (α2 + β2)2 = x2 + y2 ,
+(1.66)
+da cui
+|w|2 = α2 + β2 =
+p
+x2 + y2 .
+(1.67)
+Sommando o sottraendo la (1.67) dalla (1.64) si ottiene
+α2
+=
+1
+2(x +
+p
+x2 + y2) ,
+(1.68)
+β2
+=
+1
+2(−x +
+p
+x2 + y2) .
+(1.69)
+Quindi
+α
+=
+±
+r
+1
+2(x +
+p
+x2 + y2) ,
+(1.70)
+β
+=
+±
+r
+1
+2(−x +
+p
+x2 + y2) .
+(1.71)
+Da notare che gli argomenti delle radici sono positivi indipendentemente dai segni di x e y. Sem-
+brano esserci quattro combinazioni. In realtà non abbiamo ancora utilizzato da sola l’Eq. (1.65),
+che ci dice che α e β devono essere tali che il loro prodotto deve avere lo stesso segno di y.
+Quindi per y > 0 α e β dovranno essere concordi e per y < 0 discordi.
+Possiamo quindi
+selezionare due possibilità, sintetizzabili nella formula che segue
+p
+x + iy = ±
+ r
+1
+2(x +
+p
+x2 + y2) + i y
+|y|
+r
+1
+2(−x +
+p
+x2 + y2)
+!
+,
+(1.72)
+con y̸ = 0.
+Se y = 0, si ha
+√z
+=
+±√x
+se
+x ≥0 ,
+(1.73)
+√z
+=
+±i
+√
+−x
+se
+x < 0 .
+(1.74)
+Quindi, la radice quadrata di un numero complesso ha due valori opposti che coincidono
+solo se z = 0. Se y = 0 e x ≥0 i due valori sono reali, se y = 0 e x < 0 sono immaginari puri.
+10
+
+
+===== PAGINA 12 =====
+1.2.2
+Rappresentazione geometrica dei Complessi
+La rappresentazione geometrica dei numeri complessi sfrutta l’isomorﬁsmo fra C e R × R e
+associa a z = x + iy la coppia di valori (x, y) in R2:
+ℑ(z)
+ℜ(z)
+z = x + iy
+|z| =
+p
+x2 + y2
+x
+y
+Piano di Argand-Gauss
+Si può pensare a z come ad un vettore in R2 e di conseguenza possiamo rappresentare sul
+piano di Argand-Gauss le operazioni che abbiamo introdotto: somma, coniugazione, moltipli-
+cazione per un numero reale o per l’unità immaginaria ... prodotto di due numeri complessi.
+Questo ultimo però si capirà meglio dopo l’introduzione della rappresentazione polare.
+ℑ(z)
+ℜ(z)
+z = z1 + z2
+z1
+z2
+Somma
+ℑ(z)
+ℜ(z)
+z = z1z2
+z1
+z2
+Prodotto
+ℑ(z)
+ℜ(z)
+a z ,
+a > 1
+z = x + iy
+i z = y + ix
+Prodotto per un reale e per i
+ℑ(z)
+ℜ(z)
+z = x + iy
+z = x −iy
+Coniugazione
+11
+
+
+===== PAGINA 13 =====
+1.2.3
+Rppresentazione Polare
+Andando avanti con l’analogia fra C e piano cartesiano, possiamo rappresentare z ∈C tramite
+la rappresentazione polare del piano.
+ℑ(z)
+ℜ(z)
+z
+|z| = r
+θ
+Avremo r = |z| =
+p
+x2 + y2 e
+x
+=
+r cos θ ,
+(1.75)
+y
+=
+r sin θ .
+(1.76)
+Allora
+z = x + iy = r(cos θ + i sin θ) ,
+(1.77)
+con
+r
+=
+|z| ≥0 ,
+(1.78)
+θ
+=
+arg(z) .
+(1.79)
+L’argomento di z, θ = arg(z), è in realtà deﬁnito a meno di 2kπ, con k ∈Z.
+Deﬁnizione 1.2.10 Si deﬁnisce l’Argomento Principale di z, Arg(z), tale che
+−π < Arg(z) ≤π .
+(1.80)
+ℑ(z)
+ℜ(z)
+Arg(z)
+π
+−π
+Si ha
+arg(z) = Arg(z) + 2kπ ,
+k ∈Z .
+(1.81)
+12
+
+
+===== PAGINA 14 =====
+Come si fa a trovare r e Arg(z) sapendo la parte reale e la parte immaginaria di z (cioè x
+e y)? Dobbiamo ricorrere alla formula inversa delle coordinate polari
+r
+=
+p
+x2 + y2 ,
+(1.82)
+θ
+=
+arctan
+y
+x
+
+,
+(1.83)
+tenendo conto del fatto che l’arcotangente ha come codominio l’intervallo
+ −π
+2, π
+2
+
+e non (−π, π).
+Quindi per raggiungere tutti i quadranti del piano, dovremo aggiungere (o levare) a mano π.
+Infatti, se x e y sono concordi, y/x > 0 e quindi l’argomento di un punto nel primo quadrante
+(0 < Arg(z) < π/2) o del terzo quadrante (x < 0, y < 0) vengono mappati dall’arcotangente
+nello stesso valore. L’argomento del punto nel terzo quadrante sarà però dato da arctan y/x−π.
+Così come nel caso x e y siano discordi, l’argomento di un punto nel secondo quadrante sarà
+dato da arctan y/x + π.
+Arg(z) =
+
+
+
+
+
+arctan
+  y
+x
+
++ π
+x < 0 , y > 0
+arctan
+  y
+x
+
+x ≥0 , (x, y)̸ = 0
+arctan
+  y
+x
+
+−π
+x < 0 , y < 0
+(1.84)
+Se z = 0 l’argomento di z non è deﬁnito.
+Prodotto
+Alla luce della rappresentazione polare, riprendiamo in considerazione il prodotto fra due numeri
+complessi. Se
+z1
+=
+r1(cos θ1 + i sin θ1) ,
+(1.85)
+z2
+=
+r2(cos θ2 + i sin θ2) ,
+(1.86)
+si avrà
+z1z2
+=
+r1r2 [(cos θ1 cos θ2 −sin θ1 sin θ2) + i(cos θ1 sin θ2 + cos θ2 sin θ1)] ,
+(1.87)
+=
+r1r2(cos θ1 + θ2 + i sin θ1 + θ2) ,
+(1.88)
+ovvero, z = z1z2 ha come modulo il prodotto dei moduli e come argomento la somma degli
+argomenti:
+|z| = r = r1r2 = |z1||z2| ,
+(1.89)
+arg(z) = θ1 + θ2 = arg(z1) + arg(z2) .
+(1.90)
+Da notare che la regola vale per l’argomento e non per l’argomento principale. Infatti, la somma
+può eccedere 2π.
+Questa regola si può generalizzare al prodotto di n numeri complessi. Se
+z = z1z2...zn ,
+(1.91)
+allora si ha:
+|z|
+=
+|z1||z2|...|zn| ,
+(1.92)
+13
+
+
+===== PAGINA 15 =====
+arg(z)
+=
+X
+i
+arg(zi) .
+(1.93)
+L’argomento principale del prodotto si può trovare prendendo P
+i arg(zi) modulo 2π.
+Così si capisce bene la rappresentazione d prodotto di due (o più) numeri complessi nel
+piano di Argand-Gauss:
+ℑ(z)
+ℜ(z)
+z = z1z2
+z1
+z2
+|z| = |z1||z2|
+θ2
+θ1
+θ = θ1 + θ2
+Prodotto
+Inverso
+Dato z = x + iy, si ha:
+1
+z =
+x
+x2 + y2 −i
+y
+x2 + y2 ,
+(1.94)
+da cui
+
+1
+z
+
+=
+1
+|z| ,
+(1.95)
+arg
+1
+z
+
+=
+arctan
+
+−y
+x
+
+= −arctan
+y
+x
+
+= −arg(z) .
+(1.96)
+Da cui il rapporto di due numeri complessi si può trovare facilmente come
+z
+=
+z1
+z2
+,
+(1.97)
+|z|
+=
+|z1|
+|z2| ,
+(1.98)
+arg(z)
+=
+arg(z1) −arg(z2) .
+(1.99)
+Formula di Eulero
+Nel 1740 Eulero dà la sua formula esponenziale per rappresentare i numeri complessi. Si ha
+z = r(cos θ + i sin θ) = reiθ .
+(1.100)
+Per avere una dimostrazione di tale formula rimandiamo al capitolo sulle funzioni analitiche.
+Per il momento possiamo dare una giustiﬁcazione della (1.100) come segue.
+Per l’esponenziale reale, ex, si ha
+d
+dxeax = a eax .
+(1.101)
+14
+
+
+===== PAGINA 16 =====
+Supponiamo che questa regola di derivazione sia valida anche nel caso complesso e che in
+particolare valga anche per a = i, con i2 = −1. Allora
+d
+dθeiθ = ieiθ ,
+d2
+dθ2eiθ = −eiθ , ....
+(1.102)
+Sviluppiamo l’esponenziale in serie di Taylor. Avremo
+reiθ
+=
+r
+
+1 + iθ −θ2
+2! −iθ3
+3! + ...
+
+,
+(1.103)
+=
+r
+
+1 −θ2
+2! + −θ4
+4! + ...
+
++ i
+
+θ −θ3
+3! + ...
+
+.
+(1.104)
+La prima serie è quella che individua il sin θ, mentre la seconda il cos θ, provando così la (1.100).
+1.2.4
+Potenza n−esima
+Utilizzando la formula di Eulero, si avrà
+zn =
+ reiθn = rn(cos (nθ) + i sin (nθ)) ,
+(1.105)
+che per r = 1 dà la cosiddetta formula di de Moivre
+(cos (θ) + i sin (θ))n = cos (nθ) + i sin (nθ)) .
+(1.106)
+1.2.5
+Radice n−esima
+Per ∀z ∈C si dice radice n−esima di z il numero complesso w ∈C, tale che
+wn = z .
+(1.107)
+Se w = ρeiφ si deve quindi avere
+ρn = |z| ,
+(1.108)
+nφ = Arg(z) + 2kπ .
+(1.109)
+Quindi
+w =
+np
+|z|ei(
+Arg(z)+2kπ
+n
+) ,
+k = 0, 1, ..., n −1
+(1.110)
+Come si vede, la
+n√z ha n soluzioni distinte, con lo stesso modulo,
+np
+|z|, e argomenti distinti
+ﬁn quando k = n. Da questo valore in poi si riottengono gli stessi argomenti.
+Esempio: radice quadrata
+Dato z = ρeiθ si trova
+√z = √ρei θ+2kπ
+2
+= √ρei θ
+2eikπ .
+(1.111)
+eikπ vale 1 per k = 0 e -1 per k = 1. Da k = 2 in poi si riottengono gli stessi valori, +1 e -1.
+Quindi le due radici distinte sono
+(√z)1
+=
+√ρei θ
+2 ,
+(1.112)
+15
+
+
+===== PAGINA 17 =====
+(√z)2
+=
+√ρei θ
+2 +iπ = −√ρei θ
+2 ,
+(1.113)
+che si possono rappresentare sul piano complesso come segue:
+ℑ(z)
+ℜ(z)
+z
+(√z)1
+(√z)2
+θ
+θ/2
+Esempio: radice cubica
+Dato z = ρeiθ si trova
+3√z =
+3√ρei θ+2kπ
+3
+=
+3√ρei θ
+3ei 2
+3kπ .
+(1.114)
+In questo caso la radice ha 3 valori distinti, per k = 0, 1, 2. Da k = 3 si riottengono gli stessi
+valori. Queste tre radici hanno lo stesso modulo,
+3√ρ, e argomenti intervallati di 2/3kπ. Si avrà
+(
+3√z)1
+=
+3√ρei θ
+3 ,
+(1.115)
+(
+3√z)2
+=
+3√ρei( θ
+3 + 2
+3 π) ,
+(1.116)
+( 3√z)3
+=
+3√ρei( θ
+3 + 4
+3 π) ,
+(1.117)
+Le tre radici si dispongono, quindi, su una circonferenza di raggio
+3√ρ e formano i tre vertici di
+un triangolo equilatero
+ℑ(z)
+ℜ(z)
+z
+( 3√z)1
+( 3√z)2
+( 3√z)3
+θ
+θ/3
+Le radici n−esime, si disporranno quindi su una circonferenza di raggio
+np
+|z| e occuperanno
+i vertici di un poligono regolare di n lati inscritto nella circonferenza.
+16
+
+
+===== PAGINA 18 =====
+1.2.6
+Radici dell’unità
+Di notevole importanza sono le radici n−esime dell’unità,
+n√
+1. Si ha
+z = 1 = ei2kπ ,
+(1.118)
+da cui
+zk =
+n√
+1 = ei 2kπ
+n ,
+k = 0, 1, ..., n −1 .
+(1.119)
+Quindi per esempio le radici seste dell’unità sono
+zk = ei kπ
+3 ,
+k = 0, 1, ..., 5 ,
+(1.120)
+ovvero
+zk =
+(
+1 , 1 + i
+√
+3
+2
+, −1 −i
+√
+3
+2
+, −1 , −1 + i
+√
+3
+2
+, 1 −i
+√
+3
+2
+)
+,
+(1.121)
+vertici di un esagono regolare inscritto in una circonferenza di raggio unitario.
+1.3
+Disuguaglianze
+Per le dimostrazioni che seguiranno, abbiamo bisogno della disuguaglianza triangolare.
+Supponiamo che
+|z|2 = ℜ(z)2 + ℑ(z)2 ,
+con |z| , ℜ(z) , ℑ(z) ∈R .
+(1.122)
+Siccome R è un insieme ordinato, si può scrivere che
+|ℜ(z)| ≤|z| ,
+(1.123)
+|ℑ(z)| ≤|z| .
+(1.124)
+Allora
+|z1 + z2|2
+=
+(z1 + z2)(z1 + z2) = (z1 + z2)(z1 + z2) ,
+(1.125)
+=
+|zz|2 + 2ℜ(z1z2) + |z2|2 ,
+(1.126)
+≤
+|z1|2 + 2|z1z2| + |z2|2 ,
+(1.127)
+=
+|z1|2 + 2|z1||z2| + |z2|2 ,
+(1.128)
+=
+(|z1| + |z2|)2 ,
+(1.129)
+da cui segue che
+|z1 + z2| ≤|z1| + |z2| ,
+(1.130)
+la disuguaglianza triangolare (nel triangolo, un lato è minore o uguale alla somma degli altri
+due).
+La disuguaglianza triangolare si può estendere alla somma di n numeri complessi
+|z1 + z2 + ... + zn| ≤|z1| + |z2| + ... + |zn| .
+(1.131)
+Dalla disuguaglianza triangolare seguono altre disuguaglianze. Si ha
+|z1| = |z1 −z2 + z2| ≤|z1 −z2| + |z2| ,
+(1.132)
+17
+
+
+===== PAGINA 19 =====
+da cui
+|z1| −|z2| ≤|z1 −z2| .
+(1.133)
+Analogamente si ha anche
+|z2| = |z2 −z1 + z1| ≤|z2 −z1| + |z1| = |z1 −z2| + |z2| ,
+(1.134)
+da cui
+|z2| −|z1| ≤|z1 −z2| .
+(1.135)
+Dalle (1.133) e (1.135) si evince che
+|z1 −z2| ≥||z1| −|z2|| .
+(1.136)
+1.4
+Alcuni Esercizi
+1.4.1
+Esercizio
+Porre in forma “canonica” (x + iy) i seguenti numeri complessi:
+1
+−1 + 3i ,
+2 + i
+2 −i ,
+i
+2 −3i .
+(1.137)
+Basta moltiplicare e dividere per il complesso coniugato del denominatore:
+1
+−1 + 3i
+=
+1
+−1 + 3i
+1 + 3i
+1 + 3i = −1 + 3i
+10
+.
+(1.138)
+2 + i
+2 −i
+=
+2 + i
+2 −i
+2 + i
+2 + i = (2 + i)2
+5
+= 3 + 4i
+5
+.
+(1.139)
+i
+2 −3i
+=
+i
+2 −3i
+2 + 3i
+2 + 3i = −3 −2i
+13
+.
+(1.140)
+1.4.2
+Esercizio
+Calcolare le seguenti radici di numeri complessi:
+√
+i ,
+√
+−i ,
+√
+1 + i ,
+4√
+−1 ,
+4√
+i ,
+4√
+−i .
+(1.141)
+Per calcolare le radici complesse conviene metere il numero in forma polare.
+1.
+√
+i.
+√
+i =
+p
+ei π
+2 +2kπi = ei π
+4 +kπi ,
+(1.142)
+quindi si hanno due soluzioni distinte, per esempio con k = 0, 1, ovvero
+z1 = ei π
+4 ,
+z2 = ei 5π
+4 .
+(1.143)
+Se vogliamo rimanere con argomento compreso fra −π e π, possiamo riscrivere la seconda
+radice come
+z2 = e−i 3π
+4 .
+(1.144)
+18
+
+
+===== PAGINA 20 =====
+2. √−i.
+√
+−i =
+p
+e−i π
+2 +2kπi = e−i π
+4 +kπi ,
+(1.145)
+quindi si hanno due soluzioni distinte, per esempio con k = 0, 1, ovvero
+z1 = e−i π
+4 ,
+z2 = ei 3π
+4 .
+(1.146)
+3. √1 + i. Si ha che
+1 + i =
+√
+2ei arctan (y/x) =
+√
+2ei π
+4 .
+(1.147)
+Quindi
+√
+1 + i =
+4√
+2ei π
+8 +kπi ,
+(1.148)
+quindi si hanno due soluzioni distinte, per esempio con k = 0, 1, ovvero
+z1 =
+4√
+2e−i π
+8 ,
+z2 =
+4√
+2ei 9π
+8 .
+(1.149)
+Se vogliamo rimanere con argomento compreso fra −π e π, possiamo riscrivere la seconda
+radice come
+z2 =
+4√
+2e−i 7π
+8 .
+(1.150)
+4. ........
+1.4.3
+Esercizio
+Mettere in forma polare i seguenti numeri complessi:
+1 + i ,
+1 + i
+√
+3
+2
+,
+1 −i
+√
+3
+2
+,
+−1 + i
+√
+3
+2
+.
+(1.151)
+Per fare ciò ci rifacciamo alla deﬁnizione
+z = x + iy = |z|eiφ ,
+φ = arctan
+y
+x
+
+.
+(1.152)
+Quindi
+1. 1 + i.
+|z| =
+√
+2 ,
+φ = arctan (1) = π
+4
+=⇒
+1 + i =
+√
+2ei π
+4 .
+(1.153)
+2.
+1−i
+√
+3
+2
+.
+|z| =
+r
+1
+4 + 3
+4 = 1 ,
+φ = −arctan
+√
+3 = −π
+3
+=⇒
+1 −i
+√
+3
+2
+= e−i π
+3 .
+(1.154)
+3. .....
+19
+
+
+===== PAGINA 21 =====
+1.4.4
+Esercizio
+Esprimere cos (3φ) in termini di sin (φ) e cos (φ).
+Ovviamente si possono utilizzare le formule trigonometriche trovando:
+cos (3φ)
+=
+cos (φ + 2φ) = cos (φ) cos (2φ) −sin (φ) sin (2φ) ,
+(1.155)
+=
+cos (φ)
+ cos2 (φ) −sin2 (φ)
+
+−sin (φ) (2 sin (φ) cos (φ)) ,
+(1.156)
+=
+cos3 (φ) −3 sin2 (φ) cos (φ) .
+(1.157)
+Alternativamente possiamo utilizzare la formula di De Moivre e ottenere in un colpo solo
+anche il sin (3φ):
+cos (3φ) + i sin (3φ)
+=
+(cos (φ) + i sin (φ))3 ,
+=
+cos3 (φ) + 3i cos2 (φ) sin (φ) −3 sin2 (φ) cos (φ) −i sin3 (φ) , (1.158)
+da cui
+cos (3φ)
+=
+cos3 (φ) −3 sin2 (φ) cos (φ) ,
+(1.159)
+sin (3φ)
+=
+−sin3 (φ) + 3 cos2 (φ) sin (φ) .
+(1.160)
+1.4.5
+Esercizio
+Mostrare che ∀z tale che |z| = 1 può esser messo nella forma
+z = 1 + it
+1 −it ,
+t ∈R .
+(1.161)
+Se |z| = 1 si ha che z = eiφ e, se z, z̸ = 1
+z
+=
+z + 1
+z + 1
+(baste moltiplicare a dx e sx per
+z + 1) ,
+(1.162)
+=
+1 + eiφ
+1 + e−iφ = 1 + cos φ + i sin φ
+1 + cos φ −i sin φ ,
+(1.163)
+=
+1 + i
+sin φ
+1+cos φ
+1 −i
+sin φ
+1+cos φ
+.
+(1.164)
+Ponendo
+t =
+sin φ
+1 + cos φ ,
+con t ∈R ,
+(1.165)
+si ha l’assunto.
+In generale, quindi, un numero sul cerchio unitario può anche essere scritto come rapporto
+di un numero complesso e del suo complesso coniugato
+z = a
+a = x + iy
+x −iy = |a|eiθ
+|a|e−iθ = eiθ
+e−iθ = e2iθ ,
+(1.166)
+dove a = x + iy e θ = arctan (y/x).
+20
+
+
+===== PAGINA 22 =====
+1.4.6
+Esercizio
+Calcolare il seguente numero complesso:
+19
+X
+k=1
+(1 + i)k .
+(1.167)
+Utilizziamo la somma della progressione geometrica
+1 + z + z2 + ... + zn = 1 −zn+1
+1 −z
+,
+(1.168)
+che può essere provata semplicemente moltiplicando ambo i membri della (1.168) per 1 −z.
+Quindi si ha
+19
+X
+k=1
+(1+i)k = −1+1 −(1 + i)20
+1 −1 −i
+= −1+
+19
+X
+k=0
+(1+i)k = −1+i
+
+1 −
+√
+2ei π
+4
+20
+= ... = −1+i1025 .
+(1.169)
+1.4.7
+Esercizio
+Calcolare il |z| dove
+z = ie−1−5i(1 + i)3
+1 + 3i
+.
+(1.170)
+Utilizzando le proprietà dei numeri complessi si può arrivare rapidamente alla soluzione
+|z| =
+
+ie−1−5i(1 + i)3
+1 + 3i
+ = |ie−1−5i(1 + i)3|
+|1 + 3i|
+= |i||e−1||e−5i||(1 + i)|3
+|1 + 3i|
+= e−12
+√
+2
+√
+10
+=
+2
+√
+5e
+. (1.171)
+21
+
+
+===== PAGINA 23 =====
+Capitolo 2
+Appunti sulle FUNZIONI DI UNA
+VARIABILE COMPLESSA
+In questo capitolo deﬁniamo e studiamo le funzioni di una variabile complessa.
+2.1
+Introduzione
+Per introdurre la teoria delle funzioni di una variabile complessa, dobbiamo deﬁnire “traspor-
+tando” ai complessi una serie di concetti che abbiamo deﬁnito a suo tempo per lo studio delle
+funzioni di variabile reale. In particolare dobbiamo speciﬁcare il dominio e il codominio di tali
+funzioni e poi riportare ai complessi il concetto di limite, continuità e derivabilità.
+2.2
+Dominio ...
+Se vogliamo deﬁnire il dominio di una funzione di variabile complessa, ma anche il concetto
+di limite, dobbiamo introdurre il concetto di spazio metrico (in realtà per alcune cose basta
+utilizzare uno spazio topologico ...).
+Deﬁnizione 2.2.1 Si dice spazio metrico la coppia (S, d) dove S è un insieme e d un’ap-
+plicazione d : S × S →R, da S cartesiano S nei reali, detta distanza, tale che se xi ∈S si
+abbia:
+1. d(xi, xj) ≥0 e = 0 se e solo se xi = xj;
+2. d(xi, xj) = d(xj, xi) ;
+3. d(x1, x3) ≤d(x1, x2) + d(x2, x3) (disuguaglianza triangolare)
+Proprietà 2.2.2 (C, d), dove C è l’insieme dei numeri complessi e d la distanza Euclidea
+d(z, z′) = |z −z′| =
+p
+(Re(z) −Re(z′))2 + (Im(z) −Im(z′))2 ,
+(2.1)
+con z, z′ ∈C, è uno spazio metrico.
+Vogliamo adesso arrivare alla deﬁnizione si sottoinsiemi aperti e chiusi di C. Per far questo,
+deﬁniamo un disco aperto e un disco chiuso (utilizzando la metrica) e poi usiamo il disco aperto
+per deﬁnire un sottoinsieme di C che sia aperto.
+22
+
+
+===== PAGINA 24 =====
+Deﬁnizione 2.2.3 Sia z0 ∈C e r ∈R con r > 0.
+Si dice disco aperto centrato in z0
+l’insieme degli z ∈C tali che
+|z −z0| < r
+(2.2)
+e si indica con D(z0, r). Si dice invece disco chiuso centrato in z0 l’insieme degli z ∈C tali
+che
+|z −z0| ≤r
+(2.3)
+e si indica con D(z0, r).
+Allora
+Deﬁnizione 2.2.4 se U ⊂C si dice che U è aperto se per ∀z ∈U ∃ǫ > 0 tale che il disco
+aperto centrato in z di raggio ǫ è contenuto in U, D(z, ǫ) ⊂U.
+Allora si può dimostrare che
+Teorema 2.2.5 L’unione di più aperti è un aperto. L’intersezione di più aperti è un aperto.
+Deﬁnizione 2.2.6 U ⊂C si dice chiuso se il suo complemento, Uc = C −U, è aperto in C.
+Deﬁnizione 2.2.7 Si dice che z0 è un punto di frontiera di U ⊂C, se ∀D(z0, r) con r > 0
+contiene sia punti di U che punti non appartenenti ad U. L’insieme dei punti di frontiera di U
+si intica con ∂U.
+Deﬁnizione 2.2.8 Si dice che z0 è un punto interno di U se ∃D(z0, ǫ, con ǫ > 0, tale che
+D(z0, ǫ) ⊂U.
+Deﬁnizione 2.2.9 Si dice chiusura di U, e si indica con U, l’unione di U e della sua chiusura
+U = U ∪∂U .
+(2.4)
+Allora U è chiuso se contiene tutti i ruoi punti di frontiera.
+Si può dimostrare che
+Teorema 2.2.10 L’unione di più chiusi è un chiuso. L’intersezione di più chiusi è un chiuso.
+Deﬁnizione 2.2.11 Si dice che S ⊂C è limitato se ∃un c > 0 reale, tale che |z| < c per
+∀z ∈S (ovvero se tutto S è incluso in un disco di raggio c).
+Deﬁnizione 2.2.12 Siano z, w ∈C. Se t ∈R, con 0 ≤t ≤1 si indichi il segmento di retta
+che congiunge z a w come
+{z + t(w −z), 0 ≤t ≤1} = [z, w] .
+(2.5)
+Allora si dice poligonale da z a w l’insieme P = ∪n
+k=1[zk, zk+1] con zn ∈C, k = 1, · · · , n, ∈N
+e z1 = z, zn = w.
+Allora
+Deﬁnizione 2.2.13 Un insieme aperto si dice connesso se per ∀z, w ∈S, ∃P (poligonale)
+che connette z a w e che è interamente contenuta in S.
+23
+
+
+===== PAGINA 25 =====
+Esempio 1. Un disco U = D(0, r) con r > 0, per esempio U = {z ∈C t.c. |z| < 1}, è aperto e
+connesso.
+Esempio 2. Una corona circolare, U = {z ∈C t.c. 1 < |z| < 2} è un aperto connesso.
+Esempio 3. L’unine di più aperti non è detto che sia connesso. Per esempio A = ∪An con
+An = {z ∈C t.c. |z −n| < 1/3}, con n ∈Z, è aperto ma non connesso.
+Normalmente, quando parleremo di “dominio” della funzione f(z) ci riferiremo ad un aperto
+connesso.
+2.3
+Funzioni di una variabile complessa
+Sia U ⊂C un aperto e connesso e sia f una funzione da U in C
+f : U −→C ,
+(2.6)
+tale che per ∀z ∈U si abbia f(z) = w ∈D ⊂C. La f(z) è una funzione di una variabile
+complessa. U sarà il dominio di f, mentre D = f(U) sarà l’immagine di U rispetto ad f.
+Siccome w ∈D ⊂C, possiamo esplicitare la parte reale e la parte immaginaria di f(z) come
+segue:
+f(z) = u(x, y) + iv(x, y) ,
+(2.7)
+tale che
+u(x, y)
+=
+ℜf(z) ,
+(2.8)
+v(x, y)
+=
+ℑf(z) .
+(2.9)
+Parte reale e parte immaginaria di f(z) sono funzioni da U ∈C in R.
+Esempio 1. f(z) = z ha le seguenti parti reale e immaginaria
+u(x, y)
+=
+x ,
+(2.10)
+v(x, y)
+=
+−y
+(2.11)
+e si tratta della funzione che prende z e ne fa lo speculare rispetto all’asse dei reali, ℜz.
+Esempio 2. Se deﬁniamo
+u(x, y)
+=
+−y ,
+(2.12)
+v(x, y)
+=
+x ,
+(2.13)
+si vede che
+f(z) = −y + ix = i(x + iy) = ei π
+2 (x + iy) ,
+(2.14)
+che corrisponde alla rotazione in senso antiorario di π/2 del punto z.
+Esempio 3. Se deﬁniamo
+u(x, y)
+=
+x2 + y2 ,
+(2.15)
+v(x, y)
+=
+2xy ,
+(2.16)
+si ha
+f(z) = x2 + y2 + i2xy ,
+(2.17)
+24
+
+
+===== PAGINA 26 =====
+che, utilizzando le relazioni x2 + y2 = |Z|2 = zz, 2x = z + z e 2iy = z −z, puo’ essere riscritta
+in funzione di z e z come segue:
+f(z) = zz + 2i(z + z
+2
+(z −z
+2i
+= zz + (z2 −z2
+2
+.
+(2.18)
+Esempio 4. Se consideriamo
+u(x, y)
+=
+x2 −y2 ,
+(2.19)
+v(x, y)
+=
+2xy ,
+(2.20)
+si ha
+f(z) = x2 −y2 + i2xy = z2 .
+(2.21)
+In generale f : U −→C può essere funzione di z e z. Vedramo fra poco che le funzioni
+della sola variabile z rivestono un ruolo particolarmente iimportante nell’analisi complessa.
+2.4
+Limiti e continuità
+Cominciamo con la deﬁnizionee di limite.
+Deﬁnizione 2.4.1 Limite. Sia f : U −→W una funzione di variabile complessa e sia z0 ∈U
+e w ∈C. Allora si dice che w è il limite di f(z) per z che tende a z0 e si scrive
+lim
+z→z0 f(z) = w ,
+(2.22)
+se dato un ǫ ∈R con ǫ > 0, ∃δ(ǫ) > 0 tale che se z ∈U e |z −z0| < δ allora |f(z) −w| < ǫ.
+Ovviamente non è detto che z0 ∈U e w ∈W. Basta che z0 sia un punto di accumulazione
+per U e w per W.
+Teorema 2.4.2 Sia f : U →C e z0, w ∈C. Allora
+lim
+z→z0 f(z) = w ,
+(2.23)
+se e solo se
+lim
+z→z0 ℜf(z)
+=
+ℜw ,
+(2.24)
+lim
+z→z0 ℑf(z)
+=
+ℑw .
+(2.25)
+Dimostrazione. Supponiamo che limz→z0 f(z) = w. Allora, dato ǫ > 0, ∃δ tale che |f(z)−w| < ǫ
+se |z −z0| < δ. Ma
+|ℜf(z) −ℜw| = |ℜ(f(z) −w)| ≤|f(z) −w| < ǫ .
+(2.26)
+Quindi
+lim
+z→z0 f(z) = w
+=⇒
+lim
+z→z0 ℜf(z) = ℜw .
+(2.27)
+25
+
+
+===== PAGINA 27 =====
+Lo stesso vale per ℑf(z).
+Viceversa, supponiamo che
+lim
+z→z0 ℜf(z)
+=
+ℜw ,
+(2.28)
+lim
+z→z0 ℑf(z)
+=
+ℑw ,
+(2.29)
+allora |ℜf(z) −ℜw| < ǫ1 e |ℑf(z) −ℑw| < ǫ2, ma
+|f(z) −w| = |ℜ(f(z) −w) + iℑ(f(z) −w)| ≤|ℜ(f(z) −w)| + |ℑ(f(z) −w)| < ǫ ,
+(2.30)
+dove si è preso ǫ = ǫ1 + ǫ2. Quindi limz→z0 f(z) = w.
+Teorema 2.4.3 Siano f e g due funzioni di variabile complessa, f, g : U →C. Sia z0 ∈U e
+wf, wg ∈C. Se limz→z0 f(z) = wf e limz→z0 g(z) = wg, allora
+lim
+z→z0(f(z) ± g(z)) = wf ± wg ,
+(2.31)
+lim
+z→z0 f(z)g(z) = wfwg ,
+(2.32)
+lim
+z→z0
+f(z)
+g(z) = wf
+wg
+,
+se
+wf̸ = 0 .
+(2.33)
+Dimostrazione. Si utilizza sempre la disuguaglianza triangolare. Per esempio, sia limz→z0 f(z) =
+wf e limz→z0 g(z) = wg. Allora
+|(f(z)+g(z))−(wf +wg)| = |(f(z)−wf)+(g(z)−wg)| ≤|(f(z)−wf)|+|(g(z)−wg)| < ǫ1+ǫ2 = ǫ .
+(2.34)
+La stessa cosa vale per la diﬀerenza.
+Per il prodotto si può avere
+|f(z)g(z) −wfwg|
+=
+|(f −wf)(g −wg) + fwg + gwf −2wfwg| ,
+≤
+|(f −wf)(g −wg)| + |fwg + gwf −2wfwg| ,
+≤
+|(f −wf)(g −wg)| < ǫ1ǫ2 < ǫ .
+(2.35)
+La stessa cosa vale per il rapporto.
+Deﬁnizione 2.4.4 Continuità. Sia f : U −→C. Si dice che f(z) è continua in z0 ∈U se
+limz→z0 f(z) = f(z0). f è continua in U se è continua per ∀z ∈U.
+Allora valgono i seguenti risultati.
+Teorema 2.4.5 Sia f : S1 →S2, continua in S1 e g : S2 →S3 continua in S2. Allora
+g ◦f = g(f(z) : S1 →S3 è continua.
+Dimostrazione. Basta tener conto della deﬁnizione di continuità e mettere insieme i limiti della
+funzione composta.
+Teorema 2.4.6 Siano f : U →C e g : U →C continue in U. Allora f +g e fg sono continue
+in U. Inoltre, f/g è continua per ∀z ∈U per cui g(z)̸ = 0.
+Dimostrazione. Per la dimostrazione basta sfruttare la deﬁnizione di limite.
+Teorema 2.4.7 Sia f : U →C e z0 ∈U. La f è continua in z0 se e solo se ℜf e ℑf sono
+continue in z0.
+Dimostrazione. Sfruttare lo stesso ragionamento dei limiti usando la deﬁnizione di continuità.
+26
+
+
+===== PAGINA 28 =====
+2.5
+Funzioni analitiche
+Abbiamo visto come una funzione di variabile complessa dipenda in generale da x e y tramite
+le sue parti reale e immaginaria. Di conseguenza, f potrà essere espressa in funzione di z e z
+(vedi esempi nella sezione precedente). C’è però una classe di funzioni di variabile complessa
+molto importanti per le quali la dipendenza si riduce alla sola z = x + iy. Queste funzioni sono
+le funzioni analitiche, per le quali si estende a C il concetto di derivabilità.
+Deﬁnizione 2.5.1 Sia f : U →C. Si dice che f è derivabile in z0 ∈U se ∃il limite
+lim
+h→0
+f(z0 + h) −f(z0)
+h
+= f ′(z0) ,
+(2.36)
+con h ∈C.
+NB. Questo limite del rapporto incrementale è genuinamente in C! Cioè stiamo richiedendo
+che ci si possa avvicinare a 0 da qualunque direzione in C. Ciò ha delle conseguenze molto
+importanti e come vedremo subito pone dei vincoli stringenti sulla parte reale e sulla parte
+immaginaria di f(z).
+Teorema 2.5.2 Se f : U →C è derivabile in z0 ∈U, allora è anche continua in z0.
+(Il viceversa ovviamente non è vero).
+Dimostrazione. Se f(z) è derivabile in z0 si ha
+lim
+h→0
+f(z0 + h) −f(z0)
+h
+= f ′(z0) ,
+(2.37)
+ma allora, siccome il limite del prodotto è il prodotto dei limiti si ha anche
+0 = lim
+h→0
+f(z0 + h) −f(z0)
+h
+
+lim
+h→0 h = lim
+h→0
+f(z0 + h) −f(z0)
+h
+h
+
+= lim
+h→0(f(z0 + h) −f(z0)) .
+(2.38)
+Quindi f(z) è continua in z0.
+Teorema 2.5.3 Se f, g : U →C sono derivabili in z0 ∈U, allora:
+1. (f + g)(z) è derivabile in z0 e si ha (f + g)′(z0) = f ′(z0) + g′(z0);
+2. (fg)(z) è derivabile in z0 e si ha (fg)′(z0) = (f ′g)(z0) + (fg′)(z0);
+3. (f/g)(z) è dserivabile se g(z0)̸ = 0 e si ha (f/g)′(z0) = (f ′g −fg′)(z0)/g2(z0).
+Dimostrazione.
+1. Sfruttando le proprietà dei limiti si ha:
+(f + g)′(z0)
+=
+lim
+z→z0
+(f + g)(z) −(f + g)(z0)
+z −z0
+= lim
+z→z0
+(f(z) −f(z0)) + (g(z) −g(z0))
+z −z0
+,
+=
+lim
+z→z0
+(f(z) −f(z0))
+z −z0
++ (g(z) −g(z0))
+z −z0
+
+= f ′(z0) + g′(z0) .
+(2.39)
+27
+
+
+===== PAGINA 29 =====
+2. Si ha
+(fg)′(z0)
+=
+lim
+h→0
+f(z0 + h)g(z0 + h) −f(z0)g(z0)
+h
+,
+=
+lim
+h→0
+f(z0 + h)g(z0 + h) −f(z0)g(z0 + h) + f(z0)g(z0 + h) −f(z0)g(z0)
+h
+,
+=
+lim
+h→0
+f(z0 + h) −f(z0)
+h
+g(z0 + h) + f(z0)g(z0 + h) −g(z0)
+h
+
+,
+=
+f ′(z0)g(z0) + f(z0)g′(z0) .
+(2.40)
+3. Partiamo con la derivata dell’inverso della funzione. Sfruttando le proprietà dei limiti si
+ha
+1
+g
+′
+(z0)
+=
+lim
+h→0
+1
+g(z0+h) −
+1
+g(z0)
+h
+,
+=
+lim
+h→0
+
+−g(z0 + h) −g(z0)
+h
+1
+g(z0 + h)g(z0)
+
+= −g′(z0)
+g2(z0) .
+(2.41)
+Allora
+(f/g)′(z0) =
+
+f 1
+g
+′
+(z0) = f ′(z0)
+
+1
+g(z0)
+
++ f(z0)
+1
+g
+′
+(z0) = (f ′g −fg′)(z0)
+g2(z0)
+. (2.42)
+Teorema 2.5.4 Se f : U →V e g : V →C e inoltre f(z) è derivabile in z0 ∈U e g(z) è
+derivabile in f(z0), allora g(f(z)) = (g◦f) è derivabile in z0 e si ha (g◦f)′(z0) = g′(f(z0))f ′(z0).
+Dimostrazione. Possiamo riscrivere il limite del rapporto incrementale come segue:
+lim
+h→0
+g(f(z0 + h)) −g(f(z0))
+h
+= lim
+h→0
+g(f(z0 + h)) −g(f(z0))
+f(z0 + h) −f(z0)
+f(z0 + h) −f(z0)
+h
+.
+(2.43)
+Sappiamo che
+lim
+h→0
+f(z0 + h) −f(z0)
+h
+= f ′(z0) ,
+(2.44)
+ovvero f(z0 + h) −f(z0) è un inﬁnitesimo del primo ordine in h che possiamo scrivere come
+f(z0 + h) −f(z0) ≃f ′(z0)h = k ,
+(2.45)
+o anche, ponendo f(z0) = y0, come
+f(z0 + h) ≃y0 + k .
+(2.46)
+Quando h →0 anche k →0 e f(z + h) →f(z) essendo f derivabile e quindi continua in z.
+Allora
+lim
+h→0
+g(f(z0 + h)) −g(f(z0))
+f(z0 + h) −f(z0)
+f(z0 + h) −f(z0)
+h
+,
+= lim
+h→0
+g(f(z0 + h)) −g(f(z0))
+f(z0 + h) −f(z0)
+lim
+h→0
+f(z0 + h) −f(z0)
+h
+,
+= lim
+k→0
+g(y0 + k) −g(y0)
+k
+lim
+h→0
+f(z0 + h) −f(z0)
+h
+= g′(f(z0))f ′(z0) . (2.47)
+28
+
+
+===== PAGINA 30 =====
+Teorema 2.5.5 Sia f : D →V con D e V aperti e connessi di C. Sia w = f(z) e f biunivoca
+con funzione inversa f −1(w) = z continua in V = f(U). Allora se f è derivabile in z ∈D e
+f ′(z)̸ = 0, f −1 è derivabile in w = f(z) e ;a sua derivata è
+d
+dwf −1(w)
+
+w=f(z)
+=
+1
+f ′(z) .
+(2.48)
+Dimostrazione. f è biunivoca. Quindi w = f(z) e w′ = f(z′) sono due numeri complessi diversi
+se z̸ = z′. Allora
+f −1(w′) −f −1(w)
+w′ −w
+=
+z′ −z
+f(z′) −f(z) =
+1
+f(z′)−f(z)
+z′−z
+.
+(2.49)
+Poiché f −1 è continua in V = f(D), si ha che
+lim
+w′→w=f(z) f −1(w′) = f −1(w) = f −1(f(z)) ,
+(2.50)
+cioè quando w′ →w = f(z) in V , si ha che z′ →z in D. Allora
+d
+dwf −1(w)
+
+w=f(z)
+= lim
+w′→w
+f −1(w′) −f −1(w)
+w′ −w
+= lim
+z′→z
+1
+f(z′)−f(z)
+z′−z
+=
+1
+f ′(z) .
+(2.51)
+Deﬁnizione 2.5.6 Una funzione f(z) sul dominio U è detta analitica (o olomorfa) in U
+se è derivabile (nel senso della derivata complessa deﬁnita in questa sezione) in ∀z ∈U. Si
+dice che la funzione f(z) è analitica nel punto z0, se è derivabile in un intorno di z0. (NB.
+L’analiticità ha bisogno di derivabilità in un intorno ...).
+2.5.1
+Funzioni analitiche e condizioni di Cauchy-Riemann
+Riprendiamo adesso la deﬁnizione di derivabilità in C. Abbiamo deﬁnito la derivata con il
+seguente limite del rapporto incrementale
+f ′(z0) = lim
+h→0
+f(z0 + h) −f(z0)
+h
+.
+(2.52)
+Questa deﬁnizione è abbastanza restrittiva. Infatti, stiamo dicendo che la derivabilità nel punto
+z0 viene fatta con un h che può tendere a 0 in qualsiasi modo, da qualsiasi direzione nel piano
+C!! Potremo quindi scegliere per esempio due “percorsi” lungo i quali h →0 e le derivate trovate
+in entrambi i casi dovranno essere uguali.
+Per capire quali conseguenze abbia questa deﬁnizione sulla struttura di f(z) consideriamo
+due casi particolari. Nel primo caso h tende a 0 sulla reta dei reali, h = (x −x0) + iy0 per
+x →x0. Nel secondo caso invece h tende a zero dall’asse immaginario, h = x0 + i(y −y0) per
+y →y0.
+Nel primo caso si ha:
+f(z) −f(z0)
+z −z0
+= [u(x, y0) −u(x0, y0)] + i[v(x, y0) −v(x0, y0)]
+x −x0
+.
+(2.53)
+Facendo il limite per z →z0 si ottiene
+f ′(z0) = ∂u
+∂x(z0) + i∂v
+∂x(z0) .
+(2.54)
+29
+
+
+===== PAGINA 31 =====
+Nel secondo caso si ha:
+f(z) −f(z0)
+z −z0
+=
+[u(x0, y) −u(x0, y0)] + i[v(x0, y) −v(x0, y0)]
+i(y −y0)
+,
+=
+[v(x0, y) −v(x0, y0)]
+(y −y0)
+−i[u(x0, y) −u(x0, y0)]
+(y −y0)
+.
+(2.55)
+Facendo il limite per z →z0 si ottiene
+f ′(z0) = ∂v
+∂y(z0) −i∂u
+∂y (z0) .
+(2.56)
+Siccome le due espressioni devono essere uguali, si hanno le cosiddette equazioni di
+Cauchy-Riemann:
+∂u
+∂x(z0)
+=
+∂v
+∂y(z0) ,
+(2.57)
+∂v
+∂x(z0)
+=
+−∂u
+∂y (z0) .
+(2.58)
+Quindi, se f(z) è analitica (e quindi derivabile) in z0 la sua parte reale e la sua parte
+immaginaria devono soddisfare le equazioni di Cauchy-Riemann in z0.
+Si può dimostrare anche il viceversa, sotto l’aggiuntiva ipotesi che le derivate parziali di
+u(x, y) e v(x, y) siano continua in z0, ovvero che se u(x, y) e v(x, y) sono diﬀerenziabili in z0
+e valgono le condizioni di Cauchy-Riemann allora f(z) = u + iv è derivabile in z0. Infatti, se
+u(x, y) e v(x, y) sono diﬀerenziabili in z0 possiamo scrivere
+u(x0 + h, y0 + k) −u(x0, y0)
+=
+∂u
+∂xh + ∂u
+∂y k + ǫ1 ,
+(2.59)
+v(x0 + h, y0 + k) −v(x0, y0)
+=
+∂v
+∂xh + ∂v
+∂yk + ǫ2 ,
+(2.60)
+con ξ = h + ik e
+lim
+ξ→0
+ǫ1
+ξ = lim
+ξ→0
+ǫ2
+ξ = 0 .
+(2.61)
+Allora
+f(z0 + ξ) −f(z0)
+ξ
+=
+
+∂u
+∂xh + ∂u
+∂yk + ǫ1
+
++ i
+
+∂v
+∂xh + ∂v
+∂yk + ǫ2
+
+h + ik
+,
+(2.62)
+=
+∂u
+∂x(h + ik) + i ∂v
+∂x(h + ik)
+h + ik
++
+ǫi
+h + ik ,
+(2.63)
+dove abbiamo utilizzato le equazioni di CR, raccogliendo a fattore ∂u
+∂x e ∂v
+∂x. Prendendo il limite
+ξ →0 della Eq. (2.63) otteniamo:
+f ′(z0) = ∂u
+∂x(z0) + i∂v
+∂x(z0) = ∂
+∂xf(z0) .
+(2.64)
+Per cui ∃f ′(z0) e f(z) è derivabile in z0.
+30
+
+
+===== PAGINA 32 =====
+Analogamente, raccogliendo in Eq. (2.63) ∂u
+∂y e ∂v
+∂y si ottiene anche la
+f ′(z0) = ∂v
+∂y(z0) −i∂u
+∂y (z0) = −i ∂
+∂y f(z0) .
+(2.65)
+Siccome la derivata deve essere la stessa, si deve avere
+∂f
+∂x = −i∂f
+∂y ,
+(2.66)
+ovvero
+ ∂
+∂x + i ∂
+∂y
+
+f(z0) = 0 .
+(2.67)
+Vediamo a cosa corrisponde la relazione (2.67). Avendo z = x + iy e z = x −iy si possono
+invertire queste relazioni trovando
+x = z + z
+2
+,
+y = z −z
+2i
+.
+(2.68)
+Di conseguenza, possiamo riesprimere le derivate in x e y in termini di derivate in z e z:
+∂
+∂x
+=
+∂
+∂z
+∂z
+∂x + ∂
+∂z
+∂z
+∂x = ∂
+∂z + ∂
+∂z ,
+(2.69)
+∂
+∂y
+=
+∂
+∂z
+∂z
+∂y + ∂
+∂z
+∂z
+∂y = i ∂
+∂z −i ∂
+∂z .
+(2.70)
+Quindi:
+0 =
+ ∂
+∂x + i ∂
+∂y
+
+f(z0) = 2 ∂
+∂zf(z0) .
+(2.71)
+La richiesta che f(z) sia analitica è equivalente ad aﬀermare che f non deve dipendere da z,
+ma soltanto da z, nel dominio di analiticità.
+Abbiamo quindi dimostrato il seguente teorema.
+Teorema 2.5.7 Condizione necessaria e suﬃciente aﬃnché f(z) sia analitica in D ⊂C è che
+u(x, y) e v(x, y) siano diﬀerenziabili in ∀z ∈D e che valgano le condizioni di Cauchy-Riemann
+in D.
+Deﬁnizione 2.5.8 Se una funzione f(z) è analitica in tutto C −{∞}, si dice intera.
+Teorema 2.5.9 Sia f : D →C analitica in D e sia f ′(z) = 0 per ∀z ∈D. Allora f è costante
+in D.
+Dimostrazione. Siccome f è analitica in D, in ogni suo punto esiste la derivata e si dovrà avere
+f ′(z) = ∂u
+∂x + i∂v
+∂x = 0
+=⇒∂u
+∂x , e ∂v
+∂x = 0 ,
+(2.72)
+e anche
+f ′(z) = ∂v
+∂y −i∂u
+∂y = 0
+=⇒∂u
+∂y , e ∂v
+∂y = 0 .
+(2.73)
+31
+
+
+===== PAGINA 33 =====
+Quindi per ∀z ∈D si ha
+∂u
+∂x = ∂v
+∂x = ∂u
+∂y = ∂v
+∂y = 0
+(2.74)
+Siccome D è connesso, possiamo trovare due punti, z1 = x1 + iy1 e z2 = x2 + iy2 in D, tali
+che siano collegati da una retta in C: {z1 + t(z2 −z1) , 0 ≤t ≤1} con t parametro reale.
+La diﬀerenza di f(z2) −f(z1) avrà le seguenti parte reale e parte immaginaria:
+u(x2, y2) −u(x1, y1)
+=
+Z 1
+0
+du
+dt dt ,
+(2.75)
+v(x2, y2) −v(x1, y1)
+=
+Z 1
+0
+dv
+dt dt ,
+(2.76)
+con u(t) = u(x(t), y(t)) e v(t) = v(x(t), y(t)). Si ha
+du
+dt
+=
+∂u
+∂x ˙x + ∂u
+∂y ˙y = 0 ,
+(2.77)
+dv
+dt
+=
+∂v
+∂x ˙x + ∂v
+∂y ˙y = 0 ,
+(2.78)
+dove abbiamo sfruttato le (2.74). Quindi
+u(x2, y2) = u(x1, y1)
+e
+v(x2, y2) = v(x1, y1) .
+(2.79)
+Siccome questo ragionamento lo possiamo estendere a coppia a coppia ad ogni z ∈D, f(z) è
+costante in D.
+Esempio. La potenza di un numero complesso
+f(z) = zn ,
+(2.80)
+con n ∈N, è una funzione analitica per ∀n ∈N e z ∈C. Infatti
+f ′(z) = lim
+h→0
+(z + h)n −zn
+h
+= (zn + nzn−1h + ...) −zn
+h
+= lim
+h→0
+
+n zn−1 + n(n −1)
+2
+zn−2h + ...
+
+= n zn−1 ,
+(2.81)
+quindi la derivata esiste ∀n ∈N e z ∈C.
+Esempio. Siccome la somma di funzioni analitiche è analitica, un polinomio di grado n
+Pn(z) =
+n
+X
+k=0
+ckzk ,
+(2.82)
+con ck ∈C, è una funzione analitica.
+Per il teorema fondamentale dell’algebra, possiamo
+scrivere il polinomio esplicitandone gli zeri
+Pn(z) = an(z −α1)k1...(z −αi)ki ,
+(2.83)
+dove si può considerare in generale il fatto che la i-esima radice abbia molteplicità ki (cioè le n
+radici possono non essere tutte diverse). Si avrà Pn(z)̸ = 0 trenne che per z ∈{α1, ...αi}.
+Esempio. Una funzione razionale è un rapporto di polinomi
+R(z) = P(z)
+Q(z) .
+(2.84)
+Allora R(z) è analitica tranne negli zeri di Q(z).
+32
+
+
+===== PAGINA 34 =====
+2.5.2
+Funzioni analitiche e funzioni armoniche
+Assumiamo per il momento (lo dimostreremo in seguito) che se f(z) è analitica in D, anche
+f ′(z) sia a sua volta derivabile con continuità per ∀z ∈D. Allora possiamo derivare due volte
+u(x, y) e v(x, y) rispetto a x, per esempio, ottenendo:
+∂2u
+∂x2 = ∂
+∂x
+∂u
+∂x
+
+= ∂
+∂x
+∂v
+∂y
+
+= ∂
+∂y
+∂v
+∂x
+
+= −∂2u
+∂y2 .
+(2.85)
+Quindi
+ ∂2
+∂x2 + ∂2
+∂y2
+
+u(x, y) = 0 .
+(2.86)
+Analogamente troviamo che
+∂2v
+∂y2 = ∂
+∂y
+∂u
+∂x = ∂
+∂x
+∂u
+∂y = −∂2v
+∂x2 ,
+(2.87)
+ovvero:
+ ∂2
+∂x2 + ∂2
+∂y2
+
+v(x, y) = 0 .
+(2.88)
+Quindi, se f(z) è analitica in D ⊂C, la sua parte reale e la sua parte immaginaria sono
+funzioni armoniche, ovvero soddisfano all’equazione di Laplace
+∆f = ∂2f
+∂x2 + ∂2f
+∂y2 = 0 .
+(2.89)
+Supponiamo adesso che sia data una funzione armonica in un dominio D.
+Questa può
+essere interpretata come la parte reale di una funzione analitica. È possibile “ricostruire” la parte
+immaginaria di tale funzione? Cioè, sapendo che u(x, y) = ℜf è possibile trovare v(x, y) = ℑf?
+La risposta è: sì, ma a meno di una costante indeterminata, che va ﬁssata con delle condizioni
+iniziali.
+Cerchiamo v(x, y) tale che valgano le condizioni di Cauchy-Riemann:
+∂v
+∂x = −∂u
+∂y ,
+∂v
+∂y = ∂u
+∂x .
+(2.90)
+Allora, la forma diﬀerenziale
+dv = ∂v
+∂xdx + ∂v
+∂ydy ,
+(2.91)
+può essere scritta anche nel seguente modo:
+dv = −∂u
+∂y dx + ∂u
+∂xdy .
+(2.92)
+Siccome u(x, y) è nota, la sua derivata rispetto ad x e quella rispetto ad y sono ugualmente
+note. Possiamo sfruttare l’Eq. (2.92) per integrare dv e trovare la funzione v(x, y). Integriamo
+dv lungo un cammino opportuno in D. Prendiamo una spezzata formata da un segmento fra
+(x0, y0) e (x, y0) seguito da un segmento da (x, y0) a (x, y). Allora avremo
+v(x, y) −v(x0, y0)
+=
+Z z
+z0,γ
+dv ,
+(2.93)
+33
+
+
+===== PAGINA 35 =====
+=
+Z x
+x0
+dx′
+∂v
+∂x
+
+(x′, y0) +
+Z y
+y0
+dy′
+∂v
+∂y
+
+(x, y′) ,
+(2.94)
+=
+Z x
+x0
+dx′
+
+−∂u
+∂y
+
+(x′, y0) +
+Z y
+y0
+dy′
+∂u
+∂x
+
+(x, y′) .
+(2.95)
+La conoscenza di u(x, y) determina v(x, y) a meno della costante v(x0, y0).
+Ovviamente, conoscendo v(x, y) si può determinare u(x, y) a meno della costante u(x0, y0)
+con lo stesso procedimento.
+2.5.3
+Zeri di una funzione analitica
+Se z0 ∈D è tale che data f : D →C si abbia f(z0) = 0 allorta z0 è detto zero di f.
+Deﬁnizione 2.5.10 Si dice che z0 è uno zero di ordine n per f(z) se f(z) e le sue prime n−1
+derivate si annullano in z0:
+f(z0) = f ′(z0) = ... = f n−1(z0) = 0 .
+(2.96)
+Una funzione analitica in D con uno zero di ordine n in z = z0 si potrà scrivere come
+f(z) = (z −z0)n φ(z) ,
+(2.97)
+dove φ(z) è necessariamente analitica e φ(z)̸ = 0 in z = z0.
+Teorema 2.5.11 Gli zeri di una funzione analitica sono punti isolati.
+Dimostrazione. Infatti, data la forma in Eq. (2.97), la funzione φ(z) essendo analitica e diversa
+da zero in z = z0, sarà̸ = 0 in un intorno di z0.
+Di conseguenza anche f(z) sarà̸ = 0 in
+quell’intorno e z0 sarà quindi uno zero isolato.
+2.5.4
+Singolarità di una funzione analitica
+I punti di non analiticità di una funzione f(z) in C sono detti singolarità per la funzione
+stessa. Tali singolarità possono essere di vario tipo. Come prima distinzione possiamo parlare
+di singolarità isolate e non isolate.
+Deﬁnizione 2.5.12 Si dice che z = z0 è una singolarità isolata per f(z) se esiste un intorno
+di z0 in cui f(z) è analitica per z̸ = z0.
+Se così non è, ovvero se non è possibile trovare un intorno (per quanto piccolo) di z0 in cui
+z0 sia l’unica singolarità, allora z0 e non isolato. Si può pensare per esempio ad un punto di
+accumulazione di singolarità.
+Concentriamoci adesso sulle singolarità isolate. In particolare ci riferiamo allo studio di
+funzioni monodrome. Le funzioni polidrome, i punti di diramazione e i tagli verranno trattati
+più avanti nel corso.
+Un punto di singolarità isolato di una funzione monodroma può essere di tre tipi:
+34
+
+
+===== PAGINA 36 =====
+1. z0 è un punto di singolarità eliminabile per f(z) se f(z) non è analitica in z0, ma ∃
+ﬁnito il seguente limite:
+lim
+z→z0 f(z) = c .
+(2.98)
+Allora, deﬁnendo f(z0) = c la f(z) diventa analitica in tutto D, incluso il punto z = z0.
+2. z0 è un polo per f(z) se
+lim
+z→z0 |f(z)| = ∞.
+(2.99)
+In particolare z0 è un polo di ordine k se ∃ﬁnito ( e̸ = 0) il seguente limite:
+lim
+z→z0(z −z0)kf(z)̸ = 0 .
+(2.100)
+3. z0 è una singolarità essenziale se non è né eliminabile n´polare. In particolare per esempio
+se il limite della funzione non esiste in z0.
+Esempio. La funzione
+f(z) = sin (z)
+z
+,
+(2.101)
+ha una singolarità eliminabile in z = 0. Infatti, la funzione non è deﬁnita in z = 0, la il suo
+limite sì ed è pari a
+lim
+z→0
+sin (z)
+z
+= 1 .
+(2.102)
+Allora, deﬁnendo la funzione come
+f(z) =
+(
+sin (z)
+z
+se z̸ = 0 ,
+1
+se z = 0 ,
+(2.103)
+abbiamo una funzione analitica anche in z = 0.
+Esempio. La funzione
+f(z) =
+3z −2
+(z −1)2(z + 1) ,
+(2.104)
+ha un polo doppio in z = 1 e un polo singolo in z = −1.
+Esempio. La funzione
+f(z) = e
+1
+z ,
+(2.105)
+ha una singolarità essenziale in z = 0.
+Teorema 2.5.13 Condizione necessaria e suﬃciente aﬃnché f(z) abbia un polo di ordine n
+in z0 è che g(z) = 1/f(z) abbia uno zero di ordine n in z0.
+Dimostrazione. Se f(z) ha un polo di ordine n in z0
+φ(z) = (z −z0)nf(z)
+(2.106)
+è analitica e̸ = 0 in un intorno di z0 (e in z0). Anche la sua reciproca
+ψ(z) =
+1
+φ(z)
+(2.107)
+35
+
+
+===== PAGINA 37 =====
+sarà analitica e̸ = 0 in un intorno di z0 (e in z0). Allora
+g(z) =
+1
+f(z) = (z −z0)nψ(z)
+(2.108)
+ha uno zero di ordine n in z = z0.
+Viceversa, se z0 è uno zero di ordine n di g(z) la f(z) = 1/g(z) sarà analitica in un intorno
+di z0 ma divergerà in z = z0 come segue:
+f(z) =
+1
+g(z) =
+1
+(z −z0)nφ(z) ,
+(2.109)
+quindi un polo di ordine n.
+Deﬁnizione 2.5.14 Una funzione analitica monodroma le cui uniche singolarità al ﬁnito siano
+dei poli si dice meromorfa.
+2.6
+Alcuni Esercizi
+Esercizio
+Indicare quali delle seguenti funzioni siano funzioni analitiche:
+f(z) = x2 +y2 +i2xy , f(z) = x2 −y2 +i2xy , f(z) = x2 +y2 , f(z) = 1
+z4 , f(z) = (3z2 −z2)z
+2
+.
+(2.110)
+1. f(z) = x2 + y2 + i2xy. Avendo in maniera esplicita la parte reale e la parte immaginaria
+(
+u(x, y) =
+x2 + y2 ,
+v(x, y) =
+2xy ,
+(2.111)
+che sono due funzioni continue e derivabili con continuità in R2, bisogna veriﬁcare che
+soddisﬁno le condizioni di Cauchy-Riemann (CR). Si ha
+(
+∂u
+∂x = 2x ,
+∂u
+∂y = 2y ,
+∂v
+∂x = 2y ,
+∂v
+∂y = 2x ,
+(2.112)
+ovvero
+∂u
+∂x = ∂v
+∂y ,
+(2.113)
+ma anche
+∂u
+∂y = ∂v
+∂x ,
+(2.114)
+laddove ci vorrebbe un segno meno. Quindi le CR non sono veriﬁcate che non per y = 0
+(asse dei reali). La funzione è derivabile sull’asse dei reali, ma non è analitica da nessuna
+parte in C, richiedendo, l’analiticità, la derivabilità in un intorno del punto di derivabilità.
+Si poteva ottenere lo stesso risultato utilizzando direttamente la
+0 = ∂f
+∂x + i∂f
+∂y = 4iy .
+(2.115)
+36
+
+
+===== PAGINA 38 =====
+In ultima analisi, riportando la funzione in termini di z e z si vede che
+f(z) = zz + z2 −z2
+2
+.
+(2.116)
+Siccome
+∂f
+∂x + i∂f
+∂y = ∂f
+∂z ,
+(2.117)
+e
+∂f
+∂z = z −z ,
+(2.118)
+si vede che le CR valgono solo sull’asse dei reali e quindi la f(z) non è analitica in C.
+2. f(z) = x2 −y2 + i2xy. Si ha
+(
+∂u
+∂x = 2x ,
+∂u
+∂y = −2y ,
+∂v
+∂x = 2y ,
+∂v
+∂y = 2x ,
+(2.119)
+ovvero
+∂u
+∂x = ∂v
+∂y
+e
+∂u
+∂y = −∂v
+∂x ,
+∀x, y ∈R .
+(2.120)
+La f(z) è analitica in tutto C. D’altra parte si ha
+f(z) = z2 ,
+(2.121)
+quindi
+∂f
+∂z = 0 ,
+∀z ∈C .
+(2.122)
+3. ......
+Esercizio
+Sia data u(x, y) = 2xy. Trovare la funzione analitica f(z) che abbia u(x, y) come parte reale.
+Intanto veriﬁchiamo che u(x, y) sia una funzione armonica. Si ha
+∂u
+∂x = 2y ,
+∂u
+∂y = 2x ,
+(2.123)
+per cui, banalmente
+∂2u
+∂x2 + ∂2u
+∂y2 = 0 ,
+(2.124)
+essendo entrambe le derivate seconde nulle.
+Per risalire alla parte immaginaria scriviamo il diﬀerenziale di v(x, y) e utilizziamo le CR:
+dv = ∂v
+∂xdx + ∂v
+∂ydy = −∂u
+∂y dx + ∂u
+∂xdy = −2x dx + 2y dy .
+(2.125)
+Integrando su una spezzata da (0, 0) a (x, y) avremo
+v(x, y) −v(0, 0) =
+Z x
+0
+(−2x)dx +
+Z y
+0
+2ydy = −x2 + y2 .
+(2.126)
+37
+
+
+===== PAGINA 39 =====
+Quindi, posto v(0, 0) = v0, si ha
+f(z) = 2xy + i(v0 −x2 + y2) .
+(2.127)
+Altro modo di fare esattamente la stessa cosa:
+∂v
+∂x
+=
+−2x
+=⇒v(x, y) = −x2 + φ(y) ,
+(2.128)
+∂v
+∂y
+=
+2y
+=⇒v(x, y) = y2 + φ(x) .
+(2.129)
+Allora, per le CR si ha
+x2 + φ(x) = −y2 + φ(y) ,
+(2.130)
+che è veriﬁcata soltanto se
+x2 + φ(x) = −y2 + φ(y) = k .
+(2.131)
+Quindi φ(x) = −x2 + k oppure φ(y) = y2 + k. In entrambi i casi si ritrova la (2.127).
+Esercizio
+Sia data u(x, y) = x3 −3xy2. Trovare la funzione analitica f(z) che abbia u(x, y) come parte
+reale.
+Si ha:
+∂u
+∂x = 3x2 −3y2 ,
+∂u
+∂y = −6xy , ∂2u
+∂x2 = 6x ,
+∂2u
+∂y2 = −6x .
+(2.132)
+Quindi
+∂2u
+∂x2 + ∂2u
+∂y2 = 0 .
+(2.133)
+La u(x, y) è armonica e quindi può essere la parte reale di una funzione analitica.
+Si ha:
+∂v
+∂x
+=
+6xy
+=⇒v(x, y) = 3x2y + φ(y) ,
+(2.134)
+∂v
+∂y
+=
+3x2 −3y2
+=⇒v(x, y) = 3x2y −y3 + φ(x) ,
+(2.135)
+per cui
+φ(x) = φ(y) + y3 = k .
+(2.136)
+Da cui si ricava
+f(z) = x3 −3xy2 + i(3x2y −y3 + k) .
+(2.137)
+Altro modo, assolutamente identico:
+∂v
+∂y = 3x2 −3y2
+=⇒v(x, y) = 3x2y −y3 + φ(x) ,
+(2.138)
+quindi
+6xy = −∂u
+∂y = ∂v
+∂x = ∂
+∂x
+ 3x2y −y3 + φ(x)
+
+= 6xy + φ′(x) .
+(2.139)
+Si ricava un’equazione diﬀerenziale banale per determinare φ(x):
+φ′(x) = 0 ,
+(2.140)
+ovvero
+φ(x) = k ,
+(2.141)
+costante.
+38
+
+
+===== PAGINA 40 =====
+Capitolo 3
+Appunti sulle SERIE DI POTENZE
+Finora abbiamo visto polimoni e funzioni razionali come esempio di funzioni analitiche. Adesso
+vogliamo estendere lo studio a funzioni più complicate, come per esempio l’esponenziale com-
+plesso, le funzioni trigonometriche, iperboliche e inﬁne alle funzioni inverse, il logaritmo e la
+radice.
+Per introdurre l’esaponenziale studieremo alcune proprietà delle serie di potenze. Faremo
+vedere che una serie di potenze uniformemente convergente in un certo aperto e connesso con-
+verge ad una funzione analitica, la cui derivata può essere ottenuta derivando la serie termine
+a termine. La funzione analitica così ottenuta è inﬁnitamente derivabile nel dominio di conver-
+genza della serie. Con questo bagaglio, studieremo la serie P∞
+n=0
+zn
+n! . Questa converge ad una
+funzione intera, che sarà l’esponenziale complesso e dalle proprietà della serie deriveremo tutte
+le propietà dell’esponenziale.
+Per svolgere questo programma, in questo capitolo riassumiamo alcune importanti proprietà
+di successioni e serie di funzioni.
+3.1
+Successioni
+Cominciamo con le successioni poiché la somma di una serie non è altro che il limite della
+successione delle somme parziali ...
+Consideriamo la successione an, n = 1, ..., ∞e an ∈C.
+Deﬁnizione 3.1.1 La successione an ha limite A se per ∀ǫ > 0 ∃n0 ∈N tale che per n ≥n0
+si abbia |an −A| < ǫ.
+Una successione che ha limite ﬁnito è detta covergente, altrimenti è detta divergente.
+Un concetto importante è quello di successione di Cauchy.
+Deﬁnizione 3.1.2 Una successione an è detta di Cauchy se per ∀ǫ > 0 existsn0 ∈N tale che
+|an −am| < ǫ non appena n, m ≥n0.
+Allora si ha il seguente teorema
+Teorema 3.1.3 Una successione an ∈C è convergente se e solo se è di Cauchy.
+Dimostrazione. Se la successione è convergente allora per ∀ǫ > 0 si può trovare un n0 tale che
+|an −A| < ǫ/2 se ngeqn0. Prendiamo anche un m ∈N, tale che mgeqn0. Avremo
+|an −am| = |an −A −(am −A)| ≤|an −A| + |am −A| < ǫ
+(3.1)
+39
+
+
+===== PAGINA 41 =====
+e quindi se an è convergente essa è di Cauchy.
+Per dimostrare il viceversa notiamo che la parte reale e la parte immaginaria di una suc-
+cessione di Cauchy sono successioni di Cauchy nei reali. Se convergono, convergerà anche la
+successione di partenza. Quindi possiamo limitarci a dimostrare che una successione reale di
+Cauchy è convergente.
+Prima di tutto, facciamo vedere che se an è di Cauchy allora è limitata. Infatti, se è di
+Cauchy si ha che per ∀ǫ > 0 ∃N(ǫ) ∈N tale che per n, m ≥N si abbia |an −am| < ǫ.
+Prendiamo ǫ = 1 e in corrispondenza di questo ǫ esiterà un N1 tale che per ∀n.m > N1 si abbia
+|an −am| < 1.
+D’altra parte
+|an| −|am| ≤|an −am| < 1 .
+(3.2)
+Poniamo m = N1 + 1. Allora
+|an| −|aN1+1| < 1
+(3.3)
+e quindi
+|an| < 1 + |aN1+1| ,
+(3.4)
+per ∀n > N1 e quindi è limitata.
+Se è limitata in R, per il teorema di Bolzano-Weierstrass ammette una sottosuccessione
+convergente. Sia tale sottosuccessione la ank e si abbia
+lim
+k→∞ank = a .
+(3.5)
+Quindi per ∀ǫ > 0 ∃N ∈N tale che per ∀k > N si abbia |ank −a| < ǫ. Ma an è di Cauchy e
+quindi ∃N1 ∈N tale che per ∀n, m > N1 si abbia |an −am| < ǫ. Allora
+|an −a| = |an −ank + ank −a| ≤|an −ank| + |ank −a| < ǫ = 2ǫ ,
+(3.6)
+se n, k > max{N, N1}. Ne consegue che an converge. ß
+3.2
+Successioni di funzioni
+Sia z ∈C. Consideriamo una successione fn(z) di funzioni, tali che ∀n ∈N, fn : U →C con
+U ⊂C.
+Deﬁnizione 3.2.1 Si dice che fn converge “puntualmente” a f e si scrive limn→∞fn(z) = f(z)
+se per ∀z ∈U e per ∀ǫ > 0, ∃N(ǫ, z), naturale, tale che |fn(z) −f(z)| < ǫ per ∀n > N.
+NB. La scelta dell’N dipende anche dal punto z, non solo dall’ǫ.
+Deﬁnizione 3.2.2 Si dice che fn converge “uniformemente” a f se per ∀z ∈U e per ∀ǫ > 0,
+∃N(ǫ), naturale, tale che |fn −f| < ǫ per ∀n > N.
+NB. Qui l’N dipende solo dall’ǫ e quindi è lo stesso per ogni z ∈U.
+Sussiste il seguente teorema.
+Teorema 3.2.3 Sia fn una successione di funzioni continue in U ⊂C, uniformemente con-
+vergente a f. Allora f è anch’essa continua.
+40
+
+
+===== PAGINA 42 =====
+Dimostrazione. Supponiamo quindi che le fn siano continue e tendano uniformemente a f.
+Allora, per ∀ǫ > 0 ∃N(ǫ) tale che |fn(z) −f(z)| < ǫ ∀n ≥N e per ogni z ∈U. D’altra parte le
+fn sono continue, per cui se z0 ∈U si può scegliere un δ > 0 e un ǫ > 0 tali che se |z −z0| < δ
+allora |fn(z) −fn(z0)| < ǫ. Ma in corrispondenza di questo δ avremo anche
+|f(z) −f(z0)|
+=
+|f(z) −fn(z) + fn(z) −fn(z0) + fn(z0) −f(z0)| ,
+(3.7)
+≤
+|f(z) −fn(z)| + |fn(z) −fn(z0)| + |fn(z0) −f(z0)| ,
+(3.8)
+<
+ǫ′ = 3ǫ .
+(3.9)
+Infatti, il primo e l’ultimo modulo sono entrambi < ǫ (indipendentemente dallo z) per l’uniforme
+convergenza, mentre il secondo modulo è < ǫ per la continuità delle fn.
+Ne concludiamo che anche f(z) è continua in z0.
+3.3
+Serie di funzioni
+Deﬁnizione 3.3.1 Sia fn(z) una successione di funzioni in U ⊂C. Si dice serie di funzioni
+la somma
+∞
+X
+n=0
+fn(z) = lim
+N→∞
+N
+X
+n=0
+fn(z) .
+(3.10)
+Deﬁnizione 3.3.2 La serie P∞
+n=0 fn(z) si dice convergente (puntualmente) a s(z), se la suc-
+cessione sn(z) = Pn
+k=0 fk(z) delle somme parziali converge (puntualmente) a s(z).
+Analogamente,
+Deﬁnizione 3.3.3 la serie P∞
+n=0 fn(z) si dice convergente uniformemente a s(z), se la suc-
+cessione sn(z) = Pn
+k=0 fk(z) delle somme parziali converge uniformemente a s(z).
+Deﬁnizione 3.3.4 La serie P∞
+n=0 fn(z) converge “assolutamente” se converge la serie P∞
+n=0 |fn(z)|,
+per ∀z ∈U..
+Sussistono i due seguenti importanti risultati.
+Teorema 3.3.5 Sia fn(z) una successione di funzioni di U ⊂C in C. Se P∞
+n=0 fn(z) converge
+assolutamente in U allora converge uniformemente in U.
+Dimostrazione. Se la somma converge assolutamente, vuol dire che ˜sN(z) = PN
+n=0 |fn(z)| è di
+Cauchy. Quindi, per ∀ǫ > 0, ∃N tale che per ∀n, m > N si abbia
+|˜sn −˜sm| = ||fm+1| + |fm+2| + ... + |fn|| < ǫ .
+(3.11)
+D’altra parte si ha anche
+||fm+1| + |fm+2| + ... + |fn∥| = |fm+1| + |fm+2| + ... + |fn| ,
+(3.12)
+quindi
+|fm+1| + |fm+2| + ... + |fn| < ǫ .
+(3.13)
+Consideriamo adesso sN(z) = PN
+n=0 fn(z). Se ˜sN(z) è di Cauchy, anche sN(z) è di Cauchy (per
+ogni z ∈U). Infatti
+|sn −sm| = |fm+1 + fm+2 + ... + fn| ≤|fm+1| + |fm+2| + ... + |fn| < ǫ .
+(3.14)
+Essendo di Cauchy (per ogni z ∈U), sN(z) = PN
+n=0 fn(z) è uniformemente convergente in U.
+41
+
+
+===== PAGINA 43 =====
+Teorema 3.3.6 M-test di Weierstrass. Sia fn una successione di funzioni da U ⊂C in
+C. Se ∀n ∈N ∃Mn > 0 tale che |fn(z)| < Mn per ∀z ∈U e P∞
+k=0 Mk < ∞, allora P∞
+k=0 fk
+converge uniformemente in U.
+Dimostrazione. Consideriamo sN(z) = PN
+n=0 fn(z). Si ha
+|sn−sm| = |fm+1+fm+2+...+fn| ≤|fm+1|+|fm+2|+...+|fn| ≤Mm+1+Mm+2+...+Mn . (3.15)
+Siccome P∞
+k=0 Mk < ∞, vuol dire che Mk è di Cauchy e quindi per ∀ǫ > 0, ∃n0 ∈N tale che
+per ∀n, m > n0 si abbia
+|Mn −Mm| = Mm+1 + Mm+2 + ... + Mn < ǫ
+(3.16)
+e
+|sn −sm| ≤ǫ ,
+(3.17)
+per ∀z ∈U. Per cui è uniformemente convergente.
+3.3.1
+Serie di potenze
+Una serie di potenze è una particolare serie di funzioni, data dalla somma
+∞
+X
+n=0
+anzn = a0 + a1z + a2z2 + ... + anzn + ...
+(3.18)
+con an, z ∈C.
+Associata alla serie abbiamo la successione delle somme parziali
+sn = a0 + a1z + a2z2 + ... + anzn .
+(3.19)
+Se sn ha un limite, questo è la somma della serie.
+La serie di potenze è convergente se e solo se la successione delle somme parziali è di Cauchy,
+ovvero se e solo se per ∀ǫ > 0 ∃n0 ∈N tale che per ∀n, m ≥n0 si abbia
+|sn −sm| = |am+1zm+1 + am+2zm+2 + ... + anzn| < ǫ .
+(3.20)
+Se scelgo n = m + 1 si avrà
+|amzm| < ǫ .
+(3.21)
+Quindi
+Proprietà 3.3.7 Il termine n-esimo di una serie convergente deve tendere a 0.
+Esempio: la serie geometrica
+Consideriamo la seguente serie
+1 + z + z2 + ... + zn + ... =
+∞
+X
+n=0
+zn .
+(3.22)
+42
+
+
+===== PAGINA 44 =====
+La successione delle somme parziali ha il seguente termine n-esimo:
+sn = 1 + z + z2 + ... + zn = 1 −zn+1
+1 −z
+.
+(3.23)
+Allora
+∞
+X
+n=0
+zn = lim
+n→∞sn = lim
+n→∞
+1 −zn+1
+1 −z
+.
+(3.24)
+La serie P∞
+n=0 |zn| è convergente se |z| < 1. Infatti, con |z| < 1, si ha
+∞
+X
+n=0
+|zn| = lim
+n→∞
+1 −|z|n+1
+1 −|z|
+=
+1
+1 −|z| ,
+(3.25)
+poiché limn→∞|z|n = 0 se |z| < 1. Allora, P∞
+n=0 zn è uniformemente convergente in |z| < 1 e la
+somma vale
+∞
+X
+n=0
+zn = lim
+n→∞sn =
+1
+1 −z .
+(3.26)
+Una serie di potenze converge banalmente per z = 0. Per z = z0̸ = 0 si ha il seguente
+importante risultato.
+Teorema 3.3.8 i) Se P∞
+n=0 anzn converge per z0̸ = 0, allora converge assolutamente per qual-
+siasi valore di z tale che |z| < |z0|, ovvero in tutti i punti interni al cerchio centrato in z = 0 di
+raggio |z0|. ii) Se per z = z0 la serie non converge, allora non converge per ∀z con |z| > |z0|,
+cioè in tutti i punti esterni al cerchio di raggio |z0|.
+Dimostrazione. i) Poiché P∞
+n=0 anzn in z0, si avrà
+lim
+n→∞|anzn| = 0 .
+(3.27)
+Ma allora esisterà un numero reale positivo, g, tale che dato un n0 ∈N si abbia che per ∀n ∈N
+|anzn
+0 | < g .
+(3.28)
+Allora
+∞
+X
+n=0
+|anzn| =
+∞
+X
+n=0
+|anzn
+0 |
+
+zn
+zn
+0
+ ≤g
+∞
+X
+n=0
+
+zn
+zn
+0
+ = g
+∞
+X
+n=0
+
+z
+z0
+
+n
+.
+(3.29)
+Se |z| < |z0|, la serie P∞
+n=0 |anzn| è quindi maggiorata dalla serie geometrica che è convergen-
+te e quindi è anch’essa convergente. Ne conseguen che P∞
+n=0 anzn è assolutamente e quindi
+uniformemente convergente in |z| < |z0|.
+ii).
+Il secondo punto è dimostrabile banalmente per assurdo.
+Infatti, supponiamo che
+P∞
+n=0 |anzn| diverga per un certo z0. Se convergesse per uno z tale che |z| > |z0| allora per il
+punto precedente convergerebbe uniformemente per |z| < |z0|, contro l’ipotesi.
+Indicando con R il sup dei valori di |z| per i quali P∞
+n=0 anzn converge, abbiamo che
+P∞
+n=0 anzn converge uniformemente nel disco aperto centrato in z = 0, di raggio R, D(0, R).
+Allora R viene detto raggio di convergenza. Se P∞
+n=0 anzn converge solo per z = 0 allora R = 0.
+Se P∞
+n=0 anzn converge per ∀z ∈C, R = ∞e P∞
+n=0 anzn è detta trascendente intera.
+43
+
+
+===== PAGINA 45 =====
+Teorema 3.3.9 di Cauchy-Hadamard. Data la seria P∞
+n=0 anzn, si consideri la successione
+np
+|an| e sia
+α = lim
+n→∞sup
+np
+|an| .
+(3.30)
+Allora il raggio di convergenza della serie è R = 1
+α.
+Dimostrazione. Ricordiamo che il lim sup di una successione esiste sempre, anche quando la
+successione non ha limite (e quindi il lim sup non coincide col lim inf). Inoltre, se an è una
+successione di numeri reali, limn→∞supan = a implica che ∀ǫ > 0, ∃N(ǫ) ∈N tale che an < a+ǫ
+per ∀n ≥N e inoltre ci sono inﬁniti valori di n per i quali an > a−ǫ. Infatti se limn→∞supan = a
+vuol dire che ∀ǫ > 0, ∃N(ǫ) ∈N tale che se n ≥N si abbia |a −supn≥N{an}| < ǫ, ovvero
+a −ǫ < supn≥N{an} < a + ǫ
+(3.31)
+e se il supn≥N{an} < a + ǫ vuol dire che an < a + ǫ. Se il supn≥N{an} > a −ǫ vuol dire che ci
+sono inﬁniti valori di n per i quali an > a −ǫ.
+Detto questo passiamo alla dimostrazione vera e propria.
+Sia α̸ = 0 e ﬁnito. Se z è tale che |z| < 1
+α si ha α|z| < 1 (strettamente minore di 1). Allora si
+può sempre trovare un ǫ > 0 tale che si abbia anche (α + ǫ)|z| < 1. Chiamiamo (α + ǫ)|z| = q
+(quindi q < 1). Se α = limn→∞sup np
+|an| si ha che, in corrispondenza di quell’ǫ, ∃n0 ∈N tale
+che per n > n0
+np
+|an| < α + ǫ .
+(3.32)
+Quindi
+|z|
+np
+|an| < (α + ǫ)|z| = q
+(3.33)
+e inﬁne
+|an||z|n = |anzn| < qn .
+(3.34)
+Allora la serie P |anzn| è maggiorata dalla serie geometrica che è convergente e quindi è a sua
+volta convergente, per quel valore di z.
+Se |z| > 1
+α, invece, si ha α|z| > 1 e possiamo prendere un ǫ tale che si abbia (α −ǫ)|z| > 1.
+Chiamiamo (α −ǫ)|z| = q (quindi adesso è q > 1. Allora ∃n0 ∈N tale che per n > n0 inﬁniti
+punti della successione
+np
+|an| sono
+np
+|an| > α −ǫ
+(3.35)
+e quindi
+|z|
+np
+|an| > (α −ǫ)|z| = q .
+(3.36)
+Si ha dunque |anzn| > qn con q > 1, per cui la serie P anzn non converge per quei valori di z.
+Se α = 0 si ha R = ∞. Infatti, ∀z si può sempre scegliere un ǫ tale che ǫ|z| = q < 1. Allora
+∃n0 ∈N tale che per n > n0 si abbia
+np
+|an| < |epsilon e quindi
+np
+|an||z| < ǫ|z| = q < 1 e la
+serie è convergente per ∀z.
+Se α = ∞si ha R = 0.
+Corollario 3.3.10 Ae esiste il limite
+lim
+n→∞
+|an|
+|an+1| = R ,
+(3.37)
+questo è il raggio di convergenza della serie di potenze P∞
+n=0 anzn.
+44
+
+
+===== PAGINA 46 =====
+Aggiungiamo due importantissimi risultati.
+Teorema 3.3.11 Le due serie P∞
+n=0 anzn e P∞
+n=1 nanzn−1, se convergenti, hanno lo stesso
+raggio di convergenza.
+Dimostrazione. Sia α = limn→∞sup np
+|an|. Consideriamo la somma
+∞
+X
+n=1
+nanzn−1 =
+∞
+X
+k=0
+(k + 1)ak+1zk ,
+(3.38)
+dove abbiamo posto k = n −1. Allora si ha
+lim
+k→∞sup
+kp
+(k + 1)|ak+1| = lim
+k→∞sup
+kp
+(k + 1)
+kp
+|ak+1| = lim
+k→∞sup
+kp
+|ak| = α ,
+(3.39)
+visto che limk→∞sup kp
+(k + 1) = limk→∞
+kp
+(k + 1) = 1 e limk→∞sup kp
+|ak+1| = limk→∞sup kp
+|ak|.
+Quindi P∞
+n=0 anzn e P∞
+n=1 nanzn−1 convergono uniformemente per gli stessi valori di z.
+Teorema 3.3.12 Se P∞
+n=0 anzn = f(z) ha per raggio di convergenza R, per ∀z tale che |z| < R
+si ha
+f ′(z) =
+∞
+X
+n=1
+nanzn−1 ,
+(3.40)
+ovvero la f(z) è analitica in D(0, R) e la sua derivata prima coincide con la derivata termine
+a termine della serie P∞
+n=0 anzn.
+Dimostrazione. Sia z0 tale che |z0| < R e δ > 0 tale che |h| = ρ < δ e |z0 + h| < ρ < R. Si ha
+f(z0 + h) −f(z0)
+h
+= 1
+h
+ ∞
+X
+n=0
+an(z0 + h)n −
+∞
+X
+n=0
+anzn
+0
+!
+=
+∞
+X
+n=1
+an
+(z0 + h)n −zn
+0
+h
+.
+(3.41)
+Vediamo come possiamo riscrivere il termine ennesimo della serie:
+(z0 + h)n −zn
+0
+h
+=
+(z0 + h)n−1
+h
+(z0 + h) −
+zn
+0
+(z0+h)n−1
+i
+h
+,
+(3.42)
+=
+(z0 + h)n−1
+h
+1 −
+
+z0
+(z0+h)
+ni
+h
+z0+h
+,
+(3.43)
+=
+(z0 + h)n−1
+h
+1 −
+
+z0
+(z0+h)
+ni
+1 −
+z0
+z0+h
+,
+(3.44)
+=
+(z0 + h)n−1
+"
+1 +
+z0
+z0 + h + ... +
+
+z0
+z0 + h
+n−1#
+,
+(3.45)
+=
+(z0 + h)n−1 + (z0 + h)n−2z0 + ... + zn−1
+0
+.
+(3.46)
+Quindi
+
+(z0 + h)n −zn
+0
+h
+ =
+(z0 + h)n−1 + (z0 + h)n−2z0 + ... + zn−1
+0
+ < ρn−1+ρn−2ρ+...+ρn−1 = nρn−1
+(3.47)
+45
+
+
+===== PAGINA 47 =====
+e si trova che, per |h| < δ, i termini della serie
+∞
+X
+n=1
+an
+(z0 + h)n −zn
+0
+h
+(3.48)
+sono maggiorati dai corrispondenti termini della serie P∞
+n=1 nanρn−1 e siccome la serie P∞
+n=0 anρn
+converge, anche la P∞
+n=1 nanρn−1 convergerà con lo stesso raggio di convergenza R. Allora
+lim
+h→0
+f(z0 + h) −f(z0)
+h
+= lim
+h→0
+∞
+X
+n=1
+an
+(z0 + h)n −zn
+0
+h
+=
+∞
+X
+n=1
+lim
+h→0
+(z0 + h)n −zn
+0
+h
+=
+∞
+X
+n=1
+nanzn−1
+0
+.
+(3.49)
+Quindi, abbiamo dimostrato che se P
+n anzn è convergente la sua somma è una funzione
+analitica tale che la sua derivata coincida con la serie delle derivate termine a termine della
+serie di partenza.
+Ma se così è, il ragionamento può essere ripetuto e quindi si trova che una serie di potenze
+con raggio di convergenza R ha derivate di ogni ordine date dalla serie delle derivate termine a
+termine:
+f(z)
+=
+a0 + a1z + a2z2 + ...
+(3.50)
+nn
+(3.51)
+f ′(z)
+=
+a1 + 2a2z + 3a3z2 + ...
+(3.52)
+nn
+(3.53)
+f ′′(z)
+=
+2a2 + 6a3z + ...
+(3.54)
+nn
+(3.55)
+f k(z)
+=
+k! ak + ...
+(3.56)
+In particolare quindi:
+f(z) = f(0) + f ′(0)z + f ′′(0)
+2!
+z2 + ... + f n(0)
+n!
+zn + ...
+(3.57)
+cioè se f(z) è una serie di potenze vale la formula di Taylor. Il viceversa ha bisogno del teorema
+di Cauchy.
+46
+
+
+===== PAGINA 48 =====
+Capitolo 4
+Appunti sulle FUNZIONI ANALITICHE
+ELEMENTARI
+Utilizzando lo studio delle serie di potenze che abbiamo eﬀettuato nel capitolo precedente
+passiamo allo studio delle funzioni elementari, che saranno deﬁnite proprio grazie alle serie di
+potenze.
+4.1
+Esponenziale complesso
+Consideriamo la seguente serie di potenze
+∞
+X
+n=0
+zn
+n! .
+(4.1)
+Il coeﬃciente n-esimo è pari a
+an = 1
+n! .
+(4.2)
+Usando il criterio del rapporto, troviamo il raggio di convergenza della serie:
+R = lim
+n→∞
+|an|
+|an+1| = lim
+n→∞
+(n + 1)!
+n!
+= lim
+n→∞(n + 1) = ∞.
+(4.3)
+Per cui la serie converge in tutto il piano complesso.
+Per analogia con l’esponenziale reale, che era dato da
+ex =
+∞
+X
+n=0
+xn
+n! ,
+(4.4)
+si pone
+ez =
+∞
+X
+n=0
+zn
+n! .
+(4.5)
+La funzione ez è analitica in tutto C, ovvero è intera.
+La derivata si può ottenere dalla derivata termine a termine della serie
+d
+dzez =
+∞
+X
+n=1
+n
+n!zn−1 =
+∞
+X
+k=0
+k + 1
+(k + 1)!zk =
+∞
+X
+k=0
+zk
+k! = ez .
+(4.6)
+47
+
+
+===== PAGINA 49 =====
+L’esponenziale così deﬁnito ha le usuali proprietà dell’esponenziale reale. In particolare
+ez1ez2 = ez1+z2 .
+(4.7)
+Infatti, prendiamo ezec−z con c ∈C costante. Abbiamo
+d
+dz(ezec−z) = ezec−z + ez(−ec−z) = 0 ,
+(4.8)
+per cui
+ezec−z = cost .
+(4.9)
+Per determinare la costante poniamo z = 0, trovando
+cost = ec ,
+(4.10)
+da cui
+ezec−z = ec
+(4.11)
+e ponendo z = z1 e c = z1 + z2 si ha l’assunto.
+Se z1 = x e z2 = iy si ha
+ex+iy
+=
+exeiy = ex
+
+1 + iy −y2
+2 −iy3
+3! + ...
+
+,
+(4.12)
+=
+ex
+
+1 −y2
+2! + y4
+4!
+
++ i
+
+y −y3
+3! + y5
+5! + ...
+
+,
+(4.13)
+=
+ex(cos y + i sin y) .
+(4.14)
+In particolare, abbiamo così provato la formula di Eulero.
+La funzione ez è una funzione dai complessi nei complessi. Vediamo come sono fatti il suo
+modulo e il suo argomento. Abbiamo
+ez = ex+iy = exeiy ,
+(4.15)
+per cui
+(
+|ez|
+=
+ex ,
+arg(ez)
+=
+y + 2kπ ,
+(4.16)
+quindi ez è una funzione periodica, di periodo 2πi:
+ez = ez+2kπi ,
+(4.17)
+con k ∈Z. Inoltre
+ez̸ = 0 ,
+∀z ∈C ,
+(4.18)
+cioè lo zero non fa parte del codominio.
+Quando nel piano C del dominio di ez, il punto z varia la sua parte reale, x = ℜ(z), su
+R, il modulo del numero complesso ez nel codominio va da 0 (escluso) all’inﬁnito. Di pari
+passo, quando la parte immaginaria di z, y = ℑ(z) varia per esempio da −π a π, −π < y ≤π,
+l’argomento di ez varia da −π a π. Quindi, la striscia T0 parallela all’asse reale come in ﬁgura,
+48
+
+
+===== PAGINA 50 =====
+viene mappata da ez in una copia del piano C. Siccome ez è periodico, anche la striscia T1
+viene analogamente mappata in un’altra copia di C e così ogni striscia Tk con k ∈Z.
+ℑ(z)
+ℜ(z)
+ℑ(w)
+ℜ(w)
+−5π
+−3π
+−π
+π
+3π
+5π
+T−1
+T−2
+T−3
+T0
+T1
+T2
+T3
+z
+z + 2πi
+z + 4πi
+z + 6πi
+z −2πi
+z −5πi
+z −6πi
+w = ez
+La funzione ez può essere resa biunivoca se ci si restringe a considerare un solo ramo, ovvero
+una funzione che agisce da una fascia Tk del dominio, in una copia di C, in cui l’argomento di
+w = ez sia compreso fra −π e π. Siccome passando alla fascia Tk+1 si otterrebbe un numero
+w con argomento che eccede π (in pratica si farebbe un altro giro intorno all’origine nel piano
+C del codominio), per limitarsi ad un ramo, si mette un “taglio” al piano C del codominio fra
+l’origine e il punto all’inﬁnito. Nella conﬁgurazione considerata in ﬁgura, il taglio viene posto
+sulla semiretta reale negativa.
+Questa “necessità” di deﬁnire una funzione biunivoca deriva dalla possibilità di invertire la
+funzione ez e deﬁnire il logaritmo complesso. Siccome ez è una funzione periodica, la funzione
+inversa sarà una funzione polidroma e per poterla deﬁnire senza ambiguità dobbiamo scegliere
+un ramo, ovvero ridurre lo studio al ramo k-esimo della funzione
+ez : Tk →C −{x ≤0} .
+(4.19)
+4.2
+Funzioni trigonometriche
+Per la formula di Eulero, abbiamo per x ∈R
+eix = cos x + i sin x ,
+e−ix = cos x −i sin x ,
+(4.20)
+ovvero:
+cos x
+=
+eix + e−ix
+2
+= 1 −y
+2! + y2
+4! + ... ,
+(4.21)
+sin x
+=
+eix −e−ix
+2i
+= y −y3
+3! + y5
+5! + ... .
+(4.22)
+49
+
+
+===== PAGINA 51 =====
+Allora, sfruttando l’analogia con la serie di potenze P zn
+n! , che abbiamo posto uguale all’espo-
+nenziale complesso, deﬁniamo
+cos z
+=
+eiz + e−iz
+2
+,
+(4.23)
+sin z
+=
+eiz −e−iz
+2i
+.
+(4.24)
+Troviamo le proprietà di sin z e cos z e mostriamo che sono del tutto analoghe a quelle del seno
+e coseno reali.
+1. Succiome eiz e e−iz sono funzioni intere, anche sin z e cos z lo sono.
+2. Si ha:
+d
+dz sin z
+=
+1
+2i
+ d
+dzeiz −d
+dze−iz
+
+= eiz + e−iz
+2
+= cos z ,
+(4.25)
+d
+dz cos z
+=
+1
+2
+ d
+dzeiz + d
+dze−iz
+
+= −eiz −e−iz
+2i
+= −sin z .
+(4.26)
+3. Si ha
+sin −z
+=
+e−iz −e+iz
+2i
+= −sin z ,
+(4.27)
+cos(−z)
+=
+e−iz + eiz
+2
+= cos z .
+(4.28)
+4. Siccome ez = P zn
+n! si ha
+cos z
+=
+1
+2
+
+1 + iz + (iz)2
+2!
++ ... + 1 −iz + (−iz)2
+2!
++ ...
+
+=
+∞
+X
+n=0
+z2n
+(2n)! ,
+(4.29)
+sin z
+=
+1
+2i
+
+1 + iz + (iz)2
+2!
++ ...
+
+−
+
+1 −iz + (−iz)2
+2!
++ ...
+
+(4.30)
+=
+∞
+X
+n=0
+z2n+1
+(2n + 1)! .
+(4.31)
+5. Si ha
+sin2 z + cos2 z =
+eiz −e−iz
+2i
+2
++
+eiz + e−iz
+2
+2
+= 1 .
+(4.32)
+6. Si ha
+cos (z1 + z2)
+=
+ei(z1+z2) + e−i(z1+z2)
+2
+= eiz1eiz2 + e−iz1e−iz2
+2
+,
+(4.33)
+=
+(cos z1 + i sin z1)(cos z2 + i sin z2)
+2
++(cos z1 −i sin z1)(cos z2 −i sin z2)
+2
+,
+(4.34)
+50
+
+
+===== PAGINA 52 =====
+=
+... ,
+(4.35)
+=
+cos z1 cos z2 −sin z1 sin z2 ,
+(4.36)
+cos (z1 −z2)
+=
+cos z1 cos z2 + sin z1 sin z2 ,
+(4.37)
+sin (z1 + z2)
+=
+sin z1 cos z2 + cos z1 sin z2 ,
+(4.38)
+sin (z1 −z2)
+=
+sin z1 cos z2 −cos z1 sin z2 .
+(4.39)
+7. Si ha
+sin (iy)
+=
+e−y −ey
+2i
+= iey −e−y
+2
+= i sinh y ,
+(4.40)
+cos (iy)
+=
+e−y + ey
+2
+= cosh y .
+(4.41)
+8. Quindi
+cos z
+=
+eiz + e−iz
+2
+= e−yeix + eye−ix
+2
+,
+(4.42)
+=
+e−y(cos x + i sin x) + ey(cos x −i sin x)
+2
+,
+(4.43)
+=
+cos xe−y + ey
+2
++ i sin xe−y −ey
+2
+,
+(4.44)
+=
+cos x cosh y −i sin x sinh y ,
+(4.45)
+sin z
+=
+sin x cosh(y) + i cos x sinh y ,
+(4.46)
+ovvero
+ℜ(sin z) = sin x cosh y ,
+ℑ(sin z) = cos x sinh y ,
+(4.47)
+ℜ(cos z) = cos x cosh y ,
+ℑ(sin z) = −sin x sinh y .
+(4.48)
+9. Troviamo gli zeri delle funzioni sin z e cos z, che serviranno per capire il dominio di
+analiticità della tangente e della cotangente.
+cos z = 0 ,
+(4.49)
+siccome sia la parte reale che la parte immaginaria si devono annullare contemporanea-
+mente, implica il seguente sistema:
+(
+cos x cosh y
+=
+0 ,
+sin x sinh y
+=
+0 .
+(4.50)
+Il cosh y non si annulla mai; quindi la prima equazione ha come soluzioni
+cos x = 0 ,
+=⇒
+x = π
+2 + kπ ,
+con
+k ∈Z .
+(4.51)
+Per questi valori di x, il sin x̸ = 0. Quindi la seconda equazione impone
+sinh y = 0 ,
+=⇒
+y = 0 .
+(4.52)
+51
+
+
+===== PAGINA 53 =====
+In totale, il cos z si annulla per
+z = π
+2 + kπ ,
+con
+k ∈Z ,
+(4.53)
+quindi, solo parte reale.
+Per il sin z si può fare la stessa considerazione. Abbiamo
+(
+sin x cosh y
+=
+0 ,
+cos x sinh y
+=
+0 .
+(4.54)
+La prima equazione, siccome cosh y̸ = 0 per ∀y ∈R, impone sin x = 0, che è veriﬁcata
+per x = kπ. Per questi valori di x si ha cos x̸ = 0, ma sinh y = 0 è veriﬁcata per y = 0.
+In totale, sin z = 0 in
+z = kπ ,
+con
+k ∈Z .
+(4.55)
+10. Siccome ez è periodico di periodo 2πi, anche sin z e cos z sono periodiche. Infatti si ha:
+sin (z + 2kπ)
+=
+ei(z+2kπ) −e−i(z+2kπ)
+2i
+= eizei2kπ −e−ize−i2kπ
+2i
+,
+(4.56)
+=
+eiz −e−iz
+2i
+= sin z ,
+(4.57)
+cos (z + 2kπ)
+=
+cos z .
+(4.58)
+Quindi, le fasce di periodicità sono verticali, parallele all’asse immaginario
+11. Ricordando che cosh2 y −sinh2 y = 1, si ha
+| sin z|2
+=
+sin2 x cosh2 y + cos2 x sinh2 y = sin2 x + sin2 x sinh2 y + cos2 x sinh2 y ,
+(4.59)
+=
+sin2 x + sinh2 y ,
+(4.60)
+| cos z|2
+=
+cos2 x + sinh2 y .
+(4.61)
+Dall’espressione del modulo quadro si capisce che in C le due funzioni non sono limitate!
+Dati sin z e cos z si possono studiare i loro rapporti.
+La tangente è deﬁnita come segue:
+tan z = sin z
+cos z .
+(4.62)
+Quindi la tangente è una funzione analitica in C −{ π
+2 + kπ}. Si ha
+d
+dz tan z = cos2 z + sin2 z
+cos2 z
+=
+1
+cos2 z .
+(4.63)
+Nei punti singolari, tan z ha poli del primo ordine:
+tan z
+z≃π
+2
+≃
+1
+z −π
+2
+.
+(4.64)
+La cotangente è deﬁnita come segue:
+cot z = cos z
+sin z .
+(4.65)
+52
+
+
+===== PAGINA 54 =====
+Quindi la cotangente è una funzione analitica in C −{kπ}. Si ha
+d
+dz cot z = −cos2 z −sin2 z
+sin2 z
+= −
+1
+sin2 z .
+(4.66)
+Nei punti singolari, cot z ha poli del primo ordine:
+cot z
+z≃0
+≃1
+z .
+(4.67)
+4.3
+Funzioni iperboliche
+Deﬁniamo seno e coseno iperbolico come segue:
+sinh z
+=
+ez −e−z
+2
+,
+(4.68)
+cosh z
+=
+ez + e−z
+2
+.
+(4.69)
+In quanto combinazioni lineari di funzioni intere, sono anch’esse funzioni intere.
+Le loro
+proprietà derivano dalle proprietà dell’esponenziale.
+1. Si ha
+d
+dz sinh z
+=
+ez + e−z
+2
+= cosh z ,
+(4.70)
+d
+dz cosh z
+=
+ez −e−z
+2
+= sinh z .
+(4.71)
+2. Sempre dalla deﬁnizione deriva che
+sinh −z
+=
+e−z −ez
+2
+= −sinh z ,
+(4.72)
+cosh −z
+=
+e−z + ez
+2
+= cosh z .
+(4.73)
+3. Dalla periodicità dell’esponenziale deriva la periodicità di sinh z e cosh z:
+sinh (z + 2πi)
+=
+e(z+2πi) −e−(z+2πi)
+2
+= ez −e−z
+2
+= sinh z ,
+(4.74)
+cosh (z + 2πi)
+=
+e(z+2πi) + e−(z+2πi)
+2
+= ez + e−z
+2
+= cosh z .
+(4.75)
+4. Si ha
+cosh2 z −sinh2 z = 1 ,
+(4.76)
+sinh (z1 ± z2) = sinh z1 cosh z2 ± cosh z1 sinh z2 ,
+(4.77)
+cosh (z1 ± z2) = cosh z1 cosh z2 ± sinh z1 sinh z2 .
+(4.78)
+53
+
+
+===== PAGINA 55 =====
+5. Esplicitando parte reale e parte immaginaria dell’esponenziale si ottiene
+sinh z
+=
+sinh x cos y + i cosh x sin y ,
+(4.79)
+cosh z
+=
+cosh x cos y + i sinh x sin y .
+(4.80)
+6. Gli zeri delle due funzioni sono determinati dai seguenti sistemi.
+Per sinh z = 0 abbiamo
+(
+sinh x cos y
+=
+0 ,
+cosh x sin y
+=
+0 ,
+(4.81)
+che sono veriﬁcate per x = 0 e y = kπ, quindi z = kπi.
+Per cosh z = 0 abbiamo
+(
+cosh x cos y
+=
+0 ,
+sinh x sin y
+=
+0 ,
+(4.82)
+che sono veriﬁcate per x = 0 e y = π
+2 + kπ, quindi z = i
+ π
+2 + kπ
+
+.
+Così come abbiamo fatto per le funzioni trigonometriche, possiamo deﬁnire e studiare la
+tangente e la cotangente iperbolica dal rapporto di seno e coseno o coseno e seno. Si ha
+tanh z = sinh z
+cosh z ,
+(4.83)
+analitica in C −{ π
+2 + kπ}. Nei punti di non analiticità, ha dei poli semplici.
+Si ha anche
+coth z = cosh z
+sinh z ,
+(4.84)
+analitica in C −{kπ}. Nei punti di non analiticità, ha dei poli semplici.
+4.4
+Funzioni inverse e polidromia
+Abbiamo visto diversi casi di funzioni analitiche
+f(z) : D →D′ ⊂C ,
+(4.85)
+non biunivoche. Per esempio f(z) = ez oppure f(z) = zn, o f(z) = sin z.
+D
+D’
+f
+w = f(zk)
+z1
+z2
+zk
+D
+D’
+D1
+D2
+Dk
+f −1
+w
+f −1
+1 (w) = z1
+f −1
+2 (w) = z2
+f −1
+k (w) = zk
+54
+
+
+===== PAGINA 56 =====
+La funzione inversa di tali funzioni,
+f −1 : D′ →D ,
+(4.86)
+sarà polidroma, ovvero assocerà ad un valore di w ∈D′ nel dominio, diversi possibili valori
+zk nel codominio D.
+Per poter deﬁnire in maniera univoca la funzione inversa z = f −1(w), ci dobbiamo limitare
+a considerare un sottodominio Dk ⊂D, tale che, se z ∈Dk, la f : z →w = fk(z) sia biunivoca
+e quindi abbia l’inversa f −1
+k (w). Si dice che abbiamo identiﬁcato un ramo monodromo della
+funzione polidroma.
+4.4.1
+Logaritmo complesso
+Il logaritmo è la funzione inversa dell’esponenziale. Si deﬁnisce logaritmo di z, ln z, l’esponente
+da dare ad e aﬃnché si ottenga z:
+z = eln z .
+(4.87)
+Siccome z = |z|eiθ, con θ = Arg(z), −π < θ < π, si ha
+eln z = z = |z|eiθ = eln |z|eiθ = eln |z|+iθ ,
+(4.88)
+da cui
+ln z = ln |z| + iθ ,
+(4.89)
+con z̸ = 0.
+Questo è il ramo principale del logaritmo.
+In generale, siccome arg(z) =
+Arg(z) + 2kπ, si avrà
+ln z = ln |z| + i(θ + 2kπ) ,
+k ∈Z .
+(4.90)
+A seconda del valore di k ∈Z, si deﬁnisce un ramo del logaritmo. Ogni ramo va dal piano
+C tagliato (C −{x ≤0}) in una striscia (vedi dominio dell’esponenziale) Tk : (2k −1)π <
+ℑ(ln z) ≤(2k + 1)π.
+1. Siccome ez̸ = 0 sempre, z = 0 non appartiene al dominio del ln z.
+2. Il logaritmo e l’esponenziale sono l’una la funzione inversa dell’altra, ma il logaritmo è
+una funzione polidroma. Ne deriva che eln z̸ = ln ez. Infatti
+eln z = eln |z|+iθ+i2kπ = |z|eiθ+i2kπ = z .
+(4.91)
+Invece
+ln ez = ln
+ exeiy+2kπi
+= z + 2kπi ,
+(4.92)
+che rende manifesta la natura polidroma della funzione inversa.
+3. Se z = x > 0, x ∈R, allora
+ln z = ln x ,
+(4.93)
+logaritmo naturale nei reali. Ma in C si può prendere anche x < 0. In particolare, se
+x = −1 (z = eiπ) si ha
+ln (−1) = ln |1| + iπ + 2kπi = iπ + 2kπi .
+(4.94)
+55
+
+
+===== PAGINA 57 =====
+4. Se ﬁssiamo per z0 un valore del ln z0 e prendiamo poi con continuità i valori di ln z su un
+circuito chiuso γ, abbiamo due possibilità:
+• se γ non include l’origine, una volta tornati allo stesso punto z0, il log z torna ad
+assumere lo stesso valore iniziale ln z0;
+• se γ include l’origine, invece, tornando allo stesso punto z0 dopo aver chiuso il cir-
+cuito, il ln z diventerà ln z0 + 2πi. Cioè tornando al piunto iniziale, il ln z0 avrà
+aumentato la sua parte immaginaria di 2πi.
+Per avere una funzione ad un sol valore (biunivoca) si deve “impedire” di fare un giro
+completo intorno a z = 0. Per questo si introduce un “taglio” da z = 0 a −∞sull’asse
+reale. Il punto z = 0 viene detto punto di diramazione.
+Impedendo di oltrepassare il taglio, abbiamo individuato un ramo monodromo del loga-
+ritmo, che mappa una copia di C in una striscia Tk del codominio.
+Oltrepassare il taglio, fa passare ad un altro ramo monodromo del logaritmo.
+Se con continuità si continua a fare il giro intorno a z = 0 in senso antiorario, il ln z
+aumenta la sua parte immaginaria di 2πi ogni passaggio, passando quindi da una fascia
+Tk alla Tk+1 nel codominio.
+Invece di limitarci ad una copia di C e mettere un taglio per individuare un ramo mo-
+nodromo del logaritmo, possiamo considerare un dominio allargato ad inﬁnite copie di
+C. Ogni copia è tale che il lembo superiore del taglio (per esempio quello a θ = π del-
+l’intervallo −π < θ ≤π) viene “incollato” al lembo inferiore della copia successiva di C.
+Il dominio allargato, viene quindi ad essere identiﬁcato con una “scala a chiocciola” ogni
+piano della quale è una copia di C. La “scala” è una superﬁcie di Riemann. Il punto di
+diramazione z = 0 è detto di ordine inﬁnito, poiché girando inﬁnite volte attorno ad
+esso si accede a valori del logaritmo sempre diversi.
+5. Ogni ramo del ln z così identiﬁcato è analitico ovunque tranne che sul taglio (e in z = 0
+che non appartiene al dominio) e vale la
+d
+dz ln z = 1
+z .
+(4.95)
+Infatti, se prendiamo un solo ramo di
+z →ez = w : Tk →C −{x ≤0} ,
+(4.96)
+la funzione è biunivoca e analitica con
+d
+dzez̸ = 0
+(4.97)
+in tutto il dominio. Allora
+d
+dwf −1(w) =
+1
+f ′(z)
+
+z=f−1(w)
+= 1
+ez
+
+z=ln w
+= 1
+w .
+(4.98)
+Per veriﬁcare l’analiticità possiamo provare la validità delle condizioni di Cauchy-Riemann.
+Facciamolo sia in coordinate cartesiane che polari.
+56
+
+
+===== PAGINA 58 =====
+In coordinate cartesiane abbiamo:
+ln z = ln |z| + iθ = ln
+p
+x2 + y2 + i arctan
+y
+x
+
+.
+(4.99)
+Abbiamo
+∂u
+∂x =
+x
+x2 + y2 ,
+∂u
+∂y =
+y
+x2 + y2 ,
+(4.100)
+∂v
+∂x = −
+y
+x2 + y2 ,
+∂v
+∂y =
+x
+x2 + y2 ,
+(4.101)
+che quindi sono veriﬁcate.
+Siccome il logaritmo è più naturalmente esprimibile in coordinate polari, con z = reiθ,
+ln z = ln r + iθ ,
+(4.102)
+possiamo controllare la validità delle condizioni di Cauchy-Riemann direttamente in coor-
+dinate polari. Abbiamo
+∂
+∂r
+=
+∂x
+∂r
+∂
+∂x + ∂y
+∂r
+∂
+∂y = cos θ ∂
+∂x + sin θ ∂
+∂y ,
+(4.103)
+∂
+∂θ
+=
+−r sin θ ∂
+∂x + r cos θ ∂
+∂y .
+(4.104)
+Allora
+∂u
+∂r
+=
+cos θ∂u
+∂x + sin θ∂u
+∂y = cos θ∂v
+∂y −sin θ∂v
+∂x = 1
+r
+∂v
+∂θ ,
+(4.105)
+∂u
+∂θ
+=
+−r sin θ∂u
+∂x + r cos θ∂u
+∂y = −r sin θ∂v
+∂y −r cos θ∂v
+∂y = −r∂v
+∂r .
+(4.106)
+Quindi, essendo ℜln z = ln r e ℑln z = θ, si ha
+∂u
+∂r = 1
+r = 1
+r
+∂v
+∂θ ,
+(4.107)
+∂u
+∂θ = 0 = ∂v
+∂r
+(4.108)
+e quindi sono veriﬁcate.
+6. Consideriamo adesso l’andamento del logaritmo nel punto all’inﬁnito. Studiamo quindi
+in ω = 0 il ln
+  1
+ω
+
+. Infatti
+z →1
+ω ,
+ln z = −ln ω ,
+(4.109)
+che in ω = 0 ha un punto di diramazione di ordine inﬁnito. Quindi, il logaritmo ha due
+punti di diramazione, uno in z = 0 e l’altro nel punto all’inﬁnito e sono uniti dal taglio.
+57
+
+
+===== PAGINA 59 =====
+4.5
+Radice n-esima
+La radice n-esima è la funzione inversa della potenza ennesima e quindi è una funzione poli-
+droma.
+Prendiamo la potenza n-esima:
+f(z) = zn ,
+n ∈N .
+(4.110)
+Siccome
+zn = |z|nein(arg (z)) ,
+(4.111)
+tutti gli z che abbiano l’argomento dato da
+arg (z) + 2kπ
+n ,
+k ∈Z
+(4.112)
+sono mappati nello stesso f(z). Infatti
+zn = |z|nein(arg(z)+ 2kπ
+n ) = |z|nein(arg(z)e2kπ = |z|nein(arg(z) .
+(4.113)
+Allora, la potenza n-esima è caratterizzata da n domini di monodromia, che sono degli spicchi
+di ampiezza 2π:
+Dk =
+(2k −1)π
+n
+< arg (z) ≤(2k + 1)π
+n
+
+,
+k = 0, ..., n −1 ,
+(4.114)
+con
+f(z) = zn : Dk →C −{x ≤0} .
+(4.115)
+ℑ(z)
+ℜ(z)
+ℑ(w)
+ℜ(w)
+D1
+D2
+Dk
+3π
+n
+π
+n
+−π
+n
+f
+w = zn
+Il codominio di ognuno di questi spicchi è il piano C tagliato.
+La radice n-esima è allora deﬁnita come segue:
+z = w
+1
+n =
+np
+|w|ei arg (w)+2kπ
+n
+.
+(4.116)
+58
+
+
+===== PAGINA 60 =====
+Il ramo principale si ottiene con k = 0:
+z = w
+1
+n =
+np
+|w|ei arg (w)
+n
+.
+(4.117)
+I w ∈C −{x ≤0} sono trasformati nello spicchio con −π
+n < arg (z) ≤π
+n.
+ℑ(z)
+ℜ(z)
+ℑ(w)
+ℜ(w)
+D1
+D2
+Dk
+3π
+n
+π
+n
+−π
+n
+f −1
+w
+Ogni ramo è analitico, ad eccezione che sul taglio. Infatti le equazioni di Cauchy-Riemann
+danno, per r̸ = 0,
+ ∂
+∂r + i
+r
+∂
+∂θ
+
+r
+1
+nei θ
+n = 1
+nr
+1
+n −1ei θ
+n + i
+rr
+1
+n i
+nei θ
+n = 1
+nr
+1
+n −1ei θ
+n −1
+nr
+1
+n −1ei θ
+n = 0 ,
+(4.118)
+Quando arg w passa il taglio in π, si accede al secondo foglio di Riemann, in cui π arg (w) ≤
+3π ...
+e così via.
+Dall’n-esimo foglio di Riemann si ritorna al primo, in quanto per k =
+0, 1, ..., n −1 i valori della radice n-esima sono tutti distinti, mentre per k = n si riottiene il
+primo valore. La superﬁcie di Riemann della radice n-esima ha n fogli, ognuno dei quali è
+collegato al successivo, incollando il “lembo” del taglio in (2k +1)π con quello in (2k −1)π della
+copia successiva di C. L’ultimo foglio ha il taglio superiore incollato col primo lembo del taglio
+del primo foglio. Quindi la superﬁcie in questo caso è chiusa.
+Per fare un esempio speciﬁco, prendiamo la radice quadrata:
+z = √w =
+p
+|w|ei(
+arg (w)+2kπ
+2
+) .
+(4.119)
+Per k = 0, 1 abbiamo i due rami della radice quadrata. Prendendo −π arg (w) ≤π sul primo
+foglio di Riemann, abbiamo il codominio che è rappresentato dai numeri complessi z con ar-
+gomento −π
+2 < arg (z) ≤pi
+2 (semipiano D1 in ﬁgura). Se, passando il taglio, l’argomento di w
+è π arg (w) ≤3π, quindi sul secondo foglio di Riemann (la seconda copia di C che dà luogo a
+valori distinti della funzione polidroma), abbiamo il codominio che è rappresentato dai numeri
+complessi z con argomento π
+2 < arg (z) ≤3π
+2 (semipiano D2 in ﬁgura).
+59
+
+
+===== PAGINA 61 =====
+ℑ(z)
+ℜ(z)
+ℑ(w)
+ℜ(w)
+D1
+D2
+f −1
+1
+f −1
+2
+w
+z =
+p
+|w|ei arg (w)
+2
+z =
+p
+|w|ei(
+arg (w)
+2
++π)
+Il punto w = 0 è un punto di diramazione di ordine 2, ovvero dopo due giri intorno a w = 0,
+la √w riprende i valori iniziali (corrispondenti al primo giro).
+Il taglio nel piano complesso, dominio del ramo monodromo di √w, parte dal punto di
+diramazione, w = 0 e va al punto all’inﬁnito, essendo anch’esso un punto di diramazione.
+Infatti, studiando il comportamento di √w nel punto all’inﬁnito, otteniamo:
+√w →
+r
+1
+w′ ,
+(4.120)
+che quando w′ →0 ha un punto di diramazione di ordine 2.
+Nel caso della radice n-esima, il punto di diramazione è un punto del dominio (al contrario
+di quanto succedeva per il logaritmo) ed inoltre in w = 0 la radice è nulla. Non è però analitica,
+né in w = 0 né in tutti i punti del taglio.
+4.6
+Punti di diramazione multipli
+Se la radice √z ha un punto di diramazione in z = 0 e uno nel punto all’inﬁnito, andiamo a
+vedere cosa possiamo dire di una radice del tipo
+f(z) =
+p
+(z −a)(z −b) .
+(4.121)
+Per semplicità consideriamo a, b ∈R, ma potrebbero essere tranquillamente due numeri com-
+plessi qualunque e il ragionamento non cambierebbe.
+La funzione f(z) è il prodotto di due radici quadrate, √z −a e
+√
+z −b. Pertanto è una
+funzione polidroma. I due punti z = a e z = b sono due punti di diramazione per le due radici,
+vediamo perché.
+Poniamo
+z −a
+=
+ρ1eiθ1 ,
+(4.122)
+z −b
+=
+ρ2eiθ2 ,
+(4.123)
+come in ﬁgura.
+60
+
+
+===== PAGINA 62 =====
+ℑ(z)
+ℜ(z)
+a
+b
+z
+ρ1
+θ1
+ρ2
+θ2
+Allora si ha
+f(z) = √ρ1ρ2ei[
+θ1+θ1
+2
++(k1+k2)π] ,
+(4.124)
+con θ1 e θ2 dipendenti dal punto z e k1, k2 ∈Z. Vediamo come variano k1 e k2 al variare di z,
+cercando quindi di individuare il ruolo di z = a e z = b come punti di diramazione e i due rami
+della funzione f(z) (f(z) è una radice quadrata ed ha quindi due rami).
+Supponiamo che z vari con continuità sulla curva chiusa γb in ﬁgura, che include il punto
+di diramazione:
+ℑ(z)
+ℜ(z)
+a
+b
+z
+ρ1
+θ1
+ρ2
+θ2
+γb
+Facendo z il giro su γ2 e tornando al punto di partenza, ciò che si ottiene è che θ1 varia fra
+un massimo e un minimo, ma comunque rimane nell’intervallo [0, 2π]. Viceversa, theta2 fa un
+giro di 2π. Ritornando al punto di partenza, quindi, l’argomento di (z −b) varia di 2π, ovvero
+ﬁnito il giro k2 diventa k2 = 1. Si ha
+f(z) = √ρ1ρ2ei(
+θ1+θ2
+2
++π) = −√ρ1ρ2ei(
+θ1+θ2
+2
+) .
+(4.125)
+Quindi, se si fa un giro completo intorno a b, si cambia ramo della radice (b è un punto di
+diramazione).
+61
+
+
+===== PAGINA 63 =====
+La stessa cosa succede se facciamo un giro completo intorno a z = a. Analogamente a quanto
+discusso per b, l’argomento θ2 varia all’interno dell’ointervallo [0, 2π], toccando un massimo e
+un minimo, ma non facendo un giro. Mentre invece l’argomento θ1 fa un giro di 2π e quindi
+alla ﬁne del giro abbiamo k1 = 1 e
+f(z) = √ρ1ρ2ei(
+θ1+θ2
+2
++π) = −√ρ1ρ2ei(
+θ1+θ2
+2
+) ,
+(4.126)
+che indica il cambiamento del ramo della radice (a è un punto di diramazione).
+Vediamo adesso cosa sucede se giriamo contemporaneamente intorno a d a e b facendo un
+giro completo, lungo la curva chiusa γ, come in ﬁgura:
+ℑ(z)
+ℜ(z)
+a
+b
+z
+ρ1
+θ1
+ρ2
+θ2
+γ
+Sia theta1 che θ2, adesso, fanno un giro di 2π e quindi si ha k1 = k2 = 1. Ne deriva che,
+dopo un giro su γ si abbia
+f(z) = √ρ1ρ2ei(
+θ1+θ2
+2
++π+π) = √ρ1ρ2ei(
+θ1+θ2
+2
+)e2πi = √ρ1ρ2ei(
+θ1+θ2
+2
+) .
+(4.127)
+In giro intorno ad entrambi i punti di diramazione fa rimanere, quindi, sullo stesso ramo della
+funzione.
+La scelta del taglio viene fatta per evitare di far girare attorno ad un solo punto di dira-
+mazione e poter rimanere, quindi, sullo stesso ramo della funzione f(z). La scelta immediata è
+quella di congiungere col taglio i due punti di diramazione a e b:
+ℑ(z)
+ℜ(z)
+a
+b
+62
+
+
+===== PAGINA 64 =====
+Andiamo a vedere il comportamento della funzione nel punto all’inﬁnito. Sostituendo z con
+1
+w abbiamo
+p
+(z −a)(z −b) →
+s 1
+w −a
+  1
+w −b
+
+=
+p
+(1 −wa)(1 −wb)
+w
+∼1
+w .
+(4.128)
+Quindi la funzione f(z) ha una singolarità isolata di tipo polare (un polo semplice) nel punto
+all’inﬁnito e questo non costituisce un punto di diramazione. Gli unici punti di diramazione
+sono al ﬁnito e sono z = a e z = b. Il taglio quindi può unicamente unire a con b.
+C’è un altro modo di unire a con b che non sia il segmento sull’asse reale da a a b. Possiamo
+unirli tramite il punto all’inﬁnito:
+ℑ(z)
+ℜ(z)
+a
+b
+Ovvero ponendo il taglio da a sull’asse reale ﬁno a −∞e da b ﬁno a +∞.
+Sulla sfera di Riemann, questa seconda scelta consiste nell’unire i due punti che corri-
+spondono ad a e b, tramite proiezione stereograﬁca, per mezzo di due meridiani: dal punto
+corrispondente ad a al polo Nord e dal Polo Nord al punto corrispondente a b. La prima scelta
+corrisponde, invece, all’unione dei punti immagine di a e b sulla sfera di Riemann tramite una
+curva che non passa dal polo Nord.
+Un altro esempio di quanto detto per
+p
+(z −a)(z −b) è quello di
+f(z) =
+p
+(z2 + 1)(z2 + 4) .
+(4.129)
+La funzione è una radice quadrata e quindi ha due rami possibili e due fogli di Riemann. Per
+capire la distribuzione dei tagli consideriamo i vari punti di diramazione:
+f(z) =
+p
+(z2 + 1)(z2 + 4) =
+p
+(z + i)(z −i)(z + 2i)(z −2i) .
+(4.130)
+Si hanno quindi quattro punti di diramazione, z = ±i e z = ±2i.
+Ripercorrendo il ragionamento fatto per
+p
+(z −a)(z −b) ci si può convincere del fatto che,
+passando singolarmente intorno ad uno dei 4 punti di diramazione, la radice cambia di segno,
+63
+
+
+===== PAGINA 65 =====
+passando quindi al secondo ramo. Se giariamo intorno a due punti di diramazione contempo-
+raneamente, gli argomenti interessati sviluppano un fattore e2πi = 1, che quindi indica il fatto
+che il ramo della radice rimane lo stesso. Girando intorno a tre punti di diramazione contem-
+poraneamente si trova ancora un cambio di ramo, mentre girando intorno a tutti e 4 i punti
+di diramazione si rimane sullo stesso ramo. Allora la scelta dei tagli deve essere tale da far sì
+che si possa girare intorno a 2 o 4 punti di diramazione, ma non ad 1 o 3. Una scelta naturale
+è quella di unire a due a due i punti di diramazione con un taglio. Un’altra scelta è quella di
+unire due punti tramite il punto all’inﬁnito (che è un polo doppio per la funzione f(z) e NON
+un punto di diramazione) e di unire gli altri due fra loro al ﬁnito.
+Un esempio delle due possibilità è rappresentato nella ﬁgura seguente:
+ℑ(z)
+ℜ(z)
+ℑ(z)
+ℜ(z)
+i
+2i
+−i
+−2i
+i
+2i
+−i
+−2i
+4.7
+Funzioni trigonometriche inverse
+Consideriamo
+w = sin z = eiz −e−iz
+2i
+(4.131)
+e cerchiamo una rappresentazione per la funzione inversa
+z = arcsin w .
+(4.132)
+Si ha
+2wi = eiz −e−iz ,
+(4.133)
+ovvero, moltiplicando ambo i membri per eiz
+e2iz −2iweiz −1 = 0 ,
+(4.134)
+64
+
+
+===== PAGINA 66 =====
+che risolta in eiz dà
+eiz = iw ±
+√
+1 −w2
+(4.135)
+e inﬁne
+z = −i ln (iw ±
+√
+1 −w2) .
+(4.136)
+La (4.136) costituisce una rappresentazione per l’arcoseno. Se consideriamo il fatto che la radice
+è comunque una funzione polidroma e quindi prende sia il valore positivo che negativo a seconda
+del ramo, possiamo limitarci al segno positivo nell’argomento del logaritmo e deﬁnire
+arcsin w = −i ln (iw +
+√
+1 −w2) .
+(4.137)
+L’arcoseno è una funzione polidroma. Il ramo principale viene scelto scegliendo il ramo
+principale per la radice
+√
+1 −w2 e del logaritmo ln (iw +
+√
+1 −w2).
+Il ramo principale di
+√
+1 −w2 è tale che 1 −w2 non stia sul semiasse reale negativo, ovvero
+1 −w2̸ = −t ,
+t ∈[0, ∞) .
+(4.138)
+Si ha quindi
+w̸ = ±
+√
+1 + t ,
+(4.139)
+che corrisponde ad un taglio che va da −1 a −∞e da 1 a ∞.
+Il ramo principale del logaritmo impone che
+iw +
+√
+1 −w2̸ = −t ,
+t ∈[0, ∞] .
+(4.140)
+Ora, se t ∈[0, ∞) e se per
+√
+1 −w2 prendiamo il ramo principale, si ha automaticamente che
+iw +
+√
+1 −w2̸ = −t. Infatti, se ciò non fosse vero dovremmo avere iw +
+√
+1 −w2 = −t. Intanto
+vediamo che iw +
+√
+1 −w2 non si annulla mai (quindi non c’e’ punto di diramazione per il
+logaritmo al ﬁnito). Inoltre, iw +
+√
+1 −w2 = −t implica che
+√
+1 −w2 = −(t + iw) e quindi,
+quadrando ambo i membri dell’equazione, si ha
+w = it2 −1
+2t
+.
+(4.141)
+Il primo membro dell’equazione è quindi sempre positivo per t ∈[0, ∞)
+√
+1 −w2 =
+r
+1 + (t2 −1)2
+4t2
+=
+r
+(t2 + 1)2
+4t2
+> 0 ,
+(4.142)
+mentre il secondo membro è sempre negativo per t ∈[0, ∞)
+−(t + iw) = −
+
+t −t2 −1
+2t
+
+= −(t2 + 1)
+2t
+< 0 ,
+(4.143)
+contraddicendo l’ipotesi.
+In sintesi, l’unico vincolo che abbiamo è costituito dal taglio della radice, ovvero fra −1
+e −∞e fra 1 e ∞, dove prendendo il ramo principale della radice, prendiamo anche il ramo
+principale dell’arcoseno.
+Nella regione di analiticità, la derivata dell’arcoseno vale
+d
+dz arcsin z
+=
+1
+f ′(w)
+
+w=f−1(z)
+=
+1
+d
+dw sin w
+
+w=arcsin z
+=
+1
+p
+1 −sin2 (arcsin z)
+,
+65
+
+
+===== PAGINA 67 =====
+=
+1
+√
+1 −z2 .
+(4.144)
+Per l’arcocoseno il ragionamento è lo stesso. Si ha
+w = cos z = eiz + e−iz
+2
+,
+(4.145)
+da cui si ottiene
+arccos w = −i ln (w + i
+√
+1 −w2) .
+(4.146)
+Il taglio è deﬁnito dal taglio della radice quadrata interna al logaritmo e pertanto riproduce il
+taglio dell’arcoseno.
+Nella regione di analiticità la derivata dell’arcocoseno è
+d
+dz arccos z
+=
+1
+f ′(w)
+
+w=f−1(z)
+=
+1
+d
+dw cos w
+
+w=arccos z
+= −
+1
+p
+1 −cos2 (arccos z)
+,
+=
+−
+1
+√
+1 −z2 .
+(4.147)
+Per la deﬁnizione dell’arcotangente si ha
+w = tan z = −i
+eiz −e−iz
+eiz + e−iz
+
+,
+(4.148)
+da cui
+arctan w = −i
+2 ln
+1 + iw
+1 −iw
+
+.
+(4.149)
+Il ramo principale è dato dal ramo principale del logaritmo, ovvero
+1 + iw
+1 −iw̸ = −t ,
+t ∈[0, ∞) ,
+(4.150)
+la cui soluzione è
+w̸ = i1 −t
+1 + t .
+(4.151)
+Il taglio è sull’asse immaginario e va da i a i∞e da −i a −i∞.
+All’interno del dominio di analiticità si ha
+d
+dz arctan z
+=
+1
+f ′(w)
+
+w=f−1(z)
+=
+1
+d
+dw tan w
+
+w=arctan z
+=
+1
+1 + tan2 (arctan z) ,
+=
+1
+1 + z2 .
+(4.152)
+66
+
+
+===== PAGINA 68 =====
+Capitolo 5
+Appunti sull’INTEGRAZIONE NEI
+COMPLESSI
+In questo capitolo aﬀrontiamo lo studio dell’integrazione nei complessi. Oltre ad essere parte
+integrante dello studio delle proprietà analitiche delle funzioni di z, ci permette di dimostrare
+importantissime proprietà, come per esempio l’inﬁnita derivabilità di una funzione analitica.
+Ciò non vuol dire che certe propietà non si possano dimostrare senza l’integrazione, ma utilizzan-
+do i risultati dell’integrazione nei complessi la dimostrazione risulta più semplice ed immediata
+(inoltre storicamente è stato seguito questo cammino).
+Se nei reali abbiamo
+Z b
+a
+f(x) dx ,
+(5.1)
+in cui la variabile di integrazione si “muove” lungo il segmento [a, b], la generalizzazione ai
+complessi sarà data da un integrale lungo un cammino in C:
+Z
+γ
+f(z) dz ,
+(5.2)
+dove γ rappresenta tale cammino e f(z) sarà una funzione deﬁnita sui punti di tale curva, con
+certe proprietà.
+ℑ(z)
+ℜ(z)
+γ
+γ(a)
+γ(b)
+f(z ∈γ)
+67
+
+
+===== PAGINA 69 =====
+5.1
+Curve in C
+Cominciamo con la deﬁnizione di cosa intendiamo per curva.
+Deﬁnizione 5.1.1 Una curva (o cammino) in C è un’applicazione
+γ : [a, b]
+→
+C
+t
+→
+γ(t) = x(t) + iy(t) ,
+(5.3)
+con a, b ∈R, tale che x(t) = ℜ(γ) e y(t) = ℑ(γ) siano funzioni reali di variabile reale continue.
+γ(a) è il punto iniziale e γ(b) è il punto ﬁnale della curva.
+Deﬁnizione 5.1.2 La curva γ è detta semplice se è iniettiva in [a, b], cioè se γ(t1)̸ = γ(t2) per
+∀t1̸ = t2 in [a, b].
+Deﬁnizione 5.1.3 La curva γ è detta chiusa se γ(a) = γ(b).
+NB.
+La “curva” è l’applicazione, non il luogo dei punti z ∈C tali che z = γ(t). Questo luogo
+geometrico è detto traccia ed è l’immagine di [a, b] tramite γ. La traccia si indicherà con {γ},
+o con R(γ). A due curve diverse può corrispondere la stessa traccia.
+La curva è una funzione complessa di variabile reale. Per essa, si possono deﬁnire tutte le
+proprietà che abbiamo già introdotto per funzioni complesse di variabile complessa, come per
+esempio la derivabilità:
+Proprietà 5.1.4 Una funzione f : [a, b] →C con [a, b] ∈R e a < b è derivabile in t ∈[a, b],
+se esiste ﬁnito il
+lim
+h→0
+f(t + h) −f(t)
+h
+= f ′(t) .
+(5.4)
+Teorema 5.1.5 La funzione f : [a, b] →C è derivabile in t ∈[a, b] se e solo se ℜ(f), ℑ(f) :
+[a, b] →R sono derivabili in t.
+La dimostrazione è identica al caso di funzione complessa di variabile complessa.
+Teorema 5.1.6 Se f : [a, b] →C è derivabile in [a, b] e f ′(t) = 0 per ∀t ∈[a, b], allora f è
+costante.
+Deﬁnizione 5.1.7 Si dice che la curva γ è regolare se ℜ(γ) e ℑ(γ) cono C1. Si dice che γ è
+regolare a tratti se ∃una partizione di [a, b] tale che γ sia regolare in ogni tratto della partizione.
+Si dice lunghezza della curva il numero reale
+Lγ =
+Z b
+a
+|γ′(t)| dt ,
+(5.5)
+dove |γ′(t)| è la velocità della curva
+|γ′(t)| =
+p
+(ℜ(γ))′2(t) + (ℑ(γ))′2(t) .
+(5.6)
+Per una curva regolare a tratti si ha
+Lγ =
+X
+i
+Lγi .
+(5.7)
+Un concetto importante è quello di equivalenza fra curve.
+68
+
+
+===== PAGINA 70 =====
+Deﬁnizione 5.1.8 Due curve γ : [a, b] →C, t →γ(t) e η : [c, d] →C, τ →η(τ), sono
+equivalenti se ∃una funzione φ : [c, d] →[a, b] monotona, continua e strettamente crescente,
+con φ(c) = a e φ(d) = b tale che η = γ ◦φ. La φ(τ) è detta riparametrizzazione della curva.
+Quindi, se η = η(τ) e γ = γ(t), si ha che η ∼γ se η(τ) = γ(φ(τ)). Essendo φ(τ) monotona,
+è invertibile. Quindi si ha γ(t) = η(φ−1(t)).
+NB. Curve equivalenti formano una classe di equivalenza. Per curva d’ora in avanti inten-
+deremo la classe, indipendentemente dall’applicazione che la rappresenta. Infatti, le proprietà
+importanti degli integrali che studieremo non dipendono dalla rappresentazione della curva.
+Un esempio di invarianza per riparametrizzazione è costituito dalla lunghezza della curva.
+Infatti, se
+η(τ) = γ(t(τ)) ,
+(5.8)
+si ha
+η′(τ) = γ′(t(τ)) t′(τ) .
+(5.9)
+Allora
+Lγ
+=
+Z d
+c
+|η′(τ)| dτ =
+Z d
+c
+|γ′(t(τ))| |t′(τ)| dτ ,
+=
+Z b
+a
+|γ′(t)| dt .
+(5.10)
+Deﬁnizione 5.1.9 Se γ : [a, b] →C, si dice cammino inverso γ−: [b, a] →C
+γ−
+γ(a)
+γ(b)
+γ
+γ(a)
+γ(b)
+Enunciamo soltanto il seguente teorema.
+Teorema 5.1.10 della curva di Jordan. Sia γ una curva chiusa semplice in C. Allora, il
+complemento di {γ}, traccia di γ, è l’unione di due aperti connessi: Int{γ} ∪Ext{γ}, di cui
+Int{γ} è limitato e Ext{γ} illimitato.
+Deﬁnizione 5.1.11 Diremo che la curva chiusa γ è orientata positivamente, se percorrendo
+la curva Int{γ} sta alla sinistra della curva.
+Int{γ}
+69
+
+
+===== PAGINA 71 =====
+5.1.1
+Omotopia
+Consideriamo un dominio D ⊂C e due curve con traccia contenuta in D, γ1 e γ2.
+Deﬁnizione 5.1.12 Si dice che γ1 e γ2 sono omotope se ∃una trasformazione continua che
+connette γ1 a γ2 come in ﬁgura. Ovvero se ∃
+γ : [a, b] × [0, 1] →D ,
+(5.11)
+tale che γ(t, u) ∈D per ∀t ∈[a, b] e u ∈[0, 1] e
+γ(t, 0)
+=
+γ1(t) ,
+(5.12)
+γ(t, 1)
+=
+γ2(t) ,
+(5.13)
+γ(a, u)
+=
+γ1(a) = γ2(a) ,
+(5.14)
+γ(b, u)
+=
+γ1(b) = γ2(b) .
+(5.15)
+γ(a)
+γ(b)
+γ1
+γ2
+L’idea è che si passi alla curva γ2 deformando con continuità la curva γ1.
+NB. Si ha omotopia anche fra curve chiuse. In particolare, una curva γ chiusa che per esempio
+abbia traccia in un disco aperto, è omotopa ad un punto. Si dice che è “omotopa a zero”. Questa
+proprietà dipende da come è fatto il dominio dove è deﬁnita la traccia di γ. Nel disco aperto,
+ogni curva chiusa semplice è omotopa a zero. Cosa che non succede per esempio in un settore
+circolare (disco forato). Un dominio in cui ogni curva chiusa semplice è omotopa a zero si dice
+semplicemente connesso. Il settore circolare è un dominio connesso, ma non semplicemente
+connesso.
+5.2
+Integrali
+Sia γ : [a, b] →C una curva regolare (o regolare a tratti) e f : {γ} →C una funzione continua
+su D ⊃{γ}. Allora si dice integrale di f(z) lungo γ il seguente numero complesso
+Z
+γ
+f(z) dz =
+Z b
+a
+f(γ(t))γ′(t) dt
+(5.16)
+La parte di destra della (5.16) deriva da un procedimento di limite, simile a quello utilizzato
+nella deﬁnizione dell’integrale di una funzione di variabile reale. Infatti possiamo approssimare
+la curva γ (regolare) con una poligonale e poi mandare il passo della poligonale a zero e il
+numero di segmenti all’inﬁnito. Possiamo costruire la seguente somma:
+n
+X
+k=1
+f(ξk)(zk −zk−1) ,
+(5.17)
+70
+
+
+===== PAGINA 72 =====
+dove ξk è un punto dell’arco k-esimo della curva γ da zk−1 a zk e (zk −zk−1) è il segmento che
+unisce zk−1 = γ(tk−1) a zk = γ(tk). Si ha, per la continuità della γ,
+(zk −zk−1) = (tk −tk−1)γ′(t′
+k) ,
+(5.18)
+con t′
+k ∈[tk−1, tk]. Allora scelto un ǫ > 0, ∃δ > 0 tale che, se (tk −tk−1) < δ, ∀k = 1, ..., n, si
+abbia
+
+n
+X
+k=1
+f(ξk)(zk −zk−1) −
+Z b
+a
+f(γ(t))γ′(t) dt
+
+=
+
+n
+X
+k=1
+f(γ(t′
+k))γ′(t′
+k)(tk −tk−1) −
+Z b
+a
+f(γ(t))γ′(t) dt
+ < ǫ .
+(5.19)
+L’integrale (5.16) è invariante per riparametrizzazione della curva. Infatti, se t = t(τ) e
+γ1(t(τ)) = γ2(τ), allora
+Z
+γ1
+f(z) dz =
+Z b
+a
+f(γ1(t))γ′
+1(t) dt =
+Z d
+c
+f(γ1(t(τ)))γ′
+1(t(τ)) t′(τ) dτ =
+Z d
+c
+f(γ2(τ)γ′
+2(τ) dτ .
+(5.20)
+Se γ = γ1 + γ2, allora
+Z
+γ
+f(z) dz =
+Z
+γ1
+f(z) dz +
+Z
+γ2
+f(z) dz .
+(5.21)
+NB. Ovviamente, se f(z) è una funzione di variabile complessa “qualunque”, l’integrale su γ
+dipende da γ.
+Esempio.
+Come esempio di ciò possiamo prendere f(z) = |z|2 = zz e considerare il suo
+integrale su tre curve diverse:
+γ1(t)
+=
+eit
+0 ≤t ≤π
+2 ,
+(5.22)
+γ2(t)
+=
+1 + (i −1)t ,
+0 ≤t ≤1 ,
+(5.23)
+γ3(t)
+=
+γ31 + γ32 ,
+γ31(t) = 1 + it ,
+0 ≤t ≤1 ,
+(5.24)
+γ32(t) = (1 −t) + i ,
+0 ≤t ≤1 .
+(5.25)
+Si ha
+γi(a) = 1 ,
+γi(b) = i ,
+i = 1, 2, 3 .
+(5.26)
+ℑ(z)
+ℜ(z)
+i
+1
+γ1
+γ2
+γ3
+γ31
+γ32
+71
+
+
+===== PAGINA 73 =====
+Avremo:
+1. Integrale sulla prima curva:
+Z
+γ1
+f(z) dz =
+Z
+γ1
+|z|2 dz =
+Z
+π
+2
+0
+eit2 ieitdt =
+Z
+π
+2
+0
+ieitdt = eit
+π
+2
+0 = i −1 .
+(5.27)
+2. Integrale sulla seconda curva:
+Z
+γ2
+|z|2 dz =
+Z 1
+0
+[(1 −t)2 + t2](i −1)dt = (i −1)
+Z 1
+0
+(1 −2t + 2t2) dt = 2
+3(i −1) . (5.28)
+3. Integrale sulla terza curva:
+Z
+γ3
+|z|2 dz =
+Z 1
+0
+(1 + t2)i dt +
+Z 1
+0
+[(1 −t)2 + 1](−1) dt = 4
+3(i −1) .
+(5.29)
+Da notare che la funzione che abbiamo integrato NON è una funzione analitica. Come
+vedremo più avanti, per una funzione analitica l’integrale non dipende dal cammino.
+Proprietà 5.2.1 Sia γ : [a, b] →C una curva semplice regolare (o regolare a tratti) e siano
+f(z) e g(z) due funzioni continue su D ⊃{γ} e ω ∈C. Allora si hanno le seguenti proprietà:
+Z
+γ
+ω f(z) dz = ω
+Z
+γ
+f(z) dz ,
+(5.30)
+Z
+γ
+[f(z) + g(z)] dz =
+Z
+γ
+f(z) dz +
+Z
+γ
+g(z) dz ,
+(5.31)
+Z
+γ−f(z) dz = −
+Z
+γ
+f(z) dz .
+(5.32)
+Teorema 5.2.2 (di Darboux). Sia γ : [a, b] →C una curva semplice regolare (o regolare a
+tratti) di lunghezza Lγ e f(z) una funzione continua su D ⊃{γ}. Allora
+
+Z
+γ
+f(z) dz
+ ≤Lγ supz∈{γ} |f(z)| .
+(5.33)
+Dimostrazione. Infatti
+
+Z
+γ
+f(z) dz
+
+=
+
+Z b
+a
+f(γ(t))γ′(t) dt
+ ≤
+Z b
+a
+|f(γ(t))γ′(t)| dt ,
+≤
+supz∈{γ} |f(z)|
+Z b
+a
+|γ′(t)| dt = Lγ supz∈{γ} |f(z)| .
+(5.34)
+Consideriamo adesso successioni e serie di funzioni. Si hanno i seguenti due risultati.
+Teorema 5.2.3 Sia γ : [a, b] →C una curva semplice regolare (o regolare a tratti) e fn una
+successione di funzioni continue su D ⊃{γ}, uniformemente convergente a f. Allora
+lim
+n→∞
+Z
+γ
+fn(z) dz =
+Z
+γ
+f(z) dz .
+(5.35)
+72
+
+
+===== PAGINA 74 =====
+Dimostrazione. Siccome fn converge uniformemente ad f, anche f è continua e
+R
+γ f(z) dz è ben
+deﬁnita. Se fn converge uniformemente a f, preso un ǫ > 0, ∃n0(ǫ) tale che
+|fn(z) −f(z)| ≤ǫ
+Lγ
+,
+(5.36)
+per n > n0 e per ∀z ∈{γ}. Allora, per il thm di Darboux, si ha
+
+Z
+γ
+fn(z)dz −
+Z
+γ
+f(z)dz
+
+=
+
+Z
+γ
+[fn(z) −f(z)] dz
+ ≤
+Z
+γ
+|fn(z) −f(z)| dz ,
+≤
+Lγ supz∈{γ} |fn(z) −f(z)| = ǫ ,
+(5.37)
+dove abbiamo utilizzato la (5.36).
+Corollario 5.2.4 Sia P∞
+n=0 fn(z) una serie di funzioni continue su D ⊃{γ}, uniformemente
+convergente ad f(z). Allora
+∞
+X
+n=0
+Z
+γ
+fn(z) dz =
+Z
+γ
+f(z) dz .
+(5.38)
+Dimostrazione. Considerato che la serie è il limite della successione delle somme parziali, questo
+risultato deriva direttamente dal teorema precedente.
+5.2.1
+Esempi
+Vediamo alcuni esempi di integrali su una curva chiusa e cerchiamo di capire come si compor-
+tano.
+Esempio 1.
+Prima di tutto riprendiamo l’ultimo esempio fatto e calcoliamo l’integrale di
+f(z) = |z|2 sulla curva chiusa
+γ4
+=
+γ31 + γ32 + γ33 + γ34 ,
+(5.39)
+
+
+
+
+
+
+
+
+
+γ31 = 1 + it ,
+γ32 = (1 −t) + i ,
+γ33 = (1 −t)i ,
+γ34 = t ,
+0 ≤t ≤1
+(5.40)
+ℑ(z)
+ℜ(z)
+i
+1
+γ33
+γ34
+γ4
+γ31
+γ32
+73
+
+
+===== PAGINA 75 =====
+Si ha
+Z
+γ4
+|z|2 dz
+=
+Z 1
+0
+(1 + t2)i dt +
+Z 1
+0
+[(1 −t)2 + 1](−1) dt +
+Z 1
+0
+(1 −t)2(−i) dt +
+Z 1
+0
+t2dt ,
+=
+4
+3i −4
+3 −i
+
+t −t2 + t3
+3
+1
+0
++ 1
+3 ,
+=
+i −1 .
+(5.41)
+Quindi l’integrale sulla curva chiusa di f(z) = |z|2 è diverso da zero!!
+Esempio 2. Facciamo adesso l’integrale su una curva chiusa di una funzione analitica. Pren-
+diamo per esempio f(z) = z2, che è addirittura intera. Per curva prendiamo la circonferenza
+di raggio R.
+f(z) = z2 ,
+(5.42)
+γ : t ∈[0, 2π] →Reit .
+(5.43)
+Allora:
+Z
+γ
+f(z) dz
+=
+Z 2π
+0
+R2e2it iReit dt = iR3
+Z 2π
+0
+e3itdt ,
+=
+R3
+3 e3it
+
+2π
+0
+= 0 .
+(5.44)
+Ciò deriva dal fatto che l’esponenziale valutato in 0 o in 2π dà lo stesso risultato.
+Esempio 3. Lo stesso risultato si ottiene considerando f(z) = z, altra funzione intera. Si ha
+Z
+γ
+f(z) dz
+=
+Z 2π
+0
+Reit iReit dt = iR2
+Z 2π
+0
+e2itdt ,
+=
+R2
+2 e2it
+
+2π
+0
+= 0 .
+(5.45)
+Esempio 4. ... e così anche per f(z) = c costante:
+Z
+γ
+f(z) dz
+=
+Z 2π
+0
+c iReit dt = iRc
+Z 2π
+0
+eitdt ,
+=
+Rc eit2π
+0 = 0 .
+(5.46)
+Esempio 5. Consideriamo adesso una potenza inversa. Prendiamo
+f(z) = 1
+z .
+(5.47)
+Si ha
+Z
+γ
+f(z) dz =
+Z 2π
+0
+R−1e−it iReit dt = i
+Z 2π
+0
+dt = 2πi
+(5.48)
+e questo risultato è indipendente dal raggio della circonferenza γ.
+74
+
+
+===== PAGINA 76 =====
+Esempio 6. Prendiamo adesso
+f(z) = 1
+z2 .
+(5.49)
+Si ha
+Z
+γ
+f(z) dz =
+Z 2π
+0
+R−2e−2it iReit dt = i
+R
+Z 2π
+0
+e−it dt = 0 .
+(5.50)
+E così per le altre potenze negative di z.
+Questi esempi si riassumono andando a considerare f(z) = zn, n ∈Z. Infatti
+Z
+γ
+zn dz =
+Z 2π
+0
+Rneint iReit dt = iRn+1
+Z 2π
+0
+ei(n+1)t dt .
+(5.51)
+Quindi l’integrale è nullo per ∀n ∈Z −{−1}, cioè tranne che per n = −1 per cui l’integrale
+vale 2πi.
+NB. Riassumiamo cosa abbiamo imparato da questo tipo di integrali. Per il momento possiamo
+soltanto trarre delle conseguenze legate ancora al tipo di funzione e alla curva; poi vedremo che
+col teorema di Cauchy potremo generalizzare. Integrando su una circonferenza (curva
+chiusa) una potenza intera di z otteniamo che l’integrale è nullo tranne quando
+la funzione considerata ha un polo semplice interno alla circonferenza. Da notare
+che anche le funzioni con poli superiori al primo danno integrale nullo, anche se la
+singolarità è comunque interna alla circonferenza ...
+Prima di tutto vediamo che anche un altro tipo di curva chiusa dà lo stesso risultato. Per
+fare il calcolo in maniera semplice, prendiamo per esempio f(z) = z e f(z) = 1/z sul perimetro
+di un quadrato:
+γ
+=
+γ1 + γ2 + γ3 + γ4 ,
+(5.52)
+
+
+
+
+
+
+
+
+
+γ1 = 1 + (−1 + t)i ,
+γ2 = (1 −t) + i ,
+γ3 = −1 + (1 −t)i ,
+γ4 = (t −1) −i ,
+0 ≤t ≤2
+(5.53)
+Quindi abbiamo:
+Z
+γ
+z dz
+=
+Z 2
+0
+[1 + (−1 + t)i]i dt +
+Z 2
+0
+[(1 −t) + i](−1) dt +
+Z 2
+0
+[−1 + (1 −t)i](−i) dt ,
++
+Z 2
+0
+[(t −1) −i] dt ,
+(5.54)
+=
+i
+
+(1 −i)t + it2
+2
+2
+0
+−
+
+(1 + i)t −t2
+2
+2
+0
+−i
+
+(−1 + i)t −it2
+2
+2
+0
++
+
+−(1 + i)t + t2
+2
+2
+0
+,
+= 0
+(5.55)
+e
+Z
+γ
+dz
+z
+=
+Z 2
+0
+idt
+[1 + (−1 + t)i] −
+Z 2
+0
+dt
+[(1 −t) + i] −
+Z 2
+0
+idt
+[−1 + (1 −t)i] +
+Z 2
+0
+dt
+[(t −1) −i] ,
+75
+
+
+===== PAGINA 77 =====
+=
+ln (−1 −i + t)2
+0 + ln (1 + i −t)2
+0 + ln (1 + i −t)2
+0 + ln (−1 −i + t)2
+0 ,
+(5.56)
+=
+2 ln (1 −i) + 2 ln (−1 + i) −2 ln (−1 −i) −2 ln (1 + i) ,
+(5.57)
+=
+2
+
+−1
+4π
+
++ 2
+3
+4π
+
+−2
+
+−3
+4π
+
+−2
+1
+4π
+
+= 2πi .
+(5.58)
+Quindi le proprietà che abbiamo elencato qui sopra non sembrano dipendere dal fatto che
+avessimo scelto una circonferenza, ma piuttosto dal fatto che la curva è chiusa.
+Inoltre, il
+polo semplice deve essere interno alla curva chiusa. Infatti, se il polo semplice della funzione
+f(z) = 1/z si trova al di fuori della curva chiusa abbiamo il seguente risultato. Consideriamo
+γ
+=
+γ1 + γ2 + γ3 + γ4 ,
+(5.59)
+
+
+
+
+
+
+
+
+
+γ1 = 1 + t ,
+γ2 = 2 + it ,
+γ3 = (2 −t) + i ,
+γ4 = 1 + (1 −t)i ,
+0 ≤t ≤1 .
+(5.60)
+Allora
+Z
+γ
+f(z) dz
+=
+Z 1
+0
+dt
+1 + t +
+Z 1
+0
+idt
+2 + it −
+Z 1
+0
+dt
+(21 −t) + i −
+Z 1
+0
+idt
+1 + (1 −t)i ,
+=
+ln (2) + ln (2 + it)1
+0 + ln (2 −t + i)1
+0 + ln (1 + (1 −t)i)1
+0 ,
+=
+0 .
+(5.61)
+5.3
+Teorema di Cauchy (forma debole)
+Sia γ una curva semplice, regolare e chiusa e sia f(z) = u(x, y) + i v(x, y) una funzione di
+variabile complessa sul dominio D ⊃{γ}. L’integrale di f(z) su γ è dato da
+Z
+γ
+f(z) dz
+=
+Z
+γ
+[u(x, y) + i v(x, y)] (dx + idy) ,
+=
+Z
+γ
+{[u(x, y)dx −v(x, y)dy] + i [v(x, y)dx + u(x, y)dy]} .
+(5.62)
+Si tratta quindi di due integrali di forme diﬀerenziali, sulla curva parametrizzata da x(t) e
+y(t). Se γ individua un dominio Int(γ) regolare, limitato e semplicemente connesso, possia-
+mo applicare il teorema di Stokes (o meglio le formule di Gauss-Green)1 all’integrale (5.62),
+ottenendo Z
+γ
+f(z) dz
+=
+Z
+γ
+{[u(x, y)dx −v(x, y)dy] + i [v(x, y)dx + u(x, y)dy]} ,
+(5.65)
+1Se D è un dominio regolare, limitato e semplicemente connesso di R2, di frontiera ∂D, curva semplice,
+chiusa, regolare e orientata positivamente e
+ω = A(x, y)dx + B(x, y)dy
+(5.63)
+una forma diﬀerenziale su un insieme aperto Ω⊃D dove A(x, y) e B(x, y) sono diﬀerenziabili con continuità,
+allora
+I
+∂D+ω =
+Z
+D
+∂B
+∂x −∂A
+∂y
+
+dx dy .
+(5.64)
+76
+
+
+===== PAGINA 78 =====
+=
+Z
+Int(γ)
+
+−∂u
+∂y −∂v
+∂x
+
+dx dy + i
+Z
+Int(γ)
+∂u
+∂x −∂v
+∂y
+
+dx dy .
+(5.66)
+Se f(z) è analitica in D ⊃{γ} e ux(x, y), uy(x, y), vx(x, y) e vy(x, y) sono continue, valendo le
+condizioni di Cauchy-Riemann si ha che l’integrale in (5.66) diventa
+Z
+γ
+f(z) dz = 0 .
+(5.67)
+Abbiamo allora dimostrato il
+Teorema 5.3.1 di Cauchy (forma debole). Sia f(z) analitica con derivata prima continua
+e derivabile (ancora più “debole”, sia f(z) olomorfa) in un dominio semplicemente connesso D
+del piano complesso. Sia γ una curva semplice, regolare, chiusa con traccia in D. Allora
+Z
+γ
+f(z) dz = 0 .
+(5.68)
+NB. La “debolezza” di questa formulazione del teorema di Cauchy sta nel fatto che vogliamo che
+valgano le formule di Gauss-Green e quindi f deve essere derivabile con derivata continua. In
+realtà il teorema di Cauchy si può utilizzare per dimostrare che se una funzione è analitica, allora
+è olomorfa, ovvero se è derivabile una volta in un certo dominio, è ivi derivabile inﬁnite volte.
+Si può abbandonare l’ipotesi che f ′(z) sia continua, utilizzando una dimostrazione semplice ed
+elegante del teorema di Cauchy sul rettangolo, dovuta a Goursat.
+Teorema 5.3.2 di Cauchy-Goursat. Sia f(z) deﬁnita su un dominio D ⊂C e sia R un
+rettangolo (quindi un insieme chiuso) contenuto in ˚
+D (punti interni di D). Se f(z) è analitica
+su R, allora
+Z
+∂R
+f(z) dz = 0 ,
+(5.69)
+dove ∂R è il perimetro di R.
+Dimostrazione. Dividiamo R in 4 rettangoli congruenti: R1, R2, R3 e R4. Possiamo scrivere
+Z
+∂R
+f(z) dz =
+4
+X
+k=1
+Z
+∂Rk
+f(z) dz ,
+(5.70)
+in quanto l’integrale di f(z) sui segmenti fra i vari rettangoli dà contributo nullo, visto che
+questi sono percorsi una volta in un senso e la seconda volta nell’altro.
+R1
+R2
+R3
+R4
+∂R
+77
+
+
+===== PAGINA 79 =====
+Dalla disuguaglianza triangolare segue che:
+
+Z
+∂R
+f(z) dz
+ ≤
+
+Z
+∂R1
+f(z) dz
+ +
+
+Z
+∂R2
+f(z) dz
+ +
+
+Z
+∂R3
+f(z) dz
+ +
+
+Z
+∂R4
+f(z) dz
+ .
+(5.71)
+Ci sarà almeno uno dei quattro rettangoli per il quale il contributo alla somma di destra è
+massima. Diciamo che si tratti del rettangolo i-esimo. Allora potremo scrivere
+
+Z
+∂R
+f(z) dz
+ ≤4
+
+Z
+∂Ri
+f(z) dz
+ .
+(5.72)
+(Se ci dovessero essere più rettangoli che danno lo stesso contributo, potremmo comunque
+individuare un algoritmo che permette di sceglierne uno e il ragionamento rimane lo stesso).
+Ripetiamo lo stesso ragionamento, dividendo il rettangolo i-esimo in 4 e scegliendo il
+rettangolo che massimizza il contributo alla somma dei moduli. All’n-esimo passaggio avremo
+
+Z
+∂R
+f(z) dz
+ ≤4n
+
+Z
+∂Rn
+f(z) dz
+ ,
+(5.73)
+dove R ⊃R1 ⊃R2 ⊃... ⊃Rn.
+Consideriamo i centri dei rettangoli Rn. Questi hanno un punto di accumulazione, z0, che
+sarà per costruzione nel rettangolo R, z0 ∈R. Quindi f(z) è analitica in un intorno di z0 (ciò
+vale anche se z0 ∈∂R). Quindi, scelto un ǫ > 0, ∃δ > 0 tale che se |z −z0| < δ (e questo
+succederà per n suﬃcientemente grande) si abbia
+
+f(z) −f(z0)
+z −z0
+−f ′(z0)
+ < ǫ ,
+(5.74)
+ovvero
+|f(z) −f(z0) −f ′(z0)(z −z0)| < ǫ |z −z0| < ǫ dn ,
+(5.75)
+dove dn è la diagonale dell’n-esimo rettangolino della serie.
+Sappiamo (lo abbiamo dimostrato con un calcolo diretto) che
+Z
+∂Rn
+dz = 0 ,
+(5.76)
+Z
+∂Rn
+z dz = 0 .
+(5.77)
+Allora
+Z
+∂Rn
+[f(z0) + f ′(z0)(z −z0)] dz = 0 .
+(5.78)
+Quindi:
+
+Z
+∂Rn
+f(z) dz
+
+=
+
+Z
+∂Rn
+[f(z) −f(z0) −f ′(z0)(z −z0)] dz
+ ,
+(5.79)
+78
+
+
+===== PAGINA 80 =====
+≤
+L∂Rn supz∈Rn |f(z) −f(z0) −f ′(z0)(z −z0)| ,
+(5.80)
+≤
+L∂Rnǫ dn ,
+(5.81)
+=
+L
+2n ǫ d
+2n ,
+(5.82)
+=
+ǫ d L
+4n ,
+(5.83)
+dove la prima uguaglianza segue dal fatto che valga la (5.78) e che quindi abbiamo aggiunto
+uno zero; poi passando da (5.79) a (5.80) abbiamo usato il teorema di Darboux; da (5.80) a
+(5.81) abbiamo usato la (5.75) e inﬁne, dalla (5.81) alla (5.82) abbiamo usato il fatto che il
+perimetro dell’n-esimo rettangolo è dato dal perimetro del rettangolo R, L, diviso per 2n e così
+la sua diagonale.
+Sostituendo inﬁne la (5.83) nella (5.73) si ha
+
+Z
+∂R
+f(z) dz
+ ≤4n
+
+Z
+∂Rn
+f(z) dz
+ ≤d L ǫ ,
+(5.84)
+che per l’arbitrarietà dell’ǫ dimostra l’assunto.
+NB. La stessa identica dimostrazione si trova a volte riferita ad un triangolo isoscele, invece
+che al rettangolo. Infatti se prendiamo la ﬁgura qui di seguito
+T1
+T2
+T3
+T4
+∂T
+possiamo ripetere esattamente gli stessi passaggi della dimostrazione precedente e concludere
+che anche in questo caso si ha
+Z
+∂T
+f(z) dz = 0 .
+(5.85)
+Il teorema di Goursat può essere dimostrato anche con ipotesi meno restrittive. Per esem-
+pio, f(z) può essere analitica tranne un certo numero (ﬁnito) di singolarità eliminabili (come
+dimostreremo qui sotto) e addirittura f(z) può essere analitica in Int{γ} ma solo continua su
+{γ} (ma non lo dimostreremo).
+Teorema 5.3.3 di Cauchy-Goursat modiﬁcato. Sia f(z) deﬁnita su un dominio D ⊂C e
+sia R un rettangolo (quindi un insieme chiuso) contenuto in ˚
+D (punti interni di D). Sia f(z)
+analitica su R, tranne nei punti {z1, ..., zn} ∈˚
+R in cui f(z) abbia singolarità eliminabili. Allora
+Z
+∂R
+f(z) dz = 0 .
+(5.86)
+79
+
+
+===== PAGINA 81 =====
+(La stessa cosa vale per il triangolo ...)
+Dimostrazione. Dividiamo il rettangolo R in m rettangolini (M > n) contenuti in R tali che n
+di questi abbiano ognuno una delle zn singolarità al centro, Rk, k = 1, ..., n. Avremo
+Z
+∂R
+f(z) dz =
+n
+X
+k=1
+Z
+∂Rk
+f(z) dz +
+n+m
+X
+i=n+1
+Z
+∂Ri
+f(z) dz =
+n
+X
+k=1
+Z
+∂Rk
+f(z) dz ,
+(5.87)
+poiché per i rettangoli che non contengono una singolarità interna sappiamo già che vale il
+teorema di Cauchy-Goursat e quindi
+Z
+∂Ri
+f(z) = 0 ,
+i = n + 1, ...n + m .
+(5.88)
+Basta quindi concentrarsi sui rettangolini con al centro una singolarità. Per semplicità conside-
+riamone uno, il k-esimo. Inoltre, senza perdere in generalità consideriamo un quadrato invece
+di un rettangolo.
+Poiché la singolarità in z = zk è rimovibile, si ha
+lim
+z→zk(z −zk)f(z) = 0 ,
+(5.89)
+cioè preso un ǫ > 0, ∃δ > 0 tale che
+|(z −zk)f(z)| < ǫ ,
+∀z ∈D(zk, δ) .
+(5.90)
+Se dividiamo il quadrato con zk al centro in n quadrati di cui uno con zk al centro e gli altri
+senza singolarità (per i quali l’integrale è nullo) si arriverà ad una partizione tale che il k-esimo
+quadrato Qk con al centro zk sia tutto contenuto in D(zk, δ), Qk ⊂D(zk, δ). Se lk è la lunghezza
+del quadrato Qk si ha che per z ∈∂Qk
+|z −zk| ≥lk
+2
+∀z ∈∂Qk .
+(5.91)
+Siccome
+|f(z)(z −zk)| < ǫ ,
+(5.92)
+si ha anche che
+|f(z)| <
+ǫ
+|z −zk| < 2ǫ
+lk
+,
+∀z ∈∂Qk .
+(5.93)
+Allora, per il teorema di Darboux
+
+Z
+∂Qk
+f(z) dz
+ ≤4lk supz∈∂Qk |f(z)| < 4lk
+2ǫ
+lk
+= 8ǫ .
+(5.94)
+Per l’arbitrarietà dell’ǫ si ha l’assunto.
+Abbiamo dimostrato il teorema di Cauchy per una curva geometrica particolare (perimetro
+del rettangolo o del triangolo). Sfruttando la deﬁnizione di integrale sulla curva γ possiamo
+generalizzare il teorema ad una curva chiusa semplice e regolare qualsiasi.
+80
+
+
+===== PAGINA 82 =====
+Teorema 5.3.4 di Cauchy (sul disco). Sia f(z) deﬁnita su un dominio D ⊂C e sia B un
+disco (aperto e semplicemente connesso) contenuto in ˚
+D. Se f(z) è analitica su D, allora per
+∀γ cammino semplice, regolare e chiuso in B si ha
+Z
+γ
+f(z) dz = 0 .
+(5.95)
+Dimostrazione. È facile capire come il teorema di Cauchy-Goursat valga per una poligonale
+chiusa. Prendiamo una poligonale inscritta nella curva γ. Per deﬁnizione di integrale si avrà
+
+Z
+γ
+f(z) dz −
+n
+X
+k=1
+(zk −zz−1)f(zk)
+ < ǫ ,
+(5.96)
+che si può anche scrivere come
+
+Z
+γ
+f(z) dz −
+n
+X
+k=1
+Z zk
+zk−1
+f(zk)dz
+ < ǫ ,
+(5.97)
+poiché
+R zk
+zk−1 f(zk)dz = (zk −zz−1)f(zk).
+Per il teorema di Cauchy-Goursat abbiamo anche
+n
+X
+k=1
+Z zk
+zk−1
+f(z)dz = 0 .
+(5.98)
+Ma allora
+
+Z
+γ
+f(z) dz −
+n
+X
+k=1
+Z zk
+zk−1
+f(zk)dz +
+n
+X
+k=1
+Z zk
+zk−1
+f(z)dz
+ ,
+=
+
+Z
+γ
+f(z) dz −
+n
+X
+k=1
+Z zk
+zk−1
+(f(zk) −f(z))dz
+ < ǫ .
+(5.99)
+Usando le proprietà dei numeri complessi, possiamo scrivere
+
+Z
+γ
+f(z) dz
+ −
+
+n
+X
+k=1
+Z zk
+zk−1
+(f(zk) −f(z))dz
+ ≤
+
+Z
+γ
+f(z) dz −
+n
+X
+k=1
+Z zk
+zk−1
+(f(zk) −f(z))dz
+
+(5.100)
+e quindi
+
+Z
+γ
+f(z) dz
+ −
+
+n
+X
+k=1
+Z zk
+zk−1
+(f(zk) −f(z))dz
+ < ǫ .
+(5.101)
+Ne segue che
+
+Z
+γ
+f(z) dz
+
+<
+ǫ +
+
+n
+X
+k=1
+Z zk
+zk−1
+(f(zk) −f(z))dz
+ ,
+<
+ǫ +
+n
+X
+k=1
+
+Z zk
+zk−1
+(f(zk) −f(z))dz
+ ,
+81
+
+
+===== PAGINA 83 =====
+<
+ǫ + Lpolig suppolig |f(zk) −f(z)| .
+(5.102)
+Per la continuità di f(z) (è analitica e quindi è continua) si ha che suppolig |f(zk) −f(z)| < ǫ′
+non appena |z −zk| < δ scelto in corrispondenza dell’ǫ′. Per l’arbitrarietà dell’ǫ si ha l’assunto.
+Allo stesso modo si può dimostrare il teorema di Cauchy nel caso in cui la funzione f(z)
+abbia in Int{γ} un certo numero di singolarità rimovibili.
+Teorema 5.3.5 di Cauchy (sul disco) modiﬁcato. Sia f(z) deﬁnita su un dominio D ⊂C
+e sia B un disco (aperto e semplicemente connesso) contenuto in ˚
+D. Se f(z) è analitica su D,
+tranne un numero ﬁnito di singolarità rimovibili {z1, ..., zk}, allora per ∀γ cammino semplice,
+regolare e chiuso in B, tale che zi̸ ∈{γ}, si ha
+Z
+γ
+f(z) dz = 0 .
+(5.103)
+(Cioè le singolarità non devono essere sulla curva di integrazione γ.)
+5.3.1
+Una conseguenza del Teorema di Cauchy: primitiva
+L’immediata conseguenza del teorema di Cauchy è l’esistenza della primitiva di f(z). Infatti,
+se f(z) è analitica in D si ha
+Z
+γ
+f(z) dz = 0 ,
+(5.104)
+per ogni γ la cui traccia sia inclusa in D. Ma allora, possiamo spezzare il cammino chiuso in
+due cammini
+γ = γ1 + γ2 ,
+(5.105)
+tali che
+Z
+γ
+f(z) dz =
+Z
+γ1
+f(z) dz +
+Z
+γ2
+f(z) dz = 0 .
+(5.106)
+Quindi, siccome
+Z
+γ2
+f(z) dz = −
+Z
+γ−
+2
+f(z) dz ,
+(5.107)
+si ha
+Z
+γ1
+f(z) dz =
+Z
+γ−
+2
+f(z) dz ,
+(5.108)
+per ∀γ1, γ2 con γ1(a) = γ−
+2 (a) e γ1(b) = γ−
+2 (b). Allora l’integrale di f(z) dipende solo dal punto
+iniziale e dal punto ﬁnale, ma non dalla cirva su cui si integra. Potremo scrivere
+F(z) = F(z0) +
+Z z
+z0
+f(z) dz ,
+(5.109)
+senza speciﬁcare ulteriormente il γ di integrazione, poiché il risultato dipende solo da z0 e z. Si
+ha
+Teorema 5.3.6 La funzione F(z) è analitica e si ha
+F ′(z) = f(z) ,
+(5.110)
+cioè F(z) è la primitiva di f(z).
+82
+
+
+===== PAGINA 84 =====
+Dimostrazione. Per provare che F ′(z) = f(z) costruiamo il rapporto incrementale di F(z) e
+dimostriamo che il suo limite esiste ed è proprio f(z).
+Prendiamo z1 ∈D e costruiamo
+∆
+=
+F(z1) −F(z)
+z1 −z
+,
+(5.111)
+=
+1
+z1 −z
+Z z1
+z0
+f(z) dz −
+Z z
+z0
+f(z) dz
+
+,
+(5.112)
+=
+1
+z1 −z
+Z z
+z0
+f(z) dz +
+Z z1
+z
+f(z) dz −
+Z z
+z0
+f(z) dz
+
+,
+(5.113)
+=
+1
+z1 −z
+Z z1
+z
+f(z) dz .
+(5.114)
+Siccome
+f(z1) =
+1
+z1 −z
+Z z1
+z
+f(z1) dz ,
+(5.115)
+si ha
+∆=
+1
+z1 −z
+Z z1
+z
+f(z) dz + f(z1) −f(z1) = f(z1) +
+1
+z1 −z
+Z z1
+z
+[f(z) −f(z1)] dz ,
+(5.116)
+ovvero
+F(z1) −F(z)
+z1 −z
+−f(z1) =
+1
+z1 −z
+Z z1
+z
+[f(z) −f(z1)] dz .
+(5.117)
+Ora ricordiamoci che f(z), essendo analitica in tutto D, è anche continua. Allora, scelto un
+ǫ > 0, ∃δ > 0 tale che per |z1 −z| < δ risulti
+|f(z) −f(z1)| < ǫ .
+(5.118)
+Ma allora
+
+F(z1) −F(z)
+z1 −z
+−f(z1)
+
+=
+
+1
+z1 −z
+
+
+Z z1
+z
+[f(z) −f(z1)] dz
+ ,
+(5.119)
+≤
+1
+|z1 −z| Lγz1z supz∈D |f(z) −f(z1)| ,
+(5.120)
+≤
+ǫ ,
+(5.121)
+dove per passare da (5.119) a (5.120) abbiamo utilizzato il teorema di Darboux e per arrivare
+alla (5.120) abbiamo usato il fatto che Lγz1z = |z1 −z| e la (5.118).
+Quindi abbiamo dimostrato che
+lim
+z→z1
+F(z1) −F(z)
+z1 −z
+= F ′(z1) = f(z1) ,
+(5.122)
+cioè F(z) è analitica e la sua derivata coincide con f(z).
+83

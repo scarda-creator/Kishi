@@ -1,0 +1,56 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 21/06/2023
+proﬀ. F. De Marchis, F. Lanzara, A. Terracina
+COGNOME, NOME e MATRICOLA:
+DOCENTE:
+⃝De Marchis
+⃝Lanzara
+⃝Terracina
+Se ammesso, sosterr`o la prova orale:
+⃝nell’appello di giugno
+⃝in un appello successivo
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere adeguatamente motivati!
+Esercizio 1. (6.5 punti) Sia data la funzione
+f(x, y) =
+
+x2 log(1 + x2y2)
+(x2 + y2)β
++ |xy|β
+(x, y) , (0, 0)
+0
+(x, y) = (0, 0)
+i. Studiare al variare di β > 0 la continuit`a, la derivabilit`a e la diﬀerenziabilit`a nell’origine;
+ii. Studiare al variare di β > 0 l’esistenza delle derivate direzionali nell’origine;
+Esercizio 2. (6 punti) Data la serie
+∞
+X
+k=1
+1 + k
+k2 e−k x,
+x ∈,
+studiare la convergenza puntuale, assoluta, totale e uniforme al variare di x ∈.
+Esercizio 3. (6 punti) Posto
+D = {(x, y) ∈R2 : 2x2 + y2 ≤1},
+sia F : R2 →R deﬁnita da
+F(x, y) = x2 + 3y2 −6x.
+i. Determinare eventuali punti di massimo o minimo relativo di F in 2.
+ii. Dire perch´e F ammette massimo e minimo assoluti in D.
+iii. Determinare massimo e minimo assoluto di F in D.
+iv. Determinare, se esistono, massimo assoluto e minimo assoluto in  × [−1, 1].
+Esercizio 4. ( 7 punti) Si consideri l’insieme
+E = {(x, y, z) : z2 + 3 ≤x2 + y2 ≤3z + 1}.
+i. Scrivere una rappresentazione parametrica delle superﬁci regolari Σ1 e Σ2 che delimitano l’insieme E.
+ii. Calcolare il volume di E.
+iii. Calcolare il ﬂusso di F = (x, y, z) attraverso Σ1 e Σ2, uscente da E.
+Esercizio 5. (6.5 punti) Si consideri il problema di Cauchy
+
+u′(t) =
+u(t)
+u2(t) −1
+u(0) = c
+c ∈,
+c , ±1
+i. Spiegare perch´e il problema di Cauchy ammette un’unica soluzione locale.
+ii. Studiare la monotonia delle soluzioni al variare di c ∈ \ {±1}.
+iii. Studiare la concavit`a e convessit`a delle soluzioni quando c = 2.
+iv. Determinare in forma implicita la soluzione del problema di Cauchy al variare di c ∈ \ {±1}.

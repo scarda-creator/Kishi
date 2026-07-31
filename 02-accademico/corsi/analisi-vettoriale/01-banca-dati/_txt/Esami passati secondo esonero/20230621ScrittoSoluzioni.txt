@@ -1,0 +1,521 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 21/06/2023
+proﬀ. F. De Marchis, F. Lanzara, A. Terracina
+COGNOME, NOME e MATRICOLA:
+DOCENTE:
+⃝De Marchis
+⃝Lanzara
+⃝Terracina
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere adeguatamente motivati!
+Esercizio 1. ( 6.5 punti) Sia data la funzione
+f(x, y) =
+
+x2 log(1 + x2y2)
+(x2 + y2)β
++ |xy|β
+(x, y) , (0, 0)
+0
+(x, y) = (0, 0)
+i. Studiare al variare di β > 0 la continuit`a, la derivabilit`a e la diﬀerenziabilit`a nell’origine;
+ii. Studiare al variare di β > 0 l’esistenza delle derivate direzionali nell’origine;
+Soluzione. Ricordiamo innanzitutto il limite notevole
+(1)
+lim
+t→0
+log(1 + t)
+t
+= 1
+i. La funzione risulta continua nell’origine se lim(x,y)→(0,0) f(x, y) = f(0, 0)(= 0). Quindi, utilizzando (1) possiamo ridurci a studiare
+il seguente limite
+lim
+(x,y)→(0,0)
+x4y2
+(x2 + y2)β + |xy|β.
+Il secondo termine tende a zero per ogni β > 0 quindi `e suﬃciente studiare il primo termine e trattarlo tramite le coordinate polari.
+Questo diventa
+lim
+ρ→0+
+ρ6 cos4 θ sin2 θ
+ρ2β
+questo vale 0 per ogni scelta di θ se e solo se 6 −2β > 0, ovvero β < 3. Questo ci assicura che per β ≥3 la funzione non pu`o essere
+continua.
+D’altra parte per β < 3 `e facile fare una stima uniforme in θ. Infatti si ha
+
+ρ6 cos4 θ sin2 θ
+ρ2β
+ ≤ρ6−2β,
+che tende a zero per ρ che tende a zero se β < 3. Per cui la funzione `e continua se e solo se β < 3.
+La funzione f `e nulla (in particolare `e costante) sugli assi coordinati per ogni β > 0, da cui deduciamo che la funzione `e derivabile
+per ogni β > 0.
+Per veriﬁcare la diﬀerenziabilit`a calcoliamo
+lim
+(h,k)→(0,0)
+f(h, k) −f(0, 0) −∇f(0, 0) · (h, k)
+√
+h2 + k2
+=
+lim
+(h,k)→(0,0)
+h2 log(1 + h2k2)
+(h2 + k2)β+ 1
+2
++
+|hk|β
+(h2 + k2)
+1
+2
+In questo caso conviene studiare separatamente i due termini. Per il primo termine usiamo nuovamente il limite notevole (1)
+Ragionando come per la continuit`a ci riconduciamo a calcolare
+lim
+ρ→0+ ρ6−(2β+1) cos4(θ) sin2(θ)
+questo vale zero per ogni θ solo se β < 5
+2, mentre per β ≥5
+2 il limite dipende da θ. D’altra parte se β < 5
+2 `e possibile fare una stima
+uniforme in θ concludendo che
+lim
+(h,k)→(0,0)
+h2 log(1 + h2k2)
+(h2 + k2)β+ 1
+2
+= 0
+
+
+===== PAGINA 2 =====
+se e solo se β < 5
+2.
+Analizziamo ora il secondo termine, quindi passando in coordinate polari dobbiamo studiare
+lim
+(h,k)→(0,0)
+ρ2β|cos(θ) sin(θ)|β
+ρ
+questo tende a 0 per ogni θ solo se β > 1
+2, inoltre per tali valori di β `e possibile fare una semplice stima uniforme in θ
+ρ2β|cos(θ) sin(θ)|β
+ρ
+≤ρ2β−1,
+ottenendo che il limite viene zero solo e solo se β > 1
+2. Mettendo insieme i risultati si vede che la funzione `e diﬀerenziabile se e solo
+se 1
+2 < β < 5
+2. Si noti che fuori da questo intervallo la somma dei due limiti in coordinate polari non ammette limite nullo.
+ii. Dato v = (v1, v2) versore calcoliamo, usando nuovamente (1),
+lim
+t→0
+f(tv1, tv2) −f(0, 0)
+t
+= lim
+t→0
+t6v4
+1v2
+2
+t(t2)β + (t2)β|v1v2|β
+t
+= lim
+t→0
+t5
+(t2)β v4
+1v2
+2+ (t2)β
+t
+|v1v2|β =
+
+0
+se 1
+2 < β < 5
+2
+0
+per ogni β > 0 se v1v2 = 0
+non esiste ﬁnito
+per ogni β > 0 se v1v2 , 0.
+In conclusione la funzione ammette derivata direzionale Dv f(0, 0) se 1
+2 < β < 5
+2 o se v1v2 = 0. Si faccia attenzione che nei casi limite
+β = 1
+2 e β = 5
+2 il limite da sinistra e da destra `e diverso a meno che non sia v1v2 = 0. Infatti (t2)
+1
+2 = |t| e (t2)
+5
+2 = |t|5.
+Esercizio 2. (6 punti) Data la serie
+∞
+X
+k=1
+1 + k
+k2 e−k x,
+x ∈,
+studiare la convergenza puntuale, assoluta, totale e uniforme al variare di x ∈.
+Soluzione. La serie di funzioni pu`o essere trasformata in una serie di potenze ponendo
+y := e−x.
+che osserviamo preliminarmente essere sempre positivo.
+Ci riconduciamo quindi a studiare la serie di potenze
+(2)
+∞
+X
+k=1
+1 + k
+k2 yk.
+Utilizzando il criterio della radice abbiamo che il raggio di convergenza della serie (2) `e 1 in quanto limk→+∞
+kq
+| 1+k
+k2 | = 1.
+Non ci interessa studiare la convergenza puntuale in y = −1 in quanto siamo interessati alle convergenze della serie per y > 0.
+Studiamo invece la convergenza puntuale della serie in y = 1, cio`e la convergenza semplice della serie numerica
+(3)
+∞
+X
+k=1
+1 + k
+k2
+|{z}
+=:ak
+.
+Poich´e ak > 0 per ogni k e limk→+∞
+ak
+1/k = 1 e P∞
+k=1
+1
+k = +∞, per il Teorema del Confronto asintotico la serie (3) diverge.
+In conclusione, la serie converge assolutamente, e quindi puntualmente, se e solo se 0 < y = e−x < 1 ⇐⇒x > 0. Dalla convergenza
+totale della serie (2) la serie iniziale converge totalmente, e quindi uniformemente in ogni intervallo chiuso e limitato [a, b] ⊂(0, +∞).
+Inoltre la convergenza `e totale, e quindi uniforme, in [a, +∞), a > 0, dato che
+0 < 1 + k
+k2 e−k x ≤1 + k
+k2 e−k a ≤e−k a
+∀x ≥0
+e la serie
+X
+k≥1
+e−k a
+converge.
+Esercizio 3. ( 6 punti) Posto
+D = {(x, y) ∈R2 : 2x2 + y2 ≤1},
+sia F : R2 →R deﬁnita da
+F(x, y) = x2 + 3y2 −6x.
+2
+
+
+===== PAGINA 3 =====
+i. Determinare eventuali punti di massimo o minimo relativo di F in 2.
+ii. Dire perch´e F ammette massimo e minimo assoluti in D.
+iii. Determinare massimo e minimo assoluto di F in D.
+iv. Determinare, se esistono, massimo assoluto e minimo assoluto in  × [−1, 1].
+Soluzione. i. La funzione F `e di classe C2(2), perci`o per determinarne eventuali punti di massimo e minimo relativo cerchiamo
+innanzitutto eventuali punti critici.
+∇F(x, y, z) = (2x −6, 6y)
+quindi l’unico punto critico `e P = (3, 0). Dallo studio dell’Hessiano:
+HF(x, y) =
+ 4
+0
+0
+6
+!
+si vede immediatamente che HF(P) ammette due autovalori positivi e dunque P `e un punto di minimo locale stretto.
+ii. Essendo h(x, y) = 2x2+y2 una funzione continua su 2 ed essendo D la preimmagine tramite h dell’intervallo chiuso [0, 1] (o anche
+di (−∞, 1]), l’insieme D risulta chiuso; inoltre esso `e limitato essendo D ⊂{x2 + y2 < 2} (in quanto 2x2 + y2 ≤2x2 + 2y2 ≤1 < 2).
+Inﬁne dalla continuit`a di F segue che, grazie al Teorema di Weierstrass, F ammette massimo e minimo assoluti in D.
+iii. Poich´e la funzione non ha punti di non derivabilit`a, eventuali punti di massimo/minimo assoluto vanno ricercati tra i punti critici
+interni, ma P < D essendo 2x2
+P + y2
+P = 18 > 1 e nel bordo di D (∂D = {2x2 + y2 = 1}). Per determinare eventuali punti estremali di F
+in ∂D, essendo F, h ∈C1(3), possiamo applicare il Teorema dei moltiplicatori di Lagrange, ottenendo il sistema:
+
+det
+ 2x −6
+6y
+4x
+2y
+!
+= 0
+h(x, y) = 1
+che si risolve facilmente ottenendo
+(
+x = −3
+5
+o
+y = 0
+2x2 + y2 = 1
+e quindi i punti Q± = (−3
+5, ±
+√
+7
+5 ) e R± = (± 1√
+2, 0).
+Confrontando i valori assunti da F nei punti determinati: F(Q±) = 24
+5 , F(R−) = 1
+2 +
+6√
+2, F(R+) = 1
+2 −
+6√
+2, si conclude che il minimo
+di F in D `e 1
+2 −
+6√
+2, mentre il massimo `e 24
+5 .
+iv. Essendo l’Hessiano di F strettamente deﬁnito positivo in tutto 2, la funzione `e strettamente convessa e dunque F(P) = −25
+4 risulta
+il minimo assoluto (stretto) di F in 2. Di conseguenza, poich´e P ∈ × [−1, 1], F(P) = −25
+4 risulta il minimo assoluto (stretto) di
+F in  × [−1, 1]. Invece, osservando che l’asse x `e contenuto in  × [−1, 1] ed essendo limx→+∞F(x, 0) = limx→+∞(x2 −6x =) + ∞,
+la funzione risulta illimitata superiormente e non ammette quindi massimo assoluto in  × [−1, 1].
+Esercizio 4. (7 punti) Si consideri l’insieme
+E = {(x, y, z) : z2 + 3 ≤x2 + y2 ≤3z + 1}.
+i. Scrivere una rappresentazione parametrica delle superﬁci regolari Σ1 e Σ2 che delimitano l’insieme E.
+ii. Calcolare il volume di E.
+iii. Calcolare il ﬂusso di F = (x, y, z) attraverso Σ1 e Σ2, uscente da E.
+Soluzione.
+i. L’insieme E `e delimitato dal paraboloide
+z = 1
+3(x2 + y2 −1)
+e dall’iperboloide ad una falda
+x2 + y2 −z2 = 3.
+La disuguaglianza x2 + y2 ≤3z + 1 indica la parte interna al paraboloide; la disuguaglianza x2 + y2 ≥z2 + 3 indica la parte
+esterna all’iperboloide. La variabile z soddisfa il vincolo
+z2 + 3 ≤3z + 1 ⇐⇒1 ≤z ≤2.
+3
+
+
+===== PAGINA 4 =====
+Se z = 1 allora x2 + y2 = 4; se z = 2 allora x2 + y2 = 7. Quindi Σ = ∂E = Σ1 ∪Σ2 con
+Σ1 : z = 1
+3(x2 + y2 −1)
+|            {z            }
+=:f1(x,y)
+, (x, y) ∈D = {4 ≤x2 + y2 ≤7}
+Σ2 : z =
+q
+x2 + y2 −3
+|          {z          }
+=: f2(x,y)
+, (x, y) ∈D = {4 ≤x2 + y2 ≤7},
+superﬁci cartesiane regolari (essendo f1, f2 ∈C1(D)).
+Alternativamente le superﬁci possono essere parametrizzate come superﬁci di rotazione:
+Σ1
+
+x =
+√
+3z + 1 cos ϑ
+y =
+√
+3z + 1 sin ϑ
+z = z
+ϑ ∈[0, 2π], z ∈[1, 2]
+Σ2
+
+x =
+√
+z2 + 3 cos ϑ
+y =
+√
+z2 + 3 sin ϑ
+z = z
+ϑ ∈[0, 2π], z ∈[1, 2]
+ottenute dalla rotazione delle curve cartesiane γ1(z) = (
+√
+3z + 1
+|   {z   }
+=:g1(z)
+, 0, z) e γ2(z) = (
+p
+z2 + 3
+|   {z   }
+=:g2(z)
+, 0, z), z ∈[1, 2], che sono regolari
+essendo g1, g2 ∈C1([1, 2]).
+ii. Introducendo un sistema di coordinate cilindriche
+x = ρ cos ϑ, y = ρ sin ϑ, z = z
+l’insieme si trasforma in
+E
+coord.cilindriche
+⇐⇒
+F = {(ρ, ϑ, z) : z2 + 3 ≤ρ2 ≤3z + 1} = {(ρ, ϑ, z) : 0 ≤ϑ ≤2π, 1 ≤z ≤2,
+p
+z2 + 3 ≤ρ ≤
+√
+3z + 1}.
+Quindi
+VolE =
+$
+F
+ρdρdzdϑ = 2π
+Z 2
+1
+dz
+Z
+√
+3z+1
+√
+z2+3
+ρdρ = π
+Z 2
+1
+
+(3z + 1) −(z2 + 3)
+
+dz = π
+6.
+iii. Il campo F ∈C1(3). Si ha divF = 3 quindi per il teorema della divergenza
+Flusso(F, Σ) = Flusso(F, Σ1) + Flusso(F, Σ2) = 3Vol(E) = π
+2.
+Calcoliamo Flusso(F, Σ1) e per diﬀerenza troviamo il Flusso(F, Σ2).
+Flusso(F, Σ1) =
+Z
+Σ1
+F · Ndσ =
+Z
+D
+ x(−2
+3 x) + y(−2
+3y) + 1
+3(x2 + y2 −1)dxdy = −1
+3
+Z
+D
+(x2 + y2 + 1)dxdy
+= −2π
+3
+Z
+√
+7
+2
+(1 + ρ2)ρdρ = −2π
+3
+ ρ4
+4 + ρ2
+2
+!ρ=
+√
+7
+ρ=2
+= −2π
+3
+39
+4 = −13
+2 π.
+Segue che
+Flusso(F, Σ2) = π
+2 + 13
+2 π = 7π.
+Esercizio 5. (6.5 punti) Si consideri il problema di Cauchy
+
+u′(t) =
+u(t)
+u2(t) −1
+u(0) = c
+c ∈,
+c , ±1
+i. Spiegare perch´e il problema di Cauchy ammette un’unica soluzione locale.
+ii. Studiare la monotonia delle soluzioni al variare di c ∈ \ {±1}.
+iii. Studiare la concavit`a e convessit`a delle soluzioni quando c = 2.
+iv. Determinare in forma implicita la soluzione del problema di Cauchy al variare di c ∈ \ {±1}.
+4
+
+
+===== PAGINA 5 =====
+Soluzione. i. L’equazione diﬀerenziale `e scritta in forma normale u′ = f(u) con f :  \ {−1, 1} → una funzione di classe C1
+deﬁnita dalla formula
+f(p) =
+p
+p2 −1.
+Dato che le funzioni C1 sono localmente lipschitziane, siamo nelle condizione di poter applicare il Teorema di Cauchy-Lipschitz
+per dedurre l’esistenza e l’unicit`a localmente per ogni dato iniziale c , ±1: per ﬁssare la notazione, sia uc la soluzione massimale al
+problema di Cauchy
+uc : Ic →
+u′
+c =
+uc
+u2c −1,
+uc(0) = c.
+ii. Iniziamo col trovare le soluzioni costanti dell’equazione u′ =
+u
+u2−1:
+u ≡c
+⇐⇒
+0 = u′ =
+c
+c2 −1
+⇐⇒
+c = 0.
+Ne deriva (sempre alla luce dell’unicit`a locale discussa nel punto precedente, perch´e due soluzione non possono coincidere in nessun
+punto nel loro dominio di deﬁnizione) che se c < 0, allora la soluzione uc con dato iniziale c sar`a sempre negativa; se c > 0 allora
+uc(t) > 0 per ogni t ∈Ic. In particolare, si hanno questo due implicazioni:
+c < −1
+=⇒
+uc(t) < 0
+∀t ∈Ic
+=⇒
+u′
+c(t) =
+uc(t)
+uc(t)2 −1 < 0
+∀t ∈Ic
+=⇒
+uc monotona decrescente,
+−1 < c < 0
+=⇒
+uc(t) < 0
+∀t ∈Ic
+=⇒
+u′
+c(t) =
+uc(t)
+uc(t)2 −1 > 0
+∀t ∈Ic
+=⇒
+uc monotona crescente,
+0 < c < 1
+=⇒
+uc(t) > 0
+∀t ∈Ic
+=⇒
+u′
+c(t) =
+uc(t)
+uc(t)2 −1 < 0
+∀t ∈Ic
+=⇒
+uc monotona decrescente,
+e inﬁne
+c > 1
+=⇒
+uc(t) > 0
+∀t ∈Ic
+=⇒
+u′
+c(t) =
+uc(t)
+uc(t)2 −1 > 0
+∀t ∈Ic
+=⇒
+uc monotona crescente.
+iii. Per studiare la concavit`a delle soluzioni u ricaviamo un’espressione per la loro derivata seconda:
+u′′ =
+
+u
+u2 −1
+′
+= u′(u2 −1) −2u2u′
+(u −1)2
+= −u′(1 + u2)
+(u2 −1)2 = −u(1 + u2)
+(u2 −1)3 .
+Vale quindi quanto segue:
+• u `e concava se u(t) ∈(−1, 0) ∪(1, +∞), ossia equivalentemente se c ∈(−1, 0) ∪(1, +∞),
+• u `e convessa se u(t) ∈(−∞, 1) ∪(0, 1), ossia equivalentemente se c ∈(−∞, 1) ∪(0, 1).
+Si noti che c = ±1 non `e ammesso e per c = 0 la soluzione `e costante, per cui `e sia concava che convessa. Nel caso c = 2 la soluzione
+u2(t) `e concava.
+Sia c , 0. Usando il metodo di separazione delle variabili, possiamo risolvere l’equazione come segue: supponiamo che u non sia la
+soluzione costantemente nulla, cio`e u , 0 per ogni t nel suo dominio di deﬁnizione, allora
+1 = u′ u2 −1
+u
+= u′u −u′
+u
+=⇒
+u(t)2
+2
+−log |u(t)| = t + c2
+2 −log |c|.
+5

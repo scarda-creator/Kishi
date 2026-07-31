@@ -1,0 +1,94 @@
+===== PAGINA 1 =====
+Prova del 23/09/14
+Esercizio 1. Sia V = R4 e siano U e W i sottospazi di V deﬁniti da U = Span{
+
+
+
+
+1
+2
+1
+1
+
+
+
+,
+
+
+
+
+1
+0
+1
+0
+
+
+
+,
+
+
+
+
+0
+−4
+0
+−2
+
+
+
+}
+e
+W = Span{
+
+
+
+
+1
+0
+−1
+0
+
+
+
+,
+
+
+
+
+1
+4
+3
+2
+
+
+
+}
+Determinare la dimensione di U e quella di W. Determinare una base per U + W. Determinare la
+dimensione di U ∩W. Stabilire se R4 = U ⊕W.
+Esercizio 2. Nello spazio euclideo tridimensionale siano date le rette r e s di equazioni:
+r :
+
+
+
+
+
+x1 = 1 + 3t
+x2 = 2t
+x3 = 0
+s :
+(
+x1 = 0
+x2 = 0
+a) si determini la posizione rispettiva di r e s
+b) si determini un’equazione cartesiana del piano π contenente s e parallelo a r.
+Esercizio 3. Sia f : R4 →R3 l’applicazione lineare deﬁnita da f(a, b, c, d) = (a, b + d, c).
+a) si trovi la matrice la matrice A che esprime f rispetto alle basi standard,
+b) si trovi una base per il nucleo e una per l’immagine di f
+c) si determini f −1(1, 1, 0).
+Esercizio 4. Nello spazio R3 sia deﬁnito il prodotto scalare deﬁnito positivo
+< X, Y >= 2x1y1 + x2y1 + x1y2 + 2x2y2 + x3y3.
+Sia T l’ operatore deﬁnito da
+T(x1, x2, x3) = (x1 −x3, x2 + 2x3, 3x2)
+a) veriﬁcare se T `e simmetrico
+b) trovare gli autovettori di T
+1

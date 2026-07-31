@@ -1,0 +1,70 @@
+{
+  "esercizi": [
+    {
+      "n": 1,
+      "chiede": "Dimostrare che esistono due punti nella forma (0, y0) e (0, y1) intorno ai quali l’equazione y3 sin(x) + y2 −2yex −3 −x = 0 definisce implicitamente due funzioni g0(x) e g1(x) tali che g0(0) = y0 e g1(0) = y1. Studiare il comportamento di g0(x) e g1(x) in un intorno di x = 0 (crescenza, decrescenza e natura degli eventuali punti critici).",
+      "sottodomande": [
+        "i. Dimostrare che esistono due punti nella forma (0, y0) e (0, y1) intorno ai quali l’equazione y3 sin(x) + y2 −2yex −3 −x = 0 definisce implicitamente due funzioni g0(x) e g1(x) tali che g0(0) = y0 e g1(0) = y1.",
+        "ii. Studiare il comportamento di g0(x) e g1(x) in un intorno di x = 0 (crescenza, decrescenza e natura degli eventuali punti critici)."
+      ],
+      "oggetti": [
+        "y3 sin(x) + y2 −2yex −3 −x = 0",
+        "g0(x)",
+        "g1(x)"
+      ],
+      "tipologie": [
+        "funzione definita implicitamente / Dini"
+      ],
+      "tecniche": [
+        "teorema di esistenza e unicità per equazioni differenziali ordinarie (Cauchy-Lipschitz)"
+      ],
+      "note": ""
+    },
+    {
+      "n": 2,
+      "chiede": "Data la successione di funzioni fn(x) = x / (1 + 2−n + x^2) / n^2, studiare la convergenza puntuale per x ∈ R; dire se la convergenza è uniforme in R; calcolare, giustificando i passaggi, lim_{n→+∞} ∫_1^2 fn(x) dx.",
+      "sottodomande": [
+        "i. Studiare la convergenza puntuale per x ∈ R;",
+        "ii. Dire se la convergenza è uniforme in R;",
+        "iii. Calcolare, giustificando i passaggi, lim_{n→+∞} ∫_1^2 fn(x) dx."
+      ],
+      "oggetti": [
+        "fn(x) = x / (1 + 2−n + x^2) / n^2",
+        "lim_{n→+∞} ∫_1^2 fn(x) dx"
+      ],
+      "tipologie": [
+        "convergenza di successioni di funzioni",
+        "calcolo di integrali limitati"
+      ],
+      "tecniche": [
+        "teorema di convergenza puntuale e uniforme",
+        "calcolo integrale"
+      ],
+      "note": ""
+    },
+    {
+      "n": 3,
+      "chiede": "Sia T = {(x, y, z) : x^2 + y^2 ≤ z ≤ 3 + 2y}. Calcolare il volume di T. Posto F = (xy − 3x + e^z, x^2 + 2y + cos(x), 2 cos(x) + 4y), calcolare il flusso di F uscente da T. Calcolare il flusso di F attraverso le due superfici regolari che compongono la frontiera di T, orientando il versore normale uscente da T.",
+      "sottodomande": [
+        "i. Calcolare il volume di T.",
+        "ii. Posto F = (xy − 3x + e^z, x^2 + 2y + cos(x), 2 cos(x) + 4y), calcolare il flusso di F uscente da T.",
+        "iii. Calcolare il flusso di F attraverso le due superfici regolari che compongono la frontiera di T, orientando il versore normale uscente da T."
+      ],
+      "oggetti": [
+        "T = {(x, y, z) : x^2 + y^2 ≤ z ≤ 3 + 2y}",
+        "F = (xy − 3x + e^z, x^2 + 2y + cos(x), 2 cos(x) + 4y)"
+      ],
+      "tipologie": [
+        "calcolo di volume",
+        "flusso di un campo vettoriale attraverso una superficie"
+      ],
+      "tecniche": [
+        "teorema del volume per solido limitato da piani",
+        "teorema della divergenza (divergenza)",
+        "calcolo di flusso attraverso superfici regolari"
+      ],
+      "note": ""
+    },
+    {
+      "n": 4,
+      "chiede": "Dato il campo vettoriale F(x, y, z) = ((x / (x^2 + y^2 + z^2 + 4 + x^2 - z^2)), (y / (x^2 + y^2 + z^2 + 4 + y^2 + z)), (z / (x^2 + y^2 + z^2 + 4 - x^2 + z^2))) e la curva γ : z = x + 3y + 4, x^2 + y^2 = 4. Dire se la curva γ è reg

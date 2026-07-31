@@ -1,0 +1,750 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,mathtools,amsthm}
+\usepackage{bm}
+\usepackage[margin=1.5cm,top=1.4cm,bottom=1.6cm]{geometry}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable,theorems}
+\usepackage[final,protrusion=true,expansion=false]{microtype}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\setlist{leftmargin=1.1em,itemsep=2pt,topsep=2pt,parsep=0pt}
+
+\setlength{\columnsep}{1.2em}
+\setlength{\parskip}{2pt}
+
+% --- Colori per i temi ---
+\definecolor{algebracol}{RGB}{30,90,150}
+\definecolor{complessacol}{RGB}{160,30,30}
+\definecolor{hilbertcol}{RGB}{40,120,60}
+\definecolor{distrcol}{RGB}{140,60,140}
+\definecolor{fouriercol}{RGB}{200,110,30}
+\definecolor{edocol}{RGB}{100,80,40}
+\definecolor{edpcol}{RGB}{30,130,140}
+\definecolor{cheatcol}{RGB}{80,80,80}
+
+% --- Box per sezione ---
+\newtcolorbox{secbox}[2]{enhanced,breakable,
+  colback=#1!4,colframe=#1!85!black,
+  fonttitle=\bfseries\small\color{white},
+  title=\strut #2,
+  arc=2pt,boxrule=0.5pt,
+  left=5pt,right=5pt,top=3pt,bottom=3pt,
+  before skip=5pt,after skip=5pt}
+
+% --- Box per teoremi con nome ---
+\newtcolorbox{teobox}[1]{enhanced,breakable,
+  colback=yellow!6,colframe=yellow!50!black!70,
+  arc=1pt,boxrule=0.3pt,left=4pt,right=4pt,top=2pt,bottom=2pt,
+  before skip=3pt,after skip=3pt,
+  fontupper=\footnotesize,
+  title=\textbf{#1},fonttitle=\footnotesize\bfseries\color{yellow!20!black},
+  attach title to upper,after title={\hspace{0.4em}}}
+
+\makeatletter
+\long\def\sub#1{\par\smallskip\textbf{\color{black!75}#1}\par\nobreak}
+\makeatother
+
+\fancypagestyle{plain}{%
+  \fancyhf{}\renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\footnotesize\color{black!50}\thepage}}
+\pagestyle{plain}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\eu}{\mathrm{e}}
+\newcommand{\iu}{\mathrm{i}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\ran}{Ran}
+\DeclareMathOperator{\spec}{\sigma}
+\newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\bra}[1]{\langle#1|}
+\newcommand{\braket}[2]{\langle#1|#2\rangle}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries\color{algebracol!80!black} Metodi Matematici per la Fisica}\\[2pt]
+{\small Formulario operativo -- algoritmi, teoremi, esempi degli appelli}\\[1pt]
+{\footnotesize Da stampare fronte-retro}
+\end{center}
+\vspace{-4pt}
+
+\begin{multicols}{2}
+\small
+
+% =====================================================
+\begin{secbox}{algebracol}{1. Spazi di Hilbert -- definizioni e teoremi}
+
+\sub{Definizione (spazio di Hilbert)}
+Uno spazio vettoriale $\mathcal H$ su $\C$ con prodotto scalare $\braket{\cdot}{\cdot}$ (sesquilineare, Hermitiano, def.\ pos.) e \emph{completo} nella norma indotta.
+
+\begin{teobox}{Riesz}
+Ogni funzionale lineare continuo $\varphi:\mathcal H\to\C$ si rappresenta come $\varphi(\psi)=\braket{\eta}{\psi}$ per un unico $\eta\in\mathcal H$. (Identifica $\mathcal H\equiv\mathcal H^*$.)
+\end{teobox}
+
+\begin{teobox}{Cauchy--Schwarz}
+$|\braket{u}{v}|\le\|u\|\|v\|$, con uguaglianza sse $u\parallel v$.
+\end{teobox}
+
+\begin{teobox}{Parseval / Plancherel}
+Per ONB $\{e_n\}$: $\psi=\sum_n\braket{e_n}{\psi}e_n$,\; $\|\psi\|^2=\sum_n|\braket{e_n}{\psi}|^2$.
+\end{teobox}
+
+\begin{teobox}{Bessel}
+Per famiglia ortonormale (non necess.\ base): $\sum_n|\braket{e_n}{\psi}|^2\le\|\psi\|^2$.
+\end{teobox}
+
+\sub{Prodotti scalari operativi}
+$\R^n$: $\bm v\!\cdot\!\bm u=\sum v_iu_i$. \;$\C^n$: $\braket{u}{v}=\sum u_i^*v_i$. \;$L^2(\Omega)$: $\braket{f}{g}=\int_\Omega f^*g$.
+
+\sub{Gram--Schmidt}
+$\bm e_1=\bm v_1/\|\bm v_1\|$; \; $\bm u_k=\bm v_k-\sum_{j<k}\braket{e_j}{v_k}\bm e_j$; \; $\bm e_k=\bm u_k/\|\bm u_k\|$. Funziona identico in $L^2$ (integrali al posto di somme).
+
+\sub{Proiettori}
+$\mathbb P_i=\ket{e_i}\bra{e_i}$, $\mathbb P^2=\mathbb P=\mathbb P^\dagger$, $\mathbb P_i\mathbb P_j=\delta_{ij}\mathbb P_i$, $\sum_i\mathbb P_i=\mathbb 1$, $\Tr\mathbb P=\dim\ran\mathbb P$, $\mathbb P^\perp=\mathbb 1-\mathbb P$.
+
+\end{secbox}
+
+% =====================================================
+\begin{secbox}{algebracol}{2. Matrici -- autovalori e funzioni}
+
+\sub{Algoritmo: autovalori e autovettori di $A\in M_n(\C)$}
+\begin{enumerate}
+\item Pol.\ caratteristico $p(\lambda)=\det(A-\lambda\mathbb 1)$.
+\item Autoval.\ $\lambda_i$: radici di $p$, mol.\ algebrica $m_i$.
+\item Per ogni $\lambda_i$: risolvi $(A-\lambda_i\mathbb 1)\bm v=0$. Mol.\ geom.\ $g_i=\dim\ker(A-\lambda_i\mathbb 1)$.
+\item Hermitiana $\Rightarrow\lambda_i\in\R$, autovett.\ ortogonali (se $\lambda_i\neq\lambda_j$); Gram--Schmidt su autospazi degeneri.
+\item Diagonalizzabile $\iff g_i=m_i\forall i$. Altrimenti: forma di Jordan.
+\item $S=(\bm v_1|\dots|\bm v_n)$, $D=S^{-1}AS$. Herm.\ $\Rightarrow S$ unitaria.
+\end{enumerate}
+
+\sub{Verifiche rapide}
+$\sum\lambda_i=\Tr A$,\; $\prod\lambda_i=\det A$,\; $A^\dagger=A\Rightarrow\lambda\in\R$,\; $A^\dagger A=\mathbb 1\Rightarrow|\lambda|=1$.
+
+\begin{teobox}{Spettrale (matrici normali)}
+$A^\dagger A=AA^\dagger \iff$ esiste base ortonormale di autovettori; $A=\sum_i\lambda_i\mathbb P_i$ con $\mathbb P_i=\ket{e_i}\bra{e_i}$.
+\end{teobox}
+
+\begin{teobox}{Cayley--Hamilton}
+$p(A)=0$. Conseguenza: ogni $f(A)$ analitica è polinomio in $A$ di grado $<n$.
+\end{teobox}
+
+\sub{Funzioni di matrice (3 metodi)}
+\textbf{(a) Spettrale} (diagonalizzabili): $f(A)=\sum_i f(\lambda_i)\mathbb P_i$. Se autovett.\ non ortonorm.: $\mathbb P_i=S\mathbb P^{(D)}_i S^{-1}$, NON $\ket{v_i}\bra{v_i}$.\\
+\textbf{(b) Cayley--Hamilton}: $R(z)=\sum_{k<n}a_kz^k$ con $R^{(j)}(\lambda_i)=f^{(j)}(\lambda_i)$ per $j<m_i$. Allora $f(A)=R(A)$. Funziona anche se non diag.\\
+\textbf{(c) Serie}: $f(A)=\sum f^{(k)}(0)A^k/k!$ se converge.
+
+\sub{Formule notevoli}
+$\eu^{i\theta\hat n\cdot\bm\sigma}=\cos\theta\,\mathbb 1+i\sin\theta(\hat n\!\cdot\!\bm\sigma)$\\
+$\det\eu^A=\eu^{\Tr A}$, $\eu^A\eu^B=\eu^{A+B+\frac{1}{2}[A,B]+\dots}$ (BCH)\\
+$A^k=\mathbb 1\Rightarrow A^n=A^{n\bmod k}$\\
+$\sigma_i\sigma_j=\delta_{ij}\mathbb 1+i\epsilon_{ijk}\sigma_k$, $\Tr\sigma_i=0$, $\sigma_i^2=\mathbb 1$\\
+$\epsilon_{ijk}\epsilon_{kmn}=\delta_{im}\delta_{jn}-\delta_{in}\delta_{jm}$\\
+$\bm v\!\times\!(\bm u\!\times\!\bm w)=(\bm v\!\cdot\!\bm w)\bm u-(\bm v\!\cdot\!\bm u)\bm w$
+
+\sub{Diagonalizzazione simultanea}
+$[A,B]=0$ + entrambe diag.\ $\iff$ esiste base che le diagonalizza entrambe. Se $\lambda$ degenere per $A$: diagonalizza $B$ ristretto a $L_\lambda$.
+
+\end{secbox}
+
+% =====================================================
+\begin{secbox}{hilbertcol}{3. Operatori in $\mathcal H$ infinito-dimensionale}
+
+\sub{Operatore (lineare, denso)}
+$A:\mathrm{Dom}(A)\subset\mathcal H\to\mathcal H$, $\overline{\mathrm{Dom}(A)}=\mathcal H$.
+
+\sub{Aggiunto $A^\dagger$}
+$\mathrm{Dom}(A^\dagger)=\{\psi:\exists\eta,\,\braket{\psi}{A\phi}=\braket{\eta}{\phi}\,\forall\phi\}$, $A^\dagger\psi=\eta$.
+
+\sub{Quattro classi di operatori}
+\begin{itemize}
+\item \textbf{Simmetrico}: $A\subset A^\dagger$ ($A^\dagger$ estende $A$).
+\item \textbf{Autoaggiunto}: $A=A^\dagger$, \emph{stessi domini}.
+\item \textbf{Essenzialmente autoagg.}: chiusura $\overline A$ è autoagg.
+\item \textbf{Unitario}: $UU^\dagger=U^\dagger U=\mathbb 1$, conserva norma.
+\end{itemize}
+Simmetrico $\not\Rightarrow$ autoagg.\ (è un errore tipico). Differenza: termini di bordo.
+
+\begin{teobox}{Spettrale (Hilbert--von Neumann)}
+$A$ autoaggiunto $\Rightarrow$ esiste misura proiettoriale $\{E_\lambda\}$ tale che $A=\int\lambda\dd E_\lambda$ con $\sigma(A)\subset\R$. Funzioni: $f(A)=\int f(\lambda)\dd E_\lambda$.
+\end{teobox}
+
+\begin{teobox}{Stone}
+$U(t)$ gruppo unitario fortemente continuo $\iff$ esiste $A$ autoaggiunto con $U(t)=\eu^{-itA}$. (Genera evoluzioni in QM.)
+\end{teobox}
+
+\begin{teobox}{Hellinger--Toeplitz}
+Se $A$ è definito su tutto $\mathcal H$ e simmetrico $\Rightarrow$ $A$ è limitato. (Quindi gli operatori illimitati come $X,P$ NON sono definiti ovunque.)
+\end{teobox}
+
+\sub{Spettro $\sigma(A)$}
+$\sigma(A)=\{\lambda:A-\lambda\mathbb 1\text{ non invertibile}\}$. Si scompone:
+\begin{itemize}
+\item \textbf{Puntuale} $\sigma_p$: $\lambda$ con autofunzione in $\mathcal H$.
+\item \textbf{Continuo} $\sigma_c$: $A-\lambda$ iniettivo con immagine densa ma non chiusa (autofunzioni non normalizzabili).
+\item \textbf{Residuo} $\sigma_r$: immagine non densa (assente per operatori autoagg.).
+\end{itemize}
+Autoagg.: $\sigma_r=\emptyset$, $\sigma\subset\R$.\\
+Unitario: $\sigma\subset\{|z|=1\}$.\\
+Proiettore: $\sigma\subset\{0,1\}$.
+
+\sub{Algoritmo: spettro di $A=$ op.\ differenziale su $[a,b]$}
+\begin{enumerate}
+\item \textbf{Scrivi l'ODE} $A\psi=\lambda\psi$ con $\lambda$ parametro.
+\item \textbf{Soluzione generale} dell'ODE: $\psi_\lambda(x)=c_1\psi^{(1)}_\lambda(x)+c_2\psi^{(2)}_\lambda(x)$. Metodi:
+  \begin{itemize}
+  \item Coeff.\ costanti $\to$ caratter.\ algebrica.
+  \item Eulero $\to$ ansatz $x^r$.
+  \item Prim'ordine $A=-i\partial_x+g(x)$: $\psi_\lambda=\frac{1}{\sqrt{b-a}}\eu^{-i\lambda x}\eu^{iG(x)}$, $G'=g$.
+  \end{itemize}
+\item \textbf{Imponi BC}. Per oper.\ 2$^\circ$ ord., 2 BC; per prim'ordine, 1 BC.
+\item \textbf{Quantizzazione}: BC $\to$ sistema lineare in $(c_1,c_2)$. Soluzione non banale $\iff$ determinante $=0$ $\Rightarrow$ equazione $\Phi(\lambda)=0$. Radici $=$ spettro discreto $\{\lambda_n\}$.
+\item \textbf{Autofunzioni}: sostituisci $\lambda_n$ in $\psi_\lambda$.
+\item \textbf{Normalizza}: $\|\psi_n\|^2=\int_a^b|\psi_n|^2\dd x=1$.
+\item \textbf{Verifica autoaggiuntezza}: integrazione per parti $\to$ $\braket{A\psi}{\phi}-\braket{\psi}{A\phi}=[\text{bordo}]$. Annullamento $\iff$ BC ammissibili.
+\item \textbf{Completezza}: Parseval $\sum_n|\braket{\psi_n}{f}|^2=\|f\|^2$, oppure $\sum_n\psi_n^*(x)\psi_n(y)=\delta(x-y)$.
+\end{enumerate}
+
+\sub{Catalogo $-\partial_x^2$ su $[0,L]$}
+$\psi(x)=A\sin(\sqrt\lambda x)+B\cos(\sqrt\lambda x)$, $\lambda>0$.
+\begin{itemize}
+\item Dir-Dir $\psi(0)=\psi(L)=0$: $\lambda_n=(n\pi/L)^2$, $\psi_n=\sqrt{2/L}\sin(n\pi x/L)$, $n\ge 1$.
+\item Neu-Neu $\psi'(0)=\psi'(L)=0$: $\lambda_n=(n\pi/L)^2$, $\psi_n=\sqrt{2/L}\cos(n\pi x/L)$, $n\ge 0$.
+\item Dir-Neu: $\lambda_n=((n+\tfrac12)\pi/L)^2$, $\psi_n=\sqrt{2/L}\sin((n+\tfrac12)\pi x/L)$.
+\item Periodica $\psi(L)=\psi(0)$: $\lambda_n=(2\pi n/L)^2$, $\psi_n=\eu^{i2\pi nx/L}/\sqrt L$, $n\in\Z$.
+\end{itemize}
+
+\sub{Catalogo $P=-i\partial_x$ su $[0,L]$}
+$\psi'=i\lambda\psi\Rightarrow\psi=C\eu^{i\lambda x}$.
+\begin{itemize}
+\item Periodica $\psi(L)=\psi(0)$: $\lambda_n=2\pi n/L$.
+\item Antiperiodica $\psi(L)=-\psi(0)$: $\lambda_n=(2n+1)\pi/L$.
+\item Robin $\psi(L)=\eu^{i\alpha}\psi(0)$: $\lambda_n=(\alpha+2\pi n)/L$.
+\item Dir-Dir $\psi(0)=\psi(L)=0$: solo soluz.\ banale $\to$ \emph{simmetrico ma NON autoagg.}
+\end{itemize}
+
+\sub{Operatori del prim'ordine con potenziale: $A=-i\partial_x+g(x)$}
+ODE: $\psi'=i(g-\lambda)\psi\Rightarrow\psi_\lambda(x)=\frac{1}{\sqrt{b-a}}\,\eu^{-i\lambda x}\eu^{iG(x)}$, $G(x)=\int^x g$.\\
+BC periodica $\psi(b)=\psi(a)$:
+$$\lambda_n=\frac{G(b)-G(a)+2\pi n}{b-a},\;n\in\Z$$
+Antiperiodica: $+\pi$ al numeratore.\\
+\emph{Casi tipici}: $g(x)=\ell/x\Rightarrow G=\ell\ln x$, fasi $x^{i\ell}$; $g(x)=\ln x/x\Rightarrow G=(\ln x)^2/2$.\\
+Autoagg.\ $\iff g$ reale e BC compatibile.
+
+\sub{Catalogo: potenziali notevoli}
+\textbf{Oscillatore} $-\partial_x^2+x^2$ su $\R$: $\lambda_n=2n+1$, $\psi_n\propto H_n(x)\eu^{-x^2/2}$ (Hermite). Operatori a scala: $a=(x+\partial_x)/\sqrt 2$, $a^\dagger=(x-\partial_x)/\sqrt 2$, $[a,a^\dagger]=\mathbb 1$, $a^\dagger\psi_n=\sqrt{n+1}\psi_{n+1}$, $a\psi_n=\sqrt n\psi_{n-1}$.\\
+\textbf{Pozzo $\delta$} $-\partial_x^2-\delta(x)$ su $\R$: $\sigma_p=\{-1/4\}$ con $\psi_0=\eu^{-|x|/2}/\sqrt 2$; $\sigma_c=[0,\infty)$.\\
+\textbf{Buca infinita} $-\partial_x^2$ su $[0,L]$ Dir-Dir: come sopra.
+
+\begin{teobox}{Heisenberg}
+$\Delta_\psi A\,\Delta_\psi B\ge\tfrac12|\braket{\psi}{[A,B]\psi}|$. Saturazione $\iff(B-\langle B\rangle)\psi=ic(A-\langle A\rangle)\psi$.
+\end{teobox}
+
+\sub{$L^2$: appartenenza}
+\emph{Locale} $|f|^2\sim|x-x_0|^{-2\beta}$: convergente $\iff 2\beta<1$.\\
+\emph{Asintotica} $|f|^2\sim|x|^{-2\gamma}$: convergente $\iff 2\gamma>1$.
+
+\begin{teobox}{Riesz--Fischer}
+$L^2$ è completo. (Garantisce che convergenza in norma $\Rightarrow$ esistenza limite in $L^2$.)
+\end{teobox}
+
+\end{secbox}
+
+% =====================================================
+\begin{secbox}{complessacol}{4. Analisi complessa}
+
+\begin{teobox}{Cauchy--Riemann}
+$f=u+iv$ olom.\ su aperto $\Omega\iff u_x=v_y,\,u_y=-v_x\iff\partial_{\bar z}f=0$. $\Rightarrow$ $u,v$ armoniche, $\Delta=4\partial_z\partial_{\bar z}$.
+\end{teobox}
+
+\begin{teobox}{Cauchy (integrale)}
+$f$ olom.\ in $\Omega$, $\gamma\subset\Omega$ chiusa: $\oint_\gamma f\,\dd z=0$. Inoltre $f(z_0)=\frac{1}{2\pi i}\oint\frac{f(z)}{z-z_0}\dd z$ e $f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint\frac{f(z)}{(z-z_0)^{n+1}}\dd z$.
+\end{teobox}
+
+\begin{teobox}{Liouville}
+$f$ intera e limitata $\Rightarrow$ $f$ costante.
+\end{teobox}
+
+\begin{teobox}{Massimo modulo}
+$f$ olom.\ non costante $\Rightarrow$ $|f|$ non ha massimi interni.
+\end{teobox}
+
+\sub{Serie di Laurent in $z_0$}
+$f(z)=\sum_{n\in\Z}c_n(z-z_0)^n$,\;$c_n=\frac{1}{2\pi i}\oint\frac{f}{(z-z_0)^{n+1}}\dd z$.\\
+Convergente in anello $r<|z-z_0|<R$ con $r=\sup|z_n-z_0|$ ($z_n$ singolarità interne).
+
+\sub{Classificazione singolarità isolate}
+Eliminabile (parte princ.\ $=0$); polo ord.\ $m$ ($c_{-m}\!\neq\!0$, $c_{-k>m}\!=\!0$); essenziale (parte princ.\ infinita).
+
+\begin{teobox}{Casorati--Weierstrass / Picard}
+Vicino a una singolarità essenziale, $f$ assume valori densi in $\C$ (CW); ogni valore complesso eccetto al più uno (Picard).
+\end{teobox}
+
+\sub{Sviluppi notevoli in $0$}
+$\eu^z=\sum z^n/n!$; $\sin z=z-\frac{z^3}{6}+\dots$; $\cos z=1-\frac{z^2}{2}+\frac{z^4}{24}-\dots$\\
+$\log(1+z)=z-\frac{z^2}{2}+\dots$; $\frac{1}{1-z}=\sum z^n$\\
+$\frac{1}{\sin z}=\frac{1}{z}+\frac{z}{6}+\frac{7z^3}{360}+\dots$; $\cot z=\frac{1}{z}-\frac{z}{3}-\frac{z^3}{45}-\dots$\\
+$1-\cos z=\frac{z^2}{2}\bigl(1-\frac{z^2}{12}+\dots\bigr)$
+
+\begin{teobox}{Residui (Cauchy)}
+$\oint_\gamma f\,\dd z=2\pi i\sum_{\text{int}}\Res(f,z_j)$.
+\end{teobox}
+
+\sub{Calcolo dei residui}
+Polo semplice: $\Res(g/h,z_0)=g(z_0)/h'(z_0)$.\\
+Polo ord.\ $m$: $\Res=\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{d^{m-1}}{dz^{m-1}}\bigl[(z-z_0)^mf\bigr]$.\\
+Sfera Riemann: $\sum_{\text{tutti}}\Res=0$ (compreso $\infty$).\\
+$\Res(f,\infty)=-c_{-1}^{(\infty)}$, sviluppo in $|z|>R$.
+
+\begin{teobox}{Jordan (lemma)}
+$f$ olom.\ in $\{|z|>R,\Im z>0\}$ con $|f(z)|\to 0$: $\int_{C_R^+}f(z)\eu^{ikz}\dd z\to 0$ per $k>0$, $R\to\infty$.
+\end{teobox}
+
+\sub{Integrali reali standard}
+$\int_{-\infty}^{\infty}\frac{\dd x}{x^2+a^2}=\frac{\pi}{a}$;\quad $\int_{-\infty}^{\infty}\frac{\cos kx}{x^2+a^2}\dd x=\frac{\pi}{a}\eu^{-|k|a}$\\
+$\int_0^{\infty}\frac{x^{\alpha-1}}{1+x}\dd x=\frac{\pi}{\sin\pi\alpha}$ ($0\!<\!\alpha\!<\!1$)\\
+$\int_0^{\infty}\frac{\dd x}{1+x^n}=\frac{\pi/n}{\sin(\pi/n)}$;\quad $\int_0^{\infty}\frac{\log x}{1+x^2}\dd x=0$\\
+$\int_{-\infty}^{\infty}\frac{x\sin x}{x^2+1}\dd x=\pi/\eu$
+
+\sub{Scelta del percorso}
+\begin{itemize}
+\item $\eu^{ikx}$, $k>0$: chiusura SOPRA (Jordan).
+\item $k<0$: chiusura SOTTO.
+\item Polo su $\R$: $+i\pi\Res$ (Sokhotski-Plemelj, valore princ.).
+\item Settore $\alpha=2\pi/n$ per $\int_0^\infty x^p/(1+x^n)$.
+\item Rettangolo altezza $i\pi$ se $\cosh,\sinh$ nel denom.
+\item Keyhole su $\R^+$: $(1-\eu^{2\pi i\alpha})I=2\pi i\sum\Res$.
+\item Dog-bone attorno a taglio finito $[a,b]$.
+\end{itemize}
+
+\sub{Polidromia}
+$\log z=\log|z|+i\arg z$. Taglio $\R^+\!\to\arg\in[0,2\pi)$; taglio $\R^-\!\to\arg\in(-\pi,\pi]$.\\
+$\sqrt{(z-a)(z-b)}$ con taglio $[a,b]$: olom.\ fuori, $\infty$ NON branch.\\
+Sui lati: $z^\alpha$ differisce per $\eu^{2\pi i\alpha}$; $\sqrt z$ cambia segno.
+
+\begin{teobox}{Sokhotski--Plemelj}
+$\frac{1}{x\pm i0}=\mathrm{P}\frac{1}{x}\mp i\pi\delta(x)$ (come distribuzioni).
+\end{teobox}
+
+\end{secbox}
+
+% =====================================================
+\begin{secbox}{distrcol}{5. Distribuzioni}
+
+\sub{Definizione}
+Funzionale lineare continuo $T:\mathcal D(\Omega)\to\C$ su funzioni test $\phi\in C^\infty_c$. Notazione $\braket{T}{\phi}$.
+
+\sub{Operazioni}
+$\braket{T'}{\phi}=-\braket{T}{\phi'}$ (derivata)\\
+$\braket{aT}{\phi}=\braket{T}{a\phi}$ se $a\in C^\infty$ (moltiplicazione)\\
+$\braket{T*S}{\phi}=\braket{T_x}{\braket{S_y}{\phi(x+y)}}$ (convoluzione)
+
+\sub{Identità della $\delta$}
+$\int\delta(x-a)f=f(a)$,\;$\int\delta'(x-a)f=-f'(a)$\\
+$\delta(\alpha x)=\delta(x)/|\alpha|$,\;$\delta(f(x))=\sum_n\delta(x-x_n)/|f'(x_n)|$\\
+$\delta(x^2-a^2)=[\delta(x-a)+\delta(x+a)]/(2|a|)$\\
+$x\delta(x)=0$,\;$\delta'(x)f(x)=\delta'(x)f(0)-\delta(x)f'(0)$\\
+$\Theta'(x)=\delta(x)$,\;$\delta(x)=\frac{1}{2\pi}\int_{-\infty}^{\infty}\eu^{ikx}\dd k$
+
+\sub{Identità in $\R^3$}
+$\Delta(1/r)=-4\pi\delta^3(\bm r)$\\
+$\partial_i\partial_j(1/r)=(3\hat r_i\hat r_j-\delta_{ij})/r^3-\frac{4\pi}{3}\delta_{ij}\delta^3(\bm r)$\\
+$\Delta\log r=2\pi\delta^2(\bm r)$ in 2D
+
+\end{secbox}
+
+% =====================================================
+\begin{secbox}{fouriercol}{6. Serie di Fourier}
+
+\sub{Convenzioni}
+$f(x)=\sum c_n\eu^{in\pi x/L}$,\;$c_n=\frac{1}{2L}\int_{-L}^Lf\eu^{-in\pi x/L}\dd x$\\
+Trig.: $f=\frac{a_0}{2}+\sum_{n\ge1}[a_n\cos+b_n\sin]$.\\
+Parità: pari $\Rightarrow b_n=0$; dispari $\Rightarrow a_n=0$.
+
+\begin{teobox}{Dirichlet}
+$f$ $C^1$ a tratti: $S(x_0)=\frac{1}{2}[f(x_0^+)+f(x_0^-)]$. Convergenza puntuale.
+\end{teobox}
+
+\begin{teobox}{Fejer}
+$f\in L^2[-L,L]$: somme parziali convergono a $f$ in norma $L^2$. Medie di Cesaro convergono uniformemente per $f$ continua.
+\end{teobox}
+
+\begin{teobox}{Parseval}
+$\frac{1}{2L}\int|f|^2=\sum|c_n|^2=\frac{a_0^2}{4}+\frac{1}{2}\sum(a_n^2+b_n^2)$.
+\end{teobox}
+
+\begin{teobox}{Riemann--Lebesgue}
+$f\in L^1\Rightarrow c_n\to 0$ per $|n|\to\infty$.
+\end{teobox}
+
+\sub{Somme notevoli}
+$\sum_{n\ge1}\frac{1}{n^2}=\frac{\pi^2}{6}$,\;$\sum\frac{1}{n^4}=\frac{\pi^4}{90}$,\;$\sum\frac{(-1)^{n+1}}{n^2}=\frac{\pi^2}{12}$\\
+$\sum_{n\ge0}\frac{1}{(2n+1)^2}=\frac{\pi^2}{8}$,\;$\sum_{n\ge0}\frac{(-1)^n}{(2n+1)^3}=\frac{\pi^3}{32}$\\
+$\sum_{n=1}^\infty\frac{1}{n^2+a^2}=\frac{\pi\coth\pi a}{2a}-\frac{1}{2a^2}$\\
+$\sum_{n=1}^\infty\frac{(-1)^n}{n^2+a^2}=\frac{\pi}{2a\sinh\pi a}-\frac{1}{2a^2}$
+
+\sub{Trucchi per somme}
+\textbf{(a)} Calcola $S(x_0)$ in punto noto $\to$ somma diretta.\\
+\textbf{(b)} Salto $\to$ media estrae somme con segni misti.\\
+\textbf{(c)} Parseval $\to\sum|c_n|^2\Rightarrow\sum 1/n^4$.\\
+\textbf{(d)} $\int x\eu^{-inx}=\frac{1}{-in}\partial_n\int\eu^{-inx}$ (derivata in $n$).
+
+\end{secbox}
+
+% =====================================================
+\begin{secbox}{fouriercol}{7. Trasformata di Fourier}
+
+\sub{Convenzione}
+$\hat f(k)=\int f(x)\eu^{-ikx}\dd x$,\;$f(x)=\frac{1}{2\pi}\int\hat f(k)\eu^{ikx}\dd k$.
+
+\sub{Proprietà}
+$\widehat{f(x-a)}=\eu^{-ika}\hat f$,\;$\widehat{\eu^{iax}f}=\hat f(k-a)$\\
+$\widehat{f(\alpha x)}=|\alpha|^{-1}\hat f(k/\alpha)$,\;$\widehat{f'}=ik\hat f$,\;$\widehat{xf}=i\hat f'$\\
+$\widehat{f*g}=\hat f\hat g$,\;$\widehat{fg}=\frac{1}{2\pi}\hat f*\hat g$
+
+\begin{teobox}{Plancherel}
+$\int|f|^2=\frac{1}{2\pi}\int|\hat f|^2$. ($\hat{\,\cdot\,}/\sqrt{2\pi}$ è unitaria su $L^2$.)
+\end{teobox}
+
+\begin{teobox}{Riemann--Lebesgue}
+$f\in L^1\Rightarrow\hat f\in C_0$ ($\hat f\to 0$ all'infinito).
+\end{teobox}
+
+\begin{teobox}{Paley--Wiener}
+$f$ supporto in $[-A,A]\iff\hat f$ estendibile a $\C$, intera, con $|\hat f(k)|\le Ce^{A|\Im k|}$.
+\end{teobox}
+
+\sub{TF notevoli}
+$\widehat{\eu^{-a|x|}}=\frac{2a}{k^2+a^2}$;\;$\widehat{1/(x^2+a^2)}=\frac{\pi}{a}\eu^{-|k|a}$\\
+$\widehat{\eu^{-x^2/(2\sigma^2)}}=\sigma\sqrt{2\pi}\eu^{-\sigma^2k^2/2}$\\
+$\widehat{\Theta(x)\eu^{-ax}}=1/(a+ik)$\\
+$\widehat{\sin(ax)/x}=\pi[\Theta(k+a)-\Theta(k-a)]$\\
+$\widehat{1/x}=-i\pi\sgn(k)$ (PV); $\widehat{\delta(x-a)}=\eu^{-ika}$\\
+$\widehat 1=2\pi\delta(k)$; $\hat\Theta(k)=\pi\delta(k)-iP(1/k)$\\
+$\widehat{x/(1+x^2)^2}=-i\frac{\pi}{4}k\eu^{-|k|}$\\
+$\widehat{\cos(ax)/(x^2+b^2)}=\frac{\pi}{2b}[\eu^{-b|k-a|}+\eu^{-b|k+a|}]$
+
+\sub{Decadimento}
+Polo più vicino all'asse reale $z_*$: $|\hat f(k)|\sim\eu^{-|\Im z_*||k|}$ per $|k|\to\infty$.
+
+\end{secbox}
+
+% =====================================================
+\begin{secbox}{fouriercol}{8. Trasformata di Laplace}
+
+$F(s)=\int_0^\infty f(t)\eu^{-st}\dd t$, conv.\ $\Re s>\sigma_0$.
+
+\sub{Proprietà}
+$\mathcal L[f']=sF-f(0)$;\;$\mathcal L[f'']=s^2F-sf(0)-f'(0)$\\
+$\mathcal L[tf]=-F'$;\;$\mathcal L[f*g]=FG$\\
+$\mathcal L[\Theta(t-a)f(t-a)]=\eu^{-as}F$
+
+\sub{Tabella}
+$\mathcal L[1]=1/s$;\;$\mathcal L[t^n]=n!/s^{n+1}$;\;$\mathcal L[\eu^{at}]=1/(s-a)$\\
+$\mathcal L[\sin\omega t]=\omega/(s^2+\omega^2)$;\;$\mathcal L[\cos\omega t]=s/(s^2+\omega^2)$\\
+$\mathcal L[\sinh at]=a/(s^2-a^2)$;\;$\mathcal L[\cosh at]=s/(s^2-a^2)$\\
+$\mathcal L[\delta(t-a)]=\eu^{-as}$\\
+$\mathcal L[\eu^{-t^2/2}]=\sqrt{\pi/2}\eu^{s^2/2}[1-\mathrm{erf}(s/\sqrt 2)]$
+
+\begin{teobox}{Bromwich (inversione)}
+$f(t)=\frac{1}{2\pi i}\int_{c-i\infty}^{c+i\infty}F(s)\eu^{st}\dd s$, $c>\sigma_0$. Per $t>0$ chiudi a sinistra.
+\end{teobox}
+
+\end{secbox}
+
+% =====================================================
+\begin{secbox}{edocol}{9. ODE -- variazione costanti}
+
+\sub{Forma standard}
+$a_2(x)f''+a_1(x)f'+a_0(x)f=j(x)$.
+
+\sub{Soluzioni omogenee}
+Coeff.\ costanti: caratter.\ $a_2r^2+a_1r+a_0=0$ $\to$ $f_h=A\eu^{r_+x}+B\eu^{r_-x}$ (oppure $\eu^{rx}(A+Bx)$ se radice doppia).\\
+\textbf{Eulero} $a_2x^2f''+a_1xf'+a_0f$: ansatz $f=x^r$ $\to$ $a_2r(r-1)+a_1r+a_0=0$. Radice doppia: $f_2=x^r\log x$.
+
+\sub{Wronskiano}
+$W=f_1f_2'-f_1'f_2$. \;\textbf{Abel}: $W(x)=W(x_0)\exp[-\!\int a_1/a_2]$.
+
+\sub{Variazione costanti}
+$$f_p(x)=\!\int\!\frac{j(y)}{a_2(y)W(y)}[f_1(y)f_2(x)-f_1(x)f_2(y)]\,\dd y$$
+Sol.\ generale: $f=Af_1+Bf_2+f_p$. Imponi condizioni (Cauchy o BC).
+
+\sub{Riduzione d'ordine}
+Data $f_1$: $f_2=f_1\int\frac{\eu^{-\!\int a_1/a_2}}{f_1^2}\dd x$.
+
+\begin{teobox}{Esistenza--Unicità (Picard--Lindel\"of)}
+ODE prim'ordine $y'=F(x,y)$ con $F$ Lipschitz in $y$: soluzione unica locale.
+\end{teobox}
+
+\end{secbox}
+
+% =====================================================
+\begin{secbox}{edocol}{10. Funzione di Green per ODE -- GUIDA}
+
+\sub{Definizione e ruolo}
+Per $Lf=j$ con BC omogenee fissate, $G(x,y)$ soddisfa
+$$L_x G(x,y)=\delta(x-y),\quad\text{stesse BC nella variabile $x$}.$$
+Allora $f(x)=\int_a^bG(x,y)j(y)\dd y$ è la soluzione completa. Una volta calcolato $G$, hai risolto $Lf=j$ per ogni sorgente $j$.
+
+\sub{Algoritmo costruttivo (8 passi)}
+\begin{enumerate}
+\item \textbf{Standardizza l'ODE}: scrivi nella forma $Lf=a_2(x)f''+a_1(x)f'+a_0(x)f=j(x)$. Identifica il dominio $[a,b]$ e le BC omogenee.
+\item \textbf{Risolvi l'omogenea} $Lf=0$: trova due soluzioni indipendenti.
+\item \textbf{Costruisci $f_1$}: combinazione lineare delle omogenee che soddisfa la BC sinistra (in $x=a$).
+\item \textbf{Costruisci $f_2$}: combinazione lineare che soddisfa la BC destra (in $x=b$). Devono essere indipendenti (altrimenti il problema ha autovalore nullo).
+\item \textbf{Calcola il Wronskiano} $W(y)=f_1(y)f_2'(y)-f_1'(y)f_2(y)$.
+\item \textbf{Assembla $G$}:
+$$G(x,y)=\frac{1}{a_2(y)W(y)}\begin{cases}f_1(x)f_2(y) & x<y\\ f_1(y)f_2(x) & x>y\end{cases}$$
+Forma compatta: $G=\frac{f_1(x_<)f_2(x_>)}{a_2(y)W(y)}$ con $x_<=\min(x,y)$, $x_>=\max(x,y)$.
+\item \textbf{Verifiche}:
+\begin{itemize}
+\item $G$ continua in $x=y$;
+\item Salto: $\partial_xG(y^+,y)-\partial_xG(y^-,y)=1/a_2(y)$;
+\item $G$ soddisfa BC in $x=a$ e $x=b$ (per costruzione).
+\end{itemize}
+\item \textbf{Calcola la soluzione}: $f(x)=\int_a^bG(x,y)j(y)\dd y$. Spezza $\int_a^x$ (usa $G$ con $y<x$) + $\int_x^b$ ($G$ con $y>x$).
+\end{enumerate}
+
+\sub{Sorgenti distribuzionali}
+\textbf{$j=\delta(x-x_0)$}: $f(x)=G(x,x_0)$.\\
+\textbf{$j=\delta'(x-x_0)$}: $f(x)=-\partial_yG(x,y)|_{y=x_0}$.\\
+\textbf{$j=\delta^{(n)}(x-x_0)$}: $f(x)=(-1)^n\partial_y^nG(x,y)|_{y=x_0}$.
+
+\sub{Casi degeneri}
+Se $f_1$ e $f_2$ risultano \emph{proporzionali} (cioè esiste una soluzione omogenea che soddisfa entrambe le BC), $W=0$ e $G$ non esiste. Significato: $\lambda=0$ è autovalore di $L$. Soluzione: il problema $Lf=j$ ha soluzione \emph{solo} se $j\perp$ a tale autofunzione (alternativa di Fredholm).
+
+\sub{Espansione in autofunzioni}
+Se $L\psi_n=\lambda_n\psi_n$ ortonormali, allora $G(x,y)=\sum_n\frac{\psi_n(x)\psi_n^*(y)}{\lambda_n}$. Utile se conosci già le autofunzioni.
+
+\begin{teobox}{Alternativa di Fredholm}
+$Lf=j$ con $L$ con kernel $K=\ker L$: ha soluzione $\iff j\perp K^*=\ker L^\dagger$.
+\end{teobox}
+
+\sub{Esempi tipici}
+\textbf{$f''+k^2f=j$ su $[0,L]$ Dir-Dir}: $f_1=\sin(kx)$, $f_2=\sin(k(L-x))$, $W=-k\sin(kL)$. $G=\sin(kx_<)\sin(k(L-x_>))/[k\sin(kL)]$.\\
+\textbf{Eulero $x^2f''+xf'-f=j$ su $[1,2]$}: $f_h=Ax+B/x$, $f_1=x-1/x$, $f_2=x-4/x$, applica algoritmo.
+
+\end{secbox}
+
+% =====================================================
+\begin{secbox}{edpcol}{11. EDP -- separazione di variabili}
+
+\sub{Classificazione (2$^\circ$ ord., 2 variabili)}
+$au_{xx}+2bu_{xy}+cu_{yy}+\dots$ con discriminante $\Delta=b^2-ac$:
+\begin{itemize}
+\item $\Delta<0$ \textbf{ellittica} (Laplace, Helmholtz): BC su frontiera.
+\item $\Delta=0$ \textbf{parabolica} (calore): cond.\ iniziale $+$ BC.
+\item $\Delta>0$ \textbf{iperbolica} (onde): cond.\ iniziali + BC.
+\end{itemize}
+
+\sub{Algoritmo: separazione variabili}
+Per $\partial_tu=L_xu$ su $[0,L]\times[0,T]$:
+\begin{enumerate}
+\item Ansatz $u(t,x)=T(t)X(x)$. Sostituisci: $\dot T/T=L_xX/X=-\lambda$ (costante).
+\item Risolvi il problema spettrale per $L_x$ con le BC spaziali (cf.\ sez.\ 3). Trova $\{\lambda_n,X_n\}$.
+\item ODE in $t$: $\dot T_n=-\lambda_n T_n$ $\Rightarrow$ $T_n(t)=c_n\eu^{-\lambda_n t}$.
+\item Sovrapposizione: $u(t,x)=\sum_nc_n\eu^{-\lambda_nt}X_n(x)$.
+\item Coefficienti dal dato iniziale: $c_n=\braket{X_n}{u_0}=\int_0^L X_n^*(x)u_0(x)\dd x$.
+\end{enumerate}
+
+\sub{Calore}
+$\partial_tu=\kappa\partial_{xx}u$.\\
+\textbf{Su $[0,L]$ Dirichlet}: $u(t,x)=\sum_nc_n\eu^{-\kappa(n\pi/L)^2t}\sqrt{2/L}\sin(n\pi x/L)$.\\
+\textbf{Su $\R$}: nucleo $K(t,x)=\eu^{-x^2/(4\kappa t)}/\sqrt{4\pi\kappa t}$;\;$u(t,x)=\int K(t,x-y)u_0(y)\dd y$.
+
+\sub{Onde 1D}
+\begin{teobox}{d'Alembert}
+$\partial_{tt}u=c^2\partial_{xx}u$, $u(0)=h$, $u_t(0)=v$:
+$u(t,x)=\frac{h(x-ct)+h(x+ct)}{2}+\frac{1}{2c}\int_{x-ct}^{x+ct}v$.
+\end{teobox}
+Su $[0,L]$: $u=\sum_n[A_n\cos\omega_nt+B_n\sin\omega_nt]X_n$, $\omega_n=c\sqrt{\lambda_n}$.
+
+\sub{Schr\"odinger libera}
+$i\partial_t\psi=-\tfrac12\partial_{xx}\psi$: $\hat\psi(t,k)=\eu^{-ik^2t/2}\hat\psi_0(k)$. Pacchetto gauss.: $\sigma(t)=\sqrt{\sigma^2+t^2/\sigma^2}$.
+
+\sub{Trucchi}
+$\partial_tu=a(t)\partial_{xx}u$: cambio $\tau=\int_0^ta(s)\dd s$.\\
+Advect.-diff.\ $\partial_tu+v\partial_xu=\kappa\partial_{xx}u$: $y=x-vt$.\\
+Neumann $\to$ estensione pari del dato; Dirichlet $\to$ dispari.
+
+\end{secbox}
+
+% =====================================================
+\begin{secbox}{edpcol}{12. Funzione di Green per EDP -- GUIDA}
+
+\sub{Definizione}
+Per $Lu=j$ (operatore $L$ in $\partial_t,\partial_x$, ev.\ a coefficienti costanti):
+$$LG(t,x;t',x')=\delta(t-t')\delta(x-x'),$$
+con condizioni che fissano l'unicità (ritardata: $G=0$ per $t<t'$).
+
+\sub{Algoritmo: $G$ via Fourier (problemi su $\R^n$, coeff.\ costanti)}
+\begin{enumerate}
+\item \textbf{Trasforma}: $(t,x)\to(\omega,k)$. $L$ diventa moltiplicazione: $\tilde L(i\omega,ik)\tilde G(\omega,k)=1$.
+\item \textbf{Inverti algebricamente}: $\tilde G(\omega,k)=1/\tilde L(i\omega,ik)$.
+\item \textbf{Antitrasforma in $\omega$}: $G(t,k)=\frac{1}{2\pi}\int\tilde G\eu^{i\omega t}\dd\omega$. Usa residui:
+\begin{itemize}
+\item Per $G_R$ (ritardata, $t>0$): aggiungi $i\epsilon$ al denom.\ in modo da spostare i poli sotto $\R$, chiusura sopra (vuota per $t<0$, residui per $t>0$).
+\item Per $G_A$ (avanzata): poli sopra, opposto.
+\end{itemize}
+\item \textbf{Antitrasforma in $k$}: $G(t,x)=\frac{1}{2\pi}\int G(t,k)\eu^{ikx}\dd k$. Spesso gaussiana o tabulata.
+\item \textbf{Verifica}: $G(t,x)|_{t\to 0^+}\to\delta(x)$ per calore/Schr\"odinger; supp.\ sul cono luce per onde.
+\end{enumerate}
+
+\sub{Algoritmo: $G$ via espansione in autofunzioni (problemi su dominio finito)}
+\begin{enumerate}
+\item Trova autofunzioni $\{X_n\}$ di $L_x$ con BC spaziali (sez.\ 3).
+\item Espandi: $G(t,x;t',x')=\sum_nT_n(t,t')X_n(x)X_n^*(x')$.
+\item $T_n$ soddisfa ODE temporale con sorgente $\delta(t-t')$: $T_n(t,t')=\Theta(t-t')g_n(t-t')$ con $g_n$ dipendente dal tipo di EDP (esponenziale per calore, $\sin\omega_n(t-t')/\omega_n$ per onde).
+\item Soluzione: $u(t,x)=\int\!\!\int G(t,x;t',x')j(t',x')\dd x'\dd t'+$ termini dato iniziale.
+\end{enumerate}
+
+\sub{Catalogo Green ritardate}
+\textbf{Calore} $\partial_t-\kappa\partial_{xx}$: $G_R(t,x)=\Theta(t)\dfrac{\eu^{-x^2/(4\kappa t)}}{\sqrt{4\pi\kappa t}}$\\
+\textbf{Schr\"odinger libera}: $G_R(t,x)=-i\Theta(t)\dfrac{\eu^{ix^2/(2t)}}{\sqrt{2\pi it}}$\\
+\textbf{Onde 1D}: $G_R(t,x)=\frac{1}{2c}\Theta(t)\Theta(ct-|x|)$\\
+\textbf{Onde 3D}: $G_R(t,\bm r)=\frac{\delta(t-r/c)}{4\pi r}$ (sul cono luce)\\
+\textbf{Poisson 3D} ($-\Delta$): $G=1/(4\pi|\bm r|)$\\
+\textbf{Helmholtz 3D} ($-\Delta-k^2$): $G_R=\eu^{ikr}/(4\pi r)$\\
+\textbf{Klein--Gordon eucl.} ($-\Delta+m^2$) in $\R^3$: $G=\eu^{-mr}/(4\pi r)$ (Yukawa)
+
+\sub{Prescrizione $i\epsilon$}
+$\tilde G(\omega)=1/[(\omega-\omega_+)(\omega-\omega_-)+\dots]$, spostamento $\omega_\pm\to\omega_\pm\mp i\epsilon$:
+\begin{itemize}
+\item \textbf{Ritardata}: tutti i poli sotto $\R$. $G_R(t<0)=0$.
+\item \textbf{Avanzata}: tutti sopra. $G_A(t>0)=0$.
+\item \textbf{Feynman}: poli a $\omega>0$ sotto, $\omega<0$ sopra. Usata in QFT.
+\end{itemize}
+
+\sub{Uso}
+Dato $j(t,x)$, soluzione: $u=\int_{-\infty}^t\!\!\int G_R(t-t',x-x')j(t',x')\dd x'\dd t'$.\\
+Sorgente $\delta(t-t_0)\delta(x-x_0)$: $u(t,x)=G_R(t-t_0,x-x_0)$.
+
+\end{secbox}
+
+% =====================================================
+\begin{secbox}{cheatcol}{13. Strategia d'esame}
+
+\sub{Riconoscimento rapido del tipo di esercizio}
+\begin{itemize}
+\item ``base ortonormale'' $\to$ Gram--Schmidt.
+\item ``calcola $f(A)$'' (matrice) $\to$ spettrale o Cayley--Hamilton.
+\item ``spettro di un operatore'' $\to$ ODE + BC + quantizzazione (sez.\ 3).
+\item ``serie di Laurent / residui'' $\to$ classifica singolarità.
+\item ``integrale reale'' $\to$ scegli percorso (semicerchio/keyhole/settore/rettangolo).
+\item ``$\sqrt z, \log z$, taglio'' $\to$ disegna sempre il piano.
+\item ``TF / TF inversa'' $\to$ chiudi nel semipiano col decadimento.
+\item ``ODE non omogenea con BC'' $\to$ funzione di Green (sez.\ 10).
+\item ``EDP intervallo finito'' $\to$ separazione + serie autofunz.
+\item ``EDP su $\R$ con sorgente'' $\to$ Green ritardata.
+\item ``sorgente $\delta$'' $\to$ valuta $G_R$ in $(t-t_0,x-x_0)$.
+\end{itemize}
+
+\sub{Errori killer}
+\begin{itemize}
+\item Coniugato dimenticato in $\C^n$.
+\item Branch sbagliato (sempre disegnare!).
+\item Chiusura contorno dal lato sbagliato.
+\item Convenzione TF mista (decidere $\eu^{-ikx}$ o $\eu^{+ikx}$).
+\item Simmetrico $\neq$ autoaggiunto.
+\item $\hat\delta=1$ ma $\hat 1=2\pi\delta$.
+\item Dimenticare $1/(2\pi)$ in antitrasformata.
+\item Dimenticare BC compatibili con autoagg.
+\item Confondere mol.\ algebrica e geometrica.
+\end{itemize}
+
+\sub{Verifiche rapide universali}
+$\Tr$, $\det$, parità, dimensioni, casi limite ($\lambda\to 0$, $\lambda\to\infty$, $L\to\infty$, $t\to 0$).
+
+\sub{Le 10 idee che risolvono il 90\%}
+\begin{enumerate}
+\item Decomposizione spettrale.
+\item Cayley--Hamilton per funzioni di matrice.
+\item Laurent + residui per integrali su circuiti.
+\item Chiusura a semicerchio + Jordan per Fourier.
+\item Keyhole/settore per $x^\alpha,\log$.
+\item Separazione di variabili per EDP.
+\item Sviluppo in autofunzioni su intervallo finito.
+\item TF per problemi su $\R$ a coeff.\ costanti.
+\item Funzione di Green per sorgenti.
+\item Parita per dimezzare il lavoro ovunque.
+\end{enumerate}
+
+\sub{Nomi da citare a lezione}
+Riesz, Plancherel, Parseval, Bessel, Dirichlet, Fejer, Riemann--Lebesgue, Paley--Wiener, Jordan, Sokhotski--Plemelj, Casorati--Weierstrass, Picard, Liouville, Cauchy--Schwarz, Cauchy, Picard--Lindelof, Stone, Hellinger--Toeplitz, von Neumann, Fredholm, d'Alembert, Heisenberg, Cayley--Hamilton, BCH.
+
+\end{secbox}
+
+\end{multicols}
+\end{document}
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation
+
+% padding to absorb truncation

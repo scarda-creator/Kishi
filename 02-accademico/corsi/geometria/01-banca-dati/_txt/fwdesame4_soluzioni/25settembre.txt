@@ -1,0 +1,218 @@
+===== PAGINA 1 =====
+Geometria (Corso di laurea in Fisica, Canali A-C e D-O)
+Prof. Barucci e Piccinni
+25 settembre 2012
+a. Scrivere subito canale, cognome e nome.
+b. Utilizzare questi fogli per le risposte. I fogli protocollo distribuiti a parte sono invece per eventuali riﬂessioni o
+calcoli, e non vanno consegnati.
+c. Durante la prova non si possono consultare testi e appunti n´e usare fogli diversi da quelli distribuiti.
+d. Durante la prova non `e consentito uscire dall’aula.
+Tempo a disposizione: 2 ore
+Canale.............................Cognome...........................................................Nome................................................
+1. Si consideri l’equazione 4z3 + z = 0, a coeﬃcienti in C. Stabilire quali tra le seguenti aﬀermazioni sono vere
+(eventualmente anche pi`u risposte):
+1
+Le soluzioni sono z1 = 2i; z2 = −2i, z3 = 0
+2
+Le soluzioni sono z1 = 1
+2i, z2 = −1
+2i, z3 = 0
+3
+Le soluzioni sono z1 = i
+2, z2 = −i
+2, z3 = 0
+4
+Nessuna delle precedenti.
+2. Si considerino nello spazio R3 i seguenti cinque vettori⃗v1 = (1, 1, 3),⃗v2 = (2, −1, 1),⃗v3 = (−1, 5, 7),⃗v4 =
+(4, −5, −3),⃗v5 = (6, 0, 8). Stabilire quali tra le seguenti aﬀermazioni `e vera (eventualmente anche pi`u risposte):
+1⃗
+v1,⃗v2,⃗v3,⃗v4,⃗v5 sono linearmente dipendenti
+2⃗
+v1,⃗v2,⃗v3,⃗v4,⃗v5 sono complanari
+3⃗
+v1,⃗v2,⃗v3,⃗v4,⃗v5 sono paralleli
+4
+Nessuna delle precedenti
+3. Si considerino nello spazio R3 i seguenti quattro punti A = (
+√
+3/2, 3/2, 0), B = (0, 1, 1), C = (−
+√
+3/2, 1/2, 0), D =
+(0, 1, −1). Stabilire quali tra le seguenti aﬀermazioni `e vera (eventualmente anche pi`u risposte):
+1
+A, B, C, D sono complanari e il piano che li contiene ha equazione x −
+√
+3y +
+√
+3 = 0
+2
+A, B, C, D sono vertici di un tetraedro di spigolo
+√
+2
+3
+A, B, C, D sono vertici consecutivi di un quadrato di lato
+√
+2
+4
+Nessuna delle precedenti
+
+
+===== PAGINA 2 =====
+4. Si consideri nello spazio euclideo R3 la retta r : x + 3y + z = 0, x −2y −z = 0, essendo (x, y, z) le coordinate
+cartesiane di R3. Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+r `e un sottospazio vettoriale di R3
+2
+tutte le rette parallele ad r hanno parametri direttori (1, −2, 5)
+3
+r `e contenuta nel piano x −2y + 5z = 0
+4
+r `e perpendicolare al piano x −2y + 5z = 0
+5. Si consideri la matrice A =
+
+
+2/3
+2/3
+1/3
+1/3
+−2/3
+2/3
+2/3
+−1/3
+−2/3
+
+. Stabilire quali tra le seguenti aﬀermazioni `e vera:
+1
+A `e invertibile e la sua inversa `e
+
+
+2/3
+1/3
+2/3
+2/3
+−2/3
+−1/3
+1/3
+2/3
+2/3
+
+
+2
+A `e invertibile e la sua inversa `e
+
+
+2/3
+1/3
+−2/3
+2/3
+−2/3
+1/3
+1/3
+2/3
+−2/3
+
+
+3
+A `e invertibile e la sua inversa `e
+
+
+2/3
+1/3
+2/3
+2/3
+−2/3
+−1/3
+1/3
+2/3
+−2/3
+
+
+4
+A `e una matrice ortogonale
+6. Sia T : M2(R) →M2(R) l’applicazione deﬁnita dalla formula:
+T(A) = (A + A2),
+essendo M2(R) lo spazio vettoriale delle matrici reali 2 × 2, essendo A2 = A · A il quadrato di A (e denotando
+con il simbolo · il prodotto righe per colonne). Stabilire quale tra le seguenti aﬀermazioni `e vera (eventualmente
+anche pi`u risposte):
+1
+T `e lineare e iniettiva
+2
+T `e lineare e suriettiva
+3
+T non `e lineare ma `e iniettiva
+4
+Nessuna delle precedenti.
+7. Sia T : V −→V un endomorﬁsmo dello spazio vettoriale V = V n
+K. Stabilire quale tra le seguenti aﬀermazioni `e
+corretta (eventualmente anche pi`u risposte):
+1
+Se T `e suriettivo, allora `e anche iniettivo
+2
+Se T `e iniettivo, allora `e anche suriettivo
+3
+Se T non ammette lo zero di K come autovalore, allora `e iniettivo
+4
+Se T `e suriettivo, allora il determinante di ogni matrice ad esso associata `e nullo
+2
+
+
+===== PAGINA 3 =====
+8. Sia A ∈Mn(C) una matrice complessa quadrata di ordine n. Si pu`o aﬀermare che det A sia il prodotto dei suoi
+autovalori, contati con la rispettiva molteplicit`a algebrica?
+1
+S`ı, sempre
+2
+Solo se A `e diagonalizzabile
+3
+Solo se A `e la matrice nulla
+4
+Nessuna delle precedenti
+9. Si considerino in M2(R) le matrici:
+A1 =
+ 0
+1
+1
+1
+
+,
+A2 =
+ 1
+0
+1
+1
+
+,
+A3 =
+ 1
+1
+0
+1
+
+,
+M4 =
+ 1
+1
+1
+0
+
+,
+Stabilire quale tra le seguenti aﬀermazioni `e vera (eventualmente anche pi`u risposte):
+1
+A1, A2, A3, A4 formano una base di M2(R)
+2
+A1, A2, A3, A4 sono tutte diagonalizzabili
+3
+A1, A2, A3, A4 sono tutte non diagonalizzabili
+4
+Nessuna delle precedenti
+10. Si considerino i vettori⃗v1,⃗v2,⃗v3 di R3, a due a due ortogonali e tutti diversi dal vettore nullo. Stabilire quali tra
+le seguenti aﬀermazioni `e vera (eventualmente anche pi`u risposte):
+1⃗
+v1,⃗v2,⃗v3 sono linearmente indipendenti
+2
+ognuno dei tre vettori `e prodotto vettoriale degli altri due (considerati in ordine opportuno)
+3⃗
+v1,⃗v2,⃗v3 sono autovettori di una matrice diagonale
+4⃗
+v1,⃗v2,⃗v3 sono autovettori di una matrice simmetrica
+3

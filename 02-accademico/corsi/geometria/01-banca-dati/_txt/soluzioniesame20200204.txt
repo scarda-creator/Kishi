@@ -1,0 +1,339 @@
+===== PAGINA 1 =====
+Geometria
+Appello II — Sessione Invernale — Compito A
+Corso di laurea in ﬁsica — a.a. 2019/2020
+Tutti i Canali
+Durata: 2 ore e 30 minuti
+Paolo Bravi
+Simone Diverio
+Gabriele Mondello
+Paolo Piccinni
+Riccardo Salvati Manni
+4 febbraio 2020
+Esercizio 1. Si determinino, nel campo complesso C, tutte le soluzioni per ognuna delle seguenti due
+equazioni:
+z2 = ¯z2
+e
+z2 = −¯z2
+dove z = a + ib ∈C e ¯z = a −ib è il suo coniugato.
+Esercizio 2. Sia A =
+1
+1
+0
+1
+
+, e si considerino i sottospazi vettoriali di M2(R):
+U =
+n
+X =
+x1
+x2
+x3
+x4
+
+, con AX = XA
+o
+, V =
+n
+X =
+x1
+x2
+x3
+x4
+
+, con AX = −XA
+o
+.
+Determinare dimensioni e basi dei sottospazi vettoriali U, V, U ∩V, U + V .
+Esercizio 3. Si consideri l’endomorﬁsmo F : R3 →R3 deﬁnito da
+F(x1, x2, x3) = (−x1 −3x2 −3x3, 5x2 + 6x3, −3x2 −4x3).
+Veriﬁcare che F è diagonalizzabile, determinando una base di suoi autovettori e una matrice non singolare
+C tale che, se A è la matrice di F, A′ = C−1AC sia diagonale.
+Esercizio 4. Si consideri in M2(C) la matrice A =
+1
+i
+i
+−1
+
+.
+Calcolare la traccia e il determinante di A e dedurne (possibilmente senza polinomio caratteristico) quali
+sono gli autovalori di A. Si può concludere da ciò se A è diagonalizzabile? A è simmetrica e/o hermitiana
+e/o unitaria?
+Esercizio 5. Si consideri la forma bilineare simmetrica g : R4 × R4 →R deﬁnita da
+g(⃗x,⃗y) = 3x1y1 + x1y4 + x2y2 + x3y3 + x4y1.
+Stabilire se g è deﬁnita positiva e determinare, se esiste, un vettore non nullo⃗x ∈R4 isotropo rispetto a
+g, ovvero tale che g(⃗x,⃗x) = 0.
+1
+
+
+===== PAGINA 2 =====
+Soluzioni
+Esercizio 1. Le due equazioni assegnate si possono riscrivere nel seguente modo:
+z2 −¯z2 = (z + ¯z)(z −¯z) = 0
+e
+z2 + ¯z2 = (z + i¯z)(z −i¯z) = 0.
+Esplicitando in parte reale e immaginaria abbiamo:
+z = x + iy,
+¯z = x −iy,
+i¯z = y + ix.
+Ne segue
+z + ¯z = 2x,
+z −¯z = 2iy,
+z + i¯z = (x + y) + i(x + y),
+z −i¯z = (x −y) + i(x −y).
+Dunque le due equazioni si possono riscrivere cosí:
+(z + ¯z)(z −¯z) = (2x)(2iy) = 0
+e
+(z + i¯z)(z −i¯z) = [(x + y) + i(x + y)][(x −y) + i(x −y)] = 0.
+Pertanto l’insieme delle soluzioni della prima equazione consiste della coppia degli assi coordinati: xy = 0
+(x = 0, ovvero numeri immaginari puri, e y = 0, ovvero reali puri). L’insieme delle soluzioni della seconda
+equazione consiste invece delle due bisettici dei quadranti del piano cartesiano: x + y = 0 e x −y = 0.
+Esercizio 2. Eseguendo i prodotti AX e XA abbiamo:
+AX =
+1
+1
+0
+1
+ x1
+x2
+x3
+x4
+
+=
+x1 + x3
+x2 + x4
+x3
+x4
+
+,
+XA =
+x1
+x2
+x3
+x4
+ 1
+1
+0
+1
+
+=
+x1
+x1 + x2
+x3
+x3 + x4
+
+.
+Ne seguono le equazioni dei sottospazi vettoriali U e V :
+U :
+
+
+
+
+
+
+
+x1 + x3 =
+x1
+x2 + x4 = x1 + x2
+x3
+=
+x3
+x4
+= x3 + x4
+e
+V :
+
+
+
+
+
+
+
+x1 + x3 =
+−x1
+x2 + x4 = −x1 −x2
+x3
+=
+−x3
+x4
+= −x3 −x4
+Ne seguono le equazioni sempliﬁcate
+U : x3 = 0, x1 = x4
+e
+V : x1 = x2 = x3 = x4 = 0,
+e che
+U =
+n t
+s
+0
+t
+ o
+ha dimensione 2 e base data dalle matrici
+1
+0
+0
+1
+
+e
+0
+1
+0
+0
+
+. V è invece il sottospazio vettoriale nullo, di
+dimensione 0. Pertanto U + V = U (con la stessa base e dimensione di U) e U ∩V = V è il sottospazio
+vettoriale nullo.
+Esercizio 3. La matrice associata a F rispetto alla base canonica è:
+A =
+
+
+−1
+−3
+−3
+0
+5
+6
+0
+−3
+−4
+
+,
+da cui l’equazione caratteristica di F
+det(A −λI) = det
+
+
+−1 −λ
+−3
+−3
+0
+5 −λ
+6
+0
+−3
+−4 −λ
+
+= (−1 −λ)(λ2 −λ −2) = 0,
+2
+
+
+===== PAGINA 3 =====
+e gli autovalori λ1 = −1 con molteplicità algebrica 2 e λ2 = 2 con molteplicità algebrica 1. Scriviamo ora
+le equazioni dei rispettivi autospazi. Per λ1 = −1 si ha:
+Vλ1 :
+
+
+
+−3x2 −3x3 = 0
+6x2 + 6x3 = 0
+−3x2 −3x3 = 0
+e quindi Vλ1 = {(t1, t2, −t2)}t1,t2∈R = {t1(1, 0, 0)+t2(0, 1, −1)}t1,t2∈R. Una base di Vλ1 è dunque costituita
+dagli autovettori⃗v′
+1 = (1, 0, 0),⃗v′
+2 = (0, 1, −1). Si ha allora dim Vλ1 = 2 e quindi la molteplicità geometrica
+di λ1 è 2. Si ha poi, per λ2 = 2:
+Vλ2 :
+
+
+
+−3x1 −
+3x2 −3x3 = 0
+3x2 + 6x3 = 0
+−3x2 −6x3 = 0
+,
+e quindi Vλ2 = {t(1, −2, 1)}t∈R. Una base di Vλ2 è data dall’ autovettore⃗v′
+3 = (1, −2, 1), e dim Vλ2 = 1 e
+quindi la molteplicità geometrica di λ2 è 1. Ne segue che F è diagonalizzabile.
+Una base di V , costituita da autovettori di F è dunque B′ = (⃗v′
+1,⃗v′
+2,⃗v′
+3). La matrice associata a F
+rispetto a tale base è la matrice diagonale
+A′ :
+
+
+−1
+0
+0
+0
+−1
+0
+0
+0
+2
+
+.
+Una matrice non singolare C tale che A′ = C−1AC è la matrice che ha per colonne rispettivamente le
+coordinate dei vettori⃗v′
+1,⃗v′
+2,⃗v′
+3 nella base canonica. Pertanto:
+C :
+
+
+1
+0
+1
+0
+1
+−2
+0
+−1
+1
+
+.
+Esercizio 4. Traccia e determinante di A sono entrambi nulli:
+tr A = 1 −1 = 0,
+det A = 1(−1) −i2 = −1 + 1 = 0.
+Ne segue che i due autovalori complessi λ1, λ2 di A hanno somma e prodotto nulli: λ1 + λ2 = 0, λ1λ2 = 0,
+e pertanto λ1 = λ2 = 0. Se A fosse diagonalizzable, essa dovrebbe quindi essere simile alla matrice nulla
+0 =
+0
+0
+0
+0
+
+, che evidentemente è simile solo a se stessa. Ne segue che A non è diagonalizzabile.
+Per completare le risposte, si osservi che
+At =
+−2
+2i
+2i
+2
+
+= A,
+A
+t =
+ −2
+−2i
+−2i
+2
+̸
+= A,
+AA
+t =
+−2
+2i
+2i
+2
+  −2
+−2i
+−2i
+2
+
+=
+ 2
+−2i
+2i
+2
+̸
+= I,
+e quindi A è simmetrica, non hermitiana e non unitaria.
+Esercizio 5. La forma quadratica associata a g è
+g(⃗x,⃗x) = 3x2
+1 + x2
+2 + x2
+3 + 2x1x4.
+Da essa vediamo subito che g non è deﬁnita positiva. Risulta infatti che p. es. scegliendo⃗x = (1, 0, 0, −2)
+risulta g(⃗x,⃗x) = 3−4 = −1 < 0 e per⃗x = (0, 0, 0, 1) si ha l’esempio richiesto di vettore isotropo non nullo:
+g(⃗x,⃗x) = 0.
+3

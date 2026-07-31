@@ -1,0 +1,86 @@
+===== PAGINA 1 =====
+Geometria
+Appello Unico — Sessione Autunnale
+Corso di laurea in Fisica — a.a. 2020/2021
+Tutti i Canali
+Durata: 1 ore e 30 minuti
+Paolo Bravi, Simone Diverio, Paolo Piazza,
+Paolo Piccinni, Riccardo Salvati Manni, Ernesto Spinelli
+13 settembre 2021
+Esercizio 1. Sia LA : C3 ! C3 l’operatore lineare associato alla matrice
+A =
+0
+@
+1
+1
+0
+0
+1
+1
+1
+0
+1
+1
+A .
+Determinare lo spettro di LA, e una base di C3 costituita da autovettori per
+LA.
+Determinare poi, se esiste, una base ortogonale —non necessariamen-
+te unitaria— di C3 rispetto al prodotto hermitiano canonico costituita da
+autovettori per LA.
+Esercizio 2. Si consideri l’applicazione lineare
+L: R2[x] ! R2[x]
+p 7! xp0 + x2p00.
+Determinare nucleo e immagine di L. Determinare inoltre la sua traccia
+tr L.
+Esercizio 3. Dati i sottospazi U, W ✓R3 deﬁniti come
+U = Span
+8
+<
+:
+0
+@
+1
+1
+0
+1
+A ,
+0
+@
+0
+1
+1
+1
+A
+9
+=
+; ,
+W = {x + y −3z = 0},
+dove (x, y, z)t sono le coordinate canoniche di R3, determinare una base per
+U \ W e la dimensione di U + W.
+Completare inﬁne la base trovata di U \ W a una base di R3.
+1
+ 
+
+
+===== PAGINA 2 =====
+
+
+===== PAGINA 3 =====
+
+
+===== PAGINA 4 =====
+
+
+===== PAGINA 5 =====
+
+
+===== PAGINA 6 =====
+
+
+===== PAGINA 7 =====
+
+
+===== PAGINA 8 =====
+
+
+===== PAGINA 9 =====

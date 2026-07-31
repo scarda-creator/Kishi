@@ -1,0 +1,46 @@
+===== PAGINA 1 =====
+Geometria . a.a. 13/14.
+Esercizi del 27/10/2013
+Esercizio 1. Veriﬁcare che i seguenti insiemi di vettori in R3 e in R4 sono linear-
+mente indipendenti. Completarli ad una base dello spazio.
+{(1, 1, 0), (1, 0, 1)}
+{(2, 0, −1), (1, 1, 3)}
+{(1, 1, 0, 2), (1, 0, 1, 0), (0, 1, 3, 1)}.
+Esercizio 2. Indichiamo con K[x]≤d l’insieme dei polinomi a coeﬃcienti in K di
+grado al pi`u d. Veriﬁcare che x, x + 1 e x2 + 1 sono linearmente indipendenti in
+C[x]≤3 e completarli ad una base.
+Esercizio 3. Consideriamo C2 come spazio vettoriale su R. Dimostrare che (1, 3i+
+1) e (i, −3 + i) sono linearmente indipendenti. Completarli ad una base di C2 su
+R.
+Esercizio 4. Sia V ⊂R4 il sottospazio generato dai vettori (1, 0, 0, 1) e (−1, 0, 1, 2).
+Sia W ⊂R4 il sottospazio formato dai vettori w = (a, b, c, d) che soddisfano le
+equazioni
+3c −d = 0,
+a + 2b = 0.
+Determinare i sottospazi V ∩W e V + W dandone una base oppure tramite
+equazioni. In particolare dire qual `e la loro dimensione.
+Esercizio 5. Siano a0, . . . , an ∈R numeri distinti. Dimostrare, tramite i passi
+seguenti, che i vettori
+v0 = (1, a0, a2
+0, . . . , an
+0)
+v1 = (1, a1, a2
+1, . . . , an
+1)
+... =
+...
+vn = (1, an, a2
+n, . . . , an
+n)
+sono una base di Rn+1.
+(1) Dimostrare che `e suﬃciente far vedere che sono linearmente indipendenti.
+(2) Mostrate la tesi per n = 1, 2, usando l’eliminazione di Gauss.
+(3) Provate a generalizzare il procedimento per n qualsiasi.
+Esercizio 6. Siano U, W spazi vettoriali sul campo K veriﬁcare che il prodotto
+cartesiano U × W ha una struttura di spazio vettoriale sul campo K.Siano U, W
+sottospazi vettoriali di uno spazio vettoriale V , consideriamol’applicazione lineare
+T : U × W →U + W
+data da T((u, w) = u + w. Veriﬁcare che la formula
+dim(U + W) + dim(U ∩W) = dim(U) + dim(W)
+`e conseguenza del Teorema della dimensione
+1

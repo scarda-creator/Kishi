@@ -1,0 +1,360 @@
+===== PAGINA 1 =====
+Geometria (Fisica),
+Proﬀ. A. De Sole, G. Mondello, K. O’Grady, P. Papi
+Soluzioni della prova scritta del 13 luglio 2017
+Esercizio 1. Stabilire quali tra le seguenti funzioni sono applicazioni lineari tra spazi vettoriali:
+(a) f : R →R, f(x) = x + 1;
+(b) g : R2 →R, g(x, y) = 3x −πy;
+(c) h : R2 →R, h(x, y) = x + y + xy.
+(d) p : R2 →R2, p(x, y) = ( 6xy2+6x+y3+y
+y2+1
+, y).
+Risoluzione:
+(a) NO, infatti f(0) = 1̸ = 0.
+(b) S`I, infatti g(λU + µV ) = g(λu1 + µv1, λu2 + µv2) = 3(λu1 + µv1) −π(λu2 + µv2) = λ(3u1 −πu2) +
+µ(3v1 −πv2) = λg(U) + µg(V ), dove U = (u1, u2) e V = (v1, v2) sono vettori di R2.
+(c) NO, infatti h(1, 1) = 3 e h(2, 2) = 8, da cui h(2, 2)̸ = 2h(1, 1).
+(d) S`I, infatti p(x, y) = (6x + y, y) e quindi p = LM, dove M `e la matrice
+M =
+ 6
+1
+0
+1
+
+.
+Esercizio 2. Sia W ⊂R5 il sottospazio lineare W :=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+x1
+x2
+x3
+x4
+x5
+
+
+
+
+∈R5
+
+x1 −x2 = 0
+x3 + x4 = 0
+x5 = 0
+
+
+
+
+
+
+
+
+
+.
+(a) Determinare una base B di W.
+(b) Determinare una base C dello spazio vettoriale quoziente R5/W.
+Risoluzione:
+(a) Una base B di W `e B :=
+n
+e1 + e2, e3 −e4
+o
+.
+(b) Una base del quoziente R5/W si ottiene completando B a una base
+n
+e1 + e2, e3 −e4, v1, v2, v3
+o
+di R5, e ponendo C := {[v1], [v2], [v3]}. Per esempio, possiamo scegliere
+C =
+n
+[e1], [e3], [e5]
+o
+.
+1
+
+
+===== PAGINA 2 =====
+Esercizio 3. Sia A =
+1
+1
+1
+2
+
+e B(X, Y ) := Xt·A·Y la corrispondente forma bilineare simmetrica su R2
+e sia ⟨·, ·⟩il prodotto scalare standard su R2. Costruire, se esiste, un’isometria f : (R2, B) →(R2, ⟨·, ·⟩).
+Risoluzione:
+Una tale isometria esiste perch`e la forma bilineare simmetrica B `e deﬁnita positiva.
+Per deﬁnire una isometria f `e suﬃciente produrre una base ortonormale
+n
+v1, v2
+o
+di (R2, B), e imporre
+f(v1) = (1, 0) e f(v2) = (0, 1).
+Una base ortonormale per B `e
+n
+v1 = (1, 0), v2 = (1, −1)
+o
+. Quindi una tale isometria `e data da
+(R2, B)
+f
+−→
+(R2, ⟨·, ·⟩)
+(x1, x2)
+7→
+(x1 + x2, −x2).
+Esercizio 4. Sia M ∈M5×5(R) una matrice di rango 4, e sia TM : M5×5(R) →M5×5(R) l’applicazione
+lineare data da
+TM(A) := A · M.
+Determinare il rango di TM.
+Risoluzione:
+Poich´e rg(TM) = dim M5×5(R)−dim ker(TM) = 25−dim ker(TM), `e suﬃciente calcolare dim ker(TM).
+Notiamo che A · M = 0 se e solo se Im(M) ⊆ker(A) e dunque
+ker(TM) =
+n
+A ∈M5×5(R)
+ Im(M) ⊆ker(A)
+o
+Sia
+n
+v1, v2, v3, v4
+o
+una base di Im(M) e sia B =
+n
+v1, v2, v3, v4, v5
+o
+una base di R5. Ne segue che
+ker(TM) =
+
+
+
+
+
+
+
+
+
+
+
+A ∈M5×5(R)
+
+[LA]B
+B =
+
+
+
+
+
+
+0
+0
+0
+0
+b1
+0
+0
+0
+0
+b2
+0
+0
+0
+0
+b3
+0
+0
+0
+0
+b4
+0
+0
+0
+0
+b5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Concludiamo che dim ker(TM) = 5, da cui segue rg(TM) = 25 −5 = 20.
+2
+
+
+===== PAGINA 3 =====
+Esercizio 5. Sia LM : R3 →R3 l’endomorﬁsmo associato alla matrice
+M :=
+
+
+5
+−10
+−8
+−10
+2
+−2
+−8
+−2
+8 + t
+
+
+dipendente dal parametro t ∈R.
+(a) Determinare per quali t il vettore
+
+
+2
+2
+1
+
+sia un autovettore di LM e calcolarne l’autovalore associato.
+(b) Al variare del parametro t, determinare rango e segnatura della forma bilineare simmetrica associata
+a M. [Suggerimento: pu`o essere di aiuto calcolare det(M)].
+Risoluzione:
+(a) Il vettore (2, 2, 1) `e un autovettore per M se e solo se esiste un λ ∈R tale che
+M ·
+
+
+2
+2
+1
+
+=
+
+
+−18
+−18
+−12 + t
+
+= λ
+
+
+2
+2
+1
+
+.
+Questo si veriﬁca soltanto per t = 3, e l’autovalore `e λ = −9.
+(b) Per calcolare il rango di M, notiamo che le prime due colonne di M sono linearmente indipendenti
+e dunque rg(M) ≥2.
+Ora, come da suggerimento, calcoliamo il determinante di M:
+det(M) =
+
+5
+−10
+−8
+0
+−18
+−18
+−8
+−2
+8 + t
+
+=
+
+5
+0
+−8
+0
+−18
+−18
+−8
+−18
+8 + t
+
+=
+
+5
+0
+−8
+0
+−18
+−18
+−8
+0
+26 + t
+
+=
+=
+
+5
+0
+−8
+0
+−18
+0
+−8
+0
+26 + t
+
+= −18(66 + 55t).
+Ne segue che
+rg(M) =
+(
+3
+se t̸ = −66/5
+2
+se t = −66/5.
+Per determinare la segnatura di M, notiamo che per ogni valore di t abbiamo
+•
+
+1
+0
+0
+
+M
+
+
+1
+0
+0
+
+= 5 > 0 e dunque n+(M) ≥1,
+•
+
+1
+1
+0
+
+M
+
+
+1
+1
+0
+
+= −13 < 0 e dunque n−(M) ≥1.
+Per t = −66/5, abbiamo anche n0(M) ≥1.
+Per t < −66/5, abbiamo det(M) > 0 e dunque n0(M) = 0 e n−(M) `e pari.
+Per t > −66/5, abbiamo det(M) < 0 e dunque n0(M) = 0 e n−(M) `e dispari.
+Concludiamo che la segnatura σ(M) di M `e
+σ(M) = n+(M) −n−(M) =
+
+
+
+
+
+−1
+se t < −66/5
+0
+se t = −66/5
+1
+se t > −66/5.
+3

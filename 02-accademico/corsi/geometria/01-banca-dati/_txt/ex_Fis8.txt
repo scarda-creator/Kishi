@@ -1,0 +1,87 @@
+===== PAGINA 1 =====
+Esercizi del corso di Geometria - Foglio 8
+12 gennaio 2014
+Esercizio 1. Calcolare gli autovalori delle matrici seguenti, e trovare i relativi autospazi:
+A =
+
+
+1
+3
+0
+3
+−2
+−1
+0
+−1
+−1
+
+,
+B =
+
+
+0
+1
+1
+0
+1
+1
+0
+0
+1
+
+.
+Esercizio 2. In R3 sia {e1, e2, e3} la base standard, e sia fk : R3 7→R3 (k ∈R) l’applicazione
+lineare deﬁnita da
+fk(e1) = −e1,
+fk(e2) = e2 + ke3,
+fk(e3) = −k(e1 −e3).
+Stabilire per quali k ∈R fk `e diagonalizzabile.
+Esercizio 3. Determinare se le matrici seguenti sono coniugate fra loro:
+A =
+
+
+1
+0
+0
+−1
+1
+1
+−1
+0
+2
+
+,
+B =
+
+
+1
+1
+0
+0
+1
+0
+0
+0
+2
+
+.
+Esercizio 4. Calcolare A10, dove A ¨ı¿ 1
+2 la matrice dell’esercizio precedente.
+Esercizio 5. Si consideri la matrice
+A =
+
+
+3
+1
+0
+1/2
+3
+−1/2
+0
+1
+3
+
+
+e l’operatore LA : R3 7→R3. Studiare la diagonalizzabilit`a di LA. Determinare una matrice
+invertibile C ed una matrice triangolare T tali che
+C−1AC = T .

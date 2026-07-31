@@ -1,0 +1,469 @@
+===== PAGINA 1 =====
+Esame scritto di Analisi Vettoriale 27/01/2025
+Nome:
+Cognome:
+Matricola:
+F. De Marchis □
+A. Terracina □
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere
+adeguatamente motivati!
+Esercizio 1. (6,5 punti) Dato l’insieme
+Σ = {(x, y, z) ∈3 : z + 2x + y −2 = 0, x2 + y2 ≤9},
+i. riconoscere che si tratta del supporto di una superficie regolare, scrivendo una parametrizzazione regolare;
+ii. determinare in ogni punto Σ il versore normale diretto nel verso in cui la terza componente sia positiva;
+iii. determinare l’area di Σ;
+iv. determinare il bordo di Σ, in particolare si fornisca una rappresentazione parametrica della curva o delle
+curve che lo compongono.
+v. Dato il campo F(x, y, z) = (y2 + z2 + ex, xy + z + cos(y), 2xz + 3yz + z2), si calcoli rot F(x, y, z);
+vi. si calcoli la circuitazione del campo F lungo il bordo di Σ percorso in modo che sia compatibile, secondo il
+Teorema di Stokes, con la superficie Σ orientata con la terza componente della normale negativa.
+Soluzione
+i. Σ `e il sostegno della seguente superficie cartesiana
+
+x = x
+y = y
+(x, y) ∈D
+z = −2x −y + 2
+dove D = {(x, y) ∈2 : x2 + y2 ≤3} e risulta regolare essendo f ∈C1(D), conf(x, y) = −2x −y + 2.
+ii. Il versore normale diretto nel verso della terza componente positiva `e
+n =
+1
+p
+1 + ∥∇f(x, y)∥
+
+−fx, −fy, 1
+
+=
+ 2√
+6
+, 1√
+6
+, 1√
+6
+!
+.
+iii. Per calcolare l’area di Σ applichiamo la formula valida per superfici cartesiane
+A(Σ) =
+"
+D
+p
+1 + ∥∇f(x, y)∥dxdy =
+"
+D
+√
+6 dxdy =
+√
+6m2(D) = 9
+√
+6π
+(abbiamo usato direttamente il fatto che D `e un cerchio di raggio 3).
+iv. Essendo ∂Σ l’immagine di ∂D tramite la parametrizzazione, si ha che ∂Σ = Γ, dove Γ `e il sostegno della
+curva γ di parametrizzazione:
+γ(t) =
+
+x = 3 cos(t)
+y = 3 sen(t)
+t ∈[0, 2π]
+z = −6 cos(t) −3 sen(t) + 2
+
+
+===== PAGINA 2 =====
+v. Abbiamo
+rot (F) = det
+
+i
+j
+k
+∂x
+∂y
+∂z
+y2 + z2 + ex
+xy + z + cos(y)
+2xz + 3yz + z2
+= (3z −1, y −y, y −2y) = (3z −1, 0, −y).
+iv. Osserviamo che F ∈C1(3) e Σ `e il sostegno di una superficie regolare orientabile (in quanto cartesiana
+con f ∈C1), quindi possiamo applicare il Teorema di Stokes che afferma che:
+"
+Σ
+rot (F) · n dσ =
+Z
++∂Σ
+F · Tds,
+dove n e +∂Σ devono essere orientati in modo compatibile. Nel testo `e richiesto che n debba avere la
+terza componente negativa per cui si avr`a
+Z
++∂Σ
+F · T ds =
+"
+Σ
+(3z −1, 0, −y) · (n) dσ =
+"
+D
+(3 f(x, y) −1, 0, −y) · (−2, −2, −1) dxdy =
+=
+"
+D
+(−6x −3y + 6 −1, 0, −y) · (−2, −2, −1) dxdy =
+"
+D
+−12x −10 + 7y dxdy.
+Dal momento che D `e un cerchio per simmetria si ha che
+!
+D x dxdy =
+!
+D y dxdy = 0, per cui il
+precedente integrale `e uguale a −10m2(D) = −90π.
+In alternativa si poteva fare il calcolo in coordinate polari.
+Esercizio 2. (7 punti) Per ogni α ∈ si consideri la funzione Fα(x, y) = x2 −αxy + y3 + 1.
+i. Per ogni α ∈ fissato, si dica se la funzione Fα ammette max e/o min assoluto in tutto 2;
+ii. per α = 2 si determinino gli eventuali punti critici della funzione F2;
+iii. per α = 2 si studi il carattere dei punti critici determinati nel punto ii;
+iv. si dica perch´e per ogni α ∈ la funzione Fα ammette max e min assoluti sull’insieme
+E = {(x, y) ∈2 : 4x2 + y4 ≤1};
+v. per α = 0 si determinino i massimi e i minimi assoluti della funzione F0 sull’insieme E definito al punto iv.
+Soluzione
+i Per ogni α ∈ la funzione Fα risulta essere regolare, in particolare si tratta di una funzione C2(2).
+Pur essendo una funzione continua non possiamo applicare il Teorema di Weierstrass per affermare che
+esistono max e min assoluti in quanto 2 non `e un compatto. Questo non significa che, in generale,
+non possano esserci max o min assoluti. In questo caso, per ogni scelta di α, non ci sono e per vederlo
+basta considerare la restrizione delle funzione Fα sull’asse delle x, ovvero studiare Fα(0, y) = y3 + 1. La
+funzione y3 + 1 `e illimitata sia dall’alto che dal basso per cui il suo estremo superiore `e uguale a +∞
+mentre il suo insieme inferiore `e uguale a −∞. Quindi questo sar`a vero anche per le funzioni Fα che
+quindi non ammettono max e min assoluti.
+ii Per semplicit`a di notazione indichiamo la funzione F2 con f(x, y) = x2 −2xy + y3 + 1. Per determinare i
+punti critici di f dobbiamo studiare il sistema fx = 0, fy = 0, ovvero
+2x −2y = 0, −2x + 3y2 = 0
+da cui si trova subito y = x e sostituendo nella seconda 3y2 −2y = 0 che ha come soluzioni y = 0 e y = 2
+3.
+Abbiamo quindi 2 punti critici P1 = (0, 0) e P2 = (2
+3, 2
+3).
+2
+
+
+===== PAGINA 3 =====
+iii Dal momento che la funzione f `e C2 per classificare i punti critici costruiamo la matrice hessiana e la
+studiamo nei punti critici. Si ha
+fxx(x, y) = 2,
+fxy(x, y) = −2,
+fyy(x, y) = 6y.
+Quindi,
+H f(P1) =
+ 2
+−2
+−2
+0
+!
+,
+il determinante `e uguale a -4 per cui si tratta di un punto di sella (in due dimensioni determinante negativo
+implica autovalori discordi). Mentre
+H f(P2) =
+ 2
+−2
+−2
+4
+!
+,
+in questo caso il determinante `e uguale a 4 quindi positivo, poich´e siamo in 2 dimensioni questo implica
+che gli autovalori sono concordi e il loro segno coincide con il segno degli elementi sulla diagonale, per
+cui `e positivo. Questo implica che il punto P2 `e di minimo visto che gli autovalori sono entrambi positivi.
+iv L’esistenza del massimo e del minimo `e conseguenza del teorema di Weierstrass. Infatti, come gi`a osser-
+vato, Fα `e una funzione continua in D, inoltre l’insieme D `e un insieme compatto. Per dimostrare che D
+`e un insieme chiuso osserviamo che D = g−1((−∞, 1]) con g(x, y) := 4x2 + y4, funzione continua, quindi
+essendo D la preimmagine di un chiuso (tramite una funzione continua) `e anch’esso chiuso. Inoltre `e
+facile provare la limitatezza in quanto 4x2 + y4 ≤1 implica simultaneamente 4x2 ≤1 e y4 ≤1 e quindi
+x ∈[−1
+2, 1
+2] e y ∈[−1, 1]. Perci`o si ha che che D ⊂[−1
+2, 1
+2] × [−1, 1].
+v Per semplicit`a di notazione indichiamo con h(x, y) = x2 + y3 la funzione F0. Si ha
+∇h = (2x, 3y2)
+che ha come unico punto critico il punto Q1 = (0, 0) che si trova in
+◦
+D, si pu`o dimostrare facilmente,
+con il test dell’hessiano, che si tratta, come nel caso di F2, di un punto di sella, quindi potremmo gi`a
+scartarlo, ad ogni modo possiamo tenerlo come possibile candidato per essere max o min assoluto (se
+non vogliamo fare questa verifica). Quindi cerchiamo i possibili candidati per essere punti di massimo
+e minimo che cadono sulla frontiera di D: ∂D = {g = 4x2 + y4 = 1}. Applichiamo il metodo dei
+moltiplicatori di Lagrange, essendo g ∈C1(2). Gli estremi di h sul vincolo g(x, y) = 0 sono tra le
+soluzioni del sistema
+det
+ hx
+hy
+gx
+gy
+!
+= det
+ 2x
+3y2
+8x
+4y3
+!
+= 0
+g(x, y) = 0 .
+Ci`o equivale a risolvere il sistema
+8xy3 −24xy2 = 0
+4x2 + y4 = 1 .
+La prima equazione `e soddisfatta se x = 0, y = 0 o y = 3. Nel caso x = 0 dalla seconda ricaviamo
+y4 = 1 e quindi y = ±1, per cui abbiamo i punti Q2 = (0, −1) e Q3 = (0, 1). Nel caso y = 0 dalla
+seconda otteniamo 4x2 = 1 per cui otteniamo i punti Q4 = (−1
+2, 0) e Q5 = ( 1
+2, 0). Infine nel caso y = 3
+ci accorgiamo subito che la seconda equazione non ha soluzione. Per cui abbiamo 5 punti, candidati per
+essere punti di max o min assoluto. Dobbiamo solo calcolare la funzione h su questi punti. Abbiamo
+h(Q1) = 1, h(Q2) = 0, h(Q3) = 2, h(Q4) = h(Q5) = 5
+4. Quindi Q2 `e punto di min assoluto e Q3 `e punto di
+max assoluto. Il minimo di f in D `e uguale a 0 e il max `e uguale a 2.
+3
+
+
+===== PAGINA 4 =====
+Esercizio 3. (6 punti) Si consideri il seguente problema di Cauchy
+y′(t) = t(y(t) −1)
+1 + 3y2(t),
+y(0) = 1
+2.
+Senza calcolare la soluzione:
+i. si dica perch´e il problema ammette una e una sola soluzione locale;
+ii. si spieghi perch´e la soluzione massimale y(t) `e globale;
+iii. si determinino gli intervalli di crescenza e decrescenza della soluzione y(t);
+iv. si spieghi perch´e esiste e si calcoli lim
+t→+∞y(t).
+Soluzione
+i Si osservi che la funzione f(t, u) = t(u−1)
+1+3u2 `e una funzione C1(2) per cui `e possibile applicare il Teorema
+di esistenza ed unicit`a locale di Cauchy per ogni dato iniziale y(t0) = y0, in particolare per il nostro
+problema con dato iniziale y(0) = 1
+2.
+ii Si osservi che si tratta di un’equazione differenziale a variabili separabili, per cui `e sempre conveniente
+andare a cercare le soluzioni costanti. In questo caso abbiamo solo la soluzione y1(t) ≡1, t ∈. Dal
+momento che y(0) = 1
+2 < 1 siamo sicuri che la soluzione del problema di Cauchy rimane sotto il valore
+1, ovvero y(t) ∈(−∞, 1) per ogni t ∈Imax (intervallo di esistenza massimale). Questa informazione non
+ci aiuta per dimostrare che la soluzione `e globale ma ci sar`a utile in seguito. Ricordiamo che f ∈C1(×
+), per cui esistenza globale corrisponde al fatto che Imax = . In questo caso possiamo dimostrare
+l’esistenza globale perch´e la funzione f(t, u) `e sublineare, infatti vale la stima
+|f(t, u)| =
+
+t(u −1)
+1 + 3u2
+ ≤|t(u −1)| ≤|t||u| + |t|,
+(t, u) ∈ × 
+(abbiamo usato il fatto che il denominatore `e maggiore o uguale di 1), quindi vale il risultato di sublin-
+earit`a scegliendo L1(t) = L2(t) = |t|, funzione continua su .
+iii Per studiare il segno di y′(t) usiamo l’espressione a secondo membro dell’equazione differenziale e il
+fatto che sappiamo gi`a che y(t) ∈(−∞, 1) per ogni t ∈. Ora il denominatore `e sempre positivo, il
+termine y(t) −1 risulter`a sempre negativo, per cui il cambio di segno dipender`a esclusivamente da t. Pi`u
+precisamente avremo y′(t) > 0 per ogni t < 0 e y′(t) < 0 per ogni t > 0. In particolare in t = 0 ci sar`a il
+massimo assoluto della soluzione.
+iv Sappiamo che la soluzione y(t) `e definita su tutto  e sappiamo che `e monotona strettamente decrescente
+per t > 0, questo assicura che esiste il limite ℓ:= lim
+t→+∞y(t) e che ℓ∈{−∞} ∪(−∞, 1
+2). Attenzione spesso
+viene evocato il Teorema dell’asintoto per l’esistenza del limite, il Teorema dell’asintoto non assicura
+mai l’esistenza del limite, questo pu`o essere usato per determinare il limite (usando un ragionamento per
+assurdo) nel caso si sappia gi`a la sua esistenza. Ora utilizziamo il Teorema dell’asintoto per escludere
+che lim
+t→+∞y(t) = l ∈(−∞, 1
+2). Infatti se questo fosse vero potremmo provare l’esistenza di
+lim
+t→+∞y′(t) = lim
+t→+∞
+t(y(t) −1)
+1 + 3y2(t) = −∞,
+infatti il termine
+y(t)−1
+1+3y2(t) tenderebbe a
+l−1
+1+3l2 < 0 e ovviamente il termine t tende a +∞. Questo contraddice
+il Teorema dell’asintoto che afferma che se esiste finito lim
+t→+∞y(t) ∈ ed esiste lim
+t→+∞y′(t) = m ∈ ∪
+4
+
+
+===== PAGINA 5 =====
+{−∞, +∞} allora necessariamente deve valere m = 0. In questo caso non venendo m = 0 c’`e un assurdo.
+L’assurdo sta nel fatto che avevamo assunto che lim
+t→+∞y(t) fosse finito. L’unica possibilit`a `e dunque che
+sia lim
+t→+∞y(t) = −∞.
+5
+
+
+===== PAGINA 6 =====
+Esercizio 4. (6 punti) Data la successione fn(x) = cos( x
+n) nx+3
+n2+2x2
+i. si studi la convergenza puntuale di fn;
+ii. si dimostri che la successione fn non converge uniformemente in tutto ;
+iii. si studi la convergenza uniforme della successione fn nell’intervallo [0, 2];
+iv. si calcoli
+lim
+n→+∞
+Z 1
+0
+fn(x) dx.
+Soluzione
+i Si pu`o verificare che la successione converge puntualmente su tutto  alla funzione f(x) ≡0. Infatti per
+ogni scelta di x: il termine cos( x
+n) converge ad 1, mentre il termine
+nx+3
+n2+2x2 converge a 0; questo perch´e il
+denominatore va come n2 e il numeratore va come n se x , 0, oppure `e costante se x = 0.
+ii Per dimostrare che non c’`e convergenza uniforme su tutto  calcoliamo fn(n) e verifichiamo che non
+tende a 0. Si ha
+lim
+n→+∞fn(n) = lim
+n→+∞cos(1) n2 + 3
+n2 + 2n2 = lim
+n→+∞cos(1)n2 + 3
+3n2
+= cos(1)
+3
+.
+Da questo deduciamo
+lim
+n→+∞sup
+x∈
+|fn(x) −f(x)| ≥lim
+n→+∞sup
+x∈
+| fn(x)| ≥cos(1)
+3
+, 0.
+iii Invece in [0, 2] possiamo dimostrare che c’`e convergenza uniforme, infatti si ha
+| cos
+ x
+n
+
+|
+
+nx + 3
+n2 + 2x2
+ ≤
+
+nx + 3
+n2 + 2x2
+ ≤nx + 3
+n2
+nx↗in [0, 2]
+≤
+2n + 3
+n2
+,
+stima valida per ogni x ∈[0, 2]. Quindi
+lim
+n→+∞sup
+x∈[0,2
+|fn(x) −f(x)| ≤lim
+n→+∞
+2n + 3
+n2
+= 0,
+da questo si deduce la convergenza uniforme di fn(x) alla funzione f(x) ≡0 in [0, 2].
+In modo analogo si potrebbe provare la convergenza uniforme su ogni intervallo compatto [a, b] ⊂.
+iv Poich´e la successione converge uniformemente in [0, 2] questa converge uniformemente anche in [0, 1],
+quindi possiamo passare al limite sotto al segno d’integrale e otteniamo
+lim
+n→+∞
+Z 1
+0
+fn(x) dx =
+Z 1
+0
+f(x) dx = 0.
+Esercizio 5. (6,5 punti) Data la curva
+γ
+( x(t) = 1 + t2
+z(t) = t
+t ∈[1, 2]
+i. disegnare il sostegno della curva nel piano (x, z);
+6
+
+
+===== PAGINA 7 =====
+ii. mostrare che la curva `e semplice e regolare;
+iii. scrivere una parametrizzazione della superficie di rotazione, con sostegno in 3, ottenuta dalla rotazione di
+angolo 2π di γ intorno all’asse z;
+iv. sia E il dominio regolare delimitato da Σ e dai piani z = 1 e z = 2 e sia F = ( 2x
+1+z2, sin(xz) + 20, ex + y3),
+calcolare il flusso uscente di F da E.
+Soluzione
+1
+2
+3
+4
+5
+6
+7
+1
+2
+3
+γ
+x
+z
+Figure 1: sostegno della curva γ nel piano (x, z)
+i
+ii Si tratta di una curva cartesiana del tipo z(t) = t e x(t) = f(t) = 1+t2, poich´e la funzione f `e una funzione
+C1([1, 2]) possiamo subito affermare che si tratta di una curva semplice e regolare.
+iii In modo standard per le superfici di rotazione possiamo usare la seguente parametrizzazione
+x = (1 + t2) cos(θ), y = (1 + t2) sin(θ), z = t,
+t ∈[1, 2], θ ∈[0, 2π].
+iv Per calcolare il flusso del campo F attraverso la frontiera di E conviene usare il Teorema della divergenza.
+In questo caso divF =
+2
+1+z2. Abbiamo quindi
+"
+∂E
+(F, n) dσ =
+$
+E
+2
+1 + z2 dxdydz.
+Per calcolare il secondo membro conviene procedere con un integrazione per strati, per ogni z ∈[1, 2] si
+ha Ez = {(x, y) ∈2 :
+p
+x2 + y2 ≤1 + z2}, mentre evidentemente Ez = Ø per t < 1 e t > 2, per cui si ha
+$
+E
+2
+1 + z2 dxdydz =
+Z 2
+1
+Z
+Ez
+2
+1 + z2 dxdydz =
+(dopo essere passati in coordinate cilindriche)
+=
+Z 2
+1
+Z 2π
+0
+Z 1+z2
+0
+ρ
+2
+1 + z2 dρdθdz =
+Z 2
+1
+2π(1 + z2)2
+1 + z2
+dz = 2π
+Z 2
+1
+1 + z2 dz = 2π
+"
+z + z3
+3
+#2
+1
+=
+= 2π(2 + 8
+3 −1 −1
+3) = 2π(7
+3 + 1) = 20π
+3
+7

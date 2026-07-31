@@ -1,0 +1,397 @@
+===== PAGINA 1 =====
+Geometria (Fisica)
+Canale L-P
+Esame - 30 giugno 2017
+Nome e Cognome:
+Numero di Matricola:
+Esercizio
+Punti totali
+Punteggio
+1
+7,5
+2
+7,5
+3
+7,5
+4
+7,5
+Totale
+30
+Occorre motivare le risposte. Una soluzione corretta priva di motivazione riceverà 0 punti.
+Verrà corretto solo quello che sarà scritto su queste pagine.
+Voto/30:
+1
+
+
+===== PAGINA 2 =====
+Esercizio 1.
+Sono dati nello spazio aﬃne tridimensionale (nel quale abbiamo ﬁssato un riferimento cartesiano) i piani
+π1 di equazione cartesiana 2x −y + z = 5 e π2 di equazione cartesiana x + y −z = 1. Fornire una
+parametrizzazione della retta intersezione π1 ∩π2.
+Risoluzione:
+Le coordinate (x, y, z) ∈R3 che giacciono sull’intersezione dei due piani soddisfano entrambe le
+equazioni cartesiane. Mettiamo a sistema:
+(
+2x −y + z = 5
+x + y −z = 1
+e cerchiamo le soluzioni.
+Con qualunque metodo risolviate il sistema (eliminazione di Gauss, ad esempio?) le soluzioni sono
+(
+x = 2
+y = z −1.
+Scegliendo come parametro z = t, una parametrizzazione è, ad esempio,
+
+
+
+
+
+x = 2
+y = −1 + t
+z = t.
+2
+
+
+===== PAGINA 3 =====
+Esercizio 2. Calcolare, al variare del parametro reale a, il rango della matrice
+
+
+1
+2
+a
+1
+a
+a2
+a
+a2
+a3
+
+
+Risoluzione:
+Il determinante della matrice si calcola facilmente, ed è 0: pertanto, il rango è al più 2. I seguenti
+minori 2 × 2:
+
+1
+2
+1
+a
+ = a −2
+
+1
+a
+1
+a2
+ = a2 −a = a(a −1)
+non si annullano mai contemporaneamente, e il rango è quindi 2 per ogni valore di a.
+3
+
+
+===== PAGINA 4 =====
+Esercizio 3. Dire se i vettori (1, 2, 1, 2), (1, 1, 2, 2), (1, 3, 1, 1) dello spazio vettoriale R4 siano
+• linearmente indipendenti;
+• generatori di R4;
+• una base di R4.
+Risoluzione:
+Meno di quattro vettori in uno spazio vettoriale di dimensione 4 non possono essere generatori, né
+tantomeno una base. Rimane da stabilire se i tre vettori dati siano linearmente indipendenti.
+In eﬀetti, il rango della matrice che li ha per righe può essere calcolato con un rapido procedimento
+di eliminazione:
+
+
+1
+2
+1
+2
+1
+1
+2
+2
+1
+3
+1
+1
+
+⇝
+
+
+1
+2
+1
+2
+0
+−1
+1
+0
+0
+1
+0
+−1
+
+⇝
+
+
+1
+2
+1
+2
+0
+−1
+1
+0
+0
+0
+1
+−1
+
+.
+Si ottengono tre pivot. Di conseguenza, la matrice ha rango 3 e le tre righe sono linearmente indipendenti.
+4
+
+
+===== PAGINA 5 =====
+Esercizio 4. Calcolare la segnatura e il rango della forma bilineare simmetrica reale di matrice
+
+
+
+
+0
+1
+1
+1
+1
+0
+1
+1
+1
+1
+0
+1
+1
+1
+1
+0
+
+
+
+
+Risoluzione:
+Il rango della forma si trova calcolando il rango della matrice corrispondente. Si vede facilmente che il
+determinante della matrice è −3̸ = 0, e la forma ha quindi rango 4. Di conseguenza, la somma dell’indice
+di positività con quello di negatività è 4, mentre l’indice di nullità è 0.
+C’è almeno un coeﬃciente nullo sulla diagonale, e questo ci garantisce che la forma è indeﬁnita (quindi
+di segnatura (3, 1), (2, 2) oppure (1, 3). Il determinante è negativo, e quindi la segnatura non può essere
+(2, 2). Per capire se la segnatura è (3, 1) oppure (1, 3), dobbiamo però fare conti.
+Un modo di procedere è l’ortogonalizzazione di Gram-Schmidt (che abbiamo visto attraverso un
+procedimento di eliminazione simile ad un Gauss simmetrizzato a lezione).
+Purtroppo i coeﬃcienti
+sulla diagonale sono tutti nulli, e dobbiamo prima operare una manipolazione che ne renda almeno uno
+non nullo. A lezione abbiamo visto che questo si ottiene, ad esempio, sostituendo a vi, vj gli elementi
+vi + vj, vi −vj quando F(vi, vj)̸ = 0, dove ho indicato con F la forma. Procedendo in questo modo, si
+ottiene
+
+
+
+
+0
+1
+1
+1
+1
+0
+1
+1
+1
+1
+0
+1
+1
+1
+1
+0
+
+
+
+⇝
+
+
+
+
+2
+0
+2
+2
+0
+−2
+0
+0
+2
+0
+0
+1
+2
+0
+1
+0
+
+
+
+
+e poi, applicando le manipolazioni viste a lezione
+
+
+
+
+2
+0
+2
+2
+0
+−2
+0
+0
+2
+0
+0
+1
+2
+0
+1
+0
+
+
+
+⇝
+
+
+
+
+2
+0
+0
+0
+0
+−2
+0
+0
+0
+0
+−2
+−1
+0
+0
+−1
+−2
+
+
+
+⇝
+
+
+
+
+2
+0
+0
+0
+0
+−2
+0
+0
+0
+0
+−2
+0
+0
+0
+0
+−3/2
+
+
+
+.
+Sulla diagonale troviamo un coeﬃciente positivo e tre negativi, e la segnatura è quindi (1, 3).
+Vi sono altri modi per risolvere l’esercizio. Per il teorema spettrale, l’indice di positività e quello di
+negatività sono uguali al numero di autovalori positivi e negativi della matrice. Si vede a occhio che −1
+è un autovalore della matrice, di molteplicità geometrica (e quindi algebrica: la matrice è simmetrica
+reale!) 3. Rimane un autovalore di molteplicità 1: poiché la traccia della matrice è la somma degli
+autovalori contati con la loro molteplicità, e vale palesemente 0, il secondo autovalore deve essere 3.
+Abbiamo un autovalore positivo e tre negativi e quindi la segnatura è (1, 3).
+Possiamo comunque anche fare conti espliciti: il polinomio caratteristico è
+
+−x
+1
+1
+1
+1
+−x
+1
+1
+1
+1
+−x
+1
+1
+1
+1
+−x
+
+=
+
+3 −x
+3 −x
+3 −x
+3 −x
+1
+−x
+1
+1
+1
+1
+−x
+1
+1
+1
+1
+−x
+
+= (3 −x)
+
+1
+1
+1
+1
+1
+−x
+1
+1
+1
+1
+−x
+1
+1
+1
+1
+−x
+
+= (3 −x)
+
+1
+1
+1
+1
+0
+−(x + 1)
+0
+0
+0
+0
+−(x + 1)
+0
+0
+0
+0
+−(x + 1)
+
+= (x −3)(x + 1)3.
+Gli autovalori sono le sue radici, cioè 3 con molteplicità 1 (l’unica positiva) e −1 con molteplicità 3.
+Concludiamo adesso come fatto sopra.
+5

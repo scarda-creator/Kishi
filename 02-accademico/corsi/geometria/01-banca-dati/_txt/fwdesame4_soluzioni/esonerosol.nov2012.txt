@@ -1,0 +1,314 @@
+===== PAGINA 1 =====
+Primo esonero di Geometria, 23.11.2012 (Corso di laurea in Fisica, Canale Cf-K, Prof. P. Piccinni)
+1. Si consideri il sistema lineare:
+ kx −y =
+1
+x + y =
+0
+essendo k un parametro reale. Stabilire quale tra le seguenti aﬀermazioni `e vera:
+1
+Il sistema ammette un’unica soluzione per ogni k
+2
+Il sistema ammette inﬁnite soluzioni per ogni k
+3
+Il sistema ammette un’unica soluzione per ogni k̸ = 1 e inﬁnite soluzioni per k = 1
+4
+Il sistema ammette inﬁnite soluzioni per ogni k̸ = 1 e non ammette soluzioni per k = 1
+5
+Il sistema ammette un’unica soluzione per ogni k̸ = −1 e inﬁnite soluzioni per k = −1
+6
+Il sistema ammette inﬁnite soluzioni per ogni k̸ = −1 e non ammette soluzioni per k = −1
+▷◁7
+Nessuna delle precedenti
+Soluzione. Il determinante dei coeﬃcienti del sistema `e k + 1. Esso pertanto `e non nullo per k̸ = −1 e per tali
+valori il sistema ha una sola soluzione. Per k = −1 invece il sistema si riduce a
+ −x −y =
+1
+x + y =
+0
+sistema chiaramente privo di soluzioni.
+2. Si consideri il sistema lineare:
+ kx −y =
+i
+x + ky =
+1
+essendo k un parametro complesso. Stabilire quale tra le seguenti aﬀermazioni `e vera:
+1
+Il sistema ammette un’unica soluzione per ogni k
+2
+Il sistema ammette inﬁnite soluzioni per ogni k
+3
+Il sistema ammette un’unica soluzione per ogni k̸ = ±i e inﬁnite soluzioni per k = ±i
+4
+Il sistema ammette inﬁnite soluzioni per ogni k̸ = ±i e non ammette soluzioni per k = ±i
+5
+Il sistema ammette un’unica soluzione per ogni k̸ = i e inﬁnite soluzioni per k = i
+6
+Il sistema ammette inﬁnite soluzioni per ogni k̸ = i e non ammette soluzioni per k = i
+▷◁7
+Nessuna delle precedenti
+Soluzione. Il determinante dei coeﬃcienti del sistema `e k2 + 1. Esso pertanto `e non nullo per k̸ = ±i e per tali
+valori il sistema ha una sola soluzione. Per k = −i e per k = −i invece il sistema si riduce rispettivamente ai due
+sistemi
+ ix −y =
+i
+x + iy =
+1
+e
+ −ix −y =
+i
+x −iy =
+1
+Nel primo sistema, la seconda equazione `e ottenuta dalla prima moltiplicandola per −i: Il primo sistema ammette
+quindi inﬁnite soluzioni. Nel secondo sistema, invece, il rango della matrice completa `e 2. Ne segue che il secondo
+sistema non ammette soluzioni.
+3. Si consideri la matrice ad elementi reali:
+A =
+
+
+
+0
+1
+2
+3
+4
+4
+3
+2
+1
+0
+5
+6
+7
+8
+9
+9
+8
+7
+6
+5
+k
+k
+k
+k
+k
+
+
+
+Stabilire quale tra le seguenti aﬀermazioni `e vera:
+1
+rg A = 5 per ogni k̸ = 0 e rg A = 4 per k = 0
+2
+rg A = 4 per ogni k
+3
+rg A = 4 per ogni k̸ = 0 e rg A = 3 per k = 0
+4
+rg A = 3 per ogni k
+5
+rg A = 3 per ogni k̸ = 0 e rg A = 2 per k = 0
+▷◁6
+rg A = 2 per ogni k
+7
+rg A = 2 per ogni k̸ = 0 e rg A = 1 per k = 0
+8
+Nessuna delle precedenti
+
+
+===== PAGINA 2 =====
+Soluzione. La seguente matrice A′ `e ottenuta da A sostituendo ai suoi vettori riga risp.⃗r1,⃗r2,⃗r3,⃗r4,⃗r5 i seguenti
+nuovi vettori riga:⃗r′
+1 =⃗r1,⃗r′
+2 =⃗r2 +⃗r1,⃗r′
+3 =⃗r3 −⃗r1,⃗r′
+4 =⃗r4 +⃗r1,⃗r′
+5 =⃗r5 :
+A′ =
+
+
+
+0
+1
+2
+3
+4
+4
+4
+4
+4
+4
+5
+5
+5
+5
+5
+9
+9
+9
+9
+9
+k
+k
+k
+k
+k
+
+
+.
+E’ chiaro che Span (⃗r1,⃗r2,⃗r3,⃗r4,⃗r5) = Span (⃗r′
+1,⃗r′
+2,⃗r′
+3,⃗r′
+4,⃗r′
+5). Dunque il rango di A, massimo numero di sue righe
+linearmernte indipendenti, `e uguale a quello di A′. Ma A′ ha quattro righe proporzionali per ogni k. Ne segue che
+rg A = rg A′ = 2 per ogni k.
+4. Sia p(x) = a0 + a1x + a2x2 + a3x3 = 0 un’equazione di terzo grado con coeﬃcienti in a0, a1, a2, a3 ∈R. Si ricordi
+che, per il teorema fondamentale dell’algebra p(x) = 0 ammette tre soluzioni z1, z2, z3 ∈C (non necessariamente
+distinte). Stabilire quale tra le seguenti aﬀermazioni `e vera.
+1
+Poich´e i coeﬃcienti di p(x) sono reali, risulta z1, z2, z3 ∈R
+2
+Poich´e i coeﬃcienti di p(x) sono reali, almeno due tra z1, z2, z3 sono reali
+▷◁3
+Poich´e i coeﬃcienti di p(x) sono reali, almeno una tra z1, z2, z3 `e reale
+4
+Nessuna delle precedenti
+Soluzione. Se z ∈C `e soluzione, e se ¯z `e il suo coniugato, risulta a0 + a1z + a2z2 + a3z3 = 0, e quindi anche
+a0 +a1¯z +a2¯z2 +a3¯z3 = a0 + a1z + a2z2 + a3z3 = ¯0 = 0, dove nella prima uguaglianza si sono usati la distributivit`a
+dfel coniugio per somma e prodotto e il fatto che i coeﬃcienti sono reali. Dunque le soluzioni sono a coppie coniugate
+e ne segue che una almeno `e reale.
+5. Si consideri lo spazio vettoriale Mn(R) delle matrici quadrate di ordine n ad elementi reali. Stabilire quali tra i
+seguenti sottoinsiemi costituiscono sottospazi vettoriali (eventualmente anche pi`u risposte)
+1
+Il sottoinsieme delle A ∈Mn(R) invertibili
+2
+Il sottoinsieme delle A ∈Mn(R) di rango 2
+▷◁3
+Il sottoinsieme delle A = (aij) ∈Mn(R) diagonali: aij = 0 se i̸ = j
+4
+Il sottoinsieme delle A ∈Mn(R) tali che det A = 1
+5
+Il sottoinsieme delle A ∈Mn(R) tali che det A = 0
+6
+Nessuno delle precedenti
+Soluzione. Per quanto riguarda le risposte 1,2,4 si osservi che la matrice nulla non `e invertibile, non ha rango 2 e
+non ha determinante 1. Dunque gli insiemi descritti in 1,2,4, non contenendo il vettore nullo, non sono sottospazi
+vettoriali. Non lo `e neanche l’insieme descritto al punto 5: infatti la somma di due matrici ha determinante nullo
+pu`o avere determinante non nullo, un esempio essendo la somma delle seguenti matrici 1 × 1: A = (1) e B = (−1).
+Invece le matrici diagonali costituiscono un sottospazio vettoriale di Mn(R), descritto dalle n2 −n equazioni lineari
+omogenee aij = 0 se i̸ = j, e d’altra parte la somma di matrici diagonali `e diagonale e prodotto di uno scalare per
+una matrice diagonale `e diagonale.
+6. Siano A, B ∈Mn(R) invertibili, siano At, Bt le loro trasposte e A−1, B−1 le loro inverse. Stabilire quali tra le
+seguenti aﬀermazioni sono corrette (anche pi`u risposte)
+▷◁1
+(At)−1 = (A−1)t, (Bt)−1 = (B−1)t
+▷◁2
+((AB)t)−1 = (At)−1(Bt)−1
+3
+ABt = BAt
+4
+AAt = BBt ⇒A = B
+5
+Nessuna delle precedenti
+Soluzione. La risposta 1 `e esatta per l’intercambiabilit`a della trasposizione e del calcolo dei cofattori nell’algoritmo
+per la scrittura dell’inversa. Anche la risposta 2 `e esatta: infatti sia la trasposta che l’inversa del prodotto si scrivono
+come prodotto delle trasposte o dell’inverse, ma scambiando i fattori del prodotto. La risposta 3 invece `e errata, un
+controesempio essendo la coppia A =
+
+0
+1
+0
+0
+
+e B =
+
+0
+0
+0
+1
+
+. Anche la risposta 4 `e errata, l’uguaglianza essendo
+soddisfatta per esempio da ogni coppia A, B di matrici ortogonali.
+7. Sia V = {p(x) = a0 + a1x + a2x2; ai ∈R} lo spazio vettoriale dei polinomi di grado ≤2 a coeﬃcienti reali, e si
+consideri il sottoinsieme
+W = {p(x) ∈V tali che p(1) = p(2) = 0}.
+2
+
+
+===== PAGINA 3 =====
+Stabilire quale tra le seguenti aﬀermazioni `e vera:
+1
+W `e un sottospazio vettoriale di dimensione 3 di V
+2
+W `e un sottospazio vettoriale di dimensione 2 di V
+▷◁3
+W `e un sottospazio vettoriale di dimensione 1 di V
+4
+W non `e un sottospazio vettoriale di V
+Soluzione.
+W `e deﬁnito dal sistema lineare omogeneo a0 + a1 + a2 = 0, a0 + 2a1 + 4a2 = 0, che si ottiene
+esplicitando le due condizioni p(1) = p(2) = 0. La matrice dei coeﬃcienti di tale sistema in tre incognite ha rango
+2, e dunque lo spazio W delle soluzioni ha dimensione 1.
+8. Si consideri il piano aﬃne α di R3 passante per i punti A = (1, 1, 0), B = (1, 0, 2), C = (0, 1, 2). Stabilire quali tra
+le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+α `e un sottospazio vettoriale di R3
+2
+α ha equazione cartesiana x + y + 2z = 2
+3
+α ha equazione cartesiana 2x + 2y + z = 2
+▷◁4
+α ha equazione cartesiana 2x + 2y + z = 4
+5
+Nessuna delle precedenti.
+Soluzione.
+Per sostituzione delle coordinate dei punti nelle equazioni proposte, si vede subito che la risposta
+corretta `e la numero 4.
+9. Si considerino le rette aﬃni r1, r2, r3 di R3 lati del triangolo di vertici i punti A = (1, 1, 0), B = (1, 0, 2), C = (0, 1, 2).
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+▷◁1
+i parametri direttori di r1, r2, r3 sono linearmente dipendenti
+2
+l’area del triangolo ABC coincide con il modulo del prodotto vettoriale⃗AB ∧⃗AC
+▷◁3
+l’area del triangolo ABC `e 3
+2
+4
+Nessuna delle precedenti.
+Soluzione. Dato che r1, r2, r3 sono rette complanari, i loro parametri direttori sono certo linearmente dipendenti.
+L’area del triangolo ABC `e 1/2 del modulo del prodotto vettoriale⃗AB ∧⃗AC. Risulta⃗AB = (0, −1, 2),⃗AC =
+(−1, 0, 2), e dunque⃗AB ∧⃗AC = (−2, −2, −1). Pertanto |⃗AB ∧⃗AC| = 3 e l’area `e 3
+2.
+10. Sia A ∈Mm,n(R), sia A⃗x =⃗b un sistema lineare in incognite⃗x =
+
+
+x1
+.
+xn
+
+e termini noti⃗b =
+
+
+b1
+.
+bm
+
+, e sia A⃗x =⃗0
+il sistema lineare omogeneo associato.
+Dire quali tra le seguenti eventualit`a possono eﬀettivamente presentarsi
+(eventualmente anche pi`u risposte):
+1
+Il sistema A⃗x =⃗b ammette soluzioni ma l’omogeneo associato A⃗x =⃗0 non ne ammette.
+▷◁2
+Il sistema A⃗x =⃗b non ammette soluzioni ma l’omogeneo associato A⃗x =⃗0 ne ammette.
+3
+Il sistema A⃗x =⃗b ammette inﬁnite soluzioni ma l’omogeneo associato A⃗x =⃗0 ne ammette una sola.
+4
+Il sistema A⃗x =⃗b ammette una sola soluzione ma l’omogeneo associato A⃗x =⃗0 ne ammette inﬁnite.
+▷◁5
+Entrambi i sistemi A⃗x =⃗b e A⃗x =⃗0 ammettono una sola soluzione.
+Soluzione. Le eventualit`a 1,3,4 sono escluse dal teorema di Rouch´e Capelli applicato ai due sistemi. L’eventualit`a
+2 `e invece possibile, quando il rango della matrice dei coeﬃcienti `e minore del rango della matrice dei coeﬃcienti e
+temini noti. L’eventualit`a 5 `e anche possibile, e si presenta quando entrambi ranghi delle due matrici sono entrambi
+n.
+3

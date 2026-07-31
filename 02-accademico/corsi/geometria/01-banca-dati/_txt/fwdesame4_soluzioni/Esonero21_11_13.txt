@@ -1,0 +1,141 @@
+===== PAGINA 1 =====
+Geometria. a.a. 2013-14, Gruppo: Pf- Z
+Prova scritta del 21 Novembre 2013
+Esercizio 1. Si consideri il sistema di 4 equazioni in 5 incognite:
+
+
+
+
+
+
+
+x1 + x2 + 2x3 + x4 = 3
+x1 + x2 + x3 + 2x4 −x5 = 2
+x1 + x2 + 3x4 −2x5 = 1
+x1 + x2 + 3x3 + x5 = 4t
+Scrivere la matrice A dei coeﬃcienti del sistema. Scrivere la matrice completa del
+sistema.
+Studiare la compatibilit`a del sistema al variare di t ∈R. Sia t = 1. Determinare
+l’insieme Σ ⊂R5 delle soluzioni del sistema.
+Esercizio 2. Sia M22(R) lo spazio vettoriale delle matrici due per due a coeﬃcienti
+reali. Determinare un’applicazione iniettiva T : R3 −→M22(R) la cui immagine
+contenga i vettori
+
+1
+0
+1
+0
+ ,
+
+0
+1
+0
+1
+
+Determinare un’applicazione S : M22(R) −→R3 tale che l applicazione S · T sia l’
+identit`a.
+Esercizio 3. Sia V = R4 e siano U e W i sottospazi di V deﬁniti da
+U = Span
+
+
+
+
+
+1
+1
+1
+1
+
+,
+
+1
+0
+1
+0
+
+,
+
+2
+−3
+2
+−3
+
+
+
+
+,
+W = Span
+
+
+
+
+
+1
+0
+−1
+0
+
+,
+
+1
+5
+1
+5
+
+
+
+
+
+Determinare la dimensione di U e quella di W. Determinare una base per U + W.
+Determinare la dimensione di U ∩W. Stabilire se R4 = U ⊕W.
+Esercizio 4. Calcolare il prodotto C = AB con
+A =
+
+2
+1
+3
+5
+0
+4
+0
+−1
+1
+0
+−2
+−1
+
+;
+B =
+
+2
+−2
+1
+1
+4
+−1
+0
+−2
+1
+2
+3
+−1
+
+.
+Veriﬁcare se C `e invertibile.
+Veriﬁcare per quali valori del parametro t ∈R la matrice
+At =
+
+1
+1
+1
+1
+0
+1
+h
+1
+1
+
+`e invertibile.
+Calcolare A−1
+2
+1

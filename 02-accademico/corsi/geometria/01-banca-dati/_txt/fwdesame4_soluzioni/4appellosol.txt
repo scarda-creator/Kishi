@@ -1,0 +1,165 @@
+===== PAGINA 1 =====
+Quarto appello di Geometria per Fisica, a.a. 2012-13, lettere Cf-K (Prof. P. Piccinni)
+24 settembre 2013
+a. Scrivere subito Matricola, Cognome e Nome.
+b. Utilizzare questi fogli per le risposte. I fogli protocollo sono invece per riﬂessioni o calcoli, e non vanno consegnati.
+c. Durante la prova non si possono consultare testi e appunti n´e usare fogli diversi da quelli distribuiti.
+d. Durante la prova non `e consentito uscire dall’aula.
+Tempo a disposizione: 2 ore
+Matricola.............................Cognome...........................................................Nome................................................
+1. Si consideri il sottoinsieme Wh ⊂M3(R) cos`ı deﬁnito:
+Wh = {A =
+
+
+a11
+a12
+a13
+a21
+a22
+a23
+a31
+a32
+a33
+
+∈M3(R) tali che a11 −a12 + a13 = a21 −a22 + a23 = a31 −a32 + a33 = h},
+essendo h un numero reale ﬁssato.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+Wh `e un sottospazio vettoriale di M3(R), per ogni h ∈R
+2
+Posto W = S
+h∈R Wh, risulta W = M3(R)
+▷◁3
+W `e un sottospazio vettoriale di M3(R)
+4
+Se A ∈W, risulta det A = 0
+5
+Nessuna delle precedenti
+I sottospazi vettoriali sono rappresentati da equazioni lineari omogenee nelle coordinate. Pertanto Wh `e un
+sottospazio vettoriale di M3(R) solo per h = 0. `E invece un sottospazio vettoriale l’insieme W, rappresentato
+dalle equazioni lineari omogenee a11−a12+a13 = a21−a22+a23 = a31−a32+a33. Esso `e tuttavia un sottospazio
+proprio di M3(R), in quanto p. es. la matrice identica appartiene alla diﬀerenza.
+2. Si considerino le equazioni a coeﬃcienti complessi:
+(a) z4 + 1 = 0,
+(b) z4 −1 = 0,
+(c) z4 + 2z2 + 1 = 0,
+(d) z4 −2z2 + 1 = 0.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+Le equazioni (b), (c), (d) ammettono solo soluzioni reali
+▷◁2
+Le equazioni (a) e (b) ammettono in C quattro soluzioni distinte
+▷◁3
+Le equazioni (c) e (d) ammettono in C quattro soluzioni, coincidenti a coppie
+4
+Esiste uno z0 ∈C che `e soluzione di tutte le equazioni (a), (b), (c) e (d)
+5
+Nessuna delle precedenti
+Le quattro equazioni possono essere riscritte nel modo seguente:
+(a) (z2 + i)(z2 −i) = 0,
+(b) (z2 + 1)(z2 −1) = 0,
+(c) (z2 + 1)2 = 0,
+(d) (z2 −1)2 = 0.
+Si riconosce allora subito che le uniche aﬀermazioni corrette sono la 2 e la 3.
+
+
+===== PAGINA 2 =====
+3. Sia A ∈Mn(R), sia A2 = A · A (righe per colonne) il quadrato di A, e sia At la trasposta di A.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+▷◁1
+(A2)t = (At)2 per ogni A ∈Mn(R)
+2
+(A2)t = (At)2 se e solo se A `e simmetrica
+3
+(A2)t = (At)2 se e solo se det A = 0
+4
+Nessuna delle precedenti
+Dalla deﬁnizione di prodotto righe per colonna si ha subito l’identit`a (AB)t = BtAt, valida per tutte le coppie
+di matrici moltiplicabili. Dunque per A = B ∈Mn(R) risulta valida l’aﬀermazione 1.
+4. Si considerino nello spazio euclideo R3 i piani aﬃni
+α1 : 2x −y −z + 2 = 0
+e
+α2 : x + y + z + 3 = 0,
+e le rette aﬃni
+r1 : x + 2z + 3 = 0, y −z = 0
+e
+r2 : x −z = 0, y −z −2 = 0,
+essendo (x, y, z) le coordinate cartesiane di R3.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+▷◁1
+I piani α1, α2 sono tra loro perpendicolari
+▷◁2
+Le rette r1, r2 sono tra loro perpendicolari
+▷◁3
+La retta r1 `e contenuta nel piano α2
+▷◁4
+La retta r2 `e contenuta nel piano α1
+5
+La retta s = α1 ∩α2 ha parametri direttori (0, 1, 1)
+6
+Nessuna delle precedenti
+I parametri di giacitura dei piani α1 e α2 sono rispettivamente (2, −1, −1) e (1, 1, 1). I parametri direttori delle
+rette r1 e r2 sono invece rispettivamente (−2, 1, 1) e (1, 1, 1). Si riconosce quindi subito la perpendicolarit`a tra
+α1 e α2, e quella tra r1 e r2. Scrivendo poi le equazioni di r1 nella forma x = −2z −3, y = z e sostituendo
+nell’equazione di α2 : x + y + z + 3 = 0 si ottiene un’identit`a, e dunque r1 ⊂α2. Similmente le equazioni di r2
+possono essere scritte come x = z, y = z + 2, e sostituendo nell’equazione di α1 : 2x −y −z + 2 = 0 di nuovo
+si vede che r2 ⊂α1. Inﬁne, la retta s ha parametri direttori (0, −3, 3) (minori a segni alterni della matrice dei
+parametri di giacitura di α1 e α2). Pertanto l’aﬀermazione 5 non `e corretta.
+5. Si consideri la matrice A =
+
+
+0
+1
+1
+−1
+0
+1
+−1
+−1
+0
+
+.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+▷◁1
+A `e antisimmetrica di ordine 3 e pertanto det A = 0
+▷◁2
+det A = 0
+▷◁3
+L’unico autovalore reale di A `e zero
+4
+A `e diagonalizzabile in Mn(R)
+▷◁5
+A `e diagonalizzabile in Mn(C)
+6
+Nessuna delle precedenti
+2
+
+
+===== PAGINA 3 =====
+Le identit`a det At = det A = (−1)n det(−A) mostrano che per matrici antisimmetriche (At = −A) di ordine n
+dispari risulta det A = 0. Gli autovalori della nostra A risultano (essendo λ3 + 3λ il polinomio caratteristico)
+λ1 = 0, λ2 =
+√
+3i, λ3 = −
+√
+3i. Ne segue che la 4 `e falsa e la 3 e 5 sono vere.
+6. Sia V = V n
+R uno spazio vettoriale euclideo, sia < , > il suo prodotto scalare e sia T : V →V un endomorﬁsmo.
+Si ricordi che T si dice un operatore antisimmetrico se per tutti i vettori risulta
+< T(⃗v),⃗w >= −<⃗v, T(⃗w) > .
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+Se T `e un operatore antisimmetrico, ogni matrice A ad esso associata `e antisimmetrica
+▷◁2
+Se T `e un operatore antisimmetrico, esiste una matrice A ad esso associata che sia antisimmetrica
+3
+Un operatore antisimmetrico `e necessariamente diagonalizzabile su R
+▷◁4
+Se n `e dispari, un’operatore antisimmetrico non pu`o essere iniettivo
+5
+Nessuna delle precedenti
+Similmente al caso simmetrico, la rappresentazione di un operatore antisimmetrico con una matrice antisimmet-
+rica avviene solo con la scelta di una base ortonormale. Pertanto l’aﬀermazione 2 `e corretta e la 1 no. Come
+mostra l’esercizio precedente, una matrice antisimmetrica pu`o non essere diagonalizzabile su R. Inoltre, se n `e
+dispari, risulta (come nell’esercizio precedente), det T = 0, e dunque T non pu`o essere iniettivo.
+3

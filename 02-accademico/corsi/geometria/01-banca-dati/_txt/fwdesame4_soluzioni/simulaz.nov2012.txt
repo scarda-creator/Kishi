@@ -1,0 +1,242 @@
+===== PAGINA 1 =====
+Esercitazione di Geometria del 15.11.2012 (Corso di laurea in Fisica, Canale Cf-K)
+Prof. P. Piccinni
+1. Si considerino nello spazio R3 i seguenti quattro vettori (necessariamente linearmente dipendenti)⃗
+v1 = (1, 1, 1),⃗v2 = (1, 2, 2),⃗v3 = (0, −1, 1),⃗v4 = (3, 1, 1).
+Stabilire quale tra le seguenti aﬀermazioni `e vera:
+1
+ognuno tra i vettori⃗v1,⃗v2,⃗v3,⃗v4 `e combinazione lineare dei rimanenti
+2
+uno solo tra i vettori⃗v1,⃗v2,⃗v3,⃗v4 `e combinazione lineare dei rimanenti
+3
+due e non pi`u di due tra i vettori⃗v1,⃗v2,⃗v3,⃗v4 sono combinazioni lineari dei rimanenti
+4
+tre e non pi`u di tre tra i vettori⃗v1,⃗v2,⃗v3,⃗v4 sono combinazioni lineari dei rimanenti
+2. Si considerino in M2(C) le seguenti tre matrici (dette matrici di Pauli):
+J1 =
+ 0
+1
+1
+0
+
+,
+J2 =
+ 0
+−i
+i
+0
+
+,
+J3 =
+ 1
+0
+0
+−1
+
+,
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+J1, J2, J3 sono linearmente indipendenti in M2(C)
+2
+Il sottospazio di M2(C) generato da J1, J2, J3 consiste delle matrici a traccia nulla
+3
+J1 · J2 = J3, J2 · J3 = J1, J3 · J1 = J2,
+4
+J1 · J2 = iJ3, J2 · J3 = iJ1, J3 · J1 = iJ2,
+5
+J2
+1 = J2
+2 = J2
+3 = I
+3. Si considerino le matrici
+A =
+ 1
+1
+0
+1
+
+,
+B =
+ 1
+0
+1
+1
+
+.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+AB = BA
+2
+B = A−1
+3
+A2 = B2
+4
+Nessuna delle precedenti
+4. Si consideri il sistema lineare:
+
+
+
+x1 −x2 + x3 =
+1
+2x1 + x2 −x3 =
+0
+x1 + 2x2 + kx3 =
+k + 1
+essendo k un parametro reale. Stabilire quali tra le seguenti aﬀermazioni sono vere:
+1
+Il sistema ammette un’unica soluzione per ogni k
+2
+Il sistema ammette inﬁnite soluzioni per ogni k
+3
+Il sistema ammette un’unica soluzione per ogni k̸ = −2
+4
+Il sistema ammette inﬁnite soluzioni per ogni k̸ = −2
+
+
+===== PAGINA 2 =====
+5. Nello spazio vettoriale M3(R) si considerino le matrici:
+A1 =
+ 1
+0
+0
+0
+1
+0
+0
+0
+1
+
+A2 =
+ 0
+0
+1
+0
+1
+0
+1
+0
+0
+
+A3 =
+ 1
+0
+1
+0
+1
+0
+1
+0
+1
+
+B1 =
+ 0
+1
+0
+1
+0
+1
+0
+1
+0
+
+B2 =
+ 1
+1
+1
+1
+0
+1
+1
+1
+1
+
+B3 =
+ 0
+1
+0
+1
+1
+1
+0
+1
+0
+
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+A1, A2, A3 sono linearmente indipendenti in M3(R)
+2
+B1, B2, B3 sono linearmente indipendenti in M3(R)
+3
+A1, A2, A3, B1, B2, B3 sono linearmente indipendenti in M3(R)
+4
+Le matrici A1, A2, A3, B1, B2, B3 sono tutte non invertibili
+L’esercizio `e stato un po’ lungo, ma la risposta a quest’ultima domanda dovrebbe entrare nel riquadro che segue.
+Ognuna delle A1, A2, A3, B1, B2, B3 `e matrice dei coeﬃcienti di un sistema lineare omogeneo. Tra questi sei sistemi,
+due hanno un’unica soluzione. Quali sono tali due sistemi, perch´e, e qual’`e tale soluzione?
+Le due matrici sono : ..................Infatti................................................La soluzione e′..................................
+6. Si considerino in R3 i vettori⃗
+v1 =
+ 1
+√
+3, 1
+√
+3, 1
+√
+3
+
+,⃗v2 =
+
+0, 1
+√
+2, −1
+√
+2
+
+.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1⃗
+v1,⃗v2 sono ortonormali
+2⃗
+v1 ∧⃗v2 =
+
+−2
+√
+6,
+1
+√
+6,
+1
+√
+6
+
+3
+det A = −1
+4
+La matrice A che ha per righe le coordinate di⃗v1,⃗v2,⃗v1 ∧⃗v2 `e una matrice ortogonale
+7. Si consideri lo spazio vettoriale
+R≤3[x] = {p(x) = a0 + a1x + a2x2 + a3x3; ai ∈R}
+dei polinomi di grado ≤3 a coeﬃcienti in R nell’indeterminata x. Stabilire quali tra le seguenti aﬀermazioni sono
+vere (eventualmente anche pi`u risposte):
+1
+S = {p(x) ∈R≤3[x]; a0 + a1 + a2 + a3 = 1} `e un sottospazio vettoriale
+2
+S = {p(x) ∈R≤3[x]; a0 + a1 + a2 + a3 = 0} `e un sottospazio vettoriale
+3
+S = {p(x) ∈R≤3[x]; p′(x) = λp(x)} `e un sottospazio vettoriale, essendo p′(x) il polinomio derivato di p(x)
+e λ ∈R −0
+4
+S = {p(x) ∈R≤3[x]; p′(x) = 0)} `e un sottospazio vettoriale
+8. Nel piano aﬃne R2, si consideri il punto P0 = (1, 3) e il vettore⃗v = (−1, 4).
+Stabilire quale tra le seguenti
+aﬀermazioni `e vera:
+1
+la retta per P0 e parallela a⃗v ha equazione cartesiana −(x −1) + 4(y −3) = 0
+2
+la retta per P0 e parallela a⃗v ha equazione cartesiana 4(x −1) −(y −3) = 0
+3
+la retta per P0 e parallela a⃗v ha equazione cartesiana (x −1) + 4(y −3) = 0
+4
+la retta per P0 e parallela a⃗v ha equazione cartesiana 4(x −1) + (y −3) = 0
+5
+Nessuna delle precedenti
+2

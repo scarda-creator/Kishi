@@ -1,0 +1,479 @@
+===== PAGINA 1 =====
+Geometria (LT Fisica)
+Soluzioni della prova scritta del 7 Febbraio 2016
+Esercizio 1. Siano U, V ⊂R4 i sottospazi vettoriali deﬁniti da
+U
+:=
+*
+
+
+
+
+1
+1
+−7
+5
+
+
+
+,
+
+
+
+
+1
+0
+−4
+3
+
+
+
+,
+
+
+
+
+1
+−3
+5
+−3
+
+
+
+
++
+,
+V
+:=
+
+X ∈R4
+
+x1 −x2 + x3 −x4 = 0
+x1 + 2x2 + 3x3 + 4x4 = 0
+
+.
+(a) Date basi di U e V .
+(b) Determinate se U e V siano spazi vettoriali isomorﬁ.
+Risoluzione: (a): Riducendo a scala per righe la matrice
+
+
+1
+1
+−7
+5
+1
+0
+−4
+3
+1
+−3
+5
+−3
+
+,
+che ha per righe le entrate dei generatori di U, otteniamo la matrice a scale per righe
+
+
+1
+1
+−7
+5
+0
+−1
+3
+−2
+0
+0
+0
+0
+
+.
+Quindi una base di U `e data da
+
+
+
+
+
+
+
+
+
+
+
+1
+1
+−7
+5
+
+
+
+,
+
+
+
+
+0
+1
+−3
+2
+
+
+
+
+
+
+
+
+
+
+
+.
+Risolvendo il sistema di equazioni lineari omogenee che deﬁnisce V , otteniamo la base di V data da
+
+
+
+
+
+
+
+
+
+
+
+2
+5
+0
+−3
+
+
+
+,
+
+
+
+
+5
+2
+−3
+0
+
+
+
+
+
+
+
+
+
+
+
+.
+(b): Per (a) la dimensione di U `e 2, e la dimensione di V `e 2. Siccome U e V hanno la stessa dimensione,
+sono isomorﬁ.
+1
+
+
+===== PAGINA 2 =====
+Esercizio 2. Sia
+A :=
+
+
+a11
+a12
+a13
+a21
+a22
+a23
+a31
+a32
+a33
+
+∈M3,3(R),
+e supponiamo che Det A = 5. Sia B ∈M3,3(R) deﬁnita da
+B :=
+
+
+a11
+a12 + a13
+a12
+a21 −3a11
+a22 + a23 −3a12 −3a13
+a22 −3a12
+a31
+a32 + a33
+a32
+
+.
+Calcolate Det B.
+Risoluzione: Con una serie di operazioni elementari su righe e colonne di B, si arriva alla matrice A.
+Ricordiamo che sommare ad una colonna un multiplo di un’altra colonna (oppure sommare ad una riga
+un multiplo di un’altra riga) non cambia il determinante, e che scambiare due colonne (oppure scambiare
+due righe) cambia segno al determinante.
+Esplicitamente, sottraendo alla 2a colonna di B la sua 3a colonna, si ottiene che
+Det B = Det
+
+
+a11
+a13
+a12
+a21 −3a11
+a23 −3a13
+a22 −3a12
+a31
+a33
+a32
+
+.
+Aggiungendo alla 2a riga della matrice sopra la sua 1a riga moltiplicata per 3, otteniamo che
+Det B = Det
+
+
+a11
+a13
+a12
+a21
+a23
+a22
+a31
+a33
+a32
+
+.
+Scambiando le ultime due colonne della matrice sopra, vediamo che
+Det B = −Det A = −5.
+2
+
+
+===== PAGINA 3 =====
+Esercizio 3. Sia A2 il piano aﬃne euclideo e siano dati i punti P1 =
+ 1
+0
+
+, P2 =
+ −1
+1
+
+, P3 =
+ 1
+2
+
+e P ′
+1 =
+ 0
+2
+
+, P ′
+2 =
+ 1
+0
+
+, P ′
+3 =
+ 2
+2
+
+.
+(a) Scrivete, nella forma f(X) = A · X + b, un’aﬃnit`a f : A2 →A2 tale che f(Pi) = P ′
+i per i = 1, 2, 3.
+(b) Dite se l’aﬃnit`a f sia una isometria del piano euclideo (rispetto alla distanza euclidea standard).
+Risoluzione: (a): Imponendo A · Pi + b = P ′
+i per i = 1, 2, 3 si ottiene come unica soluzione
+A =
+ 0
+1
+1
+0
+
+,
+b =
+ 0
+1
+
+.
+(b): S`ı, perch´e la matrice A `e una matrice ortogonale e dunque
+d(f(Q), f(R)) =
+−−−−−−→
+f(Q)f(R)
+ = ∥f(R) −f(Q)∥= ∥(A · R + b) −(A · Q + b)∥=
+A · −−→
+QR
+ =
+=
+−−→
+QR
+ = d(Q, R)
+per ogni Q, R ∈A2.
+3
+
+
+===== PAGINA 4 =====
+Esercizio 4. Sia A ∈M2,2(R) data da
+A :=
+
+1
+−2
+−3
+0
+
+Determinate P ∈M2,2(R) invertibile e D ∈M2,2(R) diagonale tali che A = PDP −1.
+Risoluzione: Il polinomio caratteristico di A `e
+PA(λ) = λ2 −λ −6,
+che ha radici λ1 = 3 e λ2 = −2. Una base che diagonalizza A `e data da C = {v1, v2} dove v1, v2 sono
+autovettori corrispondenti, cio`e
+v1 =
+ 1
+−1
+
+,
+v2 =
+ 2
+3
+
+.
+Concludiamo che
+D = M C
+C (LA) =
+ 3
+0
+0
+−2
+
+e
+P = M E
+C (LA) =
+
+1
+2
+−1
+3
+
+forniscono una soluzione del problema, dove E = {e1, e2} `e la base canonica di R2.
+4
+
+
+===== PAGINA 5 =====
+Esercizio 5. Siano
+A :=
+
+
+18
+0
+−6
+0
+12
+6
+−6
+6
+5
+
+,
+e q(X) := Xt · A · X l’associata forma quadratica su R3. Determinate una base ortonormale (per il
+prodotto scalare euclideo standard su R3) che diagonalizzi q.
+Risoluzione: La forma quadratica q pu`o essere scritta come
+q(X) = ⟨X, A · X⟩
+dove ⟨·, ·⟩`e il prodotto scalare standard su R3 e la matrice A rappresenta un endomorﬁsmo LA : R3 →R3
+autoaggiunto per ⟨·, ·⟩. Per il teorema spettrale, esiste una base ortonormale rispetto a ⟨·, ·⟩composta di
+autovettori di LA.
+Il polinomio caratteristico di LA `e
+PA(λ) = λ(λ2 −35λ + 294),
+e quindi gli autovalori di LA sono
+λ1 = 0,
+λ2 = 14,
+λ3 = 21,
+ciascuno con molteplicit`a 1. Autovettori di LA corrispondenti sono
+v1 :=
+
+
+2
+−3
+6
+
+,
+v2 :=
+
+
+3
+6
+2
+
+,
+v3 =
+
+
+6
+−2
+−3
+
+.
+Quindi {v1, v2, v3} `e una base ortogonale per ⟨·, ·⟩che diagonalizza q. Normalizzando, otteniamo la base
+ortonormale per ⟨·, ·⟩
+B :=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2
+7
+−3
+7
+6
+7
+
+
+
+
+,
+
+
+
+
+
+3
+7
+6
+7
+2
+7
+
+
+
+
+,
+
+
+
+
+
+6
+7
+−2
+7
+−3
+7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.
+che diagonalizza q.
+5

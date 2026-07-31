@@ -1,0 +1,36 @@
+===== PAGINA 1 =====
+Algebra lineare
+Anno accademico 2019/20
+Prova scritta in modalit`a telematica - 21 luglio 2020
+Tre esercizi, 90 minuti di tempo
+Occorre motivare le risposte.
+Una soluzione corretta priva di motivazione ricever`a 0 punti.
+Esercizio
+Punti totali
+Punteggio
+1
+10
+2
+10
+3
+10
+Totale
+30
+1
+
+
+===== PAGINA 2 =====
+Esercizio 1. Determinare tutti gli z ∈C che soddisﬁno l’equazione z2 −z2 = 4z −4.
+Esercizio 2. Sia M3 lo spazio vettoriale reale delle matrici 3 × 3 a coeﬃcienti reali.
+Dopo aver calcolato la dimensione di M3, dire, motivando la risposta, quali dei seguenti
+sottoinsiemi V, W, Z di M3 siano sottospazi aﬃni. Inﬁne determinarne la dimensione di
+ciascun sottospazio aﬃne e dire se siano sottospazi vettoriali.
+(i) V = {A ∈M3 | det A = 0}.
+(ii) W = {A ∈M3 | det A = 0, tr A = 0}.
+(iii) Z = {A ∈M3 | A −3At = I}.
+Esercizio 3. Scrivere la matrice associata a T : R3 →R3, utilizzando la base canonica
+sia in partenza che in arrivo, sapendo che
+• il vettore (1, 1, 1)t `e un autovettore di T di autovalore 3;
+• l’autospazio di T relativo all’autovalore 0 ha equazione cartesiana x + y + z = 0.
+Dire inﬁne se l’endomorﬁsmo T 3 −Id sia invertibile.
+2

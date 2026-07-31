@@ -1,0 +1,92 @@
+===== PAGINA 1 =====
+Geometria — Appello I — a.a. 2020/2021
+Canale D – K
+Durata: 1 ora e 30 minuti
+25 Gennaio 2021
+Esercizio 1. Si consideri l’applicazione lineare LS : R3 →R3 associata alla
+matrice
+S =
+
+
+2
+2
+1
+2
+−1
+−2
+1
+−2
+2
+
+.
+Determinare lo spettro sp(LS) di LS, e una base ortonormale (rispetto al
+prodotto scalare standard di R3) costituita da autovettori per LS.
+Esercizio 2. Si considerino in R4 i sottospazi U e W deﬁniti rispettivamente
+come
+U = Span
+
+
+
+
+
+
+
+
+
+
+
+1
+3
+−1
+0
+
+
+
+,
+
+
+
+
+1
+0
+−1
+2
+
+
+
+,
+
+
+
+
+−1
+6
+2
+−6
+
+
+
+
+
+
+
+
+
+
+
+,
+e
+W =
+
+(x, y, z, w)t ∈R4 | x + y + 2z = x + z = 0
+	
+.
+Determinare un insieme minimale di equazioni cartesiane per U, una base
+per U ∩W, e una per U + W.
+Esercizio 3. Si consideri lo spazio vettoriale R2[x] dei polinomi a coeﬃcienti
+reali di grado minore o uguale a 2. Sia data l’applicazione
+T : R2[x] →R2[x]
+p 7→2p −p(−1)(x2 −x).
+Veriﬁcare che T è lineare, descriverne l’immagine, e determinarne una base
+per il nucleo. Scrivere inﬁne la matrice associata a T nella base {2, −x, x2}.
+1

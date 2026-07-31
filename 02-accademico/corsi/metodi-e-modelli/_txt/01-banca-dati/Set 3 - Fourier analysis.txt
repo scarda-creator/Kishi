@@ -1,0 +1,1489 @@
+===== PAGINA 1 =====
+Esercizi e soluzioni III: analisi di Fourier
+Angelo Esposito
+(Dated: June 4, 2025)
+Alcuni esercizi con relative soluzioni sono presenti del libro di Petrini, Pradisi e Zaffaroni (PPZ) e nelle dispense
+del Prof. Calogero, ai quali si rimanda. In queste note rifaremo un piccolo numero dei loro esercizi pi`u rilevanti
+(estendendone la trattazione), ma per lo pi`u presenteremo esercizi nuovi, cos`ı da avere un set pi`u ampio di problemi
+dal quale attingere.
+Esercizi consigliati da PPZ (non svolti qui) – esercizi 8.1, 8.2, 8.10, 8.11.
+ESERCIZI
+Esercizio 1 – Si consideri una funzione definita sull’intervallo x ∈[−π, π], tale che la sua serie di Fourier parziale `e
+SN(x) =
+N
+X
+n=1
+ an
+√π cos(nx) + bn
+√π sin(nx)
+
+.
+(1)
+Si rappresenti tale funzione tramite il vettore dei suoi coefficienti, S ≡(a1, . . . , aN, b1, . . . , bN). Si trovino le matrici,
+A e B, agenti su S e associate alle operazioni di derivata e derivata seconda.
+Esercizio 2 – Si calcoli la serie di Fourier di fa(x) = eax ∈L2[−π, π] e la si usi per calcolare le seguenti serie,
+s1 =
+∞
+X
+n=1
+(−1)n
+n2 + a2 ,
+s2 =
+∞
+X
+n=−∞
+1
+n2 + a2 ,
+s3 =
+∞
+X
+n=−∞
+1
+(n + ia)(n −ib) ,
+(2)
+con a, b ∈R.
+Esercizio 3 – Si calcoli la serie di Fourier delle seguenti funzioni,
+f1(x) = 1 + sin2(x) ,
+f2(x) =
+(
+−x
+−1 < x < 0
+1
+2
+0 < x < 1
+,
+f3(x) =
+(
+0
+−π < x < 0
+sin(x)
+0 < x < π
+.
+(3)
+Si verifichi che esse rispettano la condizione del Dini e il teorema di Dirichlet.
+Esercizio 4 – Si calcoli la trasformata di Fourier delle seguenti funzioni integrali,
+g1(x) =
+Z x
+−∞
+dyf(y) ,
+g2(x) =
+Z ∞
+−∞
+dy e−(x−y)2
+y2 + 1 .
+(4)
+Esercizio 5 – Sia data una funzione della forma f(x) = g(x/L) con L ∈R, e la sua trasformata di Fourier ˆf(k).
+Siano entrambe le funzioni tali che le seguenti quantit`a sono finite,
+∆x =
+R
+dx |xf(x)|
+R
+dx |f(x)| ,
+∆k =
+R
+dk
+k ˆf(k)
+
+R
+dk
+ ˆf(k)
+
+.
+(5)
+Mostrare che il prodotto ∆x∆k `e sempre indipendente da L.
+Esercizio 6 – Si consideri una funzione f(x) ∈L1(R), limitata su tutto R. Si immagini che tale funzione abbiamo
+un set di poli, x+
+i , sulla met`a superiore del piano complesso, e un set di poli, x−
+i , sulla met`a inferiore. Si dimostri
+
+
+===== PAGINA 2 =====
+Esercizi e soluzioni III: analisi di Fourier
+Angelo Esposito
+che la trasformata di Fourier, ˆf(k), decade all’infinito esponenzialmente con |k|, e che la velocit`a con cui decade `e per
+k →∞`e controllata dalla pi`u piccola delle parti immaginare degli x−
+i , mentre la velocit`a con cui decade per k →−∞
+`e dettata dalla pi`u piccola delle parti immaginarie degli x+
+i .
+Si verifichi come questo fenomeno `e realizzato esplicitamente per la funzione Lorentziana, f(x) = (x2 + a2)
+−1.
+Esercizio 7 – Si calcoli la trasformata di Fourier delle seguenti funzioni,
+f1(x) = sin(x)e−x2 ,
+f2(x) =
+x
+(1 + x2)2 ,
+f3(x) = cos(ax)
+x2 + b2 ,
+(6)
+con a, b > 0.
+Esercizio 8 – Si calcoli la trasformata di Laplace delle seguenti funzioni, definite tutte tali che f(t < 0) = 0,
+f1(t) = sin(t) cos(2t) ,
+f2(t) = t e2t cos(t) ,
+f3(t) = e−t2
+2 ,
+f4(t) =
+Z t
+0
+dt′ t′2et−t′ .
+(7)
+Si discuta anche il dominio di esistenza e olomorfia.
+2
+
+
+===== PAGINA 3 =====
+Esercizi e soluzioni III: analisi di Fourier
+Angelo Esposito
+SOLUZIONI
+Soluzione 1 – Definiamo la matrice della base trigonometrica, e(x) =
+1
+√π(cos(x), . . . , cos(Nx), sin(x), . . . , sin(Nx)),
+tale che SN(x) ≡S · e(x). Partiamo dalla derivata prima. Chiaramente vale,
+S′
+N(x) =
+N
+X
+n=1
+nbn
+√π cos(nx) −nan
+√π sin(nx)
+
+= A·S·e(x) .
+(8)
+Da un rapido confronto, capiamo che deve essere,
+A·S = (b1, 2b2, · · · , NbN, −a1, −2a2, · · · , −NaN) ⇒A =
+
+
+
+
+
+
+
+
+
+
+
+
+
+0
+0
+· · ·
+0
+1 0 · · ·
+0
+0
+0
+· · ·
+0
+0 2 · · ·
+0
+...
+...
+...
+...
+...
+...
+...
+...
+0
+0
+· · ·
+0
+0 0 · · · N
+−1
+0
+· · ·
+0
+0 0 . . .
+0
+0
+−2 · · ·
+0
+0 0 · · ·
+0
+...
+...
+...
+...
+...
+...
+...
+...
+0
+0
+· · · −N 0 0 · · ·
+0
+
+
+
+
+
+
+
+
+
+
+
+
+
+=
+
+0
+DN
+−DN
+0
+
+, (9)
+dove abbiamo definito la matrice N ×N diagonale, DN = diag(1, 2, . . . , N). La matrice associata alla derivata seconda,
+invece, `e chiaramente,
+B = A2 =
+
+−D2
+N
+0
+0
+−D2
+N
+
+=
+
+
+
+
+
+
+
+
+
+
+
+
+
+−1
+0
+· · ·
+0
+0
+0
+· · ·
+0
+0
+−4 · · ·
+0
+0
+0
+· · ·
+0
+...
+...
+...
+...
+...
+...
+...
+...
+0
+0
+· · · −N 2
+0
+0
+· · ·
+0
+0
+0
+· · ·
+0
+−1
+0
+. . .
+0
+0
+0
+· · ·
+0
+0
+−4 · · ·
+0
+...
+...
+...
+...
+...
+...
+...
+...
+0
+0
+· · ·
+0
+0
+0
+· · · −N 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+.
+(10)
+Cos`ı che si ottiene il risultato atteso:
+S′′
+N(x) = B·S·e(x) =
+N
+X
+n=1
+
+−n2an
+√π cos(nx) −n2bn
+√π sin(nx)
+
+.
+(11)
+Soluzione 2 – Calcoliamo i coefficienti di Fourier nella base esponenziale:
+fn =
+1
+√
+2π
+Z π
+−π
+dx e(a−in)x =
+1
+√
+2π
+e(a−in)π −e−(a−in)π
+a −in
+=
+r
+2
+π (−1)n sinh(aπ)
+a −in ,
+(12)
+in modo che la serie di Fourier sia,
+Sa(x) =
+1
+√
+2π
+∞
+X
+n=−∞
+fneinx = sinh(aπ)
+π
+∞
+X
+n=−∞
+(−1)n
+a −ineinx .
+(13)
+Per calcolare s1, notiamo che
+Sa(0) = sinh(aπ)
+π
+∞
+X
+n=−∞
+(−1)n
+a −in = sinh(aπ)
+π
+"
+1
+a +
+∞
+X
+n=1
+(−1)n
+
+1
+a −in +
+1
+a + in
+#
+= sinh(aπ)
+π
+1
+a + 2as1
+
+.
+(14)
+Poinch`e f(x) `e continua in x = 0, vale anche f(0) = Sa(0) e, quindi,
+s1 = 1
+2a
+
+π
+sinh(πa) −1
+a
+
+.
+(15)
+3
+
+
+===== PAGINA 4 =====
+Esercizi e soluzioni III: analisi di Fourier
+Angelo Esposito
+Similmente, per s2, notiamo che,
+Sa(π) = sinh(aπ)
+π
+∞
+X
+n=−∞
+1
+a −in = sinh(aπ)
+π
+"
+1
+a +
+∞
+X
+n=1
+
+1
+a −in +
+1
+a + in
+#
+= sinh(aπ)
+π
+"
+1
+a + 2a
+∞
+X
+n=1
+1
+a2 + n2
+#
+= sinh(aπ)
+π
+"
+1
+a + a
+−1
+X
+n=−∞
+1
+a2 + n2 + a
+∞
+X
+n=1
+1
+a2 + n2
+#
+= a sinh(aπ)
+π
+∞
+X
+n=−∞
+1
+n2 + a2 = a sinh(aπ)
+π
+s2 .
+(16)
+In x = π, tuttavia, f(x), intesa come funzione periodica, ha una discontinuit`a. Dal teorema di Dirichlet segue che
+Sa(π) = 1
+2(fa(π) + fa(−π)). Perci´o,
+s2 =
+
+π
+a sinh(aπ)
+eaπ + e−aπ
+2
+
+= π
+a
+cosh(aπ)
+sinh(aπ) .
+(17)
+Per trovare s3, infine, consideriamo il prodotto scalare tra due serie di Fourier caratterizzate da due parametri diversi.
+Ricordando l’ortogonalit`a delle funzioni esponenziali, abbiamo,
+|Sa⟩=
+r
+2
+π sinh(aπ)
+∞
+X
+n=−∞
+(−1)n
+a −in|ϕn⟩
+=⇒
+⟨Sb|Sa⟩= 2
+π sinh(aπ) sinh(bπ)
+∞
+X
+n=−∞
+1
+(b + in)(a −in)
+= 2
+π sinh(aπ) sinh(bπ)s3 .
+(18)
+Poinch´e la serie di Fourier e la funzione vera e propria sono uguali punto per punto quasi ovunque, i loro integrali
+coincidono. Ne segue che possiamo scrivere,
+s3 =
+π
+2 sinh(aπ)
+Z π
+−π
+dx e(a+b)x =
+π
+a + b
+sinh[(a + b)π]
+sinh(aπ) sinh(bπ) .
+(19)
+Notiamo che, settando a = b e usando sinh(2x) = 2 sinh(x) cosh(x), ritroviamo l’espressione per s2, come deve essere.
+Soluzione 3 – Studiamo i tre casi:
+1. f1(x) = 1 + sin2 x
+Questo caso `e semplicissimo.
+Ovviamente si potrebbero calcolare i coefficienti di Fourier tramite la solita
+rappresentazione integrale. Tuttavia, basta ricordare che sin2 x = 1
+2(1 −cos(2x)) e, quindi,
+f1(x) = 3
+2 −1
+2 cos(2x) = 3
+2 −1
+4e2ix −1
+4e−2ix .
+(20)
+La funzione `e periodica e continua su tutto R e, quindi, sia la condizione del Dini che il teorema di Dirichlet
+sono soddisfatti nel modo banale.
+2. f2(x) =
+(
+−x
+−1 < x < 0
+1
+2
+0 < x < 1
+Calcoliamo i coefficienti di Fourier in forma esponenziale (in questo caso L = 2). Partiamo dal caso n = 0 che
+tipicamente richiede pi`u cura,
+f0 =
+1
+√
+2
+Z 1
+−1
+dxf2(x) =
+1
+√
+2
+
+−
+Z 0
+−1
+dx x + 1
+2
+Z 1
+0
+dx
+
+=
+1
+√
+2 .
+(21)
+Per n̸ = 0, invece, abbiamo,
+fn =
+1
+√
+2
+
+−
+Z 0
+−1
+dx x e−inπx + 1
+2
+Z 1
+0
+dx e−inπx
+
+=
+1
+√
+2
+ 1
+iπ ∂n
+Z 0
+−1
+dx e−inπx + 1 −e−inπ
+2inπ
+
+=
+1
+√
+2
+
+−1
+π2 ∂n
+einπ −1
+n
+
++ 1 −e−inπ
+2inπ
+
+=
+1
+√
+2
+einπ (1 −inπ) −1
+n2π2
++ 1 −e−inπ
+2inπ
+
+= (−1)n [2 −2(−1)n −inπ (1 + (−1)n)]
+2
+√
+2n2π2
+.
+(22)
+4
+
+
+===== PAGINA 5 =====
+Esercizi e soluzioni III: analisi di Fourier
+Angelo Esposito
+La funzione f2, intesa come funzione periodica su R, ha due punti di discontinuit`a (all’interno del suo periodo):
+x = 0 e x = 1. I limiti destro e sinistro su questi punti sono, f2(0+) = 1/2, f2(0−) = 0, f2(1+) = f2(−1+) = 1
+e f2(1−) = 1/2. Verifichiamo, quindi, che sia soddisfatta la condizione del Dini. Nell’intorno di x = 0 e x = 1
+vale, infatti,
+Z δ
+0
+dy f2(y) −f2(0+)
+y
+=
+Z δ
+0
+dy
+1
+2 −1
+2
+y
+= 0 ,
+Z δ
+0
+dy f2(−y) −f2(0−)
+y
+=
+Z δ
+0
+dy y −0
+y
+= δ ,
+(23a)
+Z δ
+0
+dy f2(1 + y) −f2(1+)
+y
+=
+Z δ
+0
+dy 1 −y −1
+y
+= −δ ,
+Z δ
+0
+dy f2(1 −y) −f2(1−)
+y
+=
+Z δ
+0
+dy
+1
+2 −1
+2
+y
+= 0 .
+(23b)
+Di fatti, il valore della trasformata di Fourier, S(x) nei punti di discontinuit`a `e,1
+S(0) = 1
+2 +
+1
+4π2
+X
+n̸=0
+(−1)n [2 −2(−1)n −inπ (1 + (−1)n)]
+n2
+= 1
+2 + 1
+π2
+∞
+X
+n=1
+(−1)n −1
+n2
+= 1
+2 −2
+π2
+∞
+X
+n=0
+1
+(2n + 1)2 = 1
+4 = f2(0+) + f2(0−)
+2
+,
+(24)
+S(1) = 1
+2 +
+1
+4π2
+X
+n̸=0
+(−1)n [2 −2(−1)n −inπ (1 + (−1)n)]
+n2
+einπ = 1
+2 + 1
+π2
+∞
+X
+n=1
+1 −(−1)2
+n2
+= 1
+2 + 2
+π2
+∞
+X
+n=0
+1
+(2n + 1)2 = 3
+4 = f2(1+) + f2(1−)
+2
+.
+(25)
+3. f3(x) =
+(
+0
+−π < x < 0
+sin(x)
+0 < x < π
+I coefficienti di Fourier sono dati da (adesso il punto delicato `e n = ±1),
+fn̸=±1 =
+1
+√
+2π
+Z π
+0
+dx sin(x) e−inx =
+1
+√
+2π
+Z π
+0
+dxei(1−n)x −e−i(1+n)x
+2i
+=
+1
+√
+2π
+1 + e−inπ
+1 −n2
+=
+1
+√
+2π
+1 + (−1)n
+1 −n2
+,
+(26a)
+f1 =
+1
+√
+2π
+Z π
+0
+dx1 −e−2ix
+2i
+= −1
+2
+rπ
+2 ,
+(26b)
+f−1 =
+1
+√
+2π
+Z π
+0
+dxe2ix −1
+2i
+= 1
+2
+rπ
+2 .
+(26c)
+Anche in questo caso, poich´e la funzione estesa periodicamente `e continua su tutto R, la condizione del Dini `e
+soddisfatta banalmente e la serie di Fourier converge alla funzione punto per punto ovunque.
+In Figura 1 riportiamo le serie parziali di Fourier per f2 e f3.
+Soluzione 4 – Per prima cosa notiamo che g1(x) pu`o essere scritta come un prodotto di convoluzione. Ossia,
+g(x) =
+Z ∞
+−∞
+dy f(y)θ(x −y) .
+(27)
+Usando le propriet`a della trasformata di Fourier del prodotto di convoluzione, insieme alla trasformata di Fourier
+della funzione θ, otteniamo,
+ˆg(k) = ˆf(k)ˆθ(k) = ˆf(k)
+
+πδ(k) −iP
+1
+k
+
+= π ˆf(0)δ(k) −iP
+ ˆf(k)
+k
+!
+.
+(28)
+1 Utilizzeremo il seguente trucco (da dimostrare per esercizio):
+∞
+X
+n=0
+1
+(2n + 1)2 =
+Z 1
+0
+dx
+Z 1
+0
+dy
+1
+1 −x2y2 = π2
+8 .
+5
+
+
+===== PAGINA 6 =====
+Esercizi e soluzioni III: analisi di Fourier
+Angelo Esposito
+-1.0
+-0.5
+0.0
+0.5
+1.0
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+-3
+-2
+-1
+0
+1
+2
+3
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+FIG. 1. Serie parziali di Fourier, SN(x) =
+1
+√
+L
+PN
+n=−N fnei2πnx/L per le funzioni f2,3 (in nero) e per diversi valori di N (in
+rosso).
+Nota: nelle dispense di Calogero (pagina 337, Eq. (10)) c’`e un refuso. Viene riportato solamente il secondo termine.
+In generale, fin tanto che si `e interessati a valori finiti di k, non si compie nessun errore. Ma per k = 0 bisogna fare
+attenzione.
+Per quanto riguarda la funzione g2(x), anch’essa pu`o essere scritta come un prodotto di convoluzione, tra la funzione
+f1(x) = (x2 + 1)
+−1, e la funzione f2(x) = e−x2. La trasformata di Fourier di queste due funzioni `e nota (ma, per
+sicurezza, ricalcoliamo la seconda),
+ˆf1(k) =
+Z
+dx e−ikx
+x2 + 1 =
+Z
+dx
+e−ikx
+(x + i)(x −i) = −2πi Res
+ e−ikz
+z2 + 1, z = −i
+
+θ(k) + 2πi Res
+ e−ikz
+z2 + 1, z = i
+
+θ(−k)
+= π
+
+e−kθ(k) + ekθ(−k)
+
+= πe−|k| ,
+(29a)
+ˆf2(k) = √π e−k2/4 .
+(29b)
+(29c)
+Ne segue, che la trasformata di Fourier della funzione g2 `e data da,
+ˆg2(k) =
+\
+(f1 ∗f2)(k) = ˆf1(k) ˆf2(k) = π3/2 e−|k|−k2/4 .
+(30)
+Soluzione 5 – La trasformata di Fourier ˆf(k) pu`o essere scritta in termini della trasformata di Fourier di g, ossia,
+ˆf(k) =
+Z
+dx f(x)e−ikx =
+Z
+dx g(x/L)e−ikx = L
+Z
+dy g(y)e−ikLy = Lˆg(kL) .
+(31)
+Di conseguenza, con ovvio cambio di variabili, possiamo scrivere,
+∆x =
+R
+dx |xg(x/L)|
+R
+dx |g(x/L)| = L
+R
+dy |yg(y)|
+R
+dy |g(y)| ,
+∆k =
+R
+dk |kLˆg(kL)|
+R
+dk |Lˆg(kL)| = 1
+L
+R
+dq |qˆg(q)|
+R
+dq |ˆg(q)| .
+(32)
+Poich´e gli integrali sono ora indipendenti da L, otteniamo,
+∆x∆k =
+R
+dy |yg(y)|
+R
+dy |g(y)|
+R
+dq |qˆg(q)|
+R
+dq |ˆg(q)| ,
+(33)
+che `e, appunto, indipendente da L.
+Soluzione 6 – La trasformata di Fourier di f `e,
+ˆf(k) =
+Z
+dx f(x)e−ikx .
+(34)
+6
+
+
+===== PAGINA 7 =====
+Esercizi e soluzioni III: analisi di Fourier
+Angelo Esposito
+Al solito, calcoliamo il valore dell’integrale considerando la continuazione analitica di f, e calcolando l’integrale su
+un percorso chiuso nel piano complesso, tale che uno dei lati del percorso `e proprio l’asse reale. Se k > 0, affinch`e
+l’integrale converga all’infinito nel piano complesso, dobbiamo chiudere il percorso nel semipiano inferiore. In questo
+caso, il teorema dei residui ci dice che,
+ˆf(k) = −2πi
+X
+i
+c−
+i e−ikx−
+i = −2πi
+X
+i
+c−
+i e−ik Rex−
+i +k Imx−
+i ,
+(35)
+dove abbiamo indicato i residui di f sui poli x±
+i con c±
+i . Quando k →∞, la trasformata di Fourier decade esponen-
+zialmente. Il termine che decadr`a pi`u lentamente, ossia quello che controlla la velocit`a di decadimento della funzione,
+sar`a, appunto, quello con il minor |Imx−
+i |.
+In modo completamente analogo, se k < 0, dobbiamo chiudere sul semipiano superiore, ottenendo,
+ˆf(k) = 2πi
+X
+i
+c+
+i e−ikx+
+i = 2πi
+X
+i
+c+
+i e−ik Rex+
+i +k Imx+
+i .
+(36)
+Anche qui il decadimento della funzione `e controllato dalla parte immaginaria del polo con valor minimo di Imx+
+i .
+Questo `e esattamente il fenomeno che succede nella funzione Lorenziana che, nel piano complesso ha due poli,
+x± = ±ia. La sua trasformata di Fourier, infatti, `e data da
+ˆf(k) = π
+a e−a|k| .
+(37)
+Soluzione 7 – Calcoliamo le trasformate di Fourier:
+1. f1(x) = sin(x)e−x2
+Esprimiamo il seno in termini di esponenziali, completiamo il quadrato agli esponenti e utilizziamo l’integrale
+noto di una Gaussiana:
+ˆf1(k) =
+Z
+dx sin(x)e−x2e−ikx = 1
+2i
+Z
+dx
+h
+e−x2−i(k−1)x −e−x2−i(k+1)xi
+= 1
+2i
+
+e−(k−1)2
+4
+Z
+dx e−
+ x+i(k−1)/2
+2
+−e−(k+1)2
+4
+Z
+dx e−
+ x+i(k+1)/2
+2
+=
+√π
+2i
+
+e−(k−1)2
+4
+−e−(k+1)2
+4
+
+.
+(38)
+2. f2(x) =
+x
+(1+x2)2
+Nel piano complesso, la funzione pu`o essere scritta come il prodotto di due poli doppi,
+f2(x) =
+x
+(x −i)2(x + i)2 .
+(39)
+Quando k > 0, dobbiamo chiudere il cammino nel semipiano inferiore. In questo caro riceviamo contributo solo
+dal polo in x = −i, ossia,
+ˆf2(k) = −2πi lim
+x→−i
+d
+dx
+
+(x + i)2f2(x)e−ikx
+= −2πi lim
+x→−i
+d
+dx
+ 
+x
+(x −i)2 e−ikx
+!
+= −2πi lim
+x→−i
+ e−ikx
+(x −i)2 −2x e−ikx
+(x −i)3 −ik x e−ikx
+(x −i)2
+
+= −iπ
+4 ke−k .
+(40)
+Per k < 0, invece, chiudiamo nel semipiano superiore, prendendo contributo solo dal polo x = i. In modo del
+tutto analogo, otteniamo,
+ˆf2(k) = −iπ
+4 kek .
+(41)
+Il che pu`e essere riassunto con,
+ˆf2(k) = −iπ
+4 ke−|k| .
+(42)
+7
+
+
+===== PAGINA 8 =====
+Esercizi e soluzioni III: analisi di Fourier
+Angelo Esposito
+3. f3(x) = cos(ax)
+x2+b2
+Per prima cosa scriviamo il coseno in forma esponenziale, dopo di che, calcoliamo la trasformata di Fourier,
+ˆf3(k) =
+Z
+dx
+1
+x2 + b2
+eiax + e−iax
+2
+e−ikx = 1
+2
+Z
+dx ei(a−k)x
+x2 + b2 + 1
+2
+Z
+dx e−i(a+k)x
+x2 + b2 .
+(43)
+Questo integrale si risolve nuovamente chiudendo il percorso di integrazione nel piano complesso, utilizzando una
+semicirconferenza di raggio tendente all’infinito. In particolare, la funzione integranda ha due poli, in z = ±ib.
+Bisogna per`o studiare diversi casi possibili, a seconda di come k si pone rispetto ad a. Studiamoli qui sotto.
+• k > a:
+In questo caso vale a−k < 0 e a+k > 0. Per assicurare che il contributo della semicirconferenza all’infinito
+sia nullo, in questo caso dobbiamo chiudere entrambi gli integrali nel semipiano inferiore, Im z < 0. In
+questo caso entrambi gli integrali ricevono contributo dal polo in z = −ib, e la trasformata di Fourier `e
+data da,
+ˆf3(k) = −iπ
+
+Resz=−ib
+ei(a−k)z
+z2 + b2
+
++ Resz=−ib
+e−i(a+k)z
+z2 + b2
+
+= π
+2b
+h
+e−b(k−a) + e−b(a+k)i
+.
+(44)
+• −a < k < a:
+In questo caso vale a −k > 0 e a + k > 0, il che vuol dire che il primo integrale va chiuso nel semipiano
+superiore, mentre il secondo in quello inferiore. Ricevaranno, quindi, contributi rispettivamente dal polo
+in z = +ib e z = −ib. La trasformata di Fourier, allora, `e data da,
+ˆf3(k) = iπ
+
+Resz=ib
+ei(a−k)z
+z2 + b2
+
+−Resz=−ib
+e−i(a+k)z
+z2 + b2
+
+= π
+2b
+h
+e−b(a−k) + e−b(a+k)i
+.
+(45)
+• k < −a:
+In questo caso a −k > 0 e a + k < 0, il che vuol dire che entrambi gli integrali vanno chiusi nel semipiano
+superiore, ed entrambi ricevono contributo dal polo in z = +ib. La trasformata di Fourier `e data da,
+ˆf3(k) = iπ
+
+Resz=ib
+ei(a−k)z
+z2 + b2
+
++ Resz=ib
+e−i(a+k)z
+z2 + b2
+
+= π
+2b
+h
+e−b(a−k) + eb(a+k)i
+.
+(46)
+In conclusione, possiamo riscrivere la trasformata di Fourier in forma compatta,
+ˆf3(k) = π
+2b
+h
+e−b|k−a| + e−b|a+k|i
+.
+(47)
+Soluzione 8 – Calcoliamo le trasformate di Laplace:
+1. f1(t) = sin(t) cos(3t)
+Usiamo semplicemente la formula di Eulero,
+F1(s) =
+Z ∞
+0
+dt sin(t) cos(3t) e−st = 1
+4i
+Z ∞
+0
+dt
+h
+e(4i−s)t + e−(2i+s)t −e(2i−s)t −e−(4i+s)ti
+= 1
+4i
+e(4i−s)t
+4i −s
+
+∞
+0
+−e−(2i+s)t
+2i + s
+
+∞
+0
+−e(2i−s)t
+2i −s
+
+∞
+0
++ e−(4i+s)t
+4i + s
+
+∞
+0
+
+= 1
+4i
+
+1
+s −4i +
+1
+2i + s −
+1
+s −2i −
+1
+s + 4i
+
+=
+2
+s2 + 16 −
+1
+s2 + 4 .
+(48)
+Affinch`e le espressioni di sopra siano valide, abbiamo dovuto assumere che il contributo dovuto a t = ∞sia
+nulla, il che succede solo se Re s > 0. Questo `e consistente col fatto che la funzione |f1(t)| `e oscillante e sempre
+minore di 1. `E quindi vero che |f1(t)| < Ceαt, con αmin = 0. Il dominio di esistenza e olomorfia della trasformata
+di Laplace `e quindi il semipiano destro, Re s > αmin = 0. Questo si vede anche dal risultato finale, in quanto
+entrambi i termini hanno dei poli puramente immaginari, s = ±4i per il primo, e s = ±2i per il secondo.
+8
+
+
+===== PAGINA 9 =====
+Esercizi e soluzioni III: analisi di Fourier
+Angelo Esposito
+2. f2(t) = t e2t cos(t)
+Per trovare questo integrale usiamo il trucco di Feynman,
+F2(s) =
+Z ∞
+0
+t e2t cos(t) e−st = lim
+λ→2
+d
+dλ
+Z ∞
+0
+dt eλt cos(t) e−st = lim
+λ→2
+d
+dλ
+Z ∞
+0
+dt 1
+2
+h
+e(λ−s+i)t + e(λ−s−i)ti
+= lim
+λ→2
+d
+dλ
+1
+2
+
+1
+s −λ −i +
+1
+s −λ + i
+
+= lim
+λ→2
+d
+dλ
+s −λ
+(s −λ)2 + 1
+= lim
+λ→2
+(s −λ)2 −1
+
+(s −λ)2 + 1
+2
+=
+(s −2)2 −1
+
+(s −2)2 + 1
+2 .
+(49)
+Affinch`e il contributo all’infinito sia nullo, abbiamo dovuto imporre Re s > λ →2, che quindi definisce il
+semipiano di esistenza e olomorfia della trasformata di Laplace. Questo coincide anche col fatto che, per la
+nostra funzione, vale,
+|f2(t)| = t e2t| cos(t)| ≤t e2t < e(2+ϵ)t ,
+(50)
+con ϵ > 0, ma altrimenti infinitesimamente piccolo. In particolare, abbiamo usato il fatto che t < eϵt per t
+sufficientemente grandi.
+3. f3(t) = e−t2
+2
+Procediamo come al solito,
+F3(s) =
+Z ∞
+0
+dt e−t2
+2 −st = e
+s2
+2
+Z ∞
+0
+dt e−1
+2 (t+s)2 .
+(51)
+Questo integrale si risolve chiudendo il percorso nel piano complesso in modo un po’ particolare. Facendo cos`ı,
+non saremo in grado di esprimere tutto l’integrale in forma chiusa, ma lo ridurremmo ad un’espressione data in
+termini della cosiddetta “error function”, definita nel seguente modo:
+erf(z) ≡
+2
+√π
+Z z
+0
+dz′ e−z′2 ,
+(52)
+dove, poich`e e−z2 `e olomorfa su tutto il piano complesso, l’integrale pu`o essere calcolato su qualsiasi curva che
+connetta i punti z′ = 0 e z′ = z. Adesso, per calcolare l’integrale in Eq. (51) consideriamo l’integrale sulla
+seguente curva chiusa,
+Z
+R+ dz e−1
+2 (z+s)2 + lim
+R→∞
+Z
+γR
+dz e−1
+2 (z+s)2 +
+Z
+γ1
+dz e−1
+2 (z+s)2 +
+Z
+γ2
+dz e−1
+2 (z+s)2 = 0 ,
+(53)
+con,
+γR :
+z = R + it , con t = 0 →−Im s ,
+(54a)
+γ1 :
+z = −s + t , con t = ∞→0 ,
+(54b)
+γ2 :
+qualsiasi percorso che vada da z = −s a z = 0.
+(54c)
+Ora, `e evidente che il secondo integrale si annulla per R →∞, in quanto `e esponenzialmente soppresso. Per la
+curva γ1, abbiamo poi,
+Z
+γ1
+dz e−1
+2 (z+s)2 =
+Z 0
+∞
+dt e−t2/2 = −
+rπ
+2 .
+(55)
+La curva γ2, invece, restituisce il seguente integrale indipendente dal cammino scelto,
+Z
+γ2
+dz e−1
+2 (z+s)2 =
+Z 0
+−s
+dz e−1
+2 (z+s)2 =
+√
+2
+Z s/
+√
+2
+0
+dz′ e−z′2 =
+rπ
+2 erf
+
+s/
+√
+2
+
+,
+(56)
+9
+
+
+===== PAGINA 10 =====
+Esercizi e soluzioni III: analisi di Fourier
+Angelo Esposito
+dove nella seconda uguaglianza abbiamo fatto un semplice cambio di variabili complesse, z′ = (z + s)/
+√
+2.
+Mettendo tutto insieme si arriva a,
+F3(s) = e
+s2
+2
+Z
+R+ dz e−1
+2 (z+s)2 =
+rπ
+2 e
+s2
+2
+h
+1 −erf
+
+s/
+√
+2
+i
+.
+(57)
+L’error function `e una funzione definita su tutto il piano complesso. Questo `e consistente col fatto che la nostra
+funzione, per valore di t sufficientemente grandi, rispetta |f3(t)| = e−t2/2 < Ceαt sempre, per ogni possibile
+α ∈R.
+4. f4(t) =
+R t
+0 dt′ t′2et−t′
+In questo caso notiamo che la funzione `e in realt´a un prodotto di convoluzione tra le funzioni t e et−t′. Ne segue
+che la sua trasformata di Laplace sar`a il prodotto delle trasformate. Calcoliamole,
+L[t](s) =
+Z ∞
+0
+dt t e−st = −d
+ds
+Z ∞
+0
+dt e−st = −d
+ds
+1
+s = 1
+s2 ,
+(58a)
+L
+
+et
+(s) =
+Z ∞
+0
+dt e(1−s)t =
+1
+s −1 ,
+(58b)
+dove nel primo caso abbiamo dovuto assumere Re s > 0, e nel secondo Re s > 1. La trasformata di Laplace della
+nostra funzione `e, allora,
+F4(s) = L[t](s)L
+
+et
+(s) =
+1
+s2(s −1) .
+(59)
+Si noti come il dominio di esistenza e olomorfia di F4(s) sia il semipiano definito da Re s > 1, che coincide col
+pi`u piccolo tra i domini di esistenza e olomorfia delle due trasformate in Eqs. (58).
+10

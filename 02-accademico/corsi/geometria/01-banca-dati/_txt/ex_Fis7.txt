@@ -1,0 +1,42 @@
+===== PAGINA 1 =====
+Esercizi del corso di Geometria - Foglio 7
+15 Dicembre 2013
+Esercizio 1. In R[ex, e−x, 1] si consideri il prodotto scalare
+< f(x), g(x) >=
+Z 1
+0
+f(x)g(x)dx
+Trovare una base ortonormale
+oppure In R[senx, cosx, 1] si consideri il prodotto scalare
+< f(x), g(x) >=
+Z π/2
+0
+f(x)g(x)dx
+Trovare una base ortonormale
+Esercizio 2. Sia V = R2[t] lo spazio vettoriale dei polinomi di grado ≤2 e < p(t), q(t) > il
+prodotto scalare deﬁnito da
+p(0)q(0) + p(1)q(1) −p(−1)q(−1) .
+Veriﬁcare che il prodotto scalare `e non degenere
+Esercizio 3. Sia V = R2 e sia S =
+5
+2
+2
+1
+
+Veriﬁcare che l’applicazione < , >: R2 × R2 →R deﬁnita da < X, Y >= XT SY `e un prodotto
+scalare deﬁnito positivo.
+Sia T : R2 →R2 l’operatore LA con A =
+1
+1
+1
+−1
+
+. Stabilire se T `e simmetrico rispetto al
+prodotto scalare precedentemente deﬁnito .
+Esercizio 4. In R4 ortonormalizzare i seguenti vettori
+v1 = (1, 0, 1, −1)T , v2 = (0, 1, −1, 0)T , v3 = (1, 0, 0, 0)
+Completare a una base ortonormale di R4
+Esercizio 5. Sia V = R2[t] lo spazio vettoriale dei polinomi di grado ≤2 e < p(t), q(t) > il
+prodotto scalare deﬁnito da
+p(0)q(0) −p(2)q(2) .
+Veriﬁcare se il prodotto scalare `e non degenere

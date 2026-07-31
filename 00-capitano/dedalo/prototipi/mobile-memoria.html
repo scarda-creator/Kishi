@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Memoria — Biblioteca</title>
+<style>
+  :root{
+    --bg:#0a0c0f;
+    --bg-2:#0f1318;
+    --panel:#12171d;
+    --panel-2:#161c23;
+    --line:#232b34;
+    --line-2:#2d3742;
+    --ink:#dbe2ea;
+    --ink-dim:#96a0ac;
+    --ink-faint:#5c6672;
+    --accent:#5aa9c9;
+    --accent-dim:#2f6c82;
+    --warn:#c9a15a;
+    --ok:#6ec98a;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Roboto Mono",monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overscroll-behavior-y:none;
+  }
+  /* ---- top bar / search ---- */
+  header{
+    position:sticky;top:0;z-index:30;
+    background:linear-gradient(180deg,var(--bg) 62%,rgba(10,12,15,0.86));
+    backdrop-filter:saturate(1.2) blur(6px);
+    border-bottom:1px solid var(--line);
+    padding:calc(env(safe-area-inset-top) + 12px) 14px 12px;
+  }
+  .brand{
+    display:flex;align-items:baseline;gap:9px;margin:0 0 11px;
+  }
+  .brand h1{
+    font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;margin:0;color:var(--ink);
+  }
+  .brand .sub{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--ink-faint);
+  }
+  .search{position:relative}
+  .search input{
+    width:100%;appearance:none;
+    background:var(--panel);
+    border:1px solid var(--line-2);
+    border-radius:9px;
+    color:var(--ink);
+    font-family:var(--mono);font-size:15px;
+    padding:12px 38px 12px 13px;
+    outline:none;transition:border-color .12s ease,box-shadow .12s ease;
+  }
+  .search input:focus{border-color:var(--accent-dim);box-shadow:0 0 0 2px rgba(90,169,201,.14)}
+  .search input::placeholder{color:var(--ink-faint)}
+  .search .x{
+    position:absolute;right:6px;top:50%;transform:translateY(-50%);
+    width:30px;height:30px;border:0;background:transparent;color:var(--ink-faint);
+    font-size:18px;line-height:1;cursor:pointer;display:none;
+    align-items:center;justify-content:center;border-radius:7px;
+  }
+  .search .x:active{background:var(--panel-2)}
+  .search.has .x{display:flex}
+  .count{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;
+    color:var(--ink-faint);margin:9px 1px 0;min-height:13px;
+  }
+  .count b{color:var(--accent);font-weight:600}
+  /* ---- shelves ---- */
+  main{padding:6px 12px calc(env(safe-area-inset-bottom) + 60px)}
+  .shelf{margin-top:20px}
+  .shelf.hide{display:none}
+  .shelf-head{
+    display:flex;align-items:center;gap:10px;
+    padding:0 2px 9px;border-bottom:1px solid var(--line);margin-bottom:11px;
+  }
+  .lv{
+    font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;
+    color:var(--accent);border:1px solid var(--accent-dim);border-radius:5px;
+    padding:2px 6px;flex:none;
+  }
+  .shelf-head .st{display:flex;flex-direction:column;min-width:0;flex:1}
+  .shelf-head .ttl{font-size:14.5px;font-weight:600;color:var(--ink);letter-spacing:.01em}
+  .shelf-head .tmp{font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:var(--ink-faint);margin-top:1px}
+  .lock{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;color:var(--warn);
+    border:1px solid rgba(201,161,90,.35);border-radius:5px;padding:2px 6px;flex:none;
+  }
+  /* group divider inside a shelf */
+  .grp{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-faint);margin:13px 2px 7px;display:flex;align-items:center;gap:8px;
+  }
+  .grp::after{content:"";height:1px;flex:1;background:var(--line)}
+  .grp.hide{display:none}
+  /* book row */
+  .book{
+    display:block;width:100%;text-align:left;cursor:pointer;
+    background:var(--panel);border:1px solid var(--line);border-radius:9px;
+    padding:12px 13px;margin:0 0 8px;color:inherit;font:inherit;
+    transition:border-color .12s ease,background .12s ease,transform .06s ease;
+  }
+  .book:active{transform:scale(.992);background:var(--panel-2)}
+  .book.hide{display:none}
+  .book .top{display:flex;align-items:center;gap:8px}
+  .dot{width:7px;height:7px;border-radius:50%;flex:none}
+  .dot.reale{background:var(--ok);box-shadow:0 0 0 3px rgba(110,201,138,.12)}
+  .dot.scaffold{background:var(--warn);box-shadow:0 0 0 3px rgba(201,161,90,.12)}
+  .dot.placeholder{background:var(--ink-faint);box-shadow:0 0 0 3px rgba(92,102,114,.12)}
+  .dot.vuoto{background:transparent;border:1px solid var(--ink-faint)}
+  .book .name{font-size:14.5px;font-weight:550;color:var(--ink);flex:1;min-width:0}
+  .book .chev{color:var(--ink-faint);font-size:15px;flex:none}
+  .book .path{
+    font-family:var(--mono);font-size:10px;color:var(--ink-faint);
+    margin-top:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .book .snip{font-size:12.5px;color:var(--ink-dim);margin-top:6px;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  mark{background:rgba(90,169,201,.28);color:var(--ink);border-radius:2px;padding:0 1px}
+  .empty{font-family:var(--mono);font-size:11px;color:var(--ink-faint);text-align:center;
+    padding:40px 0;letter-spacing:.03em}
+  /* ---- reader overlay ---- */
+  .reader{
+    position:fixed;inset:0;z-index:60;background:var(--bg);
+    transform:translateY(100%);transition:transform .2s cubic-bezier(.4,0,.2,1);
+    display:flex;flex-direction:column;visibility:hidden;
+  }
+  .reader.open{transform:translateY(0);visibility:visible}
+  .reader-bar{
+    position:sticky;top:0;flex:none;
+    padding:calc(env(safe-area-inset-top) + 11px) 14px 11px;
+    border-bottom:1px solid var(--line);background:var(--bg-2);
+    display:flex;align-items:center;gap:11px;
+  }
+  .back{
+    border:1px solid var(--line-2);background:var(--panel);color:var(--ink);
+    font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+    padding:7px 11px;border-radius:7px;cursor:pointer;flex:none;
+  }
+  .back:active{background:var(--panel-2)}
+  .reader-bar .meta{min-width:0;flex:1}
+  .reader-bar .meta .rt{font-size:13.5px;font-weight:600;color:var(--ink);
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .reader-bar .meta .rp{font-family:var(--mono);font-size:9.5px;color:var(--ink-faint);
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:1px}
+  .reader-body{
+    flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;
+    padding:18px 16px calc(env(safe-area-inset-bottom) + 48px);
+  }
+  .status-line{
+    display:inline-flex;align-items:center;gap:7px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ink-faint);border:1px solid var(--line);border-radius:6px;
+    padding:5px 9px;margin-bottom:16px;
+  }
+  .sens-note{
+    font-size:11.5px;line-height:1.55;color:var(--warn);
+    background:rgba(201,161,90,.07);border:1px solid rgba(201,161,90,.28);
+    border-radius:8px;padding:10px 12px;margin-bottom:16px;
+  }
+  /* markdown */
+  .md{font-size:15px;line-height:1.62;color:var(--ink)}
+  .md h1{font-size:19px;font-weight:650;margin:0 0 14px;letter-spacing:.01em;line-height:1.3}
+  .md h2{font-size:16px;font-weight:620;margin:22px 0 9px;color:var(--ink);
+    padding-bottom:6px;border-bottom:1px solid var(--line)}
+  .md h3{font-size:14px;font-weight:600;margin:18px 0 7px;color:var(--ink-dim)}
+  .md p{margin:0 0 12px}
+  .md ul,.md ol{margin:0 0 12px;padding-left:20px}
+  .md li{margin:0 0 5px}
+  .md li::marker{color:var(--accent-dim)}
+  .md hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+  .md code{font-family:var(--mono);font-size:12.5px;background:var(--panel-2);
+    border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--accent)}
+  .md pre{font-family:var(--mono);font-size:12px;line-height:1.55;background:var(--bg-2);
+    border:1px solid var(--line);border-radius:8px;padding:12px;overflow-x:auto;margin:0 0 14px}
+  .md pre code{background:transparent;border:0;padding:0;color:var(--ink-dim)}
+  .md blockquote{margin:0 0 12px;padding:2px 0 2px 13px;border-left:2px solid var(--accent-dim);
+    color:var(--ink-dim)}
+  .md strong{font-weight:650;color:var(--ink)}
+  .md em{color:var(--ink-dim)}
+  .md .sys{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-faint);
+    border:1px dashed var(--line-2);border-radius:6px;padding:8px 10px;margin:0 0 12px}
+  footer{
+    text-align:center;padding:22px 16px calc(env(safe-area-inset-bottom) + 22px);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--ink-faint);
+    border-top:1px solid var(--line);margin-top:26px;
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <h1>Memoria</h1>
+    <span class="sub">biblioteca · 5 scaffali · sola lettura</span>
+  </div>
+  <div class="search" id="searchWrap">
+    <input id="q" type="search" inputmode="search" autocomplete="off" autocorrect="off"
+           autocapitalize="off" spellcheck="false" placeholder="cerca in titoli e contenuti">
+    <button class="x" id="clear" aria-label="pulisci">&times;</button>
+  </div>
+  <div class="count" id="count"></div>
+</header>
+
+<main id="stacks"></main>
+
+<footer>La navicella · memoria a 5 livelli · prototipo locale</footer>
+
+<div class="reader" id="reader">
+  <div class="reader-bar">
+    <button class="back" id="back">&lsaquo; chiudi</button>
+    <div class="meta">
+      <div class="rt" id="rt"></div>
+      <div class="rp" id="rp"></div>
+    </div>
+  </div>
+  <div class="reader-body" id="rbody"></div>
+</div>
+
+<script>
+/* ============================================================
+   DATI — contenuto reale incorporato dai file di memoria.
+   status: reale | scaffold (file esiste, nessuna voce vera) |
+           placeholder (nessun file dedicato) | vuoto (solo .gitkeep)
+   ============================================================ */
+const P = "00-capitano/memoria/";
+const SHELVES = [
+  {
+    level:"L1", title:"Conversazione", temporal:"volatile · orizzonte: adesso",
+    books:[{
+      status:"placeholder",
+      name:"Sessione corrente",
+      path:"(nessun file dedicato)",
+      content:
+"# L1 — Conversazione (volatile)\n\n"+
+"Lo scaffale della sessione aperta. Contenuto volatile: vive quanto dura la conversazione, non viene ancora scritto su un file di memoria dedicato.\n\n"+
+"<!-- Placeholder onesto: nessun file su disco per L1. Nessun contenuto inventato. -->"
+    }]
+  },
+  {
+    level:"L2", title:"Operativa", temporal:"settimana · orizzonte: giorni",
+    books:[{
+      status:"placeholder",
+      name:"Operativa settimanale",
+      path:"(nessun file dedicato)",
+      content:
+"# L2 — Operativa (settimana)\n\n"+
+"Memoria dell'orizzonte settimanale: task, stato dei lavori in corso, cosa e caldo adesso. Non esiste ancora un file dedicato in `"+P+"`.\n\n"+
+"<!-- Placeholder onesto: nessun file su disco per L2. Nessun contenuto inventato. -->"
+    }]
+  },
+  {
+    level:"L3", title:"Strategica", temporal:"orizzonte: mesi",
+    books:[{
+      status:"reale",
+      name:"L3 — Memoria strategica",
+      path:P+"L3-strategica.md",
+      content:
+"# L3 — Memoria strategica (mesi)\n\n"+
+"Append-only. Ogni voce ha data e contesto.\n"+
+"Scritto dal Capitano su escalation P1 confermata del Rapsodo.\n"+
+"Rilettura mensile nel riepilogo mensile (Capitano + Rapsodo).\n\n"+
+"---\n\n"+
+"## 2026-06-17 — Avvio architettura v2 navicella\n\n"+
+"Decisione: migrazione da v1 (7 agenti, due triadi per modulo) a v2 (4 agenti per dimensione temporale).\n"+
+"Motivazione: v1 duplicava ruoli, nessun agente aveva visione cross-modulo, memoria dispersa.\n"+
+"v2 cementata: Capitano (bibliotecario/orchestratore Opus) + Rapsodo (passato) + Demiurgo Accademico (presente Opus) + Argonauta (futuro).\n"+
+"Memoria a 5 livelli inizializzata. v1 archiviata in legacy."
+    }]
+  },
+  {
+    level:"L4", title:"Fondazionale", temporal:"orizzonte: evoluzione del profilo",
+    books:[{
+      status:"scaffold",
+      name:"L4 — Memoria fondazionale",
+      path:P+"L4-fondazionale.md",
+      content:
+"# L4 — Memoria fondazionale (evoluzione)\n\n"+
+"Append-only. Voci datate che aggiornano il profilo fondazionale di Giuseppe.\n"+
+"La promozione a L4 richiede sempre conferma esplicita di Giuseppe (`/promuovi-l4`).\n"+
+"Il profilo di base vive in profilo-giuseppe.md e come-penso.md — questo file registra le evoluzioni nel tempo.\n\n"+
+"---\n\n"+
+"<!-- Prima voce verra aggiunta quando emergera il primo candidato L4 confermato da Giuseppe -->"
+    }]
+  },
+  {
+    level:"L5", title:"Subconscio / psicologico", temporal:"substrato · interpretato dal Capitano",
+    sensitive:true,
+    books:[
+      /* ---- psicologica (scaffold: file esistono, ancora da popolare) ---- */
+      {
+        group:"psicologica", status:"scaffold",
+        name:"Pattern emotivi",
+        path:P+"L5-subconscio/psicologica/pattern-emotivi.md",
+        content:
+"# L5/psicologica — Pattern emotivi\n\n"+
+"Interpretazioni del Capitano sui pattern raw del Rapsodo.\n"+
+"Ogni voce e un'ipotesi onesta, non un fatto. Marcata con grado di affidabilita.\n"+
+"Contestabile da Giuseppe con `/correggi-l5 pattern-emotivi`.\n\n"+
+"Formato voce:\n\n"+
+"```\n"+
+"## Pattern: <titolo conciso>\n"+
+"Osservato in: <quante sessioni / quando>\n"+
+"Pattern (descrizione raw): <cosa succede>\n"+
+"Possibile lettura (interpretazione del Capitano): <ipotesi onesta>\n"+
+"Affidabilita: bassa / media / media-alta / alta (N occorrenze coerenti)\n"+
+"Implicazioni per gli agenti: <eventuali>\n"+
+"Aggiornato: YYYY-MM-DD\n"+
+"Contestabile da: Giuseppe (`/correggi-l5 <tema>`)\n"+
+"```\n\n"+
+"---\n\n"+
+"<!-- Primo pattern verra aggiunto quando il Rapsodo segnalera N>=3 occorrenze in pattern-longitudinali/ -->"
+      },
+      {
+        group:"psicologica", status:"scaffold",
+        name:"Motivazioni profonde",
+        path:P+"L5-subconscio/psicologica/motivazioni-profonde.md",
+        content:
+"# L5/psicologica — Motivazioni profonde\n\n"+
+"Interpretazioni del Capitano su cosa muove Giuseppe sotto la superficie.\n"+
+"Perche vuole davvero quello che dice di volere. Drives profondi.\n"+
+"Contestabile da Giuseppe con `/correggi-l5 motivazioni-profonde`.\n\n"+
+"Formato voce: vedi pattern-emotivi.md.\n\n"+
+"---\n\n"+
+"<!-- Da popolare con uso reale -->"
+      },
+      {
+        group:"psicologica", status:"scaffold",
+        name:"Paure non nominate",
+        path:P+"L5-subconscio/psicologica/paure-non-nominate.md",
+        content:
+"# L5/psicologica — Paure non nominate\n\n"+
+"Interpretazioni del Capitano su timori che Giuseppe non nomina esplicitamente.\n"+
+"Non diagnosi — osservazione onesta di pattern di evitamento, blocco, esitazione.\n"+
+"Contestabile da Giuseppe con `/correggi-l5 paure-non-nominate`.\n\n"+
+"Formato voce: vedi pattern-emotivi.md.\n\n"+
+"---\n\n"+
+"<!-- Da popolare con uso reale -->"
+      },
+      {
+        group:"psicologica", status:"scaffold",
+        name:"Conflitti interni",
+        path:P+"L5-subconscio/psicologica/conflitti-interni.md",
+        content:
+"# L5/psicologica — Conflitti interni\n\n"+
+"Interpretazioni del Capitano su tensioni non risolte tra valori, desideri, vincoli.\n"+
+"Es. ambizione vs sostenibilita, autonomia vs appartenenza, rigore vs velocita.\n"+
+"Contestabile da Giuseppe con `/correggi-l5 conflitti-interni`.\n\n"+
+"Formato voce: vedi pattern-emotivi.md.\n\n"+
+"---\n\n"+
+"<!-- Da popolare con uso reale -->"
+      },
+      {
+        group:"psicologica", status:"scaffold",
+        name:"Osservazioni emergenti",
+        path:P+"L5-subconscio/psicologica/osservazioni-emergenti.md",
+        content:
+"# L5/psicologica — Osservazioni emergenti\n\n"+
+"Pattern psicologici in formazione — osservati ma non ancora sufficientemente\n"+
+"consolidati per una classificazione definitiva in uno degli altri file.\n"+
+"Il Capitano usa questo file come staging area prima della classificazione finale.\n"+
+"Contestabile da Giuseppe con `/correggi-l5 osservazioni-emergenti`.\n\n"+
+"Formato voce: vedi pattern-emotivi.md.\n\n"+
+"---\n\n"+
+"<!-- Da popolare con uso reale -->"
+      },
+      /* ---- pattern-longitudinali (contenuto reale) ---- */
+      {
+        group:"pattern-longitudinali", status:"reale",
+        name:"Traiettoria come avventura strutturata",
+        path:P+"L5-subconscio/pattern-longitudinali/traiettoria-avventura-strutturata.md",
+        content:
+"# Pattern raw: traiettoria come avventura strutturata\n\n"+
+"Tema: traiettoria-avventura-strutturata\n"+
+"N occorrenze: 1\n\n"+
+"## Osservazioni (raw, non interpretate)\n\n"+
+"- [2026-07-03 | intake cowork pre-navicella] Giuseppe concepisce il proprio percorso (studio, carriera, tesi) con la grammatica di un'avventura: soglie da superare, \"chiavi\" da trovare, cancelli, NPC (figure/mentori) da incontrare lungo la via. La navicella stessa nasce con nomenclatura mitologica greca (Capitano, Argonauta, Demiurgo, Rapsodo) — struttura narrativa sovrapposta al sistema operativo.\n\n"+
+"## Stato\n\n"+
+"raw, non interpretato (N<3). Non produce lettura psicologica finche non raggiunge N>=3 occorrenze coerenti E finche Giuseppe non lancia `/analisi-psicologica`.\n\n"+
+"Deposto: 2026-07-03 da Mnemosyne, con consenso esplicito di Giuseppe."
+      },
+      {
+        group:"pattern-longitudinali", status:"reale",
+        name:"Associazione figure storiche ↔ domini",
+        path:P+"L5-subconscio/pattern-longitudinali/figure-storiche-domini.md",
+        content:
+"# Pattern raw: associazione figure storiche <-> domini\n\n"+
+"Tema: figure-storiche-domini\n"+
+"N occorrenze: 1\n\n"+
+"## Osservazioni (raw, non interpretate)\n\n"+
+"- [2026-07-03 | intake cowork pre-navicella] Giuseppe tende ad ancorare domini di conoscenza a figure che li incarnano — nomi propri mitologici assegnati ai ruoli degli agenti, personalita che si sviluppano nel tempo (Mnemosyne, Dedalo). Modo ricorrente di dare corpo a concetti astratti attraverso personaggi.\n\n"+
+"## Stato\n\n"+
+"raw, non interpretato (N<3). Non produce lettura psicologica finche non raggiunge N>=3 occorrenze coerenti E finche Giuseppe non lancia `/analisi-psicologica`.\n\n"+
+"Deposto: 2026-07-03 da Mnemosyne, con consenso esplicito di Giuseppe."
+      },
+      {
+        group:"pattern-longitudinali", status:"reale",
+        name:"Velivolo come metafora della libertà",
+        path:P+"L5-subconscio/pattern-longitudinali/velivolo-liberta.md",
+        content:
+"# Pattern raw: velivolo come metafora della liberta\n\n"+
+"Tema: velivolo-liberta\n"+
+"N occorrenze: 1\n\n"+
+"## Osservazioni (raw, non interpretate)\n\n"+
+"- [2026-07-03 | intake cowork pre-navicella] Il progetto dell'aereo monoposto VDS non compare come mero esercizio tecnico: il volo / il velivolo ricorre come simbolo di liberta e autonomia. Carica affettiva sul progetto oltre il suo contenuto ingegneristico.\n\n"+
+"## Stato\n\n"+
+"raw, non interpretato (N<3). Non produce lettura psicologica finche non raggiunge N>=3 occorrenze coerenti E finche Giuseppe non lancia `/analisi-psicologica`.\n\n"+
+"Deposto: 2026-07-03 da Mnemosyne, con consenso esplicito di Giuseppe."
+      },
+      {
+        group:"pattern-longitudinali", status:"reale",
+        name:"Pensiero ingegneristico trasversale",
+        path:P+"L5-subconscio/pattern-longitudinali/pensiero-ingegneristico-trasversale.md",
+        content:
+"# Pattern raw: pensiero ingegneristico trasversale\n\n"+
+"Tema: pensiero-ingegneristico-trasversale\n"+
+"N occorrenze: 1\n\n"+
+"## Osservazioni (raw, non interpretate)\n\n"+
+"- [2026-07-03 | intake cowork pre-navicella] Giuseppe applica la stessa grammatica di trade-off (vincoli, ottimizzazione, ROI, margini) a domini eterogenei: fisica, hardware/aereo, e la stessa organizzazione della vita e della navicella. Un'unica logica ingegneristica riusata trasversalmente come schema di decisione.\n\n"+
+"## Stato\n\n"+
+"raw, non interpretato (N<3). Non produce lettura psicologica finche non raggiunge N>=3 occorrenze coerenti E finche Giuseppe non lancia `/analisi-psicologica`.\n\n"+
+"Deposto: 2026-07-03 da Mnemosyne, con consenso esplicito di Giuseppe."
+      },
+      /* ---- storica (vuoto) ---- */
+      {
+        group:"storica", status:"vuoto",
+        name:"Storica — (scaffale vuoto)",
+        path:P+"L5-subconscio/storica/",
+        content:
+"# L5/storica\n\n"+
+"Sottocartella prevista dall'architettura. Sul disco esiste ma non contiene ancora alcun file di memoria (solo `.gitkeep`).\n\n"+
+"<!-- Scaffale vuoto: nessun contenuto storico depositato. Nessun contenuto inventato. -->"
+      }
+    ]
+  }
+];
+
+const STATUS_LABEL = {
+  reale:"contenuto reale",
+  scaffold:"file presente · da popolare",
+  placeholder:"placeholder · nessun file",
+  vuoto:"scaffale vuoto"
+};
+
+/* ---------------- markdown -> HTML (minimo, sicuro) ---------------- */
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function inline(s){
+  return esc(s)
+    .replace(/`([^`]+)`/g,"<code>$1</code>")
+    .replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>")
+    .replace(/(^|[^*])\*([^*\n]+)\*/g,"$1<em>$2</em>");
+}
+function mdToHtml(src){
+  const lines = src.split("\n");
+  let out=[], i=0;
+  while(i<lines.length){
+    let ln = lines[i];
+    // fenced code
+    if(/^```/.test(ln.trim())){
+      let buf=[]; i++;
+      while(i<lines.length && !/^```/.test(lines[i].trim())){ buf.push(esc(lines[i])); i++; }
+      i++; out.push("<pre><code>"+buf.join("\n")+"</code></pre>"); continue;
+    }
+    // html comment -> system note (surfaces honest "da popolare" text)
+    let cm = ln.match(/^<!--\s*(.*?)\s*-->\s*$/);
+    if(cm){ out.push('<span class="sys">'+esc(cm[1])+"</span>"); i++; continue; }
+    // blank
+    if(ln.trim()===""){ i++; continue; }
+    // hr
+    if(/^---+\s*$/.test(ln)){ out.push("<hr>"); i++; continue; }
+    // headings
+    let h = ln.match(/^(#{1,3})\s+(.*)$/);
+    if(h){ const n=h[1].length; out.push("<h"+n+">"+inline(h[2])+"</h"+n+">"); i++; continue; }
+    // blockquote
+    if(/^>\s?/.test(ln)){
+      let buf=[];
+      while(i<lines.length && /^>\s?/.test(lines[i])){ buf.push(inline(lines[i].replace(/^>\s?/,""))); i++; }
+      out.push("<blockquote>"+buf.join("<br>")+"</blockquote>"); continue;
+    }
+    // list
+    if(/^\s*[-*]\s+/.test(ln)){
+      let buf=[];
+      while(i<lines.length && /^\s*[-*]\s+/.test(lines[i])){
+        buf.push("<li>"+inline(lines[i].replace(/^\s*[-*]\s+/,""))+"</li>"); i++;
+      }
+      out.push("<ul>"+buf.join("")+"</ul>"); continue;
+    }
+    // paragraph (gather consecutive non-empty non-special lines)
+    let buf=[ln];
+    i++;
+    while(i<lines.length && lines[i].trim()!=="" &&
+          !/^(#{1,3}\s|---+\s*$|>\s?|\s*[-*]\s+|```|<!--)/.test(lines[i])){
+      buf.push(lines[i]); i++;
+    }
+    out.push("<p>"+buf.map(inline).join("<br>")+"</p>");
+  }
+  return out.join("\n");
+}
+
+/* plain text for search + snippet */
+function plain(md){
+  return md.replace(/```[\s\S]*?```/g," ")
+           .replace(/<!--[\s\S]*?-->/g," ")
+           .replace(/[#>*`_-]/g," ")
+           .replace(/\s+/g," ").trim();
+}
+
+/* ---------------- render ---------------- */
+const stacks = document.getElementById("stacks");
+const reader = document.getElementById("reader");
+let allBooks = [];
+
+function build(){
+  SHELVES.forEach((sh,si)=>{
+    const sec = document.createElement("section");
+    sec.className="shelf"; sec.dataset.shelf=si;
+    const head = document.createElement("div"); head.className="shelf-head";
+    head.innerHTML =
+      '<span class="lv">'+sh.level+'</span>'+
+      '<span class="st"><span class="ttl">'+sh.title+'</span>'+
+      '<span class="tmp">'+sh.temporal+'</span></span>'+
+      (sh.sensitive?'<span class="lock">accesso riservato</span>':'');
+    sec.appendChild(head);
+
+    let lastGroup=null;
+    sh.books.forEach((bk,bi)=>{
+      if(bk.group && bk.group!==lastGroup){
+        const g=document.createElement("div"); g.className="grp";
+        g.dataset.group=bk.group; g.textContent=bk.group;
+        sec.appendChild(g); lastGroup=bk.group;
+      }
+      const txt = plain(bk.content);
+      const btn = document.createElement("button");
+      btn.className="book"; btn.dataset.s=si; btn.dataset.b=bi;
+      const snip = txt.length>140? txt.slice(0,140)+"…" : txt;
+      btn.innerHTML =
+        '<div class="top"><span class="dot '+bk.status+'"></span>'+
+        '<span class="name"></span><span class="chev">&rsaquo;</span></div>'+
+        '<div class="path"></div><div class="snip"></div>';
+      btn.querySelector(".name").textContent = bk.name;
+      btn.querySelector(".path").textContent = bk.path;
+      btn.querySelector(".snip").textContent = snip;
+      btn._title=bk.name; btn._text=txt.toLowerCase();
+      btn.addEventListener("click",()=>openReader(si,bi));
+      sec.appendChild(btn);
+      allBooks.push({el:btn, sh:sec, name:bk.name.toLowerCase(), text:txt.toLowerCase()});
+    });
+    stacks.appendChild(sec);
+  });
+}
+
+function openReader(si,bi){
+  const bk = SHELVES[si].books[bi];
+  document.getElementById("rt").textContent = bk.name;
+  document.getElementById("rp").textContent = bk.path;
+  const body = document.getElementById("rbody");
+  let html = '<div class="status-line"><span class="dot '+bk.status+'"></span>'+
+             STATUS_LABEL[bk.status]+'</div>';
+  if(SHELVES[si].sensitive){
+    html += '<div class="sens-note">L5 e memoria sensibile: interpretazioni psicologiche '+
+            'del substrato di Giuseppe. Reso qui perche e memoria sua e la vuole accessibile. '+
+            'Questo e un prototipo locale — quando lo schermo sara ospitato, L5 richiede '+
+            'controllo d\'accesso dedicato.</div>';
+  }
+  html += '<div class="md">'+mdToHtml(bk.content)+'</div>';
+  body.innerHTML = html; body.scrollTop=0;
+  reader.classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closeReader(){
+  reader.classList.remove("open");
+  document.body.style.overflow="";
+}
+document.getElementById("back").addEventListener("click",closeReader);
+
+/* ---------------- search ---------------- */
+const q = document.getElementById("q");
+const wrap = document.getElementById("searchWrap");
+const countEl = document.getElementById("count");
+
+function applyFilter(){
+  const raw = q.value.trim();
+  const term = raw.toLowerCase();
+  wrap.classList.toggle("has", raw.length>0);
+  let shown=0;
+  allBooks.forEach(b=>{
+    const match = term==="" || b.name.includes(term) || b.text.includes(term);
+    b.el.classList.toggle("hide", !match);
+    if(match) shown++;
+    // highlight name
+    const nameEl=b.el.querySelector(".name");
+    const snipEl=b.el.querySelector(".snip");
+    if(term && match){
+      nameEl.innerHTML = mark(nameEl.textContent, term);
+      snipEl.innerHTML = mark(snipEl.textContent, term);
+    } else {
+      nameEl.textContent = nameEl.textContent;
+      snipEl.textContent = snipEl.textContent;
+    }
+  });
+  // hide empty shelves + empty groups
+  document.querySelectorAll(".shelf").forEach(sec=>{
+    const vis = sec.querySelectorAll(".book:not(.hide)").length;
+    sec.classList.toggle("hide", vis===0);
+    sec.querySelectorAll(".grp").forEach(g=>{
+      let n=g.nextElementSibling, c=0;
+      while(n && !n.classList.contains("grp")){
+        if(n.classList.contains("book") && !n.classList.contains("hide")) c++;
+        n=n.nextElementSibling;
+      }
+      g.classList.toggle("hide", c===0);
+    });
+  });
+  if(term===""){ countEl.textContent=""; }
+  else { countEl.innerHTML = "<b>"+shown+"</b> "+(shown===1?"libro":"libri")+" su "+allBooks.length; }
+}
+function mark(text, term){
+  const i = text.toLowerCase().indexOf(term);
+  if(i<0) return esc(text);
+  return esc(text.slice(0,i))+"<mark>"+esc(text.slice(i,i+term.length))+"</mark>"+esc(text.slice(i+term.length));
+}
+q.addEventListener("input",applyFilter);
+document.getElementById("clear").addEventListener("click",()=>{ q.value=""; applyFilter(); q.focus(); });
+
+build();
+applyFilter();
+</script>
+</body>
+</html>

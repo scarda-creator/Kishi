@@ -1,0 +1,156 @@
+===== PAGINA 1 =====
+Geometria (Fisica),
+Proﬀ. A. De Sole, G. Mondello, K. O’Grady, P. Papi
+Soluzioni della prova di esame del 30 giugno 2017
+Esercizio 1. Sia W ⊂R3 il sottospazio generato dai vettori
+(1, 1, −2),
+(1, 0, −1),
+(2, −3, 1).
+Per t ∈R, sia
+vt := (2, 3, −1) + t(1, 2, 3).
+Determinare quali vt sono tali che
+⟨W, vt⟩̸ = R3.
+Risoluzione. Il sottospazio W ha equazione cartesiana
+x1 + x2 + x3 = 0.
+(1)
+In particolare, siccome dim W = 2, vale ⟨W, vt⟩̸ = R3 se e solo se vt ∈W. Per la (1), si ha vt ∈W se e
+solo se
+(2 + t) + (3 + 2t) + (−1 + 3t) = 0,
+cio`e t = −2/3. Quindi ⟨W, vt⟩̸ = R3 se e solo se
+vt = (4/3, 5/3, −3).
+Esercizio 2. Siano K un campo, e V, W spazi vettoriali su K. Siano f : V →W un’applicazione, e
+Γ := {(v, f(v)) | v ∈V } ⊂V ⊕W
+il grafo di f. Si dimostri che f `e lineare se e solo se Γ `e un sottospazio vettoriale di V ⊕W.
+Risoluzione. Supponiamo che f sia lineare, e veriﬁchiamo che Γ `e un sottospazio vettoriale di V ⊕W.
+Siccome f `e lineare f(0) = 0, e quindi (0, 0) ∈Γ. Ora siano (v1, f(v1)), (v2, f(v2)) ∈Γ. Siccome f `e
+lineare, f(v1 + v2) = f(v1) + f(v2), cio`e
+(v1, f(v1)) + (v2, f(v2)) = (v1 + v2, f(v1) + f(v2)) = (v1 + v2, f(v1 + v2)) ∈Γ.
+Qundi Γ `e chiuso per la somma. Analogamente, dati λ ∈K e (v, f(v)) ∈Γ si ha f(λv) = λf(v) perch`e
+f `e lineare, cio`e
+λ(v, f(v)) = (λv, λf(v)) = (v, f(λv)) ∈Γ.
+Qundi Γ `e anche chiuso per il prodotto per scalari, e perci`o `e un sottospazio vettoriale di V ⊕W. La
+dimostrazione del viceversa, cio`e che se Γ `e `e un sottospazio vettoriale di V ⊕W, allora f `e lineare `e
+analoga; si percorre la stessa strada a ritroso.
+1
+
+
+===== PAGINA 2 =====
+Esercizio 3. Sia A2 il piano aﬃne reale, e siano L1, L2, L3, M1, M2, M3 ⊂A2 le rette di equazioni
+cartesiane
+L1 : 2x1+3x2 = 5,
+L2 : x1−x2 = 0,
+L3 : x1+2x2 = 3,
+M1 : x1 = 3,
+M2 : 2x1−x2 = 1,
+M3 : x1+x3 = 4.
+Esiste o non esiste un’aﬃnit`a φ: A2 →A2 tale che φ(Li) = Mi?
+(Suggerimento: disegnate le rette in questione).
+Risoluzione. Non esiste un’aﬃnit`a φ: A2 →A2 tale che φ(Li) = Mi perch`e
+L1 ∩L2 ∩L3 = {(1, 1)},
+M1 ∩M2 ∩M3 = ∅.
+Esercizio 4. Sia q: R3 →R la forma quadratica deﬁnita da
+q(x1, x2, x3) = x2
+1 + 3x2
+2 + x2
+3 + 2x1x2 −4x1x3 −4x2x3.
+1. Si determini una base ortogonale (non necessariamente ortonormale) rispetto al prodotto scalare
+standard, in cui la q `e diagonale.
+2. Si determinino il massimo M e il minimo m di q sulla sfera unitaria, cio`e
+M := max{q(x) | ||x|| = 1},
+m := min{q(x) | ||x|| = 1}.
+Risoluzione. (1): La matrice associata a q `e
+A :=
+
+
+1
+1
+−2
+1
+3
+−2
+−2
+−2
+1
+
+
+Il polinomio caratteristico di A `e
+PA = λ3 −5λ2 −2λ + 6.
+Le radici del polinomio caratteristico, cio`e gli autovalori di A, sono
+λ = 1,
+λ = 2 +
+√
+10,
+λ = 2 −
+√
+10,
+con autovettori associati
+v1 = (−2, 2, 1),
+v2 = (
+√
+10, 2 +
+√
+10, −4),
+v3 = (−
+√
+10, 2 −
+√
+10, −4)
+rispettivamente. Quindi una base ortogonale in cui la q `e diagonale `e
+B := {(2, −2, 1), (
+√
+10, 2 +
+√
+10, −4), (−
+√
+10, 2 −
+√
+10, −4)}.
+(2): Esiste una base ortonormale C = {w1, w2, w3} (per esempio ottenuta normalizzando i vettori di B)
+tale che
+f(y1w1 + y2w2 + y3w3) = y2
+1 + (2 +
+√
+10)y2
+2 + (2 −
+√
+10)y2
+3.
+(2)
+Come sappiamo, il massimo M e il minimo m vengono raggiunti da autovettori dell’endomorﬁsmo as-
+sociato A, cio`e vettori della base C. Dunque M = 2 +
+√
+10 `e l’autovalore massimo di A e m = 2 −
+√
+10
+`e l’autovalore minimo di A.
+2
+
+
+===== PAGINA 3 =====
+Esercizio 5. Sia V uno spazio vettoriale, e p: V →V un’applicazione lineare tale che
+p ◦p = p.
+1. Dimostrate che V = ker p ⊕im p.
+2. Dimostrate che, se V `e ﬁnitamente generato, allora esiste una base B di V tale che M B
+B (p) `e una
+matrice diagonale con entrate sulla diagonale principale appartenenti a {0, 1}.
+Risoluzione. (1): Per dimostrare che V = ker p ⊕im p, dobbiamo veriﬁcare che
+(a) ker p + im p = V ,
+(b) ker p ∩im p = {0}.
+Sia v ∈V . Allora
+v = (v −p(v)) + p(v),
+e (v −p(v)) ∈ker p perch`e p(v −p(v)) = p(v) −p ◦p(v) = p(v) −p(v) = 0. Siccome p(v) ∈im p, abbiamo
+dimostrato che vale (a). Ora supponiamo che v ∈ker p ∩im p. In particolare esiste w ∈V tale che
+v = p(w). Quindi
+0 = p(v) = p(p(w)) = p ◦p(w) = p(w) = v,
+cio`e v = 0.
+(2): Dato che V `e ﬁnitamente generato, i suoi sottospazi ker p e im p hanno dimensione ﬁnita: siano
+n := dim(ker p) e m := dim(im p). Sia {v1, . . . , vn} una base di ker p e sia {w1, . . . , wm} una base di
+im p. Poniamo B := {v1, . . . , vn, w1, . . . , wm}. Per (1), la B `e una base di V .
+Resta da dimostrare che
+(a) p(vi) = 0 per ogni i = 1, . . . , n,
+(b) p(wj) = wj per ogni j = 1, . . . , m.
+La (a) segue dal fatto che vi ∈ker p per ogni i = 1, . . . , n.
+Per la (b), osserviamo che wj ∈im p e dunque esiste uj ∈V tale che wj = p(uj).
+Ne segue che
+p(wj) = p(p(uj) = (p ◦p)(uj) = p(uj) = wj.
+3

@@ -1,0 +1,244 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 04/05/2022
+proﬀ. F. De Marchis, F. Lanzara, A. Terracina
+COGNOME, NOME e MATRICOLA:
+DOCENTE:
+⃝De Marchis
+⃝Lanzara
+⃝Terracina
+Se ammesso, sosterr`o la prova orale:
+⃝in questo appello
+⃝in un appello successivo
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere adeguatamente motivati!
+Esercizio 1. Dimostrare che esistono due punti nella forma (0, y0) e (0, y1) intorno ai quali l’equazione
+y2 + x(ey −e2) −x2 −4 = 0
+deﬁnisce implicitamente due funzioni g0(x) e g1(x) tali che g0(0) = y0 e g1(0) = y1.
+Studiare il comportamento di g0(x) e g1(x) in un intorno di x = 0 (crescenza, decrescenza e natura degli eventuali punti critici).
+Soluzione. Posto
+f(x, y) = y2 + x(ey −e2) −x2 −4
+i punti y0 e y1 sono soluzione dell’equazione
+f(0, y) = y2 −4
+da cui si trova y0 = −2 e y1 = 2. Essendo f ∈C∞(2) ⊂C1(2),
+fy(x, y) = xey + 2y,
+fy(0, y) = 2y,
+fy(0, −2) = −4 , 0,
+fy(0, 2) = 4 , 0
+sono veriﬁcate le ipotesi del teorema delle funzioni implicite:
+– esiste un’unica funzione g0(x) deﬁnita in un intorno I0 di x0 = 0 a valori in un intorno di y0 = −2 tale che g0(0) = −2 e deﬁnita
+implicitamente da f(x, g0(x)) = 0; inoltre g0 ∈C∞(I0);
+– esiste un’unica funzione g1(x) deﬁnita in un intorno I1 di x1 = 0 a valori in un intorno di y1 = 2 tale che g1(0) = 2 e deﬁnita
+implicitamente da f(x, g1(x)) = 0; inoltre g1 ∈C∞(I1).
+Si ha
+fx(x, y) = −2x + ey −e2,
+fx(0, y) = ey −e2,
+fx(0, 2) = 0,
+fx(0, −2) = 1
+e2 −e2
+e quindi
+g′
+0(0) = −fx(0, −2)
+fy(0, −2) = 1
+4
+ 1
+e2 −e2
+!
+< 0,
+g′
+1(0) = −fx(0, 2)
+fy(0, 2) = 0 .
+In conclusione la funzione g0 `e decrescente in x = 0; il punto x = 0 `e un punto critico per g1. Per studiare la natura del punto critico
+calcoliamo
+fxx(x, y) = −2
+e, dalla formula
+g′′
+1 (0) = −fxx(0, 2)
+fy(0, 2) = 1
+2 > 0 ,
+si trova che x = 0 `e un punto di minimo relativo per g1.
+
+
+===== PAGINA 2 =====
+Esercizio 2. Siano
+f(x, y, z) = x2 + y2 −z2,
+D = {(x, y, z) ∈3 : x4 + y4 + 2z4 ≤1}.
+i. Si giustiﬁchi perch`e f ha massimo e minimo assoluto in D
+ii. Si trovino i punti di massimo e minimo assoluti di f in D.
+Soluzione. i. La funzione f ∈C∞(3) ⊂C0(3) (`e un polinomio). L’insieme D `e limitato dato che
+|x| ≤
+4q
+x4 + y4 + 2z4 ≤1; |y| ≤
+4q
+x4 + y4 + 2z4 ≤1; |z| ≤
+4q
+x4 + y4 + 2z4 ≤1.
+Inoltre D `e chiuso dato che `e la preimmagine tramite la funzione continua x4 + y4 + 2z4 dell’insieme chiuso (−∞, 1]. Per il teorema
+di Weirstrass la funzione f ammette massimo e minimo in D.
+ii. Ricerca di punti critici interni a D:
+∇f = (2x, 2y, −2z) = (0, 0, 0) ⇐⇒x = y = z = 0
+Quindi O = (0, 0, 0) `e un punto critico interno a D: O candidato ad essere punto di massimo o minimo per f in D.
+Usiamo il metodo dei moltiplicatori di Lagrange per lo studio su ∂D. Poniamo
+g(x, y, z) = x4 + y4 + 2z4 −1.
+Troviamo i candidati ad essere punti di massimo/ minimo tra le soluzioni del sistema
+rango
+ ∇f
+∇g
+!
+= 1,
+g(x, y, z) = 0
+ovvero
+rango
+ x
+y
+−z
+x3
+y3
+2z3
+!
+= 1,
+x4 + y4 + 2z4 = 1.
+Risolvendo il sistema
+xy(y2 −x2) = 0
+2xz(x2 + 2z2) = 0
+2yz(y2 + 2z2) = 0
+x4 + y4 + 2z4 = 1
+si trovano i punti
+P± = (0, 0, ± 1
+4√
+2
+),
+Q± = (0, ±1, 0),
+R± = (±1, 0, 0),
+S ± = (± 1
+4√
+2
+, 1
+4√
+2
+, 0),
+T± = (± 1
+4√
+2
+, −1
+4√
+2
+, 0)
+Dato che
+f(O) = 0; f(P±) = −1√
+2
+, f(Q±) = 1, f(R±) = 1, f(S ±) =
+√
+2, f(T±) =
+√
+2
+concludiamo che
+max
+D
+f = f(S ±) = f(T±) =
+√
+2
+min
+D
+f = f(P±) = −1√
+2
+.
+2
+
+
+===== PAGINA 3 =====
+Esercizio 3. i. Scrivere le equazioni parametriche di una curva γ semplice e regolare (veriﬁcando che sia semplice e regolare) avente
+come sostegno
+Γ = {x2 + y2 = 9, z = x + y} ⊂3;
+ii. determinare, dandone una rappresentazione parametrica, una superﬁcie di cui Γ sia il bordo;
+iii. determinare il lavoro del campo vettoriale F = ( y2
+2 + z, xy + ey, x + 4
+3y3) lungo γ.
+Soluzione. i. γ(t) = (3 cos(t), 3 sin(t), 3 cos(t) + 3 sin(t)), t ∈[0, 2π]. Si tratta di una curva semplice in quanto lo `e la mappa t 7→
+(3 cos(t), 3 sin(t)), t ∈[0, 2π]. Inoltre `e una curva regolare in quanto |γ′(t)|2 = 9 sin2(t) + 9 cos2(t) + (−3 sin(t) + 3 cos(t))2 ≥9 > 0,
+per ogni t ∈(0, 2π).
+ii. r : B3(0) →3, r(x, y) := (x, y, x + y). Si tratta di una superﬁcie cartesiana con f(x, y) = x + y di classe C1, quindi si tratta di una
+superﬁcie regolare. Chiamiamo Σ il suo sostegno. Essendo rx ∧ry = (−1, −1, 1) e rot F = (4y2, 0, 0), per Stokes
+Z
+γ
+F · T ds =
+Z
+Σ
+rotF · n dσ =
+Z
+B3(0)
+rotF · (rx ∧ry)dxdy = −
+Z
+B3(0)
+4y2 dxdy = −
+Z 2π
+0
+Z 3
+0
+4ρ3 cos2(θ) dρdθ = −81π,
+dove rx ∧ry `e un vettore normale a Σ avente la terza componente positiva e quindi, vista la nostra scelta di γ, ha il segno giusto per
+applicare Stokes. Se si fosse scelta un’altra parametrizzazione di Γ, a secondo del verso di percorrenza, si sarebbe potuto ottenere
+come risultato ±81π.
+Si pu`o fare anche il conto usando la deﬁnizione ma se non ci si accorge che molti termini hanno integrale nullo `e molto lungo e in
+ogni caso si devono integrare cos4(t) e cos(t)e3 sin(t)...
+3
+
+
+===== PAGINA 4 =====
+Esercizio 4. Calcolare il ﬂusso del campo vettoriale
+F = (ey2 + x, ex2 + y, sin(x) + z)
+uscente da
+E = {(x, y, z) : x2 + y2 ≤1, 0 ≤z ≤3 −x2 −y2}
+Soluzione. Dato che F = (F1, F2, F3) ha componenti C∞(3) ⊂C1(3) e l’insieme E `e un insieme regolare normale rispetto al
+piano z = 0, possiamo calcolare il ﬂusso applicando il teorema della divergenza. Si ha
+div F = F1/x + F2/y + F3/z = 3
+e, posto D = {(x, y) : x2 + y2 ≤1},
+Z
+∂E
+(F, N)dσ =
+$
+E
+div Fdxdydz = 3volE = 3
+"
+D
+(3 −x2 −y2)dxdy
+coord.polari
+=
+3
+Z 2π
+0
+dθ
+Z 1
+0
+(3 −r2)rdr = 6π × 5
+4 = 15
+2 π.
+Esercizio 5.
+Dato il problema di Cauchy
+(1)
+y′(t) =
+3t2
+2y(t) + 2,
+y(0) = 1
+i. dire perch´e il problema (1) ammette un’unica soluzione locale;
+ii. dimostrare che in un intorno di t = 0 la soluzione `e crescente;
+iii. determinare la soluzione y(t) del problema di Cauchy (1);
+iv. determinare l’intervallo massimale di esistenza della soluzione y(t).
+Soluzione i. Osserviamo che la funzione g(t, y) =
+3t2
+2y+2 `e una funzione C1 in un intorno del punto (0, 1) per cui possiamo applicare
+il Th di Cauchy che ci assicura esistenza ed unicit`a in un opportuno intorno di t0 = 0.
+ii. Sia I l’intervallo di esistenza, poich´e la condizione iniziale ci dice che y(0) = 1 per continuit`a possiamo supporre che y(t) + 2 sia
+strettamente positivo in tutto l’intervallo I. Quindi usando l’equazione si deduce che y′ > 0 in I \{0}. Questo implica che la soluzione
+y `e strettamente positiva in I.
+iii. La soluzione si trova per separazione delle variabili, si ottiene che deve veriﬁcare y2+2y = t3+c. La costante si ottiene imponendo
+la condizione iniziale, si avr`a c = 3. Da cui
+y(t) = −1 +
+√
+4 + t3
+(attenzione va preso il segno + tenendo conto della condizione iniziale).
+iv. Dalla forma esplicita della soluzione si determina l’intervallo massimale J = (−
+3√
+4, +∞). Si osservi che quando t si avvicina al
+valore −
+3√
+4 la funzione y tende a -1, valore per cui l’equazione diﬀerenziale non `e pi`u deﬁnita e la derivata esplode.
+4

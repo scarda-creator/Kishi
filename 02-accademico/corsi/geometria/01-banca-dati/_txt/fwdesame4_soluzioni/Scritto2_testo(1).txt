@@ -1,0 +1,170 @@
+===== PAGINA 1 =====
+Geometria
+Prova scritta, II appello, sessione invernale
+Corso di laurea in ﬁsica — A.A 2017/2018
+Canali A – C, L – Pa e Pb – Z
+Durata: 2 ora e 30 minuti
+Simone Diverio
+Alessandro D’Andrea
+Paolo Piccinni
+Antonietta Venezia
+6 febbraio 2018
+Esercizio 1. Sia V = Mn,n(R) lo spazio vettoriale delle matrici quadrate di
+ordine n a coeﬃcienti reali. Dimostrare o confutare, se necessario mediante un
+controesempio, le seguenti aﬀermazioni.
+(i) Il sottoinsieme U ⊂V deﬁnito da U = {A ∈V | det A = 0} è un
+sottospazio vettoriale.
+(ii) Il sottoinsieme L ⊂V deﬁnito da L = {A ∈V | tr A = 2018} è un
+sottospazio aﬃne, se tr A è la traccia di A, cioè la somma degli elementi
+sulla diagonale principale.
+(iii) L’applicazione
+T : V →R
+A 7→tr A
+è lineare, suriettiva, e il suo nucleo ha dimensione n2 −1.
+Esercizio 2. Si considerino i seguenti sottospazi vettoriali di C4:
+U = Span
+
+
+
+
+
+
+
+
+
+
+
+1
+0
+0
+1
+
+
+
+,
+
+
+
+
+1
+i
+2i
+−2
+
+
+
+,
+
+
+
+
+2i
+−1
+−2
+−i
+
+
+
+
+
+
+
+
+
+
+
+,
+V :
+(
+z1 −iz2 + z4 = 0
+z3 + iz4 = 0.
+(i) Esibire una base per entrambi i sottospazi.
+(ii) Determinare un insieme minimale di equazioni cartesiane per U ∩V .
+(iii) Determinare la dimensione di U + V .
+1
+
+
+===== PAGINA 2 =====
+Esercizio 3. Si consideri la matrice A ∈M3,3(R) data da
+A =
+
+
+1
+0
+1
+0
+1
+0
+1
+0
+1
+
+,
+e l’operatore lineare ad essa associato
+LA : R3 →R3.
+(i) Determinare autovalori e autospazi di A e stabilire se A è diagonalizzabile.
+(ii) Scrivere le matrici A2 = A · A e A3 = A · A · A, determinarne autovalori e
+autospazi e stabilire se A2 e A3 sono diagonalizzabili.
+(iii) Stabilire (motivando la risposta) che relazione sussiste tra autovalori e
+autospazi di A e autovalori e autospazi di An = A · A . . . A (n volte), per
+ogni n ≥2.
+Esercizio 4. I vettori
+
+
+1
+1
+1
+
+,
+
+
+1
+−1
+0
+
+,
+
+
+0
+0
+1
+
+sono autovettori dell’applicazione
+lineare T : R3 →R3 di autovalori, rispettivamente, 1, 2, 3.
+Scrivere la matrice associata a T, utilizzando sia in partenza che in arrivo la
+base canonica di R3.
+Esercizio 5. Si consideri, al variare del parametro k ∈R, il sistema lineare:
+
+
+
+−x
++ y
++ z
+=
+3 −k
+−x
++(k + 1)y
+−z
+=
+k + 1
+y
+−2z
+=
+0.
+(i) Determinare per quali valori di k il sistema è compatibile, studiando il
+rango della matrice dei coeﬃcienti e della matrice completa.
+(ii) Per i valori di k per cui il sistema risulta compatibile, determinare espli-
+citamente le soluzioni.
+(iii) Per ciascuno dei valori di k, se esistono, per cui l’insieme delle soluzioni
+rappresenta una retta aﬃne, determinare se tale retta è parallela alla retta
+r di equazioni parametriche
+r :
+
+
+
+
+
+x = −6t + 4
+y = −4t + 1
+z = −2t −1.
+2

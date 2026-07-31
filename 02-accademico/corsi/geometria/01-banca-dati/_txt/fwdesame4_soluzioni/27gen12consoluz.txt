@@ -1,0 +1,243 @@
+===== PAGINA 1 =====
+Seconda prova in itinere di Geometria (Corso di laurea in Fisica, Canali A-C e D-O)
+Prof. Barucci e Piccinni
+27 gennaio 2012
+a. Scrivere subito canale, cognome e nome.
+b. Utilizzare questi fogli per le risposte. I fogli protocollo distribuiti a parte sono invece per eventuali riﬂessioni o
+calcoli, e non vanno consegnati.
+c. Durante la prova non si possono consultare testi e appunti n´e usare fogli diversi da quelli distribuiti.
+d. Durante la prova non `e consentito uscire dall’aula.
+Tempo a disposizione: 2 ore
+Canale.............................Cognome...........................................................Nome................................................
+1. Sia A ∈Mn(R) e sia λ ∈R. Stabilire quale tra le seguenti aﬀermazioni `e vera
+1
+det(λA) = (−1)nλ det A
+2
+det(λA) = (−1)nλn det A
+3
+det(λA) = λ det A
+▷◁4
+det(λA) = λn det A
+5
+Nessuna delle precedenti
+2. Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte)
+1
+Sia A ∈M2(R) simmetrica (A = At). Allora det A ≥0
+▷◁2
+Sia A ∈M2(R) antisimmetrica (A = −At). Allora det A ≥0
+3
+Sia A ∈M3(R) simmetrica (A = At). Allora det A = 0
+▷◁4
+Sia A ∈M3(R) antisimmetrica (A = −At). Allora det A = 0
+5
+Nessuna delle precedenti
+3. Sia A ∈Mn(R), sia At la sua trasposta e siano I e 0 risp. la matrice identica e la matrice nulla. Stabilire quali
+tra le seguente implicazioni sono corrette (anche pi`u risposte)
+▷◁1
+AAt = I ⇒det A = ±1
+2
+det A = 1 ⇒AAt = I
+▷◁3
+AAt = 0 ⇒A = 0
+▷◁4
+AAt = 0 ⇒det A = 0
+Infatti, in 1, A `e una matrice ortogonale, la 3 vale perch´e sulla diagonale principale di AAt ci sono somme di
+quadrati di numeri reali, 4 `e conseguenza di 3.
+
+
+===== PAGINA 2 =====
+4. Si consideri nello spazio euclideo R3 la retta r di equazioni cartesiane x + 2z −1 = 0, y + 4z −3 = 0, essendo
+(x, y, z) le coordinate cartesiane di R3. Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente
+anche pi`u risposte):
+1
+r ha parametri direttori (1, 2, 4)
+2
+r ha parametri direttori (2, 4, 1)
+▷◁3
+r ha parametri direttori (−2, −4, 1)
+▷◁4
+r `e parallela al piano 2x + y + 8z −1 = 0
+Infatti le equazioni parametriche della retta r sono
+
+
+
+x
+=
+1 −2t
+y
+=
+3 −4t
+z
+=
+t
+e i parametri direttori (−2, −4, 1) annullano l’equazione del piano in 4.
+5. Si considerino in R3 le rette r1 : x−z−1 = 0, y−2z = 0, r2 : x−3z−1 = 0, y−z = 0, r3 : x+z−1 = 0, y+4 = 0
+essendo (x, y, z) le coordinate di R3.
+Stabilire quale tra le seguenti aﬀermazioni `vera:
+1
+Non vi sono relazioni di perpendicolarit`a tra r1, r2, r3
+2
+Le tre rette sono a due a due perpendicolari
+▷◁3
+Solo due tra le rette r1, r2, r3 sono perpendicolari ma esse non sono incidenti
+4
+Solo due tra le rette r1, r2, r3 sono perpendicolari ed esse sono anche incidenti
+I parametri direttori di r1, r2, r3 sono rispettivamente (1, 2, 1), (3, 1, 1) e (−1, 0, 1). Il prodotto scalare canonico
+tra il primo e il terzo di questi vettori `e zero quindi r1 `e ortogonale a r3.
+Non ci sono altre relazioni di
+perpendicolarit`a. Inoltre le rette r1 e r3 non sono incidenti, infatti il sistema lineare ottenuto unendo le equazioni
+cartesiane di queste due rette risulta incompatibile.
+6. Sia A = (aij) ∈Mn(C) una matrice complessa quadrata di ordine n, e sia T(A) = A, dove A = (aij) `e la
+matrice coniugata di A. T : Mn(C) →Mn(C) `e un’operatore lineare, rispetto alla struttura di spazio vettoriale
+complesso di Mn(C)?
+1
+S`ı, per ogni n
+2
+E’ lineare solo per n = 1
+▷◁3
+Non `e mai lineare
+Infatti ad esempio per n = 1, T(λα) = λα̸ = λT(α) = λα.
+7. Sia A ∈M3(R) una matrice reale quadrata di ordine 3 invertibile. Stabilire quali tra le seguenti aﬀermazioni
+sono vere (eventualmente anche pi`u risposte):
+1
+Gli autovalori di A sono necessariamente distinti
+2
+A `e diagonalizzabile
+▷◁3
+A non pu`o ammettere l’autovalore λ = 0
+4
+Nessuna delle precedenti
+2
+
+
+===== PAGINA 3 =====
+Se A ammete l’autovalore 0 allora `e singolare e quindi non `e invertibile. Le aﬀermazioni 1 e 2 si possono negare
+con degli esempi.
+8. Si consideri la matrice A =
+
+
+1
+0
+1
+1
+−1
+0
+0
+−2
+−2
+
+. Stabilire quali tra le seguenti aﬀermazioni sono vere (eventual-
+mente anche pi`u risposte):
+1
+A non ammette autovalori reali
+2
+A ammette autovalori reali ma non tutte la molteplicit`a algebriche coincidono con le molteplicit`a geometriche
+3
+A ammette autovalori reali non distinti, ma tutte la molt. algebriche coincidono con le molt. geometriche
+▷◁4
+A ammette tre autovalori reali distinti
+▷◁5
+A `e diagonalizzabile
+Il polinomio caratteristico det(A −λI) ha tre radici reali distinte. Questo assicura che la matrice `e diagonalizz-
+abile. In particolare ogni autovalore ha molteplicit`a algebrica 1 e molteplicit`a geometrica 1.
+9. Sia V = R≤3[x] = {P(x) = a0 + a1x + a2x2 + a3x3} lo spazio vettoriale dei polinomi di grado ≤3 a coeﬃcienti
+reali, e sia T : V →V l’applicazione lineare (di derivata seconda) deﬁnita da deﬁnita da T(P(x)) = P”(x),
+ovvero
+T(a0 + a1x + a2x2 + a3x3) = 2a2 + 6a3x.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+T non ammette autovalori
+▷◁2
+T ammette solo l’autovalore λ = 0
+3
+T `e diagonalizzabile
+4
+Nessuna delle precedenti
+Rispetto alla base {1, x, x2, x3}, l’endomorﬁsmo T `e rappresentato dalla matrice
+A =
+
+
+
+
+0
+0
+2
+0
+0
+0
+0
+6
+0
+0
+0
+0
+0
+0
+0
+0
+
+
+
+.
+Il polinomio caratteristico det (A −λI) `e λ4, che ha la sola radice 0 di molteplicit`a algebrica 4. D’altra parte la
+molteplicit`a geometrica dell’autovalore nullo `e 4 −2 = 2 (infatti 2 `e il rango della matrice A) e quindi T non `e
+diagonalizzabile.
+10. Sia
+g : R2 × R2 −→R
+l’applicazione deﬁnita da
+  x1
+y1
+
+,
+ x2
+y2
+ 
+−→x1y1 + x1y2 + x2y1 + x2y2
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+3
+
+
+===== PAGINA 4 =====
+▷◁1
+g non `e un prodotto scalare
+2
+g `e un prodotto scalare e la matrice che lo rappresenta rispetto alle base canonica `e A =
+1
+1
+1
+1
+
+3
+g `e un prodotto scalare e la matrice che lo rappresenta rispetto alle base
+n  1
+1
+
+,
+ −1
+2
+ o
+`e A =
+4
+2
+2
+1
+
+4
+g `e un prodotto scalare e la matrice che lo rappresenta rispetto alle base
+n  1
+1
+
+,
+ −1
+2
+ o
+`e A =
+2
+1
+0
+0
+
+g non `e neanche una forma bilineare. Scambiando nel testo y1 con x2 le aﬀermazioni 2 e 3 sarebbero state le
+risposte corrette.
+a
+4

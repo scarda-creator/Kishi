@@ -1,0 +1,5828 @@
+===== PAGINA 1 =====
+Appunti di Modelli e Metodi Matematici per la Fisica:
+Analisi Funzionale
+Angelo Esposito
+Dipartimento di Fisica, Sapienza Università di Roma, Piazzale Aldo Moro 2, I-00185 Rome, Italy and
+INFN Sezione di Roma, Piazzale Aldo Moro 2, I-00185 Rome, Italy
+(Dated: 24 aprile 2026)
+In queste note riporto gli argomenti trattati nel modulo di analisi funzionale del corso di Modelli
+e Metodi Matematici per la Fisica, tenuto al secondo anno della laurea triennale in Fisica presso
+l’università Sapienza di Roma. Lo scopo principale del corso è di fornire gli strumenti matematici
+centrali per la comprensione della fisica moderna. Questo viene fatto con il livello di rigore che
+ritengo necessario per comprendere gli argomenti e saper navigare i regimi di validità dei concetti
+e tecniche discusse. Tuttavia, in nessun modo si cerca il totale rigore matematico. Queste note
+sono state preparate trascrivendo i miei appunti con l’aiuto di Claude Opus 4.6. La responsabilità
+del contenuto è interamente mia e, pertanto, potrebbero contenere errori. Se ne trovate, per favore
+comunicatemeli.
+CONTENTS
+I
+Spazi di Hilbert Finito-Dimensionali
+3
+I. Introduzione agli Spazi di Hilbert Finito-Dimensionali
+3
+A. Spazi e Sottospazi Vettoriali
+3
+B. Indipendenza Lineare e Vettori di Base
+3
+C. Distanze, Lunghezze e Orientamenti
+4
+D. Disuguaglianza di Schwarz
+7
+E. Sequenze di Cauchy e Spazi di Hilbert
+8
+F. Notazione di Dirac
+9
+G. Basi Ortonormali, Proiettori e Gram–Schmidt
+9
+II. Operatori Lineari
+13
+A. Rappresentazione Matriciale
+13
+B. Cambio di Base
+14
+C. Operatore Aggiunto
+16
+D. Operatori Hermitiani e Unitari
+16
+E. Matrici di Pauli
+17
+F. Digressione: Simbolo di Levi–Civita in 3D
+18
+III. Teoria Spettrale, Funzioni di Matrici e Teorema di Cayley–Hamilton
+19
+A. Autovalori, Autovettori e Diagonalizzabilità
+20
+B. Proiettori e Rappresentazione Spettrale
+21
+C. Autovalori e Autovettori di Operatori Hermitiani
+24
+D. Autovalori e Autovettori di Operatori Unitari
+25
+E. Funzioni di Matrici
+25
+F. Teorema di Cayley–Hamilton
+27
+G. Diagonalizzazione Simultanea di Operatori Compatibili
+28
+II
+Spazi di Hilbert Infinito-Dimensionali
+31
+IV. Basi di Hilbert e Convergenza
+31
+
+
+===== PAGINA 2 =====
+2
+V. Spazio di Funzioni L2
+32
+A. Alcune Basi Ortonormali di L2
+36
+1. Polinomi di Legendre
+36
+2. Polinomi di Laguerre
+37
+3. Polinomi di Hermite
+39
+VI. Cenni alla Teoria delle Distribuzioni
+39
+A. Funzioni di Prova
+39
+B. Distribuzioni Regolari e θ di Heaviside
+41
+C. Distribuzioni Singolari, Valore Principale e δ di Dirac
+42
+D. Operazioni sulle Distribuzioni
+43
+E. Limite di una Distribuzione
+45
+F. La δ di Dirac in Più Dimensioni
+47
+VII. Operatori Lineari in Dimensione Infinita
+47
+A. Dominio di Definizione, Operatori di Posizione e Impulso
+47
+B. Operatore Aggiunto, Operatori Simmetrici e Auto-Aggiunti
+48
+C. Operatori Unitari in Dimensione Infinita
+50
+D. Relazioni di Commutazione Canoniche
+50
+E. Teorema di Heisenberg
+50
+VIII. Teoria Spettrale
+51
+A. Teorema Spettrale
+51
+IX. Il Momento Angolare Orbitale
+54
+A. Algebra del Momento Angolare
+54
+B. Il Momento Angolare in Coordinate Sferiche
+55
+
+
+===== PAGINA 3 =====
+B
+Indipendenza Lineare e Vettori di Base
+3
+Parte I
+Spazi di Hilbert Finito-Dimensionali
+I.
+INTRODUZIONE AGLI SPAZI DI HILBERT FINITO-DIMENSIONALI
+A.
+Spazi e Sottospazi Vettoriali
+Consiglio
+Tenere a mente R2 o R3 come esempi: moltissimi concetti che seguono sono la loro generalizzazione.
+Definizione — Spazio Vettoriale
+Uno spazio vettoriale definito su un campo scalare F è un insieme V di oggetti tali che:
+(
+v, u ∈V
+λ ∈F
+=⇒
+(
+v + u ∈V
+λv ∈V
+(I.1)
+Inoltre valgono le seguenti proprietà:
+v + u = u + v
+[commutatività]
+(I.2a)
+(v + u) + w = v + (u + w)
+[associatività]
+(I.2b)
+∃0 : v + 0 = v
+[elemento neutro per la somma]
+(I.2c)
+∀v ∃(−v) : v + (−v) = 0
+[inverso additivo]
+(I.2d)
+λ(v + u) = λv + λu
+[distributività 1]
+(I.2e)
+(λ + µ)v = λv + µv
+[distributività 2]
+(I.2f)
+1 · v = v
+[elemento neutro per il prodotto scalare]
+(I.2g)
+Spesso F ≡C (spazio complesso) oppure F ≡R (spazio reale).
+Definizione — Sottospazio
+Un sottoinsieme W ⊂V chiuso sotto somma e moltiplicazione per uno scalare,
+v, u ∈W ⊂V
+=⇒
+v + u ∈W
+e
+λv ∈W ,
+(I.3)
+è chiamato sottospazio.
+Esempio I.1. I vettori giacenti su un piano definito da x3 = a1 x1 + a2 x2 formano un sottospazio di R3.
+Esempio I.2. Le matrici complesse n × m formano uno spazio vettoriale Mn×m con
+dim(Mn×m) = n · m .
+(I.4)
+Nel caso di Mn×n, le matrici diagonali formano un sottospazio Dn×n.
+B.
+Indipendenza Lineare e Vettori di Base
+Il concetto di indipendenza lineare serve per capire quali informazioni sono ridondanti e quali no.
+
+
+===== PAGINA 4 =====
+C
+Distanze, Lunghezze e Orientamenti
+4
+Definizione — Indipendenza Lineare
+Un insieme di n vettori vi ∈V (i = 1, . . . , n) è detto linearmente indipendente se:
+n
+X
+i=1
+αi vi = α1v1 + · · · + αnvn = 0
+⇐⇒
+αi = 0
+∀i .
+(I.5)
+In altre parole: non è possibile scegliere scalari αi non tutti nulli tali da ottenere cancellazioni tra i vettori.
+Esempio I.3. v1 = (1, 0) e v2 = (0, 7) sono linearmente indipendenti:
+αv1 + βv2 = (α, 7β) = 0
+=⇒
+α = β = 0 .
+(I.6)
+Mentre v1, v2 e v3 = (3, 9) sono linearmente dipendenti:
+αv1 + βv2 + γv3 = (α + 3γ, 7β + 9γ) = 0
+=⇒
+α = −3γ,
+β = −9
+7 γ .
+(I.7)
+In un set di vettori lin. dip. c’è informazione ridondante: basterebbe un numero minore di vettori per esprimere la
+stessa quantità di informazione.
+Definizione — Base e Dimensione
+Sia {v1, . . . , vn} ⊂V un set di n vettori linearmente indipendenti.
+Se per ogni u ∈V il set ampliato
+{v1, . . . , vn, u} è linearmente dipendente, allora:
+{v1, . . . , vn} = base di V,
+n = dimensione di V .
+(I.8)
+Una base contiene tutte le informazioni necessarie per descrivere ogni elemento dello spazio. Ogni vettore u ∈V
+può essere scritto come:
+u =
+n
+X
+i=1
+u(v)
+i
+vi ,
+(I.9)
+dove u(v)
+i
+sono le coordinate di u rispetto alla base {vi}.
+Esempio I.4. e1 = (1, 0) e e2 = (0, 1) sono una base di R2:
+u = (x, y) = x e1 + y e2
+=⇒
+u(e)
+1
+= x,
+u(e)
+2
+= y .
+(I.10)
+Ma anche v1 = (1, 1) e v2 = (1, −1):
+u = x + y
+2
+v1 + x −y
+2
+v2
+=⇒
+u(v)
+1
+= x + y
+2
+,
+u(v)
+2
+= x −y
+2
+.
+(I.11)
+Esempio I.5. In Rn, i vettori (ei)j = δij,
+e1 = (1, 0, . . . , 0),
+e2 = (0, 1, . . . , 0),
+. . . ,
+en = (0, 0, . . . , 1) ,
+(I.12)
+costituiscono la base canonica di Rn.
+C.
+Distanze, Lunghezze e Orientamenti
+Per fare fisica è necessario introdurre i concetti di “distanza”, “lunghezza” e “orientamento”.
+
+
+===== PAGINA 5 =====
+C
+Distanze, Lunghezze e Orientamenti
+5
+Definizione — Distanza / Metrica
+In uno spazio vettoriale V , si definisce distanza una mappa d : V × V →R tale che, per ogni v, u, w ∈V :
+d(v, u) = d(u, v)
+[simmetria]
+(I.13a)
+d(v, u) = 0 ⇐⇒v = u
+[non-degenerazione]
+(I.13b)
+d(v, u) + d(u, w) ≥d(v, w)
+[disuguaglianza triangolare]
+(I.13c)
+Uno spazio vettoriale dotato di distanza è detto spazio metrico.
+Esempio I.6 (Possibili distanze).
+• Distanza Euclidea in Cn:
+d(v, u) =
+v
+u
+u
+t
+n
+X
+i=1
+|vi −ui|2
+(I.14)
+• Distanza discreta:
+d(v, u) =
+(
+1
+v̸ = u
+0
+v = u = 1 −δv,u
+(I.15)
+La distanza permette di formalizzare il concetto di “avvicinamento”. Una sequenza an converge ad a quando ci si
+avvicina arbitrariamente vicino:
+an
+n→∞
+−−−−→a
+⇐⇒
+∀ϵ > 0 ∃n0 : ∀n > n0
+d(an, a) < ϵ .
+(I.16)
+d(an, a) < ϵ
+a0
+a1
+a2
+a3
+a4
+a5
+a6
+a
+n0 = 4
+Figura 1: Convergenza di una sequenza an →a. Per ogni ϵ > 0 esiste n0 tale che per ogni n > n0 il punto an cade nella
+palla di raggio ϵ centrata in a.
+Definizione — Norma
+La norma di un vettore è una mappa ∥·∥: V →R tale che:
+∥v∥≥0,
+∥v∥= 0 ⇐⇒v = 0
+(I.17a)
+∥λv∥= |λ| ∥v∥
+(I.17b)
+∥v + w∥≤∥v∥+ ∥w∥
+[disuguaglianza triangolare]
+(I.17c)
+
+
+===== PAGINA 6 =====
+C
+Distanze, Lunghezze e Orientamenti
+6
+v + w
+v
+w
+Possono avvenire cancellazioni in ∥v + w∥
+(e.g., v = −w ⇒∥v + w∥= 0) mentre
+queste cancellazioni non possono avvenire in
+∥v∥+ ∥w∥. Questa è la spiegazione intuitiva
+della disuguaglianza triangolare.
+Uno spazio vettoriale dotato di norma è detto spazio normato. Ogni spazio normato è anche uno spazio metrico,
+con distanza indotta:
+d(v, u) = ∥v −u∥.
+(I.18)
+Esempio I.7 (Norma in Cn).
+∥v∥=
+v
+u
+u
+t
+n
+X
+i=1
+|vi|2 .
+(I.19)
+Esempio I.8 (Possibili norme in R2). Due scelte possibili:
+∥v∥I =
+q
+v2
+1 + v2
+2,
+∥v∥II = max{|v1|, |v2|} .
+(I.20)
+Le distanze dI,II(v, u) = ∥v −u∥I,II producono “palle” di raggio r di forma diversa (Figura 2).
+v1
+v2
+r
+u
+dI(v, u) < r
+dII(v, u) < r
+Figura 2: Palle di raggio r in R2: disco per dI (norma Euclidea) e quadrato per dII (norma del massimo). Il disco è
+contenuto nel quadrato perché ∥·∥II ≤∥·∥I.
+Infine, introduciamo il concetto di orientamento relativo tra vettori tramite il prodotto scalare.
+Definizione — Prodotto Scalare
+In uno spazio vettoriale V su C, si definisce prodotto scalare una mappa (·, ·): V × V →C tale che, per ogni
+v, u, w ∈V e λ, µ ∈C:
+(v, λu + µw) = λ (v, u) + µ (v, w)
+[linearità nel 2° argomento]
+(I.21a)
+(v, w) = (w, v)∗
+[simmetria Hermitiana]
+(I.21b)
+(v, v) ≥0 ;
+(v, v) = 0 ⇐⇒v = 0
+[positività]
+(I.21c)
+
+
+===== PAGINA 7 =====
+D
+Disuguaglianza di Schwarz
+7
+Notabene
+I matematici usano spesso la convenzione opposta: la linearità è nel primo argomento, non nel secondo.
+Da Eq. (I.21b) e (I.21a) segue che il prodotto scalare è antilineare nel primo argomento:
+(λu + µw, v) = λ∗(u, v) + µ∗(w, v) .
+(I.22)
+Uno spazio vettoriale con prodotto scalare è detto spazio pre-Hilbert. Se lo spazio è reale, la simmetria Hermitiana
+diventa simmetria ordinaria e la linearità vale in entrambi gli argomenti:
+(v, w) = (w, v),
+(λu + µw, v) = λ(u, v) + µ(w, v) .
+(I.23)
+Notabene
+Ogni spazio dotato di prodotto scalare possiede anche una norma e, quindi, una distanza — scelta naturale (ma
+non unica):
+∥v∥=
+p
+(v, v),
+d(v, u) = ∥v −u∥=
+p
+(v −u, v −u) .
+(I.24)
+Esempio I.9 (Prodotto scalare in Cn).
+(v, u) =
+n
+X
+i=1
+v∗
+i ui .
+(I.25)
+Esempio I.10 (Prodotto scalare per matrici n × n).
+(A, B) = tr(A† · B) =
+n
+X
+i=1
+n
+X
+j=1
+(A∗T )ji Bij
+=
+n
+X
+i=1
+n
+X
+j=1
+A∗
+ij Bij .
+(I.26)
+Si verifica facilmente:
+(A, λB + µC) =
+X
+i,j
+A∗
+ij (λBij + µCij) = λ(A, B) + µ(A, C),
+(I.27a)
+(A, B)∗=
+X
+i,j
+A∗
+ij Bij
+∗
+=
+X
+i,j
+B∗
+ij Aij = (B, A),
+(I.27b)
+(A, A) =
+X
+i,j
+A∗
+ij Aij =
+X
+i,j
+|Aij|2 ≥0 .
+(I.27c)
+D.
+Disuguaglianza di Schwarz
+Importante proprietà del prodotto scalare:
+Definizione — Disuguaglianza di Schwarz
+Per ogni v, u ∈V :
+(v, v) (u, u) ≥|(v, u)|2 .
+(I.28)
+
+
+===== PAGINA 8 =====
+D
+Disuguaglianza di Schwarz
+8
+Dimostrazione. Scriviamo (v, u) = |(v, u)| eiθ e scegliamo λ = x e−iθ con x ∈R. Dalla positività del prodotto scalare:
+(v + λu, v + λu) ≥0
+∀λ .
+(I.29)
+Espandendo:
+(v, v) + λ (v, u) + λ∗(u, v) + |λ|2(u, u) ≥0 .
+(I.30)
+Sostituendo λ = xe−iθ:
+(v, v) + xe−iθ|(v, u)| eiθ + xeiθ|(v, u)| e−iθ + x2(u, u) ≥0
+=⇒
+x2 (u, u)
+| {z }
+≥0
++2x |(v, u)| + (v, v) ≥0 .
+(I.31)
+Essendo il membro di sinistra una parabola rivolta verso l’alto, affinché Eq. (I.31) sia soddisfatta per ogni x ∈R,
+come segue da Eq. (I.29), il discriminante del trinomio deve essere non positivo:
+4 |(v, u)|2 −4(v, v)(u, u) ≤0 ,
+(I.32)
+da cui segue Eq. (I.28).
+E.
+Sequenze di Cauchy e Spazi di Hilbert
+In uno spazio dotato di distanza, si dice sequenza di Cauchy una sequenza i cui elementi tendono ad addensarsi:
+d(an, am)
+n,m→∞
+−−−−−→0 .
+(I.33)
+a1
+a2
+a3
+a4
+a5
+a6
+a7
+a8
+Figura 3: Una sequenza di Cauchy: gli elementi si addensano progressivamente.
+Notabene
+Ogni sequenza convergente è di Cauchy. Infatti, se an →a, allora per ogni ϵ > 0 esiste n0 tale che d(an, a) < ϵ/2
+per ogni n > n0. Per la disuguaglianza triangolare:
+d(an, am) ≤d(an, a) + d(am, a) < ϵ
+∀n, m > n0 .
+(I.34)
+Il viceversa non vale in generale.
+Nei seguenti esempi scalari an ∈R (o Q), a differenza della trattazione generale in cui an denota un elemento di uno
+spazio metrico arbitrario.
+Esempio I.11. In V = R con d(x, y) = |x −y|, la successione an = 1/√n è di Cauchy (e converge a 0). Scegliendo
+m > n:
+|am −an| =
+
+1
+√m −
+1
+√n
+ =
+√m −√n
+√mn
+≤
+√m
+√mn =
+1
+√n
+m,n→∞
+−−−−−→0 .
+(I.35)
+Esempio I.12. In V = Q con d(x, y) = |x −y|, la successione a1 = 1, a2 = 7
+5 = 1.4, a3 = 141
+100 = 1.41, . . . si addensa
+(Cauchy), ma converge a
+√
+2 /∈Q. Una sequenza di Cauchy che non converge è indicativa di una “mancanza” nello
+spazio vettoriale.
+Uno spazio metrico in cui ogni sequenza di Cauchy converge è detto completo. La tabella seguente riassume i tipi
+di spazio vettoriale in base alle strutture possedute. D’ora in poi, indicheremo gli spazi di Hilbert con la lettera H.
+
+
+===== PAGINA 9 =====
+E
+Sequenze di Cauchy e Spazi di Hilbert
+9
+d(v, u) ∥v∥(v, u) Cauchy ⇒conv.
+Nome
+✓
+×
+×
+×
+metrico
+✓
+×
+×
+✓
+completo
+✓
+✓
+×
+×
+normato
+✓
+✓
+×
+✓
+Banach
+✓
+✓
+✓
+×
+pre-Hilbert
+✓
+✓
+✓
+✓
+Hilbert
+Tabella I: Definizioni di diversi tipi di spazi vettoriali.
+F.
+Notazione di Dirac
+In meccanica quantistica si usa moltissimo la notazione di Dirac. Un vettore astratto v ∈V viene rappresentato
+in due modi:
+Definizione — Ket e Bra
+|v⟩≡ket,
+|λv + µw⟩= λ |v⟩+ µ |w⟩,
+(I.36a)
+⟨v| ≡bra,
+⟨λv + µw| = λ∗⟨v| + µ∗⟨w| .
+(I.36b)
+Il prodotto scalare diventa un bracket:
+(v, u) = ⟨v|u⟩.
+(I.37)
+Con questa notazione le proprietà di linearità e antilinearità diventano immediate:
+⟨v|λu + µw⟩= ⟨v|
+
+λ|u⟩+ µ|w⟩
+
+= λ ⟨v|u⟩+ µ ⟨v|w⟩,
+(I.38a)
+⟨λu + µw|v⟩=
+
+λ∗⟨u| + µ∗⟨w|
+
+|v⟩= λ∗⟨u|v⟩+ µ∗⟨w|v⟩.
+(I.38b)
+Esempio I.13. Per V = Cn, ket e bra si identificano con il vettore colonna e il suo trasposto coniugato:
+|v⟩7−→
+
+
+
+v1
+...
+vn
+
+
+,
+⟨v| 7−→
+ v∗
+1 · · · v∗
+n
+
+,
+(I.39)
+cosicché:
+⟨v|u⟩=
+ v∗
+1 · · · v∗
+n
+
+·
+
+
+
+u1
+...
+un
+
+
+= v∗
+1u1 + · · · + v∗
+nun =
+n
+X
+i=1
+v∗
+i ui .
+(I.40)
+G.
+Basi Ortonormali, Proiettori e Gram–Schmidt
+Come nello spazio Euclideo, si definisce la proiezione ortogonale di v lungo la direzione di u:
+ˆPu(v) = (ˆu, v) ˆu = (u, v)
+∥u∥2 u .
+(I.41)
+
+
+===== PAGINA 10 =====
+G
+Basi Ortonormali, Proiettori e Gram–Schmidt
+10
+u
+v
+ˆPu(v)
+Figura 4: Proiezione ortogonale di v lungo la direzione di u.
+In notazione di Dirac Eq. (I.41) diventa particolarmente elegante:
+ˆPu |v⟩= ⟨u|v⟩
+⟨u|u⟩|u⟩= |u⟩
+ ⟨u|
+⟨u|u⟩
+
+|v⟩,
+(I.42)
+da cui si identifica il proiettore ortogonale:
+ˆPu = |u⟩⟨u|
+⟨u|u⟩.
+(I.43)
+Esempio I.14. In R3, sia u = (1, 1, 0) e v = (2, 1, 3). Con il metodo diretto:
+ˆPu(v) = (u, v)
+∥u∥2 u = (1, 1, 0) · (2, 1, 3)
+(1, 1, 0) · (1, 1, 0) (1, 1, 0) = 3
+2 (1, 1, 0) .
+(I.44)
+Con il metodo del proiettore, usando |u⟩7−→(1, 1, 0)T e |v⟩7−→(2, 1, 3)T :
+ˆPu = |u⟩⟨u|
+⟨u|u⟩7−→1
+2
+
+
+
+1
+1
+0
+
+
+
+
+1 1 0
+
+= 1
+2
+
+
+
+1 1 0
+1 1 0
+0 0 0
+
+
+,
+(I.45)
+e si verifica:
+ˆPu |v⟩7−→1
+2
+
+
+
+1 1 0
+1 1 0
+0 0 0
+
+
+
+
+
+
+2
+1
+3
+
+
+= 1
+2
+
+
+
+3
+3
+0
+
+
+.
+(I.46)
+Se la proiezione di v su u è nulla, i vettori si dicono ortogonali:
+ˆPu |v⟩= 0
+⇐⇒
+⟨u|v⟩= 0 .
+(I.47)
+Un set di vettori mutualmente ortogonali è linearmente indipendente. Sia {|v1⟩, |v2⟩, . . .} tale che ⟨vi|vj⟩= 0 per
+i̸ = j, e supponiamo P
+i αi |vi⟩= 0. Applicando ⟨vi| a sinistra:
+⟨vi|
+
+X
+j
+αj |vj⟩
+
+= 0
+=⇒
+X
+j
+αj ⟨vi|vj⟩= 0
+=⇒
+αi ⟨vi|vi⟩= 0
+=⇒
+αi = 0 ,
+(I.48)
+e così per tutti gli indici.
+In fisica si preferisce scegliere basi ortonormali:
+Definizione — Base Ortonormale
+Un set di vettori di base {|e1⟩, . . . , |en⟩} è detto ortonormale se:
+⟨ei|ej⟩= δij .
+(I.49)
+
+
+===== PAGINA 11 =====
+G
+Basi Ortonormali, Proiettori e Gram–Schmidt
+11
+Notabene
+È sempre possibile normalizzare un vettore: ˆv = v/ ∥v∥.
+Notabene
+Non è garantita l’esistenza di una base ortonormale per dim(V ) = ∞.
+Per basi ortonormali vale la relazione di completezza. Per ogni |v⟩∈H:
+|v⟩=
+n
+X
+i=1
+vi |ei⟩.
+(I.50)
+Chiaramente:
+⟨ei|v⟩=
+n
+X
+j=1
+vj ⟨ei|ej⟩=
+n
+X
+j=1
+vj δij = vi .
+(I.51)
+Ma allora, per ogni |v⟩:
+|v⟩=
+n
+X
+i=1
+⟨ei|v⟩|ei⟩=
+ n
+X
+i=1
+|ei⟩⟨ei|
+!
+|v⟩
+=⇒
+n
+X
+i=1
+|ei⟩⟨ei| =
+n
+X
+i=1
+ˆPei = 1 .
+(I.52)
+L’esistenza di una base ortonormale ci garantisce che il prodotto scalare più naturale tra due vettori sia:
+⟨v|u⟩=
+ n
+X
+i=1
+v∗
+i ⟨ei|
+!
+
+n
+X
+j=1
+uj |ej⟩
+
+
+=
+n
+X
+i,j=1
+v∗
+i uj ⟨ei|ej⟩=
+n
+X
+i=1
+v∗
+i ui ,
+(I.53)
+e che la norma soddisfi l’identità di Parseval:
+∥v∥2 = ⟨v|v⟩=
+n
+X
+i=1
+|vi|2 .
+(I.54)
+Infine, è evidente che qualsiasi spazio di Hilbert H con dim H = n < ∞è isomorfo a Cn. Esiste, infatti, una mappa
+che ad ogni vettore di H associa un vettore di Cn, e viceversa. Questa mappa è esattamente quello che ci si può
+aspettare: da vettore a componenti e da componenti a vettore. Ossia,
+∃H →Cn : |v⟩7−→(v1, v2, . . . , vn)
+=⇒
+H ≃Cn .
+(I.55)
+Per spazi di Hilbert con dim H < ∞, l’esistenza di una base ortonormale è garantita dall’algoritmo di Gram–
+Schmidt, che ci dice anche come costruire questa base.
+Idea di fondo: Dato un vettore |u⟩∈H, ogni altro vettore |v⟩∈H può essere scomposto in un vettore ortogonale a
+|u⟩più tutto il resto:
+|v⟩= |v⊥⟩+ |v∥⟩,
+(I.56)
+con
+|v∥⟩= ˆPu |v⟩= ⟨u|v⟩
+⟨u|u⟩|u⟩,
+|v⊥⟩= |v⟩−|v∥⟩=
+ 1 −ˆPu
+
+|v⟩.
+(I.57)
+Algoritmo iterativo. Come ortonormalizzare una base {|v1⟩, |v2⟩, . . . , |vn⟩}?
+
+
+===== PAGINA 12 =====
+G
+Basi Ortonormali, Proiettori e Gram–Schmidt
+12
+1. Normalizziamo il primo vettore:
+|e1⟩=
+|v1⟩
+p
+⟨v1|v1⟩
+.
+(I.58)
+2. Prendiamo |v2⟩e usiamolo per costruire un vettore ortogonale a |e1⟩e con norma unitaria:
+|u2⟩= |v2⟩−ˆPe1 |v2⟩= |v2⟩−⟨e1|v2⟩|e1⟩
+=⇒
+|e2⟩=
+|u2⟩
+p
+⟨u2|u2⟩
+.
+(I.59)
+3. Prendiamo |v3⟩e usiamolo per costruire un vettore ortogonale sia a |e1⟩che a |e2⟩e con norma unitaria anch’esso:
+|u3⟩= |v3⟩−ˆPe1 |v3⟩−ˆPe2 |v3⟩
+= |v3⟩−⟨e1|v3⟩|e1⟩−⟨e2|v3⟩|e2⟩
+=⇒
+|e3⟩=
+|u3⟩
+p
+⟨u3|u3⟩
+.
+(I.60)
+4. E così via. In generale:
+|uk⟩=
+ 
+1 −
+k−1
+X
+α=1
+ˆPeα
+!
+|vk⟩,
+|ek⟩=
+|uk⟩
+p
+⟨uk|uk⟩
+.
+(I.61)
+Poiché così costruiamo n vettori mutualmente ortogonali, è verificato che gli |ei⟩formano una base.
+Esempio I.15 (Gram–Schmidt in H = R3). Consideriamo i tre vettori linearmente indipendenti
+v1 =
+
+
+
+1
+1
+0
+
+
+,
+v2 =
+
+
+
+0
+2
+1
+
+
+,
+v3 =
+
+
+
+1
+0
+1
+
+
+.
+(I.62)
+Passo 1: normalizziamo il primo vettore,
+e1 =
+v1
+∥v1∥=
+1
+√
+2
+
+
+
+1
+1
+0
+
+
+.
+(I.63)
+Passo 2: prendiamo v2 e gli sottraiamo la componente lungo e1, ottenendo un vettore ortogonale a quest’ultimo, che
+poi normalizziamo:
+u2 = v2 −(e1·v2) e1 =
+
+
+
+0
+2
+1
+
+
+−
+√
+2 · 1
+√
+2
+
+
+
+1
+1
+0
+
+
+=
+
+
+
+−1
+1
+1
+
+
+
+=⇒
+e2 =
+u2
+∥u2∥=
+1
+√
+3
+
+
+
+−1
+1
+1
+
+
+.
+(I.64)
+Passo 3: prendiamo v3 e gli sottraiamo le componenti lungo e1 e e2, in modo che risulti ortogonale ad entrambi.
+Infine normalizziamo:
+u3 = v3 −(e1·v3) e1 −(e2·v3) e2 =
+
+
+
+1
+0
+1
+
+
+−1
+2
+
+
+
+1
+1
+0
+
+
+−0 =
+
+
+
+1/2
+−1/2
+1
+
+
+
+=⇒
+e3 =
+u3
+∥u3∥=
+1
+√
+6
+
+
+
+1
+−1
+2
+
+
+.
+(I.65)
+Si verifica facilmente che ei · ej = δij, come dev’essere.
+
+
+===== PAGINA 13 =====
+A
+Rappresentazione Matriciale
+13
+II.
+OPERATORI LINEARI
+Gli operatori lineari sono oggetti centrali in fisica: compaiono ovunque ci sia bisogno di descrivere come una trasfor-
+mazione agisce su uno stato o su un vettore. Una lista (incompleta) di applicazioni:
+• rotazioni, nello spazio fisico e non;
+• operazioni di misura in meccanica quantistica;
+• simmetrie e leggi di conservazione in sistemi Lagrangiani.
+Definizione — Operatore Lineare
+Un operatore A: H →H′ è detto lineare se, per ogni |v⟩, |u⟩∈H e λ, µ ∈C, la sua azione è tale che:
+A
+ λ |v⟩+ µ |u⟩
+
+= λ A |v⟩+ µ A |u⟩.
+(II.1)
+Abbiamo già incontrato diversi esempi di operatori lineari, anche senza chiamarli per nome. Due in particolare:
+1. Prodotto scalare rispetto al secondo argomento: la linearità in questo caso è proprio una delle proprietà
+definitorie del prodotto scalare,
+⟨w|
+ λ |v⟩+ µ |u⟩
+
+= λ ⟨w|v⟩+ µ ⟨w|u⟩.
+(II.2)
+2. Prodotto matriciale n × m da Cm a Cn: l’azione di una matrice A su un vettore è manifestamente lineare,
+
+A · (λv + µu)
+
+i =
+m
+X
+j=1
+Aij
+ λvj + µuj
+
+= λ
+m
+X
+j=1
+Aijvj + µ
+m
+X
+j=1
+Aijuj
+= λ(A · v)i + µ(A · u)i .
+(II.3)
+Non tutti gli operatori, però, sono lineari. Un esempio di operatore non lineare è la norma, A: H →R, |v⟩7→
+p
+⟨v|v⟩.
+Infatti:
+∥λv + µu∥=
+p
+⟨λv + µu|λv + µu⟩
+=
+q
+|λ|2 ∥v∥2 + 2 Re
+ λ∗µ ⟨v|u⟩
+
++ |µ|2 ∥u∥2̸
+= λ ∥v∥+ µ ∥u∥.
+(II.4)
+Dato un operatore, risulta utile classificare i vettori in base a come questo li trasforma. In particolare, ci interessano
+i vettori che l’operatore annulla e lo spazio in cui vanno a finire i vettori dopo che è stato applicato.
+Definizione — Kernel e Immagine
+Dato un operatore A, si definisce kernel di A, denotato ker A, l’insieme dei vettori |v⟩∈H che vengono annullati
+dall’azione di A:
+|v⟩∈ker A
+⇐⇒
+A |v⟩= 0 .
+(II.5)
+Si definisce, invece, immagine di A, denotata Im A, lo spazio in cui vanno a finire i vettori ai quali A è stato
+applicato:
+|u⟩∈Im A
+⇐⇒
+∃|v⟩∈H : |u⟩= A |v⟩.
+(II.6)
+A.
+Rappresentazione Matriciale
+In spazi finito-dimensionali, gli operatori lineari non sono nient’altro che matrici. Questo risultato non è solo comodo
+dal punto di vista pratico: ci permette di ridurre lo studio di un operatore a quello di un oggetto a noi ben noto, ossia
+un array di numeri.
+
+
+===== PAGINA 14 =====
+B
+Cambio di Base
+14
+Per capire il perché, basta osservare che un operatore lineare A è completamente definito dalla sua azione sui vettori
+di una base {|v1⟩, . . . , |vn⟩}. Per definire completamente A ci serve soltanto conoscere gli n vettori che si ottengono
+applicandolo a ciascun elemento della base,
+A |vi⟩=
+n
+X
+j=1
+Aji |vj⟩.
+(II.7)
+Notabene
+Attenzione all’ordine degli indici in Eq. (II.7): la somma è tra l’indice di riga di Aji ed i vettori di base, |vj⟩.
+Questo è il contrario di quello che succede nel prodotto standard riga-per-colonna.
+Una volta nota l’azione di A sui vettori di base, la sua azione su un qualsiasi |u⟩∈H è completamente determinata.
+Scrivendo |u⟩= P
+i ui |vi⟩e sfruttando la linearità di A, infatti,1
+|w⟩= A |u⟩= A
+ X
+i
+ui |vi⟩
+!
+=
+X
+i
+ui A |vi⟩
+[linearità]
+=
+X
+i,j
+ui Aji |vj⟩=
+X
+j
+wj |vj⟩
+[rappresentazione di |w⟩nella base {|vi⟩}]
+(II.8)
+da cui, leggendo le componenti:
+wi =
+n
+X
+j=1
+Aij uj
+=⇒
+w = A · u .
+(II.9)
+La matrice Aij è, a tutti gli effetti, la rappresentazione di A nella base {|vi⟩}. Se, in particolare, la base è
+ortonormale, {|ei⟩}, la matrice rappresentativa assume la forma particolarmente elegante:
+Aij = ⟨ei| A |ej⟩.
+(II.10)
+B.
+Cambio di Base
+Consideriamo ora una seconda base {|v′
+i⟩} per lo stesso spazio: come è rappresentato A in questa nuova base? E come
+cambiano le coordinate dei vettori? La relazione tra le due basi si scrive, in generale,
+|v′
+i⟩=
+n
+X
+j=1
+Sji |vj⟩,
+(II.11)
+dove S è la matrice di cambio di base.
+Notabene
+Di nuovo, attenzione all’ordine degli indici in Eq. (II.11): la somma è tra l’indice di riga di Sji ed i vettori della
+vecchia base, |vj⟩. Di conseguenza, le componenti di ciascun nuovo vettore di base |v′
+i⟩espresse nella vecchia base
+si trovano nella colonna i-esima della matrice S, non nella riga.
+Le nuove coordinate di un vettore |u⟩si ottengono immediatamente dalla richiesta che |u⟩sia lo stesso vettore,
+indipendentemente dalla base scelta. In altre parole, esprimendolo prima in una base, poi nell’altra e poi scrivendo i
+vettori della seconda base in termini di quelli della prima,
+|u⟩=
+X
+i
+u′
+i |v′
+i⟩=
+X
+i,j
+u′
+i Sji |vj⟩=
+X
+j
+uj |vj⟩
+=⇒
+u = S · u′
+=⇒
+u′ = S−1 · u .
+(II.12)
+1 D’ora in poi, il testo in verdino a fianco ad una certa equazione, fornisce una spiegazione di quale proprietà è stata utilizzata per quel
+passaggio particolare.
+
+
+===== PAGINA 15 =====
+B
+Cambio di Base
+15
+Per trovare, invece, la nuova matrice rappresentativa A′
+ij basta uguagliare le due espressioni dell’azione di A su |u⟩,
+una scritta nella vecchia base e una nella nuova:
+A |u⟩=
+X
+i,j
+Aij uj |vi⟩=
+X
+i,j
+A′
+ij u′
+j |v′
+i⟩=
+X
+i,j
+A′
+ij
+X
+k
+S−1
+jk uk
+X
+n
+Sni |vn⟩
+
+=
+X
+k,n
+
+X
+i,j
+SniA′
+ijS−1
+jk
+
+
+|
+{z
+}
+(S·A′·S−1)nk
+uk |vn⟩.
+(II.13)
+Poiché il tipo di passaggi che seguono comparirà numerose volte nel resto di queste note, vediamolo per un momento
+passo per passo. L’indipendenza lineare dei vettori di base |vi⟩ci dice che l’equazione di sopra deve essere soddisfatta
+separatamente per ogni termine davanti ad ogni vettore di base (che bisogna poi esprimere con lo stesso indice):
+X
+i,j
+Aijuj |vi⟩=
+X
+i,j
+ S · A′ · S−1
+ij uj |vi⟩
+=⇒
+X
+j
+Aijuj =
+X
+j
+ S · A′ · S−1
+ij uj .
+(II.14)
+Infine, si sfrutta il fatto che il vettore |u⟩è completamente generico, e che quindi le sue componenti ui possono
+prendere qualsiasi valore. Alla luce di questo, l’equazione di sopra deve essere vera coefficiente-per-coefficiente, per
+ogni ui, ossia,
+Aij =
+ S · A′ · S−1
+ij
+=⇒
+A′ = S−1 · A · S
+.
+(II.15)
+Esempio II.1 (Rotazioni in R2). Il caso più familiare di cambio di base è la rotazione del sistema di assi Cartesiani
+nel piano. Scrivendo i nuovi versori come combinazione lineare dei vecchi,
+
+
+
+
+
+
+
+
+
+
+
+e′
+1 = cos θ e1 + sin θ e2 =
+ 
+cos θ
+sin θ
+!
+e′
+2 = −sin θ e1 + cos θ e2 =
+ 
+−sin θ
+cos θ
+!
+=⇒S =
+ 
+cos θ −sin θ
+sin θ
+cos θ
+!
+=
+ e′
+1 e′
+2
+
+.
+(II.16)
+e1
+e2
+e′
+1
+e′
+2
+θ
+θ
+Come anticipato, le colonne di S sono proprio le componenti dei nuovi versori nella vecchia base.
+Esempio II.2 (Schiacciamento in R2). Un esempio meno convenzionale è il cosiddetto schiacciamento, in cui la nuova
+base non è più ortonormale:
+
+
+
+
+
+
+
+
+
+
+
+v′
+1 = e1 =
+ 
+1
+0
+!
+v′
+2 =
+1
+√
+2e1 +
+1
+√
+2e2 =
+ 
+1/
+√
+2
+1/
+√
+2
+!
+=⇒S =
+ 
+1 1/
+√
+2
+0 1/
+√
+2
+!
+.
+(II.17)
+e1 = v′
+1
+e2
+v′
+2
+
+
+===== PAGINA 16 =====
+D
+Operatori Hermitiani e Unitari
+16
+Per trovare le nuove coordinate di un generico vettore u, lo riscriviamo nella nuova base,
+u = u1e1 + u2e2 = u1v′
+1 + u2
+ −v′
+1 +
+√
+2v′
+2
+
+,
+(II.18)
+da cui:
+ 
+u′
+1
+u′
+2
+!
+=
+ 
+u1 −u2
+√
+2 u2
+!
+= S−1
+ 
+u1
+u2
+!
+,
+(II.19)
+in perfetto accordo con la formula generale.
+C.
+Operatore Aggiunto
+Dato un operatore A che agisce su H, si definisce l’operatore aggiunto (o Hermitiano coniugato) A† come
+quell’operatore che soddisfa la seguente relazione:
+⟨u|Av⟩≡⟨A†u|v⟩,
+∀|v⟩, |u⟩∈H .
+(II.20)
+L’aggiunto è, in sostanza, la versione operatoriale del complesso coniugato. La sua rappresentazione matriciale, infatti,
+è data dal trasposto coniugato della matrice rappresentativa di A. Per vederlo, scriviamo Eq. (II.20) esplicitamente
+in una base ortonormale:
+⟨u|Av⟩=
+X
+i,j
+u∗
+i Aij vj = ⟨A†u|v⟩=
+X
+j
+ A† · u
+∗
+j vj =
+X
+i,j
+(A†
+ji)∗u∗
+i vj
+=⇒
+(A†
+ji)∗= Aij ,
+(II.21)
+ossia:
+A†
+ij = A∗
+ji
+.
+(II.22)
+Chiaramente valgono le seguenti proprietà:
+1. (A†)† = A;
+2. (AB)† = B†A†;
+3. (A†)−1 = (A−1)†.
+Notabene
+In notazione di Dirac si definisce l’azione di A all’interno di ket e bra tramite:
+|Av⟩= A |v⟩,
+⟨Av| = ⟨v| A† .
+(II.23)
+In questo modo la relazione ⟨A†v|u⟩= ⟨v|Au⟩è del tutto manifesta:
+⟨v|Au⟩= ⟨v|
+ A |u⟩
+
+= ⟨v| A |u⟩,
+(II.24a)
+⟨A†v|u⟩=
+
+⟨v|
+ A††
+|u⟩= ⟨v| A |u⟩.
+(II.24b)
+D.
+Operatori Hermitiani e Unitari
+Tra tutti gli operatori lineari, ce ne sono due tipi che giocano un ruolo assolutamente cruciale in fisica: gli operatori
+Hermitiani, che in meccanica quantistica corrispondono alle osservabili, e gli operatori unitari, che descrivono le
+trasformazioni che preservano il prodotto scalare (e, con esso, le probabilità).
+
+
+===== PAGINA 17 =====
+E
+Matrici di Pauli
+17
+Definizione — Operatore Auto-Aggiunto / Hermitiano
+Un operatore A è detto auto-aggiunto (o Hermitiano) se A† = A. Dalla relazione A†
+ij = A∗
+ji segue immedia-
+tamente che la sua rappresentazione matriciale ha elementi diagonali reali ed elementi fuori diagonale coniugati
+a coppie:
+A =
+
+
+
+
+
+
+a11 a12 a13 · · ·
+a∗
+12 a22 a23 · · ·
+a∗
+13 a∗
+23 a33 · · ·
+...
+...
+...
+...
+
+
+
+
+
+
+,
+a11, a22, a33, . . . ∈R .
+(II.25)
+Definizione — Operatore Unitario
+Un operatore A è detto unitario se A† = A−1.
+Gli operatori unitari godono di una proprietà molto utile: il modulo del determinante della loro matrice associata è
+sempre pari a uno. Per vederlo, notiamo innanzitutto che:
+det A† = det(AT ∗) =
+ det AT ∗=
+ det A
+∗,
+(II.26)
+ma anche che, essendo A†A = 1:
+det(AA†) = det 1 = 1 = det A det A† = | det A|2
+=⇒
+| det A| = 1 .
+(II.27)
+La proprietà più importante degli operatori unitari, però, è che lasciano invariato il prodotto scalare tra due vettori.
+Infatti, ponendo |v′⟩= A |v⟩e |u′⟩= A |u⟩, si ha immediatamente:
+⟨Au|Av⟩= ⟨u| A†A |v⟩= ⟨u| 1 |v⟩= ⟨u|v⟩.
+(II.28)
+È questa la proprietà che, in meccanica quantistica, garantisce la conservazione delle probabilità.
+Esempio II.3 (Rotazioni in R2). Riprendendo l’esempio della rotazione introdotto in precedenza, le nuove coordinate
+si ottengono applicando S−1 alle vecchie:
+v′ = S−1 · v =
+ 
+cos θ sin θ
+−sin θ cos θ
+! 
+v1
+v2
+!
+=
+ 
+cos θ v1 + sin θ v2
+−sin θ v1 + cos θ v2
+!
+=
+ 
+v′
+1
+v′
+2
+!
+.
+(II.29)
+Verifichiamo esplicitamente che il prodotto scalare è conservato. Abbreviando c ≡cos θ, s ≡sin θ:
+⟨u′|v′⟩= u′
+1v′
+1 + u′
+2v′
+2 = (cu1 + su2)(cv1 + sv2) + (−su1 + cu2)(−sv1 + cv2)
+= (c2 + s2)
+|
+{z
+}
+=1
+u1v1 + (c2 + s2)
+|
+{z
+}
+=1
+u2v2 + (cs −cs)
+|
+{z
+}
+= 0
+(u1v2 + u2v1) = u1v1 + u2v2 = ⟨u|v⟩.
+(II.30)
+come ci si aspettava.
+Esempio II.4 (Moltiplicazione per una fase). Un esempio ancora più semplice di trasformazione unitaria è la
+moltiplicazione per una fase globale, v′ = eiφv. In questo caso il prodotto scalare è manifestamente invariante:
+⟨u′|v′⟩=
+X
+i
+u′ ∗
+i v′
+i =
+X
+i
+(eiφui)∗(eiφvi) =
+X
+i
+u∗
+i vi = ⟨u|v⟩.
+(II.31)
+E.
+Matrici di Pauli
+In fisica sono onnipresenti le cosiddette matrici di Pauli. Esse, assieme all’identità, costituiscono una base per lo
+spazio delle matrici 2 × 2 Hermitiane. Infatti, ogni matrice 2 × 2 Hermitiana può essere scritta come:
+A =
+ 
+a
+b + ic
+b −ic
+d
+!
+= a + d
+2
+1 + b σ1 + c σ2 + a −d
+2
+σ3 ,
+(II.32)
+
+
+===== PAGINA 18 =====
+F
+Digressione: Simbolo di Levi–Civita in 3D
+18
+con:
+σ1 =
+ 
+0 1
+1 0
+!
+,
+σ2 =
+ 
+0 −i
+i
+0
+!
+,
+σ3 =
+ 
+1
+0
+0 −1
+!
+.
+(II.33)
+Le matrici di Pauli soddisfano una serie di proprietà che le rendono onnipresenti in meccanica quantistica:
+1. σ†
+i = σi,
+[Hermitiane]
+2. σ†
+i = σ−1
+i
+,
+[unitarie, infatti det σi = −1]
+3. σ2
+i = 1,
+4. Tr σi = 0,
+5. Tr(σi · σj) = 2δij,
+6. [σi, σj] = 2i P3
+k=1 εijk σk,
+7. {σi, σj} = 2δij 1,
+dove εijk è detto tensore di Levi–Civita, e ne discuteremo le proprietà a brevissimo. Combinando le ultime due si
+ottiene una relazione particolarmente utile, che esprime il prodotto di due qualsiasi matrici di Pauli come combinazione
+dell’identità e di una matrice di Pauli:
+σi · σj = δij 1 + i
+3
+X
+k=1
+εijk σk .
+(II.34)
+F.
+Digressione: Simbolo di Levi–Civita in 3D
+È a questo punto opportuna una breve digressione sul simbolo di Levi–Civita in 3D, che ci sarà utile in molte
+occasioni. Esso è definito come completamente antisimmetrico sotto lo scambio di qualsiasi coppia di indici,
+εijk = −εjik = −εkji
+=⇒
+εiij = εjii = εiji = 0 ,
+(II.35)
+con la normalizzazione ε123 = +1.
+Esistono alcune proprietà utili che vale la pena di conoscere a memoria.
+La prima è la sua contrazione totale.
+Sfruttando l’antisimmetria, gli unici termini non nulli sono quelli in cui tutti e tre gli indici sono diversi:
+X
+i,j,k
+εijkεijk =
+X
+j,k
+n ε1jk2 +
+ ε2jk2 +
+ ε3jk2o
+=
+X
+k
+n ε12k2 +
+ ε13k2 +
+ ε21k2 +
+ ε23k2 +
+ ε31k2 +
+ ε32k2o
+=
+ ε1232 +
+ ε1322 +
+ ε2132 +
+ ε2312 +
+ ε3122 +
+ ε3212 = 6 ,
+(II.36)
+Dove abbiamo usato il fatto che, per qualsiasi elemento non-nullo del simbolo di Levi–Civita, vale εijk = ±1. La
+seconda proprietà è la contrazione su due indici. Il risultato è necessariamente un oggetto costante (ossia indipendente
+da qualsiasi vettore dello spazio), che porti due indici, e simmetrico sotto il loro scambio. Esiste solo un oggetto con
+queste caratteristiche: la delta di Kronecker, dunque:
+X
+i,j
+εijkεijm = α δkm .
+(II.37)
+Per trovare il coefficiente α basta imporre il risultato precedente:
+X
+i,j,k
+εijkεijk = 6 = α
+X
+k
+δkk = 3α
+=⇒
+X
+i,j
+εijkεijm = 2 δkm
+.
+(II.38)
+
+
+===== PAGINA 19 =====
+19
+La terza proprietà è la contrazione su un solo indice. Il risultato questa volta è un oggetto a quattro indici, simmetrico
+sotto (jk) ↔(mn) e antisimmetrico sia sotto j ↔k che sotto m ↔n. L’unica combinazione con tali caratteristiche
+è nuovamente costruita a partire dalla delta di Kronecker:
+X
+i
+εijkεimn = β
+ δjmδkn −δjnδkm
+.
+(II.39)
+Come prima, il coefficiente β si trova contraendo ancora un indice e uguagliando al risultato già ottenuto:
+X
+i,j
+εijkεijn = 2 δkn =
+X
+j
+β
+ δjjδkn −δjnδkj
+= β
+ 3δkn −δkn
+= 2β δkn
+=⇒
+β = 1 .
+(II.40)
+Quindi:
+X
+i
+εijkεimn = δjmδkn −δjnδkm
+.
+(II.41)
+Più in generale, senza effettuare alcuna contrazione, il prodotto di due simboli di Levi–Civita si può scrivere come
+il determinante di una matrice di delta di Kronecker che prende gli indici del primo simbolo come righe e quelli del
+secondo come colonne:
+εijkεℓmn = det
+
+
+
+δiℓ
+δim
+δin
+δjℓδjm δjn
+δkℓδkm δkn
+
+
+.
+(II.42)
+Il simbolo di Levi–Civita può essere usato per scrivere in forma particolarmente compatta oggetti comuni in fisica.
+Ad esempio, le componenti del prodotto vettoriale tra due vettori si scrivono come:
+(u × v)i =
+X
+j,k
+εijk uj vk ,
+(II.43)
+mentre il determinante di una matrice 3 × 3 si può esprimere come:
+det M3×3 = 1
+3!
+X
+i,j,k
+ℓ,m,n
+εijkεℓmn MiℓMjm Mkn .
+(II.44)
+L’utilizzo di questa notazione compatta può rivelarsi molto utile.
+Ad esempio, diventa molto semplice ottenere
+relazioni come quella per il doppio prodotto vettoriale. Vediamo come, a titolo esemplificativo,
+[(v × u) × w]i =
+X
+j,k
+εijk (v × u)j wk =
+X
+j,k,m,n
+εijkεjmnvmunwk = −
+X
+j,k,m,n
+εjikεjmnvmunwk
+= −
+X
+k,m,n
+ δimδkn −δinδkm
+vmunwk = −vi
+X
+k
+ukwk + ui
+X
+k
+vkwk ,
+(II.45)
+che è la nota relazione (v × u) × w = (v · w) u −(u · w) v.
+III.
+TEORIA SPETTRALE, FUNZIONI DI MATRICI E TEOREMA DI CAYLEY–HAMILTON
+Capita tutti i giorni di dover risolvere equazioni differenziali lineari a coefficienti costanti. In dimensione 1 tutto è
+relativamente semplice. Ad esempio,
+1. ¨x(t) = −ω2x(t) =⇒x(t) = α1eiωt + α2e−iωt ;
+2. ˙x(t) = e−αx(t) =⇒x(t) = 1
+α log(αt) .
+
+
+===== PAGINA 20 =====
+A
+Autovalori, Autovettori e Diagonalizzabilità
+20
+E se il problema fosse in più dimensioni? Ad esempio, consideriamo il seguente sistema dinamico, descritto dalla
+Lagrangiana
+L =
+n
+X
+i=1
+1
+2m ˙q2
+i −V (q1, q2, . . . , qn)
+=⇒
+m¨qi + ∂V
+∂qi
+= 0 .
+(III.1)
+Se esiste, il punto q∗tale che ∇V (q∗) = 0 è un punto di equilibrio: la traiettoria q(t) = q∗= costante, ˙q(t) = 0 è
+soluzione delle equazioni del moto e corrisponde al sistema congelato nella configurazione q∗. Ma q∗è un equilibrio
+stabile o instabile? Per rispondere a questa domanda bisogna studiare come evolvono nel tempo piccole deviazioni
+dalla posizione di equilibrio. Se queste deviazioni crescono nel tempo, il punto è instabile. Se rimangono limitate, è
+stabile. Poniamo quindi q(t) = q∗+ δq(t), con δq piccolo, e Taylor-espandiamo il potenziale intorno a q∗:
+V (q) = V (q∗) + ∇V (q∗)
+|
+{z
+}
+= 0
+· δq + 1
+2
+X
+i,j
+∂i∂jV (q∗) δqi δqj + O(δq3) .
+(III.2)
+Inserendo nella Lagrangiana e trascurando i termini di ordine superiore al secondo, si ottiene l’equazione del moto
+per le piccole oscillazioni:
+m δ ¨q + H · δq = 0 ,
+con
+Hij ≡∂i∂jV (q∗) ,
+(III.3)
+dove H è la matrice Hessiana del potenziale calcolata nel punto di equilibrio. In analogia col caso 1D, ci piacerebbe
+scrivere:
+δq(t) = e i√
+H/m t · a1 + e−i√
+H/m t · a2 .
+(III.4)
+Come dare senso a e±i√
+H/m t, e come capire se questa espressione cresca o meno col tempo? Per rispondere è necessario
+sviluppare la teoria spettrale degli operatori lineari e imparare a definire una funzione di una matrice f(A).
+A.
+Autovalori, Autovettori e Diagonalizzabilità
+Definizione — Autovalore e Autovettore
+Dato un operatore A: H →H, uno scalare λ è detto autovalore di A se esiste un vettore non nullo |vλ⟩̸ = 0
+tale che
+A |vλ⟩= λ |vλ⟩.
+(III.5)
+Il vettore |vλ⟩è detto autovettore associato a λ. L’insieme degli autovalori è chiamato spettro di A.
+In rappresentazione matriciale, Eq. (III.5) diventa il sistema lineare omogeneo
+(A −λ 1) · vλ = 0 ,
+(III.6)
+un sistema di equazioni per le componenti di vλ = (vλ,1, . . . , vλ,n)T . Soluzioni non banali esistono se e solo se la
+matrice dei coefficienti è singolare, ossia se il suo determinante si annulla:
+p(λ) ≡det(A −λ 1) = 0 ,
+(III.7)
+che è detta equazione caratteristica di A. Poiché il determinante di una matrice n × n è un polinomio di grado n
+nei suoi elementi, p(λ) è un polinomio di grado n in λ, e l’equazione caratteristica ha sempre esattamente n soluzioni
+(contando le molteplicità). Di conseguenza:
+Ogni matrice n × n è caratterizzata da n autovalori, possibilmente coincidenti.
+Un secondo risultato importante riguarda gli autovettori relativi ad autovalori distinti: essi sono sempre linearmente
+indipendenti. Per vederlo, siano A |v1⟩= λ1 |v1⟩e A |v2⟩= λ2 |v2⟩con λ1̸ = λ2, e supponiamo che α |v1⟩+β |v2⟩= 0.
+Applicando A:
+A
+ α |v1⟩+ β |v2⟩
+
+= λ1α |v1⟩+ λ2β |v2⟩= 0 .
+(III.8)
+
+
+===== PAGINA 21 =====
+B
+Proiettori e Rappresentazione Spettrale
+21
+Sottraendo λ2 volte la relazione originale si ottiene (λ1 −λ2)α |v1⟩= 0, da cui, poiché λ1̸ = λ2:
+α = 0
+=⇒
+β |v2⟩= 0
+=⇒
+β = 0 .
+(III.9)
+che corrisponde esattamente alla condizione di indipendenza lineare.
+Definizione — Autospazio
+Dato un autovalore λ di A, si definisce autospazio Lλ il sottospazio di H generato da tutti gli autovettori
+associati a λ:
+Lλ =
+n
+|u⟩∈H
+ |u⟩=
+X
+α
+uα |v(α)⟩, A |v(α)⟩= λ |v(α)⟩
+o
+,
+(III.10)
+Molte domande (ad esempio, come definire f(A)) trovano risposta molto semplice per le matrici diagonalizzabili.
+Definizione — Matrice Diagonalizzabile
+Una matrice A è detta diagonalizzabile se esiste una base nella quale appare diagonale, ossia se esiste S
+invertibile tale che
+D = S−1 · A · S =
+
+
+
+
+
+
+λ1
+λ2
+...
+λn
+
+
+
+
+
+
+.
+(III.11)
+La condizione di diagonalizzabilità di una matrice è:
+Se un operatore su H di dimensione n ha n autovettori linearmente indipendenti {|v(1)⟩, . . . , |v(n)⟩}, allora la
+matrice associata è diagonalizzabile.
+Questo risultato è dimostrabile in modo costruttivo: nell’atto di dimostrarlo, dimostreremo anche come si diagonalizza
+la matrice. Infatti, in questo caso è possibile costruire esplicitamente la matrice S mettendo gli autovettori nelle
+colonne:
+S =
+ v(1) v(2) · · · v(n)
+,
+ossia
+Sij = v(j)
+i
+,
+(III.12)
+che è invertibile in quanto le colonne sono linearmente indipendenti. Si verifica subito che A · S = S · D:
+(A · S)ij =
+X
+k
+Aik v(j)
+k
+= λj v(j)
+i
+=
+X
+k
+v(k)
+i
+δkj λk = (S · D)ij .
+(III.13)
+Le due situazioni che si possono presentare sono:
+1. λi tutti distinti =⇒gli n autovettori sono tutti linearmente indipendenti =⇒matrice sempre diagonalizzabile;
+2. λi = λj per qualche i̸ = j =⇒diagonalizzabilità non garantita (si veda l’esempio a fine sezione).
+Un operatore diagonalizzabile ha {|v(1)⟩, . . . , |v(n)⟩} come base di H, dunque ogni |u⟩∈H si scrive come |u⟩=
+P
+i αi |v(i)⟩.
+B.
+Proiettori e Rappresentazione Spettrale
+I proiettori associati ad una base di autovettori soddisfano una serie di importanti relazioni. Immaginiamo di partire
+dalla base in cui A è diagonale. In questa base gli autovettori corrispondono chiaramente alla base canonica {|ei⟩};
+ad esempio D |e2⟩= λ2 |e2⟩. I proiettori hanno in questa base la forma particolarmente semplice
+P(D)
+i
+= |e(i)⟩⟨e(i)| ,
+(III.14)
+
+
+===== PAGINA 22 =====
+B
+Proiettori e Rappresentazione Spettrale
+22
+e sono proiettori ortogonali. Per esempio,
+P(D)
+2
+= |e(2)⟩⟨e(2)| 7−→e(2)e(2)T =
+
+
+
+
+
+
+0
+1
+...
+0
+
+
+
+
+
+
+.
+(III.15)
+Evidentemente valgono le seguenti relazioni (che abbiamo già dimostrato in precedenza):
+P(D)
+i
+P(D)
+j
+= |e(i)⟩⟨e(i)||e(j)⟩⟨e(j)| = |e(i)⟩⟨e(j)| δij = P(D)
+i
+δij ,
+(III.16a)
+X
+i
+P(D)
+i
+=
+X
+i
+|e(i)⟩⟨e(i)| = 1 .
+(III.16b)
+Queste relazioni valgono in realtà in tutte le basi. Usando A = S · D · S−1 e Pi = S · P(D)
+i
+· S−1 (con S la matrice di
+cambio di base), si ha:
+S · P(D)
+i
+· P(D)
+j
+· S−1 = S · P(D)
+i
+· S−1 · S · P(D)
+j
+· S−1 = Pi · Pj
+= δij S · P(D)
+i
+· S−1 = Pi δij ,
+(III.17)
+da cui:2
+Pi · Pj = δij Pi
+,
+[Ortogonalità dei proiettori]
+(III.18)
+e analogamente S ·
+ P
+i P(D)
+i
+
+· S−1 = P
+i Pi = S · 1 · S−1 = 1, dunque:
+X
+i
+Pi = 1 .
+[Relazione di completezza]
+(III.19)
+Notabene
+Un aspetto importante è che, in una base generica, i proiettori Pi associati agli autovettori di una matrice
+diagonalizzabile potrebbero non essere proiettori ortogonali nel senso di Eq. (I.41).
+Esplicitamente, le loro
+componenti matriciali sono:
+(Pi)jk =
+X
+n,m
+Sjn (P(D)
+i
+)nm (S−1)mk =
+X
+n,m
+Sjn δin δim (S−1)mk = Sji (S−1)ik ,
+(III.20)
+dove si è usato il fatto che (P(D)
+i
+)nm = ei
+nei
+m = δinδim. D’altro canto, il proiettore ortogonale sarebbe:
+(Port
+i )jk =
+v(i)
+j
+v(i)∗
+k
+∥v(i)∥2 =
+Sji (S†)ik
+P
+n(S†)in Sni
+.
+(III.21)
+In generale Pi̸ = Port
+i . Lo sono però quando la matrice di cambio di base è unitaria: S† = S−1. Questo si può
+capire anche graficamente: se due autovettori non sono ortogonali tra loro, la proiezione ortogonale su v(2) non
+elimina completamente la componente lungo v(1).
+2 Si noti come la relazione in Eq. (III.18) determini l’ortogonalità dei proiettori tra di loro. Questo non vuol dire che siano proiettori
+ortogonali, nel senso che non è garantito implementino l’operazione di proiezione ortogonale lungo gli autovettori associati.
+
+
+===== PAGINA 23 =====
+B
+Proiettori e Rappresentazione Spettrale
+23
+v(2)
+v(1)
+u
+Port
+2
+· u
+mantiene una componen-
+te non-nulla lungo v(1)
+Un operatore diagonalizzabile può essere scritto in modo compatto come:
+A =
+X
+i
+λi Pi
+.
+[Rappresentazione Spettrale di A]
+(III.22)
+L’equazione di sopra prende il nome di rappresentazione spettrale di A . Infatti, poiché |u⟩= P
+i αi |v(i)⟩:
+A |u⟩=
+X
+i
+αi A |v(i)⟩=
+X
+i
+αiλi |v(i)⟩=
+X
+i
+λi Pi |u⟩=
+X
+i
+λi Pi
+
+|u⟩.
+(III.23)
+Esempio III.1 (Autovettori ortonormali). Sia A =
+ 
+1
+1 + i
+1 −i
+2
+!
+. Il polinomio caratteristico è:
+p(λ) = det(A −λ 1) = (1 −λ)(2 −λ) −2 = λ2 −3λ = λ(λ −3) = 0
+=⇒
+λ1 = 0,
+λ2 = 3 .
+(III.24)
+Autovettori. Per λ1 = 0: A · e(1) = 0 dà e(1)
+1
++ (1 + i)e(1)
+2
+= 0, da cui
+e(1) =
+1
+√
+6
+ 
+2
+i −1
+!
+.
+(III.25)
+Per λ2 = 3: e(2)
+1
++ (1 + i)e(2)
+2
+= 3e(2)
+1
+dà (1 + i)e(2)
+2
+= 2e(2)
+1 , da cui
+e(2) =
+1
+√
+3
+ 
+1
+1 −i
+!
+.
+(III.26)
+Poiché ∥e(i)∥= 1 e e(1)† · e(2) = 0, ossia gli autovettori sono ortonormali, la matrice S è unitaria:
+S =
+ e(1) e(2)
+=
+ 
+2/
+√
+6
+1/
+√
+3
+(i −1)/
+√
+6 (1 −i)/
+√
+3
+!
+,
+S−1 = S† =
+ 
+2/
+√
+6 −(1 + i)/
+√
+6
+1/
+√
+3
+(1 + i)/
+√
+3
+!
+,
+(III.27)
+e si verifica che S−1 · A · S =
+ 
+0 0
+0 3
+!
+= D.
+I proiettori valgono:
+P1 = e(1) e(1)† = 1
+6
+ 
+2
+i −1
+!
+ 2, −i −1
+
+= 1
+3
+ 
+2
+−(1 + i)
+i −1
+1
+!
+,
+(III.28a)
+P2 = e(2) e(2)† = 1
+3
+ 
+1
+1 −i
+!
+ 1, 1 + i
+
+= 1
+3
+ 
+1
+1 + i
+1 −i
+2
+!
+.
+(III.28b)
+E, infatti:
+Pi · Pj = δij Pi ,
+P1 + P2 = 1 ,
+λ1P1 + λ2P2 = 0 · P1 + 3 · P2 = A .
+(III.29)
+
+
+===== PAGINA 24 =====
+C
+Autovalori e Autovettori di Operatori Hermitiani
+24
+Esempio III.2 (Autovettori non ortonormali). Sia A =
+ 
+3 1
+2 2
+!
+, con autovalori λ1 = 1 e λ2 = 4.
+Autovettori: v(1) =
+ 
+1
+−2
+!
+e v(2) =
+ 
+1
+1
+!
+. Si noti che v(1) ·v(2) = −1̸ = 0: gli autovettori non sono ortogonali, dunque
+Pi̸ = |v(i)⟩⟨v(i)|.
+Per trovarli si può procedere a ritroso dalla base diagonale:
+S =
+ v(1) v(2)
+=
+ 
+1
+1
+−2 1
+!
+,
+S−1 = 1
+3
+ 
+1 −1
+2
+1
+!
+=⇒
+S−1 · A · S =
+ 
+1 0
+0 4
+!
+= D .
+(III.30)
+Nella base diagonale i proiettori sono semplicemente P(D)
+1
+=
+ 
+1 0
+0 0
+!
+e P(D)
+2
+=
+ 
+0 0
+0 1
+!
+; tornando alla base originaria:
+P1 = S · P(D)
+1
+· S−1 = 1
+3
+ 
+1
+−1
+−2
+2
+!
+,
+P2 = S · P(D)
+2
+· S−1 = 1
+3
+ 
+2 1
+2 1
+!
+.
+(III.31)
+E, infatti:
+λ1P1 + λ2P2 = 1
+3
+ 
+1
+−1
+−2
+2
+!
++ 4
+3
+ 
+2 1
+2 1
+!
+=
+ 
+3 1
+2 2
+!
+= A ,
+(III.32)
+Pi · Pj = δijPi e P1 + P2 = 1.
+Esempio III.3 (Matrice non diagonalizzabile). Sia A =
+ 
+1 1
+0 1
+!
+. Il polinomio caratteristico è p(λ) = (1 −λ)2 = 0,
+da cui λ1 = λ2 = 1. Per gli autovettori:
+ 
+1 1
+0 1
+! 
+v1
+v2
+!
+=
+ 
+v1
+v2
+!
+=⇒
+(
+v1 + v2 = v1 =⇒v2 = 0
+v2 = v2 (banale)
+(III.33)
+Si trova un solo autovettore indipendente: v =
+ 
+1
+0
+!
+. Gli autovettori non formano una base e quindi la matrice è non
+diagonalizzabile.
+C.
+Autovalori e Autovettori di Operatori Hermitiani
+Gli operatori Hermitiani hanno proprietà notevoli:
+1. Autovalori reali. Dalla definizione di autovettore, ⟨v|Av⟩= λ ⟨v|v⟩. Poiché A = A†:
+λ ⟨v|v⟩= ⟨v|Av⟩= ⟨Av|v⟩∗=
+
+⟨v|A†v⟩
+∗=
+
+⟨v|Av⟩
+∗= λ∗⟨v|v⟩
+=⇒
+λ = λ∗.
+(III.34)
+2. Preservano il sottospazio ortogonale ad ogni autovettore.
+Sia A |v⟩= λ |v⟩e sia il suo sottospazio
+ortogonale dato da H⊥= {|u⟩∈H | ⟨u|v⟩= 0}. Per ogni |u⟩∈H⊥:
+⟨Au|v⟩= ⟨u|A†v⟩= ⟨u|Av⟩= λ ⟨u|v⟩= 0
+=⇒
+A |u⟩∈H⊥.
+(III.35)
+In altre parole, se |u⟩è ortogonale a |v⟩, allora anche A |u⟩lo è.
+
+
+===== PAGINA 25 =====
+E
+Funzioni di Matrici
+25
+3. Gli autovettori formano una base ortonormale.
+Mostriamo per prima cosa la diagonalizzabilità delle
+matrici Hermitiane, ossia che ammettono sempre n autovettori. Infatti p(λ) = 0 ha n soluzioni, possibilmente
+alcune coincidenti.
+Sia |v(1)⟩l’autovettore associato alla prima di queste soluzioni. Siano {|u(1)⟩, . . . , |u(n−1)⟩} una base del suo
+sottospazio ortogonale, H⊥. In H⊥l’operatore A è rappresentato da una matrice (n−1) × (n−1):
+A |u(i)⟩=
+n−1
+X
+j=1
+A′
+ji |u(j)⟩.
+(III.36)
+Poiché l’operatore A è Hermitiano, la sua matrice rappresentativa su H⊥sarà a sua volta Hermitiana, e di
+dimensione (n −1) × (n −1), vista la dimensione di H⊥. Seguendo un ragionamento del tutto analogo, a sua
+volta, A′
+ij avrà almeno un autovettore, diciamo |v(2)⟩, tale che ⟨v(1)|v(2)⟩= 0. Siano {|˜u(1)⟩, . . . , |˜u(n−2)⟩} una
+base del sottospazio ortogonale sia a |v(1)⟩che a |v(2)⟩, ossia H⊥⊥= {|u⟩∈H | ⟨v(1)|u⟩= ⟨v(2)|u⟩= 0}. Su H⊥⊥,
+la matrice rappresentativa A′′
+ij è (n−2) × (n−2) ed Hermitiana che ammetterà almeno un autovettore, e così via.
+In questo modo è possibile ottenere n autovettori, dimostrando che la matrice Hermitiana A è diagonalizzabile.
+Ora, questi n autovettori possono sempre essere combinati in una base ortogonale (e quindi anche ortonormale).
+Infatti, se due autovettori sono associati ad autovalori distinti, sono sempre ortogonali:
+λ2 ⟨v(1)|v(2)⟩= ⟨v(1)|Av(2)⟩= ⟨v(1)|A†v(2)⟩= ⟨Av(1)|v(2)⟩= λ1 ⟨v(1)|v(2)⟩.
+(III.37)
+Ma allora:
+(λ2 −λ1) ⟨v(1)|v(2)⟩= 0
+=⇒
+se λ1̸ = λ2, allora ⟨v(1)|v(2)⟩= 0 .
+(III.38)
+Se, invece, alcuni autovettori sono associati allo stesso autovalore, diciamo λi, si può sempre applicare l’algoritmo
+di Gram–Schmidt per ottenere un ugual numero di autovettori di λi, ma ora ortonormalizzati.
+Notabene
+L’esistenza di una base ortonormale di autovettori implica che la matrice di cambio di base S è unitaria:
+S† = S−1. Infatti, se Sij = e(j)
+i , allora
+(S† · S)ij =
+X
+n
+(S†)in Snj =
+X
+n
+ e(i)
+n
+∗e(j)
+n
+= ⟨e(i)|e(j)⟩= δij
+=⇒
+S† · S = 1 .
+(III.39)
+D.
+Autovalori e Autovettori di Operatori Unitari
+Per gli operatori unitari valgono proprietà analoghe (la dimostrazione è del tutto analoga al caso Hermitiano):
+1. Autovalori complessi con |λ| = 1.
+2. Gli autovettori formano una base ortonormale.
+E.
+Funzioni di Matrici
+Abbiamo ora tutti gli ingredienti per rispondere alla domanda originale: come dare senso ad una funzione di un
+operatore? Per funzioni analitiche, tramite la loro espansione in serie:
+f(z) =
+∞
+X
+n=0
+cn zn ,
+(III.40)
+allora la rappresentazione matriciale di f(A) sarà:
+f(A) =
+∞
+X
+n=0
+cn An =
+∞
+X
+n=0
+cn
+X
+i
+λi Pi
+n
+.
+[Pi · Pj = δij Pi]
+(III.41)
+
+
+===== PAGINA 26 =====
+E
+Funzioni di Matrici
+26
+Usando ripetutamente la relazione Pi · Pj = δij Pi, si verifica che
+ P
+i λiPi
+n = P
+i λn
+i Pi, da cui:
+f(A) =
+∞
+X
+n=0
+cn
+X
+i
+λn
+i Pi =
+X
+i
+ ∞
+X
+n=0
+cnλn
+i
+
+Pi .
+(III.42)
+f(A) =
+X
+i
+f(λi) Pi
+.
+[Rappresentazione Spettrale di f(A)]
+(III.43)
+Consiglio
+Verificare per esercizio che
+ P
+i λiPi
+n = P
+i λn
+i Pi usando Pi · Pj = δijPi.
+Nella base in cui A è diagonale, anche f(A) lo sarà:
+S−1 · f(A) · S =
+X
+i
+f(λi) S−1 · Pi · S =
+X
+i
+f(λi) P(D)
+i
+= f(λ1)
+
+
+
+
+
+
+1
+0
+...
+0
+
+
+
+
+
+
++ f(λ2)
+
+
+
+
+
+
+0
+1
+...
+0
+
+
+
+
+
+
++ · · · + f(λn)
+
+
+
+
+
+
+0
+0
+...
+1
+
+
+
+
+
+
+=
+
+
+
+
+
+
+f(λ1)
+f(λ2)
+...
+f(λn)
+
+
+
+
+
+
+≡f(D) .
+(III.44)
+Esempio III.4 (Sistema di equazioni differenziali). Consideriamo ˙x(t) = A · x(t) con A =
+ 
+1
+1 + i
+1 −i
+2
+!
+.
+La
+soluzione formale è x(t) = eAt · x(0), con λ1 = 0, λ2 = 3 e proiettori calcolati in precedenza. Dalla Eq. (III.43):
+eAt = eλ1tP1 + eλ2tP2 = P1 + e3tP2
+= 1
+3
+ 
+2
+−(1 + i)
+i −1
+1
+!
++ e3t
+3
+ 
+1
+1 + i
+1 −i
+2
+!
+= 1
+3
+ 
+2 + e3t
+(1 + i)(e3t −1)
+(1 −i)(e3t −1)
+1 + 2e3t
+!
+.
+(III.45)
+La soluzione esplicita è quindi:
+
+
+
+
+
+x1(t) = 1
+3
+
+(2 + e3t) x1(0) + (1 + i)(e3t −1) x2(0)
+
+x2(t) = 1
+3
+
+(1 −i)(e3t −1) x1(0) + (1 + 2e3t) x2(0)
+
+(III.46)
+Verifica. Verifichiamo che in base diagonale ciascuna componente evolva semplicemente come eλit. Ricordando che
+S =
+ 
+2/
+√
+6
+1/
+√
+3
+(i −1)/
+√
+6 (1 −i)/
+√
+3
+!
+:
+x′(t) = S−1 · x(t) =
+
+
+
+
+2 x1(0) −(1 + i) x2(0)
+√
+6
+x1(0) + (1 + i) x2(0)
+√
+3
+e3t
+
+
+
+=
+ 
+x′
+1(0)
+x′
+2(0) e3t
+!
+,
+(III.47)
+come dev’essere: la prima componente resta costante (λ1 = 0), la seconda evolve come e3t.
+
+
+===== PAGINA 27 =====
+F
+Teorema di Cayley–Hamilton
+27
+Consiglio
+Esiste la rappresentazione spettrale anche per operatori non diagonalizzabili (che sono, però, molto più rari in
+fisica). Per approfondire, si veda il capitolo 9.2.3 di PPZ.
+Concludiamo con due importanti teoremi.
+F.
+Teorema di Cayley–Hamilton
+Definizione — Teorema di Cayley–Hamilton
+Ogni matrice soddisfa il proprio polinomio caratteristico:
+p(λ) = det(A −λ 1)
+=⇒
+p(A) = 0 .
+(III.48)
+Per matrici diagonalizzabili la dimostrazione è banale. Dalla rappresentazione spettrale di f(A) (Eq. (III.43)):
+p(A) =
+n
+X
+i=1
+p(λi) Pi = 0 ,
+(III.49)
+poiché p(λi) = 0 per definizione di autovalore.
+Notabene
+Per matrici generiche (anche non diagonalizzabili) la dimostrazione è leggermente più tecnica; si trova ad esempio
+su Wikipedia, ma non è particolarmente illuminante.
+Una conseguenza utilissima del teorema di Cayley–Hamilton è la seguente: ogni funzione analitica di una matrice
+di dimensione n si riduce ad un polinomio, nella matrice stessa, di grado n−1 o inferiore. Infatti, ogni
+funzione f(z) può sempre essere scritta come:
+f(z) = Q(z) p(z) + R(z) ,
+[divisione tra polinomi]
+(III.50)
+dove p(z) è il polinomio caratteristico, Q(z) il quoziente e R(z) il resto della divisione, di grado n−1 o inferiore. Ma
+allora:
+f(A) = Q(A) p(A)
+|{z}
+= 0
++R(A) = R(A) .
+(III.51)
+Per trovare R(z) non è sempre necessario eseguire la divisione tra polinomi per esteso. Infatti, poiché R(z) è un
+polinomio di grado n −1, lo possiamo scrivere genericamente come,
+R(z) = a0 + a1z + · · · + an−1zn−1 ,
+(III.52)
+con gli ai coefficienti da determinare. Quando gli autovalori sono tutti distinti, basta imporre f(λi) = R(λi) per ciascun
+autovalore: queste n condizioni determinano univocamente i coefficienti di R(z). Quando invece un autovalore λ ha
+molteplicità m > 1, si devono imporre condizioni aggiuntive sulle derivate:
+f(λ) = R(λ) ,
+f ′(λ) = R′(λ) ,
+. . . ,
+f (m−1)(λ) = R(m−1)(λ) .
+(III.53)
+Questo perché, se λ è soluzione dell’equazione caratteristica con molteplicità m, allora p(z) ha uno zero di ordine m
+in λ, p(z) ∝(z −λ)m, e dunque possiamo derivare Eq. (III.50) fino ad m −1 volte, ed ottenere le relazioni di sopra.
+Esempio III.5 (Funzione polinomiale). Sia f(z) = z4 + 3z3 −z + 2 e A =
+ 
+1
+1 + i
+1 −i
+2
+!
+, con p(z) = z2 −3z.
+Dividendo z4 + 3z3 −z + 2 per z2 −3z si ottiene:
+z4 + 3z3 −z + 2
+|
+{z
+}
+f(z)
+= (z2 −3z)
+|
+{z
+}
+p(z)
+· (z2 + 6z + 18)
+|
+{z
+}
+Q(z)
++ 53z + 2
+| {z }
+R(z)
+.
+(III.54)
+
+
+===== PAGINA 28 =====
+G
+Diagonalizzazione Simultanea di Operatori Compatibili
+28
+Dunque:
+f(A) = R(A) = 2 1 + 53 A =
+ 
+55
+53(1 + i)
+53(1 −i)
+108
+!
+.
+(III.55)
+Esempio III.6 (Funzione esponenziale). Sia f(z) = ez e la stessa matrice A =
+ 
+1
+1 + i
+1 −i
+2
+!
+, con p(z) = z(z −3) e
+dunque λ1 = 0, λ2 = 3. Il resto R(z) = a0 + a1z si determina imponendo:
+f(λ1) = R(λ1) :
+f(0) = R(0)
+=⇒
+a0 = 1 ,
+(III.56)
+f(λ2) = R(λ2) :
+e3 = 1 + 3a1
+=⇒
+a1 = e3 −1
+3
+.
+(III.57)
+Dunque:
+eA = 1 + e3 −1
+3
+A = 1
+3
+ 
+2 + e3
+(1 + i)(e3 −1)
+(1 −i)(e3 −1)
+1 + 2e3
+!
+,
+(III.58)
+in perfetto accordo con quanto trovato in precedenza tramite la formula spettrale.
+Esempio III.7 (Funzione logaritmo con autovalore degenere). Sia f(z) = log z e A =
+ 
+1 1
+0 1
+!
+, con p(z) = (z −1)2 e
+dunque un solo autovalore λ = 1 con molteplicità m = 2. Il resto R(z) = a0 + a1z si determina imponendo, oltre al
+valore di f, anche la derivata:
+
+
+
+f(1) = R(1) :
+log 1 = a0 + a1 = 0
+f ′(1) = R′(1) :
+1
+1 = a1 = 1
+=⇒
+a0 = −1 , a1 = 1 .
+(III.59)
+Dunque:
+log A = −1 + A =
+ 
+0 1
+0 0
+!
+.
+(III.60)
+G.
+Diagonalizzazione Simultanea di Operatori Compatibili
+Definizione — Diagonalizzazione Simultanea
+Dati due operatori Hermitiani A e B, esiste una base in cui sono entrambi diagonali se e solo se essi commutano:
+[A, B] = AB −BA = 0 .
+(III.61)
+Dimostrazione (⇐=): supponiamo che esista una base comune di autovettori, {|ei⟩}, tale che A |ei⟩= αi |ei⟩e
+B |ei⟩= βi |ei⟩. Allora:
+BA |en⟩= B αn |en⟩= αnβn |en⟩,
+(III.62a)
+AB |en⟩= A βn |en⟩= αnβn |en⟩.
+(III.62b)
+Ossia AB e BA hanno gli stessi elementi di matrice su tutti i vettori di base, e dunque AB = BA.
+Dimostrazione (=⇒): assumiamo [A, B] = 0. Supponiamo di essere nella base in cui A è diagonale, e che all’autovalore
+α sia associato l’autospazio Lα di dimensione d. Sia |α⟩∈Lα. Allora:
+A
+ B |α⟩
+
+= BA |α⟩= α
+ B |α⟩
+
+=⇒
+B |α⟩∈Lα .
+(III.63)
+
+
+===== PAGINA 29 =====
+G
+Diagonalizzazione Simultanea di Operatori Compatibili
+29
+Questo vuol dire che B manda autovettori di A in autovettori di A, con lo stesso autovalore. Possiamo dunque scrivere
+la rappresentazione di B ristretta all’autospazio Lα. Sia {|α(1)⟩, . . . , |α(d)⟩} una base ortonormale di Lα [A† = A ⇒
+⟨α(i)|α(j)⟩= δij]; allora:
+B |α(j)⟩=
+d
+X
+i=1
+B(α)
+ij
+|α(i)⟩
+[matrice rappresentativa di B all’interno di Lα] ,
+(III.64)
+dove B(α)
+ij
+= ⟨α(i)|B|α(j)⟩. Ma vale:
+ B(α)
+ji
+∗= ⟨α(j)|B|α(i)⟩
+∗= ⟨α(i)|B†|α(j)⟩
+= ⟨α(i)|B|α(j)⟩= B(α)
+ij
+=⇒
+ B(α)† = B(α) .
+(III.65)
+Ma allora B(α) è Hermitiana e dunque sicuramente diagonalizzabile. Chiamiamo i suoi autovettori {|β(1)⟩, . . . , |β(d)⟩} ∈
+Lα. Poiché devono a loro volta vivere nell’autospazio Lα, dove è definita B(α), segue che possono essere scritti come
+|β(i)⟩=
+d
+X
+j=1
+bji |α(j)⟩,
+A |β(i)⟩= α |β(i)⟩,
+B |β(i)⟩= βi |β(i)⟩.
+(III.66)
+I vettori |β(i)⟩sono dunque autovettori simultanei di A e B. Ripetendo il procedimento per ogni autospazio di A, si
+ottiene una base completa di autovettori comuni.
+□
+Esempio III.8 (Matrici reali simmetriche). Siano A =
+ 
+2
+2
+2 −1
+!
+e B =
+ 
+3 2
+2 0
+!
+, tali che [A, B] = 0 e AT = A,
+BT = B.
+Autovalori:
+pA(α) = α2 −α −6 = 0
+=⇒
+α1 = 3, α2 = −2 ,
+(III.67)
+pB(β) = β2 −3β −4 = 0
+=⇒
+β1 = 4, β2 = −1 .
+(III.68)
+Autovettori: per A, risolvendo (A −αi 1)v(i) = 0:
+α1 = 3 :
+v(1)
+1
+= 2 v(1)
+2
+=⇒
+v(1) =
+ 
+2
+1
+!
+,
+(III.69)
+α2 = −2 :
+v(2)
+1
+= −1
+2 v(2)
+2
+=⇒
+v(2) =
+ 
+−1
+2
+!
+.
+(III.70)
+Per B, risolvendo (B −βi 1)u(i) = 0:
+β1 = 4 :
+u(1)
+1
+= 2 u(1)
+2
+=⇒
+u(1) =
+ 
+2
+1
+!
+,
+(III.71)
+β2 = −1 :
+u(2)
+1
+= −1
+2 u(2)
+2
+=⇒
+u(2) =
+ 
+−1
+2
+!
+.
+(III.72)
+Gli autovettori di A e di B coincidono! La matrice S =
+ 
+2 −1
+1
+2
+!
+diagonalizza simultaneamente entrambe:
+S−1 · A · S =
+ 
+3
+0
+0 −2
+!
+,
+S−1 · B · S =
+ 
+4
+0
+0 −1
+!
+.
+(III.73)
+
+
+===== PAGINA 30 =====
+G
+Diagonalizzazione Simultanea di Operatori Compatibili
+30
+Esempio III.9 (Controesempio: matrici di Pauli). Consideriamo σ1 =
+ 
+0 1
+1 0
+!
+e σ2 =
+ 
+0 −i
+i
+0
+!
+, che non commutano:
+[σ1, σ2] = 2iσ3̸ = 0.
+Autovalori: det(σ1 −α 1) = α2 −1 = 0 =⇒α± = ±1; analogamente β± = ±1.
+Autovettori: per σ1: v(±)
+1
+= ± v(±)
+2
+; per σ2: u(±)
+1
+= ∓i u(±)
+2
+. Queste condizioni chiaramente non possono essere
+soddisfatte in contemporanea. Infatti, scegliendo la base che diagonalizza σ1,
+S =
+ 
+1 −1
+1
+1
+!
+,
+(III.74)
+si ha:
+S−1 · σ1 · S =
+ 
+1
+0
+0 −1
+!
+[diagonale] ,
+S−1 · σ2 · S =
+ 
+0 −i
+i
+0
+!
+[non diagonale] .
+(III.75)
+
+
+===== PAGINA 31 =====
+31
+Parte II
+Spazi di Hilbert Infinito-Dimensionali
+IV.
+BASI DI HILBERT E CONVERGENZA
+Passiamo ora al caso degli spazi di Hilbert di dimensione infinita. A parte qualche sottigliezza tecnica tipicamente
+irrilevante per la fisica, molti dei risultati ottenuti nel caso dim H < ∞si estendono in modo del tutto naturale al
+caso dim H = ∞. L’unica vera novità è la necessità di controllare i problemi di convergenza: somme finite diventano
+serie infinite, e bisogna assicurarsi che queste siano ben definite. Iniziamo osservando, con un esempio concreto, che
+mostra come spazi di Hilbert infinito-dimensionali compaiono in modo naturale anche in situazioni familiari.
+Esempio IV.1 (Funzioni analitiche). Le funzioni analitiche f : Ω→C, definite su un dominio Ωdel piano complesso,
+formano uno spazio vettoriale di dimensione infinita. Per vederlo, basta osservare che se f(z) e g(z) sono analitiche
+in Ωanche la loro somma lo è, e lo stesso vale per il prodotto λf(z) con λ ∈C. Inoltre, per definizione, ogni funzione
+analitica ammette uno sviluppo in serie di potenze attorno a un qualsiasi punto z0 ∈Ω:
+f(z) =
+∞
+X
+n=0
+αn(z −z0)n ≡
+∞
+X
+n=0
+βnzn ,
+z0 ∈Ω,
+(IV.1)
+dove nell’ultimo passaggio abbiamo espanso ogni potenza (z −z0)n e ridefinito i coefficienti della serie per essere βn.
+La definizione specifica di βn è irrilevante per il discorso attuale. In altre parole, i monomi {1, z, z2, . . .} costituiscono
+una base completa per lo spazio delle funzioni analitiche in Ω. Poiché tale base ha cardinalità numerabile infinita, lo
+spazio ha dimensione infinita.
+Tranne un paio di casi molto noti, ci concentreremo per lo più su spazi di Hilbert infinito-dimensionali che ammettono
+basi numerabili. Come nel caso finito-dimensionale, una base {|ei⟩}i∈N si dice ortonormale se i suoi elementi sono a
+due a due ortogonali e di norma unitaria,
+⟨ei|ej⟩= δij ,
+∀i, j ∈N ,
+(IV.2)
+e se ogni vettore dello spazio può essere scritto come
+|v⟩= lim
+N→∞
+N
+X
+n=0
+vn |en⟩≡
+∞
+X
+n=0
+vn |en⟩,
+∀v ∈H .
+(IV.3)
+Esattamente come prima, le componenti vn si ottengono dalla proiezione del vettore sulla base,
+vn = ⟨en|v⟩.
+(IV.4)
+È a questo punto naturale chiedersi: quando possiamo dire che la successione delle somme parziali |sN⟩= PN
+n=0 vn |en⟩
+converge effettivamente a |v⟩? La risposta è contenuta in una proprietà fondamentale degli spazi di Hilbert, ossia
+Cauchy ⇐⇒Convergenza .
+(IV.5)
+Questo vuol dire che una successione in uno spazio di Hilbert è convergente se e soltanto se è di Cauchy. Possiamo
+dunque ridurre la questione allo studio della distanza tra le somme parziali: se questa si riduce arbitrariamente, allora
+la somma parziale converge. Assumendo senza perdità di generalità che N > M, si ha:
+∥|sN⟩−|sM⟩∥2 =
+
+N
+X
+n=M+1
+vn |en⟩
+
+2
+=
+N
+X
+n=M+1
+v∗
+n ⟨en|
+N
+X
+m=M+1
+vm |em⟩
+=
+N
+X
+n=M+1
+|vn|2 =
+N
+X
+n=0
+|vn|2 −
+M
+X
+n=0
+|vn|2 .
+[⟨en|em⟩= δnm]
+(IV.6)
+Quindi la successione {|sN⟩} è di Cauchy se e solo se la successione numerica PN
+n=0 |vn|2 lo è, ossia se e solo se tale
+serie converge. Riassumendo:
+∞
+X
+n=0
+vn |en⟩converge
+⇐⇒
+∞
+X
+n=0
+|vn|2 converge .
+(IV.7)
+
+
+===== PAGINA 32 =====
+32
+Lo spazio delle sequenze complesse {zn}n∈N tali che P∞
+n=0 |zn|2 < ∞è detto spazio ℓ2. Il risultato appena ottenuto
+implica che ogni spazio di Hilbert con base numerabile è isomorfo ad ℓ2. L’isomorfismo è esattamente quello che mappa
+un vettore nelle sue componenti rispetto alla base scelta,
+|v⟩∈H
+←→
+{vn} ∈ℓ2 .
+(IV.8)
+In questo senso, ℓ2 gioca per gli spazi di Hilbert infinito-dimensionali numerabili lo stesso ruolo che CN gioca per
+quelli finito-dimensionali: ogni spazio è, a meno di isomorfismo, sempre lo stesso.
+V.
+SPAZIO DI FUNZIONI L2
+Un secondo esempio fondamentale di spazio di Hilbert infinito-dimensionale è dato dagli spazi di funzioni integrabili
+al quadrato, comunemente denotati L2. Questi giocano un ruolo centrale in meccanica quantistica, dove le funzioni
+d’onda vivono precisamente in spazi di questo tipo. Menzioniamo rapidamente, prima di iniziare, che tutto ciò che
+diremo da qui in poi è (tecnicamente) valido per integrazione alla Lebesgue, ma non necessariamente alla Riemann.
+Nella stragrande maggioranza dei casi di interesse fisico la distinzione è irrilevante, ma non sempre. Conviene allora
+richiamare brevemente la differenza tra le due nozioni di integrale. Data una funzione f : [a, b] →R, nell’integrazione
+alla Riemann si partiziona il dominio [a, b] in sottointervalli ∆i e si costruisce la somma dei valori della funzione in
+punti scelti ¯xi ∈∆i, pesati dalla misura dell’intervallo, |∆i|:
+Z b
+a
+dx f(x) ≡lim
+N→∞
+N
+X
+i=1
+f(¯xi) |∆i| ,
+¯xi ∈∆i .
+(V.1)
+Nell’integrazione alla Lebesgue, invece, si partiziona il codominio in intervalli [fi, fi+1] e si considera
+Z b
+a
+dx f(x) ≡lim
+N→∞
+N
+X
+i=1
+fi
+f −1(fi ≤f < fi+1)
+ ,
+(V.2)
+dove |f −1(fi ≤f < fi+1)| è la misura dell’insieme dei punti del dominio in cui la funzione assume valori nell’intervallo
+[fi, fi+1]. La differenza sostanziale (illustrata in Figura 5) è dunque che l’approccio alla Lebesgue “guarda” ai valori
+assunti da f chiedendosi quanto è grande l’insieme sul quale essa li assume, mentre quello alla Riemann si affida
+direttamente alla geometria del dominio. Il vantaggio dell’approccio alla Lebesgue diventa particolarmente evidente
+quando la funzione è abbastanza patologica da rendere la somma di Riemann mal definita, come nel prossimo esempio.
+Esempio V.1 (Funzione di Dirichlet). Consideriamo la funzione indicatrice dei razionali in [0, 1], nota anche come
+funzione di Dirichlet:
+χQ(x) =
+(
+1
+x ∈Q
+0
+x /∈Q .
+(V.3)
+Tale funzione si “accende” solamente quando la variabile è un razionale, altrimenti rimane nulla.
+Approccio alla Riemann: partizioniamo [0, 1] con sottointervalli uniformi ∆N(n) = {x | n/N ≤x ≤(n + 1)/N}, di
+ampiezza |∆N(n)| = 1/N. Abbiamo due possibilità per la scelta dei punti campione ¯xn ∈∆N(n):
+1. Se ¯xn ∈Q per ogni n:
+N
+X
+n=1
+f(¯xn)|∆N(n)| =
+N
+X
+n=1
+1
+N = 1.
+2. Se ¯xn /∈Q per ogni n:
+N
+X
+n=1
+f(¯xn)|∆N(n)| = 0.
+Poiché il risultato dipende dalla scelta dei punti campione, l’integrale di Riemann di χQ non è definito.
+Approccio alla Lebesgue: partizioniamo il codominio con fn = 1 + n/N, per n = 0, ±1, . . . , ±N.
+Gli insiemi di
+preimmagine sono allora
+f −1(fn ≤f < fn+1) = ∅, ∀n̸ = 0 ,
+f −1(f0 ≤f < f1) = Q[0,1] ,
+(V.4)
+
+
+===== PAGINA 33 =====
+33
+x
+f(x)
+a
+b
+¯x1
+¯x2
+¯x3
+¯x4
+¯x5
+∆3
+(a) Riemann
+x
+f(x)
+f1
+f2
+f3
+f4
+f5
+a
+b
+f−1 f3 ≤f < f4
+
+(b) Lebesgue
+Figura 5: Confronto tra integrazione alla Riemann e alla Lebesgue sulla stessa funzione. (a) Il dominio [a, b] è
+partizionato in sottointervalli ∆i, e su ciascuno la funzione è approssimata dal suo valore f(¯xi) in un punto campione
+¯xi ∈∆i; l’integrale è il limite delle aree dei rettangoli f(¯xi) |∆i| per |∆i| →0. (b) Il codominio è partizionato in intervalli
+[fi, fi+1], e si sommano i valori fi pesati dalla misura |f −1(fi ≤f < fi+1)| della preimmagine (in verdino sull’asse x); per
+funzioni non monotone la preimmagine può essere unione di più sottoinsiemi disgiunti del dominio.
+dove Q[0,1] ≡Q ∩[0, 1] è l’insieme dei razionali contenuti tra 0 e 1. Quindi:
+N
+X
+n=−N
+fn
+f −1(fn ≤f < fn+1)
+ = f0 ·
+Q[0,1]
+ =
+Q[0,1]
+ .
+(V.5)
+Non resta che mostrare che la misura dei razionali in [0, 1] è nulla.
+Enumeriamo i razionali come {q1, q2, . . .} e
+costruiamo attorno ad ognuno di loro un intervallo di ampiezza ϵ/2n+1. La misura di Q[0,1] sarà semplicemente la
+misura della somma di questi intervalli nel limite in cui ϵ →0, ossia,
+Q[0,1]
+
+ϵ =
+∞
+X
+n=1
+
+h
+qn −
+ϵ
+2n+2 , qn +
+ϵ
+2n+2
+i =
+∞
+X
+n=1
+ϵ
+2n+1 = ϵ
+2 −−−→
+ϵ→0
+0 .
+(V.6)
+Dunque, nel senso di Lebesgue,
+R 1
+0 dx χQ(x) = 0, e l’integrale è ben definito.
+Nello spazio vettoriale delle funzioni f : Ω→C è possibile definire diversi tipi di norma, più o meno utili per la fisica.
+Le più comuni sono la norma uniforme, la norma L1 pesata e, più in generale, la norma Lp pesata:
+∥f∥sup = sup
+x∈Ω
+|f(x)|
+≡norma uniforme ,
+(V.7a)
+∥f∥1,ω =
+Z
+Ω
+dx ω(x)|f(x)|
+≡norma L1
+ω ,
+(V.7b)
+...
+∥f∥p,ω =
+ Z
+Ω
+dx ω(x)|f(x)|p
+1/p
+≡norma Lp
+ω .
+(V.7c)
+
+
+===== PAGINA 34 =====
+34
+Negli esempi precedenti, ω(x) è una funzione nota e fissata per definire una particolare norma. In fisica, il caso di
+gran lunga più importante è quello p = 2 con peso ω = 1, ossia la norma L2. Infatti, si tratta dell’estensione più
+naturale del caso finito-dimensionale: possiamo pensare alla variabile continua x ∈[a, b] come alla versione continua
+dell’indice k ∈N, nel qual caso il parallelismo tra i due oggetti diventa immediato,
+vk
+−→
+f(x) ,
+(V.8a)
+⟨v|u⟩=
+∞
+X
+k=1
+v∗
+k uk
+−→
+⟨f|g⟩=
+Z b
+a
+dx f ∗(x) g(x) ,
+(V.8b)
+∥v∥=
+p
+⟨v|v⟩=
+v
+u
+u
+t
+∞
+X
+k=1
+|vk|2
+−→
+∥f∥2 =
+p
+⟨f|f⟩=
+sZ b
+a
+dx |f(x)|2 .
+(V.8c)
+Si definisce quindi spazio L2 lo spazio delle funzioni integrabili al quadrato:
+L2 =
+
+f : [a, b] →C
+
+Z b
+a
+dx |f(x)|2 < ∞
+
+.
+(V.9)
+L2 è, appunto, uno spazio vettoriale. Infatti, se f ∈L2 e λ ∈C,
+Z b
+a
+dx |λf(x)|2 = |λ|2
+Z b
+a
+dx |f(x)|2 < ∞
+=⇒
+λf ∈L2 .
+(V.10)
+Analogamente, se f, g ∈L2, sfruttando l’identità |f +g|2 = |f|2+|g|2+2|f||g| cos φ ≤(|f|+|g|)2 ≤(2 max(|f|, |g|))2 =
+4 max(|f|2, |g|2) ≤4(|f|2 + |g|2),3
+Z b
+a
+dx |f(x) + g(x)|2 ≤4
+ Z b
+a
+dx |f(x)|2 +
+Z b
+a
+dx |g(x)|2
+
+< ∞
+=⇒
+f + g ∈L2 .
+(V.11)
+In questo spazio, il prodotto scalare introdotto sopra è anche ben definito,
+⟨f|g⟩=
+Z b
+a
+dx f ∗(x) g(x) ,
+(V.12)
+nel senso che il suo modulo è finito. Infatti, usando la disuguaglianza elementare |f||g| ≤1
+2(|f|2 + |g|2),
+| ⟨f|g⟩| =
+
+Z b
+a
+dx f ∗(x)g(x)
+ ≤
+Z b
+a
+dx |f ∗(x)g(x)|
+=
+Z b
+a
+dx |f(x)||g(x)| ≤1
+2
+ Z b
+a
+dx |f(x)|2 +
+Z b
+a
+dx |g(x)|2
+
+< ∞
+[(|f| −|g|)2 ≥0] .
+(V.13)
+Tutte le proprietà del prodotto scalare nel caso finito-dimensionale si applicano allora anche in L2. Un modo utile
+per farsi un’idea di quali funzioni appartengano effettivamente ad L2 è passare in rassegna qualche esempio concreto.
+Esempio V.2 (Alcune funzioni in L2 e non).
+• f(x) = e−x2/2 per x ∈(−∞, ∞) è in L2:
+Z ∞
+−∞
+dx |f(x)|2 =
+Z ∞
+−∞
+dx e−x2 = √π .
+(V.14)
+• f(x) = x + i x2 per x ∈(−∞, ∞) non è in L2:
+Z ∞
+−∞
+dx |f(x)|2 =
+Z ∞
+−∞
+dx
+
+x2 + x4
+= ∞
+[cresce come
+Z
+dx x4 ∼x5 all’infinito] .
+(V.15)
+3 Nell’ultimo passaggio si è usato il fatto che max(|f|2, |g|2) vale |f|2 oppure |g|2, e che, essendo entrambi positivi, la loro somma è sempre
+maggiore del singolo.
+
+
+===== PAGINA 35 =====
+35
+• La stessa f(x) = x + i x2 ristretta a x ∈[0, 1] è in L2:
+Z 1
+0
+dx |f(x)|2 =
+Z 1
+0
+dx
+
+x2 + x4
+= 8
+15 .
+(V.16)
+• f(x) =
+1
+1 + x per x ∈[0, ∞) è in L2:
+Z ∞
+0
+dx |f(x)|2 =
+Z ∞
+0
+dx
+1
+(1 + x)2 = 1
+[decresce come
+Z
+dx/x2 ∼1/x all’infinito] .
+(V.17)
+• La stessa f(x) =
+1
+1 + x estesa a x ∈(−∞, ∞) non è in L2, a causa del polo in x = −1:
+Z ∞
+−∞
+dx |f(x)|2 =
+Z ∞
+−∞
+dx
+1
+(1 + x)2 = ∞
+[diverge come
+Z
+dx/x2 ∼1/x per x ∼−1] .
+(V.18)
+• La funzione “indicatrice” f(x) =
+(
+1
+−1 ≤x ≤1
+0
+altrove
+per x ∈(−∞, ∞) è in L2:
+Z ∞
+−∞
+dx |f(x)|2 =
+Z 1
+−1
+dx = 2 .
+(V.19)
+In L2 la distanza tra due funzioni è chiaramente definita come
+d(f, g) = ∥f −g∥=
+sZ b
+a
+dx |f(x) −g(x)|2 .
+(V.20)
+Questa nozione presenta però una sottigliezza importante rispetto al caso finito-dimensionale. Se le due funzioni
+coincidono ovunque, la distanza è certamente nulla:
+f(x) = g(x) , ∀x ∈[a, b]
+=⇒
+∥f −g∥= 0 .
+(V.21)
+Il viceversa, tuttavia, non è del tutto vero:
+∥f −g∥= 0
+=⇒
+f(x) = g(x) “quasi ovunque” ,
+(V.22)
+ossia a meno di insiemi di misura nulla. L’esempio che segue chiarisce perché.
+Esempio V.3 (Funzioni diverse a distanza nulla). Consideriamo le funzioni
+f(x) = √x ,
+x ∈[0, 1] ;
+g(x) =
+(√x
+x ∈[0, 1] \ {1/2}
+1
+x = 1/2
+.
+(V.23)
+Le due funzioni differiscono soltanto nel punto x = 1/2, un insieme di misura nulla. Di conseguenza:
+∥f −g∥=
+sZ 1
+0
+dx |f(x) −g(x)|2 = 0 ,
+(V.24)
+pur essendo f̸ = g come funzioni puntuali.
+Notabene
+f ∈L2 è una condizione unicamente sull’integrabilità, e quindi anche funzioni discontinue possono appartenere
+ad L2, purché siano integrabili. Tuttavia, è possibile mostrare che per supporti compatti, ossia x ∈[a, b] con
+
+
+===== PAGINA 36 =====
+A
+Alcune Basi Ortonormali di L2
+36
+a, b < ∞, le funzioni continue sono dense in L2. Più precisamente: ogni funzione f(x) ∈L2, con x ∈[a, b]
+compatto, è il limite di una successione di funzioni continue su [a, b]:
+∃{fn(x)} t.c.
+lim
+n→∞∥fn −f∥= 0 .
+(V.25)
+Inoltre, è possibile mostrare (ma non lo faremo) che tutte le successioni di Cauchy in L2 convergono a un elemento
+dello spazio stesso. In altre parole, L2 è uno spazio di Hilbert. Vale infine la pena di chiarire in che senso si parla di
+convergenza in L2. Una successione {|fn⟩} converge ad |f⟩, e si scrive |fn⟩
+n→∞
+−−−−→|f⟩, se
+∥fn −f∥
+n→∞
+−−−−→0 .
+(V.26)
+Notabene
+Notare che questo non implica fn(x) →f(x) punto per punto: la convergenza in norma L2 è una condizione
+sull’integrale, non sul valore della funzione in ogni singolo punto. Tuttavia, si può dimostrare che esiste sempre
+una sottosuccessione {fnk(x)} che converge ad f(x) puntualmente quasi ovunque:
+∃{fnk(x)} t.c.
+fnk(x)
+k→∞
+−−−−→f(x) quasi ovunque .
+(V.27)
+A.
+Alcune Basi Ortonormali di L2
+Esibiamo ora esplicitamente alcune basi ortonormali di L2 su diversi intervalli. Come vedremo, ognuna di queste basi
+è familiare dalla fisica ed emerge in modo del tutto naturale applicando la procedura di Gram–Schmidt ai monomi
+{1, x, x2, . . .}, per quanto con pesi e intervalli differenti. La scelta dell’intervallo, in effetti, determina univocamente
+la base che si ottiene.
+1.
+Polinomi di Legendre
+Consideriamo L2 per x ∈[−1, 1]. Poiché l’intervallo è compatto, ogni funzione f(x) in L2[−1, 1] sarà il limite di una
+successione di funzioni continue, le quali a loro volta sono il limite di una somma di monomi (ossia, al serie di Taylor).
+Applichiamo allora Gram–Schmidt ai monomi per trovare una base di L2[−1, 1]. Partiamo con u0(x) = 1:
+u0(x) = 1
+=⇒
+e0(x) =
+u0(x)
+p
+⟨u0|u0⟩
+=
+1
+qR 1
+−1 dy
+=
+1
+√
+2 .
+(V.28)
+Proseguiamo con
+u1(x) = x −⟨e0|x⟩e0(x) = x −1
+2
+Z 1
+−1
+dy y = x ,
+(V.29)
+da cui, normalizzando,
+e1(x) =
+x
+qR 1
+−1 dy y2
+=
+r
+3
+2 [x] .
+(V.30)
+Proseguiamo ancora con
+u2(x) = x2 −⟨e0|x2⟩e0(x) −⟨e1|x2⟩e1(x)
+= x2 −1
+2
+Z 1
+−1
+dy y2 −
+r
+3
+2 x
+Z 1
+−1
+dy
+r
+3
+2 y3 = x2 −1
+3 ,
+(V.31)
+da cui
+e2(x) =
+u2(x)
+p
+⟨u2|u2⟩
+=
+r
+5
+2
+3x2
+2
+−1
+2
+
+.
+(V.32)
+
+
+===== PAGINA 37 =====
+A
+Alcune Basi Ortonormali di L2
+37
+È facile convincersi che il pattern generale è
+en(x) =
+r
+2n + 1
+2
+Pn(x) ,
+[Base di L2[−1, 1]]
+(V.33)
+dove Pn(x) è definito dalla formula di Rodrigues:
+Pn(x) =
+1
+2n n!
+dn
+dxn
+h
+(x2 −1)ni
+.
+[n-esimo Polinomio di Legendre]
+(V.34)
+Lista di proprietà dei polinomi di Legendre:
+1.
+P ′
+n+1 = (n + 1) Pn + x P ′
+n ,
+(V.35a)
+2.
+P ′
+n−1 = −n Pn + x P ′
+n ,
+(V.35b)
+3.
+(n + 1) Pn+1 = (2n + 1) x Pn −n Pn−1 ,
+(V.35c)
+4.
+(1 −x2) P ′′
+n −2x P ′
+n + n(n + 1) Pn = 0 ,
+(V.35d)
+5.
+Pn(−x) = (−1)n Pn(x) ,
+(V.35e)
+6.
+Z 1
+−1
+dx Pn(x) Pm(x) =
+2
+2n + 1 δnm
+.
+(V.35f)
+Per dare un’idea di come si dimostrano queste identità, ricaviamo esplicitamente la prima. Applicando direttamente
+la definizione:
+P ′
+n+1 =
+1
+2n+1(n + 1)!
+dn+2
+dxn+2 (x2 −1)n+1 =
+1
+2n+1(n + 1)!
+dn+1
+dxn+1
+n
+2x(n + 1)(x2 −1)no
+=
+1
+2n n!
+dn+1
+dxn+1
+n
+x(x2 −1)no
+=
+1
+2n n!
+dn
+dxn
+
+(x2 −1)n + x d
+dx(x2 −1)n
+
+= Pn +
+1
+2n n!
+dn−1
+dxn−1
+ d
+dx(x2 −1)n + x d2
+dx2 (x2 −1)n
+
+= 2 Pn +
+1
+2n n!
+dn−2
+dxn−2
+ d2
+dx2 (x2 −1)n + x d3
+dx3 (x2 −1)n
+
+...
+= (n + 1) Pn + x P ′
+n .
+(V.36)
+Gli altri casi si dimostrano in modo del tutto analogo.
+2.
+Polinomi di Laguerre
+Consideriamo ora L2 per x ∈[0, ∞). A differenza del caso di Legendre, il supporto non è compatto, e quindi non
+possiamo applicare direttamente l’argomento precedente: i monomi xn non sono neppure integrabili al quadrato su
+[0, ∞). Mostriamo allora, come passaggio intermedio, che le funzioni xn sono una base dello spazio pesato L2
+e−x[0, ∞),
+dopodiché da qui otterremo una base di L2[0, ∞). Passo 1: mostriamo che i mononi {xn} sono una base di L2
+e−x[0, ∞).
+Sia f(x) ∈L2
+e−x[0, ∞). Con il cambio di variabili y = e−x, dy = −dx e−x:
+∞>
+Z ∞
+0
+dx e−x|f(x)|2 =
+Z 1
+0
+dy |f(log(1/y))|2
+=⇒
+f(log(1/y)) ∈L2[0, 1] .
+(V.37)
+Dunque f(log(1/y)) vive su un intervallo compatto, e per il risultato appena dimostrato può essere approssimata in
+norma da polinomi:
+∃PN(y) =
+N
+X
+n=0
+αn yn
+t.c.
+lim
+N→∞
+Z 1
+0
+dy |f(log(1/y)) −PN(y)|2 = 0 .
+(V.38)
+
+
+===== PAGINA 38 =====
+A
+Alcune Basi Ortonormali di L2
+38
+Tornando alla variabile x, ed espandendo e−nx come serie di Taylor:
+lim
+N→∞
+Z ∞
+0
+dx e−xf(x) −PN(e−x)
+2 = lim
+N→∞
+Z ∞
+0
+dx e−x
+f(x) −
+N
+X
+n=0
+αn e−nx
+
+2
+= lim
+N→∞
+M→∞
+Z ∞
+0
+dx e−x
+f(x) −
+N
+X
+n=0
+αn
+M
+X
+m=0
+βmn xm
+
+2
+= lim
+M→∞
+Z ∞
+0
+dx e−x
+f(x) −
+M
+X
+m=0
+γm xm
+
+2
+= 0 ,
+(V.39)
+dove i coefficienti γm saranno opportune combinazioni degli αn e βn. Questo prova che i monomi {xn} sono ef-
+fettivamente una base di L2
+e−x[0, ∞). Passo 2: rendiamola ortonormale applicando Gram–Schmidt. Partiamo con
+u0(x) = 1:
+u0(x) = 1
+=⇒
+e0(x) =
+u0(x)
+qR ∞
+0
+dy e−y
+= 1 .
+(V.40)
+Proseguiamo con
+u1(x) = x −⟨x|e0⟩e0 = x −
+Z ∞
+0
+dy e−yy = x −1 ,
+(V.41)
+che normalizzato dà
+e1(x) =
+x −1
+p
+⟨x −1|x −1⟩
+= −(1 −x) .
+(V.42)
+Analogamente,
+u2(x) = x2 −⟨x2|e0⟩e0 −⟨x2|e1⟩e1
+= x2 −
+Z ∞
+0
+dy e−yy2 −
+ Z ∞
+0
+dy e−yy2(y −1)
+
+(x −1)
+= x2 −2 −4(x −1) = x2 −4x + 2 ,
+(V.43)
+da cui
+e2(x) =
+x2 −4x + 2
+∥x2 −4x + 2∥= 1
+2(x2 −4x + 2) .
+(V.44)
+Iterando, si mostra che
+en(x) = (−1)n Ln(x) ,
+(V.45)
+con
+Ln(x) = ex
+n!
+dn
+dxn
+
+e−x xn
+.
+[n-esimo Polinomio di Laguerre]
+(V.46)
+Passo 3: risaliamo alla base di L2[0, ∞). Notando che
+∞>
+Z ∞
+0
+dx e−x|f(x)|2 =
+Z ∞
+0
+dx
+e−x/2 f(x)
+2 ≡
+Z ∞
+0
+dx
+g(x)
+2 ,
+(V.47)
+ad ogni funzione f(x) ∈L2
+e−x[0, ∞) corrisponde una funzione g(x) ≡e−x/2f(x) ∈L2[0, ∞) (e, chiaramente, viceversa).
+Usando quanto visto finora, questo implica,
+0 = lim
+N→∞
+Z ∞
+0
+dx e−x
+f(x) −
+N
+X
+n=0
+cn(−1)nLn(x)
+
+2
+= lim
+N→∞
+Z ∞
+0
+dx
+g(x) −
+N
+X
+n=0
+cn(−1)n e−x/2 Ln(x)
+
+2
+.
+(V.48)
+
+
+===== PAGINA 39 =====
+A
+Funzioni di Prova
+39
+Ne deduciamo che la base ortonormale di quest’ultimo spazio è
+en(x) = (−1)n e−x/2 Ln(x) .
+[Base di L2[0, ∞)]
+(V.49)
+Lista di proprietà dei polinomi di Laguerre:
+1.
+Ln−1 = L′
+n−1 −L′
+n ,
+(V.50a)
+2.
+x L′
+n = n Ln −n Ln−1 ,
+(V.50b)
+3.
+(n + 1) Ln+1 = (2n + 1 −x) Ln −n Ln−1 ,
+(V.50c)
+4.
+x L′′
+n + (1 −x) L′
+n + n Ln = 0 ,
+(V.50d)
+5.
+Z ∞
+0
+dx e−x Ln(x) Lm(x) = δnm
+.
+(V.50e)
+3.
+Polinomi di Hermite
+Consideriamo infine L2 per x ∈(−∞, ∞).
+In modo del tutto analogo a prima, partiamo dallo spazio pesato
+L2
+e−x2(−∞, ∞), di cui si può mostrare (con una riduzione simile a quella fatta per Laguerre) che i monomi {xn}
+costituiscono una base. Dopo di che, costruiamo una generica funzione di L2(−∞, ∞) moltiplicando una generica
+funzione di L2
+e−x2(−∞, ∞) per e−x2/2. Applicando poi Gram–Schmidt troviamo allora la nostra base ortonormale
+en(x) =
+e−x2/2
+p
+2n n! √π
+Hn(x) ,
+[Base di L2(−∞, ∞)]
+(V.51)
+con
+Hn(x) = (−1)n ex2 dn
+dxn e−x2
+.
+[n-esimo Polinomio di Hermite]
+(V.52)
+Lista di proprietà dei polinomi di Hermite:
+1.
+H′
+n = 2n Hn−1 ,
+(V.53a)
+2.
+Hn+1 = 2x Hn −2n Hn−1 ,
+(V.53b)
+3.
+H′′
+n −2x H′
+n + 2n Hn = 0 ,
+(V.53c)
+4.
+Hn(−x) = (−1)n Hn(x) ,
+(V.53d)
+5.
+Z ∞
+−∞
+dx e−x2 Hn(x) Hm(x) = 2n n! √π δnm
+.
+(V.53e)
+VI.
+CENNI ALLA TEORIA DELLE DISTRIBUZIONI
+Prima di procedere con lo studio degli operatori in dimensione infinita, conviene fare una breve deviazione per
+introdurre la teoria delle distribuzioni. Si tratta di uno dei rari casi in cui i fisici sono arrivati prima dei matematici:
+oggetti come la δ di Dirac erano già usati quotidianamente in fisica ben prima che si arrivasse a dare loro un fondamento
+matematicamente solido. La teoria delle distribuzioni, sviluppata principalmente da Laurent Schwartz negli anni
+’40–’50, realizza precisamente questo programma e, al tempo stesso, generalizza il concetto di funzione.
+A.
+Funzioni di Prova
+Partiamo da una domanda di fisica semplicissima: come rappresentiamo la densità di carica di un oggetto puntiforme?
+Ci servirebbe una funzione ρ(x) che sia zero ovunque tranne che in un punto e che, al contempo, abbia integrale su
+
+
+===== PAGINA 40 =====
+A
+Funzioni di Prova
+40
+tutto il volume finito (pari alla carica totale). Nessuna funzione ordinaria soddisfa entrambi questi requisiti, eppure
+in fisica ne facciamo uso continuamente. La teoria delle distribuzioni è il quadro matematico che permette di dare un
+senso preciso a simili oggetti. Per capire come procedere, proviamo ad approssimare la densità di carica puntiforme
+con una Gaussiana centrata nell’origine,
+ρσ(x) = e−x2/2σ2
+√
+2π σ
+,
+(VI.1)
+e mandiamo la larghezza σ →0. Graficamente, ci si aspetta la famiglia di curve mostrata in Figura 6: tutte con
+integrale pari a 1, ma sempre più “alte” e “strette” al diminuire di σ.
+x
+ρσ(x)
+σ decrescente
+integrale = 1
+Figura 6: Famiglia di Gaussiane ρσ(x) al diminuire di σ: tutte hanno integrale unitario, ma si concentrano sempre di più
+attorno a x = 0.
+Prendendo il limite punto per punto si otterrebbe,
+lim
+σ→0 ρσ(x) =
+(
+0
+x̸ = 0
+∞
+x = 0
+,
+(VI.2)
+che, come oggetto a sé stante, non ha una chiara interpretazione matematica. Tuttavia, non c’è nessuna difficoltà nel
+definire il funzionale
+Fσ[ϕ] =
+Z b
+a
+dx ρσ(x) ϕ(x) ,
+(VI.3)
+dove ϕ(x) è una funzione sufficientemente regolare che chiameremo funzione di prova. Cosa si intenda per “suffi-
+cientemente regolare” sarà spiegato più avanti. Se ϕ(x) è abbastanza liscia, per σ →0 l’integrando tende ad essere
+zero ovunque tranne che in una regione molto vicina a x = 0. Se il dominio [a, b] contiene il punto x = 0, allora in
+quella regione possiamo approssimare ϕ(x) ≃ϕ(0), ottenendo
+lim
+σ→0 Fσ[ϕ] ≃ϕ(0) lim
+σ→0
+Z b
+a
+dx ρσ(x) ≃ϕ(0) lim
+σ→0
+Z ∞
+−∞
+dx ρσ(x) = ϕ(0) ,
+(VI.4)
+in quanto l’integrale di ρσ su tutto R fa 1 indipendentemente da σ. Se invece il dominio [a, b] non contiene il punto
+x = 0, semplicemente
+lim
+σ→0 Fσ[ϕ] = 0 .
+(VI.5)
+Vedremo tra poco che limσ→0 ρσ(x) è un esempio—molto comune—di ciò che chiameremo distribuzione. Possiamo a
+questo punto dare una definizione preliminare di distribuzione.
+Definizione — Distribuzione
+Una distribuzione è una funzione generalizzata f(x) che ha senso solo sotto il segno di integrale, ossia quando
+agisce su funzioni di prova ϕ(x) sufficientemente regolari,
+Tf[ϕ] =
+Z ∞
+−∞
+dx f(x) ϕ(x) .
+(VI.6)
+
+
+===== PAGINA 41 =====
+B
+Distribuzioni Regolari e θ di Heaviside
+41
+Spesso si chiama “distribuzione” anche la funzione f(x) stessa. Affinché Tf[ϕ] sia una buona distribuzione deve
+valere:
+1. Linearità: Tf[λϕ + µψ] = λ Tf[ϕ] + µ Tf[ψ] ;
+2. Continuità: ϕn(x)
+n→∞
+−−−−→ϕ(x)
+=⇒
+Tf[ϕn]
+n→∞
+−−−−→Tf[ϕ] .
+Che una distribuzione sia ben definita o meno dipende dalla classe di funzioni di prova ϕ(x) su cui agisce.
+Richiederemo senz’altro che queste siano C∞(R). Le due opzioni più comuni sono:
+• Funzioni a supporto compatto (D(R)): funzioni ϕ ∈C∞(R) che si annullano identicamente al di fuori di
+un certo intervallo. Affinché siano C∞e al contempo identicamente nulle fuori da un intervallo, esse devono
+necessariamente essere non analitiche. Per vedere questo fatto consideriamo un esempio canonico:
+ϕ(x) =
+(
+e−
+1
+1−x2
+x ∈(−1, 1)
+0
+|x| ≥1
+.
+(VI.7)
+Si verifica direttamente che ϕ(±1) = 0, ϕ′(±1) = 0 e, iterando,
+dnϕ
+dxn
+
+x=±1
+= 0
+∀n ≥0 ,
+(VI.8)
+poiché ogni derivata è del tipo (polinomio) ×e−1/(1−x2). Nonostante ϕ(x) sia C∞ovunque, la sua serie di Taylor
+attorno a x = ±1 è identicamente nulla, P∞
+n=0
+dnϕ
+dxn
+
+x=±1(x ∓1)n/n! = 0, e dunque non riproduce la funzione
+come dovrebbe: ϕ non è analitica.
+• Funzioni rapidamente decrescenti (S(R)): funzioni ϕ ∈C∞(R) tali che
+xn dmϕ
+dxm
+|x|→∞
+−−−−→0
+∀n, m ∈N .
+(VI.9)
+Si tratta cioè di funzioni che decrescono all’infinito più rapidamente di ogni potenza.
+Un esempio tipico è
+ϕ(x) = p(x) e−x2, con p(x) polinomio: ogni derivata dnϕ/dxn = ˜p(x) e−x2, con ˜p(x) ancora un polinomio, e
+quindi decresce più rapidamente di qualsiasi potenza.
+Lo spazio S(R) è particolarmente rilevante in fisica perché tutte le funzioni ϕ ∈L2(R) sono approssimabili con funzioni
+in S(R). Infatti, come abbiamo visto nella sezione precedente, ogni ϕ ∈L2(R) può essere sviluppata nella base di
+Hermite,
+ϕ(x) = lim
+N→∞
+N
+X
+n=0
+cn
+Hn(x)
+p
+2n n! √π
+e−x2/2 =
+∞
+X
+n=0
+cn
+Hn(x)
+p
+2n n! √π
+e−x2/2 .
+(VI.10)
+Per ogni valore finito di N la sommatoria di sopra è effettivamente in S(R). Dunque ogni ϕ ∈L2 si scrive come
+somma di funzioni rapidamente decrescenti.
+Lo spazio D(R), tuttavia, è chiaramente uno spazio più restrittivo. Per questo motivo, molte delle dimostrazioni
+che faremo nel seguito richiederanno che le funzioni di prova appartengano a questo spazio, per evitare di dover
+fare estrema attenzione a possibili sottigliezze irrilevanti. Ogni volta che un risultato è valido anche per S(R), verrà
+menzionato esplicitamente.
+B.
+Distribuzioni Regolari e θ di Heaviside
+Lo spazio delle funzioni localmente integrabili, L1
+loc, è composto dalle funzioni tali che
+Z
+Ω
+dx |f(x)| < ∞
+∀Ω⊂R compatto .
+(VI.11)
+
+
+===== PAGINA 42 =====
+C
+Distribuzioni Singolari, Valore Principale e δ di Dirac
+42
+Ogni funzione localmente integrabile può essere vista come una cosiddetta distribuzione regolare definita su ϕ ∈
+D(R):
+f ∈L1
+loc , ϕ ∈D(R) −→Tf[ϕ] =
+Z ∞
+−∞
+dx f(x) ϕ(x) .
+(VI.12)
+L’integrale è finito poiché ϕ(x) = 0 fuori da un certo intervallo (compatto) e f è integrabile su tale intervallo. La
+linearità è ovvia dal fatto che l’integrale converge. Inoltre, assumendo ad esempio convergenza uniforme delle ϕn →ϕ
+su ogni compatto,
+Tf[ϕn] −Tf[ϕ]
+ =
+
+Z
+Ω
+dx f(x)
+ ϕn(x) −ϕ(x)
+
+≤
+Z
+Ω
+dx |f(x)|
+ϕn(x) −ϕ(x)
+ ≤sup
+x∈Ω
+ϕn(x) −ϕ(x)
+
+Z
+Ω
+dx |f(x)|
+n→∞
+−−−−→0 ,
+(VI.13)
+dimostrando anche la continuità.
+Esempio VI.1. La funzione f(x) = x2 non è integrabile su tutto R, ma lo è su ogni sottoinsieme compatto: è dunque
+L1
+loc. Lo stesso vale, ad esempio, per f(x) = sgn(x). La funzione f(x) = 1/(x + 1), invece, non è neanche localmente
+integrabile: l’integrale su ciascun compatto che contenga x = −1 non converge.
+Notabene
+Non tutte le funzioni in L1
+loc sono buone distribuzioni su S(R). Ad esempio:
+• f(x) = xn lo è, perché
+R ∞
+−∞dx xnϕ(x) < ∞per ogni ϕ ∈S(R), in quanto ϕ si annulla all’infinito molto più
+rapidamente di quanto xn non diverga;
+• f(x) = ex2 non lo è: scegliendo ϕ(x) = e−x2 ∈S(R) si ottiene
+R
+dx f(x)ϕ(x) =
+R
+dx 1 = ∞.
+La distribuzione regolare più utilizzata in fisica è la θ di Heaviside, definita come
+θ(x) =
+(
+1
+x > 0
+0
+x < 0 ,
+(VI.14)
+o, più propriamente, come distribuzione,
+Tθ[ϕ] =
+Z ∞
+−∞
+dx θ(x) ϕ(x) =
+Z ∞
+0
+dx ϕ(x) .
+(VI.15)
+Poiché θ(x) è ben definita solo sotto il segno di integrale, il valore puntuale θ(0) non è univocamente determinato:
+qualsiasi valore si decida di assegnare a θ(0), il valore ottenuto dall’integrale (VI.15) è sempre lo stesso. Per motivi
+che vedremo tra poco (simmetria delle operazioni di derivata e cambio di variabile), spesso conviene porre θ(0) = 1/2.
+C.
+Distribuzioni Singolari, Valore Principale e δ di Dirac
+Le distribuzioni più interessanti, però, sono quelle singolari: distribuzioni che non corrispondono a una funzione
+localmente integrabile, ma che hanno comunque un senso come funzionali su opportune funzioni di prova.
+Valore principale. Un primo esempio è la funzione 1/x, che non è localmente integrabile intorno a x = 0. Possiamo
+tuttavia definire il cosiddetto valore principale P(1/x) tramite
+Z ∞
+−∞
+dx P
+ 1
+x
+
+ϕ(x) ≡lim
+ϵ→0
+ Z −ϵ
+−∞
+dx ϕ(x)
+x
++
+Z ∞
+ϵ
+dx ϕ(x)
+x
+
+.
+[Valore Principale]
+(VI.16)
+Di fatto, stiamo regolarizzando la divergenza in x = 0 facendo l’integrale su tutto il dominio eccetto per l’intervallo
+[−ϵ, ϵ], escludendo così la regione pericolosa. Poiché 1/x diverge con segno opposto per x positivo e negativo, quando
+
+
+===== PAGINA 43 =====
+D
+Operazioni sulle Distribuzioni
+43
+ϵ →0, il contributo alla divergenza che si ottiene mandando −ϵ →0 (essendo sempre negativo) si cancella con quello
+che si ottiene mandando ϵ →0 (essendo sempre positivo). Per rendere quando detto a parole più evidente, cambiamo
+x →−x nel primo integrale, ottenendo la forma equivalente
+Z ∞
+−∞
+dx P
+ 1
+x
+
+ϕ(x) = lim
+ϵ→0
+Z ∞
+ϵ
+dx ϕ(x) −ϕ(−x)
+x
+=
+Z ∞
+0
+dx ϕ(x) −ϕ(−x)
+x
+,
+(VI.17)
+dove abbiamo potuto mandare direttamente ϵ →0 in quanto l’integrale è finito. Infatti, vicino alla zona incriminata
+x = 0, abbiamo ϕ(x) −ϕ(−x) = 2xϕ′(0) + O(x3), e la divergenza di 1/x in zero si cancella.
+Delta di Dirac. La distribuzione singolare più utilizzata in fisica è la δ di Dirac, caratterizzata da
+δ(x) =
+(
+1
+x = 0
+0
+x̸ = 0 ,
+Z b
+a
+dx δ(x) ϕ(x) =
+(
+ϕ(0)
+0 ∈[a, b]
+0
+0 /∈[a, b]
+.
+[δ di Dirac]
+(VI.18)
+Si intende, ovviamente, la seconda relazione: la “definizione puntuale” ha senso solo come scorciatoia mnemonica.
+Come abbiamo visto, la δ è il limite per σ →0 della Gaussiana ρσ(x); vedremo tra poco che essa può essere ottenuta
+come limite anche di altre famiglie.
+D.
+Operazioni sulle Distribuzioni
+Qualsiasi operazione fatta su una distribuzione va intesa sotto il segno di integrale. Si può cioè definire un’operazione
+tra distribuzioni solo se essa, applicata al corrispondente funzionale, produce un risultato sensato.
+Passiamo in
+rassegna le più importanti.
+Cambio di variabile. Sia u(x) : R →R una funzione invertibile e differenziabile. Cambiando variabile in
+Z ∞
+−∞
+dx f
+ u(x)
+
+ϕ(x) =
+Z ∞
+−∞
+dy f(y) ϕ
+ u−1(y)
+
+u′ u−1(y)
+ ,
+[y = u(x)]
+(VI.19)
+si deduce l’identità tra distribuzioni
+Tf◦u[ϕ] = Tf
+ ϕ ◦u−1
+|u′ ◦u−1|
+
+.
+(VI.20)
+L’applicazione più importante è alla δ di Dirac. Se l’equazione u(x) = 0 ha soluzioni {xi} isolate, si può spezzare
+l’integrale in intorni di ciascuna xi, in quanto alla δ di Dirac interessa solo se il punto in cui si annulla il suo argomento
+è contenuto o meno nel dominio; fino a dove il dominio si estende è irrilevante. Così facendo si ottiene:
+Z ∞
+−∞
+dx δ
+ u(x)
+
+ϕ(x) =
+X
+i
+Z xi+ϵ
+xi−ϵ
+dx δ
+ u(x)
+
+ϕ(x)
+=
+X
+i
+Z |u′(xi)|ϵ
+−|u′(xi)|ϵ
+dy
+δ(y)
+|u′(u−1
+i (y))| ϕ
+ u−1
+i (y)
+
+[per i nuovi estremi: u(xi ± ϵ) ≃±u′(xi)ϵ]
+=
+X
+i
+ϕ
+ u−1
+i (0)
+
+|u′(u−1
+i (0))| =
+X
+i
+ϕ(xi)
+|u′(xi)| ,
+(VI.21)
+dove u−1
+i (y) è la soluzione dell’equazione y = ui(x) valida sul dominio [xi −ϵ, xi + ϵ], e quindi tale che ui(xi) = 0 ⇒
+xi = u−1
+i (0). Dunque, come identità tra distribuzioni,
+δ
+ u(x)
+
+=
+X
+i
+δ(x −xi)
+|u′(xi)|
+con
+u(xi) = 0 ,
+u′(xi)̸ = 0 .
+(VI.22)
+Complesso coniugato. Dall’identità
+Z ∞
+−∞
+dx f ∗(x) ϕ(x) =
+ Z ∞
+−∞
+dx f(x) ϕ∗(x)
+∗
+(VI.23)
+
+
+===== PAGINA 44 =====
+D
+Operazioni sulle Distribuzioni
+44
+segue immediatamente
+Tf ∗[ϕ] =
+ Tf[ϕ∗]
+∗
+.
+(VI.24)
+Derivata. Integrando per parti e sfruttando che le funzioni di prova in S(R) (o in D(R)) si annullano all’infinito,
+Z ∞
+−∞
+dx f ′(x) ϕ(x) = f(x)ϕ(x)
+∞
+−∞
+|
+{z
+}
+=0
+−
+Z ∞
+−∞
+dx f(x) ϕ′(x) =
+Z ∞
+−∞
+dx f(x)
+ −ϕ′(x)
+
+.
+(VI.25)
+Iterando, si ottiene la definizione di derivata n-esima di una distribuzione:
+T dnf
+dxn [ϕ] = (−1)n Tf
+dnϕ
+dxn
+
+.
+(VI.26)
+Esempio VI.2 (Derivata della δ). Applicando la definizione appena data, la derivata δ′(x) agisce come
+Z ∞
+−∞
+dx δ′(x) ϕ(x) = −
+Z ∞
+−∞
+dx δ(x) ϕ′(x) = −ϕ′(0) .
+(VI.27)
+Esempio VI.3 (f(x) δ(x) = f(0) δ(x)). Data f ∈C∞(R), vale la seguente identità tra distribuzioni:
+f(x) δ(x) = f(0) δ(x) .
+(VI.28)
+Infatti,
+Z ∞
+−∞
+dx δ(x) f(x) ϕ(x) = f(0) ϕ(0) =
+Z ∞
+−∞
+dx δ(x) f(0) ϕ(x) ,
+(VI.29)
+per ogni ϕ ∈S(R). Si noti come, in questo contesto, stiamo considerando il prodotto f(x)δ(x) come una singola
+distribuzione, a sua volta uguale alla distribuzione f(0)δ(x).
+Esempio VI.4 (δ′(x) f(x)). Sempre per f ∈C∞(R), troviamo l’espressione che ha δ′(x) f(x) intesa come distribu-
+zione:
+Z ∞
+−∞
+dx δ′(x) f(x) ϕ(x) = −
+Z ∞
+−∞
+dx δ(x)
+ f(x) ϕ(x)
+′
+= −
+Z ∞
+−∞
+dx δ(x)
+
+f ′(x) ϕ(x) + f(x) ϕ′(x)
+
+= −f ′(0) ϕ(0) −f(0) ϕ′(0)
+=
+Z ∞
+−∞
+dx
+
+f(0) δ′(x) −f ′(0) δ(x)
+
+ϕ(x) ,
+(VI.30)
+da cui
+δ′(x) f(x) = f(0) δ′(x) −f ′(0) δ(x) .
+(VI.31)
+Si noti come l’uguaglianza tra distribuzioni di cui sopra si può ottenere molto più facilmente trattando la derivata di una
+distribuzione come la derivata di una qualsiasi funzione. Partendo, infatti, dall’uguaglianza dimostrata nell’esempio
+precedente, e derivando entrambi i membri si ha,
+(f(x) δ(x))′ = f ′(x) δ(x) + f(x) δ′(x) = f ′(0)δ(x) + f(x) δ′(x) = (f(0) δ(x))′ = f(0) δ′(x) ,
+(VI.32)
+che implica, appunto, Eq. (VI.31).
+
+
+===== PAGINA 45 =====
+E
+Limite di una Distribuzione
+45
+Esempio VI.5 (θ′(x) = δ(x)). La derivata puntuale di θ(x) non è definita in x = 0.
+Tuttavia, intesa come
+distribuzione,
+Z ∞
+−∞
+dx θ′(x) ϕ(x) = −
+Z ∞
+−∞
+dx θ(x) ϕ′(x) = −
+Z ∞
+0
+dx ϕ′(x) = ϕ(0) =
+Z ∞
+−∞
+dx δ(x) ϕ(x) ,
+(VI.33)
+dove abbiamo usato ϕ(∞) = 0. Dunque
+θ′(x) = δ(x) .
+(VI.34)
+Convoluzione. Le distribuzioni, essendo funzioni generalizzate, non sono veramente definite punto per punto. Il
+prodotto di distribuzioni, rigorosamente parlando, non ha molto senso: sfruttando le identità viste finora si sarebbe
+tentati di scrivere, ad esempio, (δ(x))2 = δ(x) δ(x) = δ(x) δ(0), che diverge. Il prodotto di distribuzioni viene dunque
+sostituito con un “prodotto sotto segno di integrale” detto convoluzione,
+(f ∗g)(x) =
+Z ∞
+−∞
+dy f(y) g(x −y) =
+Z ∞
+−∞
+dy g(y) f(x −y) .
+[Convoluzione]
+(VI.35)
+Come distribuzione, la convoluzione si comporta come segue:
+T(f∗g)(x)[ϕ(x)] =
+Z ∞
+−∞
+dx (f ∗g)(x) ϕ(x) =
+Z ∞
+−∞
+dx
+Z ∞
+−∞
+dy f(y) g(x −y) ϕ(x)
+=
+Z ∞
+−∞
+dy f(y)
+ Z ∞
+−∞
+dx g(x) ϕ(x + y)
+
+= Tf(x)
+h
+Tg(y)
+
+ϕ(x + y)
+i
+,
+(VI.36)
+dove nell’ultimo passaggio abbiamo ridefinito la variabile muta x →x −y.
+Esempio VI.6 (δ ∗f = f). Calcolando direttamente,
+(δ ∗f)(x) =
+Z ∞
+−∞
+dy δ(y) f(x −y) = f(x) .
+(VI.37)
+La δ è dunque l’elemento neutro della convoluzione.
+E.
+Limite di una Distribuzione
+Notabene
+Il concetto di limite è forse l’aspetto più importante della teoria delle distribuzioni: è quello che permette di
+assegnare un senso fisico a oggetti altrimenti formali come δ(x) o P(1/x).
+Consideriamo una successione di distribuzioni fn(x), definite tramite la loro azione su funzioni di prova ϕ ∈D(R). Si
+dice che fn tende a f nel senso delle distribuzioni se
+fn(x)
+n→∞
+−−−−→f(x)
+⇐⇒
+Tfn[ϕ]
+n→∞
+−−−−→Tf[ϕ]
+∀ϕ(x) ∈D(R) .
+(VI.38)
+La convergenza delle distribuzioni è cioè definita come convergenza puntuale dei funzionali, e non delle funzioni.
+Molti oggetti fisici rilevanti si ottengono precisamente in questo modo: sono distribuzioni regolari (dunque funzioni
+ordinarie) il cui comportamento dipende da un parametro, e il cui limite in un certo regime è una distribuzione
+singolare.
+Successioni che convergono alla δ. Il caso più importante è quello di distribuzioni regolari che tendono alla δ di
+Dirac. Ne riportiamo tre, corrispondenti a situazioni fisiche diverse.
+
+
+===== PAGINA 46 =====
+E
+Limite di una Distribuzione
+46
+Esempio VI.7 (Gaussiana). Abbiamo già visto che
+fσ(x) =
+1
+√
+2π σ e−x2/2σ2
+σ→0
+−−−→δ(x) .
+(VI.39)
+Verifichiamolo esplicitamente: con il cambio di variabile x/σ = y,
+Z ∞
+−∞
+dx fσ(x) ϕ(x) =
+Z ∞
+−∞
+dy e−y2/2
+√
+2π ϕ(σy)
+σ→0
+−−−→ϕ(0)
+Z ∞
+−∞
+dy e−y2/2
+√
+2π
+= ϕ(0) .
+(VI.40)
+Esempio VI.8 (Lorentziana). Consideriamo la famiglia di Lorentziane
+fΓ(x) = 1
+π
+Γ
+x2 + Γ2 .
+(VI.41)
+Con il cambio di variabile x = Γy,
+Z ∞
+−∞
+dx 1
+π
+Γ
+x2 + Γ2 ϕ(x) =
+Z ∞
+−∞
+dy 1
+π
+1
+y2 + 1 ϕ(Γy)
+Γ→0
+−−−→ϕ(0)
+Z ∞
+−∞
+dy
+1
+π(y2 + 1) = ϕ(0) .
+(VI.42)
+Dunque fΓ(x)
+Γ→0
+−−−→δ(x).
+Esempio VI.9 (Seno cardinale). Consideriamo infine
+fϵ(x) = sin(x/ϵ)
+πx
+.
+(VI.43)
+Con il cambio x/ϵ = y,
+Z ∞
+−∞
+dx sin(x/ϵ)
+πx
+ϕ(x) =
+Z ∞
+−∞
+dy sin(y)
+πy
+ϕ(ϵy)
+ϵ→0
+−−−→ϕ(0)
+Z ∞
+−∞
+dy sin y
+πy
+= ϕ(0) ,
+(VI.44)
+avendo usato
+R ∞
+−∞dy sin y/(πy) = 1. In questo caso, a differenza dei precedenti, la convergenza puntuale a δ(x)
+non vale: per x̸ = 0, fϵ oscilla sempre più rapidamente (con ampiezza finita) al diminuire di ϵ. È soltanto la media
+sulle funzioni di prova a essere ben definita — un’illustrazione concreta del fatto che la convergenza nel senso delle
+distribuzioni è più debole della convergenza puntuale.
+Esempio VI.10 (Formula di Sokhotski–Plemelj). Consideriamo la famiglia
+fϵ(x) =
+1
+x + iϵ ,
+ϵ > 0 .
+(VI.45)
+Razionalizzando il denominatore,
+1
+x + iϵ =
+x
+x2 + ϵ2 −i
+ϵ
+x2 + ϵ2 .
+(VI.46)
+Applicata a una funzione di prova, la parte immaginaria dà una Lorentziana che, per ϵ →0, tende a π δ(x). Per la
+parte reale, spezzando l’integrale e cambiando x →−x nel ramo negativo,
+Z ∞
+−∞
+dx
+x
+x2 + ϵ2 ϕ(x) =
+Z ∞
+0
+dx
+x
+x2 + ϵ2
+
+ϕ(x) −ϕ(−x)
+ ϵ→0
+−−−→
+Z ∞
+0
+dx ϕ(x) −ϕ(−x)
+x
+,
+(VI.47)
+che è precisamente il valore principale. Mettendo insieme i due contributi otteniamo la celebre formula di Sokhotski–
+Plemelj:
+1
+x ± iϵ
+ϵ→0+
+−−−−→P
+ 1
+x
+
+∓iπ δ(x) .
+[Sokhotski–Plemelj]
+(VI.48)
+
+
+===== PAGINA 47 =====
+A
+Dominio di Definizione, Operatori di Posizione e Impulso
+47
+Consiglio
+Moralmente, si può affermare che in fisica non esistono vere distribuzioni, ma solo funzioni regolari che si com-
+portano come distribuzioni in certi regimi limite. La δ di Dirac che compare, ad esempio, nella densità di carica
+di una particella puntiforme è sempre, in realtà, una funzione regolare (ad esempio una Gaussiana molto stretta)
+approssimabile ad una distribuzione solo nel limite in cui la dimensione tipica della particella è molto più piccola
+della nostra risoluzione sperimentale. Per esempio, le particelle che consideriamo “puntiformi” ad oggi (l’elettrone,
+il muone, i quark, e così via) non sono altro che particelle la cui dimensione tipica è molto più piccola della miglior
+risoluzione sperimentale ottenuta ad oggi.
+F.
+La δ di Dirac in Più Dimensioni
+Menzioniamo brevemente l’estensione della δ di Dirac al caso d-dimensionale. Per x ∈Rd e ϕ ∈S(Rd), si definisce
+δ(d)(x) =
+d
+Y
+i=1
+δ(xi) ,
+Z
+Rdddx δ(d)(x) ϕ(x) = ϕ(0) .
+(VI.49)
+Per d = 2 e d = 3 risulta utile la rappresentazione in coordinate polari e sferiche. Applicando la formula di cambio di
+variabile per la δ, con Jacobiano |J| = |det(∂x/∂q)|, si ottiene:
+δ(2)(r −r0) = 1
+r δ(r −r0) δ(θ −θ0)
+[coordinate polari, |J| = r] ,
+(VI.50a)
+δ(3)(r −r0) =
+1
+r2 sin θ δ(r −r0) δ(θ −θ0) δ(φ −φ0)
+[coordinate sferiche, |J| = r2 sin θ] .
+(VI.50b)
+Si faccia attenzione a come le espressioni di sopra non possano essere utilizzate nel caso in cui r0 = 0. In quel caso,
+infatti, ci ritroveremmo a dover specificare il valore di un integrale del tipo,
+Z ∞
+0
+dr δ(r) ϕ(r) ,
+(VI.51)
+dove il punto in cui l’argomento della δ si annulla, r = 0, non è contenuto nel dominio di integrazione, ma ne è un
+estremo. L’integrale di sopra è, in generale, non-definito. Il non poter utilizzare l’espressione in coordinate polari e
+sferiche della δ(3)(r −r0) quando r0 = 0 non è altro che sintomo della mal definizione di queste coordinate nell’origine
+(dove gli angoli non sono definibili).
+VII.
+OPERATORI LINEARI IN DIMENSIONE INFINITA
+Notabene
+La teoria degli operatori lineari infinito-dimensionali è la base matematica della meccanica quantistica.
+A.
+Dominio di Definizione, Operatori di Posizione e Impulso
+I due operatori che compaiono più frequentemente in meccanica quantistica sono:
+Definizione — Operatori di Posizione e Impulso
+ˆX :
+( ˆXf)(x) = x f(x)
+[operatore posizione] ,
+(VII.1a)
+ˆP :
+( ˆPf)(x) = −i df
+dx(x)
+[operatore impulso] .
+(VII.1b)
+Per operatori in dimensione infinita è necessario specificare il dominio di definizione, ossia l’insieme delle funzioni
+sulle quali possono agire.
+Tale dominio potrebbe non coincidere con la totalità dello spazio.
+Potremmo, infatti,
+
+
+===== PAGINA 48 =====
+B
+Operatore Aggiunto, Operatori Simmetrici e Auto-Aggiunti
+48
+trovarci in difficoltà: ci si potrebbe ritrovare in una situazione in cui, dopo aver fatto agire l’operatore su una data
+funzione, la funzione risultante non è più nello spazio di partenza. Ad esempio, se consideriamo H = L2[a, b], esistono
+funzioni f ∈L2[a, b] la cui derivata non è in L2[a, b].
+Esempio VII.1. Consideriamo f(x) = x−1/4 per L2[−1, 1]. Si ha
+R 1
+−1 dx |x|−1/2 = 4 < ∞, quindi f ∈L2[−1, 1].
+Tuttavia, ˆPf(x) = −i
+4 x−5/4 cresce come |x|−5/4 per x →0, e:
+Z 1
+−1
+dx | ˆPf(x)|2 = 1
+16
+Z 1
+−1
+dx
+1
+|x|5/2 = ∞.
+(VII.2)
+La stessa difficoltà si presenta per l’operatore di posizione ˆX sulla funzione f(x) = (1+x2)−1/2 ∈L2(R): l’applicazione
+ˆXf(x) = x(1 + x2)−1/2 cresce come x0 all’infinito, quindi ˆXf /∈L2(R).
+In generale, un operatore lineare in dimensione infinita necessita di specificare il dominio di definizione. Domini
+diversi corrispondono ad operatori con proprietà diverse.
+B.
+Operatore Aggiunto, Operatori Simmetrici e Auto-Aggiunti
+Anche nel caso infinito-dimensionale si definisce l’operatore aggiunto A† tramite:
+⟨f | A g⟩= ⟨A†f | g⟩
+∀f ∈D(A†), g ∈D(A) .
+(VII.3)
+In linea di principio, non è detto che D(A) e D(A†) coincidano.
+Definizione — Operatore Simmetrico
+Un operatore A è detto simmetrico se
+⟨A f | g⟩= ⟨f | A g⟩
+∀f, g ∈D(A) .
+(VII.4)
+Se D(A)̸ = D(A†), questo non implica necessariamente che ⟨A†f | g⟩= ⟨f | Ag⟩anche quando f ∈D(A†)\D(A).
+Esempio VII.2 (Fallimento dell’uguaglianza ⟨ˆPf | g⟩= ⟨f | ˆPg⟩per f /∈D( ˆP)). Consideriamo l’operatore
+ˆP = −i d
+dx
+con
+D( ˆP) =
+
+f ∈L2(R)
+ f ′ ∈L2(R)
+	
+.
+(VII.5)
+Caso 1: f, g ∈D( ˆP). Scegliamo
+f(x) =
+1
+1 + x2 ,
+g(x) = e−(x−1)2 ,
+(VII.6)
+entrambe in D( ˆP). Allora
+⟨f | ˆPg⟩= −i
+Z ∞
+−∞
+dx
+1
+1 + x2
+d
+dx e−(x−1)2 = 2i
+Z ∞
+−∞
+dx x −1
+1 + x2 e−(x−1)2 < ∞,
+(VII.7)
+e
+⟨ˆPf | g⟩=
+Z ∞
+−∞
+dx
+
+i d
+dx
+
+1
+1 + x2
+
+e−(x−1)2 = −2i
+Z ∞
+−∞
+dx
+x
+(1 + x2)2 e−(x−1)2 < ∞.
+(VII.8)
+Allo stesso tempo, integrando per parti (il termine di bordo è nullo poiché entrambe le funzioni decadono all’infinito)
+si verifica che
+⟨ˆPf | g⟩= −
+Z ∞
+−∞
+dx
+1
+1 + x2 i d
+dx e−(x−1)2 = ⟨f | ˆPg⟩,
+(VII.9)
+
+
+===== PAGINA 49 =====
+B
+Operatore Aggiunto, Operatori Simmetrici e Auto-Aggiunti
+49
+come deve essere per f, g ∈D( ˆP).
+Caso 2: f /∈D( ˆP). Scegliamo ora
+g(x) = e−(x−1)2 ∈D( ˆP) ,
+f(x) = e−x2
+|x|1/4 ∈L2(R) ,
+(VII.10)
+dove i fattori Gaussiani garantiscono f, g ∈L2(R). Calcolando la derivata,
+f ′(x) = −1
+4
+sgn(x)
+|x|5/4 e−x2 −
+2x
+|x|1/4 e−x2 ,
+(VII.11)
+si vede che |f ′(x)|2 ∼|x|−5/2 per x →0, ed è quindi non integrabile in un intorno dell’origine: dunque f ′ /∈L2(R),
+ossia f /∈D( ˆP). I due prodotti scalari valgono:
+⟨f | ˆPg⟩= −i
+Z ∞
+−∞
+dx e−x2
+|x|1/4
+d
+dx e−(x−1)2 = 2i
+Z ∞
+−∞
+dx x −1
+|x|1/4 e−x2 e−(x−1)2 < ∞,
+(VII.12)
+dove l’integrale è finito poiché l’integrando si comporta come |x|−1/4 in x = 0 (integrabile) e decade esponenzialmente
+all’infinito. Tuttavia, l’altro prodotto scalare è dato da
+⟨ˆPf | g⟩= i
+Z ∞
+−∞
+dx f ′(x) e−(x−1)2 = −i
+4
+Z ∞
+−∞
+dx sgn(x)
+|x|5/4 e−x2 e−(x−1)2 −2i
+Z ∞
+−∞
+dx
+x
+|x|1/4 e−x2 e−(x−1)2 .
+(VII.13)
+Il secondo integrale è finito, ma il primo non lo è: il suo integrando, in valore assoluto, si comporta come 1/|x|5/4 in
+un intorno dell’origine, e non è integrabile. Equivalentemente, ˆPf = −i f ′ /∈L2(R): non è un vettore dello spazio di
+Hilbert, e l’espressione ⟨ˆPf | g⟩perde significato come prodotto scalare in H. L’uguaglianza ⟨ˆPf | g⟩= ⟨f | ˆPg⟩non
+vale quando f /∈D( ˆP), confermando l’osservazione della definizione precedente.
+Definizione — Operatore Hermitiano / Auto-Aggiunto
+Un operatore A è detto Hermitiano (o auto-aggiunto) se è simmetrico e inoltre
+D(A) = D(A†) .
+(VII.14)
+La distinzione tra operatore simmetrico e auto-aggiunto è sottile ma fondamentale: il seguente esempio mostra come
+il dominio di definizione determini quale delle due proprietà vale.
+Esempio VII.3 (Operatore impulso su [a, b]). Consideriamo ˆP = −i d/dx su L2[a, b]. Integrando per parti:
+⟨ˆPg | f⟩=
+Z b
+a
+dx
+
+−idg
+dx
+∗
+f(x) =
+h
+i g∗(x) f(x)
+ib
+a +
+Z b
+a
+dx g∗(x)
+
+−i df
+dx
+
+= i
+ g∗(b) f(b) −g∗(a) f(a)
+
++ ⟨g | ˆPf⟩.
+(VII.15)
+Affinché ˆP sia (almeno) simmetrico, il termine di bordo deve annullarsi. Vi sono due scelte naturali:
+1. Condizioni di Dirichlet: Scegliamo f ∈D( ˆP) =
+
+f | f ∈L2[a, b] , f ∈C1[a, b] , f(a) = f(b) = 0
+	
+. Il termine di
+bordo si annulla per ogni f ∈D( ˆP), indipendentemente da g. Quindi D( ˆP †) non richiede condizioni al bordo su
+g: D( ˆP)̸ = D( ˆP †). L’operatore è simmetrico ma non Hermitiano.
+2. Condizioni periodiche: In questo caso scegliamo f ∈D( ˆP) =
+
+f | f ∈L2[a, b] , f ∈C1[a, b] , f(a) = f(b)
+	
+. Da
+sola, questa condizione non assicura l’annullarsi del termine al bordo.
+Quest’ultimo si annulla solo se anche
+g(a) = g(b), ossia se D( ˆP †) = D( ˆP). In questo caso ˆP è, quindi, Hermitiano.
+Esempio VII.4 (Operatore posizione su R). Con il dominio D( ˆX) = {f ∈L2(R) | xf ∈L2(R)} si ha:
+⟨ˆXg | f⟩=
+Z ∞
+−∞
+dx (xg)∗f =
+Z ∞
+−∞
+dx g∗(xf) = ⟨g | ˆXf⟩,
+(VII.16)
+e D( ˆX†) = D( ˆX), quindi ˆX è Hermitiano.
+
+
+===== PAGINA 50 =====
+E
+Teorema di Heisenberg
+50
+C.
+Operatori Unitari in Dimensione Infinita
+In completa analogia con il caso finito-dimensionale, si definisce un operatore unitario:
+Definizione — Operatore Unitario
+U è detto unitario se U U† = 1, ovvero U† = U−1. Gli operatori unitari preservano il prodotto scalare:
+⟨Uf | Ug⟩= ⟨f | U† Ug⟩= ⟨f | g⟩.
+(VII.17)
+D.
+Relazioni di Commutazione Canoniche
+Alcune proprietà valide per operatori finito-dimensionali non si applicano al caso infinito-dimensionale. Un esempio
+di cruciale importanza in meccanica quantistica è la relazione di commutazione canonica.
+Definizione — Relazione di Commutazione Canonica
+Gli operatori di posizione e impulso soddisfano:
+ ˆX, ˆP
+
+= i 1 .
+(VII.18)
+Dimostrazione. Applicando il commutatore a una generica f:
+ ˆX, ˆP
+
+f(x) = ˆX
+  ˆPf
+
+(x) −ˆP
+  ˆXf
+
+(x) = x
+
+−i df
+dx
+
+−
+
+−i d
+dx
+
+(xf(x))
+= −ix df
+dx + i
+
+f(x) + x df
+dx
+
+= i f(x) .
+(VII.19)
+Notabene
+La relazione [ ˆX, ˆP] = i 1 non può essere soddisfatta da operatori finito-dimensionali. Infatti, per qualsiasi
+coppia di matrici A, B di dimensione n × n:
+Tr[A, B] = Tr(AB) −Tr(BA) = 0 ,
+(VII.20)
+mentre Tr(i 1n) = i n̸ = 0 per qualsiasi n finito. Avremmo, quindi, una contraddizione.
+E.
+Teorema di Heisenberg
+Un altro dei risultati centrali della meccanica quantistica è di fatto, un teorema sugli spazi di Hilbert.
+Definizione — Teorema di Heisenberg / Principio di Indeterminazione
+Siano A e B due operatori lineari Hermitiani agenti su H, tali che [A, B] = C. Allora, per ogni |ψ⟩∈H:
+⟨∆A2⟩ψ ⟨∆B2⟩ψ ≥1
+4
+⟨C⟩ψ
+2 ,
+(VII.21)
+dove ⟨· · · ⟩ψ ≡⟨ψ| · · · |ψ⟩e ∆A ≡A −⟨A⟩ψ 1.
+Dimostrazione. Innanzitutto osserviamo che [∆A, ∆B] = C. Infatti, ⟨A⟩ψ e ⟨B⟩ψ sono numeri, quindi commutano con
+qualsiasi operatore:
+[∆A, ∆B] = [A −⟨A⟩ψ, B −⟨B⟩ψ] = [A, B] = C .
+(VII.22)
+Applichiamo la disuguaglianza di Schwarz ai vettori ∆A |ψ⟩e ∆B |ψ⟩:
+∥∆A |ψ⟩∥2 ∥∆B |ψ⟩∥2 ≥
+⟨∆A ψ|∆B ψ⟩
+2 .
+(VII.23)
+
+
+===== PAGINA 51 =====
+A
+Teorema Spettrale
+51
+Il membro sinistro è precisamente ⟨∆A2⟩ψ ⟨∆B2⟩ψ. Questo è vero in quanto, ad esempio, ∥∆A |ψ⟩∥2 = ⟨∆A ψ|∆A ψ⟩=
+⟨ψ| ∆A†∆A |ψ⟩= ⟨ψ| ∆A2 |ψ⟩, poiché ∆A è Hermitiano. Decomponiamo ora il prodotto nel membro destro nelle sue
+parti simmetrica e antisimmetrica:
+∆A ∆B = 1
+2(∆A ∆B + ∆B ∆A)
+|
+{z
+}
+Hermitiano
++ 1
+2(∆A ∆B −∆B ∆A)
+|
+{z
+}
+anti-Hermitiano
+.
+(VII.24)
+Poiché A e B sono Hermitiani, la parte simmetrica (anticommutatore) è anch’essa Hermitiana e il suo valore di
+aspettazione è reale. La parte antisimmetrica vale C/2, ed è anti-Hermitiana (C† = −C), quindi il suo valore di
+aspettazione è puramente immaginario. Infatti:
+⟨C⟩∗
+ψ = ⟨ψ| (∆A ∆B −∆B ∆A) |ψ⟩∗= ⟨ψ| (∆A ∆B −∆B ∆A)† |ψ⟩= −⟨C⟩ψ .
+(VII.25)
+Poiché le due parti hanno carattere opposto (reale vs. immaginario puro), il modulo quadro si spezza:
+⟨∆A2⟩ψ ⟨∆B2⟩ψ ≥1
+4
+n⟨C⟩ψ
+2 +
+⟨∆A ∆B + ∆B ∆A⟩ψ
+2o
+≥1
+4
+⟨C⟩ψ
+2 .
+(VII.26)
+L’uguaglianza vale se e solo se:
+1. ∆A |ψ⟩e ∆B |ψ⟩sono linearmente dipendenti (uguaglianza di Schwarz);
+2. ⟨∆A ∆B + ∆B ∆A⟩ψ = 0.
+Consiglio
+Per A = ˆX e B = ˆP, con C = i 1 e dunque ⟨C⟩ψ = i, si ottiene il celebre principio di indeterminazione di
+Heisenberg:
+σX σP ≥1
+2
+(in unità ℏ= 1) ,
+(VII.27)
+dove σX =
+q
+⟨∆ˆX2⟩ψ e σP =
+q
+⟨∆ˆP 2⟩ψ sono le deviazioni standard di posizione e impulso nello stato |ψ⟩.
+VIII.
+TEORIA SPETTRALE
+Nel caso infinito-dimensionale lo spettro di un operatore diventa più ricco di quello visto in dimensione finita. In
+particolare, ci sono due tipi di spettro — o, a essere più precisi, tre.
+1. Spettro discreto. È costituito da una famiglia numerabile di autovalori λn ∈C associati ad autofunzioni |fn⟩∈H
+non nulle:
+A |fn⟩= λn |fn⟩,
+|fn⟩̸ = |0⟩∈H ,
+n ∈Z .
+(VIII.1)
+2. Spettro continuo. In questo caso le autofunzioni |fλ⟩non appartengono a H, ma sono tipicamente distribuzioni:
+A |fλ⟩= λ |fλ⟩,
+λ ∈C .
+(VIII.2)
+Per A agente su L2(R), ad esempio, fλ(x) è tipicamente o una distribuzione definita su S(R), oppure una funzione di
+L2
+loc ma non di L2(R).
+Nel caso di spettro misto (continuo e discreto), si dice che le autofunzioni sono ortonormali se:
+⟨fn|fm⟩= δnm ,
+⟨fn|fλ⟩= 0 ,
+⟨fλ|fλ′⟩= δ(λ −λ′) ,
+(VIII.3)
+dove la δ(λ −λ′) va ovviamente intesa nel senso delle distribuzioni, ossia sotto il segno di integrale su λ.
+A.
+Teorema Spettrale
+
+
+===== PAGINA 52 =====
+A
+Teorema Spettrale
+52
+Definizione — Teorema Spettrale
+Sia A un operatore auto-aggiunto, A† = A con D(A†) = D(A). Allora:
+1. lo spettro discreto è composto da autovalori reali λn ∈R, e le autofunzioni corrispondenti possono essere
+prese ortonormali;
+2. lo spettro continuo ha autovalori reali λ ∈R; le autofunzioni sono distribuzioni definite su S(R) e possono
+essere prese ortonormali (nel senso delle distribuzioni);
+3. le autofunzioni fn e fλ formano una base generalizzata: per ogni |f⟩∈H,
+|f⟩=
+X
+n
+αn |fn⟩+
+Z
+dλ α(λ) |fλ⟩.
+(VIII.4)
+Osserviamo che, sebbene |fn⟩∈H e la somma discreta sia ovviamente in H, la singola autofunzione |fλ⟩/∈H. È solo
+l’integrale pesato
+R
+dλ α(λ) |fλ⟩a riprodurre un elemento di H.
+Dalla (VIII.4) e dall’ortonormalità (VIII.3) seguono immediatamente le identità fondamentali. Proiettando su ⟨fn| e
+⟨fλ|:
+⟨fn|f⟩=
+X
+m
+αm ⟨fn|fm⟩+
+Z
+dλ α(λ) ⟨fn|fλ⟩=
+X
+m
+αmδnm = αn ,
+(VIII.5a)
+⟨fλ|f⟩=
+X
+n
+αn ⟨fλ|fn⟩+
+Z
+dλ′ α(λ′) ⟨fλ|fλ′⟩=
+Z
+dλ′ α(λ′)δ(λ −λ′) = α(λ) .
+(VIII.5b)
+I coefficienti αn e α(λ) sono dunque le proiezioni di |f⟩sulle autofunzioni. Calcolando ⟨f|f⟩si ottiene inoltre la
+relazione di Parseval:
+⟨f|f⟩=
+X
+n
+|αn|2 +
+Z
+dλ |α(λ)|2 ,
+(VIII.6)
+e la decomposizione stessa di |f⟩può essere riscritta nella forma
+|f⟩=
+X
+n
+⟨fn|f⟩|fn⟩+
+Z
+dλ ⟨fλ|f⟩|fλ⟩,
+(VIII.7)
+che implica la risoluzione dell’identità:
+X
+n
+|fn⟩⟨fn| +
+Z
+dλ |fλ⟩⟨fλ| = 1 .
+(VIII.8)
+In perfetta analogia con il caso finito-dimensionale, infine, data una funzione sufficientemente regolare h : R →C, si
+definisce
+h(A) =
+X
+n
+h(λn) |fn⟩⟨fn| +
+Z
+dλ h(λ) |fλ⟩⟨fλ| .
+(VIII.9)
+Esempio VIII.1 (Operatore impulso su [a, b]). Consideriamo ˆP = −i d/dx su L2[a, b] con dominio
+D( ˆP) = { f | f ∈C1[a, b], f ′ ∈L2[a, b], f(a) = f(b) } .
+(VIII.10)
+Risolviamo l’equazione agli autovalori ˆPfλ = λfλ:
+−i dfλ
+dx = λ fλ
+=⇒
+fλ(x) = αλ eiλx .
+(VIII.11)
+
+
+===== PAGINA 53 =====
+A
+Teorema Spettrale
+53
+La condizione al bordo f(a) = f(b) impone
+αλ eiλa = αλ eiλb
+=⇒
+eiλ(a−b) = 1
+=⇒
+λn = 2πn
+b −a ,
+n ∈Z .
+(VIII.12)
+Lo spettro è dunque puramente discreto, con autofunzioni
+fn(x) =
+1
+√
+b −a ei 2πnx
+b−a ,
+n ∈Z .
+(VIII.13)
+Si verifica esplicitamente che esse sono ortonormali:
+⟨fn|fm⟩=
+1
+b −a
+Z b
+a
+dx e−i 2πnx
+b−a ei 2πmx
+b−a = δnm .
+(VIII.14)
+Poiché ˆP, con questo dominio, è auto-aggiunto, per il teorema spettrale ogni funzione f ∈L2[a, b] può essere sviluppata
+sulla base delle {fn}:
+f(x) =
+∞
+X
+n=−∞
+αn
+ei 2πnx
+b−a
+√
+b −a ,
+αn = ⟨fn|f⟩,
+(VIII.15)
+che è precisamente, come vedremo più in dettaglio, la serie di Fourier di f sull’intervallo [a, b].
+Notabene
+Se avessimo considerato la versione simmetrica di ˆP, con condizioni di Dirichlet f(a) = f(b) = 0, l’equazione agli
+autovalori fλ(x) = αλeiλx imporrebbe αλ eiλa = 0, e dunque αλ = 0. L’operatore non ha spettro. È un’ulteriore
+conferma di quanto la distinzione fra operatori simmetrici e auto-aggiunti sia tutt’altro che pedante.
+Esempio VIII.2 (Operatore impulso su R). Consideriamo ora ˆP = −i d/dx su L2(R) con dominio
+D( ˆP) = { f | f ∈C1(R), f ∈L2(R), f ′ ∈L2(R) } .
+(VIII.16)
+L’equazione agli autovalori ha soluzione formale fk(x) = eikx/
+√
+2π, che non appartiene a L2(R). Siamo dunque nel
+regime dello spettro continuo: le autofunzioni vanno intese come distribuzioni.
+Mostriamo che eikx/
+√
+2π può essere approssimato in L2 da una successione di funzioni regolari. Introduciamo la
+Gaussiana regolarizzatrice
+fΣ(x) = e−x2/2Σ2 eikx
+√
+2π ∈L2(R) .
+(VIII.17)
+Applicando ˆP e sottraendo k fΣ:
+ˆPfΣ −k fΣ = e−x2/2Σ2 eikx
+√
+2π
+
+k + i x
+Σ2
+
+−k fΣ = i x
+Σ2 fΣ ,
+(VIII.18)
+la cui norma quadra è
+∥ˆPfΣ −k fΣ∥2 =
+Z ∞
+−∞
+dx x2
+Σ4
+e−x2/Σ2
+2π
+=
+1
+4√π Σ3
+Σ→∞
+−−−−→0 .
+(VIII.19)
+Nel limite Σ →∞, dunque, fΣ diventa effettivamente autofunzione di ˆP con autovalore k ∈R. (Come sempre, nel
+senso della norma di L2(R).)
+Il teorema spettrale assicura allora che ogni f ∈L2(R) si scrive come
+f(x) =
+Z ∞
+−∞
+dk
+√
+2π eikx α(k) ,
+(VIII.20)
+
+
+===== PAGINA 54 =====
+A
+Algebra del Momento Angolare
+54
+che è precisamente la trasformata di Fourier inversa. (Di nuovo, come vedremo in dettaglio nel futuro.) L’orto-
+normalità nel senso delle distribuzioni si verifica tramite una regolarizzazione simile:
+⟨fk|fq⟩=
+Z ∞
+−∞
+dx e−i(k−q)x e−ϵx2
+2π
+= e−(k−q)2/4ϵ
+2√π√ϵ
+ϵ→0+
+−−−−→δ(k −q) ,
+(VIII.21)
+riconoscendo il limite Gaussiano →δ visto nella sezione precedente.
+Esempio VIII.3 (Operatore posizione su R). Consideriamo ˆX su L2(R) con dominio D( ˆX) = { f ∈L2(R) | xf ∈
+L2(R) }. L’equazione ˆXfλ = xfλ = λfλ ha come unica soluzione una distribuzione definita su S(R):
+fλ(x) = δ(x −λ) .
+(VIII.22)
+Verifica immediata: ˆXfλ(x) = x δ(x −λ) = λ δ(x −λ) = λ fλ(x). In questo caso il teorema spettrale è praticamente
+una tautologia:
+f(x) =
+Z ∞
+−∞
+dλ α(λ) fλ(x) =
+Z ∞
+−∞
+dλ ⟨fλ|f⟩fλ(x) =
+Z ∞
+−∞
+dλ
+Z ∞
+−∞
+dy δ(y −λ)f(y)
+
+δ(x −λ) = f(x) .
+(VIII.23)
+IX.
+IL MOMENTO ANGOLARE ORBITALE
+Concludiamo questa parte con un esempio particolarmente importante di operatore in dimensione infinita: il mo-
+mento angolare orbitale.
+Su L2(R3) consideriamo gli operatori vettoriali di posizione e impulso:
+ˆP f(x) = −i ∇f(x) ,
+ˆ
+Xf(x) = x f(x) .
+(IX.1)
+Il momento angolare orbitale è definito in completa analogia con il caso classico come:
+ˆL = ˆ
+X × ˆP = −i x × ∇,
+(IX.2)
+o, per componenti, ˆLi = εijk ˆXj ˆPk (somma sottintesa sugli indici ripetuti).
+Notabene
+[Hermiticità di ˆLi] Le componenti ˆLi sono operatori Hermitiani. Calcolando l’aggiunto:
+ˆL†
+i = εijk( ˆXj ˆPk)† = εijk ˆP †
+k ˆX†
+j = εijk ˆPk ˆXj = εijk
+  ˆXj ˆPk −i δjk
+
+= ˆLi ,
+(IX.3)
+dove l’ultimo passaggio sfrutta εijj = 0 (contrazione di un tensore antisimmetrico con uno simmetrico) e la
+relazione di commutazione canonica [ ˆXj, ˆPk] = i δjk 1.
+A.
+Algebra del Momento Angolare
+A differenza del caso classico, in meccanica quantistica le tre componenti ˆLx, ˆLy, ˆLz non commutano tra loro, e dunque
+non possono essere diagonalizzate simultaneamente.
+Calcoliamolo esplicitamente per [ˆLx, ˆLy], con ˆLx = −i(y∂z −z∂y) e ˆLy = −i(z∂x −x∂z):
+[ˆLx, ˆLy]f(x) = −
+
+y∂z −z∂y, z∂x −x∂z
+
+f(x)
+= −
+
+(y∂z −z∂y)(z∂xf −x∂zf) −(z∂x −x∂z)(y∂zf −z∂yf)
+	
+= −
+
+zy ∂x∂zf −z2∂x∂yf −xy ∂2
+zf + x∂yf
++ xz ∂y∂zf −y∂xf −yz ∂x∂zf + xy ∂2
+zf
++ z2∂x∂yf −xz ∂y∂zf
+	
+= (x∂y −y∂x)f(x) = i ˆLzf(x) ,
+(IX.4)
+
+
+===== PAGINA 55 =====
+A
+Algebra del Momento Angolare
+55
+dove si è usato ∂zy = ∂zx = 0 e si è applicata la regola di Leibniz ad ogni termine.
+In generale,
+[ˆLi, ˆLj] = i
+3
+X
+k=1
+εijk ˆLk
+,
+(IX.5)
+che è l’algebra del momento angolare su(2).
+Si può tuttavia mostrare (esercizio) che ciascuna componente ˆLi commuta con ˆL2 = ˆL2
+x + ˆL2
+y + ˆL2
+z:
+[ ˆL2, ˆLi] = 0 ,
+∀i = 1, 2, 3 .
+(IX.6)
+Tipicamente si sceglie di diagonalizzare simultaneamente ˆL2 e ˆLz, cercando cioè funzioni di L2 che siano autofunzioni
+di entrambi.
+B.
+Il Momento Angolare in Coordinate Sferiche
+Per sfruttare la simmetria sferica del problema è utile riscrivere ˆL in coordinate sferiche (r, θ, φ), in cui
+∇= ˆr ∂r +
+ˆθ
+r ∂θ +
+ˆφ
+r sin θ ∂φ ,
+x = r ˆr .
+(IX.7)
+Usando ˆr × ˆr = 0, ˆr × ˆθ = ˆφ e ˆr × ˆφ = −ˆθ:
+ˆL = −i x × ∇= −i r ˆr ×
+"
+ˆr ∂r +
+ˆθ
+r ∂θ +
+ˆφ
+r sin θ ∂φ
+#
+=
+−i
+"
+ˆφ ∂θ −
+ˆθ
+sin θ ∂φ
+#
+.
+(IX.8)
+Per calcolare ˆL2 occorrono le derivate dei versori sferici, che si ottengono differenziando ˆr = (sin θ cos φ, sin θ sin φ, cos θ)
+e simili:
+∂θ ˆφ = 0 ,
+∂φ ˆφ = −sin θ ˆr −cos θ ˆθ ,
+∂θ ˆθ = −ˆr ,
+∂φˆθ = cos θ ˆφ .
+(IX.9)
+Applicando ˆL due volte e usando ˆφ · ˆφ = ˆθ · ˆθ = 1, ˆφ · ˆθ = 0:
+ˆL2 = −
+"
+ˆφ ∂θ −
+ˆθ
+sin θ ∂φ
+#
+·
+"
+ˆφ ∂θ −
+ˆθ
+sin θ ∂φ
+#
+= −
+"
+ˆφ · ∂θ ˆφ ∂θ + ∂2
+θ −ˆφ · ∂θ ˆθ
+sin θ ∂φ −
+ˆθ · ∂φ ˆφ
+sin θ
+∂θ +
+ˆθ · ∂φˆθ
+sin2 θ ∂φ +
+∂2
+φ
+sin2 θ
+#
+= −
+"
+∂2
+θ + cos θ
+sin θ ∂θ +
+∂2
+φ
+sin2 θ
+#
+,
+(IX.10)
+ossia, in forma compatta,
+ˆL2 = −
+
+1
+sin θ ∂θ
+ sin θ ∂θ
+
++
+1
+sin2 θ ∂2
+φ
+
+.
+(IX.11)
+È questa la forma in cui ˆL2 compare nella parte angolare del Laplaciano ∇2 =
+1
+r2 ∂r(r2∂r)−ˆL2/r2, e le cui autofunzioni
+simultanee con ˆLz = −i ∂φ sono le celebri armoniche sferiche Y m
+ℓ(θ, φ).

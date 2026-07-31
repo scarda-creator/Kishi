@@ -1,0 +1,235 @@
+===== PAGINA 1 =====
+Geometria. a.a. 2015-16, Gruppo: L- P
+Prova scritta del 20 Novembre 2015
+Esercizio 1. Si consideri il sistema di 3 equazioni in 4 incognite:
+
+
+
+x1 + x2 + 2x3 = 3
+x1 + x2 + x3 + 2x4 = 2
+x1 −x2 + 3x4 = 2
+Scrivere la matrice A dei coeﬃcienti del sistema. Scrivere la matrice completa del
+sistema.
+Determinare l’insieme Σ ⊂R4 delle soluzioni del sistema.
+Soluzione
+A =
+
+1
+1
+2
+0
+1
+1
+1
+2
+1
+−1
+0
+3
+
+;
+(A : b) =
+
+1
+1
+2
+0
+1
+1
+1
+2
+1
+−1
+0
+3
+
+
+3
+2
+2
+
+.
+S = 1/2
+
+3
+−1
+2
+0
+
++ t
+
+−7
+−1
+4
+2
+
+.
+Esercizio 2. Sia R2[t] lo spazio vettoriale dei polinomi a coeﬃcienti reali di grado
+minore od uguale a 2 e sia
+T : R2[t] →R2[t]
+l’ applicazione lineare deﬁnita da
+T(p(t)) = p(t −2)
+Determinare la matrice associata a T rispetto alla base standard e rispetto alla
+base 2, 1 + t, 2 −t + t2
+Veriﬁcare che T `e un isomorﬁsmo.
+Soluzione Matrici associate alla base standard e all’ altra base
+A =
+
+1
+−2
+4
+0
+1
+−4
+0
+0
+1
+
+B =
+
+1
+−1
+5
+0
+1
+−4
+0
+0
+1
+
+T `e un isomorﬁsmo , perch´e le matrici sono invertibili
+Esercizio 3. Sia V = M2,2(R) e siano U e W i sottospazi di V deﬁniti da
+U = Span
+
+1
+1
+0
+−1
+ ,
+
+1
+0
+1
+0
+ ,
+
+1
+2
+−1
+−2
+
+
+W =
+
+a
+b
+c
+d
+ , tali che a + d = 0, a + b + c = 0
+
+Determinare la dimensione di U e quella di W. Determinare una base per U + W.
+Determinare la dimensione di U ∩W. Stabilire se M2,2 = U ⊕W.
+Soluzione Identiﬁcando con R4 si ha che una base di U `e data da
+
+1
+1
+0
+−1
+ ,
+
+1
+0
+1
+0
+
+1
+
+
+===== PAGINA 2 =====
+2
+Una base di W `e data da
+
+−1
+1
+0
+1
+ ,
+
+0
+−1
+1
+0
+
+L’ unione `e una base di V .
+Esercizio 4. Calcolare il prodotto C = AB con
+A =
+
+2
+1
+2
+1
+3
+1
+1
+2
+1
+0
+−2
+−1
+
+;
+B =
+
+1
+2
+0
+1
+−1
+3
+1
+0
+2
+1
+4
+−2
+
+.
+Veriﬁcare se C `e invertibile.
+Veriﬁcare per quali valori del parametro t ∈R la matrice
+At =
+
+1
+t
+2
+t
+0
+1
+2
+1
+1
+
+`e invertibile.
+Soluzione C non `e invertibile, perch´e le colonne di B sono dipendenti, oppure `e
+singolare la matrice
+C =
+
+6
+7
+5
+7
+13
+1
+−2
+−2
+−2
+
+.
+det At = −t2 + 4t −1, quindi la matrice `e invertibile per t̸ = 2 ±
+√
+3
+Esercizio 5. Nello spazio A3 , ﬁssato un riferimento aﬃne RA(O, A1, A2, A3)
+determinare equazioni cartesiane della retta r passante per i punti P = (0, 1, 2) e
+Q = (3, −1, 2).
+noindent Soluzione Equazioni della retta sono
+2x + 3y = 3,
+z = 2

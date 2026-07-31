@@ -1,0 +1,53 @@
+===== PAGINA 1 =====
+Geometria. a.a. 2013-14, Gruppo: Pf- Z
+Prova scritta del 23 Gennaio 2014
+Esercizio 1. Nello spazio euclideo E3 si consideri la retta r di equazione
+
+
+
+x = 3 + t
+y = 2 −t
+z = 1 + 2t
+Scrivere l’ equazione cartesiana del piano ortogonale alla retta r e passante per il
+punto P ≡(1, 0, 0).
+Scrivere l’ equazione cartesiana della retta parallela alla retta r e passante per il
+punto P.
+Esercizio 2. Sia T : R3 →R3 l’ operatore associato alla matrice
+A =
+
+−1
+−1
+−1
+1
+0
+−1
+0
+1
+2
+
+;
+Veriﬁcare se T `e diagonalizzabile o triangolarizzabile
+Esercizio 3. Sia
+A =
+
+2
+1
+0
+1
+2
+1
+0
+1
+2
+
+;
+Dire perch´e A `e diagonalizzabile.
+Calcolare una base ortonormale di autovettori
+Esercizio 4. Nello spazio delle matrici reali 2x2 M2(R) sia deﬁnito il prodotto
+scalare deﬁnito positivo
+< A, B >= tr(AT B).
+Sia T l’ operatore deﬁnito da
+T(A) = A + AT
+veriﬁcare che T `e simmetrico
+Trovare gli autovettori di T
+1

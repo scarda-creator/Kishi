@@ -1,0 +1,58 @@
+===== PAGINA 1 =====
+Esercizi del corso di Geometria - Foglio 4
+3 Novembre 2013
+Esercizio 1. Consideriamo i seguenti insiemi di vettori in Rn; utilizzare il metodo di Gauss per
+estrarre una base del sottospazio da essi generato. In particolare calcolarne la dimensione.
+{(1, 1, 0, 1), (−1, 0, 0, 1), (0, 1, 0, 2)}
+{(1, 1, 0, 2), (1, 0, 1, 0), (0, 1, 3, 1), (2, 0, −2, 1)}
+{(1, 2, 3, 4, 5), (0, 0, 1, 0, 1), (1, 2, 0, 4, 2), (−1, 1, −2, 1, 0), (0, 3, −2, 5, 2)}.
+Esercizio 2. Utilizzare il metodo di Gauss per risolvere il seguente sistema lineare:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2c −d
+= 1
+a + b + c
+= 2
+a −2d + e
+= −1
+c + d + 3e
+= 0
+a + b + c + d + e
+= 1.
+Esercizio 3. Sia V ⊂R4 il sottospazio generato dai vettori (3, 1, 1, −1) e (0, 0, 1, 1). Sia W ⊂R4
+il sottospazio formato dai vettori w = (a, b, c, d) che soddisfano le equazioni
+(
+a −b + d
+= 0
+2b + c + d
+= 0.
+Determinare i sottospazi V ∩W e V + W dandone una base oppure tramite equazioni.
+In
+particolare dire qual `e la loro dimensione.
+Esercizio 4. Siano dati i vettori
+v1 = (1, 0, 1, 2)
+v2 = (1 + i, i, −1, 2 −2i)
+w1 = (−i, 1 + i, −1, 0)
+w2 = (i, −i, −1, 3i)
+in C4. Siano V = Span(v1, v2) e W = Span(w1, w2). Determinare chi `e V ∩W. Dedurne che v1,
+v2, w1 e w2 generano tutto C4.
+Esercizio 5. Sia Mn(R) lo spazio delle matrici quadrate reali di ordine n.
+Siano Sn(R) il
+sottospazio delle matrici simmetriche e Un il sottospazio deﬁnito da
+Un{A ∈Mn(R)/ai,j = 0 sei ≥j.}
+Veriﬁcare se
+Mn(R) = Sn ⊕Un
+Inoltre , se volete Esercizi 6.2, 6.6, 6.8, 6.10 del testo

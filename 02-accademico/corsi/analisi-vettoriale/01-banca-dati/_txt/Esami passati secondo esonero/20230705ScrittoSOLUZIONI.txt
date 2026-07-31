@@ -1,0 +1,307 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 05/07/2023
+proﬀ. F. De Marchis, F. Lanzara, A. Terracina
+COGNOME, NOME e MATRICOLA:
+DOCENTE:
+⃝De Marchis
+⃝Lanzara
+⃝Terracina
+Se ammesso, sosterr`o la prova orale:
+⃝nell’appello di luglio
+⃝in un appello successivo
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere adeguatamente motivati!
+Esercizio 1. Data la successione di funzioni
+fn(x) =
+x
+x4 + 1
+n
+,
+x ∈
+i. studiare la convergenza puntuale al variare di x ∈;
+ii. stabilire in quali dei seguenti intervalli la successione converge uniformemente: (−∞, 2], [−1, 1], [a, +∞) con a ≥0;
+iii. calcolare lim
+n→+∞
+Z 2
+1
+fn(x)dx.
+Soluzione.
+i. Si ha
+lim
+n→∞fn(x) =
+( 0
+x = 0
+1
+x3
+x , 0
+ii. Non pu`o esserci convergenza uniforme in intervalli che contengo l’origine perch`e fn `e una successione di funzioni continue in 
+mentre la funzione limite `e discontinua in 0. Quindi la convergenza non `e uniforme in (−∞, 2] e [−1, 1].
+Si ha convergenza uniforme in ogni intervallo del tipo [a, +∞) oppure (−∞, −a] con a > 0 dato che
+| fn(x) −f(x)| =
+
+x
+x4 + 1
+n
+−1
+x3
+ =
+
+−1
+n
+x3(x4 + 1
+n)
+ ≤
+1
+na7
+x : |x| ≥a.
+Quindi
+sup
+|x|≥a
+| fn(x) −f(x)| ≤
+1
+na7
+n→∞
+→0.
+iii. La successione di funzioni continue {fn} converge uniformemente a f in [1, 2]. E’ quindi possibile scambiare limite e integrale
+lim
+n→+∞
+Z 2
+1
+fn(x)dx =
+Z 2
+1
+f(x)dx =
+Z 2
+1
+1
+x3 dx = 3
+8.
+Esercizio 2. Data la funzione f(x, y, z) = 4 −z e l’insieme
+Γ = {(x, y, z) : x2 + y2 = 8,
+x + y + z = 1}
+i. dire perch`e f ammette massimo e minimo di Γ;
+ii. determinare il massimo e il minimo di f in Γ;
+iii. calcolare il lavoro del campo vettoriale F = (x2y, y2z, xz) lungo Γ, percorsa in verso antiorario se vista dall’alto.
+Soluzione.
+i) L’insieme Γ `e una curva dello spazio 3, intersezione tra il cilindro x2 + y2 = 8 e il piano x + y + z = 1. E’ un insieme chiuso
+perch`e deﬁnito da vincoli di uguaglianza con funzioni continue; `e un insieme limitato perch`e
+|x| ≤
+q
+x2 + y2 =
+√
+8,
+|y| ≤
+q
+x2 + y2 =
+√
+8,
+|z| = |1 −x −y| ≤1 + |x| + y| ≤1 + 2
+√
+8 = 1 + 4
+√
+2.
+La funzione f ∈C0(3). Per il teorema di Weierstrass f ammette massimo e minimo in Γ.
+
+
+===== PAGINA 2 =====
+ii) Siano g1(x, y, z) = x2 + y2 −8 e g2(x, y, z) = x + y + z −1; cerco i punti di massimo e minimo tra le soluzioni del sisteme
+det
+
+fx
+fy
+fz
+g1x
+g1y
+g1z
+g2x
+g2y
+g2z
+= 0, g1(x, y, z) = 0, g2(x, y, z) = 0
+che nel nostro caso diventano
+det
+
+0
+0
+−1
+2x
+2y
+0
+1
+1
+1
+= 2(−x + y) = 0, x2 + y2 = 8, x + y + z = 1.
+Si trovano i punti P = (2, 2, −3) e Q = (−2, −2, 5) da cui
+min
+E
+f = f(−2, −2, 5) = −1,
+max
+E
+f = f(2, 2, −3) = 7
+iii) calcolare il lavoro del campo vettoriale F = (x2y, y2z, xz) lungo Γ, percorsa in verso antiorario se vista dall’alto. Usiamo il
+teorema di Stokes
+W =
+Z
+Γ
+F · T ds =
+Z
+Σ
+rot F · N dσ
+con Σ : z = 1 −x −y,
+(x, y) ∈D = {x2 + y2 ≤8}. Si ha N = (1,1,1)
+√
+3 , rot F = (−y2, −z, −x2),
+rot F · N
+Σ = −(x2 + y2 + z)
+√
+3
+Σ = −x2 + y2 + 1 −x −y
+√
+3
+Quindi
+W =
+Z
+Σ
+rot F · N dσ = −
+Z
+D
+x2 + y2 + 1 −x −y
+√
+3
+√
+3dxdy
+= −
+Z
+√
+8
+0
+ρdρ
+Z 2π
+0
+(ρ2 + 1 −ρ cos θ −ρ sin θ)dθ = −2π
+Z
+√
+8
+0
+ρ(ρ2 + 1)dρ = −40π.
+Esercizio 3. Si consideri al variare del parametro a ∈ il campo
+Fa(x, y) = ( f(x, y), g(x, y)) =
+ 
+2xy
+(1 + x2)2 ,
+a
+1 + x2
+!
+i. Calcolare il lavoro del campo per percorrere in senso antiorario la frontiera del rettangolo R = [−1, 2] × [−1, 1].
+ii. Determinare gli eventuali valori del parametro a ∈ per cui il campo risulta conservativo, per tali valori si calcolino esplicita-
+mente i potenziali.
+iii. Data la curva γ(t) = (t2 + 1, arcsin t), t ∈[−1/2, 1/2], veriﬁcare che la curva `e regolare e semplice.
+iv. Per i valori di a determinati al punto ii., calcolare il lavoro del campo lungo la curva γ.
+Soluzione: i) Per calcolare tale lavoro `e comodo usare il Teorema di Stokes e quindi calcolare fy e gx, infatti
+Z
+∂R+ fdx + gdy =
+"
+R
+(gx −fy) dxdy,
+abbiamo fy =
+2x
+(1+x2)2 , mentre gx =
+−2ax
+(1+x2)2 . Quindi usando la formula di sopra si ottiene
+Z
+∂R+ fdx + gdy = (−a −1)
+Z 2
+−1
+Z 1
+−1
+2x
+(1 + x2)2 dydx = 2(a + 1)
+"
+1
+1 + x2
+#2
+−1
+= −(a + 1)3
+5.
+ii) Poich´e il campo `e deﬁnito su tutto 2 che `e un insieme semplicemente connesso, il campo risulta conservativo se solo se
+chiuso/irrotazionale, ovvero se e solo se fy = gx. Dai calcoli svolti al punto i) l’uguaglianza `e veriﬁcata se solo se a = −1. Per
+tale valore di a il campo da considerare `e il seguente
+ 
+2xy
+(1 + x2)2 ,
+−1
+1 + x2
+!
+,
+2
+
+
+===== PAGINA 3 =====
+integrando la seconda componente rispetto ad y otteniamo che il potenziale deve veriﬁcare
+U(x, y) =
+−y
+1 + x2 + h(x),
+mentre imponendo Ux = f si ottiene subito che la funzione h deve soddisfare h′(x) = 0, per cui tutti i potenziali sono dati da
+U(x, y) =
+−y
+1+x2 + C.
+iii) la curva `e semplice perch´e la seconda componente `e iniettiva. Osserviamo che le derivate delle componenti esistono e sono
+continue nell’intervallo dato, inoltre, ad esempio la derivata della funzione arcsin(x) non si annulla mai, per cui la curva `e necessari-
+amente regolare.
+iv) Una volta trovato un potenziale U, il lavoro lungo la curva `e dato da U(γ( 1
+2)) −U(γ(−1
+2)).
+Esercizio 4. Sia
+E := {(x, y, z) ∈3 : z2 ≤x2 + y2 ≤1, z ≥0}
+e sia F = (x −3y, y + 3x, x2 + 2y + π
+2z3).
+i. Calcolare il ﬂusso totale di F uscente dalla frontiera di E.
+ii. Scrivere una parametrizzazione delle tre superﬁci regolari che compongono la frontiera di E e scrivere i versori normali uscenti
+da E.
+iii. Calcolare il ﬂusso di F uscente da ciascuna porzione di frontiera di E.
+Esercizio 5. Si consideri il seguente problema di Cauchy
+(
+y′(t) = 2
+t y + 4t2y3
+y(1) = 1
+si risponda ai seguenti quesiti seguendo l’ordine proposto:
+i. si spieghi perch´e possiede un’unica soluzione locale,
+ii. si provi che la soluzione `e strettamente positiva nel suo insieme di deﬁnizione,
+iii. si dica se la soluzione `e convessa oppure concava in un intorno di t = 1,
+iv. si determini la soluzione esplicita e l’intervallo di esistenza massimale.
+Soluzione: i) La funzione f(t, p) = 2
+t p + 4t2p3 `e lipschitziana in un intorno del punto (1, 1) per cui l’esistenza locale `e conseguenza
+del Th di Cauchy.
+ii) Osserviamo preliminarmente che il suo insieme di deﬁnizione I deve trovarsi (0, +∞). Poich´e la funzione y(t) ≡0 `e soluzione,
+sempre per il Th di Cauchy otteniamo che y(t) > 0 in I. Quindi si ha y′(t) = 2
+t y + 4t2y3 > 0 in tutto I.
+iii) usando l’equazione possiamo calcolare y′′(1), si avr`a in generale y′′(t) = −2
+t2 y(t)+ 2
+t y′(t)+8ty3(t)+12t2y2(t)y′(t). Dalla condizione
+iniziale sappiamo che y(1) = 1 mentre dall’equazione diﬀerenziale otteniamo y′(1) = 6. Dalla precedente equazione sulla derivata
+seconda deduciamo y′′(1) = −2 + 6 + 8 + 72 > 0, quindi la funzione `e strettamente convessa in un intorno del punto t = 1.
+iv) per determinare esplicitamente la soluzione osserviamo che si tratta di un’equazione di Bernulli, risolvibile ponendo z(t) =
+y1−3(t) = y−2(t). Si ottiene la seguente equazione lineare per z
+(
+z′(t) = −4
+t z(t) −8t2
+z(1) = 1,
+la soluzione generale `e data da z(t) =
+c
+t4 −8
+7t3, imponendo la condizione iniziale si ottiene z(t) = 15
+7
+1
+t4 −8
+7t3. Mentre tornando alla
+variabile iniziale si avr`a
+y(t) =
+1
+√z(t)
+=
+r
+7t4
+15 −8t7 .
+Si osserva che la soluzione non `e deﬁnita in tutto (0, +∞), pi`u precisamente il suo insieme di deﬁnizione I = (0
+7q
+15
+8 ).
+3

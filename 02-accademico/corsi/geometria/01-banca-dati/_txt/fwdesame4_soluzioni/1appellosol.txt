@@ -1,0 +1,223 @@
+===== PAGINA 1 =====
+Primo appello di Geometria per Fisica, a.a. 2012-13, lettere Cf-K (Prof. P. Piccinni)
+30 gennaio 2013
+1. Una matrice A = (aij) ∈Mn(R) si dice bilanciata per righe con peso h ∈R se per ogni sua riga⃗ri =
+(ai1, ai2, . . . , ain) risulta: ai1 + ai2 + · · · + ain = h, (i = 1, . . . , n). Siano
+Wh = {A ∈Mn(R) bilanciate per righe con peso h},
+W =
+[
+h∈R
+Wh = {A ∈Mn(R) bilanciate per righe}.
+Stabilire quali tra le seguenti aﬀermazioni sono vere.
+1
+W `e un sottospazio vettoriale di Mn(R)
+2
+Wh `e un sottospazio vettoriale di Mn(R) per ogni h ∈R
+3
+Wh `e un sottospazio aﬃne di Mn(R) per ogni h ∈R
+4
+Wh `e un sottospazio vettoriale di Mn(R) se e solo se h = 0
+5
+Se A ∈Mn(R) `e bilanciata per righe con peso h = 0, allora det A = 0
+6
+Se A ∈Mn(R) `e bilanciata per righe per qualche peso h ∈R, allora det A = 0
+7
+Se A ∈Mn(R) `e bilanciata per righe con peso h, allora A `e anche bilanciata per colonne con lo stesso peso h
+8
+Nessuna delle precedenti
+Le coordinate nello spazio vettoriale Mn(R) sono, nella base canonica, gli elementi aij delle matrici. Dunque un
+sottonsieme di Mn(R) `e un sottospazio vettoriale se e solo se `e rappresentato da un sistema di equazioni lineari
+omogenee negli aij . Similmente un sottonsieme di Mn(R) `e un sottospazio aﬃne se e solo se `e rappresentato da
+un sistema di equazioni lineari (non necessariamente omogenee) negli elementi aij . Ora, ﬁssato h ∈R, le matrici
+in Wh sono caratterizzate dal sistema lineare ai1 + ai2 + · · · + ain = h, (i = 1, . . . , n), che `e omogeneo se e solo
+se h = 0. Dunque le aﬀermazioni 3 e 4 sono vere, mentre l’ aﬀermazione 2 `e falsa. E’ vera anche l’aﬀermazione
+1: le matrici in W sono caratterizzate dal sistema lineare omogeneo nelle aij ottenuto uguagliando tra loro le
+somme degli elementi di ogni riga. E’ vera anche l’aﬀermazione 5, mentre la 6 `e falsa: se, e solo se, h = 0 le
+matrici in Wh hanno una colonna che coincide con il negativo della somma delle altre. Inﬁne, la 7 `e falsa, come
+si vede subito con semplicissimi controesempi, anche di matrici 2 × 2.
+2. Si consideri le tre equazioni a coeﬃcienti in C:
+z6 −1 = 0,
+z10 −1 = 0,
+z15 −1 = 0.
+Stabilire quali tra le seguenti aﬀermazioni sono vere:
+1
+L’unica soluzione comune alle tre equazioni `e 1
+2
+Le uniche soluzioni comuni alla prima e seconda equazione sono 1 e −1
+3
+Le uniche soluzioni comuni alla prima e terza equazione sono 1, −1
+2 + i
+√
+3
+2 , −1
+2 −i
+√
+3
+2
+4
+Vi sono cinque soluzioni comuni alla seconda e terza equazione
+5
+Nessuna delle precedenti.
+Le soluzioni delle tre equazioni sono date dai numeri complessi, di modulo 1, rappresentati nella circonferenza
+unitaria S1 ⊂C, dai vertici risp. di un triangolo equilatero, di un decagono regolare, e di un pentadecagono
+regolare che abbiano tutti un vertice nel punto 1 ∈S1. Da ci`o, o se si preferisce dalla formula analitica delle
+radici n-esime dell’unit`a, segue che le aﬀermazioni 1,2,3,4 sono tutte corrette.
+3. Si consideri nel piano euclideo R2 il ”quadrato unitario”, di vertici i punti O = (0, 0), P1 = (1, 0), P2 = (0, 1), P3 =
+(1, 1). Sia A =
+ a11
+a12
+a21
+a22
+
+∈M2(R) una matrice tale che det A = 1, e si consideri la trasformazione lineare
+A : R2 →R2. Denotiamo con O′ = A(O), P ′
+1 = A(P1), P ′
+2 = A(P2), P ′
+3 = A(P3) i punti immagine mediante A
+
+
+===== PAGINA 2 =====
+risp. di O, P1, P2, P3. Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+O′, P ′
+1, P ′
+2, P ′
+3 sono ancora vertici di un quadrato
+2
+O′, P ′
+1, P ′
+2, P ′
+3 sono ancora vertici di un quadrato di area 1
+3
+O′, P ′
+1, P ′
+2, P ′
+3 sono vertici di un rettangolo
+4
+O′, P ′
+1, P ′
+2, P ′
+3 sono vertici di un rettangolo di area 1
+5
+O′, P ′
+1, P ′
+2, P ′
+3 sono vertici di un rombo
+6
+O′, P ′
+1, P ′
+2, P ′
+3 sono vertici di un rombo di area 1
+7
+O′, P ′
+1, P ′
+2, P ′
+3 sono vertici di un parallelogramma
+8
+O′, P ′
+1, P ′
+2, P ′
+3 sono vertici di un parallelogramma di area 1
+9
+Nessuna delle precedenti
+I punti immagine sono O′ = (0, 0), P ′
+1 = (a11, a21), P ′
+3 = (a12, a22), P ′
+3 = (a11 + a12, a21 + a22), da cui `e evidente
+il parallelismo tra i lati opposti del quadrilatero O′P ′
+1P ′
+2P ′
+3. La condizione det A = 1 (che non implica che A sia
+ortogonale, e dunque il quadrilatero non `e n´e un rettangolo, n´e un rombo, n´e un quadrato) implica che l’area
+del parallelogramma sia il modulo del prodotto vettoriale⃗O′P ′
+1 ∧⃗O′P ′
+2, e dalla formula analitica del prodotto
+vettoriale, tale modulo `e detA = 1.
+4. Si considerino nello spazio euclideo R3 i piani α1 : x + y + z = 0, α2 : x + y −z = 0 e α3 : x −y + z = 0, essendo
+(x, y, z) le coordinate cartesiane di R3. Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente
+anche pi`u risposte):
+1
+α1, α2, α3 sono a due a due perpendicolari
+2
+le rette r1 : x = y = z, r2 : x = y = −z, r3 : x = −y = z sono parallele risp. ai piani α1, α2, α3
+3
+le rette r1 : x = y = z, r2 : x = y = −z, r3 : x = −y = z sono perpendicolari risp. ai piani α1, α2, α3
+4
+α1 ∩α2 ∩α3 `e una retta passante per O = (0, 0, 0)
+5
+α1 ∩α2 ∩α3 `e solo il punto O = (0, 0, 0)
+6
+Nessuna delle precedenti
+I tre piani hanno parametri di giacitura risp.
+(1, 1, 1), (1, 1, −1), (1, −1, 1) e pertanto non sono perpendico-
+lari. Il sistema lineare omogeneo costituito dalle equazioni dei tre piani ha determinante non nullo. Ne segue
+che esso ammette solo la soluzione nulla, e dunque l’aﬀermazione 5 `e vera, mentre la 4 `e falsa.
+Le rette
+r1, r2, r3 sono date con equazioni ridotte, dunque i loro parametri direttori, leggibili dalle equazioni, sono risp.
+(1, 1, 1), (1, 1, −1), (1, −1, 1), ovvero coincidono con i parametri di giacitura dei tre piani. Dunque l’aﬀermazione
+3 `e vera e la 2 `e falsa.
+5. Siano A ∈M3(R), B ∈M3(C), e supponiamo che A abbia tre autovalori reali distinti e che B abbia tre autovalori
+complessi distinti. Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+A2 ha tre autovalori distinti
+2
+B2 ha tre autovalori distinti
+3
+A3 ha tre autovalori distinti
+4
+B3 ha tre autovalori distinti
+5
+A, A2, A3 sono diagonalizzabili su R
+6
+B, B2, B3 sono diagonalizzabili su C
+7
+Nessuna delle precedenti
+Poich´e sia gli autovalori di A che quelli di B sono tutti distinti, A e B sono diagonalizzabili, risp. su R e C.
+Dunque esistono matrici invertibili M ∈M3(R) e N ∈M3(C) tali che M −1AM e N −1BN siano diagonali. Ne
+segue che anche M −1A2M, M −1A3M e N −1B2N, N −1B3N sono diagonali, ovvero le aﬀermazioni 5 e 6 sono
+vere. Delle altre aﬀermazioni `e vera solo la 3: gli autovalori di A2, B2 sono infatti i quadrati di quelli di A, B,
+e quelli di A3, B3 sono i cubi di quelli di A, B. Solo nel caso reale, tre numeri distinti hanno i cubi distinti
+(funzione f(x) = x3 invertibile!).
+2
+
+
+===== PAGINA 3 =====
+6. Si consideri in Rn il prodotto scalare canonico < , >: Rn × Rn −→R deﬁnita sui vettori⃗x = (x1, . . . , xn),⃗y =
+(y1, . . . , yn) dalla formula <⃗x,⃗y >= x1y1 + · · · + xnyn.
+Diciamo che la matrice A ∈Mn(R) conserva
+l’ortogonalit`a se vale l’implicazione
+<⃗x,⃗y >= 0 ⇒< A⃗x, A⃗y >= 0,
+per ogni⃗x,⃗y ∈Rn.
+Stabilire quali tra le seguenti aﬀermazioni sono corrette (eventualmente anche pi`u risposte):
+1
+Se A conserva l’ortogonalit`a, allora `e ortogonale: A = At
+2
+Se A conserva l’ortogonalit`a, allora `e invertibile ma non necessariamente ortogonale
+3
+ 3
+0
+0
+3
+
+: R2 →R2 conserva l’ortogonalit`a
+4
+ 3
+0
+0
+−3
+
+: R2 →R2 conserva l’ortogonalit`a
+5
+
+3
+0
+0
+2
+
+: R2 →R2 conserva l’ortogonalit`a
+6
+Nessuna delle precedenti
+Il conservare l’ortogonalit`a, secondo la deﬁnizione data, non implica conservare il modulo dei vettori: p. es. le
+matrici delle aﬀermazione 3 e 4 la conservano (ma non della 5). Dunque conservare l’ortogonalit`a non implica
+che la matrice sia ortogonale (l’aﬀermazione 1 `e falsa), ma implica che `e invertibile (la 2 `e vera).
+3

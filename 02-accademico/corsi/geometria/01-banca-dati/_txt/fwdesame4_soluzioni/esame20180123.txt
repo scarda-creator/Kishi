@@ -1,0 +1,215 @@
+===== PAGINA 1 =====
+Geometria
+Prova scritta, I appello, sessione invernale
+Corso di laurea in ﬁsica — A.A 2017/2018
+Canali A – C, L – Pa, Pb – Z
+Durata: 2 ora e 30 minuti
+Simone Diverio
+Alessandro D’Andrea
+Paolo Piccinni
+Antonietta Venezia
+23 gennaio 2018
+Esercizio 1. Si consideri, al variare del parametro k ∈R, il sistema lineare:
+
+
+
+−x
++ky
+−z
+=
+k
+−x
+−y
++z
+=
+−1
+(k −1)x
++2ky
+−(k + 1)z
+=
+2k.
+(i) Scrivere la matrice A ∈M3,3(R) dei coeﬃcienti e la matrice A′ ∈M3,4(R)
+completa del sistema, e determinare al variare di k il rango di A e il rango
+di A′.
+(ii) Stabilire per quali valori di k il sistema ammette soluzioni e determinare
+per tali valori tutte le soluzioni.
+(iii) Le tre equazioni del sistema rappresentano in R3 e al variare di k, dei
+piani aﬃni. Descrivere, al variare di k, la loro intersezione (una retta?, un
+punto?, insieme vuoto?), scrivendo, per i valori di k per cui si ottiene una
+retta r, le equazioni parametriche e le equazioni cartesiane di r.
+Esercizio 2. Si consideri la matrice A ∈M3,3(R) data da
+A =
+
+
+−4
+−2
+2
+6
+4
+−2
+−6
+−2
+4
+
+,
+e l’operatore lineare ad essa associato
+LA : R3 →R3.
+(i) Calcolare il polinomio caratteristico pLA associato ad LA e determinare
+gli autovalori di LA.
+1
+
+
+===== PAGINA 2 =====
+(ii) Determinare gli autospazi di LA speciﬁcandone in particolare la dimen-
+sione.
+(iii) Se possibile, determinare una matrice C ∈M3,3(R) tale che C−1 · A · C è
+una matrice diagonale e calcolare il risultato di tale prodotto (senza neces-
+sariamente calcolare l’inversa) per ottenere un’eventuale forma diagonale
+per LA.
+Esercizio 3. Sia V = R2[t] lo spazio vettoriale reale dei polinomi a coeﬃcienti
+reali di grado minore o uguale a 2. Veriﬁcare o confutare le seguenti aﬀermazioni,
+eventualmente mediante un controesempio.
+(i) Il sottoinsieme L ⊂V deﬁnito da L = {p ∈V | p′(t) = 2t + 1} è un
+sottospazio aﬃne.
+(ii) Il sottoinsieme U ⊂V deﬁnito da U = {p ∈V | p(2) · p′(0) = 0} è un
+sottospazio vettoriale, dove l’apice indica la derivata.
+(iii) L’applicazione
+T : V →V
+p 7→p(1) t2 + p′(0) t + p(−1)
+è lineare, e il suo nucleo è banale.
+Esercizio 4. Sia T : R3 →R3 un’applicazione lineare il cui nucleo ha equazione
+x2 −2x3 = 0; inoltre, supponiamo che
+T
+
+
+1
+1
+1
+
+=
+
+
+1
+2
+1
+
+.
+(i) Determinare una base {v1, v2} per ker T.
+(ii) Veriﬁcare che il vettore
+v3 =
+
+
+1
+1
+1
+
+
+completa {v1, v2} a una base B = {v1, v2, v3} di R3.
+(iii) Scrivere la matrice associata a T nella base B.
+Esercizio 5. Siano dati i seguenti due sottospazi di R4:
+U = Span
+
+
+
+
+
+
+
+
+
+
+
+1
+1
+0
+−1
+
+
+
+,
+
+
+
+
+1
+2
+3
+0
+
+
+
+,
+
+
+
+
+2
+3
+3
+−1
+
+
+
+
+
+
+
+
+
+
+
+,
+W = Span
+
+
+
+
+
+
+
+
+
+
+
+1
+2
+2
+−2
+
+
+
+,
+
+
+
+
+2
+3
+2
+−3
+
+
+
+,
+
+
+
+
+1
+3
+4
+−3
+
+
+
+
+
+
+
+
+
+
+
+.
+Determinare equazioni cartesiane per i sottospazi U + W e U ∩W.
+2

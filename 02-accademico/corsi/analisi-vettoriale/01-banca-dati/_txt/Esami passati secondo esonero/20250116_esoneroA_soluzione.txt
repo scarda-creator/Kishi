@@ -1,0 +1,568 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 10/02/2022
+proﬀ. F. De Marchis, F. Lanzara, A. Terracina
+COGNOME, NOME e MATRICOLA:
+DOCENTE:
+⃝De Marchis
+⃝Lanzara
+⃝Terracina
+Se ammesso, sosterr`o la prova orale:
+⃝in questo appello
+⃝in un appello successivo
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono
+essere adeguatamente motivati!
+Esercizio 1. Sia
+f(x, y) =
+
+ex4y2 −1
+(x2 + y2)a + xy
+(x, y) , (0, 0)
+0
+(x, y) = (0, 0)
+Studiare continuit`a, derivabilit`a, diﬀerenziabilit`a, esistenza delle derivate direzionali nell’origine al vari-
+are di a > 0.
+Soluzione. Posto
+g(x, y) =
+
+ex4y2 −1
+(x2 + y2)a
+(x, y) , (0, 0)
+0
+(x, y) = (0, 0)
+e h(x, y) = xy, si ha f(x, y) = g(x, y) + h(x, y). La funzione h non dipende dal parametro a, `e di classe
+C∞(2) (`e un polinomio) quindi `e continua, derivabile con hx(0, 0) = hy(0, 0) = 0, diﬀerenziabile e
+∂h
+∂v(0, 0) =< ∇h(0, 0), v >= hx(0, 0)v1 + hy(0, 0)v2 = 0, ∀v = (v1, v2).
+La funzione g `e continua in (0, 0) se lim(x,y)→(0,0) g(x, y) = 0. Dal limite notevole
+lim
+t→0
+et −1
+t
+= 1
+e osservando che
+lim
+(x,y)→(0,0) x4y2 = 0
+possiamo dedurre che
+lim
+(x,y)→(0,0)
+ex4y2 −1
+x4y2
+= 1 .
+Quindi,
+lim
+(x,y)→(0,0)
+ex4y2 −1
+(x2 + y2)a =
+lim
+(x,y)→(0,0)
+ex4y2 −1
+x4y2
+x4y2
+(x2 + y2)a =
+lim
+(x,y)→(0,0)
+x4y2
+(x2 + y2)a .
+Usando le disuguaglianze |x| ≤
+p
+x2 + y2 e |y| ≤
+p
+x2 + y2 otteniamo
+0 ≤
+x4y2
+(x2 + y2)a ≤(x2 + y2)2(x2 + y2)
+(x2 + y2)a
+= (x2 + y2)3−a.
+Quindi, se a < 3
+lim
+(x,y)→(0,0)
+x4y2
+(x2 + y2)a = 0.
+Concludiamo che, per a < 3,
+lim
+(x,y)→(0,0)
+ex4y2 −1
+(x2 + y2)a = 0.
+
+
+===== PAGINA 2 =====
+Se a ≥3,
+lim
+x→0 g(x, x) = lim
+x→0
+ex6 −1
+(2x2)a = lim
+x→0
+ex6 −1
+x6
+x6
+2a|x|2a = 2−a lim
+x→0 |x|6−2a , 0.
+Quindi se a ≥3 la funzione g non `e continua in (0, 0). Concludendo: la funzione f = g + h `e continua
+nell’origine se e solo se a < 3.
+Studiamo la derivabilit`a nell’origine costruendo i rapporti incrementali. Osservando che g(h, 0) = g(0, k) =
+0 si ha
+lim
+h→0
+g(h, 0) −g(0, 0)
+h
+= lim
+h→0
+0
+h = 0,
+lim
+k→0
+g(0, k) −g(0, 0)
+k
+= lim
+k→0
+0
+k = 0.
+La funzione `e derivabile in (0, 0) per ogni a > 0 e gx(0, 0) = gy(0, 0) = 0. Concludendo: la funzione
+f = g + h `e derivabile nell’origine per ogni a > 0 e si ha fx(0, 0) = fy(0, 0) = 0.
+Se a ≥3 la funzione non pu`o essere diﬀerenziabile in (0, 0) perch`e non `e continua. Studiamo la diﬀeren-
+ziabilit`a per a < 3 studiando il limite
+lim
+(x,y)→(0,0)
+g(x, y) −g(0, 0) −gx(0, 0)x −gy(0, 0)y
+p
+x2 + y2
+=
+lim
+(x,y)→(0,0)
+g(x, y)
+p
+x2 + y2 =
+lim
+(x,y)→(0,0)
+ex4y2 −1
+(x2 + y2)a+1/2 .
+Ragionando come per la continuit`a si ha che g `e diﬀerenziabile in (0, 0) se e solo se a < 5
+2. Concludendo:
+la funzione f = g + h `e diﬀerenziabile nell’origine se e solo se a < 5
+2.
+Se a < 5
+2 le derivate direzionali esistono come conseguenza della diﬀerenziabilit`a e si ha
+∂f
+∂v(0, 0) =< ∇f(0, 0), v >= fx(0, 0)v1 + fy(0, 0)v2 = 0, ∀v = (v1, v2).
+Sia a ≥5
+2 e v1 · v2 , 0. Per deﬁnizione
+∂g
+∂v(0, 0) = lim
+t→0
+g(tv1, tv2) −g(0, 0)
+t
+= lim
+t→0
+et6v4
+1v2
+2 −1
+t6v4
+1v2
+2
+t6v4
+1v2
+2
+t(t2)a = lim
+t→0
+t6v4
+1v2
+2
+t(t2)a = v4
+1v2
+2 lim
+t→0
+t5
+|t|2a .
+Si ha
+lim
+t→0+
+t5
+|t|2a =
+( 1
+a = 5
+2
++∞
+a > 5
+2
+mentre
+lim
+t→0−
+t5
+|t|2a =
+( −1
+a = 5
+2
+−∞
+a > 5
+2
+In conclusione, le derivate direzionali esistono lungo ogni direzione v = (v1, v2) con v1 · v2 , 0 se e solo
+se a < 5
+2. Se v1 · v2 = 0 esistono per ogni a > 0.
+2
+
+
+===== PAGINA 3 =====
+Esercizio 2. Data la funzione
+f(x, y) = e4x2+y2 −1
+2 x2 −y2
+i. Dire perch´e esistono e determinare il massimo e il minimo di f in D = {(x, y) ∈2 : 3x2 + 4y2 ≤9}.
+ii. Dimostrare che f ammette minimo assoluto in 2 e determinarlo.
+Soluzione. i. L’insieme D `e chiuso, essendo la preimmagine tramite la funzione continua g : 2 →,
+g(x, y) = 3x2 +4y2, dell’insieme chiuso (−∞, 9], e limitato in quanto D ⊆{3x2 +3y2 ≤9} ⊆{x2 +y2 < 4}.
+Inoltre la funzione f ∈C(2) perci`o per il Teorema di Weierstrass ammette massimo e minimo assoluti
+in D.
+Per determinare il massimo e minimo di f in D, essendo f ∈C1(2), cerchiamo i punti critici interni a
+D e cerchiamo i punti estremali di f sul bordo di D utilizzando il metodo dei moltiplicatori di Lagrange.
+Calcoliamo dunque
+∇f(x, y) = (x(8e4x2+y2 −1), y(2e4x2+y2 −2)),
+che si annulla solo nell’origine O (essendo e4x2+y2 > 1 per (x, y) , (0, 0)), che `e un punto interno di D.
+La frontiera di D `e data da ∂D = {(x, y) ∈2 : g(x, y) = 9} quindi, essendo g ∈C1(2) ed essendo in
+presenza di un solo vincolo in 2, per il Teorema dei moltiplicatori di Lagrange i punti estremali di f in
+∂D risolvono
+det
+ fx
+fy
+gx
+gy
+!
+= det
+ 
+x(8e4x2+y2 −1)
+y(2e4x2+y2 −2)
+6x
+8y
+!
+= 0,
+g(x, y) = 9,
+cio`e
+(
+xy(52e4x2+y2 + 4) = 0
+3x2 + 4y2 = 9.
+Dalla prima equazione si ricava che x = 0 o y = 0 e inserendo queste condizioni nel vincolo si trovano i
+quattro punti A± = (0, ± 3
+2) e B± = (±
+√
+3, 0).
+Valutando la f in O, A±, B± abbiamo
+f(O) = 1,
+f(A±) = e
+9
+4 −9
+4 (> 32 −3 = 6),
+f(B±) = e12 −3
+2 (> f(A±)),
+da cui deduciamo che il massimo assoluto di f in D `e e12 −3
+2, mentre il minimo assoluto di f in D `e 1.
+ii. Poich´e f(x, y) ≥ex2+y2 −x2 −y2 per ogni (x, y) ∈2 abbiamo che
+lim
+|(x,y)|→+∞f(x, y) ≥
+lim
+|(x,y)|→+∞(ex2+y2 −x2 −y2) = lim
+ρ→+∞(eρ2 −ρ2) = lim
+ρ→+∞(eρ2(1 + o(1)) = +∞.
+Dunque essendo f : 2 → continua e coerciva ammette minimo assoluto per la generalizzazione
+del Teorema di Weierstrass. Inoltre f ∈C1(2), quindi per il Teorema di Fermat il punto di minimo
+assoluto deve essere un punto critico. Dal fatto che l’origine `e l’unico punto critico possiamo aﬀermare
+che f(O) = 1 `e il minimo assoluto di f in 2.
+3
+
+
+===== PAGINA 4 =====
+Esercizio 3.
+Dato il campo vettoriale F(x, y, z) = (z2 + cos(x3), x2 + z, xy2) e la curva
+γ :
+z = (x −1/2)2 + (y −1)2,
+z + x + 2y = 3
+2
+i. dire se la curva `e regolare scrivendo un’opportuna rappresentazione parametrica;
+ii. calcolare il rot F;
+iii. calcolare il lavoro del campo vettoriale F lungo la curva γ orientata in verso antiorario se vista
+dall’alto.
+Soluzione. i. La curva γ `e data dall’intersezione del paraboloide z = (x −1/2)2 + (y −1)2 con il piano
+z + x + 2y = 3
+2. Si ha
+(x −1/2)2 + (y −1)2 = −x −2y + 3
+2 ⇐⇒x2 + y2 = 1
+4
+cio´e le superﬁci s’intersecano sul cilindro x2 + y2 = 1
+4. Una rappresentazione parametrica della curva `e
+quindi data da
+x(t) = 1
+2 cos(t),
+y(t) = 1
+2 sin(t),
+z(t) = 3
+2 −x(t) −2y(t) = 3
+2 −1
+2 cos(t) −sin(t),
+t ∈[0, 2π].
+La curva `e regolare poich´e
+- x(t), y(t), z(t) ∈C1([0, 2π]);
+-
+p
+(x′(t))2 + (y′(t))2 + (z′(t))2 =
+q
+1
+4 + ( 1
+2 sin(t) −cos(t))2 > 0 in (0, 2π).
+i. Il campo F ∈C∞(2) ⊂C1(2). E’ possibile calcolare il rotore di F:
+rot F = det
+
+e1
+e2
+e3
+∂x
+∂y
+∂z
+F1
+F2
+F3
+= det
+
+e1
+e2
+e3
+∂x
+∂y
+∂z
+z2 + cos(x3)
+x2 + z
+xy2
+= (2xy −1, 2z −y2, 2x) .
+ii. Il calcolo diretto `e laborioso. Facciamo uso del Teorema di Stokes nello spazio. La curva γ `e data
+dall’intersezione del piano z + x + 2y = 3
+2 con il paraboloide z = (x −1/2)2 + (y −1)2. Una superﬁcie
+regolare che ha bordo γ `e data dalla parte di piano
+Σ : z = −x −2y + 3
+2,
+(x, y) ∈D = {x2 + y2 ≤1
+4}
+e si ha
+Z
+γ
+F · T ds =
+Z
+∂Σ+ F · T ds .
+Per il teorema di Stokes
+Z
+∂Σ+ F · T ds =
+Z
+Σ
+rotF · N dσ
+dove con N indichiamo il versone normale a Σ orientato verso l’alto (con la terza componente > 0).
+Essendo Σ una superﬁcie cartesiana, detta f(x, y) = −x −2y + 3
+2, si ha
+N =
+(−fx, −fy, 1)
+q
+1 + (fx)2 + (fy)2
+= (1, 2, 1)
+√
+6
+,
+rot F · N|Σ =
+2xy + 2x + 2
+
+2z −y2
+−1
+√
+6
+|Σ = 2xy −2x −2y2 −8y + 5
+√
+6
+|Σ.
+Dato che
+q
+1 + (fx)2 + (fy)2 =
+√
+6
+4
+
+
+===== PAGINA 5 =====
+si ha
+Z
+Σ
+rot F · N dσ =
+"
+D
+(2xy −2x −2y2 −8y + 5)dxdy.
+Introduciamo un sistema di coordinate polari
+x = ρ cos(ϑ),
+y = ρ sin(ϑ),
+ϑ ∈[0, 2π]
+che trasforma
+D ⇔F = {(ρ, ϑ) : 0 ≤ρ ≤1
+2, 0 ≤ϑ ≤2π}.
+Quindi
+"
+D
+(2xy−2x−2y2−8y+5)dxdy =
+"
+F
+(−2ρ2 sin2(ϑ)+2ρ2 sin(ϑ) cos(ϑ)−8ρ sin(ϑ)−2ρ cos(ϑ)+5)ρdρdϑ =
+"
+F
+(−2ρ2 sin2(ϑ) + 2ρ2 sin(ϑ) cos(ϑ))ρdρdϑ + 5areaD = 39
+32π.
+5
+
+
+===== PAGINA 6 =====
+Esercizio 4. Sia T = {(x, y, z) ∈3 : x2 + y2 ≤1, x2 + y2 + (z −3)2 ≤9)}.
+i. Si veriﬁchi che ∂T `e formato dall’unione di tre superﬁci regolari, determinando per ognuna di esse una
+opportuna parametrizzazione.
+ii. Per ciascuna delle tre superﬁci, si trovi la normale esterna che punta verso l’esterno del dominio T .
+iii. Si determinino i bordi per le tre superﬁci considerate al punto i.
+iv. Dato il campo
+F(x, y, z) = (2x + y2, y + cos(z), z2
+2 + xy),
+si calcoli il ﬂusso di F uscente da T.
+Soluzione. Si tratta di un cilindro inﬁnito di base x2 + y2 ≤1 contenuto in una sfera di centro (0, 0, 3) e
+raggio 3. La frontiera ∂T `e formata dalla superﬁcie cilindrica contenuta nella sfera e e da due porzioni di
+superﬁcie sferica. Pi`u precisamente abbiamo ∂T = Σ1 ∪Σ2 ∪Σ3 dove Σ1 si pu`o parametrizzare come una
+superﬁcie cartesiana
+x = x, y = y, z = f(x, y) := 3 +
+p
+9 −x2 −y2, (x, y) ∈C = {(x, y) ∈2x2 + y2 ≤1}.
+La funzione f `e di classe C1 su C, per cui la superﬁcie `e regolare.
+In questo caso il vettore normale (−fx, −fy, 1) indotto dalla parametrizzazione punta verso l’esterno di T
+in quanto la terza componente `e positiva. La parte inferiore della superﬁcie sferica Σ3 corrisponde come
+luogo geometrico ad una superﬁcie cartesiana, possiamo scegliere come parametrizzazione
+x = y, y = y, z = g(x, y) := 3 −
+p
+9 −x2 −y2, (x, y) ∈C = {(x, y) ∈2x2 + y2 ≤1}.
+La superﬁcie `e regolare in quanto la funzione g `e di classe C1 su cerchio C.
+In questo caso il vettore (gx, gy, −1) `e normale alla superﬁcie punta verso l’esterrno di T, infatti la terza
+componente `e negativa.
+Inﬁne per ottenere la superﬁcie laterale del cilindro contenuta nella sfera bisogna determinare le quote di
+intersezione del cilindro con la sfera, quindi mettere a sistema x2 + y2 = 1 con x2 + y2 + (z −3)2 = 9 da
+cui (z −3)2 = 8 da cui si ricavano z1 = 3 −
+√
+8 e z2 = 3 +
+√
+8. Indicando con Σ2 tale superﬁcie, questa si
+pu`o parametrizzare tramite
+x = cos(t), y = sin(t), z = v, con (t, v) ∈D = [0, 2π] × [z1, z2]. La superﬁcie risulta regolare in quanto: la
+funzione `e iniettiva in (0, 2π) × (z1, z2) perch´e lo sono le mappe t 7→(cos(t), sin(t)), t ∈(0, 2π), e z 7→z,
+z ∈(z1, z2); le componenti sono C1 ed, essendo (xt, yt, zt) = (−sin(t), cos(t), 0) e (xv, yv, zv) = (0, 0, 1), il
+vettore (−sin(t), cos(t), 0) × (0, 0, 1) = (cos(t), sin(t), 0) non `e mai nullo (ha sempre norma 1). Inoltre il
+vettore normale indotto dalla parametrizzazione (cos(t), sin(t), 0) punta verso l’esterno di T.
+iii) Le superﬁci Σ1 e Σ2 hanno in comune il bordo ∂Σ1 = {(x, y, z), x2 + y2 = 1, z = z2} mentre le superﬁci
+Σ2 e Σ3 hanno in comune il bordo ∂Σ3 = {(x, y, z), x2 + y2 = 1, z = z1}.
+iv) Per determinare il ﬂusso uscente il modo pi`u veloce consiste nell’applicare il teorema della diver-
+genza. In questo caso divF = 3 + z e si ha, dopo aver osservato che T `e un dominio normale rispetto al
+piano (x, y),
+"
+∂T
+(F, N) dσ =
+$
+T
+divF dxdydz =
+"
+C
+Z 3+√
+9−x2−y2
+3−√
+9−x2−y2 3 + z dzdxdy
+=
+"
+C
+"
+3z + z2
+2
+#3+√
+9−x2−y2
+3−√
+9−x2−y2 dxdy =
+"
+C
+6
+q
+9 −x2 −y2+6
+q
+9 −x2 −y2 dxdy =
+Z 2π
+0
+Z 1
+0
+12
+q
+9 −ρ2ρ dθdρ
+= 24π
+"
+−1
+3(9 −ρ2)
+3
+2
+#1
+0
+= 8π(9
+3
+2 −8
+3
+2 ).
+6
+
+
+===== PAGINA 7 =====
+Esercizio 5. Dato il problema di Cauchy
+(1)
+( 6y′(t) + y(t) = et(y(t))−5
+y(0) = 1
+i. dire perch´e il problema (1) ammette un’unica soluzione locale;
+ii. scrivere il polinomio di Taylor di ordine 2 della soluzione in t = 0;
+iii. determinare la soluzione y(t) del problema di Cauchy (1);
+iv. determinare l’intervallo massimale di esistenza della soluzione y(t).
+Soluzione i. L’equazione pu`o essere scritta in forma normale come
+y′(t) = −y(t)
+6 +
+et
+6y5(t).
+Essendo f(t, y) := −y
+6 +
+et
+6y5 ∈C1( × ( \ {0})) ed essendo (0, 1) ∈ × ( \ {0}) grazie al Teorema di
+Cauchy sappiamo che esiste unica la soluzione locale del problema (1).
+ii. Essendo f ∈C1 allora la soluzione y(t) `e di classe C2, dunque possiamo scrivere il polinomio di Taylor
+di secondo grado di y in t0 = 0:
+P2(y; 0)(t) = y(0) + y′(0)t + y′′(0)
+2 t2.
+Dal dato iniziale e dall’equazione otteniamo immediatamente y(0) = 1 e y′(0) = −y(0)
+6
++
+1
+6y5(0) = 0,
+mentre per ottenere y′′(0) deriviamo l’equazione diﬀerenziale:
+y′′(t) = −y′(t)
+6
++ ety5(t) −5y4(t)y′(t)et
+6y10(t)
+,
+da cui y′′(0) = 1
+6. In deﬁnitiva P2(y; 0)(t) = 1 + 1
+12t2.
+iii. Si tratta di un’equazione di Bernoulli con α = −5, quindi poniamo z(t) := (y(t))6 e andiamo a risolvere
+z′(t) = −z(t) + et,
+z(0) = 1.
+Dalla formula risolutiva per le equazioni lineari del primo ordine
+z(t) = e−t
+ 
+1 +
+Z t
+0
+e2sds
+!
+= et + e−t
+2
+, t ∈,
+quindi y(t) =
+et+e−t
+2
+1/6, t ∈, dove abbiamo scelto la determinazione positiva della radice in quanto
+y(0) = 1 > 0.
+iv. Essendo et+e−t
+2
+> 0 per ogni t ∈ ed essendo f ∈C1( × ( \ {0})) l’intervallo massimale `e tutto .
+7

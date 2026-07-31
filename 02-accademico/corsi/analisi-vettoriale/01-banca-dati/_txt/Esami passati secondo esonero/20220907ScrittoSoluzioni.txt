@@ -1,0 +1,475 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 07/09/2022
+proﬀ. F. De Marchis, F. Lanzara, A. Terracina
+COGNOME, NOME e MATRICOLA:
+DOCENTE:
+⃝De Marchis
+⃝Lanzara
+⃝Terracina
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere adeguatamente motivati!
+Esercizio 1. Data la successione
+fn(x) = na sin
+ x2
+n
+!
+,
+a > 0
+i. studiarne la convergenza puntuale in , al variare del parametro a > 0;
+ii. studiarne la convergenza uniforme nei seguenti insiemi: , [−1, 2], al variare del parametro a > 0;
+iii. calcolare, giustiﬁcando i passaggi
+lim
+n→∞n
+Z 2
+0
+sin
+ x2
+n
+!
+dx.
+Soluzione. i. Se x = 0: fn(0) = 0
+n→∞
+−→0.
+Se x , 0:
+lim
+n→+∞fn(x) = lim
+n→+∞
+sin
+ x2
+n
+
+x2
+n
+x2
+n na = x2 lim
+n→+∞na−1 n→∞
+−→
+
+0
+a < 1
+x2
+a = 1
++∞
+a > 1.
+In conclusione, se a > 1 la successione converge solo in x = 0; se a = 1 la successione di funzioni converge puntualmente in  alla
+funzione f(x) = x2; se 0 < a < 1 la successione di funzioni converge puntualmente in  alla funzione f(x) = 0.
+ii. Studiamo la convergenza uniforme per a ≤1.
+Sia a = 1. Dato che
+sup
+x∈
+| fn(x) −f(x)| = sup
+x∈
+|n sin
+ x2
+n
+!
+−x2| ≥|fn( √n) −f( √n)| = n| sin(1) −1|
+n→∞
+−→+∞
+non c’`e convergenza uniforme in .
+Studiamo la convergenza uniforme in [−1, 2]. Si ha
+sup
+x∈[−1,2]
+| fn(x) −f(x)| =
+sup
+x∈[−1,2]
+|n sin
+ x2
+n
+!
+−x2| = n sup
+[−1,2]
+| sin
+ x2
+n
+!
+−x2
+n | = n sup
+[−1,2]
+ x2
+n −sin
+ x2
+n
+!!
+Dato che, per n ﬁssato, la funzione
+x 7→x2
+n −sin
+ x2
+n
+!
+`e pari e crescente in (0, +∞), si ha
+sup
+[−1,2]
+ x2
+n −sin
+ x2
+n
+!!
+= 22
+n −sin
+ 22
+n
+!
+.
+Quindi
+sup
+x∈[−1,2]
+| fn(x) −f(x)| = n
+ 22
+n −sin
+ 22
+n
+!!
+= 4 −n sin
+ 4
+n
+!
+= 4
+1 −
+sin
+ 4
+n
+
+4/n
+
+n→∞
+−→0.
+Concludiamo che, se a = 1, la convergenza `e uniforme in [−1, 2].
+Sia 0 < a < 1. Dato che
+sup
+x∈
+| fn(x) −f(x)| = sup
+x∈
+| fn(x)| ≥|fn( √n)| = na sin(1)−→+∞
+non c’`e convergenza uniforme in .
+Studiamo la convergenza uniforme in [−1, 2]. Si ha
+sup
+x∈[−1,2]
+| fn(x) −f(x)| =
+sup
+x∈[−1,2]
+|na sin
+ x2
+n
+!
+| = na sin
+ 22
+n
+!
+= 4 na−1 sin
+ 4
+n
+
+4/n
+n→∞
+−→0.
+
+
+===== PAGINA 2 =====
+Concludiamo che, se 0 < a < 1, la convergenza `e uniforme in [−1, 2].
+iii. La successione fn(x) ∈C(), per a = 1, converge uniformemente in [0, 2] ⊆[−1, 2] alla funzione f(x) = x2. Possiamo applicare
+il teorema di passaggio al limite sotto segno d’integrale
+lim
+n→∞n
+Z 2
+0
+sin
+ x2
+n
+!
+dx = lim
+n→∞
+Z 2
+0
+fn(x)dx =
+Z 2
+0
+f(x)dx =
+Z 2
+0
+x2dx = x3
+3
+
+2
+0 = 8
+3.
+Esercizio 2. Data la funzione
+F(x, y, z) = ez + x2y2z −exy + x4 −y4,
+i. provare che l’equazione F(x, y, z) = 0 deﬁnisce implicitamente una funzione z = g(x, y) in un intorno dell’origine;
+ii. mostrare che il punto (0, 0) `e un punto di sella per g.
+Soluzione. ∇F(x, y, z) = (2xy2z−yexy +4x3, 2x2yz−xexy −4y3, ez + x2y2),
+F(0,0,0)=0,
+∇F(0, 0, 0) = (0, 0, 1). Possiamo applicare
+il teorema del Dini che ci assicura l’esistenza della funzione g in un intorno dell’origine. Valgono inoltre le seguenti formule
+gx(0, 0) = −Fx(0, 0, 0)
+Fz(0, 0, 0) = 0,
+gy(0, 0) = −Fy(0, 0, 0)
+Fz(0, 0, 0) = 0.
+Abbiamo quindi che (0, 0) `e un punto critico per g. Per studiare il carattere dobbiamo studiare le derivate seconde di g nell’origine.
+Calcoliamo preliminarmente le derivate seconde di F:
+Fxx = 2y2z −y2exy + 12x2,
+Fyy = 2x2z −x2exy −12y2,
+Fxy = 4xyz −exy −xyexy
+(non abbiamo calcolato le altre perch`e in questo caso particolare caso non si serviranno).
+Partendo dalle formule del primo ordine
+gx(x, y) = −Fx(x, y, g(x, y))
+Fz(x, y, g(x, y)) ,
+gy(x, y) = −Fy(x, y, g(x, y))
+Fz(x, y, g(x, y)),
+usando le formule sulle derivate composte e nuovamente il calcolo esplicito di gx(0, 0) = 0 e gy(0, 0) = 0, si ottiene
+gxx(0, 0) = −Fxx(0, 0, 0)
+Fz(0, 0, 0) = 0,
+gyy(0, 0) = −Fyy(0, 0, 0)
+Fz(0, 0, 0) = 0,
+gxy(0, 0) = −Fxy(0, 0, 0)
+Fz(0, 0, 0) = 1.
+(nota bene: queste sono formule pi`u semplici che valgono proprio perch´e (0, 0) `e un punto critico per g, se non fosse stato un
+punto critico ci sarebbero stati altri termini e avremmo dovuto calcolare anche le altre derivate parziali di F). Abbiamo allora che
+det Hg(0, 0) = −1 < 0 e dunque (0, 0) `e un punto di sella per g.
+Esercizio 3. Dato l’insieme
+E = {(x, y, z) ∈3 : z2 + 1 ≤x2 + y2 ≤z + 7},
+i. calcolare il volume di E;
+ii. calcolare il ﬂusso del campo F = (x + cos(y2), y + sin(y), −z cos(y)) uscente da E.
+Soluzione. i. L’insieme E `e delimitato dal paraboloide
+z = x2 + y2 −7
+e dall’iperboloide ad una falda
+x2 + y2 −z2 = 1.
+La disuguaglianza x2 + y2 ≤z + 7 indica la parte interna al paraboloide; la disuguaglianza x2 + y2 ≥z2 + 1 indica la parte esterna
+all’iperboloide . L’intersezione tra le due superﬁci `e data da
+z + 7 = x2 + y2 = z2 + 1 ⇒z + 7 = z2 + 1 ⇒z = −2, z = 3.
+Quindi E `e costituito dall’intercapedine tra il paraboloide e l’iperboloide, compresa tra i piani z = −2 e z = 3 (vedi ﬁgura).
+Introducendo un sistema di coordinate cilindriche
+x = ρ cos ϑ, y = ρ sin ϑ, z = z
+l’insieme si trasforma in
+E
+coord.cilindriche
+⇐⇒
+F = {(ρ, ϑ, z) : z2 + 1 ≤ρ2 ≤z + 7}.
+2
+
+
+===== PAGINA 3 =====
+Dal vincolo
+z2 + 1 ≤z + 7 ⇐⇒−2 ≤z ≤3
+si deduce
+F = {(ρ, ϑ, z) : 0 ≤ϑ ≤2π, −2 ≤z ≤3,
+p
+z2 + 1 ≤ρ ≤
+√
+z + 7}.
+Quindi
+VolE =
+$
+F
+ρdρdzdϑ = 2π
+Z 3
+−2
+dz
+Z
+√
+z+7
+√
+z2+1
+ρdρ = π
+Z 3
+−2
+(z + 7 −(z2 + 1))dz = π
+Z 3
+−2
+(z −z2 + 6) = π(z2
+2 −z3
+3 + 6z)
+
+3
+−2 = 125
+6 π.
+ii. Il campo F ∈C∞(3). Per il calcolo del ﬂusso possiamo applicare il teorema della divergenza. Si ha
+div F = 1 + (1 + cos(y)) −cos(y) = 2.
+Quindi il ﬂusso uscente da E `e
+Z
+∂E
+(F, N)dσ =
+$
+E
+div Fdx dy dz = 2Vol E = 125
+3 π.
+Esercizio 4. Indicata con S la superﬁcie ottenuta per rotazione intorno all’asse z del graﬁco della funzione
+x = 1 −
+p
+1 −z2, z ∈[0, 1
+2],
+i. determinare una rappresentazione parametrica di S ;
+ii. determinare il bordo di S ;
+iii. determinare le componenti del versore normale a S ;
+iv. calcolare l’integrale superﬁciale
+"
+S
+z dσ.
+Soluzione i. La superﬁcie di rotazione `e deﬁnita dalla relazione
+x2 + y2 = (1 −
+p
+1 −z2)2, z ∈[0, 1
+2].
+Una rappresentazione parametrica `e:
+
+x = (1 −
+√
+1 −v2) cos(u)
+y = (1 −
+√
+1 −v2) sin(u)
+z = v
+0 ≤v ≤1
+2
+0 ≤u ≤2π .
+3
+
+
+===== PAGINA 4 =====
+ii. l bordo di S si ottiene ponendo v = 1
+2, si tratta di una circonferenza che vive nel piano z = 1
+2 di centro (x, y) = (0, 0) e raggio
+r = 1 −
+√
+3
+2 .
+iii. Posto r(u, v) = (x(u, v), y(u, v), z(u, v)) = ((1 −
+√
+1 −v2) cos(u), (1 −
+√
+1 −v2) sin(u), v), la matrice Jacobiana della trasformazione
+`e
+ xu, yu, zu
+xv, yv, zv
+!
+=
+
+−(1 −
+√
+1 −v2) sin(u)
+(1 −
+√
+1 −v2) cos(u)
+0
+v
+√
+1 −v2 cos(u)
+v
+√
+1 −v2 sin(u)
+1
+
+da cui segue
+
+L = det
+ yu, zu
+yv, zv
+!
+= (1 −
+√
+1 −v2) cos(u)
+M = −det
+ xu, zu
+xv, zv
+!
+= (1 −
+√
+1 −v2) sin(u)
+N = det
+ xu, yu
+xv, yv
+!
+= −
+v
+√
+1 −v2 (1 −
+√
+1 −v2)
+e quindi
+|ru × rv| =
+√
+L2 + M2 + N2 = 1 −
+√
+1 −v2
+√
+1 −v2
+=
+1
+√
+1 −v2 −1.
+Le componenti del versore normale sono
+N = ± ru × rv
+|ru × rv| = ±(
+√
+1 −v2 cos(u),
+√
+1 −v2 sin(u), −v).
+iv. Per il calcolo dell’integrale superﬁciale si ha:
+"
+S
+z dσ =
+Z 2π
+0
+du
+Z
+1
+2
+0
+v
+(
+1
+√
+1 −v2 −1
+)
+dv = 2π
+"
+−
+√
+1 −v2 −v2
+2
+# 1
+2
+0
+= 2π
+
+7
+8 −
+√
+3
+2
+.
+Esercizio 5. Dato il problema di Cauchy
+(a)
+(
+y′(t) = y(t) arctan(t2y(t))
+y(0) = y0 > 0,
+i. spiegare perch´e ammette un’unica soluzione locale;
+ii. dimostrare che la soluzione `e globale;
+iii. dire se la soluzione `e monotona (crescente o decrescente);
+iv. calcolare, se esistono, i limiti della soluzione per t →±∞.
+Soluzione i. La funzione f(t, y) = y arctan(t2y) `e C1(2) per cui si pu`o applicare il Teorema di Cauchy che assicura esistenza ed
+unicit`a per ogni condizione iniziale y(x0) = y0.
+ii. Si ha la stima | f(t, y)| ≤π
+2|y| che garantisce esistenza globale.
+4
+
+
+===== PAGINA 5 =====
+iii. Osserviamo preliminarmente che la funzione y(t) ≡0 `e soluzione dell’equazione diﬀerenziale. Per il Teorema di unicit`a nessun
+altra soluzione la pu`o intersecare, per questo motivo dal momento che y0 > 0, la soluzione del problema di Cauchy rimane stret-
+tamente positiva per ogni t ∈. Quindi y′(t) = y(t) arctan(t2y(t)) > 0, infatti arctan(z) > z per ogni z > 0. Questo assicura che la
+soluzione `e strettamente crescente in tutto  indipendentemente dalla scelta del dato iniziale y0.
+iv. Grazie al punto iii. gi`a sappiamo che y(t) ammette limiti a ±∞. Per calcolare questi limiti bisogna ragionare in modo opportuno.
+Iniziamo con il limite a +∞, poich´e la funzione `e crescente tale limite non pu`o valere 0, anzi deve essere necessariamente maggiore
+di y0. Se fosse lim
+t→+∞y(t) = L ∈(y0, ∞) si otterrebbe un assurdo per il teorema dell’asintoto, infatti si avrebbe
+lim
+t→+∞y′(t) = lim
+t→+∞y(t) arctan(t2y(t)) = +∞.
+L’unica possibilit`a `e che valga lim
+t→+∞y(t) = +∞.
+Il discorso `e diverso per il limite a −∞; in questo caso, poich´e la soluzione deve rimanere positiva e strettamente crescente si deve
+avere
+lim
+t→−∞y(t) = L2 ∈[0, y0).
+Per il teorema dell’asintoto otteniamo di nuovo un assurdo a meno che non sia L2 = 0.
+5

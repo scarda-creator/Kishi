@@ -1,0 +1,170 @@
+===== PAGINA 1 =====
+Geometria (Corso di laurea in Fisica, Canali A-C e D-O)
+Prof. Barucci e Piccinni
+9 luglio 2012
+a. Scrivere subito canale, cognome e nome.
+b. Utilizzare questi fogli per le risposte. I fogli protocollo distribuiti a parte sono invece per eventuali riﬂessioni o
+calcoli, e non vanno consegnati.
+c. Durante la prova non si possono consultare testi e appunti n´e usare fogli diversi da quelli distribuiti.
+d. Durante la prova non `e consentito uscire dall’aula.
+Tempo a disposizione: 2 ore
+Canale.............................Cognome...........................................................Nome................................................
+1. Sia T : R3 →R3 l’endomorﬁsmo tale che T(x, y, z) = (−2x + y + z, x −2y + z, x + y −2z). Stabilire quali tra le
+seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte)
+1
+T `e rappresentato rispetto alla base canonica da una matrice diagonale
+2
+T `e diagonalizzabile
+3
+per ogni autovalore, la molteplicit`a algebrica coincide con la molteplicit`a geometrica
+4
+T ha tre autovalori distinti
+5
+Ker T `e un autospazio di T
+2. Sia r la retta di R3 di equazioni
+
+x −y = 0
+2x −y = 0
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte)
+1
+Esiste un unico piano contenente la retta r e il punto P = (3, 4, 0) ed ha equazione 4x −3y = 0
+2
+Non esiste alcun piano contenente la retta r e il punto P = (3, 4, 0)
+3
+Esistono inﬁniti piani contenenti la retta r e il punto P = (3, 4, 0)
+4
+Esistono inﬁniti piani contenenti la retta r e il punto Q = (0, 0, −2)
+5
+Esiste un unico piano contenente la retta r e il punto Q = (0, 0, −2) ed ha equazione x + 2y = 0
+3. Siano⃗v1 = (0, 1, 1, 0),⃗v2 = (1, 1, 1, 0),⃗v3 = (0, 1, 0, 0),⃗v4 = (1, 0, 1, 0) ∈R4. Siano inoltre U = Span(⃗v1,⃗v2) e
+W = Span(⃗v3,⃗v4). Rispondere nei riquadri alle seguenti domande:
+Estrarre da {⃗v1,⃗v2,⃗v3,⃗v4} una base per Span(⃗v1,⃗v2,⃗v3,⃗v4) :
+
+
+Determinare dim(U + W) =
+
+
+Determinare dim(U ∩W) =
+
+
+
+
+===== PAGINA 2 =====
+4. Sia A ∈Mm,n(R) (una matrice con m righe ed n colonne), e sia S una sua riduzione a scala. Stabilire quali tra
+le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte)
+1
+Ker A = Ker S
+2
+dim Ker A = dim Ker S
+3
+Im A = Im S
+4
+dim Im A = dim Im S
+5
+Im A `e un sottospazio di Rne Ker A `e un sottospazio di Rm
+6
+Im A `e un sottospazio di Rme Ker A `e un sottospazio di Rn
+5. Sia T : R3 →R3 la rotazione di un angolo π intorno all’asse x. Stabilire quali tra le seguenti aﬀermazioni sono
+vere (eventualmente anche pi`u risposte):
+1
+T non `e un endomorﬁsmo
+2
+T `e un endomorﬁsmo ma non `e diagonalizzabile
+3
+T `e un endomorﬁsmo diagonalizzabile
+4
+esiste una base di R3 formata da autovettori di T
+5
+l’unico autovalore di T `e 1
+6. Sia f : C →C l’applicazione che associa a ogni numero complesso a + ib il suo coniugato a −ib. Stabilire quali
+tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+f `e un’applicazione iniettiva ma non suriettiva
+2
+f `e un’applicazione suriettiva ma non iniettiva
+3
+f `e un’applicazione biiettiva
+4
+f `e un’applicazione lineare di C in C come spazio vettoriale su se stesso
+5
+f `e un’applicazione lineare di C in C come spazio vettoriale su R
+7. Sia T : M2(R) →M2(R) l’applicazione lineare deﬁnita dalla formula:
+T(A) = (A · At),
+essendo M2(R) lo spazio vettoriale delle matrici reali 2 × 2, At la trasposta di A ed essendo · il prodotto righe
+per colonne. Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+T `e lineare e il nucleo di T `e costituito dalle matrici simmetriche
+2
+T `e lineare e il nucleo di T `e costituito dalle matrici antisimmetriche
+3
+T non `e lineare ma `e iniettiva
+4
+T non `e lineare ma `e suriettiva
+5
+Nessuna delle precedenti.
+2
+
+
+===== PAGINA 3 =====
+8. Si considerino nello spazio R3 i seguenti quattro vettori (necessariamente linearmente dipendenti⃗v1 = (1, 1, 1),⃗v2 =
+(1, 2, 2),⃗v3 = (0, −1, 1),⃗v4 = (3, 1, 1), Stabilire quali tra le seguenti aﬀermazioni `e vera:
+1
+ognuno tra i vettori⃗v1,⃗v2,⃗v3,⃗v4 `e combinazione lineare dei rimanenti
+2
+uno solo tra i vettori⃗v1,⃗v2,⃗v3,⃗v4 `e combinazione lineare dei rimanenti
+3
+due e non pi`u di due tra i vettori⃗v1,⃗v2,⃗v3,⃗v4 sono combinazioni lineari dei rimanenti
+4
+tre e non pi`u di tre tra i vettori⃗v1,⃗v2,⃗v3,⃗v4 sono combinazioni lineari dei rimanenti
+9. Si considerino in M2(C) le seguenti matrici:
+J1 =
+ 0
+1
+1
+0
+
+,
+J2 =
+ 0
+−i
+i
+0
+
+,
+J3 =
+ 1
+0
+0
+−1
+
+,
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+J1, J2, J3 sono diagonalizzabili, ma hanno autovalori diversi
+2
+J1, J2, J3 sono diagonalizzabili, e hanno gli stessi autovalori
+3
+J1, J2, J3 non sono diagonalizzabili
+4
+J1, J2, J3 sono matrici simili
+10. Si consideri il sistema lineare a coeﬃcienti reali:
+
+
+
+−x + 4y + 2z + 1
+= 0
+2x + 5y + 4z −2
+= 0
+4x −3y −1
+= 0
+e siano α, α′, α” i tre piani di R3 rappresentati ordinatamente dalla prima, seconda e terza equazione.
+Stabilire quale tra le seguenti aﬀermazioni `e vera:
+1
+α, α′, α”sono paralleli
+2
+α, α′, α”si intersecano in un punto
+3
+α, α′, α”si intersecano in una retta, e appartengono quindi a uno stesso fascio
+4
+Nessuna delle precedenti.
+3

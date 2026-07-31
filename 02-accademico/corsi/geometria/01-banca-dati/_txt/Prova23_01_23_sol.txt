@@ -1,0 +1,195 @@
+===== PAGINA 1 =====
+Geometria. a.a. 2022-23
+Prova scritta del 23 Gennaio 2023
+Esercizio 1. In R3 sia assegnato il prodotto scalare
+< X, Y >= x1y1 + 3x2y2 + 2x3y3 + 2x2y3 + 2x3y2
+i) Veriﬁcare che tale prodotto scalare `e deﬁnito positivo.
+ii) Trovare una base ortonormale rispetto al dato prodotto scalare del sottospazio
+W generato dai vettori
+v1 = (1, 2, −2),
+v2 = (0, 1, 0),
+v3 = (−2, 0, 4).
+Soluzione. i)
+< X, X >= x2
+1 + 3x2
+2 + 2x2
+3 + 4x2x3 = x2
+1 + x2
+2 + 2(x2 + x3)2
+La somma di questi quadrati `e sempre positiva eccetto che nel caso X = 0
+ii)
+2v1 −2v2 + v3 = 0.
+v1 = (1, 2, −2),
+v2 = (0, 1, 0)
+formano una base di W. Inoltre
+< v1, v2 >= 6 −4 = 2
+Quindi
+w1 = v2, w2 = v1 −(2/3)v2 = (1, 4/3 −2)
+`e una base ortogonale e una base ortonormale `e
+u1 = (1/
+√
+3)w1,
+u2 = (
+√
+3/
+√
+11)w2
+Esercizio 2. Sia
+S =
+
+1
+3
+1
+0
+1
+0
+2
+0
+0
+
+;
+i) Veriﬁcare se S `e diagonalizzabile.
+ii) Calcolare autovalori e autovettori di S.
+Soluzione. i) PS(t) = det(S −t13) = −(t −1)(t + 1)(t −2) Gli autovalori sono
+distinti, quindi diagonalizza.
+ii) Gli autovettori di S sono
+v1 = (3, −2, 6), v−1 = (1, 0, 1), v2 = (−1, 0, 2).
+Esercizio 3. Si consideri il sistema di 4 equazioni in 4 incognite:
+
+
+
+
+
+
+
+x1 −x2 + 2x3 −x4 = 1
+x2 + x3 + (t −2)x4 = 2
+x1 + x3 −2x4 = 0
+x1 −x2 −3x4 = 1 −t
+Studiare la compatibilit`a del sistema e trovare le soluzioni al variare di t ∈R.
+Soluzione. Applicando l’ eliminazione di Gauss, si ottiene la matrice
+
+
+===== PAGINA 2 =====
+2
+
+1
+−1
+2
+−1
+0
+1
+1
+t −2
+0
+0
+−2
+−t + 1
+0
+0
+0
+t −3
+
+
+1
+2
+−3
+−t + 3
+
+Quindi il sistema ammette un’ unica soluzione per ogni t̸ = 3. Per t = 3 il
+sistema diventa
+
+1
+−1
+2
+−1
+0
+1
+1
+1
+0
+0
+−2
+−2
+0
+0
+0
+0
+
+
+1
+2
+−3
+0
+
+e le soluzioni sono nella forma
+v =
+
+−3
+2, 1
+2, 3
+2, 0
+
++ Span(3, 0, −1, 1)
+Per t̸ = 3 abbiamo
+x4 = −1,
+x3 = t + 2
+2
+,
+x2 = t −2
+2
+,
+x1 = −t −6
+2
+Esercizio 4. Sia T : C2[t] →C2[t] data da
+p(t) →(t + 1)p′′(t) −2tp′(t) + 2p(t)
+i) Veriﬁcare che T `e lineare.
+ii) Descrivere Ker T e Im T.
+iii) Determinare autovalori e autovettori di T.
+Soluzione. i)Sia p(t) = a + bt + ct2, allora
+T(p(t)) = 2c(t + 1) −2t(2ct + b) + 2(a + bt + ct2) = (2c + 2a) + 2ct −2ct2
+L’ espressione `e omogenea di primo grado negli elementi della base 1, t, t2, quindi `e
+lineare.
+ii) Ker T `e dato dalle equazioni
+c + a = c = c = 0
+quindi Ker T = {t} e Im T =< 1, 1 + t −t2 >
+iii) La matrice associata a T rispetto alla base 1, t, t2 risulta essere
+
+2
+0
+2
+0
+0
+2
+0
+0
+−2
+
+Gli autovalori sono 2, 0, −2.
+La molteplicit`a geometrica di ogni autovalore `e 1,
+quindi risolvendo i sistemi associati
+V2 = Span(1),
+V−2 = Span(−1 −2t + 2t2),
+V0 = Span(t)
+
+
+===== PAGINA 3 =====
+3
+Esercizio 5. Nello spazio delle matrici reali M2(R) sia deﬁnito il prodotto scalare
+deﬁnito positivo
+< A, B >= tr(AT B).1
+Sia f l’ operatore deﬁnito da
+f(A) = −AT
+i) Veriﬁcare che f `e simmetrico2.
+ii)Veriﬁcare che f `e un’isometria lineare, ovvero ∥f(A)∥=∥A∥per ogni A ∈M2(R).
+Soluzione.
+Usiamo le propriet`a della traccia, in particolare
+tr(C) = tr(CT ),
+tr(CD) = tr(DC)
+i) Simmetria:
+< f(A), B >= tr(−(AT )T B) = tr(−AB) = tr((−AB)T ) = tr(−BT AT ) = tr(−AT BT ) =< A, f(B) >
+ii) Isometria
+< f(A), f(B) >= tr(ABT ) = tr((ABT )T ) = tr((BAT ) ==< A, B >
+1Ricordiamo che data una matrice quadrata A la traccia tr(A) `e la somma dei coeﬃcienti sulla
+diagonale.
+2Anche detto autoaggiunto.

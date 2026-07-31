@@ -1,0 +1,278 @@
+===== PAGINA 1 =====
+Primo appello di Geometria (Corso di laurea in Fisica, Canali A-C e D-O)
+Prof. Barucci e Piccinni
+15 febbraio 2012
+a. Scrivere subito canale, cognome e nome.
+b. Utilizzare questi fogli per le risposte. I fogli protocollo distribuiti a parte sono invece per eventuali riﬂessioni o
+calcoli, e non vanno consegnati.
+c. Durante la prova non si possono consultare testi e appunti n´e usare fogli diversi da quelli distribuiti.
+d. Durante la prova non `e consentito uscire dall’aula.
+Tempo a disposizione: 2 ore
+Canale.............................Cognome...........................................................Nome................................................
+1. Si consideri l’equazione z3 + 1 = 0, a coeﬃcienti in C. Stabilire quale tra le seguenti aﬀermazioni `e vera:
+1
+Le soluzioni sono z1 = i; z2 = −i, z3 = −1
+2
+Le soluzioni sono z1 = z2 = −i, z3 = −1
+3
+Le soluzioni sono z1 = 1
+2 + i
+√
+3
+2 , z2 = 1
+2 −i
+√
+3
+2 , z3 = −1
+4
+Nessuna delle precedenti.
+2. Si consideri il sistema lineare a coeﬃcienti reali:
+
+
+
+ax + by + cz + d
+= 0
+a′x + b′y + c′z + d′
+= 0
+a”x + b”y + c”z + d”
+= 0
+e siano α, α′, α” i tre piani di R3 rappresentati ordinatamente dalla prima, seconda e terza equazione.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+Se il sistema non ammette soluzioni, i tre piani sono paralleli
+2
+Se il sistema ammette inﬁnite soluzioni, l’intersezione dei tre piani `e una retta
+3
+Se il sistema ammette un’unica soluzione, i tre piani sono a due a due perpendicolari
+4
+Nessuna delle precedenti.
+3. Sia T : Mn(R) →Mn(R) l’applicazione lineare deﬁnita dalla formula:
+T(A) = 2(A + At),
+essendo At la trasposta di A. Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte) [si ricordi
+che A `e simmetrica se A = At, e antisimmetrica se A = −At]:
+1
+il nucleo di T `e costituito dalle matrici simmetriche
+2
+l’immagine di T `e costituito dalle matrici simmetriche
+3
+il nucleo di T `e costituito dalle matrici antisimmetriche
+4
+l’immagine di T `e costituito dalle matrici antisimmetriche
+5
+Nessuna delle precedenti.
+
+
+===== PAGINA 2 =====
+4. Si considerino nello spazio euclideo R3 il piano α : x + y + z = 0, essendo (x, y, z) le coordinate cartesiane di R3.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+tutte le rette parallele ad α hanno parametri direttori (1, 1, 1)
+2
+tutte le rette perpendicolari ad α hanno parametri direttori (1, 1, 1)
+3
+α contiene la retta r : x −2y + z + 1 = 0, 2x + 5y + 2z −1 = 0
+4
+Nessuna delle precedenti
+5. Si considerino nello spazio R4 i sottospazi vettoriali U = Span(⃗v1,⃗v2) e W = Span (⃗v3,⃗v4), dove⃗v1 = (1, 0, 1, 1),⃗v2 =
+(1, 2, 2, −1),⃗v3 = (−1, 1, −1, 0),⃗v4 = (3, 1, 4, 0), Stabilire quali tra le seguenti aﬀermazioni sono vere (eventual-
+mente anche pi`u risposte):
+1
+U e W hanno dimensione 2
+2
+R4 = U ⊕W
+3
+Il sottospazio somma U + W ha dimensione 3
+4
+Il sottospazio intersezione U ∩W ha dimensione 1
+5
+Nessuna delle precedenti.
+6. Si considerino le matrici
+A =
+ 1
+3
+1
+2
+
+,
+B =
+ −2
+−3
+1
+1
+
+.
+Stabilire quale tra le seguenti aﬀermazioni `e vera:
+1
+Le matrici A e B non sono invertibili.
+2
+A e B sono invertibili e B = A−1
+3
+A e B sono invertibili e B = −A−1
+4
+A e B sono invertibili e B̸ = ±A−1
+7. Si consideri la matrice A =
+
+
+a11
+a12
+a13
+a21
+a22
+a23
+a31
+a32
+a33
+
+e siano
+A π
+2 =
+
+
+a31
+a21
+a11
+a32
+a22
+a12
+a33
+a23
+a13
+
+,
+Aπ =
+
+
+a33
+a32
+a31
+a23
+a22
+a21
+a13
+a12
+a11
+
+,
+A 3π
+2 =
+
+
+a13
+a23
+a33
+a12
+a22
+a32
+a11
+a21
+a31
+
+.
+2
+
+
+===== PAGINA 3 =====
+le matrici ottenute da A mediante una “rotazione in senso orario”risp. di π
+2 , π, 3π
+2 “attorno all’elemento centrale”a22.
+Stabilire quale tra le seguenti aﬀermazioni `e vera.
+1
+det A = det A π
+2 = det Aπ = det A 3π
+2
+2
+det A = −det A π
+2 = det Aπ = −det A 3π
+2
+3
+det A = det A π
+2 = −det Aπ = −det A 3π
+2
+4
+Nessuna delle precedenti
+8. Sia T : V −→V un endomorﬁsmo uno spazio vettoriale complesso V = V n
+C , e si assuma che il polinomio
+caratteristico di T ammetta n −2 zeri distinti λ1, . . . λn−2 e uno zero λ, distinto dai precedenti e di molteplicit`a
+algebrica 2. Stabilire quali tra le seguenti aﬀermazioni sono corrette (eventualmente anche pi`u risposte):
+1
+T `e diagonalizzabile se e solo se λ `e reale
+2
+T `e diagonalizzabile se e solo se l’autospazio di λ ha dimensione 2
+3
+T `e sempre diagonalizzabile
+4
+Nessuno dei precedenti
+9. Sia A ∈M3(R) tale che tr A = a11 + a22 + a33 = 7, e det A = 8. Stabilire quale tra le seguenti aﬀermazioni `e
+vera.
+1
+Gli autovalori di A sono tutti reali, ma non sono individuabili dai dati assegnati
+2
+Solo un autovalore di A e reale, e gli altri due non lo sono
+3
+Gli autovalori di A possono essere reali o non reali, ma non sono individuati dai dati assegnati
+4
+Gli autovalori di A sono λ1 = 1, λ2 = 2, λ3 = 4
+10. Sia
+T : R2 −→R2
+l’operatore lineare tale che T((−1, 0)) = (−3, −2) e T((1, 1)) = (5, −3). Indicare tra le matrici seguenti quella
+che rappresenta T rispetto alla base {(−1, 0), (1, 1)}:
+1
+ 3
+2
+2
+−5
+
+2
+ −3
+5
+−2
+−3
+
+3
+ −1
+−7
+2
+−5
+
+4
+
+1
+−8
+−2
+−3
+
+Indicare tra le stesse matrici seguenti quella che rappresenta T rispetto alla base canonica {(1, 0), (0, 1)}:
+1′
+ 3
+2
+2
+−5
+
+2′
+ −3
+5
+−2
+−3
+
+3′
+ −1
+−7
+2
+−5
+
+4′
+
+1
+−8
+−2
+−3
+
+Stabilire quali tra le seguenti aﬀermazioni sono corrette (eventualmente anche pi`u risposte):
+5
+T `e simmetrico rispetto al prodotto scalare canonico di R2
+6
+T conserva il prodotto scalare canonico di R2
+7
+nessuna delle due precedenti
+a
+3

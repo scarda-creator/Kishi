@@ -1,0 +1,48 @@
+===== PAGINA 1 =====
+Geometria — C.d.L. in Fisica — a.a. 2020/21
+Canale D – K
+Durata: 1 ora e 30 minuti
+9 febbraio 2021
+Esercizio 1. Si consideri la matrice
+A =
+2
+−1
+1
+2
+
+,
+e l’operatore lineare associato LA : C2 →C2.
+Determinare gli autovalori (complessi) di LA, una base di autovettori, e
+veriﬁcare che tale base è ortogonale rispetto al prodotto hermitiano canonico di
+C2.
+Determinare inﬁne una base unitaria, sempre rispetto al prodotto hermitiano
+canonico, di autovettori per LA.
+Esercizio 2. Si consideri lo spazio vettoriale R2[x] dei polinomi di grado minore
+o uguale a due a coeﬃcienti reali.
+Sia T : R2[x] →R2[x] l’unico operatore lineare tale che
+T(1 + x) = x,
+T(1 −x) = −x,
+T(x2 + 1) = 2x2.
+Determinare la matrice associata a T nella base standard {1, x, x2}, una base
+per il nucleo di T, e una base per l’immagine di T.
+Esercizio 3. Nello spazio vettoriale reale R3 si consideri la forma bilineare
+simmetrica bS : R3 × R3 →R deﬁnita da (v, w) 7→bS(v, w) = vtSw, dove
+S =
+
+
+0
+1
+1
+1
+0
+−1
+1
+−1
+0
+
+.
+Determinare la segnatura di bS e stabilire in particolare se è non degenere.
+Determinare una base per il sottospazio ortogonale U ⊥bS del sottospazio
+U ≤R3 deﬁnito dall’equazione cartesiana y + z = 0. Decidere, giustiﬁcando la
+risposta, se è vero o no che R3 = U ⊕U ⊥bS .
+1

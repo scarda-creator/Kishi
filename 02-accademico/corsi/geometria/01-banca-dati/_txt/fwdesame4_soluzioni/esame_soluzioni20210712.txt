@@ -1,0 +1,180 @@
+===== PAGINA 1 =====
+Geometria
+Appello II — Sessione Estiva
+Corso di laurea in Fisica — a.a. 2020/2021
+Tutti i Canali
+Durata: 1 ore e 30 minuti
+Paolo Bravi, Simone Diverio, Paolo Piazza,
+Paolo Piccinni, Riccardo Salvati Manni, Ernesto Spinelli
+12 luglio 2021
+Esercizio 1. Determinare l’espressione in coordinate canoniche (x, y, z) di
+R3 dell’unica applicazione lineare T : R3 ! R3 tale che
+T
+0
+@
+1
+0
+−1
+1
+A =
+0
+@
+1
+0
+1
+1
+A ,
+T
+0
+@
+2
+1
+0
+1
+A =
+0
+@
+1
+1
+1
+1
+A ,
+T
+0
+@
+0
+1
+1
+1
+A =
+0
+@
+1
+2
+1
+1
+A .
+Determinare una base per l’immagine di T. Spiegare perché l’applicazione
+T è unica.
+Esercizio 2. Si consideri l’operatore lineare LA : C3 ! C3 associato alla
+matrice
+A =
+0
+@
+1
+i
+1
+0
+2
+0
+−1
+i
+1
+1
+A .
+Determinare lo spettro di LA e, se esiste, una base di C3 composta da
+autovettori di LA.
+Esercizio 3. Sia b: R3 ⇥R3 ! R la forma bilineare simmetrica data da
+b(v, w) = tr
+%
+v · wt&
+.
+Determinare la segnatura di b, e una base b-ortonormale B per il comple-
+mento ortogonale U ?b rispetto a b del sottospazio
+U = {(x, y, z)t 2 R3 | x −y + z = 0}.
+Completare inﬁne B a una base b-ortogonale di R3.
+1
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+===== PAGINA 2 =====
+
+
+===== PAGINA 3 =====
+
+
+===== PAGINA 4 =====
+
+
+===== PAGINA 5 =====
+
+
+===== PAGINA 6 =====
+
+
+===== PAGINA 7 =====
+
+
+===== PAGINA 8 =====
+
+
+===== PAGINA 9 =====

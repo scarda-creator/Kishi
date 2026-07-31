@@ -1,0 +1,146 @@
+===== PAGINA 1 =====
+Esercizi del corso di Geometria - Foglio5
+29 ottobre 2015
+Esercizio 1. (1) Siano date le matrici
+A =
+1
+2
+3
+4
+
+,
+B =
+5
+6
+7
+8
+
+.
+Calcolare i prodotti AB e BA.
+(2) Siano date le matrici
+A =
+
+
+1
+−1
+3
+0
+0
+0
+−2
+2
+−6
+
+,
+B =
+
+
+2
+0
+4
+2
+3
+1
+0
+1
+−1
+
+.
+Calcolare il prodotto AB e dedurne che per matrici non vale la legge di annullamento del
+prodotto.
+(3) Sia data la matrice
+A =
+
+
+0
+0
+0
+1
+−2
+1
+0
+−4
+2
+
+.
+Calcolare A3 e dedurne che non vale la propriet`a che le potenze di un elemento non nullo
+sono non nulle (questo `e pi`u forte dell’enunciato precedente).
+Esercizio 2. Sia data la matrice
+A =
+
+2
+1
+3
+1
+
+.
+Trovare l’inversa di A, cio`e una matrice B ∈M2,2(R) tale che AB = BA = Id.
+(Suggerimento: se scrivete esplicitamente la condizione AB = Id trovate un sistema lineare
+nei coeﬃcienti di B).
+Esercizio 3. Dire quali delle seguenti applicazioni sono lineari.
+(1) La funzione
+f : C3 7→C
+data da f(x, y, z) = 3x −2y + z.
+(2) La funzione
+f : C3 7→C
+data da f(x, y, z) = 3x −2y + 1.
+
+
+===== PAGINA 2 =====
+(3) Sia X l’insieme delle funzioni R 7→R. La funzione
+f : X 7→R
+data da f(φ) = φ(1).
+(4) La funzione
+f : R2 7→R
+data da f(x, y) = (ey, ex).
+Esercizio 4. Sia A ∈Mn,n(K) una matrice a coeﬃcienti in K. Deﬁniamo la trasposta di A,
+indicata con AT tramite
+AT
+ij = Aji.
+In altre parole AT si ottiene da A riﬂettendo rispetto alla diagonale principale.
+Dimostrare che se A `e a coeﬃcienti reali e AT · A = 0, allora A = 0 (fate prima il caso 2 × 2).
+Esercizio 5. Siano V e W i sottospazi di R[x]≤d formati dai polinomi che si annullano nel punto
+1 e 3 rispettivamente. Trovare un isomorﬁsmo da V a W.
+Esercizio 6. Consideriamo le matrici
+Id =
+
+1
+0
+0
+1
+
+,
+J =
+0
+−1
+1
+0
+
+.
+Veriﬁcare che J2 = −Id. Consideriamo il sottospazio C di M2,2(R) generato da Id e da J, cio`e
+C = {aId + bJ | a, b ∈R}.
+Veriﬁcare che C `e un campo. Sapete riconoscere di che campo si tratta?
+Esercizio 7. (1) Sia f : R4 7→R2 l’applicazione lineare data da
+f(t, x, y, z) = (2x −3y, t + x + y + z).
+Calcolare le dimensioni di kerf e Imf.
+(2) Sia g: C 7→C l’applicazione data g(z) = z + ¯z. Dimostrare che g non `e lineare se vediamo
+C come spazio vettoriale su C, ma lo `e se vediamo C come spazio vettoriale su R. In questo
+secondo caso determinare kerg e Img.
+Esercizio 8. Sia
+f : R[x]≤d 7→R[x]≤d+1
+l’applicazione data da f(p(x)) = xp(x), e sia
+g: R[x]≤d+1 7→R
+l’applicazione data da g(q(x)) = q(0). Dimostrare che f e g sono lineari e che kerg = Imf.
+Esercizio 9. Sia
+A =
+
+1
+0
+0
+2
+
+.
+Sia V ⊂M2,2(C) il sottoinsieme formato dalle matrici che commutano con A, ovvero
+V = {B ∈M2,2(C) | AB = BA}.
+Dimostrare che V `e un sottospazio, e determinarlo esplicitamente, in particolare calcolarne la
+dimensione.

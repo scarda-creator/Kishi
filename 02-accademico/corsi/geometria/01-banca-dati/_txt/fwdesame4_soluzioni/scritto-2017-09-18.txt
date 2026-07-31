@@ -1,0 +1,146 @@
+===== PAGINA 1 =====
+Geometria (Fisica)
+Proﬀ. De Sole, Mondello, O’Grady, Papi
+Prova scritta - 18 settembre 2017
+Nome e Cognome:
+Numero di matricola:
+Esercizio
+Punti totali
+Punteggio
+1
+6
+2
+6
+3
+7
+4
+7
+5
+8
+Totale
+34
+Occorre motivare le risposte. Una soluzione corretta priva di motivazione ricever`a 0 punti.
+Verr`a corretto solo quello che sar`a scritto su queste pagine.
+Voto/30:
+1
+
+
+===== PAGINA 2 =====
+Esercizio 1. Siano v1, v2, v3(t), w1, w2 ∈R3 i vettori
+v1
+=
+(3, 2, 1),
+v2
+=
+(1, −1, 2),
+v3(t)
+=
+(2, t, 3 + t),
+w1
+=
+(1, 1, 0),
+w2
+=
+(1, 0, 1).
+Per quali valori di t il sottospazio V (t) = ⟨v1, v2, v3(t)⟩`e uguale al sottospazio W = ⟨w1, w2⟩?
+Risoluzione:
+Risposta:
+V (t) = W per t =
+2
+
+
+===== PAGINA 3 =====
+Esercizio 2. Siano A, B le matrici reali 2 × 2 deﬁnite da
+A :=
+
+2
+2
+2
+3
+
+,
+B :=
+
+2
+3
+2
+2
+
+.
+(a) Stabilite se A, B sono diagonalizzabili.
+(b) Stabilite se A e B sono coniugate.
+Risoluzione:
+Cerchiate la risposta corretta:
+(a) A `e diagonalizzabile?
+S`I
+
+NO;
+B `e diagonalizzabile?
+S`I
+
+NO
+(b) A e B sono coniugate?
+S`I
+
+NO
+3
+
+
+===== PAGINA 4 =====
+Esercizio 3. Sia q(X) := Xt · A · X la forma quadratica su R3 associata a
+A :=
+
+
+1
+2
+0
+2
+3
+−2
+0
+−2
+5
+
+,
+Completare {e1} ad una base B di R3 che diagonalizza q.
+Risoluzione:
+Risposta: Base B che diagonalizza q:
+4
+
+
+===== PAGINA 5 =====
+Esercizio 4. Considerare lo spazio vettoriale V := R[t]≤2 dei polinomi reali in t di grado al pi`u 2 e sia
+Q : V →R la forma quadratica deﬁnita da
+Q(p) :=
+Z 1
+0
+p(t)p′(t)dt,
+dove p′(t) := dp
+dt .
+(a) Calcolare la matrice che rappresenta la forma bilineare simmetrica g associata a Q rispetto alla
+base B = {1, t, t2} di V .
+(b) Calcolare rango e segnatura di g.
+Risoluzione:
+Risposta: Matrice che rappresenta g:
+Rango di g
+=
+Segnatura di g
+=
+5
+
+
+===== PAGINA 6 =====
+Esercizio 5. Sia R2 il piano euclideo standard con coordinate canoniche (x, y) e sia ℓ⊂R2 la retta
+aﬃne di equazione y −2x = 4.
+(a) Determinare l’equazione cartesiana della retta aﬃne r ⊂R2 passante per P = (1, 1) e ortogonale a
+ℓ. Calcolare le coordinate del punto P ′ = ℓ∩r e la distanza d tra P e P ′.
+(b) Considerare l’unica isometria aﬃne ρ : R2 →R2 (detta riﬂessione ortogonale rispetto a ℓ) tale
+che ρ(Q) = Q se e solo se Q ∈ℓ. Determinare una matrice A e un vettore v in modo tale che
+ρ(X) = AX + v per ogni X ∈R2.
+Risoluzione:
+Risposta: Equazione di r:
+P ′=
+d=
+A=
+v=
+6

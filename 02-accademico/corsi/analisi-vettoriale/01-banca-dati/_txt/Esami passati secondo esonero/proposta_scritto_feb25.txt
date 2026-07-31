@@ -1,0 +1,60 @@
+===== PAGINA 1 =====
+Esame scritto di Analisi Vettoriale 14/02/2025 - Corso di laurea in Fisica (L-30)
+Nome:
+Cognome:
+Matricola:
+F. De Marchis □
+A. Terracina □
+Se ammesso, sosterr`o la prova orale:
+⃝in questo appello
+⃝in un appello successivo
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere
+adeguatamente motivati!
+Esercizio 1 (6,5 punti) Dato l’insieme
+E := {(x, y, z) ∈3 : x2 + y2 + z2 ≤4, x2 + y2 ≤z2, z ≥1
+2}
+i. si calcoli il volume di E;
+ii. si calcoli il flusso del campo F = (x + cos(zy), yz −2y + ex, z + sin(xy)) uscente da E.
+Esercizio 2 (6,5 punti) Si consideri la funzione
+f(x, y) =
+
+sin(x3y2)+x3+2y3
+x2+y2
+(x, y) , (0, 0)
+0
+(x, y) = (0, 0)
+i. dire se la funzione f `e continua nell’origine;
+ii. dire se la funzione f `e derivabile nell’origine;
+iii. dire se la funzione f `e differenziabile nell’origine.
+Esercizio 3 (5,5 punti) Si consideri il problema di Cauchy
+y′(t) = ln(1 + y4)(2 −y)t2,
+y(0) = 1,
+i. si dica perch´e il problema ammette una e una sola soluzione locale;
+ii. si spieghi perch´e la soluzione massimale y(t) `e globale;
+iii. si determinino gli intervalli di crescenza e decrescenza della soluzione;
+iv si spieghi perch´e esistono e si calcolino lim
+t→±∞y(t).
+Esercizio 4 (6,5 punti) Per ogni n consideriamo le funzioni fn(x) = [arctan(x2)]n, x ∈,
+i. si studi la convergenza puntuale della successione di funzioni { fn};
+ii. si determinino gli insiemi in cui la serie di funzioni
++∞
+X
+n=0
+(−1)n fn(x)
+√
+n + 3
+.
+converge puntualmente, assolutamente, uniformemente e totalmente.
+
+
+===== PAGINA 2 =====
+Esercizio 5 (7 punti)
+Σ = {(x, y, z) ∈3 : x2 + y2 + z2 = 9, 0 ≤y ≤x, }
+i. parametrizzare Σ come sostegno di una superficie regolare;
+ii. scrivere il vettore normale a Σ indotto dalla parametrizzazione scelta;
+iii. parametrizzare il bordo di Σ osservando che `e formato da un’ unione di curve regolari a tratti;
+iv. dato il campo vettoriale F = (x + y2
+2 + z2, xy + cos(y2), 3z + ez + 2xz + y) calcolare il suo rotore.
+v. si calcoli la circuitazione del campo F lungo il bordo di Σ percorso in modo che sia compatibile, secondo
+il Teorema di Stokes, con la superficie Σ orientata con il verso della normale scelta al punto ii.
+2

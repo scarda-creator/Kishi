@@ -1,0 +1,202 @@
+===== PAGINA 1 =====
+Primo esonero di Geometria, 23.11.2012 (Corso di laurea in Fisica, Canale Cf-K, Prof. P. Piccinni)
+a. Scrivere subito canale, cognome e nome.
+b. Utilizzare questi fogli per le risposte. I fogli protocollo non invece vanno consegnati.
+c. Durante la prova non si possono consultare testi e appunti n´e usare fogli diversi da quelli distribuiti.
+d. Durante la prova non `e consentito uscire dall’aula.
+Tempo a disposizione: 2 ore
+Matricola.............................Cognome...........................................................Nome............................................
+1. Si consideri il sistema lineare:
+ kx −y =
+1
+x + y =
+0
+essendo k un parametro reale. Stabilire quale tra le seguenti aﬀermazioni `e vera:
+1
+Il sistema ammette un’unica soluzione per ogni k
+2
+Il sistema ammette inﬁnite soluzioni per ogni k
+3
+Il sistema ammette un’unica soluzione per ogni k̸ = 1 e inﬁnite soluzioni per k = 1
+4
+Il sistema ammette inﬁnite soluzioni per ogni k̸ = 1 e non ammette soluzioni per k = 1
+5
+Il sistema ammette un’unica soluzione per ogni k̸ = −1 e inﬁnite soluzioni per k = −1
+6
+Il sistema ammette inﬁnite soluzioni per ogni k̸ = −1 e non ammette soluzioni per k = −1
+7
+Nessuna delle precedenti
+2. Si consideri il sistema lineare:
+ kx −y =
+i
+x + ky =
+1
+essendo k un parametro complesso. Stabilire quale tra le seguenti aﬀermazioni `e vera:
+1
+Il sistema ammette un’unica soluzione per ogni k
+2
+Il sistema ammette inﬁnite soluzioni per ogni k
+3
+Il sistema ammette un’unica soluzione per ogni k̸ = ±i e inﬁnite soluzioni per k = ±i
+4
+Il sistema ammette inﬁnite soluzioni per ogni k̸ = ±i e non ammette soluzioni per k = ±i
+5
+Il sistema ammette un’unica soluzione per ogni k̸ = i e inﬁnite soluzioni per k = i
+6
+Il sistema ammette inﬁnite soluzioni per ogni k̸ = i e non ammette soluzioni per k = i
+7
+Nessuna delle precedenti
+3. Si consideri la matrice ad elementi reali:
+A =
+
+
+
+0
+1
+2
+3
+4
+4
+3
+2
+1
+0
+5
+6
+7
+8
+9
+9
+8
+7
+6
+5
+k
+k
+k
+k
+k
+
+
+
+Stabilire quale tra le seguenti aﬀermazioni `e vera:
+1
+rg A = 5 per ogni k̸ = 0 e rg A = 4 per k = 0
+2
+rg A = 4 per ogni k
+3
+rg A = 4 per ogni k̸ = 0 e rg A = 3 per k = 0
+4
+rg A = 3 per ogni k
+5
+rg A = 3 per ogni k̸ = 0 e rg A = 2 per k = 0
+6
+rg A = 2 per ogni k
+7
+rg A = 2 per ogni k̸ = 0 e rg A = 1 per k = 0
+8
+Nessuna delle precedenti
+4. Sia p(x) = a0 + a1x + a2x2 + a3x3 = 0 un’equazione di terzo grado con coeﬃcienti in a0, a1, a2, a3 ∈R. Si ricordi
+che, per il teorema fondamentale dell’algebra p(x) = 0 ammette tre soluzioni z1, z2, z3 ∈C (non necessariamente
+distinte). Stabilire quale tra le seguenti aﬀermazioni `e vera.
+1
+Poich´e i coeﬃcienti di p(x) sono reali, risulta z1, z2, z3 ∈R
+2
+Poich´e i coeﬃcienti di p(x) sono reali, almeno due tra z1, z2, z3 sono reali
+3
+Poich´e i coeﬃcienti di p(x) sono reali, almeno una tra z1, z2, z3 `e reale
+4
+Nessuna delle precedenti
+
+
+===== PAGINA 2 =====
+5. Si consideri lo spazio vettoriale Mn(R) delle matrici quadrate di ordine n ad elementi reali. Stabilire quali tra i
+seguenti sottoinsiemi costituiscono sottospazi vettoriali (eventualmente anche pi`u risposte)
+1
+Il sottoinsieme delle A ∈Mn(R) invertibili
+2
+Il sottoinsieme delle A ∈Mn(R) di rango 2
+3
+Il sottoinsieme delle A = (aij) ∈Mn(R) diagonali: aij = 0 se i̸ = j
+4
+Il sottoinsieme delle A ∈Mn(R) tali che det A = 1
+5
+Il sottoinsieme delle A ∈Mn(R) tali che det A = 0
+6
+Nessuno delle precedenti
+6. Siano A, B ∈Mn(R) invertibili, siano At, Bt le loro trasposte e A−1, B−1 le loro inverse. Stabilire quali tra le
+seguenti aﬀermazioni sono corrette (anche pi`u risposte)
+1
+(At)−1 = (A−1)t, (Bt)−1 = (B−1)t
+2
+((AB)t)−1 = (At)−1(Bt)−1
+3
+ABt = BAt
+4
+AAt = BBt ⇒A = B
+5
+Nessuna delle precedenti
+7. Sia V = {p(x) = a0 + a1x + a2x2; ai ∈R} lo spazio vettoriale dei polinomi di grado ≤2 a coeﬃcienti reali, e si
+consideri il sottoinsieme
+W = {p(x) ∈V tali che p(1) = p(2) = 0}.
+Stabilire quale tra le seguenti aﬀermazioni `e vera:
+1
+W `e un sottospazio vettoriale di dimensione 3 di V
+2
+W `e un sottospazio vettoriale di dimensione 2 di V
+3
+W `e un sottospazio vettoriale di dimensione 1 di V
+4
+W non `e un sottospazio vettoriale di V
+8. Si consideri il piano aﬃne α di R3 passante per i punti A = (1, 1, 0), B = (1, 0, 2), C = (0, 1, 2). Stabilire quali tra
+le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+α `e un sottospazio vettoriale di R3
+2
+α ha equazione cartesiana x + y + 2z = 2
+3
+α ha equazione cartesiana 2x + 2y + z = 2
+4
+α ha equazione cartesiana 2x + 2y + z = 4
+5
+Nessuna delle precedenti.
+9. Si considerino le rette aﬃni r1, r2, r3 di R3 lati del triangolo di vertici i punti A = (1, 1, 0), B = (1, 0, 2), C = (0, 1, 2).
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+i parametri direttori di r1, r2, r3 sono linearmente dipendenti
+2
+l’area del triangolo ABC coincide con il modulo del prodotto vettoriale⃗AB ∧⃗AC
+3
+l’area del triangolo ABC `e 3
+2
+4
+Nessuna delle precedenti.
+10. Sia A ∈Mm,n(R), sia A⃗x =⃗b un sistema lineare in incognite⃗x =
+
+
+x1
+.
+xn
+
+e termini noti⃗b =
+
+
+b1
+.
+bm
+
+, e sia A⃗x =⃗0
+il sistema lineare omogeneo associato.
+Dire quali tra le seguenti eventualit`a possono eﬀettivamente presentarsi
+(eventualmente anche pi`u risposte):
+1
+Il sistema A⃗x =⃗b ammette soluzioni ma l’omogeneo associato A⃗x =⃗0 non ne ammette.
+2
+Il sistema A⃗x =⃗b non ammette soluzioni ma l’omogeneo associato A⃗x =⃗0 ne ammette.
+3
+Il sistema A⃗x =⃗b ammette inﬁnite soluzioni ma l’omogeneo associato A⃗x =⃗0 ne ammette una sola.
+4
+Il sistema A⃗x =⃗b ammette una sola soluzione ma l’omogeneo associato A⃗x =⃗0 ne ammette inﬁnite.
+5
+Entrambi i sistemi A⃗x =⃗b e A⃗x =⃗0 ammettono una sola soluzione.
+2

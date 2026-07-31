@@ -1,0 +1,64 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 22/01/2024
+Nome:
+Cognome:
+Matricola:
+F. De Marchis □
+A. Terracina □
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere
+adeguatamente motivati!
+Esercizio 1. (6 punti) Sia f(x, y, z) =
+p
+x2 + y2 + z2 + 1 + x −z
+i. Si studi continuit`a e diﬀerenziabilit`a di f in tutto 3.
+ii. Per ogni versore ν = (ν1, ν2, ν3) di 3 dopo aver veriﬁcato l’esistenza si calcoli ∂f
+∂ν(0, 0, 0).
+iii. Si dimostri che l’equazione f(x, y, z) = 1 deﬁnisce implicitamente in un intorno del punto (0, 0) una fun-
+zione g(x, y) tale che in un intorno del punto (0, 0, 0) le soluzioni dell’equazione sono tutte e sole del tipo
+(x, y, g(x, y)).
+iv. Si determini l’equazione del piano tangente al graﬁco di g(x, y) nel punto (0, 0).
+Esercizio 2. (6 punti)
+i. Data la serie di funzioni
+X
+k≥0
+logk(x)
+3k+1(k + e−k)
+determinare gli insiemi di convergenza puntuale, assoluta, uniforme e totale.
+ii. Spiegare perch´e
+Z 10
+1
+X
+k≥0
+e−kx
+3k+1(k + e−k)dx =
+X
+k≥0
+(e−k −e−10k)
+3k+1(k + e−k)k.
+Esercizio 3. (6 punti) Per ogni a ∈ si consideri il campo F(x, y) = (2x cos(x2 +y))+axy, cos(x2 +y)+ x2 +1)
+i. si dica per quali valori del parametro a il campo `e conservativo in tutto 2;
+ii. per i valori determinati al punto i. si trovino tutte le primitive del campo.
+iii. Dato il dominio D = {(x, y) ∈2 : 0 ≤y ≤x, x2 + y2 ≤4} si determini, al variare del parametro a ∈ la
+circuitazione del campo lungo la frontiera di D percorsa in senso antiorario.
+Esercizio 4. (7 punti) Sia
+E = {(x, y, z) ∈3 : 1 + z2 ≤
+p
+x2 + y2 ≤3 −z2}.
+i. calcolare il volume di E;
+ii. calcolare il ﬂusso del campo F(x, y, z) = (0, 0, z) uscente da E;
+iii. scrivere una parametrizzazione regolare delle due superﬁci di rotazione Σ1 e Σ2 che delimitano la frontiera
+di E;
+iv. calcolare il ﬂusso di F uscente da E attraverso Σ1 e Σ2.
+Esercizio 5. (7 punti) Dato il problema di Cauchy
+
+y′(t) =
+y2(t)
+1+y2(t)et
+y(0) = 2
+provare senza risolvere che:
+i. la soluzione locale esiste ed `e unica;
+ii. la soluzione massimale y(t) `e deﬁnita in tutto ;
+iii. la soluzione `e strettamente crescente in ;
+iv. la soluzione veriﬁca limt→+∞y(t) = +∞.
+Inﬁne:
+v. determinare la soluzione.

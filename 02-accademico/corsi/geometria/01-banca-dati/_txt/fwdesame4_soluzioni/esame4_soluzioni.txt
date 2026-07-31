@@ -1,0 +1,157 @@
+===== PAGINA 1 =====
+Geometria (Fisica)
+Canale L-P
+Esame - 13 luglio 2017
+Nome e Cognome:
+Numero di Matricola:
+Esercizio
+Punti totali
+Punteggio
+1
+10
+2
+10
+3
+10
+Totale
+30
+Occorre motivare le risposte. Una soluzione corretta priva di motivazione riceverà 0 punti.
+Verrà corretto solo quello che sarà scritto su queste pagine.
+Voto/30:
+1
+
+
+===== PAGINA 2 =====
+Esercizio 1.
+Stabilire per quali valori del parametro reale t il sistema di equazioni lineari
+(
+tx + y + (t2 −1)z = 4 + t
+x + ty + (t −1)z = 3
+ammette soluzioni.
+Risoluzione:
+Tra le tante possibilità, possiamo procedere, ad esempio, con il Teorema di Rouché-Capelli. Il sistema
+ha soluzione se e soltanto se i ranghi delle due matrici
+t
+1
+t2 −1
+1
+t
+t −1
+
+e
+t
+1
+t2 −1
+4 + t
+1
+t
+t −1
+3
+
+coincidono. Si vede subito che il minore
+
+t
+t2 −1
+1
+t −1
+ = 1 −t,
+si annulla solo per t = 1, e la matrici hanno quindi entrambe almeno rango 2 non appena t̸ = 1. Ma
+allora hanno esattamente rango 2, e il sistema ammette soluzioni.
+Se invece t = 1, è suﬃciente sostituire tale valore nel sistema per ottenere
+(
+x + y = 5
+x + y = 3
+che è evidentemente privo di soluzioni.
+2
+
+
+===== PAGINA 3 =====
+Esercizio 2. Dopo aver veriﬁcato che i vettori v1 = (1, 2, 3), v2 = (1, 1, 2), v3 = (1, 1, 1) costituiscono
+una base di R3, scrivere la matrice associata (nelle basi canoniche di R3 e di R2) all’applicazione lineare
+T : R3 →R2 che soddisfa
+T(v1) = (1, 1),
+T(v2) = (1, 2),
+T(v3) = (1, 0),
+spiegando perché tale applicazione sia unica.
+Risoluzione:
+Uno dei modi per veriﬁcare se n elementi di Rn costituiscano una base è quello di scriverli nelle
+colonne (o anche nelle righe, tanto è lo stesso) di una matrice e controllare se è invertibile, ad esempio
+calcolandone il determinante. In questo caso si ha
+
+1
+1
+1
+2
+1
+1
+3
+2
+1
+
+= 1̸ = 0,
+come potete veriﬁcare nel modo che volete.1
+Se conosciamo l’applicazione lineare T : V →W su una base di V , la conosciamo (per linearità) anche
+sulle combinazioni lineari degli elementi di tale base, e quindi su ogni elemento di V . Questo mostra che
+T, se esiste, è sicuramente unica. In realtà, abbiamo visto a lezione che vale sempre anche l’esistenza,
+ma questo non veniva richiesto.
+Ad ogni modo, dobbiamo ancora individuare la matrice 2 × 3 associata a T. Osserviamo subito che
+(0, 0, 1) = v2 −v3 e quindi T(0, 0, 1) = T(v2) −T(v3) = (1, 2) −(1, 0) = (0, 2), che è quindi l’ultima
+colonna della matrice associata a T. Allo stesso modo, vediamo che v1−v2 = (0, 1, 1) e quindi T(0, 1, 1) =
+T(v1)−T(v2) = (1, 1)−(1, 2) = (0, −1). Ma allora T(0, 1, 0) = T(0, 1, 1)−T(0, 0, 1) = (0, −1)−(0, 2) =
+(0, −3), che è la seconda colonna della matrice associata a T. Inﬁne, (1, 0, 0) = (1, 1, 1) −(0, 1, 1), da
+cui T(1, 0, 0) = T(1, 1, 1) −T(0, 1, 1) = (1, 1) −(0, −1) = (1, 2), che è la prima colonna della matrice
+associata a T. In conclusione, la matrice è
+1
+0
+0
+2
+−3
+2
+
+.
+Ci sono maniere più soﬁsticate per svolgere i calcoli, ad esempio utilizzando le matrici di cambiamento
+di base (studiatele!!!), ma il metodo diretto appena mostrato è sicuramente il più veloce.
+1e che DOVETE SCRIVERE nella vostra soluzione, mentre io evito volentieri...
+3
+
+
+===== PAGINA 4 =====
+Esercizio 3. Determinare, motivando la risposta, una base di R3 nella quale la forma quadratica
+q(x, y, z) = 2x2 −4xy + 2y2 + 6xz + 6yz −3z2 abbia matrice diagonale.
+Risoluzione:
+La matrice associata ad una forma quadratica è quella associata alla forma bilineare simmetrica
+ottenuta per polarizzazione. Se svolgiamo i conti nella base canonica di R, si tratta di scrivere i coeﬃcienti
+di x2, y2, z2 sulla diagonale principale, e spezzare a metà i termini misti al di sopra e al di sotto della
+diagonale. La matrice che si ottiene è la seguente:
+
+
+2
+−2
+3
+−2
+2
+3
+3
+3
+−3
+
+.
+L’esercizio non chiede di individuare una base ortonormale che diagonalizzi q, e possiamo quindi
+anche fare a meno di applicare il teorema spettrale. Tuttavia vi siete messi tutti a calcolare autovalori e
+autovettori, e può allora essere il caso di spiegare perché tale metodo funzioni.
+Abbiamo visto a lezione che l’applicazione lineare T : R3 →R3 la cui matrice rispetto alla base
+canonica coincide con la matrice di q è autoaggiunta rispetto al prodotto scalare canonico (la matrice
+è infatti reale) ed ammette quindi una base ortonormale (sempre rispetto al prodotto scalare canonico)
+che la diagonalizza. Il rapporto tra T e q, se vi interessa, risiede nel fatto che q(v, v) = ⟨v, Tv⟩, dove ho
+indicato con ⟨, ⟩il prodotto scalare canonico di R3. In tale base ortonormale viene allora diagonalizzata
+anche la forma quadratica q, o più precisamente la forma bilineare simmetrica che la rappresenta per
+polarizzazione.
+A questo punto si tratta di calcolare il polinomio caratteristico (viene (x −3)(x −4)(x + 6)), poi
+gli autovalori λ1 = 3, λ2 = 4, λ3 = −6 e ﬁnalmente gli autovettori relativi a ciascun autovalore (ad
+esempio (1, 1, 1), (1, −1, 0), (1, 1, −2)) che saranno automaticamente ortogonali tra loro per il teorema
+spettrale. Se volete ottenere una base ortonormale, dovrete però dividerli per le loro lunghezze. Una
+volta normalizzati, la matrice che descrive q nella base ottenuta sarà diagonale, e avrà gli autovalori
+3, 4, −6 sulla sua diagonale principale.
+Attenzione, perché se non normalizzate gli autovettori, i coeﬃcienti sulla diagonale della matrice
+corrispondente saranno invece 9, 8, −36. Perché?
+4

@@ -1,0 +1,39 @@
+===== PAGINA 1 =====
+Geometria. a.a. 2013-14, Gruppo: Pf- Z
+Prova scritta del 29 Gennaio 2014
+Esercizio 1. Trovare una base ortonormale rispetto al prodotto scalare standard
+del sottospazio W di R4 generato dai vettori
+
+
+
+v1 = (1, 2, 0, −1),
+v2 = (3, −1, 2, 1)
+v3 = (−4, 13, −6, −8)
+Trovare equazioni cartesiane del sottospazio U ortogonale a W
+Esercizio 2. Veriﬁcare se la matrice
+
+0
+2
+−2
+−2
+5
+−3
+−2
+4
+−2
+
+;
+´e diagonalizzabile
+Esercizio 3. Determinare l’ equazione cartesiana del piano π contenente la retta
+r di equazioni
+x = 1 + t, y = −t, z = 2 + 2t
+e passante per il punto P = (1, 0, 3).
+Calcolare la distanza di π dal punto Q = (2, −1, 2)
+Esercizio 4. Nello spazio delle matrici reali M2(R) sia deﬁnito il prodotto scalare
+deﬁnito positivo
+< A, B >= tr(AT B).
+Sia T l’ operatore deﬁnito da
+T(A) = −AT
+veriﬁcare che T `e ortogonale
+Trovare gli autovettori di T
+1

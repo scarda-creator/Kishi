@@ -1,0 +1,402 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 22/01/2024
+Nome:
+Cognome:
+Matricola:
+F. De Marchis □
+A. Terracina □
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere
+adeguatamente motivati!
+Esercizio 1. (6 punti) Sia f(x, y, z) =
+p
+x2 + y2 + z2 + 1 + x −z
+i. Si studi continuit`a e differenziabilit`a di f in tutto 3.
+ii. Per ogni versore ν = (ν1, ν2, ν3) di 3 dopo aver verificato l’esistenza si calcoli ∂f
+∂ν(0, 0, 0).
+iii. Si dimostri che l’equazione f(x, y, z) = 1 definisce implicitamente in un intorno del punto (0, 0) una fun-
+zione g(x, y) tale che in un intorno del punto (0, 0, 0) le soluzioni dell’equazione sono tutte e sole del tipo
+(x, y, g(x, y)).
+iv. Si determini l’equazione del piano tangente al grafico di g(x, y) nel punto (0, 0).
+Soluzione i. Essendo l’argomento della radice positivo per ogni (x, y, z) ∈3, risulta f ∈C1(3), per cui f `e
+differenziabile e quindi continua in 3 grazie al Teorema del Differenziale Totale e al fatto che la differenzia-
+bilit`a implica la continuit`a.
+ii. Essendo f differenziabile nell’origine, f ammette nell’origine tutte le derivate direzionali e vale la formula
+del gradiente per cui:
+∂f
+∂ν (0, 0, 0)
+=
+∇f(0, 0, 0) · (ν1, ν2, ν3)
+=
+(
+x
+p
+x2 + y2 + z2 + 1
++ 1,
+y
+p
+x2 + y2 + z2 + 1
+,
+z
+p
+x2 + y2 + z2 + 1
+−1)|(x,y,z)=(0,0,0) · (ν1, ν2, ν3)
+=
+(1, 0, −1) · (ν1, ν2, ν3) = ν1 −ν3.
+iii. Essendo f ∈C1(3), f(0, 0, 0) = 1 e fz(0, 0, 0) = −1, il Teorema di Dini ci garantisce che l’equazione
+f(x, y, z) = 1 definisce implicitamente in un intorno del punto (0, 0) una funzione g(x, y) tale che in un intorno
+del punto (0, 0, 0) le soluzioni dell’equazione sono tutte e sole del tipo (x, y, g(x, y)).
+iv. L’equazione cartesiana del piano tangente al grafico di g(x, y) nel punto (0, 0) `e
+∇f(0, 0, 0) · (x, y, z) = 0,
+cio`e
+z = x.
+Esercizio 2. (6 punti)
+i. Data la serie di funzioni
+X
+k≥0
+logk(x)
+3k+1(k + e−k)
+determinare gli insiemi di convergenza puntuale, assoluta, uniforme e totale.
+ii. Spiegare perch´e
+Z 10
+1
+X
+k≥0
+e−kx
+3k+1(k + e−k)dx =
+X
+k≥0
+(e−k −e−10k)
+3k+1(k + e−k)k.
+Soluzione i. Ponendo y := log(x)
+3
+possiamo ricondurci a studiare la serie di potenze
+X
+k≥0
+yk
+3(k + e−k) = 1
+3
+X
+k≥0
+yk
+(k + e−k).
+
+
+===== PAGINA 2 =====
+Per il criterio del rapporto il raggio di convergenza della serie di potenze `e ρ = 1, essendo
+lim
+k→+∞
+k + e−k
+k + 1 + e−(k+1) = 1.
+Studiamo ora la convergenza puntuale in y = 1 e y = −1.
+Per y = 1 la serie diverge (per confronto asintotico tra serie a termiini non negativi) essendo P
+k≥0
+1
+k = +∞e
+limk→+∞
+1/(k+e−k)
+1/k
+= 1.
+Invece per y = −1 la serie converge per il criterio di Leibnitz essendo una serie a segni alterni con
+1
+k+e−k una
+successione decrescente e infinitesima (in quanto k + 1 + e−(k+1) > k + e−k essendo 1 ≥e−k).
+In conclusione la serie di potenze converge puntualmente in [−1, 1). Da questo possiamo dedurre che la serie
+di potenze converge assolutamente in (−1, 1) (per una serie di potenze con centro 0 l’insieme di convergenza
+assoluta contiene (−ρ, ρ) ed `e simmetrico rispetto a 0). Invece, per il Teorema di Abel la serie converge uni-
+formemente in [−1, 1 −δ], per ogni δ > 0. Infine la convergenza totale si ha in [−1 + δ, 1 −δ] per ogni δ > 0
+(questo segue sempre dallo studio della convergenza puntuale, essendo per una serie di potenze con centro 0
+l’insieme di convergenza totale un compatto di [−ρ, ρ] simmetrico rispetto a 0).
+ii. Essendo fk(x) =
+logk(x)
+3k+1(k+e−k) una successione di funzioni a termini positivi quando x ∈[1, 10], si ha, applicando
+uno dei corollari del Teorema di convergenza monotona,
+Z 10
+1
+X
+k≥0
+fk(x) dx =
+X
+k≥0
+Z 10
+1
+fk(x) dx =
+X
+k≥0
+(e−k −e−10k)
+3k+1(k + e−k)k.
+Questo era il modo pi`u veloce per giustificare lo scambio tra integrale e serie. Un modo alternativo consis-
+teva nell’utilizzare quanto fatto nel punto i. e tramite questo dimostrare che la serie converge uniformemente
+nell’intervallo [1, 10]. Infatti ponendo z = e−x
+3 si ottiene nuovamente la serie di potenze
+X
+k≥0
+zk
+3(k + e−k)
+che come visto ha raggio di convergenza 1. Questo nella variabile x significa che si ha convergenza assoluta
+quando −1 < e−x
+3 < 1 ovvero per le x > −log(3). Si ha inoltre convergenza totale e quindi uniforme in tutti
+compatti contenuti in (−log(3), +∞), in particolare la convergenza `e uniforme nel compatto [1, 10]. Un terzo
+metodo consisteva nel dimostrare direttamente la convergenza totale, tramite una stima diretta, senza utilizzare
+i risultati del punto i.
+Esercizio 3. (6 punti) Per ogni a ∈ si consideri il campo F(x, y) = (2x cos(x2 + y) + axy, cos(x2 + y) + x2 + 1)
+i. si dica per quali valori del parametro a il campo `e conservativo in tutto 2;
+ii. per i valori determinati al punto i. si trovino tutte le primitive del campo.
+iii. Dato il dominio D = {(x, y) ∈2 : 0 ≤y ≤x, x2 + y2 ≤4} si determini, al variare del parametro a ∈ la
+circuitazione del campo lungo la frontiera di D percorsa in senso antiorario.
+Soluzione i. Il campo `e definito in tutto 2 per cui, in questo caso, condizione necessaria e sufficiente affinch´e
+il campo sia conservativo `e che, riscritto il campo nella forma F(x, y) = (F1, F2), si abbia ∂xF2 = ∂yF1, ovvero
+−2x sin(x2 + y) + 2x = −2x sin(x2 + y) + ax,
+questo `e vero se e solo se a = 2.
+ii. Cerchiamo una primitiva nel caso a = 2. Conviene integrare in y la seconda componente del campo, si
+ottiene quindi che una primitiva deve avere la forma
+U(x, y) = sin(x2 + y) + x2y + y + c(x)
+2
+
+
+===== PAGINA 3 =====
+dove c(x) `e una qualsiasi funzione C1 da determinare imponendo ∂xU = F1, ovvero
+2x cos(x2 + y) + 2xy + c′(x) = 2x cos(x2 + y) + 2xy,
+quindi c′(x) ≡0, perci´o c(x) = k costante. Tutte le primitive solo del tipo U(x, y) = sin(x2 + y) + x2y + y + k.
+iii. In questo caso non conviene assolutamente integrare sulle 3 curve regolari da cui `e formata la frontiera di
+D, conviene invece applicare il Teorema di Stokes nel piano che ci dice
+Z
+∂D
+< F, T > ds =
+"
+D
+(∂xF2 −∂yF1) dxdy,
+ora l’insieme D corrispondente ad un settore circolare di una circonferenza di centro l’origine e raggio 2, si
+pu`o riscrivere in coordinate polari come il rettangolo [0, π
+4] × [0, 2], quindi
+Z
+∂D
+< F, T > ds =
+"
+D
+(∂xF2 −∂yF1) dxdy = (a −2)
+Z 2
+0
+Z
+π
+4
+0
+ρ2 cos(θ) dθdρ = (a −2)8
+3
+√
+2
+2
+= (a −2)4
+√
+2
+3
+Esercizio 4. (7 punti) Sia
+E = {(x, y, z) ∈3 : 1 + z2 ≤
+p
+x2 + y2 ≤3 −z2}.
+i. calcolare il volume di E;
+ii. calcolare il flusso del campo F(x, y, z) = (0, 0, z) uscente da E;
+iii. scrivere una parametrizzazione regolare delle due superfici di rotazione Σ1 e Σ2 che delimitano la frontiera
+di E;
+iv. calcolare il flusso di F uscente da E attraverso Σ1 e Σ2.
+Soluzione i. Si tratta di un solido di rotazione per cui `e utile capire quale insieme del semipiano x −z, x ≤0 si
+fa ruotare per ottenere E. In modo standard basta sostituire al termine
+p
+x2 + y2 il termine x, perci´o l’insieme
+corrisponde a
+D = {(x, y) ∈2 : 1 + z2 ≤x ≤3 −z2},
+osserviamo che deve valere necessariamente 1 + z2 ≤3 −z2 ovvero z2 ≤1 che implica −≤z ≤1. Quindi D si
+pu´o riscrivere come insieme normale
+D = {(x, y) ∈2 : −1 ≤z ≤11 + z2 ≤x ≤3 −z2}.
+Per calcolare possiamo usare il Teorema di Guldino che ci dice che
+Vol(E) = 2π
+"
+D
+x dxdz = 2π
+Z 1
+−1
+Z 3−z2
+1+z2 x dxdz = π
+Z 1
+−1
+(3−z2)2−(1+z2) dz = π
+Z 1
+−1
+8−8z2 = 8π
+"
+z −z3
+3
+#1
+−1
+= 32
+3 π.
+Si poteva anche fare svolgendo l’integrale per strati dopo aver osservato che −1 ≤z ≤1.
+ii. Per svolgere velocemente il secondo punto `e sufficiente applicare il Teorema della divergenza, osservando
+che, in questo caso si ha banalmente divF = 1, per cui il flusso uscente corrisponde proprio al volume di E
+calcolato al punto i.
+iii. Grazie alla riscrittura di E come solido di rotazione ottenuto facendo ruotare l’insieme D, possiamo dire che
+la frontiera di D corrisponde a 2 superfici (Σ1 e Σ2) ottenute facendo ruotare le due curve regolari che formano
+la frontiera di D. Le due curve sono curve cartesiane rispetto a z, pi`u precisamente Γ1(z) = (γ1(z), z) = (1+z2, z),
+z ∈[−1, 1] e Γ2(z) = (γ2(z), z) = (3−z2, z) , z ∈[−1, 1]. A questo punto parametrizziamo le superfici Σi, i = 1, 2
+nel seguente modo
+3
+
+
+===== PAGINA 4 =====
+x = γi(z) cos(θ), y = γi(z) sin(θ), z = z con θ ∈[0, 2π], z ∈[−1, 1].
+iv. Usando il punto ii. in cui abbiamo calcolato il flusso uscente da tutta la frontiera di E ci basta calcolare il
+flusso uscente solo da una delle superfici per ottenere l’altra.
+Al punto iii. abbiamo ricavato le parametrizzazioni Xi(θ, z) = (γi(z) cos(θ), γi(z) sin(θ), z), calcoliamo
+Xi
+θ × Xi
+z = (−γi(z) sin(θ), γi(z) cos(θ), 0) × (γ′
+i(z) cos(θ), γ′
+i(z) sin(θ), 1) = (γi(z) cos(θ), γi(z) sin(θ), −γi(z)γ′
+i(z)).
+Osserviamo che tale vettore punta verso l’esterno del dominio E se consideriamo i = 2 per cui calcoliamo
+tale flusso. Indichiamo con Φ(Σi) il flusso uscente dalle superfici Σ1 e Σ2 e con Φ(∂E) il flusso uscente da E
+attraverso la sua frontiera. Abbiamo
+Φ(Σ2) =
+Z 1
+−1
+Z 2π
+0
+< (0, 0, z), (γ2(z) cos(θ), γi(z) sin(θ), −γ2(z)γ′
+2(z)) = 2π
+Z 1
+−1
+2z2(3−z2) dz = 4π
+"
+z3 −z5
+5
+#1
+−1
+= 32
+5 π.
+A questo punto possiamo calcolare Φ(Σ1) = Φ(∂E) −Φ(Σ2) = 32
+3 π −32
+5 π = 64
+15π.
+Esercizio 5. (7 punti) Dato il problema di Cauchy
+
+y′(t) =
+y2(t)
+1+y2(t)et
+y(0) = 2
+provare senza risolvere che:
+i. la soluzione locale esiste ed `e unica;
+ii. la soluzione massimale y(t) `e definita in tutto ;
+iii. la soluzione `e strettamente crescente in ;
+iv. la soluzione verifica limt→+∞y(t) = +∞.
+Infine:
+v. determinare la soluzione.
+Soluzione i. In modo standard, osserviamo che la funzione f(t, u) =
+u2
+1+uet `e C1(2), per cui possiamo applicare
+il Teorema di esistenza ed unicit`a locale. `E un errore concettuale dire che
+y2(t)
+1+y2(t)et `e C1, non esiste nessuna
+condizione in cui entra in gioco y(t) dal momento che questo `e proprio l’oggetto di cui si vuole provare
+l’esistenza. La condizione `e sulla funzione f per questo motivo, a scanso di equivoci, ho indicato con u invece
+che con y la dipendenza dalla seconda variabile. Fate attenzione a questo errore perch´e si ripete, spesso, pur
+essendo una domanda standard presente in quasi tutti i compiti.
+ii. Per provare l’esistenza globale, ovvero il fatto che la soluzione massimale esiste in tutto , utilizziamo la
+sublinearit`a di f, provando quindi che esistono L1(t) e L2(t) tali che |f(t, u)| ≤L1(t)|u| + L2(t) con Li continue
+in . Infatti si ha |f(t, u)| ≤et quindi vale la sublinearit`a prendendo L1 ≡0 e L2 = et.
+iii. Si tratta di un’equazione a variabili separabili. In questo caso l’unica soluzione costante `e data da y(t) ≡0.
+Quindi per il Teorema di unicit`a la soluzione avr`a sempre segno costante. Nel nostro caso, dal momento
+che, y(0) = 2 > 0 la soluzione rimarr`a positiva. Per quanto riguarda la derivata prima si deve avere quindi
+y′(t) =
+y2(t)
+1+y2(t)et > 0, questo assicura che la funzione sar`a strettamente crescente.
+Si noti che in questo caso non potevamo dedurre l’esistenza globale da stime a priori sulla soluzione, sappiamo
+solo che la soluzione `e positiva e strettamente crescente ma non sappiamo che se esista globalmente oppure
+abbia un asintoto verticale. L’esistenza globale `e assicurata invece dalla sublinearit`a di f, come discusso al
+punto ii.
+iv. Dall’esistenza globale e dalla crescenza di y(t) deduciamo che esiste limt→+∞y(t), questo, per monotonia
+pu`o essere finito (maggiore di 2) oppure valere +∞. Supponendo per assurdo che sia finito e indicando tale
+valore con l, allora avremmo
+lim
+t→+∞y′(t) = lim
+t→+∞
+y2(t)
+1 + y2(t)et = +∞,
+4
+
+
+===== PAGINA 5 =====
+infatti limt→+∞
+y2(t)
+1+y2(t) =
+l2
+1+l2 , 0. Questo sarebbe assurdo contro il Teorema dell’asintoto per cui necessaria-
+mente si deve avere limt→+∞y(t) = +∞.
+Si noti che il limite a −∞ci avrebbe creato dei problemi, in quanto il Teorema dell’asintoto non ci avrebbe
+aiutato e potenzialmente ogni valore nell’intervallo [0, 2) pu`o essere un limite ammissibile.
+v. Per determinare la soluzione usiamo il metodo della separazione delle variabili, ricordando che la nostra
+soluzione deve rimanere positiva. Si ha quindi che y(t) deve soddisfare la seguente equazione implicita
+Z 1 + y2
+y2
+dy =
+Z
+et dt =⇒y −1
+y = et + c,
+imponendo la condizione iniziale y(0) = 2 determiniamo la costante c, si ha c = 2 −1
+2 −1 = 1
+2.
+Quindi, dopo aver moltiplicato per y(t) (che non si annulla mai), la soluzione y(t) `e individuata dall’equazione
+implicita 2y2 −2 −2yet −y = 0. Alcuni si sono fermati, in realt`a per determinare esplicitamente y(t) basta
+risolvere un equazione di secondo grado nell’incognita y. Abbiamo quindi
+y(t) = 2et + 1 ±
+p
+(2et + 1)2 + 16
+4
+,
+evidentemente una delle due funzioni non `e ammissibile, infatti la soluzione deve essere positiva e soddisfare
+la condizione iniziale, per cui bisogna prendere il segno +. Quindi la soluzione `e
+y(t) = 2et + 1 +
+p
+(2et + 1)2 + 16
+4
+.
+Troviamo a posteriori che y(t) `e definita su tutto , che limt→+∞y(t) = +∞. Ora per`o possiamo anche calcolarci
+in modo esplicito
+lim
+t→−∞y(t) = lim
+t→−∞
+2et + 1 +
+p
+(2et + 1)2 + 16
+4
+= 1 +
+√
+17
+4
+Sorprendentemente (?) il limite non `e venuto 0, come potevamo pensare usando quanto noto per le equazioni
+autonome. Ma questa non `e un equazione autonoma e il peso del termine con dipendenza esplicita in t pu`o
+avere un peso importante. C’era un modo per dimostrare che il limite non venisse 0 usando un approccio
+qualitativo senza trovare la soluzione esplicita? La risposta `e affermativa, infatti sia limt→−∞y(t) = l ∈[0, 2),
+integriamo tra l’equazione differenziale nell’intervallo (−∞, 0] si ha
+Z 0
+−∞
+y′(t) dt =
+Z 0
+−∞
+y2(t)
+1 + y2(t)et dt
+ora `e semplice dimostrare che il primo membro vale proprio 2 −l. Stimiamo il secondo membro, utilizzando
+il fatto che necessariamente
+y2(t)
+1+y2(t) < 1, per cui
+Z 0
+−∞
+y2(t)
+1 + y2(t)et dt <
+Z 0
+−∞
+et dt = 1.
+Da questo deduciamo che 2 −l < 1 per cui l > 1. In effetti abbiamo calcolato l = 1+
+√
+17
+4
+> 1.
+5

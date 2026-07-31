@@ -1,0 +1,158 @@
+===== PAGINA 1 =====
+Geometria (Fisica)
+Canale D-K
+Prova scritta - 9 luglio 2018
+Cognome:
+Nome:
+Numero di matricola:
+Esercizio
+Punti totali
+Punteggio
+1
+7
+2
+7
+3
+7
+4
+7
+5
+7
+Totale
+35
+Occorre motivare le risposte. Una soluzione corretta priva di motivazione ricever`a 0 punti.
+Verr`a corretto solo quello che sar`a scritto su queste pagine.
+Voto/30:
+1
+
+
+===== PAGINA 2 =====
+Esercizio 1. Sia R3 lo spazio aﬃne euclideo standard, munito delle coordinate canoniche xyz.
+Considerare il punto P0 = (1, 1, 1) e le rette aﬃni r1, r2 seguenti
+r1 ={(2 + s, −2s, −1 + 3s) ∈R3 | s ∈R}
+r2 ={(x, y, z) ∈R3 | x + y + 2z = x + y + z = 0}
+(i) Determinare una equazione cartesiana del piano Π passante per r1 e P0.
+(ii) Determinare equazioni cartesiane per la retta r′′ passante per P0 e incidente r1 e r2.
+Risoluzione:
+2
+
+
+===== PAGINA 3 =====
+Esercizio 2. Per ogni k ∈R, considerare l’applicazione lineare LAk : R3 →R3 associata alla matrice
+reale
+Ak :=
+
+
+k
+−2
+2
+0
+0
+4
+0
+1
+3
+
+.
+(i) Determinare il polinomio caratteristico e gli autovalori di LAk per ogni valore di k.
+(ii) Per ogni k, determinare una base di ciascun autospazio di LAk.
+(iii) Determinare i valori di k per cui Ak `e diagonalizzabile.
+Risoluzione:
+3
+
+
+===== PAGINA 4 =====
+Esercizio 3. Sia V = {f : C →C} lo spazio vettoriale complesso di tutte le funzioni da C in C, dotato
+delle usuali operazioni di somma e prodotto per uno scalare. Determinare quali dei seguenti sottoinsiemi
+di V siano sottospazi vettoriali complessi di V .
+(i) Il sottoinsieme U1 ⊂V deﬁnito da U1 = {f ∈V | f(1)2 + f(2)2 = 0}.
+(ii) Il sottoinsieme U2 ⊂V deﬁnito da U2 = {f ∈V | f(0) = f(1)}.
+(iii) ll sottoinsieme U3 ⊂V deﬁnito da U3 = {f ∈V | esiste almeno uno z ∈C per cui f(z) = 0}.
+Risoluzione:
+4
+
+
+===== PAGINA 5 =====
+Esercizio 4. Sia D ∈M2,2(R) una matrice diagonale con Di,i = λi e consideriamo la forma quadratica
+ϕ : M2,2(R) →R deﬁnita come ϕ(X) = tr(XT · D · X).
+(i) Determinare la matrice che rappresenta ϕ rispetto alla base standard B = {E1,1, E1,2, E2,1, E2,2}
+di V = M2,2(R).
+(ii) Determinare gli indici n+, n−, n0 di ϕ in funzione dei valori λ1, λ2 ∈R.
+Risoluzione:
+5
+
+
+===== PAGINA 6 =====
+Esercizio 5. Al variare del parametro t ∈R considerare i sottospazi Wt di R4 deﬁniti come
+Wt = Span
+
+
+
+
+
+
+
+
+
+
+
+0
+t
+1
+−1
+
+
+
+,
+
+
+
+
+1
+0
+t
+1
+
+
+
+,
+
+
+
+
+0
+t
+0
+1
+
+
+
+,
+
+
+
+
+1
+0
+0
+t
+
+
+
+
+
+
+
+
+
+
+
+.
+(a) Determinare i valori di t per cui Wt = R4.
+(b) Determinare equazioni cartesiane per tutti i Wt che siano diversi da tutto R4.
+(c) Determinare la dimensione e una base del sottospazio
+\
+t∈R
+Wt.
+Risoluzione:
+6

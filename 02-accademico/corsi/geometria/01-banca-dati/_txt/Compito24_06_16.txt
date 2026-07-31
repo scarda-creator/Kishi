@@ -1,0 +1,50 @@
+===== PAGINA 1 =====
+Geometria. a.a. 2015-16,
+Prova scritta del 24 giugno 2016, doc. Salvati Manni
+Esercizio 1. In R3 sia assegnato il prodotto scalare
+< X, Y >= 2x1y1 + x1y2 + x2y1 + 2x2y2 + 2x3y3 + x2y3 + x3y2
+Veriﬁcare che tale prodotto scalare `e deﬁnito positivo.
+Trovare una base ortonormale di R3 rispetto al dato prodotto scalare
+Esercizio 2. Veriﬁcare se la matrice
+
+1
+2
+−1
+−3
+8
+−5
+−3
+6
+−5
+
+;
+´e diagonalizzabile.
+Trovare gli autovettori.
+Esercizio 3. Siano r e s le rette di equazioni
+r :
+ x + y + z = 1
+2x −y + 2z = −1
+s :
+
+
+
+x = t
+y = −1 + 2t
+z = −t
+Veriﬁcare che le rette sono complanari
+Trovare un’ equazione cartesiana del piano che contiene le due rette.
+Esercizio 4. Nello spazio R2 sia assegnato il prodotto scalare deﬁnito positivo
+< X, Y >= 2x1y1 + x1y2 + x2y1 + 2x2y2
+Veriﬁcare quali tra i seguenti operatori risultano essere simmetrici rispetto al prodotto
+scalare assegnato:
+T1(x, y) = (2x + 2y, x),
+e
+T2(x, y) = (x, 2y).
+Esercizio 5. Sia V ⊂R4 il sottospazio generato dai vettori (1, 0, 2, 1) e (−1, 0, 1, 2).
+Sia W ⊂R4 il sottospazio formato dai vettori w = (a, b, c, d) che soddisfano le
+equazioni
+c −d −a = 0,
+a + 2b = 0.
+Veriﬁcare se
+R4 = V + W
+1

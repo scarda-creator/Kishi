@@ -1,0 +1,666 @@
+===== PAGINA 1 =====
+Geometria (Fisica)
+Canale L-P
+Esame - 28 febbraio 2017
+Nome e Cognome:
+Numero di Matricola:
+Esercizio
+Punti totali
+Punteggio
+1
+7,5
+2
+7,5
+3
+7,5
+4
+7,5
+Totale
+30
+Occorre motivare le risposte. Una soluzione corretta priva di motivazione riceverà 0 punti.
+Verrà corretto solo quello che sarà scritto su queste pagine.
+Voto/30:
+1
+
+
+===== PAGINA 2 =====
+Esercizio 1. Consideriamo i sottospazi vettoriali U = ⟨(1, 2, 3, 1), (2, 1, 3, 2)⟩e V = ⟨(1, 1, 1, 2), (1, 1, 2, 2), (1, 2, 2, 2)⟩
+dello spazio vettoriale R4.
+• Calcolare la dimensione di U ∩V ;
+• esibire una base di U ∩V ;
+• calcolare la dimensione di U + V ;
+Soluzione: La dimensione di U + V è la più semplice da calcolare. In eﬀetti, il sottospazio U + V è
+generato linearmente dai cinque vettori dati, e la sua dimensione si ottiene calcolando (ad esempio) il
+rango della matrice
+
+
+
+
+1
+2
+1
+1
+1
+2
+1
+1
+1
+2
+3
+3
+1
+2
+2
+1
+2
+2
+2
+2
+
+
+
+.
+Possiamo procedere rapidamente con un’eliminazione di Gauss (non scrivo tutti i passaggi):
+
+
+
+
+1
+2
+1
+1
+1
+2
+1
+1
+1
+2
+3
+3
+1
+2
+2
+1
+2
+2
+2
+2
+
+
+
+⇝
+
+
+
+
+1
+2
+1
+1
+1
+0
+−3
+−1
+−1
+0
+0
+−3
+−2
+−1
+−1
+0
+0
+1
+1
+1
+
+
+
+⇝
+
+
+
+
+1
+2
+1
+1
+1
+0
+−3
+−1
+−1
+0
+0
+0
+−1
+0
+−1
+0
+0
+1
+1
+1
+
+
+
+⇝
+
+
+
+
+1
+2
+1
+1
+1
+0
+−3
+−1
+−1
+0
+0
+0
+−1
+0
+−1
+0
+0
+0
+1
+0
+
+
+
+,
+e la presenza di quattro pivot ci garantisce che dim(U + V ) = 4.
+Si può procedere in modo simile per convincersi che dim U = 2, dim V = 3.
+Dalla formula di
+Grassmann otteniamo allora, immediatamente,
+dim(U ∩V ) = dim U + dim V −dim(U + V ) = 2 + 3 −4 = 1.
+Calcolare un base di U ∩V è meno immediato. Si tratta di stabilire quale combinazione lineare di
+(1, 2, 3, 1) e (2, 1, 3, 2) è anche combinazione lineare di (1, 1, 1, 2), (1, 1, 2, 2) e (1, 2, 2, 2). Risolviamo allora
+il sistema lineare
+x1
+
+
+
+
+1
+2
+3
+1
+
+
+
++ x2
+
+
+
+
+2
+1
+3
+2
+
+
+
++ x3
+
+
+
+
+1
+1
+1
+2
+
+
+
++ y1
+
+
+
+
+1
+1
+2
+2
+
+
+
++ y2
+
+
+
+
+1
+2
+2
+2
+
+
+
+=
+
+
+
+
+0
+0
+0
+0
+
+
+
+.
+La matrice è quella scritta precedentemente, e possiamo continuare il procedimento di eliminazione
+ottenendo
+
+
+
+
+1
+2
+1
+1
+1
+0
+−3
+−1
+−1
+0
+0
+0
+−1
+0
+−1
+0
+0
+0
+1
+0
+
+
+
+⇝
+
+
+
+
+1
+2
+1
+0
+1
+0
+3
+1
+0
+0
+0
+0
+1
+0
+1
+0
+0
+0
+1
+0
+
+
+
+⇝
+
+
+
+
+1
+2
+0
+0
+0
+0
+3
+0
+0
+−1
+0
+0
+1
+0
+1
+0
+0
+0
+1
+0
+
+
+
+⇝
+
+
+
+
+1
+0
+0
+0
+2/3
+0
+1
+0
+0
+−1/3
+0
+0
+1
+0
+1
+0
+0
+0
+1
+0
+
+
+
+,
+che ci dà la soluzione x1 = −2y2/3, x2 = y2/3, x3 = −y2, y1 = 0. Ponendo y2 = 3, si ha x1 = −2, x2 =
+1, x3 = −3, y1 = 0, y2 = 3 e quindi
+−2
+
+
+
+
+1
+2
+3
+1
+
+
+
++ 1
+
+
+
+
+2
+1
+3
+2
+
+
+
+−3
+
+
+
+
+1
+1
+1
+2
+
+
+
+= −3
+
+
+
+
+1
+2
+2
+2
+
+
+
+,
+il che mostra che (−3, 6, 6, 6) appartiene a U ∩V , e ne è quindi una base.
+Risposta: dim U ∩V =
+dim U + V =
+Base di U ∩V :
+2
+
+
+===== PAGINA 3 =====
+Esercizio 2. Si consideri la matrice
+A =
+
+
+
+
+k
+−2
+2k
+3
+−k
+−k
+3
+2
+2
+1
+1
+2
+
+
+
+.
+• Determinare, al variare di k ∈R, il rango di A.
+• Considerata l’applicazione lineare FA : R3 →R4 associata ad A (nelle basi canoniche), determinare,
+al variare di k ∈R, la dimensione dell’immagine im FA ⊂R4 e del nucleo ker FA ⊂R3.
+Soluzione:
+Il rango della matrice A è sicuramente almeno 2, poiché il minore
+
+3
+2
+1
+1
+ = 1
+è non nullo. Più precisamente, il rango della matrice è 2 se i minori 3 × 3 che lo orlano sono entrambi
+nulli, ed è 3 in ogni altro caso. Svolgendo i conti:
+
+k
+−2
+2k
+3
+2
+2
+1
+1
+2
+
+= 4k + 8,
+
+3
+−k
+−k
+3
+2
+2
+1
+1
+2
+
+= 3k + 6,
+che si annullano contemporaneamente per k = −2, e per nessun altro valore. La matrice A ha quindi
+rango due per k = −2 e rango tre per ogni altro valore di k.
+La dimensione dell’immagine di un’applicazione lineare coincide con il rango della matrice associata,
+e quindi dim im FA vale 2 se k = −2 e 3 se k̸ = −2. Inoltre
+dim im FA + dim ker FA = dim R3 = 3
+e quindi ker FA ha dimensione 1 se k = −2 e dimensione 0 se k̸ = −2.
+Risposta: rango di A =
+dim im FA =
+dim ker FA =
+3
+
+
+===== PAGINA 4 =====
+Esercizio 3. Calcolare la dimensione del sottospazio vettoriale di R5 generato dai vettori (0, 2, 1, 2, 3),
+(3, 1, 2, 1, 0), (2, −1, 0, −1, −2), (1, −3, −2, −3, −4), esibendone una base.
+Soluzione:
+Le manipolazioni del procedimento di eliminazione non modiﬁcano il sottospazio vettoriale generato
+dalle righe della matrice sulla quale operano. Inoltre, le righe non nulle al termine dell’eliminazione
+di Gauss sono automaticamente linearmente indipendenti, e quindi una base di tale spazio vettoriale.
+Possiamo quindi procedere (saltando qualche passaggio) come segue:
+
+
+
+
+0
+2
+1
+2
+3
+3
+1
+2
+1
+0
+2
+−1
+0
+−1
+−2
+1
+−3
+−2
+−3
+−4
+
+
+
+⇝
+
+
+
+
+1
+−3
+−2
+−3
+−4
+0
+2
+1
+2
+3
+3
+1
+2
+1
+0
+2
+−1
+0
+−1
+−2
+
+
+
+⇝
+
+
+
+
+1
+−3
+−2
+−3
+−4
+0
+2
+1
+2
+3
+0
+10
+8
+10
+12
+0
+5
+4
+5
+6
+
+
+
+⇝
+
+
+
+
+1
+−3
+−2
+−3
+−4
+0
+2
+1
+2
+3
+0
+0
+3
+0
+−3
+0
+0
+0
+0
+0
+
+
+
+.
+Concludiamo che il sottospazio dato ha dimensione 3, e i vettori (1, −2, −2, −3, −4), (0, 2, 1, 2, 3),
+(0, 0, 3, 0, −3), ne sono, ad esempio, una base.
+Risposta: dimensione del sottospazio
+Base del sottospazio:
+4
+
+
+===== PAGINA 5 =====
+Esercizio 4. Sia u = (1, 2, 3) ∈R3, e indichiamo con · il prodotto scalare canonico di R3. Scrivere la
+matrice associata all’applicazione lineare F : R3 →R3 deﬁnita da
+F(v) = v −(u · v)u
+nelle basi canoniche e dire se sia diagonalizzabile, determinandone gli autovalori.
+Soluzione:
+Per scrivere la matrice associata ad F è suﬃciente calcolare F sui vettori (1, 0, 0), (0, 1, 0), (0, 0, 1) e
+scrivere i risultati nella prima, seconda, terza colonna di una matrice 3 × 3. Si calcola facilmente
+F(1, 0, 0) = (1, 0, 0) −1 · (1, 2, 3) = (0, −2, −3)
+F(0, 1, 0) = (0, 1, 0) −2 · (1, 2, 3) = (−2, −3, −6)
+F(0, 0, 1) = (0, 0, 1) −3 · (1, 2, 3) = (−3, −6, −8)
+e quindi la matrice associata ad F è
+
+
+0
+−2
+−3
+−2
+−3
+−6
+−3
+−6
+−8
+
+,
+che è sicuramente diagonalizzabile, in quanto simmetrica reale.
+F è diagonalizzabile anche per un altro motivo, più geometrico. L’ortogonale di u è un sottospazio
+di dimensione 2, e tutti i suoi vettori vengono mandati in se stessi. Questo mostra che 1 è autovalore
+di F con molteplicità (almeno) due.
+Inoltre F(u) = u −(u · u)u = −13u, e quindi anche −13 è
+autovalore di F, di molteplicità almeno 1. Poiché la somma delle molteplicità degli autovalori è al più
+dim R3 = 3, concludiamo che l’autovalore 1 ha molteplicità esattamente 2, che l’autovalore −13 ha
+molteplicità esattamente 1, e che non ci sono altri autovalori.
+Risposta: E’ diagonalizzabile:
+□Sì
+□No
+Matrice:
+Autovalori:
+5

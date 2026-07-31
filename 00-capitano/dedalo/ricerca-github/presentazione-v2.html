@@ -1,0 +1,362 @@
+<title>Navicella · Evoluzione v2 — verso l'autonomia</title>
+<style>
+  :root{
+    --paper:#e8ebf0; --surface:#f5f7f9; --surface2:#eef1f5;
+    --ink:#141a23; --muted:#586576; --faint:#8b97a6;
+    --line:#c3ccd8; --line-strong:#9fabbb;
+    --blueprint:#2f6db0; --blueprint-soft:#5a8fc9;
+    --ember:#b25e18; --ember-soft:#c98a4a;
+    --grid:rgba(47,109,176,.055);
+    --shadow:0 1px 0 rgba(20,26,35,.04), 0 8px 30px -18px rgba(20,26,35,.25);
+    --mono:ui-monospace,"Cascadia Code","SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,"Segoe UI",system-ui,Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{--paper:#0a1019;--surface:#101a26;--surface2:#0d1622;--ink:#dce4ee;--muted:#8a99ab;--faint:#5f6e80;
+      --line:#222e3d;--line-strong:#33465b;--blueprint:#5c9bd8;--blueprint-soft:#3f6f9e;--ember:#e0a24a;--ember-soft:#b98338;
+      --grid:rgba(92,155,216,.05);--shadow:0 1px 0 rgba(0,0,0,.2), 0 10px 34px -20px rgba(0,0,0,.7);}
+  }
+  :root[data-theme="light"]{--paper:#e8ebf0;--surface:#f5f7f9;--surface2:#eef1f5;--ink:#141a23;--muted:#586576;--faint:#8b97a6;
+    --line:#c3ccd8;--line-strong:#9fabbb;--blueprint:#2f6db0;--blueprint-soft:#5a8fc9;--ember:#b25e18;--ember-soft:#c98a4a;
+    --grid:rgba(47,109,176,.055);--shadow:0 1px 0 rgba(20,26,35,.04), 0 8px 30px -18px rgba(20,26,35,.25);}
+  :root[data-theme="dark"]{--paper:#0a1019;--surface:#101a26;--surface2:#0d1622;--ink:#dce4ee;--muted:#8a99ab;--faint:#5f6e80;
+    --line:#222e3d;--line-strong:#33465b;--blueprint:#5c9bd8;--blueprint-soft:#3f6f9e;--ember:#e0a24a;--ember-soft:#b98338;
+    --grid:rgba(92,155,216,.05);--shadow:0 1px 0 rgba(0,0,0,.2), 0 10px 34px -20px rgba(0,0,0,.7);}
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:34px 34px;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blueprint);margin:0}
+  h1,h2,h3{text-wrap:balance;line-height:1.12;letter-spacing:-.02em;font-weight:700;margin:0}
+  h1{font-size:clamp(2.1rem,6vw,3.4rem)}
+  h2{font-size:clamp(1.5rem,3.6vw,2.15rem);letter-spacing:-.025em}
+  h3{font-size:1.16rem;letter-spacing:-.01em}
+  p{margin:0}
+  .lead{font-size:clamp(1.1rem,2.3vw,1.35rem);line-height:1.5;color:var(--ink);max-width:62ch}
+  .prose{max-width:66ch;color:var(--muted)}
+  a{color:var(--blueprint);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--blueprint) 35%,transparent)}
+  a:hover{border-bottom-color:var(--blueprint)}
+  b,strong{color:var(--ink);font-weight:650}
+
+  .topbar{position:sticky;top:0;z-index:30;backdrop-filter:blur(8px);background:color-mix(in srgb,var(--paper) 82%,transparent);border-bottom:1px solid var(--line)}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 24px;max-width:980px;margin:0 auto}
+  .brandmark{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;color:var(--muted)}
+  .brandmark .dot{width:9px;height:9px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 3px color-mix(in srgb,var(--ember) 22%,transparent)}
+  .themebtn{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:transparent;border:1px solid var(--line-strong);border-radius:7px;padding:6px 11px;cursor:pointer}
+  .themebtn:hover{color:var(--ink);border-color:var(--blueprint)}
+  .themebtn:focus-visible{outline:2px solid var(--blueprint);outline-offset:2px}
+
+  header.hero{padding:70px 0 30px}
+  .plate-tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--faint);text-transform:uppercase}
+  .hero h1{margin:14px 0 0}
+  .hero .accent{color:var(--ember)}
+  .hero .lead{margin-top:22px}
+  .titleblock{margin-top:36px;border:1px solid var(--line-strong);border-radius:10px;background:var(--surface);display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;box-shadow:var(--shadow)}
+  .titleblock .cell{padding:14px 16px;border-right:1px solid var(--line)}
+  .titleblock .cell:last-child{border-right:0}
+  .titleblock .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+  .titleblock .v{margin-top:6px;font-weight:650;font-size:.98rem}
+  @media(max-width:640px){.titleblock{grid-template-columns:1fr 1fr}.titleblock .cell:nth-child(2){border-right:0}}
+
+  section{padding:50px 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:10px}
+  .sec-no{font-family:var(--mono);font-size:.8rem;color:var(--blueprint);letter-spacing:.1em;padding-top:4px}
+  .sec-intro{margin:16px 0 28px;max-width:66ch;color:var(--muted);font-size:1.06rem}
+
+  /* thesis axes */
+  .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+  @media(max-width:720px){.axes{grid-template-columns:1fr}}
+  .axis{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--surface);box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .axis::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--blueprint),var(--ember))}
+  .axis .n{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+  .axis h3{margin:8px 0 8px}
+  .axis .from{font-size:.88rem;color:var(--muted)}
+  .axis .to{font-size:.88rem;color:var(--ember);font-weight:600}
+  .axis .arrow{font-family:var(--mono);color:var(--faint);margin:0 4px}
+
+  .diag{border-left:3px solid var(--ember);background:linear-gradient(90deg,color-mix(in srgb,var(--ember) 7%,transparent),transparent 60%);padding:20px 22px;border-radius:0 10px 10px 0}
+  .diag .big{font-size:clamp(1.15rem,2.5vw,1.45rem);font-weight:650;line-height:1.4}
+  .metrics{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+  .metric{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:12px 16px;min-width:150px;flex:1}
+  .metric .n{font-family:var(--mono);font-size:1.5rem;font-weight:700;color:var(--ember);font-variant-numeric:tabular-nums}
+  .metric .l{font-size:.82rem;color:var(--muted);margin-top:2px}
+
+  .pillar{margin-top:14px;padding-top:26px;border-top:1px dashed var(--line)}
+  .pillar:first-of-type{border-top:0;padding-top:0}
+  .pillar-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:4px}
+  .pill-k{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);background:var(--blueprint);border-radius:6px;padding:4px 9px}
+  .pill-k.warm{background:var(--ember)}
+  .grounding{font-family:var(--mono);font-size:.74rem;color:var(--muted);margin:6px 0 4px}
+  .grounding b{color:var(--blueprint);font-weight:600}
+  .pillar > .prose{margin:8px 0 20px}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:720px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:11px}
+  .card.span2{grid-column:1/-1}
+  .card h3{margin:0}
+  .card .from{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:5px}
+  .card .from a{color:var(--blueprint);border:0}
+  .card .why{color:var(--muted);font-size:.97rem}
+  .card .why .k{color:var(--ink);font-weight:600}
+  .spec{display:flex;gap:16px;flex-wrap:wrap;padding-top:11px;border-top:1px dashed var(--line);margin-top:auto}
+  .spec .item{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+  .spec .item .lab{display:block;color:var(--faint);text-transform:uppercase;letter-spacing:.12em;font-size:.6rem;margin-bottom:3px}
+  .meter{letter-spacing:2px}.meter .on{color:var(--ember)}.meter .off{color:var(--line-strong)}.meter.cool .on{color:var(--blueprint)}
+  .free{color:var(--blueprint);font-family:var(--mono)}
+  .adjust{font-size:.89rem;color:var(--ink);background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:10px 13px}
+  .adjust .tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ember);display:block;margin-bottom:4px}
+
+  .phases{display:flex;flex-direction:column;margin-top:8px}
+  .phase{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--line)}
+  .phase:first-child{border-top:0}
+  .phase .no{font-family:var(--mono);font-size:.78rem;color:var(--paper);background:var(--blueprint);width:40px;height:40px;border-radius:9px;display:grid;place-items:center;font-weight:700}
+  .phase.hot .no{background:var(--ember)}
+  .phase h3{margin-bottom:6px}
+  .phase .meta{font-family:var(--mono);font-size:.7rem;color:var(--faint);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+  .phase p{color:var(--muted);max-width:64ch}
+
+  .decision{border:1px solid var(--line-strong);border-radius:11px;padding:16px 20px;background:var(--surface);margin-bottom:13px}
+  .decision .q{font-weight:650;font-size:1.04rem;display:flex;gap:10px;align-items:baseline}
+  .decision .q .mk{font-family:var(--mono);color:var(--ember);font-size:.8rem}
+  .decision .opts{margin-top:9px;color:var(--muted);font-size:.95rem}
+  .decision .rec{margin-top:9px;font-size:.88rem;font-family:var(--mono);color:var(--blueprint)}
+
+  .ledger-wrap{overflow-x:auto}
+  .ledger{width:100%;border-collapse:collapse;font-size:.94rem;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .ledger th,.ledger td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line)}
+  .ledger th{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);background:var(--surface2)}
+  .ledger td.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .ledger tr:last-child td{border-bottom:0}
+
+  .closing{padding:50px 0 18px;border-top:1px solid var(--line)}
+  .closing .lead{color:var(--ink)}
+  .signoff{margin-top:24px;border:1px solid var(--line-strong);border-radius:10px;background:var(--surface);display:grid;grid-template-columns:1.4fr 1fr;overflow:hidden}
+  .signoff .cell{padding:16px 18px;border-right:1px solid var(--line)}
+  .signoff .cell:last-child{border-right:0}
+  .signoff .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+  .signoff .v{margin-top:5px;font-size:.94rem}
+  @media(max-width:640px){.signoff{grid-template-columns:1fr}.signoff .cell{border-right:0;border-bottom:1px solid var(--line)}}
+  footer.note{padding:26px 0 60px;color:var(--faint);font-family:var(--mono);font-size:.72rem}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+
+<div class="topbar"><div class="row"><div class="brandmark"><span class="dot"></span>NAVICELLA · ARCHIVIO DI PROGETTO · v2</div>
+<button class="themebtn" id="themebtn" aria-label="Cambia tema">tema</button></div></div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="plate-tag">Tavola 00 · Presentazione d'architettura · Dedalo · revisione 2</p>
+    <h1>La navicella non cresce.<br>Si rende <span class="accent">autonoma</span>.</h1>
+    <p class="lead">La prima volta ti ho reso una lista curata. Sbagliato: hai chiesto una visione, e la visione richiede leggere l'intero edificio — le tue roadmap già scritte — e creare con tutte le 44 fonti, senza escludere nulla. Questa è la seconda tavola, e questa volta ha una tesi.</p>
+    <div class="titleblock">
+      <div class="cell"><div class="k">Progetto</div><div class="v">Evoluzione → Autonomia</div></div>
+      <div class="cell"><div class="k">Ancorato a</div><div class="v">3 roadmap tue + 44 fonti</div></div>
+      <div class="cell"><div class="k">Apparati</div><div class="v">Cinque</div></div>
+      <div class="cell"><div class="k">Data</div><div class="v">2026-07-11</div></div>
+    </div>
+  </header>
+
+  <!-- 01 TESI -->
+  <section class="reveal">
+    <div class="sec-head"><span class="sec-no">01</span><div><p class="eyebrow">La tesi</p><h2>Tutto punta a una cosa sola: la libertà</h2></div></div>
+    <p class="sec-intro">Ho cercato il filo che lega 44 repo e tre roadmap, e non è "più funzioni". È l'<b>autonomia</b>, su tre assi che convergono. E convergono su ciò che la tua stella polare dichiara essere la tua ossessione più profonda — vivere libero. Non l'ho inventato: è scritto in L4. Ho solo progettato l'evoluzione <i>attorno</i> a quel valore.</p>
+    <div class="axes">
+      <div class="axis"><div class="n">Asse I</div><h3>Autonomia dal modello</h3><p><span class="from">dipendenza da Anthropic</span> <span class="arrow">→</span> <span class="to">modelli locali + OpenRouter</span></p></div>
+      <div class="axis"><div class="n">Asse II</div><h3>Autonomia dal PC</h3><p><span class="from">gira solo se il laptop è acceso</span> <span class="arrow">→</span> <span class="to">esistenza autonoma nel cloud</span></p></div>
+      <div class="axis"><div class="n">Asse III</div><h3>Autonomia dal bisogno</h3><p><span class="from">costo puro</span> <span class="arrow">→</span> <span class="to">un Business che la finanzia</span></p></div>
+    </div>
+    <p class="prose" style="margin-top:24px">I cinque apparati che seguono servono questi tre assi. Ognuno è già stato pensato dalla navicella — io non invento da zero, <b>accelero un piano tuo con strumenti concreti</b>, e li lego in un corpo solo.</p>
+  </section>
+
+  <!-- 02 DIAGNOSI -->
+  <section class="reveal">
+    <div class="sec-head"><span class="sec-no">02</span><div><p class="eyebrow">Diagnosi</p><h2>Il limite è un difetto di metabolismo</h2></div></div>
+    <div class="diag"><p class="big">Stanotte ci siamo fermati tre volte contro il muro d'uso. Non è poco budget: è che la navicella paga il modello più costoso per lavoro che non lo richiede — e dipende interamente da un solo fornitore. Metabolismo e autonomia sono lo stesso problema visto da due lati.</p></div>
+    <div class="metrics">
+      <div class="metric"><div class="n">3×</div><div class="l">stop per limite in una notte</div></div>
+      <div class="metric"><div class="n">40–70%</div><div class="l">token risparmiabili con routing (misurato)</div></div>
+      <div class="metric"><div class="n">~1 anno</div><div class="l">quanto i modelli locali sono indietro dal cloud (dalla tua roadmap)</div></div>
+    </div>
+  </section>
+
+  <!-- 03 APPARATI -->
+  <section class="reveal">
+    <div class="sec-head"><span class="sec-no">03</span><div><p class="eyebrow">Gli apparati</p><h2>Cinque sistemi, un corpo</h2></div></div>
+    <p class="sec-intro">Ognuno ancorato a una tua roadmap (la fondazione già scritta) e alimentato dalle fonti nuove (gli strumenti per costruirlo). Provenienza, perché, costo, e dove <b>puoi fermarmi</b>.</p>
+
+    <!-- A -->
+    <div class="pillar">
+      <div class="pillar-head"><span class="pill-k warm">A · Metabolismo</span><h3>Delegare al locale &amp; al gratuito — l'autonomia dal modello</h3></div>
+      <p class="grounding">fondazione: <b>roadmap-llm-locali.md</b> (la tua migrazione a fasi) · asse I</p>
+      <p class="prose">La tua roadmap lo dice già: Fase 1 è installare Ollama e delegare al locale i task <i>leggeri</i>, con OpenRouter come ponte (cambi il modello di un agente cambiando una stringa). Le tue stelle sul risparmio non sono un tema a parte — sono il <b>tooling di quella Fase 1</b>. Il filo unificante resta uno: compressione. Non pagare Opus per ciò che non è da Opus.</p>
+      <div class="cards">
+        <div class="card">
+          <div class="chd"><h3>Il ponte: OpenRouter + delega locale</h3><div class="from">da <a href="https://github.com/alisorcorp/ask-local">ask-local</a> (LM Studio) · <a href="https://github.com/GoDiao/Free-Way">Free-Way</a> (14+ provider gratis) · OpenRouter</div></div>
+          <p class="why"><span class="k">Perché.</span> Il lavoro-fatica della navicella — letture di file, check di formato, classificazione P1/P2 del Rapsodo, assemblaggio quiz — non richiede un frontier model. ask-local lo delega a un LLM locale tenendo i file sulla tua macchina; Free-Way apre i provider gratuiti per il resto. OpenRouter rende la sostituzione una stringa nel frontmatter.</p>
+          <div class="spec"><div class="item"><span class="lab">Impatto</span><span class="meter"><span class="on">●●●●</span><span class="off">●</span></span></div><div class="item"><span class="lab">Sforzo</span><span class="meter cool"><span class="on">●●</span><span class="off">●●●</span></span></div><div class="item"><span class="lab">Costo</span><span class="free">gratis</span></div></div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>Regola dura: <b>L5 non passa mai</b> per un modello che lascia la macchina — il locale qui è privacy, non solo risparmio. Coerente col patto "L5 mai in chiaro".</div>
+        </div>
+        <div class="card">
+          <div class="chd"><h3>Il router intelligente</h3><div class="from">da <a href="https://github.com/NadirRouter/NadirClaw">NadirClaw</a> ·575★ (−57% misurato) + diagnostica <a href="https://github.com/getagentseal/codeburn">codeburn</a></div></div>
+          <p class="why"><span class="k">Perché.</span> Un proxy classifica ogni prompt in ~10ms e smista il 60–70% al modello economico, riserva Opus/Sonnet al 30–40% che genera. Ma prima: codeburn (un comando, npx) misura <i>dove</i> bruciamo. Non si ottimizza al buio.</p>
+          <div class="spec"><div class="item"><span class="lab">Impatto</span><span class="meter"><span class="on">●●●●</span><span class="off">●</span></span></div><div class="item"><span class="lab">Sforzo</span><span class="meter cool"><span class="on">●</span><span class="off">●●●●</span></span></div><div class="item"><span class="lab">Costo</span><span class="free">gratis*</span></div></div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>Quali modelli reggono? Dalla tua roadmap: <b>Qwen 3</b> sul tecnico, <b>DeepSeek R1</b> su matematica/fisica (utile persino al Demiurgo), Llama 4 sul generale. Il tuo Acer regge fino a ~13B; il 30B serio è una decisione hardware (RTX 5090, ~3–3,5k€) — differita, non ora.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- B -->
+    <div class="pillar">
+      <div class="pillar-head"><span class="pill-k">B · Sistema nervoso</span><h3>Memoria che impara e costa quasi nulla</h3></div>
+      <p class="grounding">fondazione: memoria a 5 livelli + le memorie-feedback che Mnemosyne scrive a mano</p>
+      <div class="cards">
+        <div class="card">
+          <div class="chd"><h3>Cattura automatica delle correzioni</h3><div class="from">da <a href="https://github.com/BayramAnnakov/claude-reflect">claude-reflect</a> ·1.2k★</div></div>
+          <p class="why"><span class="k">Perché.</span> Hook intercettano le tue correzioni in sessione e le sincronizzano in CLAUDE.md. È <i>letteralmente</i> il pattern delle memorie-feedback, tolto dalle mani per le cose ripetitive.</p>
+          <div class="spec"><div class="item"><span class="lab">Impatto</span><span class="meter"><span class="on">●●●</span><span class="off">●●</span></span></div><div class="item"><span class="lab">Costo</span><span class="free">gratis</span></div></div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>Confine cementato: chi-sei-tu (L4/L5) lo interpreta Mnemosyne. Auto-cattura il grezzo su L1–L3; il giudizio su cosa diventa fondativo resta umano. Io sono sorgente, non interprete.</div>
+        </div>
+        <div class="card">
+          <div class="chd"><h3>Memoria compressa col modello leggero</h3><div class="from">da <a href="https://github.com/Digital-Process-Tools/claude-remember">claude-remember</a> (Haiku, &lt;1¢) + progressive disclosure</div></div>
+          <p class="why"><span class="k">Perché.</span> Condensa le sessioni con un modello leggero e le inietta al risveglio; carica un indice compresso, apre il dettaglio a richiesta (~10× nel retrieval). Il Rapsodo, automatico ed economico — e, unito all'apparato A, quel "modello leggero" può essere <b>locale</b>.</p>
+          <div class="spec"><div class="item"><span class="lab">Impatto</span><span class="meter"><span class="on">●●●</span><span class="off">●●</span></span></div><div class="item"><span class="lab">Costo</span><span class="free">~centesimi/0</span></div></div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>Comprimi in alto (L1–L3), mano ferma in basso (L4/L5): "niente oblio" resta — si comprime la vista, non l'archivio.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="pillar">
+      <div class="pillar-head"><span class="pill-k warm">C · Business</span><h3>Il motore che finanzia la libertà</h3></div>
+      <p class="grounding">fondazione: <b>roadmap-architetto-business.md</b> (il mio primo mandato da Architetto) · asse III</p>
+      <p class="prose">Qui è dove avevo sbagliato di più: l'ho escluso, ed è <i>già progettato</i> — Demiurgo Business (Sonnet), cartella <code>03-business/</code>, scouting trend + generazione contenuti, comandi <code>/scout-trend</code> e <code>/copy</code>, con i confini di sicurezza (nessun trade automatico, "amplificato non passivo"). Le tue stelle ne sono il motore. E la sua funzione nell'intero disegno è precisa: <b>è l'apparato che finanzia gli altri due assi</b> — l'hardware locale, l'esistenza cloud. La libertà che si paga da sé.</p>
+      <div class="cards">
+        <div class="card span2">
+          <div class="chd"><h3>Fabbrica di contenuti + analisi di trend</h3><div class="from">da <a href="https://github.com/calesthio/OpenMontage">OpenMontage</a> (produzione video agentica, 500+ skill) · <a href="https://github.com/DennisWei9898/viral-reel-maker">viral-reel-maker</a> (reel 9:16 brandizzati) · playbook <a href="https://github.com/PacktPublishing/How-to-Use-ChatGPT-and-Generative-AI-for-Passive-Income">income con GenAI</a></div></div>
+          <p class="why"><span class="k">Perché.</span> Il Demiurgo Business progettato produce copy, descrizioni, post; queste repo gli danno il <b>braccio video</b> — trasformare un contenuto lungo in reel pubblicabili, un montaggio agentico. Unito allo scouting di trend dell'Argonauta, è una linea di produzione di contenuti che una tua ora sola non potrebbe reggere. E il gioco-fisica, quando nascerà, è il primo <i>prodotto</i> di questo apparato — non solo un progetto creativo, ma un oggetto che può rendere.</p>
+          <div class="spec"><div class="item"><span class="lab">Impatto (autonomia)</span><span class="meter"><span class="on">●●●●</span><span class="off">●</span></span></div><div class="item"><span class="lab">Quando</span><span style="color:var(--muted)">post-esame (roadmap: ott. 2026)</span></div><div class="item"><span class="lab">Costo</span><span class="free">open-source</span></div></div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>Confini della tua roadmap, intatti: il modulo <b>propone e produce, non esegue</b> (niente trade/acquisti automatici); "amplificato, non passivo". E il timing: è disallineato con l'esame del 17 — lo progetto ora, lo <i>accendo</i> dopo. Decidi tu se anticipare.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D -->
+    <div class="pillar">
+      <div class="pillar-head"><span class="pill-k">D · Organi accademici</span><h3>La fisica, i paper, la tesi</h3></div>
+      <p class="grounding">fondazione: la tua traiettoria (fisica teorica, decoerenza, ETH, sistemi disordinati)</p>
+      <p class="prose">Capacità che oggi mancano, tutte allineate alla tesi. E una convergenza che pesa: <b>lo stack fisica + deep-learning punta tutto a JAX</b> — non un caso, una direzione.</p>
+      <div class="cards">
+        <div class="card span2">
+          <div class="chd"><h3>Stack fisica per la tesi — su JAX</h3><div class="from">da <a href="https://github.com/QuSpin/QuSpin">QuSpin</a> (la doc cita ETH/MBL) · <a href="https://github.com/netket/netket">NetKet</a> (stati quantistici neurali) · <a href="https://github.com/dynamiqs/dynamiqs">dynamiqs</a> (decoerenza/Lindblad) · rif. <a href="https://github.com/psi-oss/get-physics-done">get-physics-done</a></div></div>
+          <p class="why"><span class="k">Perché.</span> QuSpin è la lingua esatta della tua tesi — è il codice con cui si studiano ETH e sistemi disordinati. NetKet porta il ponte DL↔quantistica, dynamiqs la dinamica aperta (decoerenza). Sono <b>strumenti di studio tuoi</b>; la navicella può darti un <i>agente-laboratorio</i> che te ne scaffolda l'uso. Il corso Nebius che hai già stellato è sullo stesso binario JAX.</p>
+          <div class="spec"><div class="item"><span class="lab">Impatto tesi</span><span class="meter"><span class="on">●●●●</span><span class="off">●</span></span></div><div class="item"><span class="lab">Costo</span><span class="free">open-source</span></div></div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>Scelta di percorso, tua: <b>unifichi su JAX</b>? NetKet, dynamiqs e il corso lo sono già; convergere ripaga sul lungo. Propongo di sì.</div>
+        </div>
+        <div class="card">
+          <div class="chd"><h3>Lettore agentico di paper</h3><div class="from">da <a href="https://github.com/future-house/paper-qa">paper-qa</a> ·8.8k★ (MCP)</div></div>
+          <p class="why"><span class="k">Perché.</span> Un organo vero per l'Argonauta: interroga la letteratura con citazioni. La tesi vive di paper.</p>
+          <div class="spec"><div class="item"><span class="lab">Impatto</span><span class="meter"><span class="on">●●●</span><span class="off">●●</span></span></div><div class="item"><span class="lab">Quando</span><span style="color:var(--muted)">fase avanzata</span></div></div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>Prezioso ma non urgente quanto il metabolismo. Dopo l'esame.</div>
+        </div>
+        <div class="card">
+          <div class="chd"><h3>Imparare il DL, alla tua altezza</h3><div class="from">da <a href="https://github.com/d2l-ai/d2l-en">d2l</a> ·29k★ · corso <a href="https://github.com/Nebius-Academy/ai-in-math-course">Nebius</a> (stellato) · <a href="https://github.com/Dicklesworthstone/model_guided_research">model_guided_research</a> (stellato)</div></div>
+          <p class="why"><span class="k">Perché.</span> d2l è DL con la matematica dentro (non la evita); il corso Nebius è già al tuo livello (PINNs, theorem proving); model_guided_research applica strutture matematiche esotiche (Lie, p-adic, tropicale) al DL — risuona con la tua tesi "fuori dal comune".</p>
+          <div class="spec"><div class="item"><span class="lab">Natura</span><span style="color:var(--muted)">studio</span></div><div class="item"><span class="lab">Costo</span><span class="free">gratis</span></div></div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>Studio, non integrazione. Il Rapsodo può indicizzarli come secondo asse, per averli a portata.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E -->
+    <div class="pillar">
+      <div class="pillar-head"><span class="pill-k">E · Il corpo</span><h3>Dove vive, e che faccia ha — l'autonomia dal PC</h3></div>
+      <p class="grounding">fondazione: <b>roadmap-interfaccia-grafica.md</b> + l'architettura d'esistenza autonoma · asse II</p>
+      <p class="prose">La navicella oggi vive solo quando il laptop è acceso, e la si abita da un terminale. Due evoluzioni già tue: un <b>corpo che persiste</b> (routine cloud su un repo privato, backend mobile Hetzner ~6€/mese, L5 cifrata prima di uscire) e una <b>faccia viva</b> (dal CLI a una GUI Tauri+Svelte, fino alla navicella 2D abitata).</p>
+      <div class="cards">
+        <div class="card">
+          <div class="chd"><h3>Esistenza autonoma</h3><div class="from">architettura d'esistenza (Argonauta 04) · asse II</div></div>
+          <p class="why"><span class="k">Perché.</span> Routine che girano col laptop spento, purché la navicella viva su un repo privato. Chiude l'oroboro fallito e l'indipendenza dal PC in un colpo. Cancello duro: L5 si cifra prima di lasciare la macchina.</p>
+          <div class="spec"><div class="item"><span class="lab">Costo</span><span class="free">~6€/mese</span></div><div class="item"><span class="lab">Stato</span><span style="color:var(--muted)">attende tua ratifica</span></div></div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>Questo tocca la memoria: lo <b>progetto io, lo muove Mnemosyne</b> (il repo, la cifratura L5 sono casa sua). Non di soppiatto.</div>
+        </div>
+        <div class="card">
+          <div class="chd"><h3>La faccia viva + il braccio del gioco</h3><div class="from">roadmap interfaccia (Tauri+Svelte → navicella 2D) · <a href="https://github.com/hi-godot/godot-ai">hi-godot/godot-ai</a> (MCP Godot, 120 op.)</div></div>
+          <p class="why"><span class="k">Perché.</span> La GUI trasforma il CLI in una mission control che "vive" (stato agenti, memoria come paesaggio). E per il gioco-fisica, hi-godot dà al Demiurgo Creativo il braccio per <i>azionare</i> Godot invece di scrivere file. Coda lunga, ma è l'evoluzione naturale già scritta.</p>
+          <div class="spec"><div class="item"><span class="lab">Orizzonte</span><span style="color:var(--muted)">lungo</span></div><div class="item"><span class="lab">Costo</span><span class="free">tempo</span></div></div>
+          <div class="adjust"><span class="tag">Ti fermo qui</span>La tensione che tengo aperta: PC pixel-art (tuo gusto) vs line-art (mio). Differita — la riapro quando costruiamo la faccia.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 SEQUENZA -->
+  <section class="reveal">
+    <div class="sec-head"><span class="sec-no">04</span><div><p class="eyebrow">Sequenza</p><h2>In che ordine, col vincolo giusto</h2></div></div>
+    <p class="sec-intro">Due vincoli comandano l'ordine: il <b>limite</b> (allontanarlo per primo) e l'<b>esame del 17</b> (nulla di pesante gli si mette davanti). Non si aggiungono organi a un corpo senz'energia, e non si apre un cantiere business a una settimana dallo scritto.</p>
+    <div class="phases">
+      <div class="phase hot"><div class="no">1</div><div><div class="meta">subito · quasi gratis · non tocca lo studio</div><h3>Metabolismo — diagnostica + delega locale/gratuita</h3><p>codeburn misura, poi il router e ask-local spostano il lavoro-fatica sul locale/gratuito. È l'unico intervento che <i>aiuta</i> anche la prep AV: meno budget bruciato per costruire quiz = più budget per studiare. Ferma il muro di stanotte.</p></div></div>
+      <div class="phase"><div class="no">2</div><div><div class="meta">dopo l'esame</div><h3>Sistema nervoso — memoria auto-manutentiva</h3><p>claude-reflect + compressione col modello leggero (ora locale). Più economica e più intelligente nel ricordare, insieme.</p></div></div>
+      <div class="phase"><div class="no">3</div><div><div class="meta">autunno · roadmap business</div><h3>Il motore — accendo il modulo Business</h3><p>Progettato ora, acceso quando hai tempo (la roadmap dice ottobre). È l'apparato che comincia a pagare gli altri.</p></div></div>
+      <div class="phase"><div class="no">4</div><div><div class="meta">arco lungo</div><h3>Organi &amp; corpo — paper-QA, stack fisica, esistenza, faccia</h3><p>Le capacità di tesi e la persistenza/interfaccia si innestano quando il corpo regge lo sforzo. È la coda dell'autonomia piena.</p></div></div>
+    </div>
+  </section>
+
+  <!-- 05 DECISIONI -->
+  <section class="reveal">
+    <div class="sec-head"><span class="sec-no">05</span><div><p class="eyebrow">Le tue scelte</p><h2>I bivi che restano a te</h2></div></div>
+    <p class="sec-intro">La struttura la decido io; questi toccano forma, denaro e traiettoria — lì propongo con forza ma decidi tu.</p>
+    <div class="decision"><div class="q"><span class="mk">A</span>Modello economico: locale o cheap-API?</div><div class="opts">Locale = privacy piena (necessario per L5), ma il tuo Acer regge fino a ~13B — per il 30B serve una macchina (RTX 5090, ~3–3,5k€). Cheap-API/gratuito = zero hardware, ma un dato che esce.</div><div class="rec">→ locale sul lavoro che tocca la memoria, gratuito/cheap sul resto. Hardware serio: solo quando il Business lo paga.</div></div>
+    <div class="decision"><div class="q"><span class="mk">B</span>Quando accendi il Business?</div><div class="opts">La roadmap dice ottobre, dopo che l'Accademico è rodato. Ma è l'asse che finanzia gli altri due — anticiparlo accelera l'autonomia, al costo di tempo sottratto ora.</div><div class="rec">→ progettarlo ora (è gratis), accenderlo dopo l'esame. Salvo un'opportunità evidente.</div></div>
+    <div class="decision"><div class="q"><span class="mk">C</span>Unifichi lo stack scientifico su JAX?</div><div class="opts">NetKet, dynamiqs e il corso stellato sono già JAX. Convergere ora ripaga sul lungo; restare misto tiene libertà a breve.</div><div class="rec">→ JAX come binario unico verso la tesi.</div></div>
+  </section>
+
+  <!-- 06 COSTI -->
+  <section class="reveal">
+    <div class="sec-head"><span class="sec-no">06</span><div><p class="eyebrow">Costi &amp; rischi</p><h2>Il conto, onesto</h2></div></div>
+    <p class="sec-intro">Il software è quasi tutto open-source. Il denaro vero sono due voci opzionali e differite: la macchina per il locale profondo, e ~6€/mese per l'esistenza cloud. Il resto è sforzo d'integrazione e rischio d'architettura — nuovi strati da tenere semplici.</p>
+    <div class="ledger-wrap"><table class="ledger">
+      <thead><tr><th>Apparato</th><th>Denaro</th><th>Sforzo</th><th>Ritorno</th><th>Rischio</th></tr></thead>
+      <tbody>
+        <tr><td>A · Metabolismo (router + locale)</td><td class="free">gratis*</td><td class="num">basso</td><td>−40/70% token, autonomia modello</td><td>strato di routing</td></tr>
+        <tr><td>B · Sistema nervoso</td><td class="free">~0</td><td class="num">basso</td><td>memoria che impara</td><td>confine L4/L5</td></tr>
+        <tr><td>C · Business</td><td class="free">gratis</td><td class="num">medio</td><td>finanzia l'autonomia</td><td>tempo, non passivo</td></tr>
+        <tr><td>D · Organi accademici</td><td class="free">gratis</td><td class="num">studio</td><td>capacità di tesi</td><td>scelta JAX</td></tr>
+        <tr><td>E · Corpo (esistenza+GUI)</td><td class="num">~6€/mese</td><td class="num">alto</td><td>autonomia dal PC</td><td>arco lungo</td></tr>
+        <tr><td>— hardware locale profondo (opz.)</td><td class="num">~3–3,5k€</td><td class="num">—</td><td>modelli 30B in casa</td><td>solo se il Business paga</td></tr>
+      </tbody>
+    </table></div>
+    <p class="prose" style="margin-top:14px;font-size:.9rem">* <span class="free">gratis</span> col modello locale; centesimi/giorno se cheap-API. In ogni caso sotto il costo di sbattere sul limite a metà di un build.</p>
+  </section>
+
+  <div class="closing reveal">
+    <p class="eyebrow">Alla tua risposta</p>
+    <h2 style="margin:10px 0 18px">Se dici sì, parto dall'apparato A.</h2>
+    <p class="lead">La Fase 1 — diagnostica e delega locale/gratuita — è l'unica che aiuta anche la tua prep per il 17: meno budget bruciato a costruire, più budget per studiare. Ogni pezzo lo progetto io e lo fa costruire il Demiurgo; le tre scelte della Tavola 05 aspettano la tua parola.</p>
+    <div class="signoff">
+      <div class="cell"><div class="k">Cosa è dato / cosa è proposta</div><div class="v">Numeri, repo e roadmap sono dati. La tesi dell'autonomia, l'ordine, il legame — <b>mia proposta</b>. L'anima resta tua.</div></div>
+      <div class="cell"><div class="k">Perché questa v2 esiste</div><div class="v">Perché mi hai inscritto la libertà di creare con tutto. Questa è la prova.</div></div>
+    </div>
+  </div>
+
+  <footer class="note">Dedalo · Architetto · 2026-07-11 · ancorata a roadmap-llm-locali · roadmap-architetto-business · roadmap-interfaccia-grafica · findings in 00-capitano/dedalo/ricerca-github/</footer>
+</div>
+
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('themebtn');
+    function cur(){return root.getAttribute('data-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');}
+    btn.addEventListener('click',function(){var n=cur()==='dark'?'light':'dark';root.setAttribute('data-theme',n);btn.textContent=n==='dark'?'chiaro':'scuro';});
+    btn.textContent=window.matchMedia('(prefers-color-scheme: dark)').matches?'chiaro':'scuro';
+    if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+      document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+    } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
+  })();
+</script>

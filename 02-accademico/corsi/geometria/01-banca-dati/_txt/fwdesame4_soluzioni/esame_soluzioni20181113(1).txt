@@ -1,0 +1,314 @@
+===== PAGINA 1 =====
+Geometria
+Prova scritta, appello straordinario
+Corso di laurea in ﬁsica — A.A 2017/2018
+Canale A – C
+Durata: 2 ore e 30 minuti
+Simone Diverio
+13 novembre 2018
+Esercizio 1. Al variare di k ∈R, si studi il seguente sistema:
+
+
+
+
+
+x + ky + z = 1 + k
+y −kz = 1 −k
+x + y + z = 1 + k.
+Determinare, in particolare, i valori di k ∈R per cui il sistema risulta compati-
+bile, e per tali valori esplicitare l’insieme delle soluzioni.
+Esercizio 2. Sia data la matrice
+A =
+
+
+2
+−1
+−1
+0
+3
+0
+1
+−3
+0
+
+,
+e l’operatore lineare ad essa associato
+LA : R3 →R3.
+Descrivere immagine e nucleo di LA, trovare gli autovalori di LA e le loro
+molteplicità algebriche e geometriche. Dedurne se LA è o meno diagonalizzabile.
+Esercizio 3. Sia V = {f : R →R} lo spazio vettoriale delle funzioni da R in R,
+dotato delle usuali operazioni di somma e prodotto per uno scalare. Determinare
+se i seguenti sottoinsiemi di V sono sottospazi vettoriali o sottospazi aﬃni di V .
+(i) Il sottoinsieme W1 ⊂V deﬁnito da W1 = {f ∈V | f(1311) = 2018}.
+(ii) Il sottoinsieme W2 ⊂V deﬁnito da W2 = {f ∈V | f(0) + f(1) = 0}.
+(iii) ll sottoinsieme W3 ⊂V deﬁnito da W3 = {f ∈V | f ≥0}.
+1
+
+
+===== PAGINA 2 =====
+Esercizio 4. Determinare un’applicazione lineare suriettiva T : C3 →C2 tale
+che ker T = Span{ie1 −e2 + e3}.
+Dire se è possibile o meno, giustiﬁcando la risposta, determinare un’applica-
+zione lineare S : C2 →C2 iniettiva e tale che Im S = Span{2e1 + ie2}.
+Esercizio 5. Siano dati i seguenti due sottospazi di R3:
+U = Span
+
+
+
+
+
+1
+1
+1
+
+,
+
+
+0
+1
+1
+
+
+
+
+,
+W = Span
+
+
+
+
+
+3
+0
+0
+
+,
+
+
+2
+4
+4
+
+,
+
+
+1
+−4
+−4
+
+
+
+
+.
+Determinare basi per U, W, U + W, e dimensione di U ∩W.
+Soluzioni
+Esercizio 1. La matrice dei coeﬃcienti
+Ak =
+
+
+1
+k
+1
+0
+1
+−k
+1
+1
+1
+
+
+ha determinante −k2 + k = −k(k −1). Del resto il minore ottenuto scegliendo
+seconda e terza riga, e prima e seconda colonna ha determinante −1, quale che
+sia k. Dunque la matrice dei coeﬃcienti ha rango 3 se k̸ = 0 e k̸ = 1, mentre ha
+rango 2 se k = 0 oppure k = 1.
+In particolare, per k̸ = 0 e k̸ = 1 il sistema è compatibile e ammette una
+e una sola soluzione. Usando ad esempio la regola di Cramer, tale soluzione è
+data da
+
+
+
+
+
+x = k2+1
+k
+y = 0
+z = k−1
+k .
+Considerando la matrice completa, rispettivamente per k = 0 e k = 1 abbiamo
+invece
+A0|b0 =
+
+
+1
+0
+1
+1
+0
+1
+0
+1
+1
+1
+1
+1
+
+,
+A1|b1 =
+
+
+1
+1
+1
+2
+0
+1
+−1
+0
+1
+1
+1
+2
+
+.
+Per k = 0, calcolando il determinante del minore 3×3 dato dalla prima, seconda
+e terza colonna, otteniamo −1. Dunque il rango di questa matrice completa è
+3 > 2 = rg A0 e il sistema è incompatibile per Rouché–Capelli.
+Per k = 1, il teorema degli orlati dice che è suﬃciente veriﬁcare il determi-
+nante del minore 3×3 dato dalla prima, seconda e terza colonna per determinare
+il rango. Tale minore ha determinante nullo (due colonne proporzionali), dunque
+il rango è 2. Sempre grazie a Rouché–Capelli, il sistema è dunque compatibile
+per k = 1, visto che il rango della matrice completa è uguale al rango della
+matrice dei coeﬃcienti. Scegliendo z come parametro libero abbiamo
+
+
+
+
+
+x = 2 −2t
+y = t
+z = t.
+2
+
+
+===== PAGINA 3 =====
+Esercizio 2. Il determinante di A vale 3. In particolare A è invertibile e dunque
+iniettiva e suriettiva. Ma allora ker LA = {0} e Im LA = R3.
+Il polinomio caratteristico è dato da
+pLA(λ) = −λ3 + 5λ2 −7λ + 3 = (λ −1)2(3 −λ).
+Gli autovalori sono quindi λ = 1 e λ = 3, di molteplicità algebrica rispettivamen-
+te 2 e 1. La molteplicità geometrica dell’autovalore 3 è dunque necessariamente
+1. La molteplicità geometrica dell’autovalore 1 è data da 3 −rg(A −Id3). Ma
+A −Id3 =
+
+
+1
+−1
+−1
+0
+2
+0
+1
+−3
+−1
+
+,
+e il suo rango è 2 (prima e ultima colonna proporzionali, ma prima e seconda
+colonna non proporzionali).
+Quindi molteplicità algebrica e geometrica dell’autovalore 1 diﬀeriscono, per
+cui LA non è diagonalizzabile.
+Esercizio 3.
+Il sottoinsieme W1 è un sottospazio aﬃne.
+Infatti, l’insieme
+U1 = {f ∈V | f(1311) = 0} è un sottospazio vettoriale (veriﬁca immediata).
+Se f1 ∈V è una qualunque funzione tale che f1(1311) = 2018, allora ovviamente
+f1 ∈W1, e W1 = f1 + U1.
+Il sottoinsieme W2 è un sottospazio vettoriale, infatti se f, g ∈W2 e α, β ∈R,
+si ha
+(αf + βg)(0) + (αf + βg)(1) = αf(0) + βg(0) + αf(1) + βg(1)
+= α(f(0) + f(1)) + β(g(0) + g(1)) = 0.
+Inﬁne, W3 non è né un sottospazio vettoriale né un sottospazio aﬃne. Infatti
+W3 contiene la funzione identicamente nulla, che è lo “zero” di V . Quindi se
+fosse un sottospazio aﬃne, sarebbe anche un sottospazio vettoriale. Ma se fosse
+un sottospazio vettoriale, per ogni f ∈W3 avremmo che −f ∈W3. Questo
+non è possibile visto che le funzioni in W3 sono esattamente le funzioni non
+negative. Basta dunque prendere una qualunque funzione strettamente positiva:
+lei appartiene a W3 ma la sua opposta essendo strettamente negativa non può
+appartenervi.
+Esercizio 4. Sia v1 = ie1 −e2 + e3, e completare v1 a una base v1, v2, v3 di C3.
+Sia ora f1, f2 una base di C2. Per un teorema generale, esiste una ed una sola
+applicazione lineare T : C3 →C2 tale che T(v1) = 0, T(v2) = f1, e T(v3) = f2.
+Tale applicazione è suriettiva in quanto Im T = Span{T(v1), T(v2), T(v3)} =
+Span{f1, f2} = C2.
+Per costruzione {0}̸ = Span{v1} ⊆ker T.
+Ma, per il
+Teorema della Dimensione, dim ker T = 3 −2 = 1, dunque Span{v1} = ker T.
+Un operatore lineare S come richiesto non può esistere. Infatti, un operatore
+lineare che va da uno spazio vettoriale ad un altro della stessa dimensione è
+iniettivo se e solo se è suriettivo. Ma, Im S = Span{2e1 + ie2}̸ = C2, avendo
+dimensione 1.
+Esercizio 5. I generatori di U essendo 2 e non proporzionali sono una base
+per U.
+I primi due generatori di W non sono proporzionali, e dunque sono
+indipendenti, mentre il terzo si ottiene come il primo meno il secondo. Dunque
+3
+
+
+===== PAGINA 4 =====
+una base per W è data dai primi due generatori di W. Per ottenere una base
+di U + W bisogna estrarre una base da
+
+
+
+
+
+1
+1
+1
+
+,
+
+
+0
+1
+1
+
+,
+
+
+3
+0
+0
+
+,
+
+
+2
+4
+4
+
+
+
+
+.
+Un’eliminazione di Gauss fornisce
+
+
+1
+0
+3
+2
+0
+1
+−3
+2
+0
+0
+0
+0
+
+,
+dunque una base di U + W è data dai primi due vettori, che sono anche una
+base di U. Il che vuol dire che U + W = U, e cioè che W ⊆U. Ma U e W
+hanno la stessa dimensione, dunque U = W e quindi U ∩W = U = W, e la
+dimensione dell’intersezione vale 2.
+4

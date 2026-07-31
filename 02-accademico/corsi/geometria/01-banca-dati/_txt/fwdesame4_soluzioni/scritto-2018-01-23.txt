@@ -1,0 +1,139 @@
+===== PAGINA 1 =====
+Geometria (Fisica)
+Canale D-K
+Prova scritta - 23 gennaio 2018
+Nome e Cognome:
+Numero di matricola:
+Esercizio
+Punti totali
+Punteggio
+1
+7
+2
+7
+3
+7
+4
+7
+5
+7
+Totale
+35
+Occorre motivare le risposte. Una soluzione corretta priva di motivazione ricever`a 0 punti.
+Verr`a corretto solo quello che sar`a scritto su queste pagine.
+Voto/30:
+1
+
+
+===== PAGINA 2 =====
+Esercizio 1. Nello spazio euclideo R3, sia L′ la retta di equazioni x = y = 0. Inoltre, al variare del
+parametro k ∈R, sia Lk la retta passante per i punti
+P =
+
+
+1
+2
+1
+
+,
+Pk =
+
+
+2
+k + 2
+1
+
+.
+(i) Determinare i valori di k per cui Lk `e parallela a L′.
+(ii) Determinare i valori di k per cui Lk interseca L′: per tali valori di k, determinare L′ ∩Lk.
+(iii) Calcolare la distanza tra L0 e L′.
+Risoluzione:
+2
+
+
+===== PAGINA 3 =====
+Esercizio 2. Sia f : R3 →R3 un’applicazione lineare il cui nucleo ha equazione x2 −2x3 = 0 e tale che
+f
+
+
+1
+1
+1
+
+=
+
+
+1
+2
+1
+
+.
+(i) Determinare una base (v1, v2) di ker(f).
+(ii) Veriﬁcare che il vettore
+v3 =
+
+
+1
+1
+1
+
+
+completa (v1, v2) ad una base B = (v1, v2, v3) di R3.
+(iii) Scrivere la matrice associata a f utilizzando sia in partenza che in arrivo la base canonica di R3.
+Risoluzione:
+3
+
+
+===== PAGINA 4 =====
+Esercizio 3. Sia V = R[t]≤2 lo spazio vettoriale reali dei polinomi a coeﬃcienti reali di grado minore o
+uguale a 2. Per ciascuna delle seguenti aﬀermazioni, dimostrarla oppure fornire un controesempio.
+(i) Il sottoinsieme U ⊂V deﬁnito da U = {p ∈V | p(2) · p′(0) = 0} `e un sottospazio vettoriale, dove
+p′ := dp/dt indica la derivata di p.
+(ii) Il sottoinsieme W ⊂V deﬁnito da W = {p ∈V | p′(t) = 2t + 1} `e un sottospazio vettoriale.
+(iii) L’applicazione T : V −→V deﬁnita come
+T(p) := p(1) t2 + p′(0) t + p(−1)
+`e lineare, e il suo nucleo `e banale.
+Risoluzione:
+4
+
+
+===== PAGINA 5 =====
+Esercizio 4. Considerare lo spazio vettoriale V := R[t]≤2 dei polinomi reali in t di grado al pi`u 2 e sia
+B : V × V →R la forma bilineare simmetrica deﬁnita come
+B(p, q) := p(1)q′(1) + p′(1)q(1) +
+Z 1
+0
+p′(t)q′(t)dt,
+dove p′ := dp
+dt .
+(a) Calcolare la matrice che rappresenta la forma bilineare simmetrica B rispetto alla base canonica
+C = {1, t, t2} di V .
+(b) Calcolare gli indici n+, n−e n0 della forma bilineare simmetrica reale B.
+Risoluzione:
+5
+
+
+===== PAGINA 6 =====
+Esercizio 5. Si considerino la matrice A ∈M3,3(R) data da
+A =
+
+
+−4
+−2
+2
+6
+4
+−2
+−6
+−2
+4
+
+
+e l’applicazione lineare ad essa associata
+LA : R3 −→R3.
+(i) Calcolare il polinomio caratteristico pA associato ad LA e determinare gli autovalori di LA.
+(ii) Determinare gli autospazi di LA, speciﬁcandone inoltre la dimensione.
+(iii) Se possibile, trovare una matrice Q ∈M3,3(R) tale che D := Q·A·Q−1 sia una matrice diagonale:
+in tal caso, determinare D.
+Risoluzione:
+6

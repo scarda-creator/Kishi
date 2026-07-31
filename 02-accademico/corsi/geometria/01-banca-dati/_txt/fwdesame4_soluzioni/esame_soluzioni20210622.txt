@@ -1,0 +1,65 @@
+===== PAGINA 1 =====
+Geometria
+Appello I — Sessione Estiva
+Corso di laurea in Fisica — a.a. 2020/2021
+Tutti i Canali
+Durata: 1 ore e 30 minuti
+Paolo Bravi, Simone Diverio, Paolo Piazza,
+Paolo Piccinni, Riccardo Salvati Manni, Ernesto Spinelli
+22 giugno 2021
+Esercizio 1.
+Si consideri lo spazio vettoriale R3[t] dei polinomi p(t) =
+a0t3 + a1t2 + a2t + a3 di grado minore o uguale a 3, a coeﬃcienti reali. Siano
+U e W i seguenti sottospazi vettoriali.
+U = Span{t3 + 2t2 −2t, t2 −t + 1},
+W = {p(t) 2 R3[t] | p(−1) = p0(−1) = 0}.
+(i) Determinare una base dell’intersezione U \ W.
+(ii) Determinare equazioni cartesiane (nelle coordinate a0, a1, a2, a3) per la
+somma U + W.
+Esercizio 2. Si consideri R3 con il prodotto scalare canonico e coordinate
+(x, y, z). Sia U il sottospazio di equazione x + y −2z = 0.
+(i) Determinare una base del complemento ortogonale U ?.
+(ii) Scrivere l’espressione in coordinate della proiezione ortogonale su U,
+pU : R3 ! R3,
+(iii) e della proiezione ortogonale su U ?, pU? : R3 ! R3.
+Esercizio 3. Sia A la matrice seguente
+A =
+ p
+3
+2
+−1
+2
+1
+2
+p
+3
+2
+!
+.
+i) Mostrare che A è una matrice ortogonale.
+ii) Determinare una base unitaria di C2 formata da autovettori di A.
+1
+
+
+===== PAGINA 2 =====
+
+
+===== PAGINA 3 =====
+
+
+===== PAGINA 4 =====
+
+
+===== PAGINA 5 =====
+
+
+===== PAGINA 6 =====
+
+
+===== PAGINA 7 =====
+
+
+===== PAGINA 8 =====
+
+
+===== PAGINA 9 =====

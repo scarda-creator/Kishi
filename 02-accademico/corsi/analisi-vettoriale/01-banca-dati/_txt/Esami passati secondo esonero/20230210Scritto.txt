@@ -1,0 +1,55 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 10/02/2023
+proﬀ. F. De Marchis, F. Lanzara, A. Terracina
+COGNOME, NOME e MATRICOLA:
+DOCENTE:
+⃝De Marchis
+⃝Lanzara
+⃝Terracina
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere adeguatamente motivati!
+Esercizio 1. (6 punti) i. Dimostrare che esistono due punti nella forma (x0, 0) e (x1, 0) intorno ai quali l’equazione
+x3 + yexy2 −3x2 = 0
+deﬁnisce implicitamente due funzioni g0(x) e g1(x) tali che g0(x0) = 0 e g1(x1) = 0. Si assuma x0 < x1.
+ii. Studiare il comportamento di g0(x) in un intorno di x0 (crescenza, decrescenza e natura degli eventuali punti critici).
+iii. Studiare il comportamento di g1(x) in un intorno di x1 (crescenza, decrescenza e natura degli eventuali punti critici).
+Esercizio 2. (6 punti) Assegnata la funzione f : 3 −→
+f(x, y, z) = y2 + z2 −(x −1)2
+e l’insieme
+E =
+{
+(x, y, z) ∈3 : 4x2 + y2 + z2 = 1; 2x −z = 1
+}
+,
+i. determinare eventuali punti critici di f e classiﬁcarli;
+ii. giustiﬁcare perch´e f ammette massimo e minimo assoluti in E;
+iii. determinare massimo e minimo assoluti di f in E e i punti dove tali valori sono assunti.
+Esercizio 3. (6 punti) Per ogni α ∈ si consideri il campo F = (F1, F2) = (y exy −2x sin(y), x exy −cos(y)x2 + αx3).
+i. Sia D = { x2
+4 + y2 ≤1, y ≥0}, si calcoli il lavoro del campo F lungo la frontiera di D percorsa in verso antiorario, al variare
+di α ∈.
+ii. Dato il luogo geometrico Γ = { x2
+4 + y2 = 1, y ≥0}, determinarne una curva regolare e semplice γ di sostegno Γ;
+iii. Calcolare nel caso α = 0 il lavoro
+∫
+γ
+(F, T) ds
+dove T indica il versore tangente alla curva Γ percorsa nel verso antiorario.
+Esercizio 4. (7 punti) Sia
+E = {(x, y, z) : x2 + y2 + z2 ≤25, x2 + y2 ≤9 }.
+i. Calcolare il volume di E.
+ii. Determinare una rappresentazione regolare per le tre superﬁci che compongono la frontiera di E.
+iii. Individuare il bordo di ognuna delle tre superﬁci del punto ii.
+iv. Posto F = (x, y, z), calcolare il ﬂusso di F attraverso ognuna delle tre superﬁci orientate del punto ii. in modo tale che il
+versore sia uscente dal dominio E.
+Esercizio 5. (7 punti) Per ogni n ∈, n > 0 si consideri il seguente problema di Cauchy
+{
+y′(t) = y(t)[log(y(t))−n]
+t2+1
+y(0) = 1.
+Si risponda ai seguenti quesiti seguendo l’ordine proposto:
+i. si spieghi perch´e per ogni n il problema possiede un’unica soluzione yn;
+ii. indicata con yn(t) la soluzione si calcoli la retta tangente ad yn in t = 0;
+iii. si provi che nel suo insieme di deﬁnizione la soluzione risulta sempre decrescente;
+iv. si scriva esplicitamente la soluzione yn;
+v. si determini l’insieme di esistenza massimale della soluzione;
+vi. si studi la convergenza uniforme di yn nell’intervallo [1, +∞).

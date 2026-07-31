@@ -1,0 +1,38 @@
+===== PAGINA 1 =====
+Geometria
+Esercizi su dipendenza e indipendenza lineare
+Esercizio 1. Consideriamo l’insieme Rn con l’usuale operazione di somma. Diamo
+la seguente operazione di prodotto per uno scalare:
+λ(x1, . . . , xn) = (λ2x1, . . . , λ2xn).
+Veriﬁcare che con questa operazione Rn non `e uno spazio vettoriale. Quale delle
+propriet`a che deﬁniscono uno spazio vettoriale non vale?
+Esercizio 2. Dire se i seguenti insiemi di vettori di R3 sono linearmente indipen-
+denti, e se sono una base:
+{(1, 0, 1), (2, 0, 1), (0, −1, 1)}
+{(1, 0, 1), (2, 0, 1), (0, 0, 1)}
+{(1, 1, 1), (−1, 0, 1)}
+{(1, 0, 1), (0, 0, 1), (0, −1, 2), (1, 2, 3)}
+Esercizio 3. Mostrare che il sottoinsieme formato dai polinomi in R3[t] che si
+annullano nel punto 1 `e anch’esso uno spazio vettoriale.
+Sapreste trovarne una
+base?
+Sol:{t −1, (t −1)2, (t −1)3}
+Esercizio 4. Sia V l’insieme delle funzioni f : N →R; mostrare che V `e uno spazio
+vettoriale.
+Esercizio 5. Siano vi = (xi, yi, zi) per i = 1, 2, 3 tre vettori linearmente indipen-
+denti di R3. Dimostrare che i vettori di C3 che hanno le stesse coordinate sono
+ancora linearmente indipendenti (su C).
+Sol:
+Scrivi la dipendenza lineare su C. Vedi che implica quella su R
+Esercizio 6. Dire se i seguenti insiemi di vettori di R2 sono linearmente indipen-
+denti, e se sono una base:
+{(1, 1), (0, 3)}
+{(0, 1), (2, 1), (1, 2)}
+{(4, 2), (6, 3)}
+Esercizio 7. Dire se i seguenti insiemi di vettori di R3 sono linearmente indipen-
+denti, e se sono una base:
+{(−1, 2, 1), (2, 3, 4), (1, 0, 0)}
+{(5, 1, 2), (2, 1, −1), (4, −1, 5)}
+{(2, 1, 0), (3, 4, 1)}
+{(2, 2, 1), (1, 0, −3), (1, 0, 3), (2, 1, −1)}
+1

@@ -1,0 +1,252 @@
+===== PAGINA 1 =====
+Soluzioni dell’esercitazione di Geometria del 20.12.2012 (Corso di laurea in Fisica, Canale Cf-K; Prof. P. Piccinni )
+1. Si consideri in R3 il piano α : x + z + 1 = 0, essendo (x, y, z) le coordinate di R3. Stabilire quali tra le seguenti
+aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+α `e parallelo al piano xz
+▷◁2
+α `e parallelo all’asse y
+▷◁3
+α `e perpendicolare al piano xz
+4
+α `e perpendicolare all’asse y
+Infatti i coeﬃcienti dell’equazione di α sono le componenti del vettore⃗v = (1, 0, 1), che `e parallelo all’asse y e
+perpendicolare al piano xz.
+2. Si consideri in R3 la retta r di equazioni cartesiane x + 2z −1 = 0, y + 4z −3 = 0, essendo (x, y, z) le coordinate
+di R3. Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+r ha parametri direttori (1, 2, 4)
+2
+r ha parametri direttori (2, 4, 1)
+▷◁3
+r ha parametri direttori (−2, −4, 1)
+▷◁4
+r `e parallela al piano 2x + y + 8z −1 = 0
+I parametri direttori di r sono i minori a segni alterni della matrice dei coeﬃcienti delle sue equazioni. La
+risposta corretta `e pertanto la 3. E’ corretta anche la 4, in virt`u della condizione di parallelismo tra retta e piano
+(al + bm + cn = 0).
+3. Si considerino in R3 le rette r1 : x−z−1 = 0, y−2z = 0, r2 : x−3z−1 = 0, y−z = 0, r3 : x+z−1 = 0, y+4 = 0
+essendo (x, y, z) le coordinate di R3. Stabilire quale tra le seguenti aﬀermazioni `vera:
+1
+Non vi sono relazioni di perpendicolarit`a tra r1, r2, r3
+2
+Le tre rette sono a due a due perpendicolari
+▷◁3
+Solo due tra le rette r1, r2, r3 sono perpendicolari ma esse non sono incidenti
+4
+Solo due tra le rette r1, r2, r3 sono perpendicolari ed esse sono anche incidenti
+Vettori direttori delle tre rette sono risp.⃗v1 = (1, 2, 1),⃗v2 = (3, 0, 1),⃗v3 = (−1, 0, 1), e si ottengono p. es.
+osservando che le equazioni assegnate sono per le tre rette del tipo x = lz + p, y = mz + q (equazioni ridotte).
+Usando l’espressione analitica del prodotto scalare, ne segue che tra le tre rette solo r1 e r3 sono perpedicolari.
+Esse tuttavia non sono incidenti: il sistema delle loro quattro equazioni non ha infatti soluzione.
+4. Si considerino le matrici A =
+ 1
+1
+0
+1
+
+,
+B =
+ 1
+0
+1
+1
+
+.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+AB = BA
+2
+B = A−1
+▷◁3
+Gli autovalori di A e di B sono gli stessi
+4
+Nessuna delle precedenti
+1 e 2 sono falsi per veriﬁca diretta. Dai polinomi caratteristici appare che sia A che B ammettono solo l’autovalore
+1, in entrambi i casi con molteplicit`a algebrica 2.
+
+
+===== PAGINA 2 =====
+5. Sia A = (aij) ∈Mn(C) una matrice complessa quadrata di ordine n, e sia T(A) = A, dove A = (aij) `e la matrice
+coniugata di A. T `e un’operatore lineare, rispetto alla struttura di spazio vettoriale complesso di Mn(C)?
+1
+S`ı, per ogni n
+2
+E’ lineare solo per n = 1
+▷◁3
+Non `e mai lineare
+Se λ ∈C −R, risulta infatti
+T(λA) = (λaij) = (λaij)̸ = (λaij) = λT(A).
+6. Si consideri la matrice A =
+
+
+1
+0
+1
+1
+−1
+0
+0
+−2
+−2
+
+. Stabilire quali tra le seguenti aﬀermazioni sono vere (eventual-
+mente anche pi`u risposte):
+1
+A non ammette autovalori reali
+2
+A ammette autovalori reali ma non tutte la molteplicit`a algebriche coincidono con le molteplicit`a geometriche
+3
+A ammette autovalori reali non distinti, ma tutte la molt. algebriche coincidono con le molt. geometriche
+▷◁4
+A ammette tre autovalori reali distinti
+5
+A `e diagonalizzabile
+Basta scrivere e risolvere l’equazione caratteristica. E’ facile, poich´e un autovalore `e zero.
+7. Sia V = M2(R) lo spazio vettoriale delle matrici quadrate di ordine 2 ad elementi reali. Sia
+T : M2(R) −→M2(R)
+l’applicazione lineare deﬁnita da T(A) = A + At, somma di A con la sua trasposta. Qual’`e la matrice che
+rappresenta T nella base canonica E11 =
+ 1
+0
+0
+0
+
+, E12 =
+ 0
+1
+0
+0
+
+, E21 =
+ 0
+0
+1
+0
+
+, E22 =
+ 0
+0
+0
+1
+
+?
+1
+ 1
+1
+1
+1
+
+2
+
+
+
+
+1
+0
+0
+0
+0
+1
+1
+0
+0
+1
+1
+0
+0
+0
+0
+1
+
+
+
+
+3
+
+
+
+
+1
+0
+0
+0
+0
+0
+1
+0
+0
+1
+0
+0
+0
+0
+0
+1
+
+
+
+
+▷◁4
+
+
+
+
+2
+0
+0
+0
+0
+1
+1
+0
+0
+1
+1
+0
+0
+0
+0
+2
+
+
+
+
+5
+Nessuna delle precedenti
+Lo spazio V = M2(R) ha dimensione 4 e dunque la matrice `e 4 × 4: la risposta segue dalla deﬁnizione della
+matrice associata: basta infatti vedere come opera T sulle quattro matrici E11, E12, E21, E22, che ne costituiscono
+la base canonica.
+8. Sia V = R≤3[x] = {P(x) = a0 + a1x + a2x2 + a3x3} lo spazio vettoriale dei polinomi di grado ≤3 a coeﬃcienti
+reali, e sia T : V →V l’applicazione lineare (di derivata seconda) deﬁnita da deﬁnita da T(P(x)) = P ′′(x),
+ovvero
+T(a0 + a1x + a2x2 + a3x3) = 2a2 + 6a3x.
+2
+
+
+===== PAGINA 3 =====
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+T non ammette autovalori
+▷◁2
+T ammette solo l’autovalore λ = 0
+3
+T `e diagonalizzabile
+4
+Nessuna delle precedenti
+I soli polinomi proporzionali alla loro derivata seconda sono i polinomi di primo grado, e per essi la costante di
+proporzionalit`a `e zero.
+9. Sia A ∈M3(R) una matrice reale quadrata di ordine 3 invertibile. Stabilire quali tra le seguenti aﬀermazioni
+sono vere (eventualmente anche pi`u risposte):
+1
+Gli autovalori di A sono necessariamente distinti
+2
+A `e diagonalizzabile
+▷◁3
+A non pu`o ammettere l’autovalore λ = 0
+4
+Nessuna delle precedenti
+Controesempi alla validit`a di 1 e di 2 sono rispettivamente la matrice identica e la matrice di rotazione sul piano
+xy. D’altra parte una matrice invertibile, pensata come endomorﬁsmo, ha certamente nucleo ridotto al solo
+vettore nullo, e non pu`o quindi ammettere l’autovalore nullo.
+3

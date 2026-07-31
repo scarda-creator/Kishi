@@ -1,0 +1,65 @@
+===== PAGINA 1 =====
+Analisi Vettoriale: Appello straordinario proposte- Corso di laurea in Fisica (L-30)
+Nome:
+Cognome:
+Matricola:
+F. De Marchis □
+A. Terracina □
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere adeguata-
+mente motivati!
+Esercizio [6 punti]. Data la funzione
+f(x, y) =
+
+xy sin(y)(1 −cos(x))
+(x2 + y2)α
+(x, y) , (0, 0)
+0
+(x, y) = (0, 0)
+i. studiare al variare di α > 0 la continuit`a, la derivabilit`a e la differenziabilit`a nell’origine;
+ii. studiare al variare di α > 0 l’esistenza delle derivate direzionali nell’origine.
+Esercizio 2 [6.5 punti]. Sia
+E := {(x, y, z) ∈3 :
+q
+2 −x2 −y2 ≤z ≤
+q
+x2 + y2}
+e sia F = (x2 + y + z, ex + xy + sin(z), cos(xy)).
+i. Determinare il volume di E.
+ii. Calcolare il flusso di F uscente dalla frontiera di E.
+Esercizio 3 [7 punti]. Dato l’insieme
+Σ = {(x, y, z) ∈3 : z =
+√
+3x + 1, 2
+q
+x2 + y2 ≤z},
+i. riconoscere che si tratta del supporto di una superficie regolare, scrivendo una parametrizzazione regolare e determi-
+nando un versore normale in ogni punto;
+ii. determinare il bordo della superficie, parametrizzandolo come il sostegno di una curva regolare;
+iii. calcolare l’area della superficie Σ;
+iv. determinare l’equazione del piano tangente a Σ in (0, 0, 1);
+v. dato il campo
+F(x, y, z) = (−y + x2z, sin y,
+√
+3y + ex)
+si calcoli la circuitazione di F lungo il bordo di Σ percorso in modo che sia compatibile, secondo il Teorema di Stokes,
+con la superficie Σ orientata con la terza componente della normale negativa.
+Esercizio 4 [6 punti]. Sia
+f(x, y) = sin(πy)
+π
++ ex2−4 −y2 + (3 + x) arctan(y −1).
+i. Determinare due punti P1 = (x1, 1), P2 = (x2, 1) appartenenti all’insieme di livello { f(x, y) = 0};
+ii. dimostrare che in un intorno di ciascun Pi, i = 1, 2, l’equazione f(x, y) = 0 definisce implicitamente una funzione
+y = gi(x);
+iii. studiare la monotonia di g1 in un intorno di x1.
+iv. Verificare che f(x, y) ha in (0, 1) un punto critico e studiare la natura di tale punto.
+Esercizio 5 [6.5 punti]. Si consideri il seguente problema di Cauchy
+
+y′(t) = t y(t) (ey(t)−e)
+1+y2(t)
+y(0) = 1
+2
+si risponda ai seguenti quesiti seguendo l’ordine proposto:
+i. si spieghi perch´e possiede un’unica soluzione y(t);
+ii. si provi che la soluzione y(t) esiste in tutto ;
+iii. si determinino gli intervalli di monotonia della soluzione y(t);
+iv. si provi che la soluzione y(t) ammette limiti per t −→±∞e successivamente si determinino.

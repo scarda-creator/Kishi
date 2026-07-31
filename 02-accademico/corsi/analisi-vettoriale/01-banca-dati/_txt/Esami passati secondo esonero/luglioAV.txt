@@ -1,0 +1,53 @@
+===== PAGINA 1 =====
+Esame scritto di Analisi Vettoriale 21/07/2025
+Nome:
+Cognome:
+Matricola:
+F. De Marchis □
+A. Terracina □
+Se ammesso, sosterr`o la prova orale:
+⃝in questo appello
+⃝in un appello successivo
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere
+adeguatamente motivati!
+Esercizio 1. [6 punti] Data la funzione F(x, y, z) = x2eyz
+i. si determinino tutti i punti critici di F in 3.
+ii. si verifichi che tutti i punti critici di F sono punti di minimo assoluto per F in 3;
+iii. Dato l’insieme D := {(x, y, z) ∈3 :
+x2
+2 + y2 + z2 ≤1}, si dica perch´e la funzione F ammette max e min
+assoluti in D;
+iv. si determinino max e min assoluti di F in D.
+Esercizio 2. [6 punti] Si consideri il seguente problema di Cauchy
+y′(t) = ln(1 + y2(t))(3 −y(t))
+y(0) = 2.
+Senza calcolare la soluzione:
+i. si dica perch´e il problema ammette una e una sola soluzione locale y(t);
+ii. si dica perch´e la funzione y(t) esiste globalmente in tutto ;
+iii. si studi la monotonia della funzione y(t) in ;
+iv. si dica perch´e la funzione y(t) ammette limite a +∞e si calcoli limt→+∞y(t).
+Esercizio 3. [6,5 punti]
+Data la funzione
+f(x, y) =
+
+ex2(y−1) −ey2
+(x2 + y2)α
+(x, y) , (0, 0)
+0
+(x, y) = (0, 0)
+studiare la continuit`a, la derivabilit`a, la differenziabilit`a nell’origine al variare del parametro α > 0.
+Esercizio 4. [6,5 punti] Sia E = {(x, y, z) ∈3 | y2 + z2 ≤1, −2 ≤x ≤4 −z},
+i. si calcoli il volume di E;
+ii. dato il campo vettoriale F(x, y, z) = (ex + 3y, −xy, z −zex) calcolarne il flusso uscente da E;
+iii. scrivere una parametrizzazione di una delle tre superfici regolari che compongono ∂E.
+Esercizio 5. [7 punti] Sia Ψ ∈C1() e sia
+ω = (z −2y)dx + (z −2x)dy + (x + y + Ψ(y))dz
+i. determinare Ψ tale che Ψ(1) = 0 e tale che ω sia una forma differenziale esatta in 3;
+ii. esibire una curva γ regolare che abbia come sostegno l’intersezione della sfera {x2 + y2 + z2 = 1} e del piano
+z = 2y;
+iii. nel caso in cui Ψ sia la funzione determinata nel punto i. e γ la curva definita nel punto ii., calcolare
+R
+γ ω;
+iv. nel caso in cui Ψ(y) = arctan(y) e γ `e la curva definita nel punto ii., calcolare
+R
+γ ω.

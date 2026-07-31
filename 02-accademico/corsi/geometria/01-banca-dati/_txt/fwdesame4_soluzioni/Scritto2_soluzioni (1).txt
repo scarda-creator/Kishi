@@ -1,0 +1,746 @@
+===== PAGINA 1 =====
+Geometria
+Prova scritta, II appello, sessione invernale
+Corso di laurea in ﬁsica — A.A 2017/2018
+Canali A – C, L – Pa e Pb – Z
+Durata: 2 ora e 30 minuti
+Simone Diverio
+Alessandro D’Andrea
+Paolo Piccinni
+Antonietta Venezia
+6 febbraio 2018
+Esercizio 1. Sia V = Mn,n(R) lo spazio vettoriale delle matrici quadrate di
+ordine n a coeﬃcienti reali. Dimostrare o confutare, se necessario mediante un
+controesempio, le seguenti aﬀermazioni.
+(i) Il sottoinsieme U ⊂V deﬁnito da U = {A ∈V | det A = 0} è un
+sottospazio vettoriale.
+(ii) Il sottoinsieme L ⊂V deﬁnito da L = {A ∈V | tr A = 2018} è un
+sottospazio aﬃne, se tr A è la traccia di A, cioè la somma degli elementi
+sulla diagonale principale.
+(iii) L’applicazione
+T : V →R
+A 7→tr A
+è lineare, suriettiva, e il suo nucleo ha dimensione n2 −1.
+Esercizio 2. Si considerino i seguenti sottospazi vettoriali di C4:
+U = Span
+
+
+
+
+
+
+
+
+
+
+
+1
+0
+0
+1
+
+
+
+,
+
+
+
+
+1
+i
+2i
+−2
+
+
+
+,
+
+
+
+
+2i
+−1
+−2
+−i
+
+
+
+
+
+
+
+
+
+
+
+,
+V :
+(
+z1 −iz2 + z4 = 0
+z3 + iz4 = 0.
+(i) Esibire una base per entrambi i sottospazi.
+(ii) Determinare un insieme minimale di equazioni cartesiane per U ∩V .
+(iii) Determinare la dimensione di U + V .
+1
+
+
+===== PAGINA 2 =====
+Esercizio 3. Si consideri la matrice A ∈M3,3(R) data da
+A =
+
+
+1
+0
+1
+0
+1
+0
+1
+0
+1
+
+,
+e l’operatore lineare ad essa associato
+LA : R3 →R3.
+(i) Determinare autovalori e autospazi di A e stabilire se A è diagonalizzabile.
+(ii) Scrivere le matrici A2 = A · A e A3 = A · A · A, determinarne autovalori e
+autospazi e stabilire se A2 e A3 sono diagonalizzabili.
+(iii) Stabilire (motivando la risposta) che relazione sussiste tra autovalori e
+autospazi di A e autovalori e autospazi di An = A · A . . . A (n volte), per
+ogni n ≥2.
+Esercizio 4. I vettori
+
+
+1
+1
+1
+
+,
+
+
+1
+−1
+0
+
+,
+
+
+0
+0
+1
+
+sono autovettori dell’applicazione
+lineare T : R3 →R3 di autovalori, rispettivamente, 1, 2, 3.
+Scrivere la matrice associata a T, utilizzando sia in partenza che in arrivo la
+base canonica di R3.
+Esercizio 5. Si consideri, al variare del parametro k ∈R, il sistema lineare:
+
+
+
+−x
++ y
++ z
+=
+3 −k
+−x
++(k + 1)y
+−z
+=
+k + 1
+y
+−2z
+=
+0.
+(i) Determinare per quali valori di k il sistema è compatibile, studiando il
+rango della matrice dei coeﬃcienti e della matrice completa.
+(ii) Per i valori di k per cui il sistema risulta compatibile, determinare espli-
+citamente le soluzioni.
+(iii) Per ciascuno dei valori di k, se esistono, per cui l’insieme delle soluzioni
+rappresenta una retta aﬃne, determinare se tale retta è parallela alla retta
+r di equazioni parametriche
+r :
+
+
+
+
+
+x = −6t + 4
+y = −4t + 1
+z = −2t −1.
+2
+
+
+===== PAGINA 3 =====
+Soluzioni
+Esercizio 1. (i) Per n > 1, U non è un sottospazio vettoriale, come si mostra
+facilmente osservando che, già nel caso n = 2, le matrici
+1
+0
+0
+0
+
+,
+0
+0
+0
+1
+
+hanno determinante 0 e appartengono ad U, mentre la loro somma, che è
+l’identità, ha determinante 1 e giace quindi al di fuori di U.
+Non è diﬃcile presentare controesempi analoghi per ogni n > 1. Nel caso n =
+1, invece, l’unica matrice di determinante 0 è quella nulla, e U è il sottospazio
+vettoriale banale.
+(ii) Siano A = (aij), B = (bij) ∈V . Allora se α, β ∈R, la matrice αA + βB
+ha per elementi (αaij + βbij) dunque
+tr(αA + βB) =
+n
+X
+i=1
+αaii + βbii = α
+n
+X
+i=1
+aii + β
+n
+X
+i=1
+bii = α tr A + β tr .
+In altre parole, l’applicazione “traccia” di cui al punto (iii) è un’applicazione
+lineare, ed L è allora un sottospazio aﬃne. Infatti L è la preimmagine di 2018
+per l’applicazione lineare T del punto successivo. Altro modo di vederlo è che
+L si può scrivere nella forma
+L = A0 + W,
+dove A0 è una qualunque matrice in V la cui traccia sia 2018 (ad esempio
+la matrice che ha tutti elementi nulli tranne uno sulla diagonale principale,
+esattamente uguale a 2018), essendo W = ker T il sottospazio vettoriale delle
+matrici a traccia nulla.
+(iii) Che l’applicazione T sia lineare lo abbiamo già osservato precedentemen-
+te. Per veriﬁcare la suriettività, basta osservare che per ogni t ∈R, la matrice
+che ha t come elemento di riga uno e colonna uno, e zero altrove ha traccia
+esattamente uguale t. Per il teorema della dimensione (anche detto teorema del
+rango, o teorema di nullità più rango) allora
+dim Im(T)
+|
+{z
+}
+=1
++ dim ker T = dim V
+| {z }
+=n2
+,
+cioè dim ker T = n2 −1.
+Esercizio 2.
+Per (i), si vede subito che il terzo vettore generatore di U è
+ottenuto come il primo più il secondo, il tutto moltiplicato per i. Del resto i
+primi due vettori generatori sono chiaramente indipendenti, dunque una base
+BU per U è data da
+BU =
+
+
+
+
+
+
+
+
+
+
+
+1
+0
+0
+1
+
+
+
+,
+
+
+
+
+1
+i
+2i
+−2
+
+
+
+
+
+
+
+
+
+
+
+.
+3
+
+
+===== PAGINA 4 =====
+Una base BV per V si può ottenere risolvendo il sistema lineare omogeneo che
+descrive V , il quale è già ridotto a scala, con pivot corrispondenti alle variabili
+z1 e z3. Usando come parametri liberi z2 e z4, otteniamo dunque
+BV =
+
+
+
+
+
+
+
+
+
+
+
+−1
+0
+−i
+1
+
+
+
+,
+
+
+
+
+i
+1
+0
+0
+
+
+
+
+
+
+
+
+
+
+
+.
+Per (ii), notiamo innanzitutto che il secondo vettore della base BU soddisfa le
+equazioni che deﬁniscono V , mentre il primo no. Dunque U ∩V è generato
+(1, i, 2i, −2)t, ed ha dunque dimensione uno. Un insieme minimale di equazioni
+cartesiane per U ∩V deve dunque essere costituito da 3 equazioni, vivendo il
+problema in C4.
+Due equazioni le abbiamo già: sono quelle che deﬁniscono
+V . Se aggiungiamo ad esempio 2z2 −z3 = 0, che è chiaramente soddisfatta da
+(1, i, 2i, −2)t, otteniamo
+
+
+
+
+
+z1 −iz2 + z4 = 0
+2z2 −z3 = 0
+z3 + iz4 = 0,
+che è ancora ridotto a scala e dunque le tre equazioni sono indipendenti, e
+descrivono necessariamente U ∩V (perché?).
+Per (iii), la formula di Grassmann fornisce immediatamente
+dim(U + V ) = dim U + dim V −dim(U ∩V ) = 2 + 2 −1 = 3.
+Esercizio 3. Per (i), risulta
+det(A −λI) = (1 −λ)3 −(1 −λ) = (1 −λ)λ(λ −2),
+da cui i tre autovalori distinti λ = 0, 1, 2 con autospazi rispettivamente
+V0 = {(t0, 0, −t0)},
+V1 = {(0, t1, 0)},
+V2 = {(t2, 0, t2)},
+ottenibili dai sistemi lineari omogenei rispettivamente
+V0 :
+
+
+
+x1
++x3
+=
+0
+x2
+=
+0
+x1
++x3
+=
+0
+,
+V1 :
+
+
+
+x1
++x3
+=
+x1
+x2
+=
+x2
+x1
++x3
+=
+x3
+,
+V0 :
+
+
+
+x1
++x3
+=
+2x1
+x2
+=
+2x2
+x1
++x3
+=
+2x3
+.
+Per (ii) e (iii), si vede facilmente che
+A2 =
+
+
+2
+0
+2
+0
+1
+0
+2
+0
+2
+
+,
+A3 =
+
+
+4
+0
+4
+0
+1
+0
+4
+0
+4
+
+,
+4
+
+
+===== PAGINA 5 =====
+e non è complicato dimostrare per induzione che
+An =
+
+
+2n−1
+0
+2n−1
+0
+1
+0
+2n−1
+0
+2n−1
+
+
+se mai si volessero calcolare autovalori e autospazi di An direttamente dalla
+matrice.
+Tuttavia, da Av = λv segue A2v = A(Av) = A(λv) = λA(v) = λ2v, risulta
+che V0, V1, V2 sono autospazi di A2, e similmente di An per ogni n ≥2. Gli
+autovalori di An sono dunque 0n = 0, 1n = 1 e 2n. In particolare tutte le An
+hanno tre autovalori distinti e sono quindi sono diagonalizzabili.
+Esercizio 4. L’enunciato dell’esercizio ci informa che
+T
+
+
+1
+1
+1
+
+=
+
+
+1
+1
+1
+
+,
+T
+
+
+1
+−1
+0
+
+=
+
+
+2
+−2
+0
+
+,
+T
+
+
+0
+0
+1
+
+=
+
+
+0
+0
+3
+
+.
+Ma allora
+T
+
+
+1
+1
+0
+
+= T
+
+
+1
+1
+1
+
+−T
+
+
+0
+0
+1
+
+=
+
+
+1
+1
+1
+
+−
+
+
+0
+0
+3
+
+=
+
+
+1
+1
+−2
+
+,
+da cui
+T
+
+
+2
+0
+0
+
+= T
+
+
+1
+1
+0
+
++ T
+
+
+1
+−1
+0
+
+=
+
+
+1
+1
+−2
+
++
+
+
+2
+−2
+0
+
+=
+
+
+3
+−1
+−2
+
+,
+e
+T
+
+
+0
+2
+0
+
+= T
+
+
+1
+1
+0
+
+−T
+
+
+1
+−1
+0
+
+=
+
+
+1
+1
+−2
+
+−
+
+
+2
+−2
+0
+
+=
+
+
+−1
+3
+−2
+
+.
+Pertanto
+T
+
+
+1
+0
+0
+
+=
+
+
+3/2
+−1/2
+−1
+
+,
+T
+
+
+0
+1
+0
+
+=
+
+
+−1/2
+3/2
+−1
+
+,
+T
+
+
+0
+0
+1
+
+=
+
+
+0
+0
+3
+
+,
+e la matrice cercata è
+
+
+3/2
+−1/2
+0
+−1/2
+3/2
+0
+−1
+−1
+3
+
+.
+Esercizio 5. Per (i), la matrice dei coeﬃcienti e la matrice completa del sistema
+sono rispettivamente:
+A =
+
+
+−1
+1
+1
+−1
+k + 1
+−1
+0
+1
+−2
+
+,
+A′ =
+
+
+−1
+1
+1
+3 −k
+−1
+k + 1
+−1
+k + 1
+0
+1
+−2
+0
+
+.
+5
+
+
+===== PAGINA 6 =====
+Poiché il determinante di A è det A = 2k −2, per k̸ = 1 risulta det A̸ = 0 e
+dunque: rg A = rg A′ = 3; per k = 1, per entrambe le matrici, la terza riga si
+ottiene sottraendo alla seconda riga la prima, mentre le prime due righe sono
+chiaramente linearmente indipendenti e pertanto in questo caso si ha rg A =
+rg A′ = 2. Il sistema è quindi compatibile per ogni valore del parametro k.
+Per il punto (ii), se k̸ = 1 il sistema ammette una sola soluzione data da
+(x, y, z) = (k, 2, 1) (può essere calcolata anche usando il teorema di Cramer).
+Invece per k = 1, il sistema ammette inﬁnite soluzioni dipendenti da un parame-
+tro. In tal caso il sistema è equivalente al sistema formato da due sue equazioni
+linearmente indipendenti, ad esempio:
+(
+−x + y + z = 2
+y −2z = 0.
+Questo può essere risolto ponendo z = s come parametro e ottenendo dunque
+le inﬁnite soluzioni (x, y, z) = (3s + 2, 2s, s) = (2, 0, 0) + s(3, 2, 1).
+Inﬁne, per il punto (iii), il sistema descrive una retta aﬃne per la sola scelta
+k = 1. Poiché (−6, −4, −2) = −2·(3, 2, 1), le due rette sono in tal caso entrambe
+parallele al vettore (3, 2, 1) e sono quindi parallele tra loro.
+6

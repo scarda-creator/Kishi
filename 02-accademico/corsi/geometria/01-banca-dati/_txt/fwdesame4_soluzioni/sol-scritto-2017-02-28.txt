@@ -1,0 +1,308 @@
+===== PAGINA 1 =====
+Geometria (LT Fisica)
+Canale D-K
+Soluzioni della prova scritta del 28 febbraio 2017
+Esercizio 1. Siano v1, v2, v3, w1, w2 ∈R4 i vettori deﬁniti da
+v1 =
+
+
+
+
+1
+2
+−1
+0
+
+
+
+,
+v2 =
+
+
+
+
+4
+2
+1
+1
+
+
+
+,
+v3
+
+
+
+
+2
+−2
+3
+1
+
+
+
+,
+w1 =
+
+
+
+
+5
+4
+0
+1
+
+
+
+,
+w2 =
+
+
+
+
+−1
+4
+−4
+−1
+
+
+
+.
+Stabilire se i due sottospazi V = ⟨v1, v2, v3⟩e W = ⟨w1, w2⟩di R4 siano uguali oppure no
+(fornendo adeguata motivazione).
+Risoluzione:
+Notiamo che w1, w2 non sono nulli n´e proporzionali, e dunque sono linearmente indipen-
+denti. Ne segue che {w1, w2} `e una base di W e che W ha dimensione 2.
+Notiamo che v1, v2 non sono nulli n´e proporzionali e dunque sono linearmente indipen-
+denti, e che v3 = v2 −2v1. Ne segue che {v1, v2} `e una base di V e che V ha dimensione
+2.
+Riducendo a scala la matrice con colonne v1, v2, w1, w2, si ottiene una matrice di rango
+2, il che dimostra che V + W = ⟨v1, v2, w1, w2⟩ha dimensione 2, da cui concludiamo che
+V = W.
+1
+
+
+===== PAGINA 2 =====
+Esercizio 2. Al variare del parametro t ∈R, si considerino i vettori v1(t), v2(t), w(t) ∈R3
+deﬁniti da
+v1(t) =
+
+
+1 −t
+1 + t
+1 −2t
+
+,
+v2(t) =
+
+
+2 + t
+−1
+−2 + 3t
+
+,
+w(t) =
+
+
+3 −2t
+t
+−1
+
+.
+(a) Determinare per quali valori di t ∈R i vettori v1(t) e v2(t) siano linearmente indipen-
+denti.
+(b) Determinare per quali valori di t ∈R il vettore w(t) appartenga al sottospazio di R3
+generato da v1(t) e v2(t).
+Risoluzione:
+(a):
+Se v1(t), v2(t) sono linearmente dipendenti, allora anche i vettori
+¯v1(t) =
+ 1 −t
+1 + t
+
+,
+¯v2(t) =
+ 2 + t
+−1
+
+,
+ottenuti proiettandoli sul sottospazio x3 = 0 sono linearmente dipendenti, cio`e
+det
+ 1 −t
+1 + t
+2 + t
+−1
+
+= 0.
+Tale equazione si pu`o riscrivere come t2 + 2t + 3 = 0. Siccome il discriminante di t2 +
+2t + 3 `e negativo, l’equazione t2 + 2t + 3 = 0 non ha soluzioni reali, e questo dimostra che
+¯v1(t), ¯v2(t) sono linearmente indipendenti per ogni t ∈R e quindi v1(t), v2(t) sono linearmente
+indipendenti per ogni t ∈R.
+(b):
+Siccome v1(t), v2(t) sono linearmente indipendenti per ogni t ∈R, il vettore w(t)
+appartiene a ⟨v1(t), v2(t)⟩se e solo se `e nullo il determinante della matrice 3 × 3 con righe
+le entrate di v1(t), v2(t) e w(t), cio`e se e solo se
+det
+
+
+1 −t
+1 + t
+1 −2t
+2 + t
+−1
+−2 + 3t
+3 −2t
+t
+−1
+
+= 0.
+o, equivalentemente, se e solo se −5t3 + 4t2 + 5t = 0. Dunque, il vettore w(t) appartiene a
+⟨v1(t), v2(t)⟩se e solo se
+t(5t2 −4t −5) = 0,
+ossia se e solo se
+t ∈
+(
+0, 2 +
+√
+29
+5
+, 2 −
+√
+29
+5
+)
+.
+2
+
+
+===== PAGINA 3 =====
+Esercizio 3. Siano A, B le matrici reali 2 × 2 deﬁnite da
+A :=
+ 1
+−1
+2
+4
+
+,
+B :=
+
+6
+4
+−3
+−1
+
+.
+(a) Dire se gli endomorﬁsmi A, B : R2 →R2 siano diagonalizzabili.
+(b) Stabilire se A e B siano coniugate l’una all’altra.
+Risoluzione:
+I polinomi caratteristici pA(λ) = det(A −λI) e pB(λ) = det(B −λI) sono uguali, e
+valgono
+pA(λ) = pB(λ) = λ2 −5λ + 6 = (λ −2)(λ −3)
+Quindi sia A che B hanno due autovalori reali distinti, cio`e λ = 2 e λ = 3. Segue che sia A
+che B sono entrambe diagonalizzabili e, in particolare, sono coniugate alla matrice diagonale
+D =
+ 2
+0
+0
+3
+
+.
+Siccome la relazione di coniugio ∼`e transitiva e A ∼D ∼B, ne segue che A `e coniugata a
+B.
+3
+
+
+===== PAGINA 4 =====
+Esercizio 4. Determinare rango e segnatura della forma quadratica q su R2n+1 deﬁnita da
+q(x1, . . . , x2n+1) =
+n
+X
+i=1
+x2i−1x2i + x2
+2n+1 = x1x2 + x3x4 + . . . + x2n−1x2n + x2
+2n+1.
+Risoluzione:
+La matrice associata alla forma quadratica q `e
+Q =
+
+
+
+
+
+H
+0
+. . .
+0
+0
+H
+. . .
+0
+...
+...
+...
+...
+0
+0
+0
+1
+
+
+
+
+,
+con
+H =
+ 0
+1
+2
+1
+2
+0
+
+dove il blocco H `e ripetuto n volte sulla diagonale.
+Da un calcolo diretto segue che il polinomio caratteristico di Q `e
+pQ(λ) = det(Q −λI2n+1) = det(H −λI2)n(1 −λ) =
+
+λ2 −1
+4
+n
+(1 −λ) =
+=
+
+λ −1
+2
+n 
+λ + 1
+2
+n
+(1 −λ)
+da cui segue che s+(q) = n + 1 e s−(q) = n, e quindi s0(q) = 0.
+Concludiamo che r(q) = 2n + 1 e s(q) = s+(q) −s−(q) = 1.
+4
+
+
+===== PAGINA 5 =====
+Esercizio 5. Considerare lo spazio vettoriale Mn×n(R) delle matrici reali quadrate n × n e
+sia
+T : Mn×n(R) →Mn×n(R)
+l’applicazione
+T(M) := M t .
+Determinare autovalori e autospazi di T. L’endomorﬁsmo T `e diagonalizzabile?
+Risoluzione:
+Poich´e T ◦T = id, ne segue che gli autovalori di T possono essere solo 1 e −1. Infatti, se
+M `e un autovettore per T di autovalore λ, allora M = (T ◦T)(M) = T(T(M)) = T(λM) =
+λT(M) = λ2M, da cui λ2 = 1 e quindi λ = ±1.
+In particolare, V1 consiste delle matrici M tali che T(M) = M, ossia M t = M. Dunque
+V1 `e il sottospazio delle matrici simmetriche in Mn×n(R). D’altra parte, V−1 consiste delle
+matrici M tali che T(M) = −M, ossita M t = −M. Dunque V−1 `e il sottospazio delle
+matrici antisimmetriche in Mn×n(R).
+Dato che ogni matrice M ∈Mn×n(R) si pu`o scrivere come somma di una matrice sim-
+metrica e di una antisimmetrica (concretamente M = S + A, dove S =
+1
+2(M + M t) e
+A = 1
+2(M −M t)), abbiamo che V1 + V−1 = Mn×n(R) e dunque V1 ⊕V−1 = Mn×n(R) (in
+quanto V1 ∩V−1 = {0}).
+Ne segue che esiste una base di autovettori per l’endomorﬁsmo T, che `e quindi diagonal-
+izzabile.
+5

@@ -1,0 +1,180 @@
+===== PAGINA 1 =====
+Primo appello di Geometria per Fisica, a.a. 2012-13, lettere Cf-K (Prof. P. Piccinni)
+30 gennaio 2013
+a. Scrivere subito Matricola, cognome, nome e preferenza per orale al primo o secondo appello.
+b. Utilizzare questi fogli per le risposte. I fogli protocollo distribuiti a parte sono invece per eventuali riﬂessioni o
+calcoli, e non vanno consegnati.
+c. Durante la prova non si possono consultare testi e appunti n´e usare fogli diversi da quelli distribuiti.
+d. Durante la prova non `e consentito uscire dall’aula.
+Tempo a disposizione: 2 ore
+Matricola.............................Cognome...........................................................Nome................................................
+1. Una matrice A = (aij) ∈Mn(R) si dice bilanciata per righe con peso h ∈R se per ogni sua riga⃗ri =
+(ai1, ai2, . . . , ain) risulta: ai1 + ai2 + · · · + ain = h, (i = 1, . . . , n). Siano
+Wh = {A ∈Mn(R) bilanciate per righe con peso h},
+W =
+[
+h∈R
+Wh = {A ∈Mn(R) bilanciate per righe}.
+Stabilire quali tra le seguenti aﬀermazioni sono vere.
+1
+W `e un sottospazio vettoriale di Mn(R)
+2
+Wh `e un sottospazio vettoriale di Mn(R) per ogni h ∈R
+3
+Wh `e un sottospazio aﬃne di Mn(R) per ogni h ∈R
+4
+Wh `e un sottospazio vettoriale di Mn(R) se e solo se h = 0
+5
+Se A ∈Mn(R) `e bilanciata per righe con peso h = 0, allora det A = 0
+6
+Se A ∈Mn(R) `e bilanciata per righe per qualche peso h ∈R, allora det A = 0
+7
+Se A ∈Mn(R) `e bilanciata per righe con peso h, allora A `e anche bilanciata per colonne con lo stesso peso h
+8
+Nessuna delle precedenti
+2. Si consideri le tre equazioni a coeﬃcienti in C:
+z6 −1 = 0,
+z10 −1 = 0,
+z15 −1 = 0.
+Stabilire quali tra le seguenti aﬀermazioni sono vere:
+1
+L’unica soluzione comune alle tre equazioni `e 1
+2
+Le uniche soluzioni comuni alla prima e seconda equazione sono 1 e −1
+3
+Le uniche soluzioni comuni alla prima e terza equazione sono 1, −1
+2 + i
+√
+3
+2 , −1
+2 −i
+√
+3
+2
+4
+Vi sono cinque soluzioni comuni alla seconda e terza equazione
+5
+Nessuna delle precedenti.
+3. Si consideri nel piano euclideo R2 il ”quadrato unitario”, di vertici i punti O = (0, 0), P1 = (1, 0), P2 = (0, 1), P3 =
+(1, 1). Sia A =
+ a11
+a12
+a21
+a22
+
+∈M2(R) una matrice tale che det A = 1, e si consideri la trasformazione lineare
+A : R2 →R2. Denotiamo con O′ = A(O), P ′
+1 = A(P1), P ′
+2 = A(P2), P ′
+3 = A(P3) i punti immagine mediante A
+risp. di O, P1, P2, P3. Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+O′, P ′
+1, P ′
+2, P ′
+3 sono ancora vertici di un quadrato
+2
+O′, P ′
+1, P ′
+2, P ′
+3 sono ancora vertici di un quadrato di area 1
+3
+O′, P ′
+1, P ′
+2, P ′
+3 sono vertici di un rettangolo
+4
+O′, P ′
+1, P ′
+2, P ′
+3 sono vertici di un rettangolo di area 1
+5
+O′, P ′
+1, P ′
+2, P ′
+3 sono vertici di un rombo
+6
+O′, P ′
+1, P ′
+2, P ′
+3 sono vertici di un rombo di area 1
+7
+O′, P ′
+1, P ′
+2, P ′
+3 sono vertici di un parallelogramma
+8
+O′, P ′
+1, P ′
+2, P ′
+3 sono vertici di un parallelogramma di area 1
+9
+Nessuna delle precedenti
+
+
+===== PAGINA 2 =====
+4. Si considerino nello spazio euclideo R3 i piani α1 : x + y + z = 0, α2 : x + y −z = 0 e α3 : x −y + z = 0, essendo
+(x, y, z) le coordinate cartesiane di R3. Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente
+anche pi`u risposte):
+1
+α1, α2, α3 sono a due a due perpendicolari
+2
+le rette r1 : x = y = z, r2 : x = y = −z, r3 : x = −y = z sono parallele risp. ai piani α1, α2, α3
+3
+le rette r1 : x = y = z, r2 : x = y = −z, r3 : x = −y = z sono perpendicolari risp. ai piani α1, α2, α3
+4
+α1 ∩α2 ∩α3 `e una retta passante per O = (0, 0, 0)
+5
+α1 ∩α2 ∩α3 `e solo il punto O = (0, 0, 0)
+6
+Nessuna delle precedenti
+5. Siano A ∈M3(R), B ∈M3(C), e supponiamo che A abbia tre autovalori reali distinti e che B abbia tre autovalori
+complessi distinti. Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+A2 ha tre autovalori distinti
+2
+B2 ha tre autovalori distinti
+3
+A3 ha tre autovalori distinti
+4
+B3 ha tre autovalori distinti
+5
+A, A2, A3 sono diagonalizzabili su R
+6
+B, B2, B3 sono diagonalizzabili su C
+7
+Nessuna delle precedenti
+6. Si consideri in Rn il prodotto scalare canonico < , >: Rn × Rn −→R deﬁnita sui vettori⃗x = (x1, . . . , xn),⃗y =
+(y1, . . . , yn) dalla formula <⃗x,⃗y >= x1y1 + · · · + xnyn.
+Diciamo che la matrice A ∈Mn(R) conserva
+l’ortogonalit`a se vale l’implicazione
+<⃗x,⃗y >= 0 ⇒< A⃗x, A⃗y >= 0,
+per ogni⃗x,⃗y ∈Rn.
+Stabilire quali tra le seguenti aﬀermazioni sono corrette (eventualmente anche pi`u risposte):
+1
+Se A conserva l’ortogonalit`a, allora `e ortogonale: A = At
+2
+ 3
+0
+0
+3
+
+: R2 →R2 conserva l’ortogonalit`a
+3
+ 3
+0
+0
+−3
+
+: R2 →R2 conserva l’ortogonalit`a
+4
+
+3
+0
+0
+2
+
+: R2 →R2 conserva l’ortogonalit`a
+5
+Nessuna delle precedenti
+2

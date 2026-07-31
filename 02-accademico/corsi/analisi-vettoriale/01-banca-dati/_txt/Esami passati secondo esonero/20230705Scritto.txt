@@ -1,0 +1,63 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 05/07/2023
+proﬀ. F. De Marchis, F. Lanzara, A. Terracina
+COGNOME, NOME e MATRICOLA:
+DOCENTE:
+⃝De Marchis
+⃝Lanzara
+⃝Terracina
+Se ammesso, sosterr`o la prova orale:
+⃝nell’appello di luglio
+⃝in un appello successivo
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere adeguatamente motivati!
+Esercizio 1. (6 punti) Data la successione di funzioni
+fn(x) =
+x
+x4 + 1
+n
+,
+x ∈
+i. studiare la convergenza puntuale al variare di x ∈;
+ii. stabilire in quali dei seguenti intervalli la successione converge uniformemente: (−∞, 2], [−1, 1], [a, +∞) con a ≥0;
+iii. calcolare lim
+n→+∞
+Z 2
+1
+fn(x)dx.
+Esercizio 2. (6 punti) Data la funzione f(x, y, z) = 4 −z e l’insieme
+Γ = {(x, y, z) ∈3 : x2 + y2 = 8,
+x + y + z = 1}
+i. dire perch`e f ammette massimo e minimo in Γ;
+ii. determinare il massimo e il minimo di f in Γ;
+iii. calcolare il lavoro del campo vettoriale F = (x2y, y2z, xz) lungo Γ, percorsa in verso antiorario se vista dall’alto.
+Esercizio 3. (7 punti) Si consideri al variare del parametro a ∈ il campo
+Fa(x, y) = ( f(x, y), g(x, y)) =
+ 
+2xy
+(1 + x2)2 ,
+a
+1 + x2
+!
+i. Calcolare il lavoro del campo per percorrere in senso antiorario la frontiera del rettangolo R = [−1, 2] × [−1, 1].
+ii. Determinare gli eventuali valori del parametro a ∈ per cui il campo risulta conservativo, per tali valori si calcolino esplicita-
+mente i potenziali.
+iii. Data la curva γ : (t2 + 1, arcsin t), t ∈[−1/2, 1/2], veriﬁcare che la curva `e regolare e semplice.
+iv. Per i valori di a determinati al punto ii., calcolare il lavoro del campo lungo la curva γ.
+Esercizio 4. (6 punti) Sia
+E := {(x, y, z) ∈3 : z2 ≤x2 + y2 ≤1, z ≥0}
+e sia F = (x −3y, y + 3x, x2 + 2y + π
+2z3).
+i. Calcolare il ﬂusso totale di F uscente dalla frontiera di E.
+ii. Scrivere una parametrizzazione delle tre superﬁci regolari che compongono la frontiera di E e scrivere i versori normali uscenti
+da E.
+iii. Calcolare il ﬂusso di F uscente da ciascuna porzione di frontiera di E.
+Esercizio 5. (7 punti) Si consideri il seguente problema di Cauchy
+(
+y′(t) = 2
+t y(t) + 4t2(y(t))3
+y(1) = 1
+si risponda ai seguenti quesiti seguendo l’ordine proposto:
+i. si spieghi perch´e possiede un’unica soluzione locale,
+ii. si provi che la soluzione `e strettamente positiva nel suo insieme di deﬁnizione,
+iii. si dica se la soluzione `e convessa oppure concava in un intorno di t = 1,
+iv. si determini la soluzione esplicita e l’intervallo di esistenza massimale.

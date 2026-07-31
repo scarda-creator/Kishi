@@ -1,0 +1,457 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 10/02/2023
+proﬀ. F. De Marchis, F. Lanzara, A. Terracina
+COGNOME, NOME e MATRICOLA:
+DOCENTE:
+⃝De Marchis
+⃝Lanzara
+⃝Terracina
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere adeguatamente motivati!
+Esercizio 1. (6 punti) i. Dimostrare che esistono due punti nella forma (x0, 0) e (x1, 0) intorno ai quali l’equazione
+x3 + yexy2 −3x2 = 0
+deﬁnisce implicitamente due funzioni g0(x) e g1(x) tali che g0(x0) = 0 e g1(x1) = 0. Si assuma x0 < x1.
+ii. Studiare il comportamento di g0(x) in un intorno di x0 (crescenza, decrescenza e natura degli eventuali punti critici).
+iii. Studiare il comportamento di g1(x) in un intorno di x1 (crescenza, decrescenza e natura degli eventuali punti critici).
+Soluzione. i. Posto
+f(x, y) = x3 + yex2y2 −3x2
+i punti x0 e x1 sono soluzione dell’equazione
+f(x, 0) = x2(x −3) = 0
+da cui si trova x0 = 0 e x1 = 3. Essendo f ∈C∞(2) ⊂C1(2),
+fy(x, y) = 2xy2exy2 + exy2,
+fy(x, 0) = 1,
+fy(0, 0) = 1 , 0,
+fy(3, 0) = 1 , 0
+sono veriﬁcate le ipotesi del teorema delle funzioni implicite:
+– esiste un’unica funzione g0(x) deﬁnita in un intorno I0 di x0 = 0 a valori in un intorno di y0 = 0 tale che g0(0) = 0 e deﬁnita
+implicitamente da f(x, g0(x)) = 0; inoltre g0 ∈C∞(I0);
+– esiste un’unica funzione g1(x) deﬁnita in un intorno I1 di x1 = 3 a valori in un intorno di y1 = 0 tale che g1(3) = 0 e deﬁnita
+implicitamente da f(x, g1(x)) = 0; inoltre g1 ∈C∞(I1).
+ii e iii. Si ha
+fx(x, y) = 3x2 + y3exy2 −6x
+⇒
+fx(0, 0) = 0,
+fx(3, 0) = 9
+e quindi
+g′
+0(0) = −fx(0, 0)
+fy(0, 0) = 0
+g′
+1(3) = −fx(3, 0)
+fy(3, 0) = −9 < 0 .
+In conclusione si ha che g0 ha un punto critico in x0 = 0; la funzione g1 `e decrescente in x1 = 3.
+Derivando la relazione f(x, g0(x)) = 0 due volte e tenendo presente che g′
+0(0) = 0 si trova
+g′′
+0 (0) = −fxx(0, 0)
+fy(0, 0) = 6 > 0
+dato che fxx(x, y) = 6x + y5exy2 −6 e fxx(0, 0) = −6. Concludiamo che g0(x) ha in x0 = 0 un punto di minimo relativo.
+Esercizio 2. (6 punti) Assegnata la funzione f : 3 −→
+f(x, y, z) = y2 + z2 −(x −1)2
+e l’insieme
+E =
+n
+(x, y, z) ∈3 : 4x2 + y2 + z2 = 1; 2x −z = 1
+o
+,
+i. determinare eventuali punti critici di f e classiﬁcarli;
+ii. giustiﬁcare perch´e f ammette massimo e minimo assoluti in E;
+iii. determinare massimo e minimo assoluti di f in E e i punti dove tali valori sono assunti.
+Soluzione. i. La funzione f ∈C∞(3). I punti critici sono le soluzioni del sistema ∇f(x, y, z) = (0, 0, 0). Nel nostro caso
+∇f = (−2(x −1), 2y, 2z) = 0 ⇐⇒x = 1, y = z = 0
+
+
+===== PAGINA 2 =====
+La funzione f ha un solo punto critico P0(1, 0, 0). Per studiare la natura costruisco la matrice hessiana e la valuto in P0 (nel nostro
+caso `e costante):
+H f (1, 0, 0) =
+
+−2
+0
+0
+0
+2
+0
+0
+0
+2
+
+indeﬁnita ⇒punto
+sella
+E’ una matrice diagonale con autovalori −2, 2, 2 discordi. Per il test degli autovalori `e indeﬁnita. Per il test dell’hessiano P0 `e un
+punto di sella.
+ii. Osserviamo che E = E1 ∩E2, dove per i = 1, 2
+Ei = {(x, y, z) ∈3 : gi(x, y, z) = 0}
+e
+g1(x, y, z) = 4x2 + y2 + z2 −1;
+g2(x, y, z) = 2x −z −1.
+Essendo gi ∈C0(3) e gli Ei deﬁniti da vincoli di uguaglianza gli Ei sono insiemi chiusi e di conseguenza E `e chiuso essendo
+intersezione di chiusi.
+Inoltre E `e limitato in quanto se (x, y, z) ∈E allora
+4x2 ≤4x2 + y2 + z2 = 1,
+y2 ≤4x2 + y2 + z2 = 1,
+z2 ≤4x2 + y2 + z2 = 1
+⇒|x| ≤1
+2, |y| ≤1, |z| ≤1.
+Inﬁne essendo f ∈C0(3) per il Teorema di Weierstrass f ammette massimo e minimo assoluto in E.
+iii. E non ha punti interni, f ∈C1(3), gi ∈C1(3), i = 1, 2, quindi i punti di massimo o minimo assoluto di f in E vanno cercati
+per il Teorema dei moltiplicatori di Lagrange tra le soluzioni del sistema
+det
+
+fx
+fy
+fz
+(g1)x
+(g1)y
+(g1)z
+(g2)x
+(g2)y
+(g2)z
+= 0; g1(x, y, z) = 0, g2(x, y, z) = 0.
+Essendo
+∇g1 = (8x, 2y, 2z),
+∇g2 = (2, 0, −1),
+il sistema diventa
+det
+
+−2(x −1)
+2y
+2z
+8x
+2y
+2z
+2
+0
+−1
+= 4(5x −1)y = 0; 4x2 + y2 + z2 −1 = 0, 2x −z −1 = 0.
+Dalla prima equazione segue che y = 0 o x = 1
+5.
+Nel primo caso
+
+y = 0
+z = 2x −1
+4x2 + 4x2 + 1 −4x = 1
+⇒
+
+y = 0
+z = 2x −1
+4x(2x −1) = 0,
+si trovano cos`ı le soluzioni
+P1 = ( 1
+2, 0, 0)
+e
+P2 = (0, 0, −1).
+Se invece x = 1
+5
+
+x = 1
+5
+z = 2x −1
+4x2 + y2 + z2 −1 = 0
+si trovano cos`ı le soluzioni
+P3 = ( 1
+5, 2
+√
+3
+5 , −3
+5),
+P4 = ( 1
+5, −2
+√
+3
+5 , −3
+5).
+Confrontando i valori assunti da f nei 4 punti trovati abbiamo:
+f(P1) = −1
+4,
+f(P2) = 0,
+f(P3) = f(P4) = 1
+5,
+da cui segue che P1 `e il punto di minimo e P3, P4 sono punti di massimo di f in E e il minimo e il massimo di f in E sono
+rispettivamente −1
+4 e 1
+5.
+2
+
+
+===== PAGINA 3 =====
+Esercizio 3. (6 punti) Per ogni α ∈ si consideri il campo F = (F1, F2) = (yexy −2x sin(y), xexy −cos(y)x2 + αx3)
+i. sia D = { x2
+4 +y2 ≤1, y ≥0}, si calcoli il lavoro del campo F lungo la frontiera di D percorsa in verso antiorario, al variare di α ∈.
+ii. Dato il luogo geometrico Γ = { x2
+4 + y2 = 1, y ≥0}, determinarne una curva regolare e semplice γ di sostegno Γ;
+iii. Calcolare nel caso α = 0 il lavoro
+Z
+γ
+(F, T) ds
+dove T indica il versore tangente alla curva Γ percorsa nel verso antiorario.
+Soluzione. i. Osserviamo preliminarmente che F ∈C∞(2) e
+∂F1
+∂y = exy + xyexy −2x cos y;
+∂F2
+∂x = exy + xyexy −2x cos y + 3αx2.
+Quindi, se α , 0 il campo non `e irrotazionale (e quindi non `e conservativo).
+Calcoliamo il lavoro usando il teorema di Stokes
+W =
+Z
++∂D
+(F, T) ds =
+"
+D
+ ∂F2
+∂x −∂F1
+∂y
+!
+dxdy = 3α
+"
+D
+x2dx dy,
+dove abbiamo usato che la frontiera di D `e percorsa nel verso dell’orientazione positiva essendo percorsa in senso antiorario. Per il
+calcolo di questo integrale introduciamo un sistema di coordinate ellittiche
+x = 2ρ cos ϕ,
+y = ρ sin ϕ,
+ρ ∈[0, 1],
+ϕ ∈[0, π].
+L’integrale diventa
+W = 3α
+Z 1
+0
+(2ρ)
+|{z}
+|detJ|
+dρ
+Z π
+0
+(2ρ cos ϕ)2dϕ = 6α
+Z 1
+0
+4ρ3 dρ
+Z π
+0
+cos ϕ dϕ = 3απ.
+ii. La curva Γ = { x2
+4 + y2 = 1, y ≥0} `e una semiellisse contenuta nel primo e secondo quadrante. Una rappresentazione parametrica `e
+data da
+x(ϕ) = 2 cos ϕ,
+y(ϕ) = sin ϕ,
+ϕ ∈[0, π].
+Si ha:
+- x(ϕ), y(ϕ) ∈C1([0, π]);
+- (x′(ϕ), y′(ϕ)) = (−2 sin ϕ, cos ϕ) , (0, 0)
+∀ϕ ∈(0, π), in quanto seno e coseno non si annullano mai contemporaneamente;
+- ϕ , ϑ ⇒(x(ϕ), y(ϕ)) , (x(ϑ), y(ϑ)
+∀ϕ, ϑ ∈(0, π), come segue dal fatto che la mappa ϕ 7→(cos ϕ, sin ϕ)
+iii. Per α = 0 in campo F `e irrotazionale in 3, insieme semplicemente connesso. Quindi F `e conservativo e, detto U un potenziale,
+il lavoro richiesto `e dato
+Z
+γ
+(F, T) ds = U(Pf ) −U(Pi).
+con P f = (−2, 0) punto ﬁnale e Pi = (2, 0) punto iniziale di Γ.
+Costruiamo un potenziale U:
+∂U
+∂x = F1 = yexy −2x sin(y) =⇒U(x, y) = exy −x2 sin(y) + g(y)
+∂U
+∂y = F2 = xexy −cos(y)x2 ⇒g′(y) = 0 ⇒g(y) = costante.
+Si trova un potenziale U(x, y) = exy −x2 sin(y) e
+Z
+γ
+(F, T) ds = U(−2, 0) −U(2, 0) = 1 −1 = 0.
+3
+
+
+===== PAGINA 4 =====
+Esercizio 4. (7 punti) Sia
+E = {(x, y, z) : x2 + y2 + z2 ≤25, x2 + y2 ≤9 }.
+i. Calcolare il volume di E.
+ii. Determinare una rappresentazione regolare per le tre superﬁci che compongono la frontiera di E.
+iii. Individuare il bordo di ognuna delle tre superﬁci del punto ii).
+iv. Posto F = (x, y, z), calcolare il ﬂusso di F attraverso ognuna delle tre superﬁci orientate del punto ii. in modo tale che il versore
+sia uscente dal dominio E.
+Soluzione. i. E `e un dominio normale, infatti
+E = {(x, y, z) ∈3 : −
+q
+25 −x2 −y2 ≤z ≤
+q
+25 −x2 −y2, (x, y) ∈D}
+dove D = {(x, y) ∈2 : x2 + y2 ≤9},
+perci`o
+Vol(E)
+=
+$
+E
+1 dxdydz =
+"
+D
+Z √
+25−x2−y2
+−√
+25−x2−y2 1 dz dxdy
+=
+"
+D
+2
+q
+25 −x2 −y2 dxdy =
+Z 2π
+0
+Z 3
+0
+2
+q
+25 −ρ2ρ dρdθ
+=
+−2π2
+3(25 −ρ2)
+3
+2 |3
+0 = 244
+3 π.
+ii. La frontiera di E `e composta dalle tre superﬁci regolari Σ1, Σ2 e Σ3 di parametrizzazione rispettivamente r1, r2, r3:
+r1
+
+x = x
+y = y
+(x, y) ∈D
+z =
+q
+25 −x2 −y2
+|            {z            }
+=:f1(x,y)
+r2
+
+x = x
+y = y
+(x, y) ∈D
+z = −
+q
+25 −x2 −y2
+|              {z              }
+=: f2(x,y)
+r3
+
+x = 3 cos θ
+y = 3 sin θ
+(t, θ) ∈[−4, 4] × [0, 2π]
+z = t
+Osserviamo che r1, r2 sono superﬁci regolari essendo cartesiane con f1, f2 ∈C1(D), mentre r3 `e una superﬁcie regolare essendo
+una superﬁcie di rotazione ottenuta dalla rotazione di 2π intorno all’asse z della curva, avente sostegno nel semipiano y = 0, x ≥0,
+(x(t), 0, z(t)) = (1, 0, t), che `e semplice (la terza componente `e iniettiva) e regolare (`e di classe C1 e z′(t) = 1 , 0 per t ∈(−4, 4)).
+iii.
+∂Σ1 = {(x, y, z) ∈3 : x2 + y2 = 9, z = 4},
+∂Σ2 = {(x, y, z) ∈3 : x2 + y2 = 9, z = −4},
+∂Σ3 = ∂Σ1 ∪∂Σ2.
+iv. Osserviamo preliminarmente che F ∈C1(3). Calcoliamo il ﬂusso uscente da D attraverso Σ1 e Σ2 usando la deﬁnizione
+ΦΣ1(F) =
+"
+Σ1
+F · n dσ
+∗=
+"
+D
+F(x, y, z) · ((r1)x ∧(r1)y) dxdy=
+"
+D
+25
+p
+25 −x2 −y2 dxdy = −50π
+q
+25 −x2 −y2|3
+0 = 50π,
+dove in ∗abbiamo usato che (r1)x ∧(r1)y = (−( f1)x, −( f1)y, 1) = (
+x
+p
+25 −x2 −y2 ,
+y
+p
+25 −x2 −y2 , 1) ha la terza componente positiva
+e quindi ha il verso della normale uscente da E.
+Analogamente
+ΦΣ2(F) =
+"
+Σ2
+F · n dσ
+♯= −
+"
+D
+F(x, y, z) · ((r2)x ∧(r2)y) dxdy=
+"
+D
+25
+p
+25 −x2 −y2 dxdy = ΦΣ1(F) = 50π,
+dove in ♯abbiamo usato che (r2)x ∧(r2)y = (−( f2)x, −( f2)y, 1) = (−
+x
+p
+25 −x2 −y2 , −
+y
+p
+25 −x2 −y2 , 1) ha la terza componente
+positiva e quindi ha il verso della normale entrante in E.
+Inﬁne essendo divF = 3, per il Teorema della divergenza
+ΦΣ3(F) =
+$
+E
+3 dxdydz −ΦΣ1(F) −ΦΣ2(F) = 3Vol(E) −100π = 144π.
+Alternativamente si poteva calcolare anche ΦΣ3(F) usando la deﬁnizione:
+ΦΣ3(F) =
+"
+Σ1
+F · n dσ
+♣=
+"
+D
+F(x, y, z) · ((r3)θ ∧(r3)t) dxdy=
+Z 2π
+0
+Z 4
+−4
+(9 cos2 θ + 9 sin2 θ)dtdθ = 144π,
+dove in ♣abbiamo usato che (r3)θ = (−3 sin θ, 3 cos θ, 0), (r3)t = (0, 0, 1) e dunque ((r3)θ ∧(r3)t) = (3 cos θ, 3 sin θ, 0), che ha il verso
+della normale uscente da E.
+4
+
+
+===== PAGINA 5 =====
+Esercizio 5. (7 punti) Per ogni n ∈, n > 0 si consideri il seguente problema di Cauchy
+(
+y′(t) = y(t)[log(y(t))−n]
+t2+1
+y(0) = 1.
+si risponda ai seguenti quesiti seguendo l’ordine proposto:
+i. si spieghi perch´e per ogni n il problema possiede un’unica soluzione yn,
+ii. indicata con yn(t) la soluzione si calcoli la retta tangente ad yn in t = 0
+iii. si provi che nel suo insieme di deﬁnizione la soluzione risulta sempre decrescente.
+iv. si scriva esplicitamente la soluzione yn.
+v. si determini l’insieme di esistenza massimale della soluzione;
+vi. si studi la convergenza uniforme di yn nell’intervallo [1, +∞).
+Soluzione. i. Osserviamo che per ogni n ﬁssato la funzione fn(t, y) = y[log(y)−n]
+t2+1
+`e C1 nel suo dominio, cio`e in  × (0, +∞). Si osserva
+perci`o che, grazie al Teorema di Cauchy, per ogni n il problema ha un’unica soluzione.
+ii. L’equazione della retta tangente `e y = yn(0) + y′
+n(0)t, perci`o osservando che dal dato iniziale e dall’equazione yn(0) = 1 e
+y′(0) = −n, l’equazione della retta tangente `e y = 1 −nt.
+iii. `E un’equazione a variabili separabili che ammette per ogni n la soluzione costante en. Essendo yn(0) = 1 < en, per il teorema di
+unicit`a yn(t) < en nel suo insieme di deﬁnizione, questo implica che y′
+n(t) = yn(t)[log(yn(t))−n]
+t2+1
+< 0 in tutto intervallo massimale.
+iv. Usando la separazione delle variabili si ottiene
+log(n −log(yn(t))) = log | log(yn(t)) −n| =
+Z
+dy
+(log y −n) =
+Z
+dt
+t2 + 1 = arctan(t) + c,
+da cui
+log(yn(t)) = −earctan(t)+c + n.
+Imponendo la condizione iniziale yn(0) = 1 otteniamo ec = n, quindi log(yn(t)) = n(1 −earctan(t)) e in conclusione
+yn(t) = en[1−earctan(t)].
+v. Queste funzioni sono deﬁnite su tutto , ed essendo sempre positive sono soluzioni del problema di Cauchy su tutto .
+vi. La successione di funzioni {yn(t)} converge uniformemente alla funzione nulla nell’intervallo [1, +∞). Infatti 1 −earctan(t) < 0
+per ogni t ∈[1, +∞), quindi si vede facilmente che in tale insieme la successione converge puntualmente alla funzione nulla.
+Inoltre, dalla crescenza dell’esponenziale e dell’arcotangente segue che le yn sono funzioni decrescenti. Quindi supt∈[1,+∞) |yn(t)| =
+supt∈[1,+∞) yn(t) = yn(1) = en[1−e
+π
+4 ]. Inﬁne facendo il limite, per n →+∞si ottiene la tesi.
+5

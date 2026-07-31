@@ -1,0 +1,228 @@
+===== PAGINA 1 =====
+Esercitazione di Geometria del 20.12.2012 (Corso di laurea in Fisica, Canale Cf-K; Prof. P. Piccinni )
+1. Si consideri in R3 il piano α : x + z + 1 = 0, essendo (x, y, z) le coordinate di R3. Stabilire quali tra le seguenti
+aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+α `e parallelo al piano xz
+2
+α `e parallelo all’asse y
+3
+α `e perpendicolare al piano xz
+4
+α `e perpendicolare all’asse y
+2. Si consideri in R3 la retta r di equazioni cartesiane x + 2z −1 = 0, y + 4z −3 = 0, essendo (x, y, z) le coordinate
+di R3. Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+r ha parametri direttori (1, 2, 4)
+2
+r ha parametri direttori (2, 4, 1)
+3
+r ha parametri direttori (−2, −4, 1)
+4
+r `e parallela al piano 2x + y + 8z −1 = 0
+3. Si considerino in R3 le rette r1 : x−z−1 = 0, y−2z = 0, r2 : x−3z−1 = 0, y−z = 0, r3 : x+z−1 = 0, y+4 = 0
+essendo (x, y, z) le coordinate di R3. Stabilire quale tra le seguenti aﬀermazioni `vera:
+1
+Non vi sono relazioni di perpendicolarit`a tra r1, r2, r3
+2
+Le tre rette sono a due a due perpendicolari
+3
+Solo due tra le rette r1, r2, r3 sono perpendicolari ma esse non sono incidenti
+4
+Solo due tra le rette r1, r2, r3 sono perpendicolari ed esse sono anche incidenti
+4. Si considerino le matrici A =
+
+1
+1
+0
+1
+
+,
+B =
+
+1
+0
+1
+1
+
+.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+AB = BA
+2
+B = A−1
+3
+Gli autovalori di A e di B sono gli stessi
+4
+Nessuna delle precedenti
+5. Sia A = (aij) ∈Mn(C) una matrice complessa quadrata di ordine n, e sia T(A) = A, dove A = (aij) `e la matrice
+coniugata di A. T `e un’operatore lineare, rispetto alla struttura di spazio vettoriale complesso di Mn(C)?
+1
+S`ı, per ogni n
+2
+E’ lineare solo per n = 1
+3
+Non `e mai lineare
+6. Si consideri la matrice A =
+
+
+1
+0
+1
+1
+−1
+0
+0
+−2
+−2
+
+. Stabilire quali tra le seguenti aﬀermazioni sono vere (eventual-
+
+
+===== PAGINA 2 =====
+mente anche pi`u risposte):
+1
+A non ammette autovalori reali
+2
+A ammette autovalori reali ma non tutte la molteplicit`a algebriche coincidono con le molteplicit`a geometriche
+3
+A ammette autovalori reali non distinti, ma tutte la molt. algebriche coincidono con le molt. geometriche
+4
+A ammette tre autovalori reali distinti
+5
+A `e diagonalizzabile
+7. Sia V = M2(R) lo spazio vettoriale delle matrici quadrate di ordine 2 ad elementi reali. Sia
+T : M2(R) −→M2(R)
+l’applicazione lineare deﬁnita da T(A) = A + At, somma di A con la sua trasposta. Qual’`e la matrice che
+rappresenta T nella base canonica E11 =
+ 1
+0
+0
+0
+
+, E12 =
+ 0
+1
+0
+0
+
+, E21 =
+ 0
+0
+1
+0
+
+, E22 =
+ 0
+0
+0
+1
+
+?
+1
+ 1
+1
+1
+1
+
+2
+
+
+
+
+1
+0
+0
+0
+0
+1
+1
+0
+0
+1
+1
+0
+0
+0
+0
+1
+
+
+
+
+3
+
+
+
+
+1
+0
+0
+0
+0
+0
+1
+0
+0
+1
+0
+0
+0
+0
+0
+1
+
+
+
+
+4
+
+
+
+
+2
+0
+0
+0
+0
+1
+1
+0
+0
+1
+1
+0
+0
+0
+0
+2
+
+
+
+
+5
+Nessuna delle precedenti
+8. Sia V = R≤3[x] = {P(x) = a0 + a1x + a2x2 + a3x3} lo spazio vettoriale dei polinomi di grado ≤3 a coeﬃcienti
+reali, e sia T : V →V l’applicazione lineare (di derivata seconda) deﬁnita da deﬁnita da T(P(x)) = P ′′(x),
+ovvero
+T(a0 + a1x + a2x2 + a3x3) = 2a2 + 6a3x.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+T non ammette autovalori
+2
+T ammette solo l’autovalore λ = 0
+3
+T `e diagonalizzabile
+4
+Nessuna delle precedenti
+9. Sia A ∈M3(R) una matrice reale quadrata di ordine 3 invertibile. Stabilire quali tra le seguenti aﬀermazioni
+sono vere (eventualmente anche pi`u risposte):
+1
+Gli autovalori di A sono necessariamente distinti
+2
+A `e diagonalizzabile
+3
+A non pu`o ammettere l’autovalore λ = 0
+4
+Nessuna delle precedenti
+2

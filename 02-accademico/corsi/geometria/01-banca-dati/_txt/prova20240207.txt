@@ -1,0 +1,239 @@
+===== PAGINA 1 =====
+Esercizio 1. T : R3 →R3 l’ operatore associato alla matrice
+A =
+
+
+1
+0
+1
+0
+−1
+4
+0
+−1
+3
+
+.
+(a) Determinare gli autovalori dell’ applicazione T.
+(b) Veriﬁcare se T `e diagonalizzabile.
+(c) Veriﬁcare se le matrici A e B con
+B =
+
+
+1
+0
+0
+0
+1
+1
+0
+0
+1
+
+.
+sono simili.
+Soluzione: Si calcola il polinomio caratteristico
+pT (t) = det
+
+
+1 −t
+0
+1
+0
+−1 −t
+4
+0
+−1
+3 −t
+
+= −(t −1)3
+a) Autovalore λ = 1 con molteplicit`a algebrica 3.
+b)Calcoliamo la molteplicit`a geometrica la matrice A−I3 ha rango 2, quindi la molteplicit`a geometrica
+`e 1. Non diagonalizza
+c) la matrice B −I3 ha rango 1, quindi A e B non sono simili.
+Esercizio 2. Sia V ⊂Mat2,2(R) il sottospazio generato dalle matrici
+1
+0
+1
+1
+
+;
+1
+0
+1
+2
+
+Sia W ⊂Mat2,2(R) il sottospazio formato dalle matrici
+a
+b
+c
+d
+
+con
+c −b + a = 0,
+2a −c + d = 0,
+a + 3b −5c + 2d = 0.
+(a) Determinare equazioni cartesiane per il sottospazio V .
+(b) Calcolare la dimensione di V e di W.
+(c) Veriﬁcare che
+Mat2,2(R) = V + W.
+Soluzione: a) Sviluppando dei semplici conti oppure osservando che la coordinata b = 0 e a = c per
+entrambi i generatori dello spazio V otteniamo le equazioni cartesiane.
+b) La dimensione di V `e 2, perch´e le due matrici sono indipendenti. Riguardo alla dimensione di W,
+facendo una riduzione a scala, si vede che la terza equazione `e combinazione delle prime 2 , quindi anche
+W ha dimensione 2.
+c) Usiamo la formula di Grassmann e calcoliamo la dimensione dell’ intersezione che ha equazioni
+b = 0,
+, a −c = 0,
+c −b + a = 0,
+2a −c + d = 0.
+L’ unica soluzione `e la soluzione nulla , quindi dimV + W = 4 = dimMat2,2(R).
+1
+
+
+===== PAGINA 2 =====
+Esercizio 3. Discutere, al variare dei parametri a e b, il seguente sistema
+
+
+
+
+
+x −2y + z = b
+2x −ay + 2z = 7b
+−x + 3y + az = 0.
+.
+Determinare la soluzione nel caso a = b = 1.
+Soluzione: Procediamo con la riduzione a scala del sistema, abbiamo
+
+
+1
+−2
+1
+b
+2
+−a
+2
+7b
+−1
+3
+a
+0
+
+→
+
+
+1
+−2
+1
+b
+0
+1
+a + 1
+b
+0
+−a + 4
+0
+5b
+
+
+;
+
+
+1
+−2
+1
+b
+0
+1
+a + 1
+b
+0
+0
+(a −4)(a + 1)
+5b + (a −4)b
+
+
+;
+Allora il sistema ha un’unica soluzione quando a̸ = 4, −1.
+Quando a = 4 il sistema ha ∞soluzioni quando b = 0 e nessuna soluzione per b̸ = 0
+Quando a = 1, l’ ultima equazione scompare e quindi si hanno sempre ∞soluzioni.
+Quando a = b = 1 abbiamo
+
+
+1
+−2
+1
+1
+0
+1
+2
+1
+0
+3
+0
+5
+
+
+e conseguentemente y = 5/3, z = −1/3, x = 14/3.
+Esercizio 4. Sia V = R2[t]≤2 lo spazio vettoriale dei polinomi di grado minore o uguale a 2 a coeﬃcienti
+in R e sia ⟨, ⟩la forma bilineare simmetrica V × V →R deﬁnita da
+⟨p(t), q(t)⟩= p(0)q(0) −p′(0)q′′(0) −q′(0)p′′(0) + p′′(0)q(0) + p(0)q′′(0) ,
+dove p′(t) e p′′(t) indicano la derivata prima e la derivata seconda di p(t), rispettivamente.
+1. Determinare la matrice associata a ⟨, ⟩rispetto alla base {1, t, t2}.
+2. Determinare la segnatura di ⟨, ⟩.
+3. Trovare una base ortonormale generalizzata.
+Risoluzione:
+1) Bisogna determinare la matrice
+A =
+
+
+⟨1, 1⟩
+⟨1, t⟩
+⟨1, t2⟩
+⟨t, 1⟩
+⟨t, t⟩
+⟨t, t2⟩
+⟨t2, 1⟩
+⟨t2, t⟩
+⟨t2, t2⟩
+
+
+Da un semplice conto, otteniamo
+A =
+
+
+1
+0
+2
+0
+0
+−2
+2
+−2
+0
+
+
+2) Per la segnatura possiamo procedere in vari modi : calcolare il polinomio caratteristico e studiare i
+cambi di segni: sono 2, il termine noto `e diverso da 0 , quindi la segnatura `e (2, 1). Altrimenti si pu´o
+procedere in modo diverso. Il determinante di A `e −4, quindi le possibili segnature possono essere (2, 1)
+2
+
+
+===== PAGINA 3 =====
+oppure (0, 3). Il secondo caso non `e possibile, perch´e ⟨1, 1⟩= 1 ci dice che il prodotto non `e deﬁnito
+negativo.
+3) Base ortonormale : partiamo dalla base 1, t, t2 e applichiamo Gram - Schmidt generalizzato Allora
+v1 = 1. Poich´e ⟨1, t⟩= 0, abbiamo che 1, t sono ortogonali, ma ⟨t, t⟩= 0 ferma il processo , allora
+dobbiamo prendere t2 come secondo vettore e procedere. Osservando la matrice A otteniamo che v2 =
+t2 −2 `e ortogonale a v1, inoltre ⟨v2, v2⟩= −4.
+Adesso possiamo usare t e abbiamo
+v3 = t −⟨1, t⟩
+⟨1, 1⟩−⟨t, t2 −2⟩
+⟨v2, v2⟩
+= t −1/2,
+e
+⟨v3, v3⟩= 1
+4.
+Quindi u1 = v1, u2 = 2v3, u3 = v2
+2 `e una base ortonormale generalizzata.
+3

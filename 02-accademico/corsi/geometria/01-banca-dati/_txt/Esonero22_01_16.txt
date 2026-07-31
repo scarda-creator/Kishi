@@ -1,0 +1,112 @@
+===== PAGINA 1 =====
+Geometria. a.a. 2015-16, Gruppo: 3
+Prova esonero del 22 Gennaio 2016
+NOTA: Scrivere in stampatello sull’ elaborato in alto a destra
+Cognome Nome,
+Numero matricola
+Docente
+Esercizio 1. Trovare una base ortonormale rispetto al prodotto scalare standard
+del sottospazio W di R4 generato dai vettori
+
+v1 = (1, 1, 0, −1),
+v2 = (2, −1, 1, 0)
+Trovare equazioni cartesiane del sottospazio U ortogonale a W
+Soluzione:
+w1 =
+1
+√
+3(1, 1, 0, −1), w2 =
+1
+√
+51(5, −4, 3, 1)
+x + y −w = 0, 2x −y + z = 0
+Esercizio 2. In R2[x] si consideri il prodotto scalare
+< p(x), q(x) >= p(−1)q(−1) + p(1)q(1) + p(0)q(2) + p(2)q(0).
+Veriﬁcare se il prodotto scalare `e non degenere.
+Calcolarne la segnatura
+Soluzione: La matrice associata al prodotto scalare rispetto alla base 1, x, x2 risulta
+essere
+S =
+
+4
+2
+6
+2
+2
+0
+6
+0
+2
+
+;
+Il determinante `e −64 pertanto il prodotto scalare `e non degenere. Il polinomio
+caratteristico`e −t3 + 8t2 + 20t −64, quindi per il Criterio di Cartesio la segnatura
+`e (2, 1).
+Esercizio 3. Sia S(2.R) lo spazio delle matrici simmetriche 2x2 reali Sia
+matrice
+A =
+
+1
+−1
+1
+0
+ ;
+TA : S(2.R) →S(2.R) l’ operatore
+TA(S) = AT SA
+Veriﬁcare se TA `e diagonalizzabile o triangolarizzabile.
+Soluzione: La matrice associata all’ operatore TA rispetto alla base E11, E12 +
+E21, E22 risulta essere
+S =
+
+1
+2
+1
+−1
+−1
+0
+1
+0
+0
+
+;
+1
+
+
+===== PAGINA 2 =====
+2
+Il polinomio caratteristico dell’ operatore TA `e −t3 + 1 che ha un’ unica radice
+reale. quindi non `e triangolarizzabile 9 e diagonalizzabile)
+Esercizio 4. Sia
+A =
+
+4
+1
+0
+1
+4
+1
+0
+1
+4
+
+;
+Dire perch´e A `e diagonalizzabile. Trovare una base ortonormale di autovettori
+Soluzione: La matrice `e simmetrica, quindi`e diagonalizzabile. Gli autovalori sono
+4, 4 +
+√
+2, 4 −
+√
+2. Una base ortonormale risulta essere
+1
+√
+2(1, 0, −1), 1
+2(1,
+√
+2, 1), 1
+2(−1,
+√
+2, −1)
+Esercizio 5. Veriﬁcare che il prodotto vettoriale in R3 non gode della propriet`a
+associativa.
+Soluzione:
+0 = (e1 ∧e1) ∧e2̸ = e1 ∧(e1 ∧e2) = e1 ∧e3 = −e2

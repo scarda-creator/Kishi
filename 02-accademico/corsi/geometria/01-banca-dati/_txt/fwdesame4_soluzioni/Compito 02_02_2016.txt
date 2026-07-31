@@ -1,0 +1,55 @@
+===== PAGINA 1 =====
+Geometria. a.a. 2015-16, Gruppo: 3
+Prova scritta del 2 Febbraio 2016
+Esercizio 1. In R3 sia assegnato il prodotto scalare
+< X, Y >= x1y1 + 4x2y2 + 2x3y3 + 2x2y3 + 2x3y2
+Veriﬁcare che tale prodotto scalare `e deﬁnito positivo.
+Trovare una base ortonormale rispetto al dato prodotto scalare del sottospazio W
+generato dai vettori
+v1 = (0, 2, 0),
+v2 = (4, 1, 1),
+v3 = (−4, 5, −1).
+Esercizio 2. Sia
+S =
+
+1
+1
+1
+0
+1
+0
+1
+0
+0
+
+;
+Veriﬁcare se S `e diagonalizzabile.
+Calcolare autovalori e autovettori di S.
+Esercizio 3. Si consideri il sistema di 4 equazioni in 4 incognite:
+
+
+
+
+
+
+
+x1 + x2 + 2x3 + x4 = 1
+x1 + x2 + tx3+ = 2
+x1 + x2 + 3x4 = 1
+x1 −x2 + 3x4+ = 2t
+Studiare la compatibilit`a del sistema e la dimensione del sottospazio aﬃne delle
+soluzioni al variare di t ∈R.
+Esercizio 4. Nello spazio euclideo E3 , ﬁssato un riferimento cartesiano RC(O, i, j, k),
+si consideri il punto P = (−1, 2, 1) e la retta r di equazioni
+ x + y + 2z −1 = 0
+3x −y + z = 2
+Calcolare la distanza d(P, r).
+Determinare equazioni parametriche del piano π contenente la retta r e il punto P.
+Esercizio 5. Nello spazio R2 sia assegnato il prodotto scalare deﬁnito positivo
+< X, Y >= x1y1 + x1y2 + x2y1 + 2x2y2
+Veriﬁcare quali tra i seguenti operatori risultano essere simmetrici rispetto al prodotto
+scalare assegnato:
+T1(x, y) = (x −y, 2y),
+e
+T2(x, y) = (x + y, −x).
+1

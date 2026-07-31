@@ -1,0 +1,379 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 24/01/2022
+proﬀ. F. De Marchis, F. Lanzara, A. Terracina
+COGNOME, NOME e MATRICOLA:
+DOCENTE:
+⃝De Marchis
+⃝Lanzara
+⃝Terracina
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono
+essere adeguatamente motivati!
+Esercizio 1. Dimostrare che esistono due punti nella forma (0, y0) e (0, y1) intorno ai quali l’equazione
+y3 sin(x) + y2 −2yex −3 −x = 0
+deﬁnisce implicitamente due funzioni g0(x) e g1(x) tali che g0(0) = y0 e g1(0) = y1.
+Studiare il comportamento di g0(x) e g1(x) in un intorno di x = 0 (crescenza, decrescenza e natura degli
+eventuali punti critici).
+Soluzione. Posto
+f(x, y) = y3 sin(x) + y2 −2yex −3 −x
+i punti y0 e y1 sono soluzione dell’equazione
+f(0, y) = y2 −2y −3 = 0
+da cui si trova y0 = −1 e y1 = 3. Essendo f ∈C∞(2) ⊂C1(2),
+fy(x, y) = 3y2 sin(x) −2ex + 2y,
+fy(0, y) = 2y −2,
+fy(0, −1) = −4 , 0,
+fy(0, 3) = 4 , 0
+sono veriﬁcate le ipotesi del teorema delle funzioni implicite:
+– esiste un’unica funzione g0(x) deﬁnita in un intorno I0 di x0 = 0 a valori in un intorno di y0 = −1 tale
+che g0(0) = −1 e deﬁnita implicitamente da f(x, g0(x)) = 0; inoltre g0 ∈C∞(I0);
+– esiste un’unica funzione g1(x) deﬁnita in un intorno I1 di x1 = 0 a valori in un intorno di y1 = 3 tale
+che g(0) = −3 e deﬁnita implicitamente da f(x, g1(x)) = 0; inoltre g1 ∈C∞(I1).
+Si ha
+fx(x, y) = y3 cos(x) −2exy −1,
+fx(0, y) = −1 −2y + y3,
+fx(0, −1) = 0,
+fx(0, 3) = 20.
+e quindi
+g′
+0(0) = −fx(0, −1)
+fy(0, −1) = 0,
+g′
+1(0) = −fx(0, 3)
+fy(0, 3) = −20/4 = −5 < 0 .
+In conclusione si ha che x = 0 `e un punto critico per g0; la funzione g1 `e decrescente in x = 0. Per
+studiare la natura del punto critico calcoliamo
+fxx(x, y) = y3(−sin(x)) −2exy,
+fxx(0, −1) = 2
+e, dalla formula
+g′′
+0 (0) = −fxx(0, −1)
+fy(0, −1) = −2/(−4) = 1/2 > 0 ,
+si trova che x = 0 `e un punto di minimo relativo per g0.
+
+
+===== PAGINA 2 =====
+Esercizio 2. Data la successione di funzioni
+fn(x) =
+x
+1 + 2−n + x2
+n2
+i. studiare la convergenza puntuale per x ∈;
+ii. dire se la convergenza `e uniforme in ;
+iii. calcolare, giustiﬁcando i passaggi,
+lim
+n→+∞
+Z 2
+1
+fn(x) dx.
+Soluzione. i. Fissato x ∈, poich´e 1 + 2−n + x2
+n2 →0 per n →+∞, fn(x) →x.
+Dunque fn(x) →x =: f(x), per n →+∞, per ogni x ∈.
+ii. Essendo
+sup
+x∈
+|fn(x) −x| = sup
+x∈
+|x|
+2−n + x2
+n2
+1 + 2−n + x2
+n2
+
+x=n
+≥
+ 
+n
+2−n + 1
+1 + 2−n + 1
+!
+n→+∞
+→
++∞,
+la convergenza non `e uniforme in .
+iii. Nell’intervallo [1, 2] le fn convergono puntuamente a f, inoltre |fn(x)| ≤2 =: h(x) per ogni x ∈[1, 2],
+con h sommabile in [1, 2] quindi possiamo applicare il Teorema di Lebesgue e ottenere
+lim
+n→+∞
+Z 2
+1
+fn(x) dx = lim
+n→+∞
+Z 2
+1
+x dx = 3
+2.
+Alternativamente possiamo veriﬁcare che le fn convergono uniformemente a f in [1, 2], infatti:
+sup
+x∈[1,2]
+|fn(x) −x| = sup
+x∈[1,2]
+|x|
+2−n + x2
+n2
+1 + 2−n + x2
+n2
+
+(∗)
+≤
+
+2(2−n + 4
+n2 )
+ n→+∞
+→
+0,
+dove in (∗) abbiamo usato che in [1, 2]: |x| ≤2 e 1 + 2−n + x2
+n2 ≥1.
+Perci`o, essendo le fn continue e uniformemente convergenti a f in [1, 2] per il Teorema di passaggio al
+limite sotto il segno di integrale otteniamo che
+lim
+n→+∞
+Z 2
+1
+fn(x) dx = lim
+n→+∞
+Z 2
+1
+x dx = 3
+2.
+2
+
+
+===== PAGINA 3 =====
+Esercizio 3. Sia
+T = {(x, y, z) :
+x2 + y2 ≤z ≤3 + 2y}.
+i. Calcolare il volume di T.
+ii. Posto F = (xy −3x + ez, (x2 + 2y + cos(x), 2 cos(x) + 4y)), calcolare il ﬂusso di F uscente da T.
+iii. Calcolare il ﬂusso di F attraverso le due superﬁci regolari che compongono la frontiera di T, orien-
+tando il versore normale uscente da T.
+Soluzione. i. T `e un dominio xy-normale. Per parametrizzarlo dobbiamo riuscire a descrivere l’insieme
+D = {(x, y) ∈2 : x2 + y2 ≤3 + 2y} = {(x, y) ∈2 : x2 + (y −1)2 ≤4},
+si tratta dunque di una palla di raggio 2 centrata in (0, 1).
+Perci`o
+Vol(T)
+=
+$
+T
+1 dx dy dz =
+"
+D
+ Z 3+2y
+x2+y2 1 dz
+!
+dx dy
+=
+"
+D
+(3 + 2y −x2 −y2) dx dy
+coord. polari
+=
+centrate in (0, 1)
+Z 2π
+0
+Z 2
+0
+(4 −ρ2)ρ dρ dθ = 8π.
+ii. Per calcolare il ﬂusso uscente da T, essendo F ∈C1(3), possiamo applicare il Teorema della diver-
+genza. In questo caso
+div F(x, y, z) = y −1,
+quindi
+ΦT =
+$
+T
+div F(x, y, z) dx dy dz
+=
+$
+T
+y −1 dx dy dz =
+"
+D
+Z 3+2y
+x2+y2 (y −1) dz dx dy
+=
+"
+D
+(3 + 2y −x2 −y2)(y −1) dx dy
+=
+Z 2π
+0
+Z 2
+0
+(4 −ρ2)ρ2 sin θ dρ dθ = 0.
+iii. Le due superﬁci cartesiane che compongono la frontiera di T sono:
+Σ1
+
+x = x
+y = y
+z = 3 + 2y =: f(x, y)
+(x, y) ∈D,
+Σ2
+
+x = x
+y = y
+z = x2 + y2 =: g(x, y)
+(x, y) ∈D,
+entrambe risultano naturali essendo f, g ∈C1(2).
+Per calcolare il ﬂusso di F attraverso le due superﬁci calcoliamo il ﬂusso attraverso Σ1 e otteniamo il
+ﬂusso attraverso Σ2 per diﬀerenza con il ﬂusso totale uscente calcolato al punto precedente.
+Essendo rx ∧ry = (−fx, −fy, 1) = (0, −2, 1) orientato verso l’esterno di T
+Φ1 =
+"
+Σ1
+F·n dx dy =
+"
+D
+F·(0−2, 1) dx dy = −
+"
+D
+2x2 dx dy = −2
+Z 2π
+0
+Z 2
+0
+ρ3 cos2 θ dθ dρ = −8π.
+In conclusione, poich´e Σ2 `e orientata con il versore normale uscente da T,
+Φ2 = ΦT −Φ1 = 8π.
+3
+
+
+===== PAGINA 4 =====
+Esercizio 4. Dato il campo vettoriale
+F(x, y, z) =
+ 
+x
+x2 + y2 + z2 + 4 + x2 −z2,
+y
+x2 + y2 + z2 + 4 + y2 + z,
+z
+x2 + y2 + z2 + 4 −x2 + z2
+!
+e la curva
+γ : z = x + 3y + 4,
+x2 + y2 = 4
+i. dire se la curva γ `e regolare determinando un’opportuna rappresentazione parametrica;
+ii. dire se il campo F `e conservativo nel suo insieme di deﬁnizione;
+iii. Calcolare l’area della superﬁcie z = x + 3y + 4,
+x2 + y2 ≤4;
+iv. calcolare la circuitazione del campo F lungo la curva γ, percorsa in verso antiorario se vista dall’alto.
+Soluzione. i) La curva ammette rappresentazione parametrica
+x(t) = 2 cos t,
+y(t) = 2 sin t,
+z(t) = 2 cos t + 6 sin t + 4,
+t ∈[0, 2π]
+che risulta regolare avendo tutte le componenti di classe C1 e essendo
+q
+(x′(t))2 + (y′(t))2 + (z′(t))2 ≥
+q
+(x′(t))2 + (y′(t))2 = 2 > 0
+per ogni t ∈(0, 2π).
+ii) F ∈C1(3), quindi condizione necessaria aﬃnch´e sia conservativo `e che sia irrotazionale, ma
+∂F3
+∂y −∂F2
+∂z = −1 , 0,
+perci`o possiamo concludere che il campo F non `e conservativo.
+iii) Possiamo parametrizzare Σ come
+Σ
+
+x = x
+y = y
+z = x + 3y + 4 =: f(x, y)
+(x, y) ∈D = {x2 + y2 ≤4}.
+Osserviamo che risulta regolare essendo una superﬁcie cartesiana con f ∈C1(2). Essendo rx ∧ry =
+(−fx, −fy, 1) = (−1, −3, 1) e dunque |rx ∧ry| =
+√
+11:
+Area(Σ) =
+"
+Σ
+1 dσ =
+"
+D
+√
+11 dx dy =
+√
+11 4π.
+iv) Essendo F ∈C1(3) possiamo applicare il teorema di Stokes. Inoltre essendo il versore normale
+rx ∧ry orientato in modo compatibile secondo Stokes al verso di percorrenza prescritto della curva γ ed
+essendo
+rot F = (−1, 2(x −z), 0)
+abbiamo
+Z
+γ
+(F, T) ds =
+Z
+Σ
+(rot F, N) dσ =
+Z
+D
+rot F·(rx∧ry) dxdy =
+Z
+D
+(1−6(−3y−4))dxdy =
+Z
+D
+(25+18y)dxdy = 100π.
+4
+
+
+===== PAGINA 5 =====
+Esercizio 5.
+Dato il problema di Cauchy
+(1)
+( y′ = 4t3(1 −ey)
+y(0) = log 2
+i. dire perch´e il problema (1) ammette un’unica soluzione locale.
+Senza determinare esplicitamente la soluzione y(t) si provi che:
+ii. il punto t = 0 `e un punto di max locale per la soluzione y;
+iii. la soluzione esiste in tutto ;
+iv. esistono lim
+t→±∞y(t) e calcolarli.
+iv. Si determini esplicitamente la soluzione
+Soluzione. i. Dato che f(t, u) = 4t3(1 −eu) ∈C∞(2) ⊂C1(2) si pu`o applicare il teorema di Cauchy
+che assicura l’esistenza e l’unicit`a locale della soluzione del problema.
+ii. L’equazione diﬀerenziale ammette come soluzione costante y0(t) = 0. Dato che due soluzioni distinte
+non possono intersecarsi, e il nostro dato iniziale y(0) = log 2 > 0, la soluzione del problema di Cauchy
+rimarr`a sempre positiva, da cui (1−ey(t)) < 0 per ogni t che si trova sull’insieme di deﬁnizione massimale
+(a, b) della soluzione. Usando questa informazione otteniamo che y′(t) < 0 per ogni t ∈(0, b) e y′(t) > 0
+per ogni t ∈(a, 0). Da questo deduciamo che 0 `e un punto di massimo relativo per la soluzione.
+iii. Dallo studio fatto nel punto ii. deduciamo anche che y(0) = log(2) `e anche massimo assoluto per la
+soluzione nel suo insieme di deﬁnizione. Per cui la soluzione y(t) assume valori nell’intervallo (0, log(2)]
+∀t ∈(a, b). Quindi per il teorema di esistenza globale (in ipotesi di limitatezza a priori) l’intervallo
+massimale `e tutto .
+iv. Usando i punti precedenti (la monotonia, la limitatezza della soluzione e l’esistenza globale) deduci-
+amo che esistono i limiti a ±∞e vale
+lim
+t→+∞y(t) = ℓ+ ∈[0, log(2)),
+lim
+t→−∞y(t) = ℓ−∈[0, log(2)).
+Se fosse ℓ± , 0 avremmo
+lim
+t→±∞y′(t) = lim
+t→±∞4t3(1 −ey(t)) = ∓∞,
+ma questo sarebbe assurdo contro il Teorema dell’asintoto, quindi
+ℓ± = 0.
+E’ una equazione diﬀerenziale a variabili separabili:
+Z
+dy
+1 −ey dy =
+Z
+4t3dt,
+da cui essendo
+Z
+dy
+1 −ey dy = −
+Z
+−e−y
+e−y −1dy = −log |e−y −1|
+per y > 0
+=
+−log(1 −e−y)
+otteniamo, grazie alla positivit`a di y(t) sopra discussa, che
+−log(1 −e−y(t)) = t4 + c
+⇒
+1 −e−y(t) = e−t4−c
+⇒
+e−y(t) = 1 −e−t4−c.
+Imponendo la condizione iniziale abbiamo e−y(t) = 1 −1
+2e−t4, perci`o
+y(t) = −log(1 −1
+2e−t4).
+5

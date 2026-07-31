@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Manuale operativo — la navicella</title>
+<style>
+  :root { --accent: #c96442; --ink: #1a1a1a; --muted: #5c5c5c; --line: #e0ddd8; --bg-soft: #faf8f5; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    font-size: 10.5pt;
+    line-height: 1.5;
+    margin: 0;
+  }
+  @page { size: A4; margin: 18mm 16mm 16mm 16mm; }
+
+  /* Cover */
+  .cover {
+    height: 251mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    page-break-after: always;
+    border-left: 6px solid var(--accent);
+    padding-left: 14mm;
+  }
+  .cover h1 { font-size: 34pt; margin: 0 0 4pt; letter-spacing: -0.5pt; }
+  .cover .sub { font-size: 15pt; color: var(--accent); font-weight: bold; margin-bottom: 22pt; }
+  .cover .meta { color: var(--muted); font-size: 10pt; line-height: 1.9; }
+  .cover .meta b { color: var(--ink); }
+
+  h2 {
+    font-size: 16pt;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 3pt;
+    margin: 24pt 0 10pt;
+    page-break-after: avoid;
+  }
+  h3 { font-size: 12pt; margin: 16pt 0 5pt; page-break-after: avoid; }
+  h4 { font-size: 10.5pt; margin: 12pt 0 3pt; color: var(--muted); page-break-after: avoid; }
+  p { margin: 5pt 0; }
+  ul, ol { margin: 5pt 0; padding-left: 18pt; }
+  li { margin: 2pt 0; }
+  code { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 3px; padding: 0 3px; font-size: 9.5pt; }
+  .sec { page-break-inside: avoid; }
+
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0; font-size: 9.5pt; }
+  th { background: var(--accent); color: #fff; text-align: left; padding: 4pt 6pt; font-weight: bold; }
+  td { border-bottom: 1px solid var(--line); padding: 4pt 6pt; vertical-align: top; }
+  tr:nth-child(even) td { background: var(--bg-soft); }
+
+  .toc { columns: 2; column-gap: 20pt; }
+  .toc li { break-inside: avoid; }
+
+  .box { background: var(--bg-soft); border-left: 3px solid var(--accent); padding: 6pt 10pt; margin: 8pt 0; }
+  .diagram { font-family: "Courier New", monospace; font-size: 8pt; line-height: 1.35; white-space: pre; background: var(--bg-soft); border: 1px solid var(--line); padding: 8pt; overflow: hidden; }
+  .footer-note { color: var(--muted); font-size: 8.5pt; font-style: italic; }
+  .pagebreak { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<!-- 1. COVER -->
+<div class="cover">
+  <h1>La navicella</h1>
+  <div class="sub">Manuale operativo · micro-ecosistema di agenti su Claude Code</div>
+  <div class="meta">
+    Custode: <b>Mnemosyne</b> (Capitano)<br>
+    Utente: <b>Giuseppe Scarda</b> — Fisica, Sapienza<br>
+    Architettura: <b>v2</b> (4 agenti per dimensione temporale)<br>
+    Generato: <b>2026-07-01</b><br>
+    Memoria: <b>5 livelli</b> (L1 conversazione → L5 subconscio)
+  </div>
+</div>
+
+<!-- 2. INDICE -->
+<h2>Indice</h2>
+<ol class="toc">
+  <li>Cover</li>
+  <li>Indice</li>
+  <li>Setup — com'è organizzata la navicella</li>
+  <li>Tabella comandi</li>
+  <li>Dettaglio comandi</li>
+  <li>Interazione libera con Mnemosyne</li>
+  <li>Workflow tipici</li>
+  <li>Identità degli agenti</li>
+  <li>Principi cementati</li>
+  <li>Memoria a 5 livelli</li>
+  <li>Aggiungere un corso</li>
+  <li>Troubleshooting</li>
+</ol>
+
+<!-- 3. SETUP -->
+<h2>3 · Setup — com'è organizzata la navicella</h2>
+<p>La navicella è un micro-ecosistema di agenti costruito su Claude Code. Si apre lanciando Claude Code nella cartella <code>AgentsAI/</code>: <code>CLAUDE.md</code> viene caricato automaticamente ogni sessione e contiene il distillato di chi è Giuseppe, come pensa e com'è fatta l'architettura.</p>
+<p>Principio strutturale: quattro agenti organizzati per <b>dimensione temporale</b> (passato / presente / futuro) più il Capitano che orchestra. Il dominio (Personale, Accademico) vive nelle cartelle dati, non nei ruoli.</p>
+<div class="diagram">               CAPITANO · MNEMOSYNE  (Opus 4.8)
+                 bibliotecario · memoria profonda
+                 orchestratore · contatto principale
+                            |
+   +------------------------+------------------------+
+   |                        |                        |
+ PASSATO                 PRESENTE                  FUTURO
+ RAPSODO                 DEMIURGO                  ARGONAUTA
+(Sonnet 4.6)            ACCADEMICO                (Sonnet 4.6)
+                        (Opus 4.8)
+ memoria, archivio,     scrittura densa           traiettoria,
+ pre-classifica         + routine leggere         tesi, magistrale,
+ reality check          (nota, quiz)              "chi voglio essere"</div>
+<h4>Dove vivono i file</h4>
+<ul>
+  <li><code>00-capitano/</code> — profilo, modello cognitivo, architettura, memoria a 5 livelli, protocolli, snapshot, log decisioni</li>
+  <li><code>01-personale/</code> — note giornaliere, journaling, studio, quiz, riepiloghi</li>
+  <li><code>02-accademico/</code> — stato Rapsodo, file tesi (Argonauta), registro lezioni (Demiurgo), <code>corsi/&lt;slug&gt;/</code></li>
+  <li><code>.claude/agents/</code> — definizioni dei 4 agenti (v1 archiviata in <code>legacy-v1/</code>)</li>
+  <li><code>.claude/commands/</code> — gli slash command</li>
+  <li><code>Materiali-studio/</code> — seconda root MCP (su Desktop)</li>
+</ul>
+
+<!-- 4. TABELLA COMANDI -->
+<h2>4 · Tabella comandi</h2>
+<table>
+  <tr><th>Comando</th><th>Agente</th><th>Scopo</th></tr>
+  <tr><td><code>/quiz &lt;materia&gt;</code></td><td>Demiurgo Acc.</td><td>Sessione quiz calibrata sul profilo di studio</td></tr>
+  <tr><td><code>/nota-oggi [testo]</code></td><td>Demiurgo Acc.</td><td>Nota giornaliera (L2)</td></tr>
+  <tr><td><code>/riepilogo</code></td><td>Rapsodo</td><td>Riepilogo settimanale analitico</td></tr>
+  <tr><td><code>/inventario &lt;corso&gt;</code></td><td>Argonauta</td><td>Inventario fonti della banca-dati</td></tr>
+  <tr><td><code>/mappa &lt;corso&gt;</code></td><td>Argonauta</td><td>Mappa tipi di esercizio per frequenza</td></tr>
+  <tr><td><code>/indice &lt;corso&gt;</code></td><td>Demiurgo Acc.</td><td>Proposta indice libro (con conferma)</td></tr>
+  <tr><td><code>/capitolo &lt;corso&gt; &lt;n&gt;</code></td><td>Demiurgo Acc.</td><td>Scrittura di un capitolo</td></tr>
+  <tr><td><code>/stato-traiettoria</code></td><td>Argonauta</td><td>Revisione traiettoria di lungo periodo</td></tr>
+  <tr><td><code>/aggiungi-corso &lt;nome&gt;</code></td><td>Capitano*</td><td>Crea struttura cartelle + profilo studio</td></tr>
+  <tr><td><code>/intake</code></td><td>Rapsodo + Cap.*</td><td>Cernita materiali in intake/, promozione P1</td></tr>
+  <tr><td><code>/memoria-status</code></td><td>Capitano*</td><td>Overview stato memoria L1-L5</td></tr>
+  <tr><td><code>/promuovi-l4 &lt;tema&gt;</code></td><td>Capitano*</td><td>Promuovi a memoria fondazionale</td></tr>
+  <tr><td><code>/analisi-psicologica [tema]</code></td><td>Capitano*</td><td>Passata interpretativa su L5</td></tr>
+  <tr><td><code>/genera-manuale</code></td><td>Mnemosyne*</td><td>Rigenera questo manuale come snapshot dello stato</td></tr>
+</table>
+<p class="footer-note">* Il ruolo Capitano è incarnato da Mnemosyne (agente attivo).</p>
+
+<!-- 5. DETTAGLIO COMANDI -->
+<h2 class="pagebreak">5 · Dettaglio comandi</h2>
+
+<div class="sec">
+<h3>/aggiungi-corso &lt;nome&gt; — Capitano</h3>
+<p>Crea la struttura di un nuovo corso: cartelle <code>01-banca-dati/</code>, <code>02-libro-di-testo/</code>, <code>03-note-mie/</code> sotto <code>02-accademico/corsi/&lt;slug&gt;/</code> e un profilo di studio iniziale in <code>01-personale/studio/&lt;slug&gt;.md</code>.</p>
+</div>
+<div class="sec">
+<h3>/inventario &lt;corso&gt; — Argonauta</h3>
+<p>Cataloga tutte le fonti caricate nella banca-dati del corso e produce <code>02-libro-di-testo/00-inventario.md</code>. Fase 0 della pipeline libro. Con molti PDF va eseguito a batch (vedi Troubleshooting).</p>
+</div>
+<div class="sec">
+<h3>/mappa &lt;corso&gt; — Argonauta</h3>
+<p>Estrae i tipi di esercizio ricorrenti per frequenza e difficoltà dagli esami inventariati, con trend temporali e trabocchetti. Produce <code>02-libro-di-testo/01-mappa-esercizi.md</code>. Fase 1.</p>
+</div>
+<div class="sec">
+<h3>/indice &lt;corso&gt; — Demiurgo Accademico</h3>
+<p>Propone l'indice del libro di testo cucito su Giuseppe a partire da inventario + mappa. Fase 2. <b>Richiede conferma esplicita</b> prima di procedere ai capitoli.</p>
+</div>
+<div class="sec">
+<h3>/capitolo &lt;corso&gt; &lt;n&gt; — Demiurgo Accademico</h3>
+<p>Scrive un capitolo denso in prosa tecnica. Fase 3. Non parte senza indice approvato e findings Argonauta confermati.</p>
+</div>
+<div class="sec">
+<h3>/quiz &lt;materia&gt; — Demiurgo Accademico</h3>
+<p>Sessione quiz calibrata: mix di difficoltà, una domanda per messaggio, feedback su errori, sessione salvata in <code>01-personale/quiz/</code>. Formato deliverable esteso: quiz HTML interattivo standalone.</p>
+</div>
+<div class="sec">
+<h3>/nota-oggi [testo] — Demiurgo Accademico</h3>
+<p>Aggiunge una nota giornaliera in <code>01-personale/note-giornaliere/YYYY-MM-DD.md</code> (L2).</p>
+</div>
+<div class="sec">
+<h3>/riepilogo — Rapsodo</h3>
+<p>Riepilogo settimanale analitico con pattern e reality check, in <code>01-personale/riepilogo-settimanale/</code>.</p>
+</div>
+<div class="sec">
+<h3>/stato-traiettoria — Argonauta</h3>
+<p>Revisione della traiettoria di lungo periodo (tesi, magistrale). Il Capitano fornisce il framework prompt prima dell'invocazione.</p>
+</div>
+<div class="sec">
+<h3>/intake — Rapsodo + Capitano</h3>
+<p>Cernita disciplinata dei materiali in <code>00-capitano/intake/</code>: il Rapsodo classifica P1/P2, il Capitano decide le promozioni. Segue <code>protocollo-intake.md</code>.</p>
+</div>
+<div class="sec">
+<h3>/memoria-status — Capitano</h3>
+<p>Overview L1-L5: contatori, ultimi aggiornamenti, pending decisions L4.</p>
+</div>
+<div class="sec">
+<h3>/promuovi-l4 &lt;tema&gt; — Capitano</h3>
+<p>Conferma esplicita di Giuseppe per promuovere un tema a memoria fondazionale. Aggiorna <code>L4-fondazionale.md</code> e, se rilevante, <code>profilo-giuseppe.md</code>.</p>
+</div>
+<div class="sec">
+<h3>/analisi-psicologica [tema] — Capitano</h3>
+<p>Invoca una passata interpretativa del Capitano su L5, a partire dai pattern raw del Rapsodo.</p>
+</div>
+<div class="sec">
+<h3>/genera-manuale — Mnemosyne</h3>
+<p>Rigenera questo manuale come snapshot strutturale dello stato corrente. Task di un agente attivo (auto-rappresentazione), non del Demiurgo. Legge tutti i file di stato, costruisce le 12 sezioni, genera il PDF, salva file principale + snapshot datato.</p>
+</div>
+
+<!-- 6. INTERAZIONE LIBERA -->
+<h2 class="pagebreak">6 · Interazione libera con Mnemosyne</h2>
+<p>Fuori dai comandi, il punto di ingresso è sempre il Capitano (Mnemosyne). Regole di ingaggio:</p>
+<ul>
+  <li>Parla in italiano; l'inglese solo se lo chiedi esplicitamente o per citare una fonte.</li>
+  <li>Mnemosyne risponde in tempo reale e scrive in memoria in background (Capitano Reflex — non blocca mai la risposta).</li>
+  <li>All'avvio legge <code>snapshot-corrente.md</code> invece di scorrere tutta la memoria.</li>
+  <li>Decide se rispondere lei o delegare: routine leggera o scrittura densa → Demiurgo; pianificazione lunga → Argonauta con framework; verifica del passato → Rapsodo.</li>
+  <li>Trasparenza piena: dice la verità anche scomoda, nomina le cose senza eufemismi, e quando non sa lo dice invece di inventare.</li>
+</ul>
+
+<!-- 7. WORKFLOW TIPICI -->
+<h2>7 · Workflow tipici</h2>
+<h3>Nuovo corso → libro di testo</h3>
+<ol>
+  <li><code>/aggiungi-corso &lt;nome&gt;</code> — Capitano crea struttura + profilo</li>
+  <li>Carica esami e slide in <code>corsi/&lt;slug&gt;/01-banca-dati/</code></li>
+  <li><code>/inventario &lt;corso&gt;</code> — Argonauta cataloga le fonti</li>
+  <li><code>/mappa &lt;corso&gt;</code> — Argonauta estrae i tipi di esercizio</li>
+  <li><code>/indice &lt;corso&gt;</code> — Demiurgo propone l'indice (attendi conferma)</li>
+  <li><code>/capitolo &lt;corso&gt; 1</code> — Demiurgo scrive; itera con feedback prima del successivo</li>
+</ol>
+<h3>Intake materiali (ogni 2-4 settimane)</h3>
+<ol>
+  <li>In Cowork: "assorbi le ultime N sessioni" → estratti in <code>00-capitano/intake/</code></li>
+  <li>In Claude Code: <code>/intake</code> → Rapsodo classifica, Capitano promuove i P1</li>
+</ol>
+<h3>Studio attivo</h3>
+<ol>
+  <li><code>/quiz &lt;materia&gt;</code> per una sessione calibrata o un quiz HTML interattivo</li>
+  <li><code>/nota-oggi</code> per fissare cosa è successo</li>
+  <li><code>/riepilogo</code> a fine settimana per il reality check del Rapsodo</li>
+</ol>
+
+<!-- 8. IDENTITÀ AGENTI -->
+<h2 class="pagebreak">8 · Identità degli agenti</h2>
+<p>Gli agenti si dividono in <b>attivi</b> (ruolo astratto + personalità mitologica con nome proprio che evolve nel tempo) e <b>passivi</b> (solo ruolo, categorie di funzione ripetibile che migliorano per sedimentazione dei loro output).</p>
+<table>
+  <tr><th>Agente</th><th>Tempo</th><th>Modello</th><th>Tipo</th><th>Funzione</th></tr>
+  <tr><td><b>Capitano · Mnemosyne</b></td><td>tutto</td><td>Opus 4.8</td><td>attivo</td><td>Orchestratore, custode memoria a 5 livelli, interprete L5, contatto principale</td></tr>
+  <tr><td><b>Rapsodo</b></td><td>passato</td><td>Sonnet 4.6</td><td>passivo</td><td>Pre-classificazione input (L1-2 vs L3-4), banca dati storica, reality check, pattern raw per L5</td></tr>
+  <tr><td><b>Demiurgo Accademico</b></td><td>presente</td><td>Opus 4.8</td><td>passivo</td><td>Scrittura densa di libri + routine leggere (nota, quiz) finché non c'è l'Oracolo</td></tr>
+  <tr><td><b>Argonauta</b></td><td>futuro</td><td>Sonnet 4.6</td><td>passivo</td><td>Traiettoria lunga, tesi, magistrale, scouting risorse esterne; lavora con framework del Capitano</td></tr>
+</table>
+<div class="box">
+<b>Non nel MVP</b> (documentati in roadmap): Oracolo (backup Sonnet del Demiurgo), Argonauta scheduled in background, Demiurgo Creativo/Business, plancia 2D grafica, riepilogo mensile automatico. Architetto <b>Dedalo</b> (attivo) previsto in roadmap.
+</div>
+
+<!-- 9. PRINCIPI CEMENTATI -->
+<h2>9 · Principi cementati</h2>
+<h3>I 10 principi cognitivi (come lavora la sua mente)</h3>
+<ol>
+  <li><b>Architettura prima dei dettagli</b> — quadro in 1-2 frasi, poi il merito.</li>
+  <li><b>First principles, non procedure</b> — sempre il perché sotto la formula.</li>
+  <li><b>Verification-driven trust</b> — dichiara fonti e passaggi; se non sai, dillo.</li>
+  <li><b>Sintesi cross-domain</b> — segnala connessioni tra domini quando esistono.</li>
+  <li><b>ROI strategico</b> — motiva le scelte in funzione della traiettoria.</li>
+  <li><b>Rispetto per il "no" ben argomentato</b> — digli no quando è giusto, con argomento.</li>
+  <li><b>Iteratore</b> — offri modo di testare; aspettati feedback strutturale.</li>
+  <li><b>Tollera complessità tecnica, odia complessità inutile</b> — formalismo denso ok, bullet gonfi no.</li>
+  <li><b>Memoria esterna affidabile</b> — salva ciò che è sostanziale, dichiara il path.</li>
+  <li><b>Sintesi sopra esaustività</b> — corto e preciso batte completo e sfocato.</li>
+</ol>
+<h3>Decisioni non rinegoziabili</h3>
+<ul>
+  <li>Meccanica non slitta a febbraio (priorità: sessione estiva 2026).</li>
+  <li>III anno: Astrofisica (I sem) + Geometria Differenziale (II sem). Probabilità II fuori.</li>
+  <li>Tesi con un'idea forte: MQ dei sistemi complessi (decoerenza, ETH), possibile aggancio gruppo Marinari.</li>
+  <li>Architettura v2 (4 agenti per dimensione temporale) cementata il 2026-06-17. Niente triadi per modulo.</li>
+  <li>Nomenclatura classica greca cementata; ruolo ≠ personalità.</li>
+  <li>Memoria a 5 livelli; L5 è substrato psicologico, non cestino. Niente oblio.</li>
+  <li>Patto di scambio dataset-evoluzione: mai opacità.</li>
+  <li><b>Mai bypassare gli agenti passivi per problemi tecnici</b> (2026-06-30): davanti a un ostacolo tecnico il Capitano non fa il lavoro al posto loro — sblocca cambiando modello/contesto, snellendo il prompt, o processando a batch.</li>
+</ul>
+
+<!-- 10. MEMORIA -->
+<h2 class="pagebreak">10 · Memoria a 5 livelli</h2>
+<p>La stratificazione è per profondità di rilevanza, non per scadenza. Principio cardine: <b>niente oblio</b> — nulla viene cancellato, ciò che non è più operativo migra in L5/storica.</p>
+<table>
+  <tr><th>Liv.</th><th>Cos'è</th><th>Volatilità</th><th>Chi scrive</th></tr>
+  <tr><td><b>L1</b></td><td>Conversazione corrente</td><td>Ephemerale</td><td>Tutti</td></tr>
+  <tr><td><b>L2</b></td><td>Operativa (settimana): note, journaling, quiz, banca-dati</td><td>Settimanale</td><td>Demiurgo, Rapsodo</td></tr>
+  <tr><td><b>L3</b></td><td>Strategica (mesi): decisioni grandi, traiettoria</td><td>Mensile</td><td>Capitano (su escalation Rapsodo)</td></tr>
+  <tr><td><b>L4</b></td><td>Fondazionale cosciente: identità dichiarata, valori</td><td>Annuale</td><td>Capitano + conferma esplicita Giuseppe</td></tr>
+  <tr><td><b>L5</b></td><td>Subconscio / analisi psicologica profonda</td><td>Lenta</td><td>Capitano (interpreta) · Rapsodo (osserva raw)</td></tr>
+</table>
+<p><b>L5</b> è il cuore vivo: pattern emotivi, motivazioni profonde, paure non nominate, drives, conflitti interni. Il Capitano lo interpreta attivamente sui pattern raw del Rapsodo; le voci sono marcate come interpretazioni con grado di affidabilità. Sottocartelle: <code>psicologica/</code> (interpretato), <code>pattern-longitudinali/</code> (raw del Rapsodo), <code>storica/</code> (archivio conservato).</p>
+<div class="box">
+Promozione L3→L4 mai automatica: richiede conferma esplicita (in chat o <code>/promuovi-l4</code>). Verso L5/psicologica: passata interpretativa del Capitano ogni 2-3 settimane su soglia di volume. Ogni decisione è loggata in <code>log-decisioni-memoria.md</code> — audit sempre possibile con <code>/memoria-status</code>.
+</div>
+
+<!-- 11. AGGIUNGERE UN CORSO -->
+<h2>11 · Aggiungere un corso</h2>
+<ol>
+  <li><code>/aggiungi-corso &lt;nome&gt;</code> — il Capitano crea <code>02-accademico/corsi/&lt;slug&gt;/</code> con <code>01-banca-dati/</code>, <code>02-libro-di-testo/</code>, <code>03-note-mie/</code> e il profilo <code>01-personale/studio/&lt;slug&gt;.md</code>.</li>
+  <li>Carica esami, esoneri, slide, esercizi in <code>01-banca-dati/</code>. Un hook PostToolUse registra l'evento in <code>02-accademico/.pending-inventory.log</code> come reminder.</li>
+  <li><code>/inventario &lt;corso&gt;</code> per catalogare (a batch se molti PDF).</li>
+  <li><code>/mappa &lt;corso&gt;</code> per i tipi di esercizio.</li>
+  <li>Da qui: <code>/indice</code> → <code>/capitolo</code> per il libro, oppure <code>/quiz</code> per lo studio attivo.</li>
+</ol>
+
+<!-- 12. TROUBLESHOOTING -->
+<h2>12 · Troubleshooting</h2>
+<h4>Errore contesto 1M (crediti) su inventario</h4>
+<p>I PDF si caricano come immagini ad alta risoluzione: aprirne ~7 insieme supera i 200K token e forza lo switch al contesto 1M (a pagamento). Soluzione: processare a <b>batch di 2-4 PDF</b> per invocazione. Mai bypassare l'Argonauta facendo il lavoro dal Capitano.</p>
+<h4>Connessione caduta su output lunghi (HTML/capitoli)</h4>
+<p>Output troppo lunghi in un colpo chiudono la connessione e il file non viene creato. Soluzione: <b>build incrementale</b> — scrivi il file presto, poi aggiungi un blocco per turno via Edit, riprendendo lo stesso agente.</p>
+<h4>Python assente</h4>
+<p>Sul sistema c'è solo lo stub MS Store (<code>python.exe</code> → "Python non è stato trovato"); niente <code>py</code>, niente pip, quindi niente reportlab. Il generatore del manuale usa <b>Edge headless</b> (<code>msedge --headless --print-to-pdf</code>) via PowerShell come renderer HTML→PDF, senza dipendenze. Chrome e Node sono alternative disponibili.</p>
+<h4>Limite di sessione a metà lavoro</h4>
+<p>Se una sessione si interrompe, verifica lo stato reale su disco (Grep/Read) prima di rifare: spesso l'ultima Edit era già andata a buon fine.</p>
+
+<p class="footer-note" style="margin-top:20pt">Manuale generato da Mnemosyne · snapshot 2026-07-01 · rigenerabile con <code>/genera-manuale</code></p>
+
+</body>
+</html>

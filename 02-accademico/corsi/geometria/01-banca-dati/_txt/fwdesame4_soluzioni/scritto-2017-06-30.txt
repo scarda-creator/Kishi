@@ -1,0 +1,94 @@
+===== PAGINA 1 =====
+Geometria (Fisica)
+Canale D-K
+Prova scritta - 30 giugno 2017
+Nome e Cognome:
+Numero di Matricola:
+Esercizio
+Punti totali
+Punteggio
+1
+6
+2
+6
+3
+6
+4
+8
+5
+8
+Totale
+34
+Occorre motivare le risposte. Una soluzione corretta priva di motivazione ricever`a 0 punti.
+Verr`a corretto solo quello che sar`a scritto su queste pagine.
+Voto/30:
+1
+
+
+===== PAGINA 2 =====
+Esercizio 1. Sia W ⊂R3 il sottospazio generato dai vettori
+(1, 1, −2),
+(1, 0, −1),
+(2, −3, 1).
+Per t ∈R, sia
+vt := (2, 3, −1) + t(1, 2, 3).
+Determinare quali vt sono tali che
+⟨W, vt⟩̸ = R3.
+Risoluzione:
+Risposta: ⟨W, vt⟩̸ = R3 se e solo se vt =
+2
+
+
+===== PAGINA 3 =====
+Esercizio 2. Siano K un campo, e V, W spazi vettoriali su K. Siano f : V →W un’applicazione, e
+Γ := {(v, f(v)) | v ∈V } ⊂V ⊕W
+il grafo di f. Si dimostri che f `e lineare se e solo se Γ `e un sottopsazio vettoriale di V ⊕W.
+Risoluzione:
+3
+
+
+===== PAGINA 4 =====
+Esercizio 3. Sia A2 il piano aﬃne, e siano L1, L2, L3, M1, M2, M3 ⊂A2 le rette di equazioni cartesiane
+L1 : 2x1+3x2 = 5,
+L2 : x1−x2 = 0,
+L3 : x1+2x2 = 3,
+M1 : x1 = 3,
+M2 : 2x1−x2 = 1,
+M3 : x1+x3 = 4.
+Esiste o non esiste un’aﬃnit`a φ: A2 →A2 tale che φ(Li) = Mi?
+Risoluzione:
+Risposta:
+Esiste o non esiste una tale φ?
+SI
+
+NO
+(cerchiate la risposta corretta)
+4
+
+
+===== PAGINA 5 =====
+Esercizio 4. Sia q: R3 →R la forma quadratica deﬁnita da
+q(x1, x2, x3) = x2
+1 + 3x2
+2 + x2
+3 + 2x1x2 −4x1x3 −4x2x3.
+1. Si determini una base ortogonale (non necessariamente ortonormale) B in cui la q `e diagonale.
+2. Si determinino il massimo M e il minimo m di q sulla sfera unitaria, cio`e
+M := max{q(x) | ||x|| = 1},
+m := min{q(x) | ||x|| = 1}.
+Risoluzione:
+Risposta: B =
+M =
+m =
+5
+
+
+===== PAGINA 6 =====
+Esercizio 5. Sia V uno spazio vettoriale, e p: V →V un’applicazione lineare tale che
+p ◦p = p.
+1. Dimostrate che V = ker p ⊕im p.
+2. Dimostrate che, se V `e ﬁnitamente generato, allora esiste una base B di V tale che M B
+B (p) `e una
+matrice diagonale con entrate sulla diagonale principale appartenenti a {0, 1}.
+Risoluzione:
+6

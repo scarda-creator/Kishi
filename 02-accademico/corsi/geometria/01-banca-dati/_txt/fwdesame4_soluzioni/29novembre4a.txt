@@ -1,0 +1,323 @@
+===== PAGINA 1 =====
+Prima prova in itinere di Geometria (Corso di laurea in Fisica, Canali A-C e D-O)
+Prof. Barucci e Piccinni
+29 novembre 2011
+a. Scrivere subito canale, cognome e nome.
+b. Utilizzare questi fogli per le risposte. I fogli protocollo distribuiti a parte sono invece per eventuali riﬂessioni o
+calcoli, e non vanno consegnati.
+c. Durante la prova non si possono consultare testi e appunti n´e usare fogli diversi da quelli distribuiti.
+d. Durante la prova non `e consentito uscire dall’aula.
+Tempo a disposizione: 2 ore
+Canale.............................Cognome...........................................................Nome................................................
+1. Siano⃗v1 = (1, 2, 0),⃗v2 = (2, 1, 0),⃗v3 = (0, 1, 2),⃗v4 = (0, 2, 1) ∈R3. Stabilire quali tra le seguenti aﬀermazioni
+sono vere (eventualmente anche pi`u risposte):
+1⃗
+v1,⃗v2,⃗v3,⃗v4 sono linearmente indipendenti.
+2⃗
+v1,⃗v2,⃗v3,⃗v4 generano R3.
+3⃗
+v1,⃗v2,⃗v3,⃗v4 sono una base di R3.
+4
+Nessuna delle precedenti.
+2. Si consideri il sistema lineare a coeﬃcienti reali:
+
+
+
+kx
+−y
++z
+= 0
+x
+−ky
++z
+= 0
+x
+−y
++kz
+= 0
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+Il sistema ha solo la soluzione nulla per ogni k.
+2
+Le soluzioni del sistema sono un sottospazio vettoriale W ⊂R3 e la dimensione di W non dipende da k.
+3
+Le soluzioni del sistema sono un sottospazio vettoriale W ⊂R3 e la dimensione di W dipende da k.
+4
+Nessuna delle precedenti.
+3. Sia V = {p(x) = a0+a1x+a2x2+a3x3+a4x4; ai ∈R} lo spazio vettoriale dei polinomi di grado ≤4 a coeﬃcienti
+reali. Siano
+U = {p(x) ∈V con a4 = 1},
+W = {p(x) ∈V con a0 = 0}.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+U `e un sottospazio vettoriale di V.
+2
+W `e un sottospazio vettoriale di V.
+3
+U ∩W `e un sottospazio vettoriale di V.
+4
+Nessuna delle precedenti.
+
+
+===== PAGINA 2 =====
+4. Sia V = M3(R) lo spazio vettoriale delle matrici quadrate di ordine 3 ad elementi reali. Sia
+U =
+(
+A ∈M3(R) tali che A + At = I =
+
+
+1
+0
+0
+0
+1
+0
+0
+0
+1
+
+
+)
+.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+U `e un sottospazio vettoriale di V.
+2
+U `e un sottospazio vettoriale di V e coincide con il sottospazio delle matrici simmetriche.
+3
+U `e un sottospazio vettoriale di V e coincide con il sottospazio delle matrici antisimmetriche.
+4
+Nessuna delle precedenti.
+5. Si consideri l’equazione z3 = i, z ∈C. Stabilire quale tra le seguenti aﬀermazioni `e vera:
+1
+Le soluzioni sono z1 = i; z2, z3 = 1
+3 ± i
+3
+2
+Le soluzioni sono z1 = −i; z2, z3 = ±
+√
+3
+2 + i
+2
+3
+Le soluzioni sono z1 = −i; z2, z3 =
+√
+3
+2 ± i
+2
+4
+Nessuna delle precedenti.
+6. Sia V = {p(x) = a0 + a1x + a2x2; ai ∈R} lo spazio vettoriale dei polinomi di grado ≤2 a coeﬃcienti reali, e
+si consideri la sua base E = {p1(x) = 1 + x, p2(x) = 1 + x2, p3(x) = x + x2}. Dire quali sono le coordinate del
+polinomio 1 + x + x2 in tale base:
+1
+(1, 1, 1).
+2
+( 1
+2, 1
+2, 1
+2).
+3
+(2, 2, 2).
+4
+Nessuna delle precedenti.
+7. Sia V = M3(R) lo spazio vettoriale delle matrici quadrate di ordine 3 ad elementi reali. Sia
+T : M3(R) −→M3(R)
+l’applicazione lineare deﬁnita da
+T(A) = B = (bij)
+dove per ogni j = 1, 2, 3 si deﬁnisce bij = ai1 +ai2 +ai3 = somma degli elementi della i-esima riga di A. Stabilire
+quali tra le seguenti aﬀermazioni `e vera:
+1
+il nucleo di T ha dimensione 3 e l’immagine ha dimensione 6
+2
+il nucleo di T ha dimensione 6 e l’immagine ha dimensione 3
+3
+il nucleo di T ha dimensione 3 e l’immagine ha dimensione 3
+4
+il nucleo di T ha dimensione 6 e l’immagine ha dimensione 6
+5
+Nessuna delle precedenti.
+2
+
+
+===== PAGINA 3 =====
+8. Siano⃗v1 = (1, 0, 0, 1),⃗v2 = (−1, 1, 0, 2),⃗v3 = (−2, 1, 0, 1),⃗v4 = (0, 0, 1, 1) ∈R4. Siano inoltre U = Span(⃗v1,⃗v2)
+e W = Span(⃗v3,⃗v4). Rispondere nei riquadri alle seguenti domande:
+Estrarre da {⃗v1,⃗v2,⃗v3,⃗v4} una base per Span(⃗v1,⃗v2,⃗v3,⃗v4) :
+
+
+Determinare dim(U + W) =
+
+
+Determinare dim(U ∩W) =
+
+
+9. Sia T : V →W un’applicazione lineare. Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente
+anche pi`u risposte):
+1
+dim ImT ≤dimW
+2
+dim ImT ≤dimV
+3
+dim KerT ≤dimW
+4
+dim KerT ≤dimV
+10. Stabilire se tra i seguenti sottospazi aﬃni di R3 ce ne sono di coincidenti e in caso aﬀermativo collegare con una
+freccia doppia i rispettivi riquadri:
+1
+L1 di equazioni parametriche
+
+
+
+x = t
+y = −t
+z = 2t
+2
+L2 di equazioni parametriche
+
+
+
+x = t
+y = −t + 2s
+z = 2t + s
+3
+L3 di equazioni cartesiane
+
+x = 0
+y −2z = 0
+4
+L4 di equazioni cartesiane 5x + y −2z = 0
+5
+L5 di equazioni cartesiane 5x + y −2z + 1 = 0
+11. Sia A ∈Mm,n(R), sia A⃗x =⃗b un sistema lineare in incognite⃗x =
+
+
+
+
+x1
+.
+.
+xn
+
+
+
+e termini noti⃗b =
+
+
+
+
+b1
+.
+.
+bm
+
+
+
+, e sia A⃗x =⃗0
+il sistema lineare omogeneo associato. Dire quali tra le seguenti eventualit`a possono eﬀettivamente presentarsi
+(eventualmente anche pi`u risposte):
+1
+Il sistema A⃗x =⃗b non ammette soluzioni ma l’omogeneo associato A⃗x =⃗0 ne ammette inﬁnite.
+2
+Il sistema A⃗x =⃗b ammette una sola soluzione ma l’omogeneo associato A⃗x =⃗0 ne ammette inﬁnite.
+3
+Il sistema A⃗x =⃗b ammette inﬁnite soluzioni ma l’omogeneo associato A⃗x =⃗0 ammette solo la soluzione nulla.
+4
+Entrambi i sistemi A⃗x =⃗b e A⃗x =⃗0 ammettono una sola soluzione
+3
+
+
+===== PAGINA 4 =====
+12. Sia V = M3(R) lo spazio vettoriale delle matrici quadrate di ordine 3 ad elementi reali. Sia
+T : M3(R) −→R
+l’applicazione deﬁnita da
+T(A) = somma di tutti i suoi elementi = a11 + a12 + · · · + a33.
+Stabilire quali tra le seguenti aﬀermazioni sono vere (eventualmente anche pi`u risposte):
+1
+T `e un’applicazione lineare n´e iniettiva n´e suriettiva
+2
+T `e un ’applicazione lineare iniettiva
+3
+T `e un ’applicazione lineare suriettiva
+4
+T non `e un ’applicazione lineare
+13. Trovare tra le seguenti matrici quelle che sono l’una l’inversa dell’altra (e unire con una freccia doppia i rispettivi
+riquadri):
+1
+
+
+1
+0
+1
+1
+−1
+0
+2
+2
+2
+
+,
+2
+
+
+1
+0
+1
+1
+−1
+0
+1/2
+1/2
+1/2
+
+
+3
+
+
+−1
+1
+2
+−1
+0
+2
+2
+−1
+−2
+
+
+14. Sia A =
+
+
+a
+b
+c
+a2
+b2
+c2
+a3
+b3
+c3
+
+, con a, b, c ∈R∗= R −0. Stabilire quali tra le seguenti aﬀermazioni sono vere (anche
+pi`u risposte):
+1
+esistono scelte di a, b, c ∈R∗tali che il rango di A `e 1
+2
+esistono scelte di a, b, c ∈R∗tali che il rango di A `e 2
+3
+esistono scelte di a, b, c ∈R∗tali che il rango di A `e 3
+15. Sia R[x] lo spazio vettoriale dei polinomi a coeﬃcienti reali, e sia T : R[x] →R[x] l’applicazione deﬁnita da
+T(p(x)) = xp(x).
+Stabilire quali tra le seguenti aﬀermazioni sono vere (anche pi`u risposte):
+1
+T `e lineare e iniettiva
+2
+T `e lineare e suriettiva
+3
+T non `e lineare ma `e iniettiva
+4
+T non `e lineare ma `e suriettiva
+5
+Nessuna delle precedenti.
+a
+4

@@ -1,0 +1,93 @@
+===== PAGINA 1 =====
+Geometria
+Appello I — Sessione Invernale
+Corso di laurea in ﬁsica — A.A 2018/2019
+Canali A – C, L – Pa, Pb – Z
+Durata: 2 ore e 30 minuti
+Alessandro D’Andrea
+Simone Diverio
+Paolo Piccinni
+Riccardo Salvati Manni
+25 giugno 2019
+Esercizio 1. Si considerino, al variare del parametro k ∈C le seguenti due
+matrici, appartenenti rispettivamente a M2,3(C) e a M2,1(C):
+Ak =
+ 1
+k
+k
+−k
+1
+1
+
+,
+bk =
+
+1
+2i + k
+
+.
+(i) Determinare il rango di Ak e il rango della matrice Ak|bk, ottenuta
+aggiungendo ad Ak l’ulteriore colonna bk, al variare di k ∈C.
+(ii) Dedurre i valori di k ∈C per cui il sistema lineare Ak x = bk è
+compatibile.
+(iii) Determinare, se esistono, le soluzioni del sistema A−i x = b−i, ottenuto
+sostituendo al parametro k il valore −i.
+Esercizio 2. Detta E = {e1, e2, e3} la base canonica di R3, si considerino i
+seguenti vettori:
+v1 = e1 −e3,
+v2 = e1 −e2 + 2e3,
+v3 = e1 −2e2 + 4e3,
+e
+w1 = 2e1 + e2,
+w2 = 3e1 + e2 + e3,
+w3 = e1 + 2e3.
+(i) Veriﬁcare che gli insiemi B = {v1, v2, v3}, e C = {w1, w2, w3} sono basi
+di R3.
+1
+
+
+===== PAGINA 2 =====
+(ii) Determinare la matrice del cambiamento di coordinate1 dalla base B
+alla base C.
+Esercizio 3. Sia dato l’endomorﬁsmo T : R3 →R3 la cui matrice associata
+nella base canonica è data da
+A =
+
+
+1
+0
+1
+0
+1
+0
+1
+0
+0
+
+.
+(i) Determinare gli autovalori di T e le relative molteplicità algebriche.
+(ii) Determinare gli autospazi di T.
+(iii) Trovare una base ortonormale, rispetto al prodotto scalare canonico,
+di autovettori per T.
+Esercizio 4. Si consideri lo spazio vettoriale R[x]≤2 dei polinomi reali di
+una variabile di grado al più 2, munito del prodotto scalare deﬁnito positivo
+⟨⟨p, q⟩⟩:=
+Z 1
+−1
+p(x)q(x) dx.
+(i) Scrivere la matrice associata a tale prodotto scalare, rispetto alla base
+canonica {1, x, x2}.
+(ii) Determinare una base ortogonale per R[x]≤2, rispetto al prodotto sca-
+lare dato.
+(iii) Determinare equazioni cartesiane per il complemento ortogonale, ri-
+spetto al prodotto scalare dato, del sottospazio generato da {x2}.
+Esercizio 5. Dire, giustiﬁcandone il motivo, quali tra i seguenti sottoinsiemi
+di V = M3,3(C) sono sottospazi aﬃni, indicando in particolare quali sono
+anche sottospazi vettoriali.
+(i) Data B ∈V qualunque ma ﬁssata, L1 = {A ∈V | tr(BA)t = 0}.
+(ii) L2 = {A ∈V | tr(A + Id3) = 1980}.
+(iii) L3 = {A ∈V | tr(A2) = 0}.
+1Per intenderci: si tratta della matrice che, moltiplicata per una colonna contenente
+le coordinate di un vettore nella base B, fornisce come risultato le coordinate dello stesso
+vettore nella base C.
+2

@@ -1,0 +1,64 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 24/01/2022
+proﬀ. F. De Marchis, F. Lanzara, A. Terracina
+COGNOME, NOME e MATRICOLA:
+DOCENTE:
+⃝De Marchis
+⃝Lanzara
+⃝Terracina
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono
+essere adeguatamente motivati!
+Esercizio 1. Dimostrare che esistono due punti nella forma (0, y0) e (0, y1) intorno ai quali l’equazione
+y3 sin(x) + y2 −2yex −3 −x = 0
+deﬁnisce implicitamente due funzioni g0(x) e g1(x) tali che g0(0) = y0 e g1(0) = y1.
+Studiare il comportamento di g0(x) e g1(x) in un intorno di x = 0 (crescenza, decrescenza e natura degli
+eventuali punti critici).
+Esercizio 2. Data la successione di funzioni
+fn(x) =
+x
+1 + 2−n + x2
+n2
+i. studiare la convergenza puntuale per x ∈;
+ii. dire se la convergenza `e uniforme in ;
+iii. calcolare, giustiﬁcando i passaggi,
+lim
+n→+∞
+Z 2
+1
+fn(x) dx.
+Esercizio 3. Sia
+T = {(x, y, z) :
+x2 + y2 ≤z ≤3 + 2y}.
+i. Calcolare il volume di T.
+ii. Posto F = (xy −3x + ez, x2 + 2y + cos(x), 2 cos(x) + 4y), calcolare il ﬂusso di F uscente da T.
+iii. Calcolare il ﬂusso di F attraverso le due superﬁci regolari che compongono la frontiera di T, orien-
+tando il versore normale uscente da T.
+Esercizio 4. Dato il campo vettoriale
+F(x, y, z) =
+ 
+x
+x2 + y2 + z2 + 4 + x2 −z2,
+y
+x2 + y2 + z2 + 4 + y2 + z,
+z
+x2 + y2 + z2 + 4 −x2 + z2
+!
+e la curva
+γ : z = x + 3y + 4,
+x2 + y2 = 4
+i. dire se la curva γ `e regolare determinando un’opportuna rappresentazione parametrica;
+ii. dire se il campo F `e conservativo nel suo insieme di deﬁnizione;
+iii. calcolare l’area della superﬁcie z = x + 3y + 4,
+x2 + y2 ≤4;
+iv. calcolare la circuitazione del campo F lungo la curva γ, percorsa in verso antiorario se vista dall’alto.
+Esercizio 5. Dato il problema di Cauchy
+(1)
+( y′ = 4t3(1 −ey)
+y(0) = log 2
+i. dire perch´e il problema (1) ammette un’unica soluzione locale.
+Senza determinare esplicitamente la soluzione y(t) si provi che:
+ii. il punto t = 0 `e un punto di massimo locale per la soluzione y(t);
+iii. la soluzione esiste in tutto ;
+iv. esistono lim
+t→±∞y(t) e calcolarli.
+Si determini esplicitamente la soluzione

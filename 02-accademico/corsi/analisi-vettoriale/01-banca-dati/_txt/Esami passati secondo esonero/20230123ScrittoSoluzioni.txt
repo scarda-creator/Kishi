@@ -1,0 +1,553 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 23/01/2023
+proﬀ. F. De Marchis, F. Lanzara, A. Terracina
+COGNOME, NOME e MATRICOLA:
+DOCENTE:
+⃝De Marchis
+⃝Lanzara
+⃝Terracina
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere adeguatamente motivati!
+Esercizio 1. Data la funzione
+f(x, y) =
+
+x2 + 2xy
+(x2 + y2)3/2 sin(xy)
+(x, y) , (0, 0)
+0
+(x, y) = (0, 0)
+i. studiarne la continuit`a in (0, 0);
+ii. studiarne la derivabilit`a in (0, 0);
+iii. studiarne l’esistenza delle derivate direzionali in (0, 0);
+iv. studiarne la diﬀerenziabilit`a in (0, 0).
+Soluzione. i. Dato che f(0, 0) = 0, f `e continua in (0, 0) se e solo se esiste lim(x,y)→(0,0) f(x, y) = 0. Ricorrendo al limite notevole
+(1)
+lim
+t→0
+sin(t)
+t
+= 1
+e osservando che
+lim
+(x,y)→(0,0) xy = 0,
+si ha
+(2)
+lim
+(x,y)→(0,0)
+x2 + 2xy
+(x2 + y2)3/2 sin(xy) =
+lim
+(x,y)→(0,0)
+x2y(x + 2y)
+(x2 + y2)3/2 .
+Usando le disuguaglianza
+|x| ≤
+q
+x2 + y2,
+|y| ≤
+q
+x2 + y2,
+si ha
+0 ≤|x2y(x + 2y)|
+(x2 + y2)3/2 ≤x2|y|(|x| + 2|y|)
+(x2 + y2)3/2
+≤(x2 + y2)
+p
+x2 + y23
+p
+x2 + y2
+(x2 + y2)3/2
+= 3
+q
+x2 + y2 (x,y)→(0,0)
+→
+0.
+Concludiamo che f `e continua anche nell’origine.
+ii. Per studiare la derivabilit`a dobbiamo stabilire se esistono ﬁniti i limiti dei rapporti incrementali. Essendo
+f(h, 0) = 0 ⇒lim
+h→0
+f(h, 0) −f(0, 0)
+h
+= lim
+h→0
+0
+h = 0;
+f(0, k) = 0 ⇒lim
+k→0
+f(0, k) −f(0, 0)
+k
+= lim
+k→0
+0
+k = 0.
+Concludiamo che f `e derivabile nell’origine e ∇f(0, 0) = (0, 0).
+iii. Sia v = (v1, v2) con
+q
+v2
+1 + v2
+2 = 1. La funzione ammette derivate direzionali nella direzione v se esiste ﬁnito il seguente limite
+∂f
+∂v (0, 0)= lim
+t→0
+f(tv1, tv2) −f(0, 0)
+t
+= lim
+t→0
+t4v2
+1v2(v1 + 2v2)
+t|t|3
+= v2
+1v2(v1 + 2v2) lim
+t→0
+t3
+|t|3 =
+(0
+se
+v2
+1v2(v1 + 2v2) = 0
+∄
+se
+v2
+1v2(v1 + 2v2) , 0.
+iv. Per stabilire se f `e diﬀerenziabile nell’origine dobbiamo veriﬁcare se il seguente limite esiste ed `e 0:
+lim
+(h,k)→(0,0)
+f(h, k) −f(0, 0) −fx(0, 0)h −fy(0, 0)k
+√
+h2 + k2
+=
+lim
+(h,k)→(0,0)
+h2 + 2hk
+(h2 + k2)2 sin(hk)
+(1)=
+lim
+(h,k)→(0,0)
+h2k(h + 2k)
+(h2 + k2)2
+Calcoliamo il limite lunga la bisettrice x = y
+lim
+h→0
+3h4
+h4 = 3 , 0.
+Concludiamo che f non `e diﬀerenziabile nell’origine. Osserviamo che la non diﬀerenziabilit`a si poteva dedurre molto rapidamente
+dal fatto che la funzione non ammette derivate direzionali in (0, 0) lungo ogni direzione.
+
+
+===== PAGINA 2 =====
+Esercizio 2.
+Sia Z = {(x, y) ∈2 : x4 + y4 −2x2 −8y2 = 1} un sottoinsieme di 2,
+i. si provi che Z `e limitato e chiuso,
+ii. dire perch`e esistono e si individuino i punti di Z pi`u lontani e pi`u vicini all’origine (0, 0),
+iii. scrivere l’equazione della retta tangente a Z nel punto (2, 1) dopo averne giustiﬁcato l’esistenza.
+Soluzione. i. Possiamo riscrivere Z nella forma
+Z = {(x, y) ∈2 : x4 + y4 −2x2 −8y2 = 1} = {(x, y) ∈2 : (x2 −1)2 + (y2 −4)2 = 18}.
+Quindi
+(x2 −1)2 ≤(x2 −1)2 + (y2 −4)2 = 18 ⇒x2 ≤|x2 −1| + 1 ≤
+√
+18 + 1 ⇒|x| ≤
+q √
+18 + 1
+(y2 −4)2 ≤(x2 −1)2 + (y2 −4)2 = 18 ⇒y2 ≤|y2 −4| + 4 ≤
+√
+18 + 4 ⇒|y| ≤
+q √
+18 + 4
+Segue che Z `e limitato. Posto
+g(x, y) = x4 + y4 −2x2 −8y2 −1
+si ha Z = {(x, y) ∈2 : g(x, y) = 0}. Dall’essere g ∈C0(2) segue che Z `e chiuso.
+ii. I punti che massimizzano e minimizzano la distanza di un punto di Z dall’origine sono anche quelli che massimizzano e minimiz-
+zano la distanza al quadrato
+f(x, y) = x2 + y2.
+Osserviamo che per il teorema di Weierstrass f `e dotata di massimo e minimo in Z dato che f `e continua in Z insieme chiuso e
+limitato. Cerchiamo questi punti con il metodo dei moltiplicatori di Lagrange.
+Cerchiamo i punti di massimo e minimo tra le soluzioni del sistema
+det
+ fx
+fy
+gx
+gy
+!
+= det
+ 
+2x
+2y
+4x3 −4x
+4y3 −16y
+!
+= −8xy(3 + x2 −y2) = 0,
+x4 + y4 −2x2 −8y2 −1 = 0 .
+Dobbiamo risolvere il sistema
+xy(3 + x2 −y2) = 0
+(x2 −1)2 + (y2 −4)2 = 18 .
+Se
+x = 0;
+dalla 2a equazione y4 −8y2 −1 = 0 ⇐⇒y = ±
+q
+4 +
+√
+17;
+se
+y = 0;
+dalla 2a equazione x4 = 2 ⇐⇒x = ±
+q
+1 +
+√
+2;
+se xy , 0:
+3 + x2 −y2 = 0 →y2 = x2 + 3 →dalla 2a equazione 2(x2 −1)2 = 10 →x = ±2
+da cui segue
+y = ±
+√
+7.
+Si trovano le soluzioni del sistema
+P± = (±
+q
+1 +
+√
+2, 0),
+Q± = (0, ±
+q
+4 +
+√
+17),
+R± = (±2,
+√
+7),
+S ± = (±2, −
+√
+7).
+Quindi
+f(P±) = 1 +
+√
+2;
+f(Q±) = 4 +
+√
+17;
+f(R±) = f(S ±) = 11.
+min
+Z
+f(x, y) = 1 +
+√
+2;
+max
+Z
+f(x, y) = 11.
+iii. Innanzitutto veriﬁchiamo che (2, 1) ∈Z. Infatti g(2, 1) = 24 + 1 −2 × 22 −8 × 1 −1 = 16 + 1 −8 −8 −1 = 0. Inoltre
+gy(x, y) = 4y3 −16y ⇒gy(2, 1) = −12 , 0.
+Per il teorema delle funzioni implicite, esiste un intorno di 2, I = I(2), e un intorno di 1, J = J(1), ed esiste una funzione ϕ : I →J
+tale che
+Z ∩I × J = {(x, ϕ(x)), x ∈I}.
+2
+
+
+===== PAGINA 3 =====
+Inoltre, dato che g ∈C1(2) allora ϕ ∈C1(I) e il suo graﬁco `e dotato di retta tangente in ogni punto. In particolare nel punto (2, 1)
+y −1 = ϕ′(2)(x −1)
+Si ha
+ϕ′(x) = −gx(x, ϕ(x))
+gy(x, ϕ(x)).
+Dall’essere
+gx(x, y) = 4x3 −4x ⇒gx(2, 1) = 24
+si trova
+ϕ′(2) = −24
+−12 = 2 ⇒y −1 = 2(x −1) ⇐⇒y = 2x −3.
+Esercizio 3. Dato il campo vettoriale F = (y2 −x, 2xy, −xz −x) e la superﬁcie
+Σ = {(x, y, z) ∈3 : x2 + y2 + z2 = 9, x ≥0, y ≥0},
+i. calcolare rot F;
+ii. scrivere una rappresentazione parametrica delle curve regolari che costituiscono il bordo di Σ;
+iii. scrivere una rappresentazione parametrica regolare della superﬁcie Σ;
+iv. calcolare il lavoro di F lungo il bordo di Σ con l’orientazione indotta dal versore normale esterno alla sfera di raggio 3 .
+Svolgimento. i. Essendo F ∈C∞(3) ⊂C1(3) e
+rot F =
+
+i
+j
+k
+∂
+∂x
+∂
+∂y
+∂
+∂z
+y2 −x
+2xy
+−xz −x
+= (0, 1 + z, 0)
+ii. Essendo Σ uno spicchio della sfera di raggio 3 e centro l’origine in 3 possiamo parametrizzare Σ nel seguente modo:
+
+x = 3 sin(ϕ) cos(θ)
+y = 3 sin(ϕ) sin(θ)
+z = 3 cos(ϕ)
+(ϕ, θ) ∈D := [0, π] × [0, π
+2].
+Σ `e una superﬁcie con bordo regolare a tratti costituito dall’unione di due semicirconferenze
+γ1 :
+
+x = 3 sin(ϕ)
+y = 0
+z = 3 cos(ϕ)
+ϕ ∈[0, π];
+γ2 :
+
+x = 0
+y = 3 sin(ϕ)
+z = 3 cos(ϕ)
+ϕ ∈[0, π].
+iii. Possiamo applicare il Teorema di Stokes ottenendo che
+L =
+Z
+∂S
+F · T ds =
+"
+Σ
+rot F · N dσ
+dove N `e la normale uscente dalla sfera di raggio 3 e centro l’origine.
+Detta r la parametrizzazione di Σ precedentemente introdotta si ha che
+rϕ ∧rθ = (9 sin2(ϕ) cos(θ), 9 sin2(ϕ) sin(θ), 9 cos(ϕ) sin(ϕ))
+ed, essendo sgn(cos(ϕ) sin(ϕ)) = sgn(z), rϕ ∧rθ ha il segno desiderato. Da cui
+L
+=
+"
+D
+(0, 1 + 3 cos(ϕ), 0) · (rϕ ∧rθ) dϕdθ
+=
+Z π
+0
+Z
+π
+2
+0
+(1 + 3 cos(ϕ)) × 9 sin2(ϕ) sin(θ)dθdϕ
+=
+9
+Z π
+0
+sin2(ϕ)dϕ
+|           {z           }
+=π/2
+Z
+π
+2
+0
+sin(θ)dθ
+|          {z          }
+=1
++27
+Z π
+0
+cos(ϕ) sin2(ϕ)dϕ
+|                    {z                    }
+=0
+Z
+π
+2
+0
+sin(θ)dθ = 9
+2π.
+3
+
+
+===== PAGINA 4 =====
+Esercizio 4. Dato l’insieme D = {(x, z) : x ≥0, x2 + z2 ≤1,
+√
+2x2 ≤z}.
+Sia T ottenuto ruotando D intorno all’asse z.
+i. calcolare il volume di T;
+ii. calcolare il ﬂusso di F = (x, y, z) uscente da T;
+iii. calcolare il ﬂusso di G = (xz, yz + z2, ex sin(y)) uscente da T;
+Soluzione. i. Prima cosa bisogna individuare nel semipiano (x, z), x > 0, l’intersezione tra le curve x2 +z2 = 1 e
+√
+2x2 = z. Si ottiene
+x2 + 2x4 −1 = 0, risolvendo la biquadratica si ottiene l’unica soluzione positiva x =
+√
+2
+2 . Quindi il dominio D si pu`o riscrivere come
+dominio normale rispetto ad x, infatti si ha D = {(x, z) : 0 ≤x ≤
+√
+2
+2 ,
+√
+2x2 ≤z ≤
+√
+1 −x2}. Trattandosi di un solido di rotazione
+possiamo applicare direttamente il teorema di Guldino, questo caso si ha
+V(T) = 2π
+Z
+D
+xdxdz = 2π
+Z
+√
+2
+2
+0
+Z
+√
+1−x2
+√
+2x2
+x dzdx = 2π
+Z
+√
+2
+2
+0
+(
+√
+1 −x2 −
+√
+2x2)x dzdx =
+2π[−1
+3(1 −x2)
+3
+2 −
+√
+2
+3 x3]
+√
+2
+2
+0
+= 2π
+3 (1 −1
+2 −(1
+2)
+3
+2 ) = 1
+24
+
+16 −7
+√
+2
+
+π.
+ii si fa subito osservando che F ∈C∞(3) ⊂C1(3) e la divergenza del campo `e 3. Quindi applicando il teorema della divergenza si
+ottiene che il ﬂusso richiesto vale
+Φ(F) =
+$
+T
+div Fdxdydz = 2π(1
+2 −(1
+2)
+3
+2 ).
+iii. si fa sempre applicando il teorema della divergenza dato che G ∈C∞(3) ⊂C1(3), in questo caso la divergenza vale 2z. Quindi
+il ﬂusso richiesto `e uguale per il teorema della divergenza al seguente integrale triplo
+Φ(G) =
+$
+T
+div Gdxdydz =
+$
+T
+2z dx dy dz.
+Si pu`o procedere per ﬁli o per strati. Volendo procedere per ﬁli osserviamo che il dominio T si pu`o scrivere come dominio normale
+rispetto al piano (x, y), ovvero
+T = {(x, y, z) ∈3 : x2 + y2 ≤1
+2,
+√
+2(x2 + y2) ≤z ≤
+q
+1 −x2 −y2}
+quindi passando a coordinate cilindriche il nostro integrale diventa
+Z
+√
+2
+2
+0
+Z 2π
+0
+Z √
+1−ρ2
+√
+2ρ2
+2ρz dzdθdρ = 2π
+Z
+√
+2
+2
+0
+ρ(1 −ρ2 −2ρ4) = 2π[ρ −ρ3
+3 −2ρ5
+5 ]
+√
+2
+2
+0
+= .... = 7
+24π.
+Esercizio 5. Fissato n ∈{1, 2, . . .}, sia yn(x) la soluzione massimale del problema di Cauchy
+(Pn)
+( y′
+n(x) = x3(yn(x) −3) arctan(yn(x))
+yn(0) = 1
+n
+i. Discutere esistenza e unicit`a locale della soluzione del problema di Cauchy.
+ii. Provare che la soluzione yn `e positiva.
+iii. Provare che yn(x) `e deﬁnita su .
+iv. Provare che yn(x) `e crescente in (−∞, 0) e decrescente in (0, ∞).
+Considerata ora la successione di funzioni,avente per termine n-simo la soluzione {yn(x)}n del problema di Cauchy (Pn)
+v. Provare che la successione di funzioni yn converge uniformemente alla funzione nulla in .
+vi. Calcolare
+lim
+n→+∞
+Z 4
+0
+yn(x) dx.
+NB: non `e richiesto il calcolo di yn.
+Soluzione. i. La funzione f(x, u) = x3(u−3) arctan(u) ∈C∞(2) ⊂C1(2) e quindi sono veriﬁcate le ipotesi del Teorema di Cauchy
+che garantiscono l’esistenza e unicit`a locale della soluzione di (Pn), per ogni n.
+ii. Dato che f(x, 0) ≡0 e f(x, 3) ≡0, le funzioni ¯y0(x) ≡0 e ¯y1(x) ≡3 sono soluzioni costanti dell’equazione diﬀerenziale
+y′(x) = x3(y(x) −3) arctan(y(x)). Quindi per l’unicit`a, essendo 0 < yn(0) = 1
+n < 3 (per ogni n ≥1), la soluzione yn(x) veriﬁca, per
+ogni x per cui `e deﬁnita,
+(3)
+0 < yn(x) < 3.
+4
+
+
+===== PAGINA 5 =====
+In particolare, la soluzione `e positiva nel suo intervallo massimale Imax.
+iii. Sono veriﬁcate le ipotesi del teorema di esistenza globale (f(x, u) ∈C1( ×  e limitatezza (3)) e possiamo dedurre che la
+soluzione `e deﬁnita in tutto .
+iv. Si ha, tenendo presente (3)
+y′
+n(x) =
+
+x3(yn(x) −3) arctan(yn(x)) > 0
+x < 0
+= 0
+x = 0
+x3(yn(x) −3) arctan(yn(x)) < 0
+x > 0
+Quindi, per ogni n ≥1, la soluzione `e crescente in (−∞, 0), `e decrescente in (0, ∞) e ha in x = 0 un punto di massimo assoluto.
+v. Si ha
+sup
+x∈
+|yn(x) −0| = sup
+x∈
+|yn(x)| = max
+x∈ |yn(x)| = yn(0) = 1
+n.
+Quindi
+lim
+n→∞sup
+x∈
+|yn(x) −0| = lim
+n→∞
+1
+n = 0
+ovvero yn converge uniformemente alla funzione nulla in .
+vi. La convergenza uniforme in  implica la convergenza uniforme in [0, 4]. Quindi yn(x) ∈C0(), si ha convergenza uniforme
+in [0, 4] alla funzione nulla: sono veriﬁcate le ipotesi del teorema di passaggio al limite sotto segno d’integrale (nelle ipotesi di
+convergenza uniforme):
+lim
+n→+∞
+Z 4
+0
+yn(x) dx =
+Z 4
+0
+lim
+n→+∞yn(x) dx = 0.
+Osserviamo che si poteva anche usare il teorema di Lebesgue sulla convergenza dominata: vale infatti la (3) e la funzione costante 3
+`e sommabile in [0, 4].
+5

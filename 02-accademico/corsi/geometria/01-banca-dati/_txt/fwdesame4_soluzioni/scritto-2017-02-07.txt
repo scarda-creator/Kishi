@@ -1,0 +1,207 @@
+===== PAGINA 1 =====
+Geometria (LT Fisica)
+Proﬀ. A. D’Andrea, A. De Sole, G. Mondello, K. O’Grady
+Prova scritta - 7 febbraio 2017
+Nome e Cognome:
+Numero di matricola:
+Canale:
+Esercizio
+Punti totali
+Punteggio
+1
+6
+2
+6
+3
+6
+4
+6
+5
+6
+Totale
+30
+Occorre motivare le risposte. Una soluzione corretta priva di motivazione ricever`a 0 punti.
+Verr`a corretto solo quello che sar`a scritto su queste pagine.
+Voto/30:
+1
+
+
+===== PAGINA 2 =====
+Esercizio 1. Siano U, V ⊂R4 i sottospazi vettoriali deﬁniti da
+U
+:=
+*
+
+
+
+
+1
+1
+−7
+5
+
+
+
+,
+
+
+
+
+1
+0
+−4
+3
+
+
+
+,
+
+
+
+
+1
+−3
+5
+−3
+
+
+
+
++
+,
+V
+:=
+
+X ∈R4
+
+x1 −x2 + x3 −x4 = 0
+x1 + 2x2 + 3x3 + 4x4 = 0
+
+.
+(a) Date basi di U e V .
+(b) Determinate se U e V siano spazi vettoriali isomorﬁ.
+Risoluzione:
+Risposte:
+Base di U:
+Base di V :
+U e V sono isomorﬁ?
+(s`ı/no)
+2
+
+
+===== PAGINA 3 =====
+Esercizio 2. Sia
+A :=
+
+
+a11
+a12
+a13
+a21
+a22
+a23
+a31
+a32
+a33
+
+∈M3,3(R),
+e supponiamo che Det A = 5. Sia B ∈M3,3(R) deﬁnita da
+B :=
+
+
+a11
+a12 + a13
+a12
+a21 −3a11
+a22 + a23 −3a12 −3a13
+a22 −3a12
+a31
+a32 + a33
+a32
+
+.
+Calcolate Det B.
+Risoluzione:
+Risposta: Det B =
+3
+
+
+===== PAGINA 4 =====
+Esercizio 3. Sia A2 il piano aﬃne euclideo e siano dati i punti P1 =
+ 1
+0
+
+, P2 =
+ −1
+1
+
+, P3 =
+ 1
+2
+
+e P ′
+1 =
+ 0
+2
+
+, P ′
+2 =
+ 1
+0
+
+, P ′
+3 =
+ 2
+2
+
+.
+(a) Scrivete, nella forma f(X) = A · X + b, un’aﬃnit`a f : A2 →A2 tale che f(Pi) = P ′
+i per i = 1, 2, 3.
+(b) Dite se l’aﬃnit`a f sia una isometria del piano euclideo (rispetto alla distanza euclidea standard).
+Risoluzione:
+Risposta: A =
+b =
+f `e una isometria?
+(s`ı/no)
+4
+
+
+===== PAGINA 5 =====
+Esercizio 4. Sia A ∈M2,2(R) data da
+A :=
+
+1
+−2
+−3
+0
+
+Determinate P ∈M2,2(R) invertibile e D ∈M2,2(R) diagonale tali che A = PDP −1.
+Risoluzione:
+Risposta: P =
+D =
+5
+
+
+===== PAGINA 6 =====
+Esercizio 5. Siano
+A :=
+
+
+18
+0
+−6
+0
+12
+6
+−6
+6
+5
+
+,
+e q(X) := Xt · A · X l’associata forma quadratica su R3. Determinate una base ortonormale (per il
+prodotto scalare euclideo standard su R3) che diagonalizzi q.
+Risoluzione:
+Risposta:
+Base ortonormale
+che diagonalizza q:
+6

@@ -1,0 +1,54 @@
+===== PAGINA 1 =====
+Algebra lineare
+Anno accademico 2019/20
+Prova scritta in modalit`a telematica - 1 luglio 2020
+Tre esercizi, 90 minuti di tempo
+Occorre motivare le risposte.
+Una soluzione corretta priva di motivazione ricever`a 0 punti.
+1
+
+
+===== PAGINA 2 =====
+Esercizio 1. Determinare tutti gli z ∈C che soddisﬁno l’equazione z2 −z = |z|.
+2
+
+
+===== PAGINA 3 =====
+Esercizio 2. Sia R[t]≤5 lo spazio vettoriale reale dei polinomi in t a coeﬃcienti reali di grado al pi`u 5.
+Dopo averne calcolato la dimensione, dire, motivando la risposta, quali dei seguenti sottoinsiemi V, W, Z
+di R[t]≤5 siano sottospazi vettoriali. Determinare inﬁne la dimensione di tali sottospazi vettoriali.
+(i) V = {p ∈R[t]≤5 | p(1) = p(
+√
+2) = 0}.
+(ii) W = {p ∈R[t]≤5 | esiste M > 0 tale che p(α) < M per ogni reale α > 0}.
+(iii) Z = {p ∈R[t]≤5 | p(n)2 ≤n per ogni intero n ≥0}.
+3
+
+
+===== PAGINA 4 =====
+Esercizio 3. Si considerino lo spazio vettoriale complesso V = {M matrice 2 × 2 complessa, triangolare superiore}
+e l’applicazione lineare F : V →V deﬁnita da
+F
+ a
+b
+0
+d
+
+:=
+ d
+a + 5d
+0
+b
+
+.
+(i) Dire se A =
+ 1
+4 + i
+0
+2
+
+sia un autovettore per F. Se s`ı, calcolarne il corrispondente autovalore.
+(ii) Dire se F ammetta un autovalore reale.
+(iii) Calcolare il rango di F.
+(iv) Dire se l’applicazione (F 3 −4F) : V →V sia invertibile.
+4

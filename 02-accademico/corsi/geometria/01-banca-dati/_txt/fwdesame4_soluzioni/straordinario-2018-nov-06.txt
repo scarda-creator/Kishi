@@ -1,0 +1,96 @@
+===== PAGINA 1 =====
+Geometria (LT Fisica)
+Anno accademico 2018/19
+Canale D-K
+Appello straordinario (6 novembre 2018)
+Cognome:
+Nome:
+Numero di matricola:
+Esercizio
+Punti totali
+Punteggio
+1
+7.5
+2
+7.5
+3
+7.5
+4
+7.5
+Totale
+30
+Occorre motivare le risposte. Una soluzione corretta priva di motivazione ricever`a 0 punti.
+Verr`a corretto solo quello che sar`a scritto su queste pagine.
+Voto/30:
+1
+
+
+===== PAGINA 2 =====
+Esercizio 1.
+(a) Esprimere in forma cartesiana, ovvero nella forma x + iy, le due radici quadrate del
+numero complesso 4 + 2i.
+(b) Esprimere il numero complesso w = −
+√
+3+i in forma polare (o trigonometrica), ovvero nella forma
+ρ(cos θ + i sen θ) o, equivalentemente, ρeiθ.
+(c) Siano z1, . . . , z7 le soluzioni dell’equazione z7 = −
+√
+3 + i.
+Quante di esse hanno parte reale strettamente positiva? Esprimerle in forma trigonometrica.
+Risoluzione:
+2
+
+
+===== PAGINA 3 =====
+Esercizio 2. Sia R[t] lo spazio vettoriale reale dei polinomi in t a coeﬃcienti reali.
+Diremo che un polinomio p ∈R[t] ha almeno una radice intera se esiste n ∈Z tale che p(n) = 0.
+Quali dei seguenti sono sottospazi vettoriali di R[t]?
+(Giustiﬁcare la propria risposta con una dimostrazione oppure un controesempio.)
+(a) W =
+
+p ∈R[t] : p ha almeno una radice intera
+	
+.
+(b) Z =
+
+p ∈R[t] : |p(1)| ≥|p(0)|
+	
+.
+(c) U =
+
+p ∈R[t] : p(2)2 + p(3)4 = 0
+	
+.
+Risoluzione:
+3
+
+
+===== PAGINA 4 =====
+Esercizio 3. Sia V = C[t]≤2 lo spazio vettoriale complesso dei polinomi nella variabile t di grado minore
+o uguale a 2. Sia B = (q0, q1, q2) una base di V con qi = ti e sia α ∈C. Sia fα : V →V l’applicazione
+lineare deﬁnita da fα(p) := α · p(0)t2 + p′, dove p′ = dp
+dt .
+(a) Determinare la matrice che rappresenta fα rispetto alla base B in partenza e in arrivo.
+(b) Calcolare il polinomio caratteristico e gli autovalori di fα.
+(c) Calcolare il polinomio minimo di fα e dire se fα sia diagonalizzabile.
+Risoluzione:
+4
+
+
+===== PAGINA 5 =====
+Esercizio 4. Nello spazio euclideo tridimensionale standard R3 (con coordinate standard x1, x2, x3),
+considerare la retta ℓper l’origine con vettore direttore v = e1 + e2 e sia Π il piano aﬃne ortogonale a ℓ
+e passante per il punto C =
+
+
+2
+2
+0
+
+. Sia π : R3 →R3 la proiezione ortogonale sul piano aﬃne Π.
+(a) Scrivere una equazione cartesiana per il piano Π.
+(b) Determinare una matrice A e un vettore b tali che f(x) = Ax + b.
+(c) Data r ⊂R3 la retta aﬃne r = {x1 = 0, x3 = 1}, determinare il punto P ∈ℓe Q ∈r a distanza
+minima l’uno dall’altro, e calcolare tale distanza.
+Risoluzione:
+5

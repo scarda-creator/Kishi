@@ -1,0 +1,339 @@
+===== PAGINA 1 =====
+Geometria (Fisica)
+Canale L-P
+Esame - 18 settembre 2017
+Nome e Cognome:
+Numero di Matricola:
+Esercizio
+Punti totali
+Punteggio
+1
+8
+2
+8
+3
+8
+4
+8
+Totale
+32
+Occorre motivare le risposte. Una soluzione corretta priva di motivazione riceverà 0 punti.
+Verrà corretto solo quello che sarà scritto su queste pagine.
+Voto/30:
+1
+
+
+===== PAGINA 2 =====
+Esercizio 1.
+Nello spazio vettoriale M2(R) delle matrici quadrate reali di ordine 2, si consideri l’operatore lineare
+T : M2(R) →M2(R)
+deﬁnito da
+T(M) = AM
+dove M ∈M2(R) e A =
+ 1
+2
+3
+4
+
+.
+i) Scegliere una base di M2(R), e scrivere la matrice associata a T utilizzando tale base sia in partenza
+che in arrivo.
+ii) Determinare il nucleo e il rango di T.
+Soluzione:
+i) Come base di M2(R) possiamo scegliere le quattro matrici
+
+1
+0
+0
+0
+
+,
+
+0
+1
+0
+0
+
+,
+
+0
+0
+1
+0
+
+,
+
+0
+0
+0
+1
+
+,
+in modo che le coordinate di una matrice
+a
+b
+c
+d
+
+siano proprio (a, b, c, d).
+Calcolando il prodotto di A per queste quattro matrici, e riportando le coordinate del prodotto su
+quattro colonne, si vede facilmente che la matrice associata a T (utilizzando la base scelta sia in partenza
+che in arrivo) è
+
+
+
+
+1
+0
+2
+0
+0
+1
+0
+2
+3
+0
+4
+0
+0
+3
+0
+4
+
+
+
+.
+ii) Poiché A è una matrice invertibile (il suo determinante è non nullo), l’applicazione T ha per inversa
+M 7→A−1M. Pertanto T è invertibile, e quindi iniettiva e suriettiva. Il suo nucleo è quindi il sottospazio
+vettoriale nullo, mentre il suo rango è dim M2(R) = 4.
+2
+
+
+===== PAGINA 3 =====
+Esercizio 2.
+Si considerino in R3, dotato della sua struttura euclidea canonica, la retta r di equazioni cartesiane
+r :
+(
+x + y + z + 1 = 0
+x −5z −2 = 0
+e la retta s di parametrizzazione s : x = t, y = t + 1, z = t + 4.
+i) Stabilire se r e s siano parallele, sghembe o incidenti, indicando eventualmente il loro punto di
+intersezione.
+ii) Stabilire se r e s siano perpendicolari, cioè se abbiano giacitura perpendicolare.
+Soluzione:
+i) Sostituendo la parametrizzazione di s nelle equazioni cartesiane di r, si ottiene
+(
+3t + 6 = 0
+−4t −22 = 0
+che non ammette soluzioni. Le due rette non hanno quindi intersezione, e possono essere parallele oppure
+sghembe, ma sicuramente non incidenti. Il vettore direttore di s è (1, 1, 1), mentre quello di r si ottiene
+risolvendo il sistema delle sue equazioni cartesiane, ad esempio con il procedimento di eliminazione di
+Gauss.
+Si ottiene rapidamente r : x = 5k + 2, y = −6k −3, z = k e quindi il vettore direttore di r è (5, −6, 1),
+che non è parallelo a quello di s. Le rette non sono quindi parallele.
+ii) Le due rette sono tuttavia perpendicolari, poiché il prodotto scalare dei vettori direttori (1, 1, 1) e
+(5, −6, 1) è nullo.
+3
+
+
+===== PAGINA 4 =====
+Esercizio 3.
+Si consideri nello spazio vettoriale M2(C) delle matrici quadrate complesse 2 × 2, il sottoinsieme
+U = {A ∈M2(C) tali che A = i A
+t},
+dove A
+t è la matrice trasposta di quella i cui coeﬃcienti sono i complessi coniugati dei coeﬃcienti di A.
+i) Stabilire se U sia un sottospazio vettoriale complesso di M2(C) e eventualmente calcolarne la
+dimensione complessa.
+ii) Stabilire se U sia un sottospazio vettoriale reale di M2(C) e eventualmente calcolarne la dimensione
+reale.
+Soluzione:
+Se
+A =
+a + bi
+c + di
+e + fi
+g + hi
+
+,
+allora
+i At =
+b + ai
+f + ei
+d + ci
+h + gi
+
+;
+pertanto A = i At se e solo se a = b, c = f, d = e, g = h. Gli elementi di U sono quindi tutte e sole le
+matrici della forma
+A =
+a + ai
+c + di
+d + ci
+g + gi
+
+,
+dove a, c, d, g sono numeri reali. U è allora sicuramente un sottospazio vettoriale reale generato dalle
+quattro matrici linearmente indipendenti
+1 + i
+0
+0
+0
+
+,
+0
+1
+i
+0
+
+,
+0
+i
+1
+0
+
+,
+0
+0
+0
+1 + i
+
+,
+ed ha quindi dimensione (reale) 4.
+U non è invece un sottospazio vettoriale complesso poiché, ad esempio,
+i ·
+1 + i
+0
+0
+0
+
+=
+−1 + i
+0
+0
+0
+
+non appartiene ad U.
+4
+
+
+===== PAGINA 5 =====
+Esercizio 4.
+Si consideri in R5 la forma bilineare simmetrica
+b(⃗x,⃗y) = x1y5 + x2y4 + x3y3 + x4y2 + x5y1
+dove⃗x = (x1, x2, x3, x4, x5),⃗y = (y1, y2, y3, y4, y5) ∈R5.
+i) Scrivere l’espressione della forma quadratica q : R5 →R associata a b.
+ii) Determinare una base di R5 che consente di scrivere q in forma di Sylvester.
+iii) Precisare rango e indici di positività e di negatività di q.
+Soluzione:
+La forma quadratica associata a b è q(⃗x) = 2x1x5 + 2x2x4 + x2
+3, e la matrice associata è
+
+
+
+
+
+
+0
+0
+0
+0
+1
+0
+0
+0
+1
+0
+0
+0
+1
+0
+0
+0
+1
+0
+0
+0
+1
+0
+0
+0
+0
+
+
+
+
+
+
+.
+Vi sono tanti modi di calcolare una base che diagonalizzi la forma quadratica q. Poiché molti hanno
+provato ad utilizzare il teorema spettrale, lo faccio anch’io.
+Per il teorema spettrale, una base che diagonalizza q si ottiene calcolando una base (ortonormale
+rispetto al prodotto scalare canonico) di R5 di autovettori per l’endomorﬁsmo la cui matrice è quella
+appena scritta.
+Si calcola rapidamente (salto i conti) il polinomio caratteristico:
+
+−λ
+0
+0
+0
+1
+0
+−λ
+0
+1
+0
+0
+0
+1 −λ
+0
+0
+0
+1
+0
+−λ
+0
+1
+0
+0
+0
+−λ
+
+= (1 −λ)
+
+−λ
+0
+0
+1
+0
+−λ
+1
+0
+0
+1
+−λ
+0
+1
+0
+0
+−λ
+
+= (1 −λ)(1 −λ2)2 = (1 −λ)3(1 −λ)2.
+Gli autovalori sono 1 con molteplicità 3 e −1 con molteplicità 2, e quindi q ha indice di positività 3
+e indice di negatività 2, mentre il suo rango è 5.
+Una base ortonormale di autovettori — e quindi una base di Sylvester per q — si ottiene facendo i
+soliti conti ed è, ad esempio,
+(1, 0, 0, 0, 1)/
+√
+2,
+(0, 1, 0, 1, 0)/
+√
+2,
+(0, 0, 1, 0, 0),
+(1, 0, 0, 0, −1)/
+√
+2,
+(0, 1, 0, −1, 0)/
+√
+2.
+5

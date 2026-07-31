@@ -1,0 +1,119 @@
+===== PAGINA 1 =====
+Geometria. a.a. 2015-16, Gruppo: 3
+Prova scritta del 23 Febbraio 2014
+Esercizio 1. Sia V = R4 e siano U e W i sottospazi di V deﬁniti da
+U = Span
+
+
+
+
+
+1
+0
+1
+1
+
+,
+
+1
+0
+1
+0
+
+,
+
+2
+0
+2
+−3
+
+
+
+
+,
+W = Span
+
+
+
+
+
+1
+0
+−1
+0
+
+,
+
+0
+3
+1
+5
+
+
+
+
+
+Determinare la dimensione di U e quella di W.
+Stabilire se R4 = U ⊕W.
+Esercizio 2. Veriﬁcare se la matrice
+
+1
+1
+2
+1
+1
+2
+1
+0
+−2
+
+;
+´e diagonalizzabile.
+Trovare gli autovettori.
+Esercizio 3. Siano r e s le rette di equazioni
+r :
+
+x + y + z = 1
+2x −y + 2z = −1
+s :
+
+
+
+x = 1 + t
+y = −1 + 2t
+z = −3t
+Veriﬁcare se le rette sono sghembe
+Calcolare la distanza tra le due rette.
+Esercizio 4. Nello spazio dei polinomi di grado ≤2, R2[x], `e dato il prodotto
+scalare deﬁnito positivo
+< p(t), q(t) >= 2p(0)q(0) + p(1)q(1) + p(−1)q(−1).
+Trovare una base ortonormale.
+Veriﬁcare se `e ortogonale l’ operatore T deﬁnito da
+T(a + bx + cx2) = 4a +
+√
+2b + c
+2
+√
+2
++ −
+√
+2b + c
+2
+x + −
+√
+2b + c
+√
+2
+x2
+Esercizio 5. Sia C ∈M2(R) una matrice diagonalizzabile con autovalori
+λ1 = 1,
+λ2 = −2
+Trovare per quali valori del parametro k ∈R la matrice
+
+k + c11
+c12
+c21
+k + c22
+
+`e invertibile.
+1

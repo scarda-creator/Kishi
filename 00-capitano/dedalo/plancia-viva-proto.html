@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plancia viva — proposta (registro AndrooAGI)</title>
+<script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+<style>
+  html,body{margin:0;height:100%;background:#07070e;color:#dfe6ff;font-family:'Segoe UI',system-ui,sans-serif;overflow:hidden}
+  #net{position:fixed;inset:0 340px 0 0}
+  #side{position:fixed;top:0;right:0;bottom:0;width:340px;background:#0b0b16;border-left:1px solid #1c1c30;display:flex;flex-direction:column}
+  .shead{padding:14px 16px;border-bottom:1px solid #1c1c30}
+  .shead h1{margin:0;font-size:1rem;letter-spacing:.5px}
+  .shead p{margin:5px 0 0;font-size:.72rem;color:#7f8bb5;line-height:1.4}
+  #feed{flex:1;overflow-y:auto;padding:8px 12px}
+  .ev{display:flex;gap:8px;padding:6px 0;border-bottom:1px solid #14142400;font-size:.78rem;animation:in .3s ease}
+  @keyframes in{from{opacity:0;transform:translateX(8px)}to{opacity:1}}
+  .ev .t{color:#5a648c;font-variant-numeric:tabular-nums;min-width:52px}
+  .ev .m{color:#c3cbf0}
+  .ev .m b{color:#fff}
+  .foot{padding:10px 14px;border-top:1px solid #1c1c30;font-size:.68rem;color:#6b76a3}
+  .badge{position:fixed;top:14px;left:16px;z-index:5;background:rgba(11,11,22,.8);border:1px solid #2a2a45;border-radius:10px;padding:8px 12px;font-size:.72rem;color:#9aa4d0;backdrop-filter:blur(6px)}
+  .badge b{color:#ffb454}
+  #live{display:inline-block;width:8px;height:8px;border-radius:50%;background:#3ddc84;margin-right:6px;box-shadow:0 0 8px #3ddc84;animation:blink 1.4s infinite}
+  @keyframes blink{50%{opacity:.35}}
+</style>
+</head>
+<body>
+<div id="net"></div>
+<div class="badge"><span id="live"></span>PROPOSTA · registro <b>AndrooAGI</b> · demo (attività simulata; hook-ready)</div>
+<div id="side">
+  <div class="shead"><h1>Plancia viva</h1><p>Ogni nodo è una postazione. Pulsa quando lavora, gli archi si accendono sulla delega. Il feed è l'attività in tempo reale — qui simulata, pronta a leggere gli hook reali di :8000.</p></div>
+  <div id="feed"></div>
+  <div class="foot">Da ratificare: registro, se restare su vis-network 2D animato o salire a 3D (R3F/voxel, come TenacitOS). Decide Giuseppe.</div>
+</div>
+<script>
+"use strict";
+var COL={giuseppe:'#f4d06a',mnemosyne:'#5eead4',dedalo:'#f5b563',rapsodo:'#c9a678',demiurgo_acc:'#eef2fb',demiurgo_cre:'#b0a4e8',argonauta:'#7db4ff'};
+var LBL={giuseppe:'GIUSEPPE',mnemosyne:'Mnemosyne',dedalo:'Dedalo',rapsodo:'Rapsodo',demiurgo_acc:'Demiurgo Acc.',demiurgo_cre:'Demiurgo Cre.',argonauta:'Argonauta'};
+function nodeDef(id,val){return{id:id,label:LBL[id],value:val,color:{background:'#12121f',border:COL[id]},font:{color:COL[id]},borderWidth:2};}
+var nodes=new vis.DataSet([nodeDef('giuseppe',34),nodeDef('mnemosyne',26),nodeDef('dedalo',26),
+  nodeDef('rapsodo',16),nodeDef('demiurgo_acc',18),nodeDef('demiurgo_cre',16),nodeDef('argonauta',16)]);
+function e(f,t){return{id:f+'_'+t,from:f,to:t,color:{color:'#22223a',opacity:.7},width:1.2};}
+var edges=new vis.DataSet([e('giuseppe','mnemosyne'),e('giuseppe','dedalo'),e('mnemosyne','dedalo'),
+  e('mnemosyne','rapsodo'),e('mnemosyne','argonauta'),e('mnemosyne','demiurgo_acc'),
+  e('dedalo','demiurgo_cre'),e('dedalo','argonauta'),e('dedalo','demiurgo_acc')]);
+var net=new vis.Network(document.getElementById('net'),{nodes:nodes,edges:edges},{
+  nodes:{shape:'dot',scaling:{min:10,max:32},shadow:{enabled:true,color:'rgba(0,0,0,.5)',size:10}},
+  edges:{smooth:{type:'continuous'},arrows:{to:{enabled:true,scaleFactor:.4}}},
+  physics:{barnesHut:{gravitationalConstant:-5200,springLength:150,damping:.5,avoidOverlap:.4},stabilization:{iterations:180}},
+  interaction:{hover:true,zoomView:true,dragView:true}
+});
+function pulse(id){
+  var c=COL[id];
+  nodes.update({id:id,color:{background:c,border:'#ffffff'},shadow:{enabled:true,color:c,size:30}});
+  setTimeout(function(){nodes.update({id:id,color:{background:'#12121f',border:c},shadow:{enabled:true,color:'rgba(0,0,0,.5)',size:10}});},900);
+}
+function fire(f,t){
+  var c=COL[f];
+  edges.update({id:f+'_'+t,color:{color:c,opacity:1},width:3});
+  setTimeout(function(){edges.update({id:f+'_'+t,color:{color:'#22223a',opacity:.7},width:1.2});},900);
+}
+function log(t,m,c){
+  var d=document.createElement('div');d.className='ev';
+  var now=new Date();var hh=String(now.getHours()).padStart(2,'0'),mm=String(now.getMinutes()).padStart(2,'0'),ss=String(now.getSeconds()).padStart(2,'0');
+  d.innerHTML='<span class="t">'+hh+':'+mm+':'+ss+'</span><span class="m">'+m+'</span>';
+  if(c)d.querySelector('.m').style.color=c;
+  var f=document.getElementById('feed');f.insertBefore(d,f.firstChild);
+  while(f.children.length>40)f.removeChild(f.lastChild);
+}
+// --- motore di attività (DEMO simulata; sostituibile con poll di http://127.0.0.1:8000) ---
+var SCEN=[
+  ['mnemosyne','demiurgo_acc','<b>Mnemosyne</b> dispaccia il Demiurgo Accademico'],
+  ['dedalo','demiurgo_cre','<b>Dedalo</b> brieffa il Demiurgo Creativo'],
+  ['dedalo','argonauta','<b>Dedalo</b> manda l’Argonauta in ricerca'],
+  ['argonauta','dedalo','l’<b>Argonauta</b> restituisce i findings a Dedalo'],
+  ['mnemosyne','rapsodo','<b>Mnemosyne</b> interroga il Rapsodo (memoria)'],
+  ['giuseppe','mnemosyne','<b>Giuseppe</b> parla con Mnemosyne (porto d’ingresso)'],
+  ['giuseppe','dedalo','<b>Giuseppe</b> convoca Dedalo'],
+  ['demiurgo_acc','mnemosyne','il <b>Demiurgo</b> consegna: Mnemosyne verifica']
+];
+function tick(){
+  var s=SCEN[Math.floor(Math.random()*SCEN.length)];
+  pulse(s[0]);setTimeout(function(){fire(s[0],s[1]);pulse(s[1]);},250);
+  log(null,s[2],COL[s[0]]);
+}
+net.once('stabilizationIterationsDone',function(){net.fit({animation:{duration:600}});
+  log(null,'plancia viva — <b>demo</b> avviata',null);
+  setInterval(tick,1700);
+});
+</script>
+</body>
+</html>

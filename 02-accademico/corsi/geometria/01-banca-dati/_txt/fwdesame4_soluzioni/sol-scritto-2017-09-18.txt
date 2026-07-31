@@ -1,0 +1,296 @@
+===== PAGINA 1 =====
+Geometria (Fisica, Canale A-C),
+Proﬀ. A. De Sole, G. Mondello, K. O’Grady, P. Papi
+Soluzioni della prova di esame del 18 settembre 2017
+Esercizio 1. Siano v1, v2, v3(t), w1, w2 ∈R3 i vettori
+v1
+=
+(3, 2, 1),
+v2
+=
+(1, −1, 2),
+v3(t)
+=
+(2, t, 3 + t),
+w1
+=
+(1, 1, 0),
+w2
+=
+(1, 0, 1).
+Per quali valori di t il sottospazio V (t) = ⟨v1, v2, v3(t)⟩`e uguale al sottospazio W = ⟨w1, w2⟩?
+Risoluzione:
+Non essendo proporzionali, v1 e v2 sono linearmente indipendenti. D’altra parte,
+det
+ 
+v1
+v2
+v3(t)
+!
+= det
+
+
+3
+1
+2
+2
+−1
+t
+1
+2
+3 + t
+
+= −10t −5.
+Ne segue che
+dim V (t) =
+(
+2
+se t = −1
+2
+3
+altrimenti.
+Dunque, se t̸ = −1
+2, sicuramente V (t)̸ = W. D’altra parte, per t = −1
+2 abbiamo
+V (−1/2) = {X = (x1, x2, x3) ∈R3 | x1 −x2 −x3 = 0} = W.
+Quindi V (t) = W se e solo se t = −1
+2 .
+Esercizio 2. Siano A, B le matrici reali 2 × 2 deﬁnite da
+A :=
+
+2
+2
+2
+3
+
+,
+B :=
+
+2
+3
+2
+2
+
+.
+(a) Stabilite se A, B sono diagonalizzabili.
+(b) Stabilite se A e B sono coniugate.
+Risoluzione:
+(a) I polinomi carattersitici di A e B sono, rispettivamente
+pA(λ) = λ2 −5λ + 2,
+pB(λ) = λ2 −4λ −2.
+1
+
+
+===== PAGINA 2 =====
+Siccome entrambi i polinomi caratteristici hanno radici distinte, A e B sono diagonalizzabili .
+(b) Se A e B fossero coniugate, i loro polinomi caratteristici sarebbero uguali. Siccome pA̸ = pB, le
+matrici A e B non sono coniugate .
+Esercizio 3. Sia q(X) := Xt · A · X la forma quadratica su R3 associata a
+A :=
+
+
+1
+2
+0
+2
+3
+−2
+0
+−2
+5
+
+,
+Completare {e1} ad una base B di R3 che diagonalizza q.
+Risoluzione:
+Per costruire una tale base B = {v1, v2, v3}, iniziamo ponendo v1 := e1 e calcoliamo
+e⊥
+1 = {x1 + 2x2 = 0} = span(e3, −2e1 + e2)
+dove stiamo denotando con ⊥l’ortogonale rispetto alla forma bilineare simmetrica associata a q (la
+polarizzazione di q).
+Come secondo vettore v2 possiamo scegliere un qualunque vettore non isotropo in e⊥
+1 , per esempio e3.
+Non resta che scegliere come v3 un vettore non nullo di span(v1, v2)⊥= {x1+2x2 = −2x2+5x3 = 0},
+per esempio v3 := 10e1 −5e2 −2e3.
+Segue che una base che diagonalizza q `e data da B =
+
+
+
+
+
+1
+0
+0
+
+,
+
+
+0
+0
+1
+
+,
+
+
+10
+−5
+−2
+
+
+
+
+.
+Esercizio 4. Considerare lo spazio vettoriale V := R[t]≤2 dei polinomi reali in t di grado al pi`u 2 e sia
+Q : V →R la forma quadratica deﬁnita da
+Q(p) :=
+Z 1
+0
+p(t)p′(t)dt,
+dove p′(t) := dp
+dt .
+(a) Sia g la forma bilineare simmetrica associata a Q (la polarizzazione di Q): calcolare la matrice che
+rappresenta g rispetto alla base B = {1, t, t2} di V .
+(b) Calcolare rango e segnatura di g.
+Risoluzione:
+(a) La g `e data da
+g(p, q) = 1
+2
+Z 1
+0
+(p(t)q′(t) + p′(t)q(t))dt = 1
+2[p(t) · q(t)]1
+0 = 1
+2(p(1) · q(1) −p(0) · q(0)).
+Quindi
+MB(g) = 1
+2
+
+
+0
+1
+1
+1
+1
+1
+1
+1
+1
+
+.
+2
+
+
+===== PAGINA 3 =====
+(b) La matrice MB(g) ha evidentemente rango 2, e il suo nucleo `e generato dal polinomio t −t2.
+Siccome il polinomio 1 `e isotropo per Q, e non appartiene al nucleo di g, segue che la segnatura di g `e 0.
+Riassumendo: r(g) = 2, s(g) = 0 .
+Esercizio 5. Sia R2 il piano euclideo standard con coordinate canoniche (x, y) e sia ℓ⊂R2 la retta
+aﬃne di equazione y −2x = 4.
+(a) Determinare l’equazione cartesiana della retta aﬃne r ⊂R2 passante per P = (1, 1) e ortogonale a
+ℓ. Calcolare le coordinate del punto P ′ = ℓ∩r e la distanza d tra P e P ′.
+(b) Considerare l’unica isometria aﬃne ρ : R2 →R2 (detta riﬂessione ortogonale rispetto a ℓ) tale
+che ρ(Q) = Q se e solo se Q ∈ℓ. Determinare una matrice A e un vettore v in modo tale che
+ρ(X) = AX + v per ogni X ∈R2.
+Risoluzione:
+(a) La giacitura⃗ℓdi ℓ`e generata da v = (1, 2). La giacitura⃗r di r `e generata da un qualsiasi vettore
+non nullo ortogonale a v, per esempio n = (−2, 1). Quindi r ha equazioni parametriche x = −2t + 1,
+y = 1 + t, ed equazione cartesiana x + 2y = 3 .
+Con un calcolo diretto troviamo ℓ∩r = P ′ = (−1, 2) e quindi d =
+
+−−→
+PP ′ =
+√
+5 .
+(b) Siano v e n come in (a). Allora A deve soddisfare Av = v e An = −n, ossia
+A =
+ 1
+−2
+2
+1
+  1
+0
+0
+−1
+  1
+−2
+2
+1
+−1
+= 1
+5
+ 1
+−2
+2
+1
+  1
+0
+0
+−1
+ 
+1
+2
+−2
+1
+
+= 1
+5
+ −3
+4
+4
+3
+
+Inoltre, il punto
+
+0
+4
+
+∈ℓ`e ﬁssato da ρ e dunque ρ
+
+0
+4
+
+= A
+
+0
+4
+
++ v =
+
+0
+4
+
+implica
+v = (I −A)
+ 0
+4
+
+= 2
+5
+
+4
+−2
+−2
+1
+  0
+4
+
+= 8
+5
+ −2
+1
+
+.
+Concludendo, A = 1
+5
+ −3
+4
+4
+3
+
+,
+v = 8
+5
+ −2
+1
+
+.
+3

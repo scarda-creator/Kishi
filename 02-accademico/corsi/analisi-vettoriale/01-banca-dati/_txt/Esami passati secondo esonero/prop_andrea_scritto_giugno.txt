@@ -1,0 +1,63 @@
+===== PAGINA 1 =====
+Esame scritto di Analisi Vettoriale 27/06/2025
+Nome:
+Cognome:
+Matricola:
+F. De Marchis □
+A. Terracina □
+Se ammesso, sosterr`o la prova orale:
+⃝in questo appello
+⃝in un appello successivo
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere
+adeguatamente motivati!
+Esercizio 1. [7 punti] Dato l’insieme Σ = {(x, y, z) ∈3 : z −2x −4y + 4 = 0, z ≥x2 + y2},
+i. riconoscere che si tratta del supporto di una superficie regolare, scrivendo una parametrizzazione regolare;
+ii. determinare in ogni punto Σ il versore normale diretto nel verso in cui la terza componente sia positiva;
+iii. determinare l’area di Σ;
+iv. determinare il bordo di Σ, in particolare si fornisca una rappresentazione parametrica della curva o delle
+curve che lo compongono.
+v. Dato il campo F(x, y, z) = (y + z + cos(x), 2x + y2, ez + 2y −x), si calcoli rot F(x, y, z);
+vi. si calcoli la circuitazione del campo F lungo il bordo di Σ percorso in modo che sia compatibile, secondo il
+Teorema di Stokes, con la superficie Σ orientata con la terza componente della normale positiva.
+Esercizio 2. [6,5 punti] Data la funzione F(x, y) = (x2 + 2y2)e−x−y2
+i. si determinino tutti i punti critici di F;
+ii. si studi il carattere di uno (a scelta) dei punti critici ottenuti al punto i);
+iii. dimostrare che in un intorno del punto (1, 1) l’equazione F(x, y) = 3e−2 definisce implicitamente una
+funzione g(x) derivabile tale che F(x, g(x)) = 3e−2;
+iv. si calcoli g′(1).
+Esercizio 3. [6,5 punti] Sia E = {(x, y, z) ∈3 | 0 ≤z ≤4, (x −z)2 + y2 ≤4},
+i. si calcoli il volume di E;
+ii. si calcoli il momento d’inerzia di E rispetto all’asse x;
+iii. dato il campo vettoriale F(x, y, z) = (x2z + 4, −2xyz −yez, ez + 2z + 1) calcolarne il flusso uscente da E;
+iv. data la curva di equazioni parametriche γ(t) := (t + cos(t), sen(t), t), t ∈[1, 3], si verifichi che la curva `e
+semplice, regolare e ha il sostegno contenuto in E.
+Esercizio 4. [5,5 punti] Data la successione di funzioni
+fn(x) = sin
+π
+2 e−nx
+,
+x ∈[0, +∞),
+i. si discuta la convergenza puntuale;
+ii. si stabilisca se la convergenza `e uniforme nell’insieme di convergenza puntuale;
+iii. si calcoli
+lim
+n→+∞
+Z 5
+2
+fn(x) dx.
+
+
+===== PAGINA 2 =====
+Esercizio 5. [6,5 punti] Si consideri il seguente problema di Cauchy
+y′(t) = y2(t) + 1
+y(t)
+t
+y(0) = 1.
+i. Senza calcolare la soluzione:
+a. si dica perch´e il problema ammette una e una sola soluzione locale;
+b. si studi la monotonia della soluzione massimale y(t) nel suo insieme di definizione;
+c. si dica perch´e la soluzione massimale y(t) ≥1 nel suo insieme di definizione;
+d. sapendo che la soluzione massimale y(t) `e globale, calcolare, se esiste, lim
+t→+∞y(t).
+ii. Si determini esplicitamente la soluzione y(t).
+2

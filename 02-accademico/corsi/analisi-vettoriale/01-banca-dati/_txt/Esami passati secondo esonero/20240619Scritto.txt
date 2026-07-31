@@ -1,0 +1,48 @@
+===== PAGINA 1 =====
+Scritto di Analisi Vettoriale 19/06/2024
+Nome:
+Cognome:
+Matricola:
+F. De Marchis □
+A. Terracina □
+Se ammesso, sosterr`o la prova orale:
+⃝a giugno
+⃝a luglio
+⃝in un appello successivo
+Istruzioni: il testo d’esame deve essere riconsegnato insieme all’elaborato, tutti i ragionamenti devono essere
+adeguatamente motivati!
+Esercizio 1. (6,5 punti) Dato l’insieme
+E = {(x, y, z) ∈3 : x2 + 2(y −1)2 ≤z ≤y2 −x},
+i. calcolare il volume di E;
+ii. determinare il ﬂusso uscente da E del campo vettoriale F = (ex + 2z, 2y, 5 −zex);
+iii. scrivere l’equazione del piano tangente a ∂E in (−1
+2, 2, 9
+2).
+Esercizio 2. (6,5 punti) Data la funzione f(x, y, z) = x2 + y + z
+i. si dica perch´e la funzione f ammette max o min assoluti in D := {(x, y, z) ∈3 : x4 + y2 + z2 −2z ≤0};
+ii. si calcolino max e min assoluti di f in D.
+Esercizio 3. (6,5 punti) Dato l’insieme
+Σ = {(x, y, z) ∈3 : y ≥0, 1 ≤x2 + y2 ≤4, z = xy},
+i. riconoscere che si tratta del supporto di una superﬁcie regolare;
+ii. determinare il bordo della superﬁcie;
+iii. calcolare l’area della superﬁcie Σ.
+iv. Dato il campo
+F(x, y, z) = (−x2y + z, y + z, x3 + y + ez)
+dire se si tratta di un campo conservativo in 3;
+v. si calcoli la circuitazione del campo F lungo il bordo di Σ percorso in modo che sia compatibile, secondo il
+Teorema di Stokes, con la superﬁcie Σ orientata con la terza componente della normale positiva.
+Esercizio 4. (6 punti) Data la serie di funzioni S (x) = P+∞
+n=0
+logn(x)
+n2+1
+i. si dica per quali x la serie converge semplicemente;
+ii. si studi la convergenza uniforme della serie;
+iii. dopo aver veriﬁcato che la funzione S (x) `e deﬁnita in un intorno di x = 1 si provi che esiste S ′(1) calcolando
+tale valore.
+Esercizio 5. (6,5 punti) Sia f(x, y) = y(1 + x
+p
+|25 −x2 −y2|).
+i. Stabilire se la funzione f `e continua in 2.
+ii. Stabilire se la funzione f `e derivabile in (5, 0).
+iii. Stabilire se la funzione f `e diﬀerenziabile in (5, 0).
+iv. Stabilire se la funzione f `e diﬀerenziabile in (0, 1).

@@ -1,0 +1,2216 @@
+\documentclass[11pt,a4paper,openany]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{esint}
+
+\usepackage[a4paper,margin=2.4cm]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black,citecolor=blue!55!black}
+
+\titleformat{\chapter}[display]
+  {\normalfont\Huge\bfseries\color{blue!50!black}}
+  {\chaptertitlename\ \thechapter}{18pt}{\Huge}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\nouppercase{\leftmark}}
+\fancyhead[LO]{\nouppercase{\rightmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\newtcolorbox{ricetta}[1][]{enhanced,breakable,colback=yellow!8,colframe=orange!70!black,fonttitle=\bfseries,title={Ricetta algoritmica},left=2mm,right=2mm,top=1.2mm,bottom=1.2mm,#1}
+\newtcolorbox{esempio}[1][]{enhanced,breakable,colback=blue!5,colframe=blue!55!black,fonttitle=\bfseries,title={Esempio svolto},left=2mm,right=2mm,top=1.2mm,bottom=1.2mm,#1}
+\newtcolorbox{nota}[1][]{enhanced,breakable,colback=green!4,colframe=green!45!black,fonttitle=\bfseries,title={Nota / Intuizione},left=2mm,right=2mm,top=1.2mm,bottom=1.2mm,#1}
+\newtcolorbox{trappola}[1][]{enhanced,breakable,colback=red!5,colframe=red!60!black,fonttitle=\bfseries,title={Trappola tipica},left=2mm,right=2mm,top=1.2mm,bottom=1.2mm,#1}
+
+\theoremstyle{plain}
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{proposizione}[teorema]{Proposizione}
+\newtheorem{lemma}[teorema]{Lemma}
+\newtheorem{corollario}[teorema]{Corollario}
+\theoremstyle{definition}
+\newtheorem{definizione}[teorema]{Definizione}
+\theoremstyle{remark}
+\newtheorem*{osservazione}{Osservazione}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\Div}{\operatorname{div}}
+\newcommand{\Rot}{\operatorname{rot}}
+\newcommand{\Grad}{\operatorname{grad}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\F}{\mathbf{F}}
+\newcommand{\rr}{\mathbf{r}}
+\newcommand{\nn}{\mathbf{n}}
+\newcommand{\TT}{\mathbf{T}}
+\newcommand{\dS}{\mathrm{d}S}
+\newcommand{\dV}{\mathrm{d}V}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+
+\title{\Huge\textbf{Analisi Vettoriale}\\[0.4em]\Large Libro di ripasso\\[0.2em]\large {\itshape Teoria sintetica, ricette algoritmiche ed esercizi svolti}}
+\author{Per Giuseppe}
+\date{Maggio 2026}
+
+\begin{document}
+\frontmatter
+\maketitle
+\tableofcontents
+\cleardoublepage
+
+\chapter*{Come usare questo libro}
+\addcontentsline{toc}{chapter}{Come usare questo libro}
+
+Questo non \`e un manuale n\'e un trattato: \`e un \emph{ripasso operativo}.
+L'obiettivo \`e che, dopo averlo letto, tu sappia (i) riconoscere a colpo d'occhio
+il tipo di esercizio che hai davanti, (ii) applicare lo schema risolutivo giusto,
+(iii) capire \emph{perch\'e} quello schema funziona.
+
+\medskip
+Ogni argomento \`e organizzato in tre tempi:
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Teoria sintetica}: definizioni, formule, teoremi. Niente
+        dimostrazioni lunghe; quando ci sono, \`e perch\'e aiutano a ricordare.
+  \item \textbf{Ricetta algoritmica} (box arancione): la procedura passo per
+        passo, in ordine. Da seguire come una checklist.
+  \item \textbf{Esempio svolto} (box blu): un esercizio rappresentativo,
+        risolto con commenti su \emph{perch\'e} si fa cos\`i.
+\end{enumerate}
+
+I box verdi (\textsl{Nota / Intuizione}) servono a fissare l'idea geometrica;
+quelli rossi (\textsl{Trappola tipica}) raccolgono gli errori che si fanno pi\`u
+spesso sotto pressione d'esame. I capitoli sono in larga parte indipendenti.
+
+\mainmatter
+
+% =====================================================================
+\chapter{Richiami e notazione}
+% =====================================================================
+
+Questo capitolo \`e una raccolta di formule che useremo continuamente. Non c'\`e
+teoria nuova: serve come pagina di riferimento da tenere a portata di mano.
+
+\section{Vettori in $\R^3$}
+
+Un vettore $\vec{v}\in\R^3$ \`e una terna $\vec{v}=(v_1,v_2,v_3)$. La sua
+\emph{norma} \`e $\norm{\vec{v}}=\sqrt{v_1^2+v_2^2+v_3^2}$. Il \emph{prodotto
+scalare} \`e
+\begin{equation}
+  \vec{u}\cdot\vec{v}=u_1v_1+u_2v_2+u_3v_3=\norm{\vec{u}}\,\norm{\vec{v}}\cos\theta,
+  \label{eq:prodscal}
+\end{equation}
+con $\theta$ angolo tra i due vettori. Conseguenze utili: $\vec{u}\perp\vec{v}
+\iff\vec{u}\cdot\vec{v}=0$; la proiezione di $\vec{u}$ lungo $\vec{v}$ ha modulo
+$\abs{\vec{u}\cdot\hat{\vec{v}}}$ con $\hat{\vec{v}}=\vec{v}/\norm{\vec{v}}$.
+
+Il \emph{prodotto vettoriale} \`e
+\begin{equation}
+  \vec{u}\times\vec{v}=\det\begin{pmatrix}\vec{i}&\vec{j}&\vec{k}\\u_1&u_2&u_3\\v_1&v_2&v_3\end{pmatrix}
+  =\bigl(u_2v_3-u_3v_2,\;u_3v_1-u_1v_3,\;u_1v_2-u_2v_1\bigr).
+  \label{eq:prodvect}
+\end{equation}
+Propriet\`a chiave: $\vec{u}\times\vec{v}\perp\vec{u},\vec{v}$;
+$\norm{\vec{u}\times\vec{v}}=\norm{\vec{u}}\norm{\vec{v}}\sin\theta$ \`e l'area
+del parallelogramma; \`e anticommutativo;
+$(\vec{u}\times\vec{v})\cdot\vec{w}=\det[\vec{u},\vec{v},\vec{w}]$ \`e il volume
+con segno.
+
+\begin{nota}
+Il prodotto scalare misura \emph{quanto due vettori vanno nella stessa direzione};
+il prodotto vettoriale produce un vettore \emph{ortogonale} a entrambi, di modulo
+pari all'area generata. Tutta l'analisi vettoriale ruota intorno a queste due
+operazioni.
+\end{nota}
+
+\section{Sistemi di coordinate}
+
+Oltre alle cartesiane $(x,y,z)$:
+
+\textbf{Polari} ($\R^2$): $x=\rho\cos\theta,\,y=\rho\sin\theta$, con $\rho\ge 0$,
+$\theta\in[0,2\pi)$. Jacobiano: $\dd x\,\dd y=\rho\dd\rho\dd\theta$.
+
+\textbf{Cilindriche} ($\R^3$): $x=\rho\cos\theta,\,y=\rho\sin\theta,\,z=z$.
+Jacobiano: $\dd x\,\dd y\,\dd z=\rho\dd\rho\dd\theta\dd z$.
+
+\textbf{Sferiche} ($\R^3$): $x=r\sin\varphi\cos\theta,\,y=r\sin\varphi\sin\theta,
+\,z=r\cos\varphi$, con $r\ge 0$, $\varphi\in[0,\pi]$, $\theta\in[0,2\pi)$.
+Jacobiano: $\dd x\,\dd y\,\dd z=r^2\sin\varphi\dd r\dd\varphi\dd\theta$.
+
+\begin{trappola}
+La convenzione su quale angolo \`e $\varphi$ (colatitudine) e quale \`e $\theta$
+(longitudine) varia da libro a libro. Decidi la tua e \emph{non cambiarla mai}
+durante un esercizio. In questo testo $\varphi$ \`e l'angolo dall'asse $z$.
+\end{trappola}
+
+\section{Funzioni di pi\`u variabili}
+
+Gli oggetti che incontreremo sono tre:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Campi scalari} $f:\R^n\to\R$ (es.\ temperatura).
+  \item \textbf{Campi vettoriali} $\F:\R^n\to\R^n$ (es.\ velocit\`a di un fluido).
+  \item \textbf{Curve} $\rr:I\to\R^n$ e \textbf{superfici} $\rr:D\subset\R^2\to\R^3$.
+        Sono \emph{parametrizzazioni}: descrivono la geometria con uno o due
+        parametri.
+\end{itemize}
+
+\section{Derivate parziali, gradiente, differenziale}
+
+Per $f:\R^n\to\R$ regolare, indichiamo le derivate parziali con $f_{x_i}$ o
+$\partial f/\partial x_i$. Il \emph{gradiente} \`e
+\begin{equation}
+  \nabla f=\left(\frac{\partial f}{\partial x_1},\dots,\frac{\partial f}{\partial x_n}\right).
+  \label{eq:gradiente-def}
+\end{equation}
+Il differenziale \`e $\dd f=\nabla f\cdot\dd\vec{x}$.
+
+\begin{nota}
+$\nabla f(\vec{x})$ punta nella direzione di \emph{massima crescita} di $f$ in
+$\vec{x}$, ed \`e ortogonale alle superfici di livello $\{f=\text{cost}\}$.
+Tienilo presente: ricorrer\`a ovunque.
+\end{nota}
+
+% =====================================================================
+\chapter{Curve e integrali di linea}
+% =====================================================================
+
+\section{Cos'\`e una curva}
+
+Una \emph{curva parametrizzata} in $\R^n$ \`e una funzione $\rr:[a,b]\to\R^n$
+continua, di solito di classe $C^1$ (a tratti). La sua \emph{traccia} \`e
+l'insieme $\rr([a,b])$: il disegno che vediamo. La parametrizzazione \`e la
+\emph{ricetta} per percorrerla.
+
+\begin{nota}
+Curve diverse possono avere la stessa traccia: $\rr_1(t)=(\cos t,\sin t)$,
+$t\in[0,2\pi]$, e $\rr_2(t)=(\cos 2t,\sin 2t)$, $t\in[0,\pi]$, tracciano lo
+stesso cerchio. Riparametrizzare pu\`o cambiare verso e velocit\`a, non la
+traccia. Lunghezza e integrale di prima specie non dipendono dalla
+parametrizzazione; l'integrale di seconda specie dipende dal verso.
+\end{nota}
+
+Il vettore tangente \`e $\rr'(t)$. Se $\rr'(t)\ne 0$ la curva si dice
+\emph{regolare} in $t$, e $\TT(t)=\rr'(t)/\norm{\rr'(t)}$ \`e il versore
+tangente.
+
+\section{Lunghezza e ascissa curvilinea}
+
+\begin{equation}
+  L(\rr)=\int_a^b \norm{\rr'(t)}\dd t.
+  \label{eq:lungh}
+\end{equation}
+L'\emph{ascissa curvilinea} $s(t)=\int_a^t\norm{\rr'(\tau)}\dd\tau$ \`e il
+parametro naturale: riparametrizzando in $s$ si ha $\norm{\rr'(s)}=1$.
+
+\section{Integrale di prima specie}
+
+Data $\gamma$ regolare e $f$ continua su $\gamma$,
+\begin{equation}
+  \int_\gamma f\dd s=\int_a^b f(\rr(t))\norm{\rr'(t)}\dd t.
+  \label{eq:int-prima}
+\end{equation}
+Non dipende dal verso n\'e dalla parametrizzazione. $f\equiv 1$ d\`a la
+lunghezza; se $f$ \`e densit\`a lineare, l'integrale d\`a la massa del filo.
+
+\begin{ricetta}
+\textbf{Calcolare $\int_\gamma f\dd s$:}
+\begin{enumerate}[leftmargin=*]
+  \item Parametrizzare: $\rr(t)$, $t\in[a,b]$.
+  \item Calcolare $\rr'(t)$ e $\norm{\rr'(t)}$.
+  \item Sostituire $\vec{x}=\rr(t)$ in $f$.
+  \item Integrare $\int_a^b f(\rr(t))\norm{\rr'(t)}\dd t$.
+\end{enumerate}
+Curva a tratti: spezzare e sommare.
+\end{ricetta}
+
+\begin{esempio}
+\textbf{Massa di un'elica.} $\int_\gamma(x^2+y^2+z^2)\dd s$ con
+$\rr(t)=(\cos t,\sin t,t)$, $t\in[0,2\pi]$.
+
+$\rr'(t)=(-\sin t,\cos t,1)$, $\norm{\rr'(t)}=\sqrt{2}$.
+$f(\rr(t))=\cos^2 t+\sin^2 t+t^2=1+t^2$.
+\[
+  \int_\gamma f\dd s=\sqrt{2}\int_0^{2\pi}(1+t^2)\dd t
+  =\sqrt{2}\Bigl(2\pi+\tfrac{8\pi^3}{3}\Bigr).
+\]
+\textsl{Perch\'e funziona?} $\norm{\rr'(t)}\dd t=\dd s$ \`e la lunghezza
+infinitesima. Stiamo facendo Riemann lungo la curva: pesare la funzione per il
+pezzettino di filo.
+\end{esempio}
+
+\section{Integrale di seconda specie (lavoro)}
+
+Dato $\F:\R^n\to\R^n$ continuo e $\gamma$ orientata,
+\begin{equation}
+  \int_\gamma\F\cdot\dd\rr=\int_a^b\F(\rr(t))\cdot\rr'(t)\dd t.
+  \label{eq:int-seconda}
+\end{equation}
+Si chiama anche \emph{lavoro}. Cambia segno con il verso:
+$\int_{-\gamma}\F\cdot\dd\rr=-\int_\gamma\F\cdot\dd\rr$. Notazione classica
+con $\F=(P,Q,R)$:
+\[
+  \int_\gamma P\dd x+Q\dd y+R\dd z.
+\]
+
+\begin{ricetta}
+\textbf{Calcolare $\int_\gamma\F\cdot\dd\rr$:}
+\begin{enumerate}[leftmargin=*]
+  \item Parametrizzare nel verso indicato: $\rr(t)$, $t\in[a,b]$.
+  \item Calcolare $\rr'(t)$ (NON la sua norma).
+  \item Sostituire: $\F(\rr(t))$.
+  \item Prodotto scalare $\F(\rr(t))\cdot\rr'(t)$.
+  \item Integrare in $t$.
+\end{enumerate}
+\textbf{Scorciatoie da considerare prima di calcolare:}
+\begin{itemize}[leftmargin=*]
+  \item Se $\F=\nabla U$ \`e conservativo, $\int_\gamma\F\cdot\dd\rr=U(B)-U(A)$:
+        indipendente dal cammino (Cap.~3).
+  \item Se $\gamma$ \`e chiusa e $\F$ conservativo, integrale $=0$.
+  \item Se $\gamma$ \`e chiusa in $\R^2$, valutare il teorema di Green
+        (Cap.~5) prima di parametrizzare.
+\end{itemize}
+\end{ricetta}
+
+\begin{esempio}
+\textbf{Lavoro lungo una parabola.} Calcolare
+$\int_\gamma xy\dd x+(x+y)\dd y$ con $\gamma:y=x^2$ da $(0,0)$ a $(1,1)$.
+
+Verifica conservativit\`a: $\partial_y(xy)=x$, $\partial_x(x+y)=1$. Diverse,
+non conservativo: bisogna calcolare.
+
+Parametrizzazione: $\rr(t)=(t,t^2)$, $t\in[0,1]$, $\rr'(t)=(1,2t)$.
+$\F(\rr(t))=(t^3,t+t^2)$.
+$\F\cdot\rr'=t^3+(t+t^2)\cdot 2t=t^3+2t^2+2t^3=3t^3+2t^2$.
+\[
+  \int_\gamma\F\cdot\dd\rr=\int_0^1(3t^3+2t^2)\dd t=\tfrac34+\tfrac23=\tfrac{17}{12}.
+\]
+\end{esempio}
+
+\begin{trappola}
+\textbf{Errore tipico:} usare $\norm{\rr'(t)}$ nell'integrale di seconda specie.
+La formula corretta usa $\rr'(t)$ \emph{senza norma e senza modulo}. L'integrale
+di seconda specie ``sente'' il verso, quello di prima no.
+\end{trappola}
+
+\section{Curve in coordinate polari}
+
+Se $\rho=\rho(\theta)$, una parametrizzazione \`e
+$\rr(\theta)=(\rho\cos\theta,\rho\sin\theta)$ e
+$\norm{\rr'(\theta)}=\sqrt{\rho^2+\rho'^2}$. Lunghezza:
+$L=\int_{\theta_1}^{\theta_2}\sqrt{\rho^2+\rho'^2}\dd\theta$.
+
+\begin{esempio}
+\textbf{Cardioide.} $\rho=1+\cos\theta$, $\theta\in[0,2\pi]$. $\rho'=-\sin\theta$.
+\[
+  \rho^2+\rho'^2=(1+\cos\theta)^2+\sin^2\theta=2+2\cos\theta=4\cos^2(\theta/2).
+\]
+Quindi $L=\int_0^{2\pi}2\,\bigl|\cos(\theta/2)\bigr|\dd\theta=8$. (Attento al
+modulo: $\cos(\theta/2)$ cambia segno in $[0,2\pi]$.)
+\end{esempio}
+
+
+% =====================================================================
+\chapter{Campi vettoriali e operatori differenziali}
+% =====================================================================
+
+\section{I tre operatori}
+
+Sia $f:\R^3\to\R$ regolare, $\F=(F_1,F_2,F_3):\R^3\to\R^3$ regolare.
+\begin{equation}
+  \Grad f=\nabla f=\left(\partial_x f,\,\partial_y f,\,\partial_z f\right).
+  \label{eq:grad}
+\end{equation}
+\begin{equation}
+  \Div\F=\nabla\cdot\F=\partial_x F_1+\partial_y F_2+\partial_z F_3.
+  \label{eq:div}
+\end{equation}
+\begin{equation}
+  \Rot\F=\nabla\times\F
+  =\det\begin{pmatrix}\vec{i}&\vec{j}&\vec{k}\\\partial_x&\partial_y&\partial_z\\F_1&F_2&F_3\end{pmatrix}
+  =\bigl(\partial_y F_3-\partial_z F_2,\,\partial_z F_1-\partial_x F_3,\,\partial_x F_2-\partial_y F_1\bigr).
+  \label{eq:rot}
+\end{equation}
+
+\textbf{Tipo dei tre operatori}: $\Grad$ trasforma scalari in vettori; $\Div$
+trasforma vettori in scalari; $\Rot$ trasforma vettori in vettori.
+
+\begin{nota}
+\textbf{Significato fisico.}
+\begin{itemize}[leftmargin=*]
+  \item $\Div\F(P)>0$: \emph{sorgente} in $P$ (il flusso esce); $<0$: pozzo.
+  \item $\Rot\F(P)$: \emph{vorticit\`a} in $P$. Direzione = asse di rotazione
+        locale (mano destra), modulo = intensit\`a.
+  \item $\nabla f$: direzione di massima crescita di $f$, ortogonale alle
+        superfici di livello.
+\end{itemize}
+\end{nota}
+
+\section{Identit\`a vettoriali da ricordare}
+
+Per $f$ scalare e $\F,\vec{G}$ vettoriali, di classe $C^2$:
+\begin{align}
+  \Rot(\Grad f)&=\vec{0}, & \text{(rotore di un gradiente \`e nullo)} \label{eq:rotgrad}\\
+  \Div(\Rot\F)&=0, & \text{(divergenza di un rotore \`e nulla)} \label{eq:divrot}\\
+  \Div(f\F)&=f\Div\F+\nabla f\cdot\F, \\
+  \Rot(f\F)&=f\Rot\F+\nabla f\times\F, \\
+  \Div(\F\times\vec{G})&=\vec{G}\cdot\Rot\F-\F\cdot\Rot\vec{G}.
+\end{align}
+Il \emph{laplaciano} \`e $\Delta f=\Div(\Grad f)=f_{xx}+f_{yy}+f_{zz}$.
+
+\section{Campi notevoli}
+
+\begin{definizione}[Conservativo, irrotazionale, solenoidale]
+$\F$ \`e
+\begin{itemize}[leftmargin=*]
+  \item \emph{conservativo} se esiste $U:\R^3\to\R$ con $\F=\nabla U$ ($U$ \`e
+        il \emph{potenziale}).
+  \item \emph{irrotazionale} se $\Rot\F=\vec{0}$.
+  \item \emph{solenoidale} se $\Div\F=0$.
+\end{itemize}
+\end{definizione}
+
+\begin{teorema}[Conservativo $\Rightarrow$ irrotazionale]
+Se $\F\in C^1$ \`e conservativo su un aperto, allora $\Rot\F=\vec{0}$.
+\end{teorema}
+Dimostrazione: $\F=\nabla U\Rightarrow\Rot\F=\Rot(\Grad U)=\vec{0}$ per~\eqref{eq:rotgrad}.
+
+\begin{teorema}[Inverso, su domini semplicemente connessi]
+Sia $\Omega\subset\R^n$ aperto e \emph{semplicemente connesso}. Se $\F\in C^1$
+su $\Omega$ e $\Rot\F=\vec{0}$ (in $\R^2$: $\partial_y P=\partial_x Q$),
+allora $\F$ \`e conservativo su $\Omega$.
+\end{teorema}
+
+\begin{trappola}
+La condizione \emph{semplicemente connesso} \`e essenziale. Esempio classico:
+$\F(x,y)=\bigl(\frac{-y}{x^2+y^2},\frac{x}{x^2+y^2}\bigr)$ su $\R^2\setminus\{0\}$:
+irrotazionale ma non conservativo (l'integrale sul cerchio unitario vale
+$2\pi$). Il dominio ha un buco.
+\end{trappola}
+
+\section{Calcolo del potenziale}
+
+\begin{ricetta}
+\textbf{Trovare $U$ tale che $\nabla U=\F=(P,Q,R)$:}
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Verifica preliminare}: $\Rot\F=\vec{0}$ e dominio
+        semplicemente connesso. Se uno dei due fallisce, $\F$ non \`e
+        conservativo.
+  \item Integra in $x$: $U=\int P\dd x+g(y,z)$.
+  \item Imponi $\partial_y U=Q$: ricavi $\partial_y g(y,z)$ e integri:
+        $g=\int [Q-\partial_y(\int P\dd x)]\dd y+h(z)$.
+  \item Imponi $\partial_z U=R$: ricavi $h'(z)$, integri.
+  \item Verifica finale $\nabla U=\F$.
+\end{enumerate}
+\textbf{Metodo alternativo (curvilineo):} fissato $P_0$, $U(P)=\int_{P_0}^{P}\F\cdot\dd\rr$
+lungo qualunque cammino (di solito tre segmenti paralleli agli assi).
+\end{ricetta}
+
+\begin{esempio}
+\textbf{Potenziale di un campo in $\R^3$.}
+$\F=(yz+2x,\,xz+2y,\,xy+2z)$.
+
+\emph{Verifica.} $\partial_y(yz+2x)=z=\partial_x(xz+2y)$. \checkmark\
+$\partial_z(yz+2x)=y=\partial_x(xy+2z)$. \checkmark\
+$\partial_z(xz+2y)=x=\partial_y(xy+2z)$. \checkmark\ Conservativo su $\R^3$.
+
+\emph{Passo 2.} $U=\int(yz+2x)\dd x=xyz+x^2+g(y,z)$.
+
+\emph{Passo 3.} $\partial_y U=xz+\partial_y g\stackrel{\!}{=}xz+2y\Rightarrow g=y^2+h(z)$.
+
+\emph{Passo 4.} $\partial_z U=xy+h'(z)\stackrel{\!}{=}xy+2z\Rightarrow h(z)=z^2+c$.
+
+\emph{Risultato.} $U(x,y,z)=xyz+x^2+y^2+z^2+c$.
+\end{esempio}
+
+\begin{trappola}
+Se nel passo 4 ti viene $h'(z)$ che dipende da $x$ o $y$, hai sbagliato un
+calcolo \emph{oppure} $\F$ non era conservativo. Torna a verificare il rotore.
+\end{trappola}
+
+% =====================================================================
+\chapter{Superfici e integrali di superficie}
+% =====================================================================
+
+\section{Superficie parametrica}
+
+Una \emph{superficie parametrica} in $\R^3$ \`e $\rr:D\subset\R^2\to\R^3$,
+$\rr(u,v)=(x(u,v),y(u,v),z(u,v))$. La traccia \`e $S=\rr(D)$.
+
+I vettori tangenti coordinati sono $\rr_u=\partial\rr/\partial u$,
+$\rr_v=\partial\rr/\partial v$. Il \emph{prodotto vettoriale fondamentale} \`e
+\begin{equation}
+  \rr_u\times\rr_v.
+  \label{eq:prodfond}
+\end{equation}
+Quando $\rr_u\times\rr_v\ne\vec{0}$, la superficie \`e \emph{regolare}: questo
+vettore \`e ortogonale a $S$ e il versore normale \`e
+$\nn=(\rr_u\times\rr_v)/\norm{\rr_u\times\rr_v}$. Cambiando l'ordine
+$u\leftrightarrow v$ si inverte $\nn$: l'orientazione dipende dall'ordine.
+
+\section{Area}
+
+\begin{equation}
+  \text{Area}(S)=\iint_D \norm{\rr_u\times\rr_v}\dd u\dd v.
+  \label{eq:area-sup}
+\end{equation}
+
+\paragraph{Casi particolari utili.}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Grafico} $z=g(x,y)$, $(x,y)\in D$: $\rr=(x,y,g(x,y))$,
+        $\rr_x\times\rr_y=(-g_x,-g_y,1)$,
+        $\norm{\cdot}=\sqrt{1+g_x^2+g_y^2}$. Area: $\iint_D\sqrt{1+g_x^2+g_y^2}\dd x\dd y$.
+  \item \textbf{Rivoluzione} attorno a $z$ con $r=r(z)$, $z\in[a,b]$:
+        $\text{Area}=2\pi\int_a^b r(z)\sqrt{1+r'(z)^2}\dd z$.
+  \item \textbf{Sfera} $r=R$ in sferiche:
+        $\rr(\varphi,\theta)=R(\sin\varphi\cos\theta,\sin\varphi\sin\theta,\cos\varphi)$,
+        $\norm{\rr_\varphi\times\rr_\theta}=R^2\sin\varphi$.
+\end{itemize}
+
+\section{Integrale di superficie scalare}
+
+Per $f:S\to\R$ continua,
+\begin{equation}
+  \iint_S f\dS=\iint_D f(\rr(u,v))\norm{\rr_u\times\rr_v}\dd u\dd v.
+  \label{eq:int-sup-scal}
+\end{equation}
+$f\equiv 1$ d\`a l'area; $f$ densit\`a superficiale d\`a la massa; ecc.
+
+\begin{ricetta}
+\textbf{Calcolare $\iint_S f\dS$:}
+\begin{enumerate}[leftmargin=*]
+  \item Parametrizzare: $\rr(u,v)$, $(u,v)\in D$.
+  \item Calcolare $\rr_u,\rr_v,\rr_u\times\rr_v,\norm{\rr_u\times\rr_v}$.
+  \item Sostituire $\vec{x}=\rr(u,v)$ in $f$.
+  \item Integrare $\iint_D f(\rr(u,v))\norm{\rr_u\times\rr_v}\dd u\dd v$.
+\end{enumerate}
+\end{ricetta}
+
+\section{Flusso (integrale di superficie vettoriale)}
+
+Data $S$ orientata e $\F$ continuo,
+\begin{equation}
+  \iint_S\F\cdot\nn\dS=\iint_D\F(\rr(u,v))\cdot(\rr_u\times\rr_v)\dd u\dd v.
+  \label{eq:flusso}
+\end{equation}
+
+\begin{ricetta}
+\textbf{Calcolare il flusso $\iint_S\F\cdot\dS$:}
+\begin{enumerate}[leftmargin=*]
+  \item Parametrizzare $S$, scegliendo l'ordine $(u,v)$ in modo che
+        $\rr_u\times\rr_v$ punti \emph{nel verso prescritto}. Se non lo fa,
+        cambia ordine o cambia segno alla fine.
+  \item Calcolare $\rr_u\times\rr_v$ (NON la sua norma).
+  \item Sostituire: $\F(\rr(u,v))$.
+  \item Prodotto scalare $\F(\rr(u,v))\cdot(\rr_u\times\rr_v)$.
+  \item Integrare in $(u,v)$.
+\end{enumerate}
+\textbf{Scorciatoia:} per $S$ chiusa con normale uscente, considerare il
+teorema della divergenza (Cap.~5) prima di parametrizzare.
+\end{ricetta}
+
+\begin{esempio}
+\textbf{Flusso attraverso un emisfero.} Calcolare il flusso di
+$\F=(x,y,z)$ attraverso $S=\{x^2+y^2+z^2=1,\,z\ge 0\}$ con normale uscente.
+
+Sferiche: $\rr(\varphi,\theta)=(\sin\varphi\cos\theta,\sin\varphi\sin\theta,\cos\varphi)$,
+$\varphi\in[0,\pi/2]$, $\theta\in[0,2\pi]$.
+\begin{align*}
+\rr_\varphi&=(\cos\varphi\cos\theta,\cos\varphi\sin\theta,-\sin\varphi),\\
+\rr_\theta&=(-\sin\varphi\sin\theta,\sin\varphi\cos\theta,0).
+\end{align*}
+$\rr_\varphi\times\rr_\theta=(\sin^2\varphi\cos\theta,\sin^2\varphi\sin\theta,\sin\varphi\cos\varphi)$.
+A $\varphi=\pi/4,\theta=0$: $(1/2,0,1/2)$, punta lontano dall'origine. Uscente.
+
+$\F(\rr)\cdot(\rr_\varphi\times\rr_\theta)=\sin^3\varphi+\sin\varphi\cos^2\varphi=\sin\varphi$.
+\[
+  \iint_S\F\cdot\dS=\int_0^{2\pi}\int_0^{\pi/2}\sin\varphi\dd\varphi\dd\theta=2\pi.
+\]
+
+\textsl{Sanity check via divergenza.} $\Div\F=3$. Volume emisfero
+$=\frac23\pi$. Flusso totale uscente $=\iiint 3\dV=2\pi$. Sul disco di base
+$\F\cdot(-\vec{k})=-z=0$. Quindi flusso laterale = $2\pi$. \checkmark
+\end{esempio}
+
+\begin{trappola}
+\textbf{Errore tipico:} usare $\norm{\rr_u\times\rr_v}$ nel flusso. La formula
+\eqref{eq:flusso} usa il vettore non normalizzato e non in modulo: \`e ci\`o
+che porta l'orientazione.
+\end{trappola}
+
+\begin{nota}
+\textbf{Come scegliere la parametrizzazione.}
+Sfera/calotta: sferiche ($r$ fissato). Cilindro: cilindriche ($\rho$ fissato).
+Grafico $z=g(x,y)$: parametrizzazione $(x,y,g(x,y))$. Piano: due cartesiane.
+Rivoluzione: $(r(z)\cos\theta,r(z)\sin\theta,z)$.
+\end{nota}
+
+% =====================================================================
+\chapter{Teoremi fondamentali}
+% =====================================================================
+
+I tre teoremi (Green, Stokes, divergenza) hanno la stessa anima: un integrale
+di un \emph{operatore differenziale} su un dominio uguaglia un integrale di
+un \emph{flusso/lavoro} sul bordo. Sono casi particolari del teorema di
+Stokes generalizzato $\int_M\dd\omega=\int_{\partial M}\omega$.
+
+\section{Teorema di Green}
+
+\begin{teorema}[Green]
+Sia $D\subset\R^2$ aperto regolare con bordo $\partial D$ orientato
+\emph{positivamente} (in senso antiorario, lasciando $D$ a sinistra). Per
+$\F=(P,Q)\in C^1(\bar D)$:
+\begin{equation}
+  \oint_{\partial D}P\dd x+Q\dd y=\iint_D(Q_x-P_y)\dd x\dd y.
+  \label{eq:green}
+\end{equation}
+\end{teorema}
+
+\begin{nota}
+\textbf{Conseguenze immediate.}
+\begin{itemize}[leftmargin=*]
+  \item Se $Q_x=P_y$ (cio\`e $\F$ irrotazionale in $\R^2$), il lavoro lungo
+        qualunque ciclo \emph{contenuto in $D$} \`e $0$.
+  \item Calcolo dell'area: scegli $\F$ con $Q_x-P_y=1$. Le scelte classiche:
+        $\text{Area}(D)=\oint x\dd y=-\oint y\dd x=\frac12\oint(x\dd y-y\dd x)$.
+\end{itemize}
+\end{nota}
+
+\begin{ricetta}
+\textbf{Quando usare Green:} integrale curvilineo su una curva chiusa in
+$\R^2$ con $\F$ definito su tutta la regione interna.
+\begin{enumerate}[leftmargin=*]
+  \item Verifica chiusura, semplicit\`a e orientazione di $\partial D$.
+  \item Calcola $Q_x-P_y$.
+  \item Trasforma in integrale doppio su $D$.
+  \item Risolvi (di solito pi\`u facile).
+\end{enumerate}
+\end{ricetta}
+
+\begin{esempio}
+\textbf{Lavoro su un quadrato con Green.} Calcolare
+$\oint_C y^2\dd x+x^2\dd y$ con $C$ frontiera di $[0,1]^2$, antiorario.
+
+$Q_x-P_y=2x-2y$. Per Green:
+\[
+  \oint_C\F\cdot\dd\rr=\int_0^1\\!\int_0^1(2x-2y)\dd x\dd y=0,
+\]
+per simmetria. Calcolarlo direttamente avrebbe richiesto quattro integrali
+con attenzione ai versi.
+\end{esempio}
+
+\section{Teorema di Stokes}
+
+\begin{teorema}[Stokes]
+Sia $S\subset\R^3$ una superficie regolare orientata con $\nn$, con bordo
+$\partial S$ orientato \emph{coerentemente} (mano destra: pollice nel verso
+di $\nn$, dita seguono $\partial S$). Per $\F\in C^1$:
+\begin{equation}
+  \oint_{\partial S}\F\cdot\dd\rr=\iint_S\Rot\F\cdot\nn\dS.
+  \label{eq:stokes}
+\end{equation}
+\end{teorema}
+
+\begin{nota}
+Stokes \`e Green generalizzato a superfici in $\R^3$. Quando $S$ giace nel
+piano $xy$ con $\nn=\vec{k}$, $\Rot\F\cdot\vec{k}=Q_x-P_y$ e si recupera Green.
+\end{nota}
+
+\begin{ricetta}
+\textbf{Quando usare Stokes:} integrale di linea su curva chiusa in $\R^3$,
+oppure flusso di un \emph{rotore} attraverso una superficie.
+\begin{itemize}[leftmargin=*]
+  \item Da curva $\to$ superficie: scegli $S$ comoda con $\partial S=$ curva
+        data (spesso un disco piatto).
+  \item Da superficie $\to$ curva: ti conviene se la curva del bordo \`e
+        semplice da parametrizzare.
+\end{itemize}
+\end{ricetta}
+
+\begin{esempio}
+\textbf{Lavoro lungo un cerchio.} $\oint_C\F\cdot\dd\rr$ con $\F=(-y,x,z)$ e
+$C=\{x^2+y^2=1,z=0\}$, antiorario visto da $z>0$.
+
+Scegliamo $S=$ disco $\{x^2+y^2\le 1,z=0\}$ con $\nn=\vec{k}$.
+$\Rot\F=(0-0,\,0-0,\,1-(-1))=(0,0,2)$. Quindi
+\[
+  \oint_C\F\cdot\dd\rr=\iint_S 2\dS=2\pi.
+\]
+Stokes evita di parametrizzare $C$.
+\end{esempio}
+
+\section{Teorema della divergenza (Gauss)}
+
+\begin{teorema}[Divergenza]
+Sia $V\subset\R^3$ aperto regolare con bordo $\partial V$ orientato con la
+normale \emph{uscente} $\nn$. Per $\F\in C^1(\bar V)$:
+\begin{equation}
+  \oiint_{\partial V}\F\cdot\nn\dS=\iiint_V\Div\F\dV.
+  \label{eq:gauss}
+\end{equation}
+\end{teorema}
+
+\begin{ricetta}
+\textbf{Quando usare la divergenza:} flusso attraverso una superficie chiusa
+(o chiudibile con un tappo).
+\begin{enumerate}[leftmargin=*]
+  \item Verifica chiusura e orientazione uscente.
+  \item Calcola $\Div\F$.
+  \item Riconosci il volume $V$ e il sistema di coordinate adatto.
+  \item Integra $\iiint_V\Div\F\dV$.
+\end{enumerate}
+\textbf{Trucco del tappo:} se $S$ non \`e chiusa, scegli $\Sigma$ semplice
+(piano) tale che $S\cup\Sigma$ sia chiusa. Allora
+$\iint_S=\iiint_V\Div\F\dV-\iint_\Sigma$.
+\end{ricetta}
+
+\begin{esempio}
+\textbf{Flusso uscente da una palla.} $\F=(x^3,y^3,z^3)$,
+$V=\{x^2+y^2+z^2\le R^2\}$.
+
+$\Div\F=3x^2+3y^2+3z^2=3r^2$ in sferiche. Per Gauss:
+\[
+  \oiint_{\partial V}\F\cdot\dS=\int_0^{2\pi}\\!\int_0^\pi\\!\int_0^R 3r^2\cdot r^2\sin\varphi\dd r\dd\varphi\dd\theta
+  =2\pi\cdot 2\cdot\frac{3R^5}{5}=\frac{12\pi R^5}{5}.
+\]
+\end{esempio}
+
+\section{Quale teorema usare? Tabella decisionale}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|p{4.2cm}|p{4.2cm}|p{6cm}|}
+\hline
+\textbf{Cosa hai} & \textbf{Cosa cerchi} & \textbf{Strumento}\\\hline
+Curva chiusa in $\R^2$, $\F=(P,Q)$ & lavoro $\oint\F\cdot\dd\rr$ & \textbf{Green}: passa a integrale doppio\\\hline
+Curva chiusa in $\R^3$ & lavoro $\oint\F\cdot\dd\rr$ & \textbf{Stokes}: scegli $S$ con $\partial S=C$\\\hline
+Superficie chiusa in $\R^3$ & flusso $\oiint\F\cdot\dS$ & \textbf{divergenza}\\\hline
+Curva non chiusa, $\F$ conservativo & lavoro & \textbf{Potenziale}: $U(B)-U(A)$\\\hline
+Superficie non chiusa, flusso di $\Rot\vec{G}$ & flusso & \textbf{Stokes inverso}: $\oint_{\partial S}\vec{G}\cdot\dd\rr$\\\hline
+Superficie non chiusa, flusso generico & flusso & \textbf{tappare} e usare divergenza\\\hline
+\end{tabular}
+\end{center}
+
+\begin{trappola}
+\textbf{Le ipotesi contano.}
+\begin{itemize}[leftmargin=*]
+  \item Stokes/Gauss: $\F$ deve essere $C^1$ \emph{su tutta} la superficie/volume,
+        non solo sul bordo. Singolarit\`a interne $\Rightarrow$ vanno isolate.
+  \item Orientazione: scambiarla d\`a un segno meno. Verifica sempre.
+\end{itemize}
+\end{trappola}
+
+% =====================================================================
+\chapter{Equazioni differenziali ordinarie}
+% =====================================================================
+
+Le EDO sono il punto in cui l'analisi vettoriale incontra la dinamica: un
+campo vettoriale $\F$ nello spazio degli stati definisce un sistema
+$\dot{\vec{x}}=\F(\vec{x})$. Qui ci concentriamo sulle famiglie risolvibili
+in chiuso e sulle ricette relative.
+
+\section{EDO del primo ordine}
+
+\subsection{Variabili separabili}
+
+Forma: $y'=f(x)g(y)$. Si risolve \emph{separando}:
+\begin{equation}
+  \frac{\dd y}{g(y)}=f(x)\dd x,\qquad
+  \int\frac{\dd y}{g(y)}=\int f(x)\dd x+c.
+  \label{eq:sep}
+\end{equation}
+
+\begin{ricetta}
+\begin{enumerate}[leftmargin=*]
+  \item Riscrivi in $y'=f(x)g(y)$.
+  \item Identifica le \emph{soluzioni costanti}: $y\equiv y_0$ con $g(y_0)=0$
+        sono soluzioni e vanno annotate.
+  \item Separa e integra entrambi i membri.
+  \item Imponi la condizione iniziale.
+  \item Esplicita $y(x)$ se possibile.
+\end{enumerate}
+\end{ricetta}
+
+\begin{esempio}
+$y'=xy^2$, $y(0)=1$. Separabile: $\dd y/y^2=x\dd x$, $-1/y=x^2/2+c$.
+Da $y(0)=1$: $c=-1$. Quindi $y=\frac{1}{1-x^2/2}$, definita per
+$\abs{x}<\sqrt{2}$. La soluzione \emph{esplode} a $x=\pm\sqrt{2}$:
+fenomeno tipico delle EDO non lineari.
+\end{esempio}
+
+\subsection{Lineari del primo ordine}
+
+Forma: $y'+a(x)y=b(x)$. \textbf{Fattore integrante} $\mu(x)=e^{\int a(x)\dd x}$.
+Moltiplicando: $(\mu y)'=\mu b$, quindi
+\begin{equation}
+  y(x)=\frac{1}{\mu(x)}\left[\int\mu(x)b(x)\dd x+c\right].
+  \label{eq:lin1}
+\end{equation}
+
+\begin{ricetta}
+\begin{enumerate}[leftmargin=*]
+  \item Riduci a $y'+a(x)y=b(x)$.
+  \item Calcola $\mu(x)=\exp\\!\int a(x)\dd x$.
+  \item Calcola $\int\mu(x)b(x)\dd x$.
+  \item Applica~\eqref{eq:lin1}.
+  \item Imponi la condizione iniziale.
+\end{enumerate}
+\end{ricetta}
+
+\begin{esempio}
+$y'+\frac{1}{x}y=x^2$, $x>0$, $y(1)=0$.
+$\mu=e^{\int\dd x/x}=x$. $(xy)'=x^3$, $xy=x^4/4+c$, $y=x^3/4+c/x$.
+$y(1)=0\Rightarrow c=-1/4$. Risultato: $y(x)=\frac{x^3}{4}-\frac{1}{4x}$.
+\end{esempio}
+
+\subsection{Bernoulli}
+
+Forma: $y'+a(x)y=b(x)y^n$ con $n\ne 0,1$. Si linearizza ponendo
+$z=y^{1-n}$: l'equazione diventa lineare in $z$:
+\[
+  z'+(1-n)a(x)z=(1-n)b(x).
+\]
+
+\begin{ricetta}
+\begin{enumerate}[leftmargin=*]
+  \item Riconosci $n\ne 0,1$.
+  \item Sostituisci $z=y^{1-n}$.
+  \item Risolvi l'equazione lineare in $z$.
+  \item Torna a $y=z^{1/(1-n)}$.
+\end{enumerate}
+\end{ricetta}
+
+\begin{esempio}
+$y'+y=y^2$. Bernoulli con $n=2$. $z=y^{-1}$, $z'=-y^{-2}y'$. Dividendo per
+$y^2$: $-z'+y^{-1}=1$, ossia $z'-z=-1$. Lineare con $\mu=e^{-x}$:
+$(e^{-x}z)'=-e^{-x}$, $e^{-x}z=e^{-x}+c$, $z=1+ce^x$. Quindi
+$y=1/(1+ce^x)$.
+\end{esempio}
+
+\subsection{Esatte}
+
+Forma differenziale: $M(x,y)\dd x+N(x,y)\dd y=0$. \`E \emph{esatta} se
+$\partial_y M=\partial_x N$ (su un aperto semplicemente connesso). In tal caso
+esiste $F$ con $\dd F=M\dd x+N\dd y$ e la soluzione \`e $F(x,y)=c$.
+
+\begin{ricetta}
+\begin{enumerate}[leftmargin=*]
+  \item Verifica $\partial_y M=\partial_x N$.
+  \item Trova $F$ con la stessa procedura del potenziale (Cap.~3).
+  \item La soluzione implicita \`e $F(x,y)=c$.
+  \item Se non \`e esatta, cerca un \emph{fattore integrante} $\mu(x)$ o
+        $\mu(y)$ che la renda esatta:
+        $\mu(x)=\exp\\!\int\frac{M_y-N_x}{N}\dd x$ se la frazione dipende solo
+        da $x$; $\mu(y)=\exp\\!\int\frac{N_x-M_y}{M}\dd y$ se dipende solo
+        da $y$.
+\end{enumerate}
+\end{ricetta}
+
+\begin{nota}
+La differenza tra ``esatte'' e ``calcolo del potenziale'' \`e solo linguistica:
+in entrambi i casi cerchi $F$ con $\nabla F=(M,N)$.
+\end{nota}
+
+\section{EDO lineari di ordine $n$ a coefficienti costanti}
+
+Forma: $y^{(n)}+a_{n-1}y^{(n-1)}+\cdots+a_0 y=g(x)$. Soluzione generale
+$y=y_h+y_p$.
+
+\subsection{Omogenea: polinomio caratteristico}
+
+Cerca $y=e^{\lambda x}$. Si ottiene
+\begin{equation}
+  p(\lambda)=\lambda^n+a_{n-1}\lambda^{n-1}+\cdots+a_0=0.
+  \label{eq:carat}
+\end{equation}
+Per ogni radice $\lambda$:
+\begin{itemize}[leftmargin=*]
+  \item $\lambda$ reale, semplice: $e^{\lambda x}$.
+  \item $\lambda$ reale, molteplicit\`a $m$: $e^{\lambda x},xe^{\lambda x},\dots,x^{m-1}e^{\lambda x}$.
+  \item $\lambda=\alpha\pm i\beta$ semplici: $e^{\alpha x}\cos\beta x,\,e^{\alpha x}\sin\beta x$.
+  \item $\alpha\pm i\beta$ molteplicit\`a $m$: moltiplica per
+        $1,x,\dots,x^{m-1}$ ciascuna delle due.
+\end{itemize}
+
+\subsection{Particolare: somiglianza}
+
+Funziona quando $g(x)$ \`e somma di prodotti di polinomio $\times$
+esponenziale $\times$ seno/coseno.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{$g(x)$} & \textbf{$y_p$ tentativo}\\\hline
+$P_k(x)$ polinomio grado $k$ & $Q_k(x)$ generico grado $k$\\\hline
+$P_k(x)e^{\alpha x}$ & $Q_k(x)e^{\alpha x}$\\\hline
+$e^{\alpha x}\cos\beta x$ o $\sin\beta x$ & $e^{\alpha x}(A\cos\beta x+B\sin\beta x)$\\\hline
+$P_k(x)e^{\alpha x}\cos\beta x$ & $e^{\alpha x}(Q_k\cos\beta x+R_k\sin\beta x)$\\\hline
+\end{tabular}
+\end{center}
+
+\begin{trappola}
+\textbf{Risonanza.} Se $\alpha\pm i\beta$ (o $\alpha$) \`e radice del polinomio
+caratteristico con molteplicit\`a $m$, moltiplica il tentativo per $x^m$.
+Senza questa correzione le costanti restano indeterminate.
+\end{trappola}
+
+\begin{ricetta}
+\textbf{Risolvere $L[y]=g(x)$ a coefficienti costanti.}
+\begin{enumerate}[leftmargin=*]
+  \item Risolvi $p(\lambda)=0$, costruisci $y_h$.
+  \item Scegli il tentativo $y_p$ dalla tabella; controlla la
+        \emph{risonanza} e moltiplica per $x^m$ se serve.
+  \item Sostituisci $y_p$ nell'equazione e identifica i coefficienti.
+  \item Soluzione generale $y=y_h+y_p$. Imponi le condizioni iniziali.
+\end{enumerate}
+\textbf{Alternativa universale:} variazione delle costanti (Lagrange) o
+trasformata di Laplace.
+\end{ricetta}
+
+\begin{esempio}
+$y''-3y'+2y=e^{x}$, $y(0)=0$, $y'(0)=1$.
+
+\emph{Omogenea.} $\lambda^2-3\lambda+2=0\Rightarrow\lambda=1,2$.
+$y_h=c_1 e^{x}+c_2 e^{2x}$.
+
+\emph{Particolare.} $g=e^x$ con $\alpha=1$, radice semplice di $p$:
+risonanza, tentativo $y_p=Axe^{x}$.
+$y_p'=Ae^{x}+Axe^{x}$, $y_p''=2Ae^x+Axe^x$.
+$y_p''-3y_p'+2y_p=-Ae^x$. Quindi $-A=1\Rightarrow A=-1$, $y_p=-xe^x$.
+
+\emph{Generale.} $y=c_1 e^x+c_2 e^{2x}-xe^x$.
+
+\emph{Condizioni.} $y(0)=c_1+c_2=0$. $y'(0)=c_1+2c_2-1=1\Rightarrow c_1+2c_2=2$.
+$c_2=2,\ c_1=-2$. Soluzione: $y(x)=-2e^x+2e^{2x}-xe^x$.
+
+\textsl{Perch\'e $xe^x$ e non $Ae^x$?} Perch\'e $e^x$ risolve gi\`a l'omogenea,
+quindi $L[Ae^x]\equiv 0$. Moltiplicare per $x$ ``shifta'' fuori dal kernel.
+\end{esempio}
+
+\section{Sistemi lineari del primo ordine}
+
+Forma: $\dot{\vec{x}}=A\vec{x}+\vec{b}(t)$ con $A\in\R^{n\times n}$.
+Soluzione dell'omogeneo: $\vec{x}_h(t)=e^{At}\vec{c}$.
+
+\begin{ricetta}
+\textbf{Risolvere $\dot{\vec{x}}=A\vec{x}$.}
+\begin{enumerate}[leftmargin=*]
+  \item Trova autovalori: $\det(A-\lambda I)=0$.
+  \item Per ogni $\lambda$ trova un autovettore $\vec{v}$.
+  \item Autovalori semplici reali: contributo $c\,\vec{v}\,e^{\lambda t}$.
+  \item Coppie complesse $\alpha\pm i\beta$ con autovettore $\vec{u}\pm i\vec{w}$:
+        $e^{\alpha t}\bigl[c_1(\vec{u}\cos\beta t-\vec{w}\sin\beta t)
+        +c_2(\vec{u}\sin\beta t+\vec{w}\cos\beta t)\bigr]$.
+  \item Autovalori multipli con difetto: usa autovettori generalizzati,
+        $(A-\lambda I)\vec{w}=\vec{v}$ d\`a $\vec{x}=(\vec{v}t+\vec{w})e^{\lambda t}$.
+\end{enumerate}
+\end{ricetta}
+
+\begin{esempio}
+$\dot{x}=x+y,\;\dot{y}=4x-2y$. $A=\begin{pmatrix}1&1\\4&-2\end{pmatrix}$.
+$\det(A-\lambda I)=\lambda^2+\lambda-6$, $\lambda=2,-3$.
+
+$\lambda=2$: $(A-2I)\vec{v}=0\Rightarrow\vec{v}_1=(1,1)$.
+$\lambda=-3$: $\vec{v}_2=(1,-4)$.
+\[
+  \begin{pmatrix}x(t)\\y(t)\end{pmatrix}
+  =c_1\begin{pmatrix}1\\1\end{pmatrix}e^{2t}
+  +c_2\begin{pmatrix}1\\-4\end{pmatrix}e^{-3t}.
+\]
+\end{esempio}
+
+\section{Esistenza, unicit\`a, stabilit\`a (cenni)}
+
+\begin{teorema}[Cauchy--Lipschitz, locale]
+Se $f(t,y)$ \`e continua in un intorno di $(t_0,y_0)$ e \emph{lipschitziana
+in $y$} uniformemente in $t$, il problema $y'=f(t,y),y(t_0)=y_0$ ha un'unica
+soluzione locale.
+\end{teorema}
+
+\begin{nota}
+\textbf{Linearizzazione.} Per studiare $\dot{\vec{x}}=\F(\vec{x})$ vicino a un
+equilibrio $\vec{x}^\ast$ (cio\`e $\F(\vec{x}^\ast)=\vec{0}$), si guarda la
+matrice jacobiana $J=D\F(\vec{x}^\ast)$. Gli autovalori di $J$ determinano il
+comportamento locale: parte reale negativa $\to$ stabile, positiva $\to$
+instabile, immaginari puri $\to$ caso ambiguo.
+\end{nota}
+
+\section{Mini-bestiario operativo}
+
+Una checklist da scorrere in cinque secondi quando ti trovi davanti a un'EDO.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|p{6cm}|p{9cm}|}
+\hline
+\textbf{Forma} & \textbf{Strategia}\\\hline
+$y'=f(x)g(y)$ & separa variabili\\\hline
+$y'+a(x)y=b(x)$ & fattore integrante $\mu=e^{\int a}$\\\hline
+$y'+a(x)y=b(x)y^n,n\ne 0,1$ & Bernoulli: $z=y^{1-n}$\\\hline
+$M\dd x+N\dd y=0$, $M_y=N_x$ & esatta, calcola $F$\\\hline
+$M\dd x+N\dd y=0$, non esatta & cerca fattore integrante $\mu(x)$ o $\mu(y)$\\\hline
+Lineare ord.\ $n$ a coeff.\ costanti & polinomio caratteristico + somiglianza\\\hline
+Lineare con coeff.\ variabili & variazione delle costanti / serie\\\hline
+$\dot{\vec{x}}=A\vec{x}$ & autovalori e autovettori di $A$\\\hline
+\end{tabular}
+\end{center}
+
+\begin{trappola}
+Non confondere ``coefficienti costanti'' (gli $a_i$) con ``termine forzante''
+$g(x)$. Il polinomio caratteristico esiste solo per i coefficienti costanti;
+il forzante pu\`o essere qualunque funzione.
+\end{trappola}
+
+% =====================================================================
+\chapter{Problemi misti svolti}
+% =====================================================================
+
+In questo capitolo otto esercizi che attraversano pi\`u argomenti.
+Sono pensati come ``simulazione d'esame'': prima leggi il testo, poi prova a
+identificare \emph{quale} ricetta applicare prima di guardare la soluzione.
+
+\section*{Problema 1 --- Lavoro di un campo conservativo}
+
+Calcolare $\int_\gamma\F\cdot\dd\rr$ con $\F=(2xy+z^2,x^2,2xz)$ lungo qualunque
+curva da $A=(0,0,0)$ a $B=(1,2,3)$.
+
+\begin{esempio}
+\textbf{Strategia.} Verifico la conservativit\`a (Cap.~3): se vale, basta
+$U(B)-U(A)$.
+
+$\partial_y(2xy+z^2)=2x=\partial_x(x^2)$. \checkmark\
+$\partial_z(2xy+z^2)=2z=\partial_x(2xz)$. \checkmark\
+$\partial_z(x^2)=0=\partial_y(2xz)$. \checkmark\ Conservativo su $\R^3$.
+
+\emph{Calcolo $U$.} $U=\int(2xy+z^2)\dd x=x^2 y+xz^2+g(y,z)$.
+$\partial_y U=x^2+\partial_y g\stackrel{\!}{=}x^2\Rightarrow g=h(z)$.
+$\partial_z U=2xz+h'(z)\stackrel{\!}{=}2xz\Rightarrow h'=0$. Quindi
+$U(x,y,z)=x^2 y+xz^2+c$.
+
+$U(B)-U(A)=1\cdot 2+1\cdot 9-0=11$. \textbf{Risposta: $11$.}
+\end{esempio}
+
+\section*{Problema 2 --- Area di una superficie}
+
+Calcolare l'area della porzione del cono $z=\sqrt{x^2+y^2}$ con $0\le z\le 2$.
+
+\begin{esempio}
+\textbf{Strategia.} \`E un grafico $z=g(x,y)$: uso la formula
+$\text{Area}=\iint_D\sqrt{1+g_x^2+g_y^2}\dd x\dd y$.
+
+$g_x=\frac{x}{\sqrt{x^2+y^2}}$, $g_y=\frac{y}{\sqrt{x^2+y^2}}$, quindi
+$g_x^2+g_y^2=1$ e $\sqrt{1+g_x^2+g_y^2}=\sqrt{2}$. Il dominio $D$ in piano
+$(x,y)$ \`e $\{x^2+y^2\le 4\}$ (perch\'e $z\le 2\Leftrightarrow x^2+y^2\le 4$).
+\[
+  \text{Area}=\sqrt{2}\cdot\text{Area}(D)=\sqrt{2}\cdot 4\pi=4\pi\sqrt{2}.
+\]
+
+\textsl{Sanity check.} Il cono \`e ``aperto'' di un fattore $\sqrt{2}$ rispetto
+al disco proiezione: ha senso.
+\end{esempio}
+
+\section*{Problema 3 --- Flusso con divergenza e tappo}
+
+Sia $\F=(x,y,z^2)$ e $S$ la superficie laterale del cilindro
+$x^2+y^2=1$ con $0\le z\le 1$, normale uscente. Calcolare il flusso di $\F$
+attraverso $S$.
+
+\begin{esempio}
+\textbf{Strategia.} $S$ non \`e chiusa (manca tappo sopra e sotto). Aggiungo i
+dischi $D_0=\{z=0\}$ e $D_1=\{z=1\}$ per chiudere, applico la divergenza, poi
+sottraggo i flussi sui due dischi.
+
+$\Div\F=1+1+2z=2+2z$. Volume $V=\pi\cdot 1^2\cdot 1=\pi$.
+\[
+  \iiint_V(2+2z)\dV=\int_0^1(2+2z)\pi\dd z=\pi\cdot 3=3\pi.
+\]
+Questa \`e la somma dei flussi su $S$, $D_0$ (normale $-\vec{k}$), $D_1$
+(normale $+\vec{k}$).
+
+Su $D_1$: $\F\cdot\vec{k}=z^2=1$, flusso $=\pi\cdot 1=\pi$.
+Su $D_0$: $\F\cdot(-\vec{k})=-z^2=0$ (perch\'e $z=0$), flusso $=0$.
+
+Quindi flusso su $S=3\pi-\pi-0=2\pi$. \textbf{Risposta: $2\pi$.}
+
+\textsl{Verifica diretta.} Parametrizzo $S$: $\rr(\theta,z)=(\cos\theta,\sin\theta,z)$,
+$\rr_\theta\times\rr_z=(\cos\theta,\sin\theta,0)$ (uscente).
+$\F\cdot(\cos\theta,\sin\theta,0)=\cos^2\theta+\sin^2\theta+0=1$.
+Flusso $=\int_0^{2\pi}\int_0^1 1\dd z\dd\theta=2\pi$. \checkmark
+\end{esempio}
+
+\section*{Problema 4 --- Integrale curvilineo con Green}
+
+Calcolare $\oint_C(x^2+y)\dd x+(x-y^2)\dd y$ con $C$ frontiera del triangolo
+di vertici $(0,0),(1,0),(0,1)$, percorsa in senso antiorario.
+
+\begin{esempio}
+\textbf{Strategia.} Curva chiusa in $\R^2$: Green.
+$Q_x-P_y=1-1=0$. Quindi
+\[
+  \oint_C\F\cdot\dd\rr=\iint_T 0\dd A=0.
+\]
+
+\textsl{Lezione.} Il campo $(P,Q)=(x^2+y,x-y^2)$ \`e irrotazionale: il lavoro
+lungo qualunque ciclo \`e nullo. Anzi, il dominio $\R^2$ \`e semplicemente
+connesso, quindi $\F$ \`e conservativo. Esiste $U$ con $\nabla U=\F$:
+$U=\frac{x^3}{3}+xy-\frac{y^3}{3}+c$.
+\end{esempio}
+
+\section*{Problema 5 --- EDO lineare con risonanza}
+
+Risolvere $y''+y=\sin x$.
+
+\begin{esempio}
+\textbf{Strategia.} Lineare a coefficienti costanti.
+
+\emph{Omogenea.} $\lambda^2+1=0\Rightarrow\lambda=\pm i$. Quindi
+$y_h=c_1\cos x+c_2\sin x$.
+
+\emph{Particolare.} Forzante $\sin x$ con $\alpha=0,\beta=1$. Le radici
+$\pm i$ corrispondono a $\alpha\pm i\beta=0\pm i\cdot 1$: \emph{risonanza}\!
+Tentativo $y_p=x(A\cos x+B\sin x)$.
+
+$y_p=Ax\cos x+Bx\sin x$.
+$y_p'=A\cos x-Ax\sin x+B\sin x+Bx\cos x$.
+$y_p''=-2A\sin x-Ax\cos x+2B\cos x-Bx\sin x$.
+\[
+  y_p''+y_p=-2A\sin x+2B\cos x.
+\]
+Confrontando con $\sin x$: $-2A=1,\,2B=0$, ossia $A=-1/2,B=0$.
+$y_p=-\frac{x}{2}\cos x$.
+
+\emph{Generale.} $y(x)=c_1\cos x+c_2\sin x-\frac{x}{2}\cos x$.
+
+\textsl{Cosa significa fisicamente?} L'oscillatore $y''+y=0$ ha frequenza
+naturale 1; forzandolo a frequenza 1 esatta otteniamo \emph{risonanza}, e
+l'ampiezza cresce linearmente in $x$ (il fattore $x$).
+\end{esempio}
+
+\section*{Problema 6 --- Stokes su una calotta}
+
+Sia $\F=(y,-x,z^2)$ e $S=\{x^2+y^2+z^2=1,\,z\ge 0\}$ con normale uscente.
+Calcolare $\iint_S\Rot\F\cdot\dS$.
+
+\begin{esempio}
+\textbf{Strategia.} Per Stokes, il flusso del rotore attraverso $S$ uguaglia
+il lavoro di $\F$ lungo $\partial S$, che \`e il cerchio $C=\{x^2+y^2=1,z=0\}$.
+L'orientazione di $\partial S$ coerente con $\nn$ uscente (mano destra) \`e
+\emph{antioraria vista da $z>0$}.
+
+Parametrizzo $C$: $\rr(t)=(\cos t,\sin t,0)$, $t\in[0,2\pi]$,
+$\rr'(t)=(-\sin t,\cos t,0)$.
+$\F(\rr)=(\sin t,-\cos t,0)$.
+$\F\cdot\rr'=-\sin^2 t-\cos^2 t=-1$.
+\[
+  \oint_C\F\cdot\dd\rr=\int_0^{2\pi}(-1)\dd t=-2\pi.
+\]
+Quindi $\iint_S\Rot\F\cdot\dS=-2\pi$.
+
+\textsl{Verifica con calcolo diretto.} $\Rot\F=(0-0,\,0-0,\,-1-1)=(0,0,-2)$.
+Tappiamo con il disco $D=\{z=0,x^2+y^2\le 1\}$, normale uscente $-\vec{k}$.
+Per il teorema della divergenza applicato a $\Rot\F$ (che ha divergenza nulla):
+flusso uscente totale $=0$, quindi
+$\iint_S\Rot\F\cdot\dS=-\iint_D\Rot\F\cdot(-\vec{k})\dS=-\iint_D 2\dS=-2\pi$. \checkmark
+\end{esempio}
+
+\section*{Problema 7 --- Variabili separabili con dato critico}
+
+Risolvere $y'=y(1-y)$ con $y(0)=1/2$.
+
+\begin{esempio}
+\textbf{Strategia.} Separabile, ma occhio agli equilibri $y=0$ e $y=1$ (zeri di
+$g(y)=y(1-y)$): sono soluzioni costanti. Il dato $y(0)=1/2$ ci colloca tra i
+due, quindi la soluzione resta in $(0,1)$.
+
+Separando: $\frac{\dd y}{y(1-y)}=\dd x$. Decomposizione in fratti semplici:
+$\frac{1}{y(1-y)}=\frac{1}{y}+\frac{1}{1-y}$. Quindi
+\[
+  \int\frac{\dd y}{y}+\int\frac{\dd y}{1-y}=\int\dd x,\quad
+  \ln y-\ln(1-y)=x+c,
+\]
+ossia $\ln\frac{y}{1-y}=x+c$, $\frac{y}{1-y}=e^{x+c}=Ke^x$.
+$y(0)=1/2\Rightarrow K=1$. Quindi $\frac{y}{1-y}=e^x$, da cui
+\[
+  y(x)=\frac{e^x}{1+e^x}=\frac{1}{1+e^{-x}}.
+\]
+
+\textsl{Significato.} \`E la funzione \emph{logistica}: parte da $1/2$, tende
+a $1$ per $x\to+\infty$ e a $0$ per $x\to-\infty$. Modello classico di
+crescita di una popolazione con saturazione.
+\end{esempio}
+
+\section*{Problema 8 --- Massa di una superficie}
+
+Calcolare la massa della porzione di paraboloide $z=x^2+y^2$ con $0\le z\le 1$,
+densit\`a superficiale $\sigma(x,y,z)=z$.
+
+\begin{esempio}
+\textbf{Strategia.} $\iint_S\sigma\dS$ \`e un integrale di superficie scalare.
+Uso la parametrizzazione a grafico (Cap.~4).
+
+$z=g(x,y)=x^2+y^2$ con $(x,y)\in D=\{x^2+y^2\le 1\}$.
+$g_x=2x,g_y=2y$, $\sqrt{1+g_x^2+g_y^2}=\sqrt{1+4(x^2+y^2)}$.
+$\sigma=z=x^2+y^2$.
+\[
+  \iint_S z\dS=\iint_D(x^2+y^2)\sqrt{1+4(x^2+y^2)}\dd x\dd y.
+\]
+Passo in polari: $x^2+y^2=\rho^2$, $\dd x\dd y=\rho\dd\rho\dd\theta$,
+$\rho\in[0,1],\theta\in[0,2\pi]$.
+\[
+  =2\pi\int_0^1\rho^2\sqrt{1+4\rho^2}\,\rho\dd\rho=2\pi\int_0^1\rho^3\sqrt{1+4\rho^2}\dd\rho.
+\]
+Sostituzione $u=1+4\rho^2$, $\dd u=8\rho\dd\rho$, $\rho^2=(u-1)/4$:
+\[
+  \int_0^1\rho^3\sqrt{1+4\rho^2}\dd\rho
+  =\int_1^5\frac{u-1}{4}\sqrt{u}\cdot\frac{\dd u}{8}
+  =\frac{1}{32}\int_1^5(u^{3/2}-u^{1/2})\dd u.
+\]
+\[
+  =\frac{1}{32}\left[\frac{2}{5}u^{5/2}-\frac{2}{3}u^{3/2}\right]_1^5
+  =\frac{1}{32}\left[\frac{2}{5}(5^{5/2}-1)-\frac{2}{3}(5^{3/2}-1)\right].
+\]
+$5^{3/2}=5\sqrt5$, $5^{5/2}=25\sqrt5$. Sostituendo:
+\[
+  \frac{1}{32}\left[\frac{2(25\sqrt5-1)}{5}-\frac{2(5\sqrt5-1)}{3}\right]
+  =\frac{1}{32}\left[10\sqrt5-\frac{2}{5}-\frac{10\sqrt5}{3}+\frac{2}{3}\right]
+  =\frac{1}{32}\left[\frac{20\sqrt5}{3}+\frac{4}{15}\right].
+\]
+Quindi la massa \`e
+\[
+  M=2\pi\cdot\frac{1}{32}\cdot\frac{100\sqrt5+4}{15}=\frac{\pi(25\sqrt5+1)}{60}.
+\]
+
+\textsl{Lezione metodologica.} Anche un calcolo lungo si scompone in passi
+elementari: parametrizzazione $\to$ formula dell'area $\to$ cambio di
+variabili $\to$ integrale unidimensionale. Non saltare passaggi a esame:
+\`e l\`a che si fa il segno sbagliato.
+\end{esempio}
+
+\appendix
+% =====================================================================
+\chapter{Quattro pagine di formule}
+% =====================================================================
+
+\section*{Operatori}
+\[
+\nabla f=(f_x,f_y,f_z),\quad
+\Div\F=F_{1,x}+F_{2,y}+F_{3,z},\quad
+\Rot\F=\nabla\times\F.
+\]
+\[
+\Rot(\nabla f)=\vec{0},\qquad \Div(\Rot\F)=0,\qquad \Delta f=\Div(\nabla f).
+\]
+
+\section*{Integrali}
+\[
+\int_\gamma f\dd s=\int_a^b f(\rr(t))\norm{\rr'(t)}\dd t,\quad
+\int_\gamma\F\cdot\dd\rr=\int_a^b\F(\rr(t))\cdot\rr'(t)\dd t.
+\]
+\[
+\iint_S f\dS=\iint_D f(\rr(u,v))\norm{\rr_u\times\rr_v}\dd u\dd v,\quad
+\iint_S\F\cdot\dS=\iint_D\F(\rr(u,v))\cdot(\rr_u\times\rr_v)\dd u\dd v.
+\]
+
+\section*{Teoremi}
+\[
+\oint_{\partial D}P\dd x+Q\dd y=\iint_D(Q_x-P_y)\dd x\dd y \quad(\text{Green}).
+\]
+\[
+\oint_{\partial S}\F\cdot\dd\rr=\iint_S\Rot\F\cdot\dS \quad(\text{Stokes}).
+\]
+\[
+\oiint_{\partial V}\F\cdot\dS=\iiint_V\Div\F\dV \quad(\text{Gauss}).
+\]
+
+\section*{Coordinate}
+Polari: $\dd A=\rho\dd\rho\dd\theta$.
+Cilindriche: $\dV=\rho\dd\rho\dd\theta\dd z$.
+Sferiche: $\dV=r^2\sin\varphi\dd r\dd\varphi\dd\theta$.
+
+\section*{EDO 1\^o\ ordine}
+Separabili: $\int\dd y/g(y)=\int f\dd x+c$.
+Lineari: $y=\mu^{-1}(\int\mu b\dd x+c),\ \mu=e^{\int a}$.
+Bernoulli: $z=y^{1-n}$.
+Esatta: $M_y=N_x\Rightarrow F=c$.
+
+\section*{EDO lineari coefficienti costanti}
+Caratteristica $p(\lambda)=0$. Radice reale di molt.\ $m$: $x^j e^{\lambda x}$,
+$j=0,\dots,m-1$. Coppia $\alpha\pm i\beta$ molt.\ $m$: $x^j e^{\alpha x}\cos\beta x$
+e $x^j e^{\alpha x}\sin\beta x$. Risonanza: se il forzante \`e gi\`a soluzione
+dell'omogenea con molt.\ $m$, moltiplica il tentativo per $x^m$.
+
+
+\chapter{Successioni e serie di funzioni}
+
+\section*{Perch\'e questo capitolo \`e centrale}
+
+Negli scritti di Analisi Vettoriale di Sapienza compare \textbf{sempre}
+un esercizio sulle successioni o serie di funzioni: convergenza puntuale,
+uniforme, totale, e quasi sempre il calcolo di un limite di integrali
+$\lim_n\int_a^b f_n$ oppure di una somma esplicita. Il salto concettuale
+che bisogna fare \`e questo: una successione $f_n$ non \`e una sequenza
+di numeri ma di \emph{funzioni}, cio\`e di grafici. Dire ``$f_n\to f$'' significa
+chiedersi in che senso questi grafici si avvicinano a un grafico limite.
+
+\section{Convergenza puntuale e convergenza uniforme}
+
+\begin{nota}[title={Intuizione geometrica}]
+\textbf{Convergenza puntuale}: fissiamo un $x$ nel dominio e guardiamo
+la successione numerica $f_n(x)$. Se converge a $f(x)$ per ogni $x$,
+diciamo che $f_n\to f$ puntualmente. Questa nozione \`e \emph{verticale}:
+controlla colonna per colonna ma non lega i punti vicini.
+
+\textbf{Convergenza uniforme}: misuriamo la massima distanza verticale
+fra $f_n$ ed $f$ sul dominio,
+\[
+M_n=\sup_{x\in I}|f_n(x)-f(x)|,
+\]
+e chiediamo $M_n\to 0$. Geometricamente significa che \emph{tutto il
+grafico} di $f_n$ entra in una striscia di larghezza $\varepsilon$
+attorno al grafico di $f$, da un certo $n$ in poi. Non basta che ogni
+singolo punto si avvicini: si avvicinano tutti contemporaneamente.
+
+\textbf{Differenza chiave}: la convergenza puntuale tollera ``picchi
+mobili'' che si stringono ma restano alti; la convergenza uniforme li
+vieta.
+\end{nota}
+
+\begin{trappola}
+L'errore tipico da esame: dimostrare la convergenza puntuale e
+dichiarare uniforme la convergenza senza calcolare $\sup_I|f_n-f|$.
+La convergenza uniforme va sempre \emph{misurata}: si trova il punto
+di massimo di $|f_n(x)-f(x)|$ (di solito risolvendo $f_n'=f'$ oppure
+un'equazione esplicita) e si controlla se quel valore va a zero.
+\end{trappola}
+
+\begin{ricetta}[title={Studio di una successione di funzioni $f_n(x)$}]
+\begin{enumerate}
+\item \textbf{Punto fisso $x$}: calcola $f(x)=\lim_{n\to\infty}f_n(x)$.
+   Distingui i casi a seconda del valore di $x$ (di solito serve dividere
+   in regioni: tipicamente $|x|<1$, $|x|=1$, $|x|>1$ per potenze; oppure
+   $x=0$ vs.\ $x\ne0$ per quozienti).
+\item \textbf{Insieme di convergenza puntuale} $J$: tutti gli $x$ per
+   cui il limite esiste finito.
+\item \textbf{Convergenza uniforme su un intervallo $I\subseteq J$}:
+   poni $g_n(x)=f_n(x)-f(x)$ e cerca
+   \[
+   M_n=\sup_{x\in I}|g_n(x)|.
+   \]
+   Se $g_n$ \`e derivabile, risolvi $g_n'(x)=0$ per trovare i punti
+   critici interni a $I$. \emph{Includi sempre i punti di bordo} di $I$.
+   La convergenza \`e uniforme su $I$ sse $M_n\to 0$.
+\item \textbf{Passaggio al limite sotto integrale}: se $f_n\to f$
+   uniformemente su $[a,b]$, allora
+   $\lim_n\int_a^b f_n=\int_a^b f$. Se non c'\`e convergenza uniforme su tutto
+   $[a,b]$, prova a spezzare l'intervallo in una zona ``buona'' e una
+   ``piccola'' (di misura $\to 0$) e usa la convergenza dominata o una
+   stima diretta.
+\end{enumerate}
+\end{ricetta}
+
+\begin{esempio}[title={Tipo Sapienza --- 5/7/2023}]
+$\displaystyle f_n(x)=\frac{x}{x^4+\frac1n},\quad x\in\R$.
+
+\textbf{Puntuale.} Se $x=0$: $f_n(0)=0/(1/n)=0$. Se $x\ne 0$:
+$f_n(x)\to x/x^4=1/x^3$. Quindi
+\[
+f(x)=\begin{cases}0 & x=0\\ 1/x^3 & x\ne 0\end{cases}.
+\]
+Il limite puntuale \`e \emph{discontinuo} in $0$: questo \`e un campanello
+d'allarme per la convergenza uniforme su intervalli che contengono lo $0$.
+
+\textbf{Uniforme su $[-1,1]$}: contiene $0$. La differenza
+$g_n(x)=f_n(x)-1/x^3$ esplode vicino a $0$ perch\'e $1/x^3\to\pm\infty$;
+gi\`a il fatto che $f$ non sia limitata su $[-1,1]\setminus\{0\}$ fa
+saltare la convergenza uniforme.
+
+\textbf{Uniforme su $[a,+\infty)$ con $a>0$}: qui $f$ \`e limitata e regolare.
+Studio
+\[
+g_n(x)=\frac{x}{x^4+1/n}-\frac1{x^3}
+=\frac{x\cdot x^3-(x^4+1/n)}{x^3(x^4+1/n)}
+=\frac{-1/n}{x^3(x^4+1/n)}.
+\]
+Per $x\ge a$ stimo $|g_n(x)|\le \frac{1/n}{a^3\cdot a^4}=\frac{1}{n a^7}\to 0$.
+Convergenza uniforme su $[a,+\infty)$.
+
+\textbf{Uniforme su $(-\infty,2]$}: contiene $0$, dove $f$ esplode. No.
+
+\textbf{Limite di integrali su $[1,2]$}: la convergenza \`e uniforme
+su $[1,+\infty)\supseteq[1,2]$, quindi
+\[
+\lim_{n\to\infty}\int_1^2 f_n(x)\dd x=\int_1^2\frac{1}{x^3}\dd x=\Big[-\tfrac{1}{2x^2}\Big]_1^2=-\tfrac18+\tfrac12=\tfrac{3}{8}.
+\]
+\end{esempio}
+
+\section{Serie di funzioni: convergenza totale (Weierstrass)}
+
+\begin{nota}[title={Intuizione geometrica}]
+Per una serie $\sum_{n\ge 0}f_n(x)$, la convergenza totale chiede di
+maggiorare $|f_n(x)|$ con \emph{numeri puri} $M_n=\sup_I|f_n|$ tali
+che $\sum M_n<+\infty$. \`E come dire: il ``contributo verticale
+massimo'' di ogni termine \`e $M_n$, e i contributi massimi formano una
+serie numerica convergente. Se ci riesci, sei a posto: la totale implica
+l'uniforme, l'uniforme implica la puntuale assoluta. Geometricamente
+hai una ``maggiorante a ombrello'' che vale per tutti gli $x$.
+\end{nota}
+
+\begin{ricetta}[title={Studio di una serie di funzioni $\sum f_n(x)$}]
+\begin{enumerate}
+\item \textbf{Convergenza puntuale}: per ogni $x$ fissato, applica i
+   criteri delle serie numeriche (rapporto, radice, confronto asintotico
+   con $1/n^p$, Leibniz se a segno alterno). L'insieme degli $x$ in cui
+   la serie converge \`e l'insieme di convergenza puntuale $J$.
+\item \textbf{Convergenza assoluta}: ripeti il punto 1 con $|f_n(x)|$.
+\item \textbf{Convergenza totale su $I\subseteq J$}: calcola
+   $M_n=\sup_{x\in I}|f_n(x)|$ e studia $\sum M_n$. Se converge,
+   convergenza totale (e quindi uniforme e assoluta) su $I$.
+\item \textbf{Convergenza uniforme} (quando la totale fallisce): per
+   serie a segno alterno con $f_n(x)=(-1)^n a_n(x)$, controlla che
+   $a_n(x)$ sia decrescente in $n$ uniformemente in $x\in I$ e
+   $\sup_I a_n\to 0$ (Leibniz uniforme).
+\end{enumerate}
+\end{ricetta}
+
+\begin{esempio}[title={Tipo Sapienza --- 22/1/2024}]
+$\displaystyle S(x)=\sum_{k\ge 0}\frac{\log^k(x)}{3^{k+1}(k+e^{-k})}$.
+
+\textbf{Riconduzione a serie di potenze.} Pongo $y=\log x$ (definito
+per $x>0$): la serie diventa
+$\sum_k a_k y^k$ con $a_k=\frac{1}{3^{k+1}(k+e^{-k})}$.
+
+\textbf{Raggio.} Per $k\to\infty$, $e^{-k}\to 0$ e $a_k\sim
+\frac{1}{3^{k+1}k}$, quindi
+\[
+\sqrt[k]{|a_k|}\sim\frac{1}{3}\cdot\frac{1}{\sqrt[k]{k}}\to\frac13.
+\]
+Raggio $R=3$, intervallo aperto $|y|<3$ cio\`e $-3<\log x<3$,
+ovvero $e^{-3}<x<e^3$.
+
+\textbf{Estremi $y=\pm 3$.} 
+\begin{itemize}
+\item $y=3$: $\sum_k\frac{3^k}{3^{k+1}(k+e^{-k})}=\frac13\sum_k\frac{1}{k+e^{-k}}\sim\frac13\sum\frac1k$, diverge.
+\item $y=-3$: $\sum_k\frac{(-1)^k}{3(k+e^{-k})}$, segno alterno con
+$a_k=\frac{1}{3(k+e^{-k})}$ decrescente e infinitesima: per Leibniz converge.
+\end{itemize}
+
+\textbf{Insiemi.}
+\begin{itemize}
+\item Convergenza puntuale: $x\in[e^{-3},e^3)$ (incluso il bordo sinistro).
+\item Convergenza assoluta: $x\in(e^{-3},e^3)$.
+\item Convergenza uniforme: ogni $[e^{-3},c]$ con $c<e^3$ (per Abel agli estremi).
+\item Convergenza totale: ogni $[a,b]\subset(e^{-3},e^3)$.
+\end{itemize}
+\end{esempio}
+
+\begin{trappola}
+Sui due estremi del raggio le cose possono andare in modo molto diverso:
+diverge da una parte e converge dall'altra. Bisogna sempre studiarli
+\emph{separatamente}, sostituendo nella serie di numeri.
+\end{trappola}
+
+\section{Serie di potenze: somma esplicita}
+
+\begin{nota}[title={Intuizione}]
+Una serie di potenze $\sum a_n x^n$ ha un raggio $R$ e dentro
+$|x|<R$ rappresenta una funzione $C^\infty$, derivabile e integrabile
+\emph{termine a termine}. Sapere che vale
+\[
+\sum_{k=0}^\infty x^k=\frac{1}{1-x},\quad |x|<1
+\]
+ti d\`a tutte le altre somme notevoli per derivazione e integrazione,
+con cambio di variabile.
+\end{nota}
+
+\begin{ricetta}[title={Calcolare la somma di una serie}]
+\begin{enumerate}
+\item Riconosci la serie geometrica madre $\sum y^k=1/(1-y)$,
+   $|y|<1$, e i suoi parenti per derivazione/integrazione:
+   \[
+   \sum_{k\ge 1}\frac{y^k}{k}=-\log(1-y),\qquad
+   \sum_{k\ge 1} k y^{k-1}=\frac{1}{(1-y)^2}.
+   \]
+\item Cambia variabile per ricondurre la tua serie ad una di queste.
+\item Verifica che il cambio di variabile sia ammissibile: il nuovo $y$
+   deve stare nel raggio della serie geometrica.
+\item Esprimi la somma in funzione di $x$ tornando alla variabile
+   originaria.
+\end{enumerate}
+\end{ricetta}
+
+\begin{esempio}[title={Tipo Sapienza --- 6/7/2022}]
+$\displaystyle S(x)=\sum_{k\ge 1}\frac{(\log(x-1))^k}{k}$.
+
+Pongo $y=\log(x-1)$, $|y|<1$. Allora
+$S=\sum_{k\ge 1}y^k/k=-\log(1-y)=-\log(1-\log(x-1))$,
+valido per $|\log(x-1)|<1$, cio\`e $1+e^{-1}<x<1+e$.
+\end{esempio}
+
+\section{Scambio limite-integrale e derivazione termine a termine}
+
+\begin{nota}
+Il teorema cruciale: se $f_n\to f$ \emph{uniformemente} su $[a,b]$
+allora $\int_a^b f_n\to\int_a^b f$. Quindi la convergenza
+uniforme \`e la chiave per ``portare il limite sotto integrale''.
+Se la convergenza \`e solo puntuale puoi sbagliare di brutto: classico
+controesempio $f_n(x)=n\chi_{[0,1/n]}(x)$, che ha $\int=1$ per ogni $n$
+ma converge a $0$ puntualmente.
+
+Per la derivazione termine a termine: serve la convergenza uniforme
+delle \emph{derivate} $f_n'$ in un intervallo, pi\`u la convergenza in
+almeno un punto. Allora $f_n\to f$ uniformemente e $f'=\lim f_n'$.
+Per le serie di potenze questo \`e automatico dentro il raggio.
+\end{nota}
+
+\begin{esempio}[title={Tipo Sapienza --- 4/7/2024}]
+$\displaystyle f_n(x)=x^n(1-x^n),\ x\in[0,+\infty)$.
+
+\textbf{Puntuale.} Se $0\le x<1$: $x^n\to 0$, quindi $f_n\to 0$.
+Se $x=1$: $f_n(1)=1\cdot 0=0$. Se $x>1$: $x^n\to+\infty$ e
+$x^n(1-x^n)\to-\infty$. Insieme di convergenza puntuale
+$J=[0,1]$, con limite $f\equiv 0$.
+
+\textbf{Sup di $f_n$ su $[0,1]$.} $f_n(x)=t-t^2$ con $t=x^n$,
+massimo in $t=1/2$, cio\`e $x=2^{-1/n}\in[0,1]$, valore
+$f_n(\cdot)=1/4$. Quindi $M_n=1/4\not\to 0$: la convergenza
+\emph{non \`e uniforme} su $[0,1]$. Dunque sull'intervallo $[0,1/2]$
+il sup \`e $f_n(1/2)=2^{-n}(1-2^{-n})\to 0$: convergenza uniforme su
+$[0,1/2]$.
+
+\textbf{Limite dell'integrale su $[0,1/2]$.} Per uniforme convergenza,
+\[
+\lim_n\int_0^{1/2}f_n=\int_0^{1/2}0\dd x=0.
+\]
+\end{esempio}
+
+\begin{trappola}
+Quando il sup non va a zero su tutto l'intervallo ma le ``code'' sono
+piccole, si pu\`o ancora concludere $\int f_n\to 0$ usando una stima
+diretta: spezza in $[0,1-\delta]$ (uniforme l\`i) pi\`u $[1-\delta,1]$
+(misura piccola, $f_n$ limitata). \`E lo schema standard.
+\end{trappola}
+
+
+\chapter{Tipologie d'esame Sapienza: classificazione e ricette specifiche}
+
+\section*{Cosa contiene questo capitolo}
+
+Esaminando una larga banca di scritti d'esame (D.M.{}/Lanzara/Terracina,
+2022--2025) emergono \textbf{otto schemi ricorrenti}. Ogni esame \`e
+una combinazione di cinque o sei tra questi otto. Imparare a riconoscere
+lo schema in trenta secondi \`e gi\`a met\`a del lavoro: il resto \`e
+applicare la ricetta corretta. Per ogni tipo: come riconoscerlo,
+intuizione geometrica, ricetta passo--passo, esempio svolto su un testo
+reale, trappola da evitare.
+
+\section{Tipo A: Volume + Flusso (Gauss diretto)}
+
+\paragraph{Riconoscimento.} Testo del tipo:
+``Dato $E=\{(x,y,z)\in\R^3:\dots\}$, calcolare il volume di $E$ e il
+flusso uscente del campo $\F=(\dots)$''.
+
+\begin{nota}[title={Intuizione}]
+$E$ \`e descritto da \emph{disuguaglianze} che mescolano superfici
+``base'' (sfera, paraboloide, cilindro, piano). Geometricamente
+$E$ \`e il solido racchiuso fra queste superfici. La frontiera
+$\partial E$ \`e chiusa: questo \`e l'invito esplicito a usare Gauss,
+specialmente se il campo $\F$ contiene termini ``cattivi'' (esponenziali
+incrociati come $e^xz$, arctangenti, seno) la cui divergenza \`e
+sorprendentemente semplice. \textbf{Calcola sempre la divergenza
+prima di parametrizzare}: nel 90\% dei casi i termini brutti spariscono.
+\end{nota}
+
+\begin{ricetta}[title={Volume + flusso}]
+\begin{enumerate}
+\item \textbf{Disegna} la regione $E$ a mente: identifica le due
+   superfici che la limitano (``tappo superiore'' e ``tappo inferiore''
+   o ``laterale'').
+\item \textbf{Scegli le coordinate} guardando le simmetrie:
+   \begin{itemize}
+   \item simmetria $x^2+y^2$ $\to$ cilindriche
+     ($x=\rho\cos\theta,y=\rho\sin\theta,z=z$, $|J|=\rho$);
+   \item simmetria $x^2+y^2+z^2$ $\to$ sferiche
+     ($x=r\sin\varphi\cos\theta,\dots$, $|J|=r^2\sin\varphi$);
+   \item dominio piano poi $z\in[z_1,z_2]$ $\to$ ``per fili''
+     $\iiint=\iint_D\big(\int_{z_1}^{z_2}\dd z\big)\dd A$.
+   \end{itemize}
+\item \textbf{Trova l'intersezione} delle due superfici risolvendo il
+   sistema; serve per i limiti di $\rho$ o $r$.
+\item \textbf{Volume}: $V(E)=\iiint_E 1\dd V$ con i nuovi limiti.
+\item \textbf{Flusso}: calcola $\Div\F$ e fai
+   $\Phi=\iiint_E \Div\F\dd V$. Se viene una costante o un polinomio
+   bassissimo, quasi sempre il calcolo si chiude in mezza pagina.
+\end{enumerate}
+\end{ricetta}
+
+\begin{esempio}[title={19/6/2024 --- Esercizio 1}]
+$E=\{x^2+2(y-1)^2\le z\le y^2-x\}$, $\F=(e^x+2z,\,2y,\,5-ze^x)$.
+
+\textbf{Volume.} $E$ \`e la regione fra il paraboloide
+$z=x^2+2(y-1)^2$ (sotto) e la superficie $z=y^2-x$ (sopra).
+Proiezione $D$ sul piano $xy$: serve $x^2+2(y-1)^2\le y^2-x$, ossia
+$x^2+x+y^2-4y+2\le 0$, cio\`e
+$(x+\tfrac12)^2+(y-2)^2\le 9/4$, un disco di centro $(-1/2,2)$
+e raggio $3/2$. Per fili:
+\[
+V=\iint_D[(y^2-x)-(x^2+2(y-1)^2)]\dd x\dd y.
+\]
+Cambio di variabile $x=-1/2+\rho\cos\theta$, $y=2+\rho\sin\theta$,
+$\rho\in[0,3/2]$, $\theta\in[0,2\pi]$. L'integranda dopo i conti
+diventa $9/4-\rho^2$ (si verifica espandendo i quadrati). Allora
+\[
+V=\int_0^{2\pi}\\!\\!\int_0^{3/2}\\!\Big(\tfrac94-\rho^2\Big)\rho\dd\rho\dd\theta
+=2\pi\Big[\tfrac{9}{8}\rho^2-\tfrac{\rho^4}{4}\Big]_0^{3/2}
+=2\pi\cdot\tfrac{81}{64}=\tfrac{81\pi}{32}.
+\]
+
+\textbf{Flusso.}
+$\Div\F=\partial_x(e^x+2z)+\partial_y(2y)+\partial_z(5-ze^x)
+=e^x+2-e^x=2$. La parte ``cattiva'' $e^x$ si \`e cancellata.
+Per Gauss
+\[
+\Phi=\iiint_E 2\dd V=2V=\tfrac{81\pi}{16}.
+\]
+\end{esempio}
+
+\begin{trappola}
+Verifica sempre il segno della differenza ``superiore meno inferiore'';
+se la sbagli ottieni un volume negativo. Inoltre, se il problema chiede
+``flusso uscente'', con Gauss otterrai sempre il segno corretto: niente
+versori da scegliere.
+\end{trappola}
+
+\section{Tipo B: Superficie cartesiana e Stokes}
+
+\paragraph{Riconoscimento.} Testo del tipo:
+``Dato $\Sigma=\{(x,y,z):z=f(x,y),\,(x,y)\in D\}$, calcolare l'area di
+$\Sigma$ e la circuitazione di $\F$ lungo $\partial\Sigma$ con
+orientazione compatibile alla normale $n_z>0$ (oppure $n_z<0$)''.
+
+\begin{nota}[title={Intuizione}]
+Se la superficie \`e \emph{cartesiana} ($z=f(x,y)$ con $f\in C^1$),
+\`e automaticamente regolare e orientabile. Il bordo $\partial\Sigma$
+\`e l'immagine di $\partial D$ tramite la parametrizzazione
+$(x,y)\mapsto(x,y,f(x,y))$. Per la circuitazione, vista la chiusura
+del bordo, Stokes \`e quasi sempre la strada vincente: si calcola
+$\Rot\F$, lo si proietta sulla normale e si integra su $\Sigma$.
+\textbf{Geometricamente la normale di una cartesiana \`e}
+\[
+\vec n=\frac{(-f_x,-f_y,1)}{\sqrt{1+f_x^2+f_y^2}},
+\]
+che ha sempre terza componente positiva: per ottenere la normale con
+$n_z<0$ basta cambiare il segno globale.
+\end{nota}
+
+\begin{ricetta}[title={Cartesiana + Stokes}]
+\begin{enumerate}
+\item \textbf{Parametrizzazione naturale}:
+   $\rr(x,y)=(x,y,f(x,y))$, $(x,y)\in D$.
+\item \textbf{Area}: $A(\Sigma)=\iint_D\sqrt{1+f_x^2+f_y^2}\dd x\dd y$.
+\item \textbf{Bordo}: parametrizza $\partial D$ (se $D$ \`e un disco
+   $x^2+y^2\le R^2$, $\partial D$: $x=R\cos t,y=R\sin t$, $t\in[0,2\pi]$);
+   poi alza a $z=f(x(t),y(t))$.
+\item \textbf{Stokes}: scegli se calcolare la circuitazione
+   direttamente come $\oint\F\cdot\dd\rr$, oppure trasformarla in
+   $\iint_\Sigma\Rot\F\cdot\dd\vec S$ (utile se $\Rot\F$ \`e semplice
+   o se il bordo \`e brutto). Il versore $\dd\vec S$ \`e
+   $(-f_x,-f_y,1)\dd x\dd y$ (\textbf{senza} normalizzare\!) per
+   $n_z>0$, oppure $(f_x,f_y,-1)\dd x\dd y$ per $n_z<0$.
+\item \textbf{Compatibilit\`a}: $n_z>0$ implica $\partial D$ percorso
+   in senso \emph{antiorario} (regola della mano destra).
+\end{enumerate}
+\end{ricetta}
+
+\begin{esempio}[title={27/1/2025 --- Esercizio 1}]
+$\Sigma=\{z+2x+y-2=0,\,x^2+y^2\le 9\}$,
+$\F=(y^2+z^2+e^x,\,xy+z+\cos y,\,2xz+3yz+z^2)$,
+normale con $n_z<0$.
+
+\textbf{Parametrizzazione.} $z=f(x,y)=-2x-y+2$, $D$=disco di raggio 3.
+$f_x=-2$, $f_y=-1$. Modulo del gradiente $\sqrt{1+4+1}=\sqrt{6}$.
+
+\textbf{Area.} $A=\iint_D\sqrt{6}\dd x\dd y=\sqrt{6}\cdot 9\pi=9\sqrt{6}\pi$.
+
+\textbf{Bordo.} $\partial D$: $x=3\cos t,y=3\sin t$, $t\in[0,2\pi]$;
+quindi $\partial\Sigma$:
+$\gamma(t)=(3\cos t,\,3\sin t,\,-6\cos t-3\sin t+2)$.
+
+\textbf{Rotore.}
+\[
+\Rot\F=\begin{vmatrix}
+\vec i & \vec j & \vec k\\
+\partial_x & \partial_y & \partial_z\\
+y^2+z^2+e^x & xy+z+\cos y & 2xz+3yz+z^2
+\end{vmatrix}
+=(3z-1,\,2z-2x,\,y-2y)=(3z-1,\,2z-2x,\,-y).
+\]
+(Calcolo: $\partial_y(2xz+3yz+z^2)-\partial_z(xy+z+\cos y)=3z-1$; ecc.).
+
+\textbf{Stokes con $n_z<0$}: $\dd\vec S=(2,1,-1)\dd x\dd y$
+(si scrive $(f_x,f_y,-1)$). 
+\[
+\oint_{\partial\Sigma}\F\cdot\dd\rr=\iint_D\Rot\F(\rr(x,y))\cdot(2,1,-1)\dd x\dd y.
+\]
+Sostituiamo $z=-2x-y+2$:
+$\Rot\F=(3z-1,\,2z-2x,\,-y)
+=(-6x-3y+5,\,-6x-2y+4,\,-y)$.
+Prodotto scalare con $(2,1,-1)$:
+\[
+2(-6x-3y+5)+1\cdot(-6x-2y+4)-1\cdot(-y)
+=-12x-6y+10-6x-2y+4+y=-18x-7y+14.
+\]
+Su $D$ (disco centrato), $\iint_D x=\iint_D y=0$ per simmetria, quindi
+\[
+\oint=\iint_D 14\dd x\dd y=14\cdot 9\pi=126\pi.
+\]
+\end{esempio}
+
+\begin{trappola}
+Tre errori frequentissimi:
+(1) confondere il versore unitario $\hat n$ con $\dd\vec S$ non
+normalizzato (per Stokes serve quello non normalizzato perch\'e
+contiene gi\`a il fattore d'area);
+(2) sbagliare il senso di percorrenza del bordo rispetto alla normale
+(usa la mano destra\!);
+(3) dimenticare di valutare $z=f(x,y)$ \emph{dentro} $\Rot\F$ prima
+di integrare su $D$.
+\end{trappola}
+
+\section{Tipo C: Differenziabilit\`a all'origine, funzione spezzata}
+
+\paragraph{Riconoscimento.} Testo del tipo:
+``Sia $f(x,y)=N(x,y)/D(x,y)$ per $(x,y)\ne(0,0)$ e $f(0,0)=0$. Studiare
+continuit\`a, derivabilit\`a, derivate direzionali, differenziabilit\`a
+all'origine'' (eventualmente al variare di un parametro $a$).
+
+\begin{nota}[title={Intuizione}]
+Quattro nozioni \emph{strettamente concentriche} all'origine:
+\[
+\text{differenziabile}\ \Rightarrow\ \text{continua e derivabile e
+direzionali nel senso del gradiente}.
+\]
+Le frecce inverse non valgono. La domanda dell'esame \`e quasi sempre
+trovare per quali parametri si abbiano i livelli, e per quali no.
+La chiave geometrica: \emph{passare in coordinate polari}
+$x=\rho\cos\theta,y=\rho\sin\theta$ riduce il limite a uno studio
+su $\rho\to 0^+$ con dipendenza da $\theta$. Se la stima si chiude
+\emph{uniformemente in $\theta$}, il limite vale; altrimenti basta
+trovare \emph{una sola direzione} che fa fallire la stima.
+\end{nota}
+
+\begin{ricetta}[title={Studio in $(0,0)$}]
+\begin{enumerate}
+\item \textbf{Continuit\`a}: stima $|f(x,y)|$ con potenze di
+   $\sqrt{x^2+y^2}$ usando $|x|,|y|\le\sqrt{x^2+y^2}$. Se ottieni
+   $|f|\le C(x^2+y^2)^\alpha$ con $\alpha>0$, hai continuit\`a.
+   In caso di parametro, l'esponente $\alpha$ dipende dal parametro:
+   risolvi la disuguaglianza $\alpha>0$.
+\item \textbf{Derivabilit\`a (cio\`e parziali)}: calcola
+   $\lim_{h\to 0}f(h,0)/h$ e $\lim_{k\to 0}f(0,k)/k$. Tipicamente,
+   se $f(h,0)=f(0,k)=0$, vengono entrambi $0$ e quindi
+   $\nabla f(0,0)=(0,0)$.
+\item \textbf{Direzionali in direzione $\vec v=(v_1,v_2)$ unitario}:
+   calcola $\lim_{t\to 0}f(tv_1,tv_2)/t$. Se vale per ogni $\vec v$
+   il limite \`e finito, le direzionali esistono. Se il limite cambia
+   con $\vec v$, anche f \`e patologica.
+\item \textbf{Differenziabilit\`a}: calcola
+   \[
+   \lim_{(h,k)\to(0,0)}\frac{f(h,k)-f(0,0)-f_x(0,0)h-f_y(0,0)k}{\sqrt{h^2+k^2}}.
+   \]
+   Se vale 0, differenziabile. Spesso si testa il limite lungo la
+   bisettrice $h=k$ per vedere se \emph{non} \`e zero (e cos\`\i\ escludere
+   la differenziabilit\`a).
+\end{enumerate}
+\end{ricetta}
+
+\begin{esempio}[title={10/2/2022 --- al variare di $a>0$}]
+$\displaystyle f(x,y)=\frac{e^{x^4y^2}-1}{(x^2+y^2)^a}+xy$ in $(x,y)\ne(0,0)$,
+$f(0,0)=0$.
+
+Il termine $xy$ \`e $C^\infty$, contribuisce con $0$ ai limiti
+incrementali. Studiamo $g=(e^{x^4y^2}-1)/(x^2+y^2)^a$.
+
+Limite notevole: $e^t-1\sim t$, quindi $e^{x^4y^2}-1\sim x^4y^2$.
+Stima: $x^4y^2\le(x^2+y^2)^2(x^2+y^2)=(x^2+y^2)^3$, quindi
+$|g|\le(x^2+y^2)^{3-a}$. Continua sse $3-a>0$, cio\`e $a<3$.
+
+Verifica esatta: lungo la bisettrice $x=y$, $g(x,x)=(e^{x^6}-1)/(2x^2)^a\sim
+x^6/(2^a x^{2a})=x^{6-2a}/2^a$. Il limite vale $0$ sse $6-2a>0$ cio\`e
+$a<3$, conferma.
+
+Derivabilit\`a in $(0,0)$: $g(h,0)=0=g(0,k)$, quindi
+$\nabla g(0,0)=(0,0)$. Vale per ogni $a>0$.
+
+Differenziabilit\`a: serve
+$\lim g(h,k)/\sqrt{h^2+k^2}=0$. Stima:
+$|g|/\sqrt{h^2+k^2}\le(h^2+k^2)^{3-a-1/2}=(h^2+k^2)^{5/2-a}$.
+Va a zero sse $5/2-a>0$, cio\`e $a<5/2$.
+
+Conferma lungo bisettrice: $g(x,x)/(\sqrt2|x|)\sim x^{6-2a}/(2^a\sqrt2|x|)=
+x^{5-2a}\cdot\text{cost}$, va a 0 sse $a<5/2$.
+
+\textbf{Sintesi.}
+\begin{itemize}
+\item Continua all'origine: $a<3$.
+\item Derivabile (parziali esistono): per ogni $a>0$.
+\item Direzionali: per $a<5/2$ esistono come conseguenza della
+differenziabilit\`a; per $a\ge 5/2$ vanno studiate caso per caso.
+\item Differenziabile: $a<5/2$.
+\end{itemize}
+\end{esempio}
+
+\begin{trappola}
+La derivabilit\`a (esistenza delle parziali) non implica la
+differenziabilit\`a, n\'e in generale la continuit\`a\! Capita che le
+parziali siano $0$ ma la funzione esploda lungo una direzione obliqua.
+Mai dichiarare differenziabilit\`a per il solo fatto che esistono le
+parziali.
+\end{trappola}
+
+\section{Tipo D: Massimi/minimi vincolati (Lagrange e Weierstrass)}
+
+\paragraph{Riconoscimento.} Testo del tipo:
+``Determinare massimo e minimo di $f$ sull'insieme
+$\{g(x,y,z)=0\}$'' o ``$\le 0$''.
+
+\begin{nota}[title={Intuizione}]
+Il vincolo $\{g=0\}$ \`e una superficie (in $\R^3$) o curva (in $\R^2$).
+I punti estremali di $f$ ristretto al vincolo si hanno dove
+$\nabla f$ \`e \emph{parallelo} a $\nabla g$: i due vettori puntano
+nella stessa direzione, le isolinee di $f$ sono tangenti al vincolo.
+Algebricamente: $\exists\lambda$ con $\nabla f=\lambda\nabla g$.
+
+Se invece il vincolo \`e $\{g\le 0\}$ (un solido), gli estremi possono
+stare nella parte interna ($\nabla f=0$) oppure sul bordo $\{g=0\}$
+(Lagrange).
+\end{nota}
+
+\begin{ricetta}[title={Lagrange su un vincolo}]
+\begin{enumerate}
+\item \textbf{Esistenza}: se l'insieme \`e chiuso e limitato e $f$ \`e
+   continua, Weierstrass garantisce max e min. Verifica chiuso (di
+   solito controimmagine di chiuso) e limitato (con stime).
+\item \textbf{Sistema di Lagrange}: in $\R^2$ con un vincolo,
+   \[
+   \begin{cases}\nabla f=\lambda\nabla g\\ g=0\end{cases}
+   \quad\text{ovvero}\quad
+   \det\begin{pmatrix}f_x&f_y\\g_x&g_y\end{pmatrix}=0,\ g=0.
+   \]
+   In $\R^3$ con un vincolo: come sopra ma in tre componenti pi\`u il
+   vincolo. Con due vincoli: $\nabla f=\lambda\nabla g+\mu\nabla h$.
+\item \textbf{Casi al bordo o singolari}: dove $\nabla g=0$ il sistema
+   non si applica, occorre studiare a parte. Stessa cosa quando il
+   vincolo \`e $\{g\le 0\}$: aggiungi i punti interni con $\nabla f=0$.
+\item \textbf{Conclusione}: confronta i valori di $f$ sui candidati e
+   prendi il massimo/minimo.
+\end{enumerate}
+\end{ricetta}
+
+\begin{esempio}[title={19/6/2024 --- Esercizio 2}]
+$f(x,y,z)=x^2+y+z$ su $D=\{x^4+y^2+z^2-2z\le 0\}$.
+
+\textbf{Insieme.} Riscrivo $D$: $x^4+y^2+(z-1)^2\le 1$.
+\`E chiuso (controimmagine continua di $\le 1$) e limitato
+($x^4\le 1\Rightarrow|x|\le 1$, $|y|\le 1$, $|z-1|\le 1$). Per
+Weierstrass max e min esistono.
+
+\textbf{Interno.} $\nabla f=(2x,1,1)$, mai nullo. Quindi tutti gli
+estremi sono sul bordo $\partial D=\{x^4+y^2+(z-1)^2=1\}$.
+
+\textbf{Lagrange.} Sia $g(x,y,z)=x^4+y^2+(z-1)^2-1$. Sistema
+\[
+(2x,1,1)=\lambda(4x^3,2y,2(z-1)),\quad g=0.
+\]
+Componente $y$: $1=2\lambda y\Rightarrow y=1/(2\lambda)$,
+$\lambda\ne 0$.
+Componente $z$: $1=2\lambda(z-1)\Rightarrow z-1=1/(2\lambda)$,
+quindi $z-1=y$.
+Componente $x$: $2x=4\lambda x^3$, ossia $x(2-4\lambda x^2)=0$:
+caso (a) $x=0$; caso (b) $x^2=1/(2\lambda)=y$, ovvero $x^2=y$.
+
+\textbf{Caso (a).} $x=0$, $z-1=y$: vincolo
+$0+y^2+y^2=1\Rightarrow y=\pm 1/\sqrt2$.
+\begin{itemize}
+\item $y=1/\sqrt2,z=1+1/\sqrt2$:
+$f=0+1/\sqrt2+1+1/\sqrt2=1+\sqrt2$.
+\item $y=-1/\sqrt2,z=1-1/\sqrt2$:
+$f=0-1/\sqrt2+1-1/\sqrt2=1-\sqrt2$.
+\end{itemize}
+
+\textbf{Caso (b).} $x^2=y$, $z-1=y$, $g=y^2+y^2+y^2=1\Rightarrow y=\pm1/\sqrt3$.
+Ma $x^2=y$ richiede $y\ge 0$, quindi solo $y=1/\sqrt3$,
+$x=\pm 3^{-1/4}$, $z=1+1/\sqrt3$:
+$f=1/\sqrt3+1/\sqrt3+1+1/\sqrt3=1+\sqrt3$.
+
+\textbf{Conclusione.}
+$\max_D f=1+\sqrt3$, $\min_D f=1-\sqrt2$.
+\end{esempio}
+
+\section{Tipo E: Conservativit\`a con parametro}
+
+\paragraph{Riconoscimento.} Testo del tipo:
+``Per quali $a\in\R$ il campo $\F_a$ \`e conservativo? Per tali $a$
+calcolare il potenziale e l'integrale lungo una curva''.
+
+\begin{nota}[title={Intuizione}]
+$\F$ in $\R^2$ \`e conservativo \emph{su un dominio semplicemente connesso}
+sse $\partial_x Q=\partial_y P$. Il parametro $a$ entra in $P$ o $Q$
+e lega i due derivati: l'equazione si risolve per $a$. Quando il
+dominio non \`e semplicemente connesso (tipico: $\R^2\setminus\{(0,0)\}$),
+l'irrotazionalit\`a non basta: bisogna controllare l'integrale su un
+piccolo cerchio attorno al buco.
+\end{nota}
+
+\begin{ricetta}[title={Conservativit\`a parametrica}]
+\begin{enumerate}
+\item Calcola $P_y$ e $Q_x$ (in $\R^2$). Imposta $P_y=Q_x$ e ricava
+   il valore (o i valori) di $a$.
+\item Verifica che il dominio sia s.c. Se s\`\i, il campo \`e
+   conservativo. Costruisci $U$ integrando $U_x=P$ in $x$, poi
+   imponendo $U_y=Q$ trovi la dipendenza in $y$.
+\item Per $a$ generico (non conservativo) usa Green per circuitazioni
+   chiuse, oppure parametrizza la curva.
+\end{enumerate}
+\end{ricetta}
+
+\begin{esempio}[title={22/1/2024 --- Esercizio 3}]
+$\F_a(x,y)=(2x\cos(x^2+y)+axy,\,\cos(x^2+y)+x^2+1)$.
+
+$P_y=-2x\sin(x^2+y)+ax$,
+$Q_x=-2x\sin(x^2+y)+2x$.
+$P_y=Q_x\Leftrightarrow ax=2x$ per ogni $x$, quindi $a=2$.
+
+\textbf{Potenziale per $a=2$.}
+$U_x=P=2x\cos(x^2+y)+2xy$. Integro in $x$:
+$U=\sin(x^2+y)+x^2y+\varphi(y)$. Imponiamo $U_y=Q$:
+$U_y=\cos(x^2+y)+x^2+\varphi'(y)$, da $Q=\cos(x^2+y)+x^2+1$ ottengo
+$\varphi'(y)=1$, $\varphi(y)=y+c$.
+\[
+U(x,y)=\sin(x^2+y)+x^2y+y+c.
+\]
+
+\textbf{Circuitazione su $\partial D$ (anti-orario), $D=\{0\le y\le x,\,x^2+y^2\le 4\}$, per $a$ generico.}
+Per Green:
+\[
+\oint=\iint_D(Q_x-P_y)\dd A=\iint_D(2x-ax)\dd A=(2-a)\iint_D x\dd A.
+\]
+$D$ \`e il settore di disco di raggio 2 fra $\theta=0$ e $\theta=\pi/4$.
+In polari: $\iint_D x\dd A=\int_0^{\pi/4}\int_0^2\rho\cos\theta\cdot\rho\dd\rho\dd\theta
+=\frac{8}{3}\sin\theta\Big|_0^{\pi/4}=\frac{8}{3}\cdot\frac{\sqrt2}{2}=\frac{4\sqrt2}{3}$.
+Quindi
+\[
+\oint=(2-a)\cdot\frac{4\sqrt2}{3}.
+\]
+Per $a=2$ vale $0$ (conferma: campo conservativo, circuitazione su
+chiuso $=0$).
+\end{esempio}
+
+\section{Tipo F: Cauchy qualitativo (con risoluzione finale)}
+
+\paragraph{Riconoscimento.} Problema di Cauchy
+$y'=g(t,y),\ y(t_0)=y_0$, con \emph{cinque} domande:
+(i) esistenza/unicit\`a locale; (ii) globalit\`a; (iii) segno o
+monotonia; (iv) convessit\`a o limite; (v) risolvere esplicitamente.
+
+\begin{nota}[title={Intuizione}]
+Una EDO assegna un \emph{campo direzionale}: in ogni punto $(t,y)$
+del piano la pendenza \`e $g(t,y)$. La soluzione \`e una curva tangente
+in ogni punto al campo. L'analisi qualitativa serve a leggere la curva
+\emph{senza tracciarla}: barriere costanti $y\equiv c$ corrispondono
+a soluzioni stazionarie ($g(t,c)=0$) e fungono da pareti che la soluzione
+non pu\`o attraversare (per unicit\`a).
+\end{nota}
+
+\begin{ricetta}[title={Cauchy qualitativo}]
+\begin{enumerate}
+\item \textbf{Esistenza locale}: $g$ continua e $g_y$ continua (Cauchy--Lipschitz).
+\item \textbf{Soluzioni stazionarie} (barriere): risolvi $g(t,y)=0$ in $y$.
+   Ogni $y\equiv y^*$ con $g(t,y^*)\equiv 0$ \`e una soluzione costante.
+   Per il dato $y_0$, la soluzione \`e racchiusa fra le barriere
+   adiacenti. Questo d\`a \emph{automaticamente la limitatezza} e quindi
+   la globalit\`a (in molti casi).
+\item \textbf{Segno e monotonia}: il segno di $y'$ \`e quello di
+   $g(t,y(t))$. Se la soluzione vive in una banda dove $g>0$,
+   $y$ cresce.
+\item \textbf{Convessit\`a}: deriva la EDO,
+   $y''=g_t+g_y\cdot y'=g_t+g_y g$. Il segno di $y''$ d\`a la convessit\`a.
+\item \textbf{Limite}: se $y$ \`e monotona e limitata superiormente,
+   $\lim y$ esiste finito $L$, e per coerenza con $y'\to 0$ deve essere
+   $g(\cdot,L)=0$, quindi $L$ \`e una barriera.
+\item \textbf{Soluzione esplicita}: separabile, lineare, Bernoulli,
+   esatta o per serie. Imponi il dato iniziale per fissare la costante.
+\end{enumerate}
+\end{ricetta}
+
+\begin{esempio}[title={4/7/2024 --- Esercizio 5}]
+$y'=y(y-2)/(1+t)$, $y(0)=1$.
+
+\textbf{(i) Esistenza/unicit\`a.} $g(t,y)=y(y-2)/(1+t)$ \`e $C^1$ per
+$t>-1$, in particolare attorno a $(0,1)$.
+
+\textbf{Barriere.} $g=0$ sse $y=0$ o $y=2$. Sono soluzioni costanti.
+La nostra parte da $1\in(0,2)$, quindi vive in $(0,2)$ per ogni $t$
+nel suo dominio massimale.
+
+\textbf{(ii) Globalit\`a.} Su $(0,2)$, $|y(y-2)|\le 1$, $|g|\le 1/(1+t)$,
+quindi $|y|\le |y_0|+\int_0^t 1/(1+s)\dd s=1+\log(1+t)$, finito su $[0,T]$.
+Il dominio massimale destro \`e $[0,+\infty)$. Sinistra: $t\to-1^+$
+fa esplodere $1/(1+t)$, ma $y$ resta in $(0,2)$ quindi $|y'|\le 1/(1+t)$:
+$y$ \`e bounded e l'integrale diverge solo per $t\to -1$. Per controllo
+fine si vede che $t\in(-1,+\infty)$. (In ogni caso il dominio destro,
+dove vive il dato, \`e tutto $[0,+\infty)$.)
+
+\textbf{(iii) Convessit\`a in $t_0=0$.}
+$y'(0)=1\cdot(1-2)/1=-1$. Quindi $y$ \emph{decresce} in 0, scende
+verso 0. Calcolo
+$y''=g_t+g_y g$. $g_t=-y(y-2)/(1+t)^2$;
+$g_y=(2y-2)/(1+t)$. In $(0,1)$:
+$g_t=-(1\cdot(-1))/1=1$; $g_y=(2-2)/1=0$. Quindi $y''(0)=1+0=1>0$:
+\textbf{convessa} attorno a $0$.
+
+\textbf{(iv) Limite per $t\to+\infty$.} $y$ decresce da $1$ verso $0$
+(barriera dal basso); allora $y\to L\in[0,1)$, e per coerenza
+$g(\cdot,L)\to 0$ richiede $L=0$.
+
+\textbf{(v) Soluzione esplicita.} Separabile:
+$\frac{\dd y}{y(y-2)}=\frac{\dd t}{1+t}$.
+Decomposizione in fratti: $1/(y(y-2))=A/y+B/(y-2)$ con $A=-1/2,B=1/2$.
+$\int=\frac12\log|y-2|-\frac12\log|y|=\log|1+t|+c$.
+Su $(0,2)$, $y-2<0$ e $y>0$:
+$\frac12\log\frac{2-y}{y}=\log(1+t)+c'$, ossia
+$\frac{2-y}{y}=K(1+t)^2$.
+Dato $y(0)=1$: $1=K$, quindi
+\[
+\frac{2-y}{y}=(1+t)^2\Longleftrightarrow y(t)=\frac{2}{1+(1+t)^2}.
+\]
+Verifica: $y(0)=2/(1+1)=1$.\,\checkmark\, $y\to 0$ per $t\to+\infty$.\,\checkmark
+\end{esempio}
+
+\section{Tipo G: Funzioni implicite e retta tangente}
+
+\paragraph{Riconoscimento.} ``Sia $Z=\{g=0\}$. Mostrare che $g=0$
+definisce implicitamente $y=\varphi(x)$ vicino a $P_0$. Scrivere la
+retta tangente a $Z$ in $P_0$''.
+
+\begin{nota}[title={Intuizione}]
+Geometricamente $Z$ \`e una curva di livello (in $\R^2$) o
+superficie di livello (in $\R^3$). Il teorema delle funzioni implicite
+dice: dove $g_y(P_0)\ne 0$, la curva si pu\`o vedere localmente come
+grafico $y=\varphi(x)$, con $\varphi'(x_0)=-g_x/g_y$. La retta
+tangente alla curva \`e la stessa retta tangente al grafico di $\varphi$.
+\end{nota}
+
+\begin{ricetta}[title={Retta tangente per implicite}]
+\begin{enumerate}
+\item Verifica $g(P_0)=0$.
+\item Calcola $\nabla g(P_0)$. Se $g_y(P_0)\ne 0$ usi $y=\varphi(x)$;
+   se $g_y(P_0)=0$ ma $g_x(P_0)\ne 0$ usi $x=\psi(y)$.
+\item Per il caso $y=\varphi(x)$:
+   $\varphi'(x_0)=-g_x(P_0)/g_y(P_0)$.
+   Tangente: $y-y_0=\varphi'(x_0)(x-x_0)$.
+\item In $\R^3$ con $g(x,y,z)=0$, la \emph{tangente} \`e un piano:
+   $\nabla g(P_0)\cdot(x-x_0,y-y_0,z-z_0)=0$.
+\end{enumerate}
+\end{ricetta}
+
+\begin{esempio}[title={23/1/2023 --- Esercizio 2(iii)}]
+$g(x,y)=x^4+y^4-2x^2-8y^2-1$, $P_0=(2,1)$.
+
+$g(2,1)=16+1-8-8-1=0$.\,\checkmark
+$g_x=4x^3-4x$, $g_x(2,1)=32-8=24$.
+$g_y=4y^3-16y$, $g_y(2,1)=4-16=-12\ne 0$.
+$\varphi'(2)=-24/(-12)=2$.
+Tangente: $y-1=2(x-2)$, ossia $y=2x-3$.
+\end{esempio}
+
+\section{Tipo H: Volume e flusso con superficie aperta (tappare e Gauss)}
+
+\paragraph{Riconoscimento.} ``Calcolare il flusso di $\F$ uscente
+attraverso una superficie $\Sigma$ aperta'' (tipicamente la calotta di
+una sfera, o il laterale di un cono).
+
+\begin{nota}[title={Intuizione}]
+Se $\Sigma$ \`e aperta, non puoi applicare Gauss direttamente. Trucco:
+``tappa'' $\Sigma$ con una superficie facile $\Sigma_0$ (di solito un
+disco o un piano) per ottenere un volume chiuso $V$. Allora
+\[
+\Phi_\Sigma=\Phi_{\partial V}-\Phi_{\Sigma_0}=\iiint_V\Div\F\dV-\Phi_{\Sigma_0}.
+\]
+La cosa essenziale \`e l'orientazione: scegli i versori in modo che,
+considerati assieme, siano tutti uscenti da $V$. Geometricamente: la
+chiusura $\partial V$ \`e una ``ciambella di gomma'' orientata uniforme.
+\end{nota}
+
+\begin{ricetta}[title={Tappare e Gauss}]
+\begin{enumerate}
+\item Identifica $\Sigma_0$ che chiude $\Sigma$ a un volume $V$.
+\item Calcola $\Phi_{\partial V}$ con Gauss.
+\item Calcola $\Phi_{\Sigma_0}$ direttamente (di solito
+   parametrizzazione facile).
+\item $\Phi_\Sigma=\Phi_{\partial V}-\Phi_{\Sigma_0}$ con i segni
+   coerenti all'orientazione.
+\end{enumerate}
+\end{ricetta}
+
+
+\begin{esempio}[title={23/1/2023 --- Esercizio 3, schema generale}]
+$\F=(y^2-x,\,2xy,\,-xz-x)$, $\Sigma=$ ottavo di sfera $x^2+y^2+z^2=9$,
+$x\ge 0,y\ge 0$.
+
+\textbf{Tappare.} $\Sigma$ \`e una superficie aperta (un quarto di
+calotta). La chiudo con i due ``triangoli sferici'' nei piani
+coordinati $x=0$ e $y=0$. Il volume $V$ ottenuto \`e un quarto di palla.
+
+\textbf{Gauss su $V$.}
+$\Div\F=\partial_x(y^2-x)+\partial_y(2xy)+\partial_z(-xz-x)=-1+2x-x=x-1$.
+\[
+\iiint_V(x-1)\dd V=\iiint_V x\dd V-V(V).
+\]
+$V(V)=\frac14\cdot\frac43\pi 27=9\pi$. Per $\iiint_V x\dd V$ uso
+sferiche $x=r\sin\varphi\cos\theta$ con
+$r\in[0,3],\varphi\in[0,\pi],\theta\in[0,\pi/2]$:
+\[
+\iiint_V x\dd V=\int_0^3 r^3\dd r\int_0^\pi\sin^2\varphi\dd\varphi
+\int_0^{\pi/2}\cos\theta\dd\theta
+=\frac{81}{4}\cdot\frac{\pi}{2}\cdot 1=\frac{81\pi}{8}.
+\]
+Totale $\Phi_{\partial V}=\frac{81\pi}{8}-9\pi=\frac{81\pi-72\pi}{8}=\frac{9\pi}{8}$.
+
+\textbf{Flussi sui tappi.}
+\begin{itemize}
+\item Tappo $x=0$, $y^2+z^2\le 9$, $y\ge 0$, normale uscente da $V$: $\vec n=(-1,0,0)$.
+   $\F\cdot\vec n=-(y^2-x)=-y^2$ su $x=0$.
+   $\iint_{y^2+z^2\le 9,y\ge 0}-y^2\dd A=
+   -\int_0^\pi\int_0^3\rho^2\sin^2\theta\cdot\rho\dd\rho\dd\theta
+   =-\frac{81}{4}\cdot\frac{\pi}{2}=-\frac{81\pi}{8}$.
+\item Tappo $y=0$, $x^2+z^2\le 9$, $x\ge 0$, normale $\vec n=(0,-1,0)$.
+   $\F\cdot\vec n=-2xy=0$ su $y=0$. Flusso $=0$.
+\end{itemize}
+
+\textbf{Flusso uscente da $\Sigma$.}
+$\Phi_\Sigma=\Phi_{\partial V}-(\Phi_{x=0}+\Phi_{y=0})=
+\frac{9\pi}{8}-\big(-\frac{81\pi}{8}+0\big)=\frac{90\pi}{8}=\frac{45\pi}{4}$.
+
+\textbf{Per il lavoro lungo $\partial\Sigma$} (richiesto nel testo):
+$\Rot\F=(0,1+z,0)$. Per Stokes
+$\oint_{\partial\Sigma}\F\cdot\dd\rr=\iint_\Sigma\Rot\F\cdot\dd\vec S$.
+Il versore esterno alla sfera \`e $\vec n=(x,y,z)/3$. Allora
+$\Rot\F\cdot\vec n=(1+z)y/3$. Sulla calotta in coordinate sferiche:
+$y=3\sin\varphi\sin\theta$, $z=3\cos\varphi$, $\dd S=9\sin\varphi\dd\varphi\dd\theta$.
+\[
+\oint=\iint(1+3\cos\varphi)\sin\varphi\sin\theta\cdot 3\sin\varphi\dd\varphi\dd\theta,
+\]
+con $\varphi\in[0,\pi],\theta\in[0,\pi/2]$.
+$\int_0^{\pi/2}\sin\theta\dd\theta=1$;
+$\int_0^\pi(1+3\cos\varphi)\sin^2\varphi\dd\varphi=
+\int_0^\pi\sin^2\varphi\dd\varphi+3\int_0^\pi\cos\varphi\sin^2\varphi\dd\varphi
+=\pi/2+0=\pi/2$. Quindi $\oint=3\cdot\pi/2=3\pi/2$.
+\end{esempio}
+
+\begin{trappola}
+Quando ``tappi'' una superficie aperta, devi orientare i tappi con la
+\emph{stessa convenzione} del resto di $\partial V$ (uscenti). Se il
+testo ti chiede il flusso attraverso $\Sigma$ con un'orientazione
+specifica e questa non coincide con ``uscente da $V$'', cambia segno
+all'inizio invece che alla fine.
+\end{trappola}
+
+\section{Strategia globale d'esame (sintesi)}
+
+\begin{nota}[title={Il decalogo del ragionamento}]
+Davanti a un compito scritto Sapienza:
+\begin{enumerate}
+\item \textbf{Scorri tutto in 60 secondi}, classifica ciascun esercizio
+   in uno degli otto Tipi A--H sopra. Non leggere ancora i dettagli.
+\item \textbf{Stima i punti facili}: il Tipo G (implicita) \`e quasi
+   sempre due conti veloci. Il Tipo B (cartesiana) si chiude in mezza
+   pagina se le simmetrie sono buone. Il Tipo A (Gauss) regala punti
+   se la divergenza \`e elementare.
+\item \textbf{Disegna sempre il dominio}, anche schematicamente: ti
+   evita errori di limiti e di orientazione.
+\item \textbf{Coordinate}: cilindriche per $x^2+y^2$, sferiche per
+   $x^2+y^2+z^2$, polari traslate per dischi non centrati.
+\item \textbf{Conservativit\`a}: testa subito $P_y=Q_x$. Se vale e il
+   dominio \`e s.c., il potenziale si trova in due passaggi.
+\item \textbf{EDO qualitative}: cerca le \emph{barriere} (zeri di $g$
+   in $y$) prima di tutto.
+\item \textbf{Limite di integrali}: cerca convergenza uniforme,
+   altrimenti spezza l'intervallo.
+\item \textbf{Successioni di potenze}: raggio col rapporto sui $|a_n|$,
+   poi gli estremi a parte (Leibniz\!).
+\item \textbf{Lagrange}: prima Weierstrass per garantire l'esistenza,
+   poi sistema. Confronta $f$ sui candidati.
+\item \textbf{Verifica i conti}: sostituisci sempre il dato iniziale
+   nelle soluzioni, e controlla che i versori abbiano norma $1$ quando
+   il testo lo chiede.
+\end{enumerate}
+\end{nota}
+
+\begin{nota}[title={Mappa argomento $\to$ Tipo}]
+Per orientarti negli esami visti:
+\begin{itemize}
+\item Tipo A (volume+flusso): 9/2/2024, 19/6/2024 (1), 4/7/2024 (1), 6/7/2022 (2).
+\item Tipo B (cartesiana+Stokes): 27/1/2025, 4/7/2024 (3), 19/6/2024 (3), 9/2/2024 (4).
+\item Tipo C (differenziabilit\`a in (0,0)): 23/1/2023 (1), 10/2/2022 (1), 19/6/2024 (5).
+\item Tipo D (Lagrange): 23/1/2023 (2), 4/7/2024 (2), 19/6/2024 (2).
+\item Tipo E (conservativit\`a parametrica): 22/1/2024 (3), 5/7/2023 (3).
+\item Tipo F (Cauchy qualitativo): 22/1/2024 (5), 4/7/2024 (5), 9/2/2024 (5), 5/7/2023 (5).
+\item Tipo G (implicite/tangenti): 23/1/2023 (2.iii), 22/1/2024 (1.iv).
+\item Tipo H (tappare e Gauss): 23/1/2023 (3), 5/7/2023 (4).
+\item Successioni/serie di funzioni: 22/1/2024 (2), 5/7/2023 (1), 19/6/2024 (4), 9/2/2024 (3), 4/7/2024 (4), 6/7/2022 (1).
+\end{itemize}
+\end{nota}
+
+\chapter*{Postfazione: come usare questo libro per superare lo scritto}
+\addcontentsline{toc}{chapter}{Postfazione: come usare questo libro per superare lo scritto}
+
+Il libro \`e costruito su due livelli:
+\emph{capitoli teorici} (1--6 e 8) che danno le definizioni, le
+intuizioni geometriche e le ricette generali; \emph{capitoli applicativi}
+(7 e 9) che mostrano gli stessi strumenti in azione su problemi
+fisicamente concreti e su \emph{testi reali} di Sapienza dal 2022 al 2025.
+
+Lo studio ottimale, in ordine:
+
+\textbf{(1)} Leggi un capitolo teorico fino in fondo, prestando
+attenzione ai box \emph{Nota / Intuizione} (le intuizioni geometriche
+sono il vero collante).
+
+\textbf{(2)} Riproduci a mano le ricette: scrivile su un foglio,
+chiudi il libro e ripercorrile.
+
+\textbf{(3)} Vai al Capitolo 9 e individua il Tipo associato:
+prova a risolvere l'esempio coperto coprendo la soluzione,
+poi confronta. Ripetilo finch\'e i passaggi non scattano in modo
+automatico.
+
+\textbf{(4)} Vai al Capitolo 7 (Problemi misti) e affronta esercizi che
+mescolano pi\`u Tipi: \`e la dimensione vera dell'esame.
+
+\textbf{(5)} Prendi un esame dalla cartella \texttt{AnalVett/Esami passati}
+e cerca di riconoscere i Tipi senza guardare la soluzione. Quando ti
+blocchi, rileggi solo la sezione del Cap.~9 corrispondente.
+
+Il messaggio finale \`e: ogni esercizio dell'esame \`e una composizione
+di gesti gi\`a visti. La differenza fra chi passa e chi no, di solito,
+non sta nella conoscenza ma nella \emph{velocit\`a di classificazione}.
+Per questo motivo abbiamo dedicato un capitolo intero a etichettare i
+problemi: ogni minuto risparmiato nel riconoscere il Tipo si traduce
+in un minuto in pi\`u sui conti.
+
+\end{document}

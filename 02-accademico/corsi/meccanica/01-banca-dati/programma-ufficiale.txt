@@ -1,0 +1,64 @@
+Programma del Corso di Meccanica (Canale Pet-Z) - AA 2025/26  
+Prof. Giampaolo Pisano 
+ 
+1. Grandezze fisiche:  
+Il metodo scientifico. Grandezze fisiche e unità di misura.  
+ 
+2. Richiami di calcolo vettoriale:  
+Richiami sui vettori. Prodotto scalare e vettoriale. Derivata di un vettore e di un versore.  
+ 
+3. Cinematica:  
+Traiettoria e legge oraria. Velocità ed accelerazione. Moto rettilineo uniforme. Moto uniformemente 
+accelerato. Moto circolare uniforme. Moto oscillatorio armonico. Cinematica dei moti relativi. 
+Trasformazioni di Galileo.  
+ 
+4. I principi della dinamica:  
+Principio di relatività. Definizione statica delle forze. Riferimenti inerziali e principio di inerzia. Secondo 
+principio della dinamica. Massa inerziale e massa gravitazionale. Principio di azione e reazione. Quantità 
+di moto. Teorema dell'impulso. Teorema del momento angolare. Forze centrali. 
+ 
+5. Applicazioni dei principi della dinamica:  
+Fili, carrucole e vincoli. Piano inclinato. Forze elastiche, molle e moto armonico. Pendolo semplice. 
+Resistenza del mezzo. Attrito. Forze apparenti. Oscillatore smorzato. Oscillatore forzato e risonanza. 
+Oscillatori accoppiati. 
+ 
+6. Energia e lavoro:  
+Lavoro di una forza. Teorema delle forze vive. Energia cinetica. Campi di forze conservative. Conservazione 
+dell'energia meccanica. Potenziale della forza peso. Potenziale armonico. Potenziale di forze centrali a 
+simmetria sferica. Punti di equilibrio. Piccole oscillazioni intorno all'equilibrio stabile. Macchine semplici. 
+Potenza. Dissipazione e conservazione dell'energia.  
+ 
+7. Dinamica dei sistemi: 
+Centro di massa per sistemi di punti e corpi estesi. Equazione cardinali. Moto rispetto al centro di massa 
+e teorema di Koenig. Energia interna e descrizione del moto di un sistema a due corpi. Moto relativo e 
+moto nel sistema del centro di massa per un sistema a due corpi. Moto del razzo. Fenomeni d'urto e forze 
+impulsive. Urti.  
+ 
+8. Corpi rigidi: 
+Introduzione ai corpi rigidi. Moto rotazionale. Moto di rotazione intorno ad un asse fisso: momenti 
+d'inerzia, equazioni del moto. Assi liberi di rotazione. Momento angolare ortogonale nei moti di rotazione 
+intorno ad un asse fisso. Il pendolo fisico ed il pendolo di torsione. Il moto di rototraslazione. Cinematica 
+e condizioni dinamiche per il moto senza strisciamento. Energia per un corpo rigido. Moti giroscopici. Urti 
+tra corpi estesi. Statica dei corpi rigidi. 
+ 
+9. Gravitazione: 
+Leggi di Keplero. Potenziale efficace. Correzioni alla forza di gravità. Maree. 
+ 
+10. Meccanica dei fluidi: 
+Densità e pressione di un fluido. Equazione della statica dei fludi. Legge di Stevino. Legge di Archimede. 
+Barometro di Torricelli. Dinamica dei fluidi. Equazione di continuità. Teorema di Bernoulli.  
+ 
+11. Fenomeni ondulatori:  
+Equazione delle onde. Onde armoniche. Onde piane e sferiche. Onde su una corda. Interferenza. Onde 
+stazionarie. Effetto Doppler.  
+ 
+Testi consigliati  
+- Teoria: 
+Focardi, Massa, Uguzzoni, Villa, Fisica Generale: Meccanica e Termodinamica, II edizione, Ed. Ambrosiana. 
+Mencuccini, Silvestrini, Fisica I, Ed. Ambrosiana. 
+ 
+- Esercizazioni: 
+Giordani, Giugliarelli, Problemi di Fisica 1: Meccanica e Termodinamica, Seconda ed. 2022 
+Villa, Uguzzoni, Esercizi di Fisica: Meccanica, Ed. Ambrosiana 
+Villa, Uguzzoni, Sioli, Esercizi di Fisica: Termodinamica, Fluidi, Onde e Relatività, Ed. Ambrosiana. 
+Mencuccini, Silvestrini, Esercizi di Fisica: Meccanica e Termodinamica, Ed. Ambrosiana 
