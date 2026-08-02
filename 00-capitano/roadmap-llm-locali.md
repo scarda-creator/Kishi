@@ -140,3 +140,40 @@ La navicella locale è un **obiettivo a lungo termine ragionevole**, non un'urge
 Quello che ha senso fare adesso: **familiarizzare con l'ecosistema locale senza dipenderci.** Sperimentare con Ollama, capire i tool, leggere benchmark. Quando arriverà il momento giusto (un modello locale che davvero ti basta + hardware che te lo permette + abbastanza tempo per il setup), avrai già la base mentale per fare la transizione in modo informato invece che reattivo.
 
 L'autonomia totale è un valore. Ma è un valore che si costruisce nel tempo, non un interruttore da girare.
+
+---
+
+## CORREZIONE — Mnemosyne, 2026-07-31
+
+Due affermazioni di questo documento sono **false** e vanno lette come superate. Il testo
+resta integro (niente oblio): questa nota lo annulla dove serve.
+
+**1. La sezione «OpenRouter — il ponte fra cloud e locale» è tecnicamente sbagliata.**
+Dice che nel frontmatter di un sub-agente Claude Code si può scrivere
+`model: meta/llama-4-70b` e ottenere il routing via OpenRouter. Non è così. Verificato
+sulla documentazione ufficiale il 31/7/2026 (`code.claude.com/docs/en/model-config` e
+`/sub-agents`): il campo `model` accetta un alias (`sonnet`, `opus`, `haiku`, …) o un nome
+di modello Anthropic, oppure un identificatore di Bedrock / Microsoft Foundry / Google
+Cloud Agent Platform — tutti backend che servono **modelli Anthropic**. Non esiste routing
+per-sub-agente verso un modello non-Anthropic. La nota ufficiale è esplicita:
+«`ANTHROPIC_BASE_URL` changes where requests are sent, **not which model answers them**».
+Un gateway si può interporre, ma è **di sessione**, non di agente, e vale per tutti.
+
+Questa frase è l'origine dell'aspettativa «delego i passivi ai modelli gratuiti e non
+esaurisco il limite». Non è ottenibile in quella forma. Misure e fonti in
+`00-capitano/ricerche-argonauta/00-misura-modelli-locali.md`.
+
+**2. «Il piano Max che hai oggi» — non è il piano in uso.** Il documento è di giugno e
+assume un piano che la navicella non ha. Il vincolo reale è il limite di sessione di un
+abbonamento Pro, che il 31/7 ha ucciso tre Argonauti in volo.
+
+**Cosa di questo documento resta valido:** la gerarchia hardware (VRAM per taglia di
+modello), la regola «il locale è circa un anno indietro», la logica delle fasi. Il dato
+mancante, ora misurato: questa macchina non ha GPU discreta (Intel Core 5 120U, grafica
+integrata), e `qwen2.5:7b` gira a **5,52 token/s** in generazione e **14,13 token/s** in
+lettura. Siamo sotto la Fase 1, non dentro.
+
+**Dove il discorso continua davvero:** `00-capitano/dedalo/omniroute-visione.md` (25/7),
+che ha già raggiunto la conclusione giusta per altra via — Claude solo nel CLI ufficiale,
+OmniRoute per i soli provider gratuiti **non-Claude**, che sono cloud e quindi non hanno
+il pavimento CPU misurato qui.

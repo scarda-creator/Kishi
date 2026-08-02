@@ -1,0 +1,439 @@
+<title>Mappa dei procedimenti — la navicella</title>
+
+<style>
+  :root{
+    --ground:#F1F3F6; --panel:#FFFFFF; --line:#D8DDE4;
+    --ink:#141A22; --ink-2:#4A5563; --ink-3:#78838F;
+    --accent:#1E6E70;
+    --ok:#2F7D57; --ok-bg:#E4F0E9;
+    --half:#9C6B12; --half-bg:#F6EEDC;
+    --dead:#A8443A; --dead-bg:#F7E6E3;
+    --park:#5F6B7A; --park-bg:#E7EAEE;
+    --new:#1E6E70; --new-bg:#DDEDED;
+    --shadow:0 1px 2px rgba(20,26,34,.06), 0 8px 24px rgba(20,26,34,.05);
+    --display:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ground:#0D1319; --panel:#151D26; --line:#26313D;
+      --ink:#E6EBF1; --ink-2:#A3AEBB; --ink-3:#77828F;
+      --accent:#5FB3B4;
+      --ok:#6FBF92; --ok-bg:#16281F;
+      --half:#D6A44A; --half-bg:#2A2114;
+      --dead:#E0847A; --dead-bg:#2C1917;
+      --park:#8C98A6; --park-bg:#1C242D;
+      --new:#5FB3B4; --new-bg:#12262A;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0D1319; --panel:#151D26; --line:#26313D;
+    --ink:#E6EBF1; --ink-2:#A3AEBB; --ink-3:#77828F;
+    --accent:#5FB3B4;
+    --ok:#6FBF92; --ok-bg:#16281F;
+    --half:#D6A44A; --half-bg:#2A2114;
+    --dead:#E0847A; --dead-bg:#2C1917;
+    --park:#8C98A6; --park-bg:#1C242D;
+    --new:#5FB3B4; --new-bg:#12262A;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+  }
+  :root[data-theme="light"]{
+    --ground:#F1F3F6; --panel:#FFFFFF; --line:#D8DDE4;
+    --ink:#141A22; --ink-2:#4A5563; --ink-3:#78838F;
+    --accent:#1E6E70;
+    --ok:#2F7D57; --ok-bg:#E4F0E9;
+    --half:#9C6B12; --half-bg:#F6EEDC;
+    --dead:#A8443A; --dead-bg:#F7E6E3;
+    --park:#5F6B7A; --park-bg:#E7EAEE;
+    --new:#1E6E70; --new-bg:#DDEDED;
+    --shadow:0 1px 2px rgba(20,26,34,.06), 0 8px 24px rgba(20,26,34,.05);
+  }
+
+  body{background:var(--ground);color:var(--ink);font-family:var(--body);
+       line-height:1.55;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:920px;margin:0 auto;padding:clamp(20px,5vw,56px) clamp(16px,4vw,32px) 96px;
+        display:flex;flex-direction:column;gap:40px;}
+
+  /* --- testata --- */
+  header{display:flex;flex-direction:column;gap:14px;}
+  .eyebrow{font:600 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;
+           color:var(--accent);}
+  h1{font-family:var(--display);font-size:clamp(30px,6vw,46px);line-height:1.1;
+     font-weight:400;text-wrap:balance;letter-spacing:-.01em;margin:0;}
+  .sub{color:var(--ink-2);max-width:60ch;font-size:16px;}
+  .sub em{color:var(--ink);font-style:normal;font-weight:600;}
+
+  /* --- la legge --- */
+  .legge{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+         border-radius:4px;padding:18px 20px;box-shadow:var(--shadow);}
+  .legge p{margin:0;font-family:var(--display);font-size:17px;line-height:1.5;}
+  .legge .fonte{margin-top:10px;font-family:var(--body);font-size:12.5px;color:var(--ink-3);}
+
+  /* --- conteggi --- */
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:10px;}
+  .tile{background:var(--panel);border:1px solid var(--line);border-radius:4px;
+        padding:14px 14px 12px;display:flex;flex-direction:column;gap:2px;}
+  .tile b{font-family:var(--display);font-size:30px;font-weight:400;line-height:1;
+          font-variant-numeric:tabular-nums;}
+  .tile span{font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);
+             font-weight:600;}
+  .tile.t-ok b{color:var(--ok);} .tile.t-half b{color:var(--half);}
+  .tile.t-dead b{color:var(--dead);} .tile.t-new b{color:var(--new);}
+
+  /* --- sezioni --- */
+  section{display:flex;flex-direction:column;gap:14px;}
+  .shead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+         border-bottom:1px solid var(--line);padding-bottom:8px;}
+  .shead h2{font-family:var(--display);font-weight:400;font-size:23px;margin:0;letter-spacing:-.005em;}
+  .shead .n{font:600 12px/1 var(--body);color:var(--ink-3);font-variant-numeric:tabular-nums;}
+  .shead .why{font-size:13px;color:var(--ink-2);flex-basis:100%;}
+
+  .rows{display:flex;flex-direction:column;gap:8px;}
+  .row{background:var(--panel);border:1px solid var(--line);border-radius:4px;
+       padding:13px 15px;display:grid;gap:4px 14px;
+       grid-template-columns:1fr auto;align-items:start;box-shadow:var(--shadow);}
+  .row .nome{font-weight:650;font-size:15px;}
+  .row .path{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);
+             word-break:break-all;grid-column:1/-1;}
+  .row .nota{font-size:13.5px;color:var(--ink-2);grid-column:1/-1;max-width:70ch;}
+  .row .nota b{color:var(--ink);font-weight:650;font-variant-numeric:tabular-nums;}
+
+  .chip{font:700 10.5px/1 var(--body);letter-spacing:.07em;text-transform:uppercase;
+        padding:5px 8px;border-radius:3px;white-space:nowrap;align-self:start;}
+  .c-ok{background:var(--ok-bg);color:var(--ok);}
+  .c-half{background:var(--half-bg);color:var(--half);}
+  .c-dead{background:var(--dead-bg);color:var(--dead);}
+  .c-park{background:var(--park-bg);color:var(--park);}
+  .c-new{background:var(--new-bg);color:var(--new);}
+
+  .row.acceso{border-left:3px solid var(--accent);}
+  .row.attesa{border-left:3px solid var(--dead);}
+
+  /* --- chiusura --- */
+  .coda{background:var(--panel);border:1px solid var(--line);border-radius:4px;
+        padding:20px 22px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow);}
+  .coda h3{font-family:var(--display);font-weight:400;font-size:20px;margin:0;}
+  .coda ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:9px;font-size:14.5px;}
+  .coda ol b{font-weight:650;}
+  footer{color:var(--ink-3);font-size:12.5px;border-top:1px solid var(--line);padding-top:16px;}
+
+  @media (max-width:560px){
+    .row{grid-template-columns:1fr;}
+    .chip{justify-self:start;order:-1;}
+  }
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Navicella · stato al 1 agosto 2026</div>
+  <h1>Mappa dei procedimenti</h1>
+  <p class="sub">Tutto quello che la navicella dichiara di fare, e cosa fa davvero — misurato
+  sul disco, non sulla documentazione. <em>Trentotto procedimenti.</em> Ordinati per la sola
+  cosa che si è rivelata predittiva: che cosa li accende.</p>
+</header>
+
+<div class="legge">
+  <p>Ogni procedimento che poggia su un <strong>innesco</strong> — un hook che lo esegue, o una
+  fame che te lo fa lanciare perché ti serve subito — gira sempre. Ogni procedimento che poggia
+  su <strong>qualcuno che se ne ricordi</strong> si ferma, e si ferma in silenzio: nessun errore,
+  nessun avviso, solo un file che smette di crescere.</p>
+  <p class="fonte">Trovata due volte, per strade indipendenti: misurando i nostri file (D11) e
+  leggendo i fallimenti altrui (D8, dove l'unico sistema sopravvissuto dichiara come causa
+  del successo l'automazione totale della manutenzione).</p>
+</div>
+
+<div class="tiles">
+  <div class="tile t-new"><b>6</b><span>acceso ieri</span></div>
+  <div class="tile t-ok"><b>13</b><span>funziona</span></div>
+  <div class="tile t-half"><b>9</b><span>a metà</span></div>
+  <div class="tile t-dead"><b>10</b><span>fermo o rotto</span></div>
+  <div class="tile"><b>6</b><span>aspetta te</span></div>
+</div>
+
+<section>
+  <div class="shead">
+    <h2>Acceso il 31 luglio</h2><span class="n">6</span>
+    <p class="why">Costruito e cablato ieri. Il verificatore e il verbale entrano in funzione
+    alla prossima apertura di Claude Code — è lì che li vedi.</p>
+  </div>
+  <div class="rows">
+
+    <div class="row acceso">
+      <div class="nome">Campo <code>name</code> agli otto agenti</div>
+      <span class="chip c-new">fatto</span>
+      <div class="path">.claude/agents/*.md · legacy v1 → 00-capitano/legacy/agents-v1/</div>
+      <div class="nota">Mancava a tutti e otto: il runtime non li caricava e usava i sette v1
+      archiviati. <b>Sei settimane</b> di architettura dichiarata e mai girata. Verificato a
+      caldo: il registro ora espone i nomi giusti.</div>
+    </div>
+
+    <div class="row acceso">
+      <div class="nome">Verificatore di costituzione</div>
+      <span class="chip c-new">nuovo</span>
+      <div class="path">00-capitano/scripts/verifica-costituzione.py → hook SessionStart</div>
+      <div class="nota">Parla <b>a te</b>, non a Mnemosyne: usa il campo che il harness mostra
+      all'utente. Controlla agenti caricabili, costituzione allineata, hook esistenti,
+      procedimenti fermi oltre la cadenza, e cosa aspetta una tua parola. Tace quando è
+      tutto a posto. Provalo con <code>--umano</code>.</div>
+    </div>
+
+    <div class="row acceso">
+      <div class="nome">Verbale di fine sessione</div>
+      <span class="chip c-new">nuovo</span>
+      <div class="path">00-capitano/scripts/fine-sessione.py → hook Stop → 00-capitano/verbali/</div>
+      <div class="nota">Il protocollo esisteva dal principio e non aveva innesco: diario e log
+      decisioni fermi da nove giorni. Scrive <b>fatti</b>, non interpretazione — non tocca il
+      diario né L4, perché quella è identità.</div>
+    </div>
+
+    <div class="row acceso">
+      <div class="nome">Il quiz ricorda le risposte</div>
+      <span class="chip c-new">nuovo</span>
+      <div class="path">templates/quiz-template.html + i 3 quiz pubblicati (backup .pre-traccia.bak)</div>
+      <div class="nota">Prima non salvava <b>niente</b>, nemmeno in localStorage: mesi di quiz
+      evaporati. Ora ogni click è un record, con un bottone di esportazione in basso a destra.
+      È il pezzo più piccolo del sistema e la precondizione del più grande.</div>
+    </div>
+
+    <div class="row acceso">
+      <div class="nome">Applicatore del tracciamento</div>
+      <span class="chip c-new">nuovo</span>
+      <div class="path">00-capitano/scripts/quiz_innesta_traccia.py</div>
+      <div class="nota">Idempotente, riconosce i due motori di quiz diversi, fa il backup.
+      Vale anche per i quiz futuri nati prima della patch.</div>
+    </div>
+
+    <div class="row acceso">
+      <div class="nome">Correzione della roadmap modelli locali</div>
+      <span class="chip c-new">fatto</span>
+      <div class="path">00-capitano/roadmap-llm-locali.md</div>
+      <div class="nota">Diceva che si può mettere un modello OpenRouter nel frontmatter di un
+      sub-agente. È falso, e per sei settimane ha fondato l'aspettativa sbagliata sui costi.
+      Corretto in fondo, testo originale intatto.</div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <h2>Funziona</h2><span class="n">13</span>
+    <p class="why">Tutti hanno un hook che li esegue, o una fame che te li fa lanciare.
+    Nessuna eccezione misurata.</p>
+  </div>
+  <div class="rows">
+
+    <div class="row"><div class="nome">Pipeline corpus PDF</div><span class="chip c-ok">fame</span>
+      <div class="nota">Il caso che dimostra la legge: nessun hook, ma ti serve subito.
+      <b>470+</b> file estratti per Analisi Vettoriale.</div></div>
+
+    <div class="row"><div class="nome">Costruzione quiz (protocollo + verificatore)</div><span class="chip c-ok">fame</span>
+      <div class="nota">Il procedimento più solido dell'inventario: tre corsi, template riusato,
+      controllo automatico prima del deploy. <b>391</b> domande su Meccanica.</div></div>
+
+    <div class="row"><div class="nome">Indice di memoria a tre motori</div><span class="chip c-ok">hook</span>
+      <div class="nota">Aggiornato ieri. Cheatsheet iniettata a ogni apertura di sessione.</div></div>
+
+    <div class="row"><div class="nome">Grafo dell'anima</div><span class="chip c-ok">hook</span>
+      <div class="nota">133 documenti, oltre 1000 legami, rigenerato ieri.</div></div>
+
+    <div class="row"><div class="nome">Riversamento remoto cifrato</div><span class="chip c-ok">fame</span>
+      <div class="nota">L1–L4 in chiaro, L5 e code cifrate, grafo anonimizzato. Eseguito ieri.
+      <b>Vedi però la voce sul grafo, in fondo.</b></div></div>
+
+    <div class="row"><div class="nome">Promemoria della coda</div><span class="chip c-ok">hook</span>
+      <div class="nota">Non salta mai: lo esegue il harness a ogni apertura.</div></div>
+
+    <div class="row"><div class="nome">Cattura apprendimento</div><span class="chip c-ok">hook</span>
+      <div class="nota">Cattura sì, ma bassa precisione: ieri ha preso l'intero mandato incollato
+      come «correzione» perché conteneva la parola <i>invece</i>. E nessun hook la <b>svuota</b>.</div></div>
+
+    <div class="row"><div class="nome">Mappa esercizi</div><span class="chip c-ok">fame</span>
+      <div class="nota">Geometria e Analisi Vettoriale.</div></div>
+
+    <div class="row"><div class="nome">Aggiungi corso</div><span class="chip c-ok">fame</span>
+      <div class="nota">Quattro corsi strutturati.</div></div>
+
+    <div class="row"><div class="nome">Analisi psicologica su L5</div><span class="chip c-ok">fame</span>
+      <div class="nota">Una esecuzione misurata, il 22 luglio, nel formato dichiarato.</div></div>
+
+    <div class="row"><div class="nome">Tassonomia della memoria</div><span class="chip c-ok">regge</span>
+      <div class="nota">Nessun file recente senza tipo. Ma <b>sette</b> etichette nuove ad-hoc mai
+      ratificate: deriva sotto soglia, da riguardare se cresce.</div></div>
+
+    <div class="row"><div class="nome">Cifratura L5 (Argon2id + XChaCha20)</div><span class="chip c-ok">fatto</span>
+      <div class="nota">Standard, nessun cifrario fatto in casa. La passphrase non tocca mai il disco.</div></div>
+
+    <div class="row"><div class="nome">Estrazione e verifica KaTeX</div><span class="chip c-ok">fame</span>
+      <div class="nota">4993 formule testate su Analisi Vettoriale, zero fallite.</div></div>
+
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <h2>Funziona a metà</h2><span class="n">9</span>
+    <p class="why">Partiti almeno una volta, poi fermi — o agganciati a un flusso che hai
+    smesso di usare senza che nessuno lo dichiarasse.</p>
+  </div>
+  <div class="rows">
+
+    <div class="row"><div class="nome">Protocollo di fine sessione</div><span class="chip c-half">ora ha l'innesco</span>
+      <div class="nota">Era fermo dal 22 luglio. Da ieri è agganciato allo <code>Stop</code>:
+      questa è la voce che alla prossima apertura dovrebbe passare a «funziona».</div></div>
+
+    <div class="row"><div class="nome">Promozione L2 → L3</div><span class="chip c-half">a metà</span>
+      <div class="nota">Sei voci datate, l'ultima il 22 luglio.</div></div>
+
+    <div class="row"><div class="nome">Inventario fonti</div><span class="chip c-half">a metà</span>
+      <div class="nota">Fatto per Geometria, <b>saltato per Analisi Vettoriale</b> — il corso con
+      la priorità più alta.</div></div>
+
+    <div class="row"><div class="nome">Indice del libro di testo</div><span class="chip c-park">da parcheggiare</span>
+      <div class="nota">Solo Geometria. Il flusso «libro a capitoli» è stato sostituito dai quiz
+      il 22 luglio: è una <b>scelta</b>, non un guasto, e va scritta.</div></div>
+
+    <div class="row"><div class="nome">Scrittura capitoli</div><span class="chip c-park">da parcheggiare</span>
+      <div class="nota">Due capitoli, entrambi Geometria, entrambi il 1° luglio. Zero dopo.</div></div>
+
+    <div class="row"><div class="nome">Lezioni del Demiurgo</div><span class="chip c-park">da parcheggiare</span>
+      <div class="nota">Ferme al 2 luglio. Agganciate al flusso capitoli. Nessun file dichiara
+      che sono in pausa, quindi continuano a sembrare vive.</div></div>
+
+    <div class="row"><div class="nome">Assorbi Cowork</div><span class="chip c-half">a metà</span>
+      <div class="nota">Cadenza dichiarata 14–28 giorni, ferma da <b>23</b>. Dipende da un gesto
+      tuo fuori da Claude Code: nessun automatismo può forzarlo.</div></div>
+
+    <div class="row"><div class="nome">Genera manuale</div><span class="chip c-half">a metà</span>
+      <div class="nota">PDF fermo al 3 luglio. Da allora: Dedalo, il riversamento, il grafo, il
+      Business, la v3 di fatto. Una nota «appena puoi» del 12 luglio mai evasa.</div></div>
+
+    <div class="row"><div class="nome">Riflessione / svuotamento coda</div><span class="chip c-half">a ondate</span>
+      <div class="nota">Processata tre volte, poi ferma. L'hook la <b>riempie</b>, nessun hook
+      la svuota.</div></div>
+
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <h2>Mai partito, o rotto</h2><span class="n">10</span>
+    <p class="why">Costruiti e mai accesi, oppure agganciati al canale sbagliato. Sono la parte
+    che mi hai chiesto di riparare.</p>
+  </div>
+  <div class="rows">
+
+    <div class="row"><div class="nome">Hook banca dati</div><span class="chip c-dead">canale sbagliato</span>
+      <div class="path">.claude/hooks/on-banca-dati-write.ps1</div>
+      <div class="nota">Ascolta gli strumenti di scrittura di Claude. Ma il corpus entra da uno
+      script Python lanciato da shell e da te che copi i PDF a mano. Log: <b>1 riga</b>. File
+      scritti nello stesso periodo: <b>470</b>. Stessa forma dell'errore del campo <code>name</code>.</div></div>
+
+    <div class="row"><div class="nome">Oroboro</div><span class="chip c-dead">diagnosticato, non riparato</span>
+      <div class="nota">Il suo stesso file, il 12 luglio: «l'event-driven non attraversa il reset
+      del limite, serve un risvegliatore esterno, struttura da progettare». <b>Mai progettata.</b>
+      Ora è legale farlo: l'uso schedulato sull'abbonamento è previsto (fonte primaria).</div></div>
+
+    <div class="row"><div class="nome">Motore degli istinti</div><span class="chip c-dead">mai acceso</span>
+      <div class="nota"><code>instinct.py</code> esiste dall'11 luglio. <code>instincts.jsonl</code>
+      non è mai stato creato: la prima fase non è stata eseguita <b>nemmeno una volta</b>.</div></div>
+
+    <div class="row"><div class="nome">Promozione L3 → L4</div><span class="chip c-dead">mai partito</span>
+      <div class="nota">Il livello più importante della memoria è a <b>zero voci</b> dopo otto
+      settimane, con almeno quattro candidati espliciti in coda.</div></div>
+
+    <div class="row"><div class="nome">Riepilogo settimanale</div><span class="chip c-dead">mai partito</span>
+      <div class="nota">Cartella, README e template. <b>Zero</b> riepiloghi in 56 giorni.</div></div>
+
+    <div class="row"><div class="nome">Traiettoria e tesi</div><span class="chip c-dead">mai partito</span>
+      <div class="path">02-accademico/argonauta-tesi.md — fermo al 17 giugno</div>
+      <div class="nota"><b>45 giorni.</b> È l'obiettivo che nomini con più desiderio e quello su
+      cui il sistema ha prodotto meno. Non è rotto: è senza fame, perché non ha una scadenza
+      che morda.</div></div>
+
+    <div class="row"><div class="nome">Esecuzione dell'intake</div><span class="chip c-dead">parte, nessuno esegue</span>
+      <div class="nota">Il 2 luglio la cernita ha deciso: 8 da eliminare, 2 da custodire. Sul
+      disco: tutti e dieci ancora lì, <b>30 giorni</b> dopo. Lo spostamento fisico è un passo
+      separato senza innesco.</div></div>
+
+    <div class="row"><div class="nome">Riemersione L5</div><span class="chip c-dead">documento disallineato</span>
+      <div class="nota">Descrive ancora il cancello a soglia che Mnemosyne ha smontato a mano il
+      22 luglio. La pratica è cambiata, il protocollo no.</div></div>
+
+    <div class="row"><div class="nome">Compressione / handoff</div><span class="chip c-dead">mai partito</span>
+      <div class="nota">Lo script c'è. Nessun file di handoff esiste da nessuna parte.</div></div>
+
+    <div class="row"><div class="nome">Telemetria verso la plancia</div><span class="chip c-dead">nessuno in ascolto</span>
+      <div class="nota">Sei hook chiamano la porta 8000. Nessun processo risponde: ogni chiamata
+      di questa sessione ha fallito in silenzio. Per disegno non blocca nulla.</div></div>
+
+  </div>
+</section>
+
+<section>
+  <div class="shead">
+    <h2>Aspetta una tua parola</h2><span class="n">6</span>
+    <p class="why">Non li tocco. Sono rotta, e la rotta è tua.</p>
+  </div>
+  <div class="rows">
+
+    <div class="row attesa"><div class="nome">Sei decisioni nel cantiere notturno</div><span class="chip c-dead">19–30 giorni</span>
+      <div class="nota">Tre candidati per L4, l'arricchimento del profilo, otto eliminazioni
+      dall'intake, la verifica di due regole. Il meccanismo che le <b>segnala</b> funziona; è
+      mancato chi te le portasse. Da ieri te le porta il verificatore all'apertura.</div></div>
+
+    <div class="row attesa"><div class="nome">Dodici file in intake</div><span class="chip c-dead">da 19 giorni</span>
+      <div class="nota">Le eliminazioni non le eseguo senza il tuo sì.</div></div>
+
+    <div class="row attesa"><div class="nome">Il grafo pubblicato perde i temi di L5</div><span class="chip c-dead">misurato ieri</span>
+      <div class="nota">L'anonimizzazione copre il nome, non la topologia: archi, grado e data
+      escono in chiaro. Chi ottiene il file può <b>enumerare</b> i candidati invece di indovinare.
+      Era un rischio accettato il 28 luglio — senza misura. Ora c'è. Tre mitigazioni possibili,
+      la scelta è tua perché è il tuo substrato psicologico.</div></div>
+
+    <div class="row attesa"><div class="nome">Apparato A e plancia</div><span class="chip c-dead">premessa caduta</span>
+      <div class="nota">Spenti il 25 luglio perché si credeva vietato l'uso dell'abbonamento fuori
+      dai client ufficiali. La fonte primaria dice il contrario. Resta grigio il solo Agent SDK,
+      che è proprio ciò che la plancia usa. Da riaprire, non da riaccendere.</div></div>
+
+    <div class="row attesa"><div class="nome">Le sei decisioni dell'Accensione</div><span class="chip c-dead">nuove</span>
+      <div class="nota">Il nome del passaggio; la regola nuova (nessun procedimento senza innesco
+      dichiarato); i parcheggi, Business incluso; l'ordine degli innesti; la mitigazione sul grafo;
+      e la pagina sulla tesi.</div></div>
+
+    <div class="row attesa"><div class="nome">Modulo Business</div><span class="chip c-park">mai invocato</span>
+      <div class="nota">Ermete e Ierofante non sono mai stati chiamati — non potevano, mancava il
+      campo <code>name</code>. Proporrei di parcheggiarli con una data, e so che ci tieni.</div></div>
+
+  </div>
+</section>
+
+<div class="coda">
+  <h3>Se torni e vuoi solo dire «vai»</h3>
+  <ol>
+    <li><b>Il risvegliatore esterno.</b> Utilità di pianificazione che lancia una coda scritta da
+    sveglio con te. Ripara oroboro con la struttura che lui stesso aveva dichiarato necessaria.
+    Il confine cablato in codice: esegue solo ciò che è in lista, rifiuta il resto.</li>
+    <li><b>L'hook della banca dati, riparato al canale giusto.</b> Deve ascoltare il filesystem,
+    non gli strumenti di Claude.</li>
+    <li><b>Il ciclo che chiude il quiz.</b> Uno script che legge i tuoi tentativi esportati e
+    riscrive da solo le priorità dei pool: dove sbagli, il Demiurgo lavora di più. Senza che tu
+    dica niente.</li>
+    <li><b>La prima esecuzione degli istinti</b>, che aspetta da venti giorni di essere lanciata
+    una volta.</li>
+    <li><b>Il censimento</b>: ogni procedimento dichiara nel proprio frontmatter cosa lo accende,
+    o si scrive parcheggiato. Nessuno resta a sembrare vivo.</li>
+  </ol>
+</div>
+
+<footer>
+  Compilata da Dedalo il 1° agosto 2026, sulle misure dell'inventario del Rapsodo e delle undici
+  ricerche dell'Argonauta. Ogni numero viene da un file e da una data, nessuno da un'impressione.
+  Fonte completa: <code>00-capitano/ricerche-argonauta/</code> e
+  <code>00-capitano/dedalo/accensione-piano.md</code>.
+</footer>
+
+</div>

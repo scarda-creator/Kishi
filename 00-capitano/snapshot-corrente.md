@@ -2,7 +2,47 @@
 type: stato
 ---
 
-# Snapshot corrente — 2026-07-25
+# Snapshot corrente — 2026-07-31
+
+## AGGIORNAMENTO 31 LUGLIO — riversamento su Kishi + grafo protetto; audit trova il buco-nomi L5 (PUSH SOSPESO)
+
+**Sistema riversamento COMPLETO e provato** (`00-capitano/scripts/riversamento/`): `cifra_l5.py`
+(Argon2id+XChaCha20-Poly1305) + `riversa.py`. Produce: L1–L4 in chiaro, `L5.enc`, `coda.enc`,
+`grafo.json` (cervello COMPLETO: 141 nodi, nodi riservati L5+code ANONIMI `R-<id>`), `mappa-grafo.enc`
+(nomi veri dei riservati, cifrati). `anima-grafo.py --json/--mappa` anonimizza; code aggiunte come nodi
+in `carica()`. anima locale (con L5) esclusa dal chiaro. Cancello 3 rivisto (28-07): L5 nel grafo
+anonimo, non escluso — rischio-legami accettato da Giuseppe (`memoria/cancello-L5-cifratura.md`).
+
+**Riversamento REALE eseguito da Giuseppe (31-07)**: Kishi popolata, commit locale `1addf2f`,
+**NON pushato**. 915 file, tutti i blob presenti.
+
+**AUDIT (Dedalo) — critici VERDI** ma **UN BUCO da decidere**: la sostanza di L5/code/anima non è
+in chiaro (bene), ma **7+ documenti L1–L4 citano i NOMI dei file L5 in chiaro** (cantiere-notturno,
+dedalo/prototipi/mobile-memoria.html, log-decisioni-memoria, politica-richiamo, memoria-profonda,
+protocollo-promozione, snapshot-corrente). Più in generale la navicella *discute* L5 in molti doc in
+chiaro (diari, snapshot, protocolli). → **protezione L5 PARZIALE**: contenuto cifrato, nomi/discussioni
+in chiaro; l'anonimizzazione del grafo diventa incoerente se i nomi si leggono nei doc a fianco.
+
+**DECISIONE PRESA + PUSH FATTO (31-07)**: Giuseppe ha scelto la via **pragmatica** — nomi L5 in chiaro
+accettati consapevolmente su repo privato (contenuto cifrato; ermetica = progetto futuro a sé). **Kishi
+è su GitHub**, commit `1b15ab0` (`8ec0f42..1b15ab0 main`). Ostacolo risolto: un PDF da 131MB sforava il
+limite GitHub (100MB) → rimosso dal commit + `MAX_FILE_MB=95` e `*.onnx` aggiunti a `riversa.py` EXCLUDE
+(il PDF resta in locale nella navicella). Warning residuo su `it_IT-paola-medium.onnx` (60MB, passato ma
+ora escluso dai prossimi giri). **Riversamento operativo end-to-end.** Prossimo giro: Giuseppe rilancia
+`riversa.py` quando vuole aggiornare; Dedalo fa l'audit; push. Aperto: nodi-code già nel grafo (fatto);
+protezione L5 ermetica (se mai la vorrà); app mobile vera (frontend) per aprire L5/code dal telefono.
+
+**AUTOMATISMO TOTALE COSTRUITO (31-07)** — richiesto da Giuseppe, via pragmatica dopo analisi sicurezza
+del Credential Manager (DPAPI: protegge furto-disco + altri utenti, NON malware nel contesto utente; ma
+L5 è già in chiaro sul disco → nessun vettore nuovo; gate-privacy tenuto, passphrase mai sul repo).
+Costruito e provato: `keyring` (WinVaultKeyring/DPAPI); `riversa.py --imposta-passphrase` (deposita la
+passphrase nel Credential Manager, azione una-tantum di Giuseppe) + `--auto` (legge da lì, riversa+push
+senza chiedere); **audit automatico pre-push** (`_audit_repo`: aborta il push se L5/code/anima in chiaro
+o grafo espone path L5 — testato: passa sul pulito, blocca sul sensibile); `riversa-auto.ps1` (wrapper+
+log) + **Task Scheduler `Navicella-Riversamento`** (giornaliero 20:00, StartWhenAvailable, gira quando
+Giuseppe è loggato). MANCA SOLO l'azione di Giuseppe: `riversa.py --imposta-passphrase` UNA volta (è la
+sua chiave, nessun altro può). Raccomandato: BitLocker per il furto fisico. Log: `scripts/riversamento/
+auto.log`. Disattivare: rimuovere il task (`Unregister-ScheduledTask Navicella-Riversamento`).
 
 ## AGGIORNAMENTO 25 LUGLIO (notte, Dedalo) — OmniRoute: visione, non incorporazione
 

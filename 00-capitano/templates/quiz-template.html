@@ -230,6 +230,84 @@ var Q = {};
    ===================================================================== */
 var S = { units:[], ui:0, si:0, correct:0, total:0, answered:false };
 
+/* =====================================================================
+   TRACCIA — il quiz ricorda le risposte.  (Accensione, 2026-07-31)
+   Prima di questo blocco il motore non salvava una singola risposta da
+   nessuna parte: chiuso il tab, il tentativo spariva. Senza questo dato
+   la navicella non ha nessun segnale esterno su cui correggersi.
+   Blocco autonomo: si innesta identico in qualunque quiz gia' pubblicato.
+   ===================================================================== */
+var TRACCIA = (function(){
+  var CHIAVE = 'navicella.quiz.attempts.v1';
+  var attivo = true;
+  try { window.localStorage.setItem('__t','1'); window.localStorage.removeItem('__t'); }
+  catch(e){ attivo = false; }              // navigazione privata: si degrada in silenzio
+
+  function leggi(){
+    if(!attivo) return [];
+    try { return JSON.parse(window.localStorage.getItem(CHIAVE)||'[]'); }
+    catch(e){ return []; }
+  }
+  function scrivi(a){
+    if(!attivo) return;
+    try { window.localStorage.setItem(CHIAVE, JSON.stringify(a)); } catch(e){}
+  }
+  function registra(rec){
+    if(!attivo) return;
+    var a = leggi();
+    rec.ts = new Date().toISOString();
+    rec.corso = (document.title||'').trim();
+    a.push(rec);
+    if(a.length > 5000) a = a.slice(-5000);   // tetto: non gonfiare il browser
+    scrivi(a);
+    aggiornaBottone();
+  }
+  function esporta(){
+    var a = leggi();
+    if(!a.length){ return; }
+    var jsonl = a.map(function(r){ return JSON.stringify(r); }).join('\n')+'\n';
+    var blob = new Blob([jsonl], {type:'application/x-ndjson'});
+    var url = URL.createObjectURL(blob);
+    var nome = 'quiz-attempts-'+(document.title||'quiz').replace(/[^A-Za-z0-9]+/g,'-')
+             + '-' + new Date().toISOString().slice(0,10) + '.jsonl';
+    var a2 = document.createElement('a');
+    a2.href = url; a2.download = nome; document.body.appendChild(a2); a2.click();
+    document.body.removeChild(a2); URL.revokeObjectURL(url);
+  }
+  function svuota(){
+    if(!confirm('Cancellare i tentativi salvati in questo browser?')) return;
+    scrivi([]); aggiornaBottone();
+  }
+  function aggiornaBottone(){
+    var b = document.getElementById('tracciaBtn');
+    var n = leggi().length;
+    if(!b){
+      if(!n) return;
+      b = document.createElement('div');
+      b.id = 'tracciaBtn';
+      b.style.cssText = 'position:fixed;right:14px;bottom:14px;z-index:9999;'
+        + 'font:600 13px/1.2 system-ui,sans-serif;display:flex;gap:6px;align-items:center;'
+        + 'background:#1f2937;color:#fff;padding:8px 12px;border-radius:10px;'
+        + 'box-shadow:0 2px 10px rgba(0,0,0,.25);cursor:pointer;opacity:.92';
+      b.title = 'Scarica i tentativi come .jsonl da consegnare alla navicella';
+      b.onclick = esporta;
+      document.body.appendChild(b);
+      var x = document.createElement('span');
+      x.textContent = '×';
+      x.style.cssText = 'margin-left:6px;opacity:.6;padding:0 3px';
+      x.title = 'Svuota';
+      x.onclick = function(ev){ ev.stopPropagation(); svuota(); };
+      b.appendChild(x);
+    }
+    if(!n){ b.remove(); return; }
+    b.firstChild && b.firstChild.nodeType===3
+      ? (b.firstChild.nodeValue = '↓ esporta '+n+' risposte')
+      : b.insertBefore(document.createTextNode('↓ esporta '+n+' risposte'), b.firstChild);
+  }
+  return { registra: registra, esporta: esporta, conta: function(){ return leggi().length; },
+           aggiorna: aggiornaBottone };
+})();
+
 function poolCount(id){ return (Q[id]||[]).reduce(function(n,u){return n+u.steps.length;},0); }
 
 function renderMenu(){
@@ -311,6 +389,11 @@ function renderStep(){
 }
 
 function answer(btn, opt, st){
+  /* Accensione: ogni click e' un dato. `primo` distingue il primo tentativo sul
+     passo (il segnale che conta per un contatore stile PFA) dai ritentativi. */
+  TRACCIA.registra({ pool: S.poolId, ui: S.ui, si: S.si,
+                     esito: !!opt.c, primo: !S.answered,
+                     hint: document.getElementById('qhint').classList.contains('show') });
   if(opt.c){
     btn.classList.add('correct');
     Array.prototype.forEach.call(document.querySelectorAll('#qopts .opt'),
