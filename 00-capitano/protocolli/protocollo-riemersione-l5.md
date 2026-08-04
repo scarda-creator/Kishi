@@ -11,9 +11,16 @@ Definisce quando e come il Capitano accede alla memoria profonda.
 - Non scorre tutti i file: legge le voci aggiornate più di recente e i temi attivi
 - Obiettivo: avere il framework mentale corretto prima di rispondere
 
-## Lettura periodica (ogni 2-3 settimane, su soglia di volume)
-- memoria/L5-subconscio/pattern-longitudinali/ → identifica voci con N≥3 occorrenze
-- Se soglia raggiunta: avvia passata interpretativa → nuova voce in psicologica/
+## Scrittura di L5/psicologica (quando si osserva, non a soglia)
+Cancello rivisto il 2026-07-22 (documento allineato il 2026-08-02). Il Capitano **scrive quando
+osserva**, con affidabilità bassa ammessa e dichiarata; non aspetta N≥3 occorrenze — la soglia
+automatica era la causa dell'atrofia di L5. Le occorrenze successive alzano l'affidabilità, non
+autorizzano la scrittura. Vedi `protocollo-promozione.md` → "→ L5/psicologica" per la regola piena.
+
+## Lettura periodica (ogni 2-3 settimane, su volume) — consolidamento, non innesco
+- memoria/L5-subconscio/pattern-longitudinali/ → rilegge le osservazioni raw del Rapsodo
+- Serve a **consolidare/aggiornare** le voci in psicologica/ (alzarne l'affidabilità, fonderle),
+  non è la condizione per aprirle
 - Non a calendario fisso: su accumulo osservazioni raw del Rapsodo
 
 ## Lettura associativa (su trigger in conversazione)

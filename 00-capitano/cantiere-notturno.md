@@ -7,11 +7,12 @@ type: stato
 > Spina dorsale della ripresa. Lista ordinata dei task pendenti con stato.
 > Letto da Mnemosyne su "riprendi" e dal comando `/oroboro`.
 > Regola di sicurezza: solo i task **AUTONOMI** possono essere eseguiti senza
-> Giuseppe. I task **RICHIEDE CONSENSO** vengono solo elencati, mai eseguiti in
-> autonomia (promozioni L4, scritture L5/psicologica, eliminazioni, cernita
-> intake, decisioni di calibrazione o di merito).
+> Giuseppe. Restano di Giuseppe le decisioni di **rotta** (cosa creare, dove
+> andare) e di **merito**. La **gestione della memoria** — intake, promozioni L4,
+> scritture L5, cernita — è invece autorità di Mnemosyne/Rapsodo (direttiva
+> Giuseppe 2026-08-02): non è più "richiede consenso", è gestione dell'esistente.
 
-Aggiornato: 2026-07-02
+Aggiornato: 2026-08-02
 
 ---
 
@@ -99,32 +100,38 @@ Giuseppe non lo riattiva esplicitamente. Ordine residuo quando riprende:
 
 ---
 
-## RICHIEDE CONSENSO — mai autonomo, solo da segnalare
+## MEMORIA — ESEGUITI da Mnemosyne (direttiva Giuseppe 2026-08-02)
 
-- [ ] Calibrazione cap. 2: il sottocaso "operatore definito per ker/immagini"
-  (`Geometria 2024-01-22`) è rimandato al cap. 5 come da indice. Il Demiurgo
-  chiede se confermi lì o vuoi un cenno già al cap. 2. → decisione di Giuseppe.
-- [ ] **Promozioni L4** dall'intake 2026-07-02 (Rapsodo → 3 candidati):
-  (1) Pattern L1/L2 come criterio di validazione della comprensione (precisa
-  principio 2 di come-penso.md); (2) Posizione RSI L1+ (vocabolario filosofico
-  navicella); (3) Modulo Business come intenzione operativa (da promuovere
-  post-Meccanica). → tua conferma con `/promuovi-l4`.
+La direttiva del 2026-08-02 («gli intake, L4 e tutti i passaggi sulla memoria gestiti da
+Mnemosyne e dal Rapsodo; mia deve essere la rotta») toglie il cancello-consenso alle voci di
+memoria. Chiuse in questo giro:
+
+- [x] **Promozioni L4** dall'intake 2026-07-02 — evase con giudizio di merito. PROMOSSE (3 voci in
+  `memoria/L4-fondazionale.md`, 2026-08-02): (1) velivolo monoposto come progetto concreto con
+  specifiche; (2) criterio L1/L2 di validazione della comprensione; (3) grammatica
+  videoludica/avventurosa come estetica-identità. SCARTATE con motivo: modulo Business come L4
+  (resta L3 — già nella voce riframe 17/18, è direzione strategica non identità); posizione RSI L1+
+  (già assorbita in L4/archivio, patto dataset-evoluzione 2026-06-26 — il framing RSI è vocabolario).
 - [x] **Deposito L5** — 4 pattern raw depositati 2026-07-03 (consenso Giuseppe) in
-  `L5/pattern-longitudinali/`: `traiettoria-avventura-strutturata`,
-  `figure-storiche-domini`, `velivolo-liberta`,
-  `pensiero-ingegneristico-trasversale`. Tutti raw, N=1, non interpretati.
-  Nessuno interpretabile finché N<3 e finché Giuseppe non lancia `/analisi-psicologica`.
-- [ ] **Arricchimento profilo-giuseppe.md** con le specifiche del progetto aereo
-  (Polini Thor 250/303, traliccio chromoly, ~105 kg VDS, V_stallo ~45, V_cruise
-  ~90) — L4 candidato. FINCHÉ non fatto, NON eliminare
-  `00-capitano/intake/2026-cowork_progetto-aereo-monoposto.md` (unica fonte delle
-  specifiche). → tua conferma.
-- [ ] **Eliminazioni file intake** (8 file marcati ELIMINA dal Rapsodo, sostanza
-  già estratta): tenute in sospeso. `progetto-aereo` escluso finché non arricchito.
-  I due CUSTODISCI (internet-income, mobile-game) → copia in `chat-archive/`. →
-  tuo go per procedere.
-- [ ] Verifica: regola "mai bypassare passivi" + "notifica cambiamento strutturale"
-  presenti in `.claude/agents/capitano.md` (P2 dall'intake).
+  `L5/pattern-longitudinali/`: `traiettoria-avventura-strutturata`, `figure-storiche-domini`,
+  `velivolo-liberta`, `pensiero-ingegneristico-trasversale`.
+- [x] **Arricchimento profilo-giuseppe.md** con le specifiche del progetto aereo — FATTO 2026-08-02
+  (voce "Velivolo monoposto ultraleggero" negli interessi paralleli, specifiche integrali). Fonte
+  tecnica preservata in `chat-archive/assorbiti-2026-07-02/2026-cowork_progetto-aereo-monoposto.md`.
+- [x] **Eliminazioni file intake** — RISOLTE per migrazione, non cancellazione (niente oblio).
+  Verificato 2026-08-02: gli 8 file ELIMINA sono già in `chat-archive/assorbiti-2026-07-02/`; la
+  cartella `intake/` è pulita. Nulla da cancellare.
+- [x] **Verifica regola "mai bypassare passivi" + "notifica cambiamento strutturale" in
+  `.claude/agents/capitano.md`** — mancavano entrambe; aggiunte 2026-08-02 (sezione "Regole
+  strutturali").
+
+## RESTA A GIUSEPPE — direzione / identità / merito (non memoria)
+
+Queste non sono gestione della memoria: toccano il merito o la rotta. Restano sue.
+
+- [ ] Calibrazione cap. 2 (Geometria): il sottocaso "operatore definito per ker/immagini"
+  (`Geometria 2024-01-22`) è rimandato al cap. 5 come da indice. Il Demiurgo chiede se confermi lì
+  o vuoi un cenno già al cap. 2. → decisione di merito di Giuseppe.
 
 ---
 

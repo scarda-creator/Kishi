@@ -1,4 +1,4 @@
-Ultimo aggiornamento: 2026-07-03
+Ultimo aggiornamento: 2026-08-02
 
 # Rapsodo — stato modulo Accademico
 
@@ -7,12 +7,19 @@ Ultimo aggiornamento: 2026-07-03
 *(sintesi viva della traiettoria accademica: esami in preparazione, esami dati,
 corsi attivi, decisioni di percorso recenti)*
 
-Esami in preparazione: **Meccanica** (sessione estiva 2026) — priorità massima.
-Sezione di studio corrente: lavoro ed energia (forze conservative, teorema
-energia meccanica, ΔU).
+**Stato al 2026-08-02:**
 
-Corsi confermati per il III anno: Astrofisica (I sem) + Geometria Differenziale
-(II sem, dip. Matematica).
+Esami dati nella sessione estiva:
+- Geometria — scritto 14-07 — esito percepito positivo, voto non registrato nel sistema
+- Analisi Vettoriale — scritto 17-07 — non è andato bene (debrief); orale saltato; AV rimandato a sessione futura
+
+Esame prossimo: **Meccanica** orale settembre 2026 — stato preparazione non misurato.
+
+Materiale completo per: Geometria (quiz+percorso+formulario), AV (quiz+percorso+formulario), Meccanica (quiz 391 dom. 11 pool).
+Percorso-matematica 18/18 nuclei completato 21-07 (post-esame AV).
+Metodi e Modelli: FERMO (solo manifest + programma).
+
+Corsi confermati per il III anno: Astrofisica (I sem) + Geometria Differenziale (II sem, dip. Matematica).
 
 ---
 
@@ -30,10 +37,11 @@ scheduled tasks. La nuova architettura abilita background mode e agent view.
 
 *(cose su cui il Rapsodo si è ripromesso di vigilare)*
 
-- Meccanica: Giuseppe non deve slittare a febbraio. Monitorare avanzamento
-  settimanale.
-- Traiettoria tesi: verificare periodicamente che le scelte di corso restino
-  coerenti con l'obiettivo ETH/decoerenza/Marinari.
+- Meccanica settembre: nessuna misura della copertura nel sistema. Il quiz (391 domande, 11 pool) esiste ma non c'è traccia di sessioni di ripasso. Da monitorare.
+- Voti Geometria e AV: non registrati. Quando arrivano, archiviarli.
+- AV rimandato: quando si ridà? Sessione invernale? Da monitorare per costruire il piano.
+- Traiettoria tesi: `argonauta-tesi.md` fermo al 2026-06-17 (46 giorni). Verificare periodicamente che le scelte di corso restino coerenti con l'obiettivo ETH/decoerenza/Marinari.
+- Percorso-matematica vs Meccanica: lo scheletro dice esplicitamente che Meccanica non deve essere cannibalizzata dal percorso. Da monitorare l'equilibrio agosto-settembre.
 
 ---
 

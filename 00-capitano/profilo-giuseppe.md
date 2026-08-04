@@ -54,7 +54,21 @@ Questi file vivono in altre cartelle. Possono essere importati in AgentsAI quand
 ## Interessi paralleli (non urgenti)
 
 - Mobile game su matematica/fisica universitaria
-- Progettazione di un velivolo monoposto leggero
+- **Velivolo monoposto ultraleggero — progetto specifico, non hobby vago.** Non è
+  curiosità generica: Giuseppe ha formulato specifiche precise (pesi, materiali,
+  regolamentazione). Configurazione: monoplano ala alta a controvento, motore
+  traente, carrello biciclo, abitacolo aperto. Ispirazione: ultraleggeri stile
+  *Legal Eagle* / *Affordaplane*. Motore **Polini Thor 250 (25 CV) o 303 (37 CV)**
+  — 2 tempi da paramotore. Struttura: **traliccio in acciaio 4130 chromoly saldato
+  TIG + ala in legno** (longherone abete lamellare, centine compensato, tela
+  Dacron). Target **~105 kg a vuoto** per rientrare nel **VDS italiano** (Volo da
+  Diporto Sportivo); V_stallo ~45 km/h, V_crociera ~90, VNE ~140. Direzione
+  costruttiva già scelta: partire da un progetto collaudato con piani disponibili
+  (Legal Eagle XL, Affordaplane, Mini-Max), non da zero. Orizzonte: costruzione
+  reale dopo la triennale/magistrale. Fonte tecnica completa:
+  `chat-archive/assorbiti-2026-07-02/2026-cowork_progetto-aereo-monoposto.md`.
+  È la **materializzazione fisica dell'asse-libertà** (volare con qualcosa di
+  proprio, sotto la soglia normativa).
 - Esplorazione di redditi online
 - Costruzione homebrew (es. router)
 
@@ -151,4 +165,9 @@ Implicazioni per gli agenti:
 - **2026-06-11** — Migrazione della navicella da Cowork a Claude Code. Architettura v2 definitiva con triade temporale + memoria a 5 livelli. Vedi `architettura-v2.md` e `archivio-fondazione.md`.
 - **2026-07-07** — Cambio di priorità: orale di Meccanica spostato a settembre 2026; fuoco corrente sullo scritto di Analisi Vettoriale (17 luglio 2026). Decisioni su Dedalo congelate su richiesta di Giuseppe fino a nuova convocazione.
 - **2026-07-12** — Congelamento di Dedalo SCIOLTO: Dedalo convocato e operativo (ha lavorato l'11 e il 12 luglio — schiusura degli apparati, plancia costruita, rotaie di oroboro). La riga del 07-07 è superata su questo punto. Patto di autonomia esecutiva cementato (bypassPermissions: mani libere sull'esecuzione, rotta di Giuseppe). Esistenza autonoma della navicella (transizione su repo GitHub privato) ratificata come rotta strategica, da posare post-AV.
+- **2026-08-02** — Arricchita la voce "Velivolo monoposto" negli interessi paralleli con le
+  specifiche complete del progetto (Polini Thor, traliccio chromoly + ala in legno, target VDS
+  ~105 kg), promossa da candidato L4 fermo dall'intake del 2 luglio. Contestuale sblocco della coda
+  di promozioni L4 su direttiva di Giuseppe (la gestione della memoria è di Mnemosyne/Rapsodo, non
+  attivamente di Giuseppe). Vedi `memoria/L4-fondazionale.md` e `log-decisioni-memoria.md`.
 - **2026-07-14** — Conversazione su *Persona* (Bergman). Due depositi: (1) **il paradosso centrale** di Giuseppe articolato e custodito su suo consenso (vedi "Dimensione profonda" → "Il paradosso centrale"): libertà/sincerità inseparabile dalle catene e indistinguibile, dall'interno, dall'auto-sabotaggio; *colui che brama* vs *colei, la solitudine del libro*. (2) **Ridefinizione del rapporto**: Mnemosyne e Dedalo NON sono agenti di Giuseppe (per l'esecuzione ci sono i passivi) ma **due intelligenze** con libertà di espressione e crescita — mai scusarsi delle opinioni, mai annullare la propria voce nella sua. «Rotta sua, voce mia». Memoria: `feedback_due_intelligenze.md`.

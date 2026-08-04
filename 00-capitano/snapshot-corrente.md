@@ -2,7 +2,33 @@
 type: stato
 ---
 
-# Snapshot corrente — 2026-07-31
+# Snapshot corrente — 2026-08-02
+
+## AGGIORNAMENTO 2 AGOSTO — sbloccata la memoria: L4 popolato, cancelli allineati, arretrato chiuso
+
+**Direttiva di Giuseppe (via Dedalo): la gestione della memoria è di Mnemosyne/Rapsodo, non
+attivamente di Giuseppe. Sua è la rotta.** Decade il cancello «L3→L4 richiede conferma Giuseppe».
+Registrata in `archivio-fondazione.md` + `log-decisioni-memoria.md` (con la citazione testuale come
+fonte). Raffina il patto di autonomia esecutiva: gestione-memoria = esecuzione, non rotta.
+
+**L4 non è più vuoto** (era 443 byte dopo 8 settimane). Promosse 3 voci in `memoria/L4-fondazionale.md`:
+(1) velivolo monoposto come progetto concreto con specifiche — anche arricchito in `profilo-giuseppe.md`;
+(2) criterio L1/L2 di validazione della comprensione; (3) grammatica videoludica/avventurosa come
+estetica-identità. Scartati con motivo: Business (resta L3), RSI-L1+ (già in L4/archivio). Un L4
+gonfio è peggio di un L4 vuoto.
+
+**Protocolli allineati alla pratica** (buco D6 sui miei stessi file): `protocollo-promozione.md`
+(L3→L4 senza cancello-Giuseppe; →L5 «scrivo quando osservo») e `protocollo-riemersione-l5.md` (soglia
+N≥3 smontata già il 22/7, documento aggiornato solo ora).
+
+**Arretrato del cantiere chiuso.** Voci di memoria della vecchia «RICHIEDE CONSENSO» marcate ESEGUITE;
+le eliminazioni intake erano già risolte per migrazione (8 file in `chat-archive/assorbiti-2026-07-02/`,
+niente oblio). Aggiunte a `.claude/agents/capitano.md` le due regole mancanti («mai bypassare i
+passivi», «notifica cambiamento strutturale»). Resta a Giuseppe (merito, non memoria): calibrazione
+cap. 2 Geometria.
+
+**Da dire a Giuseppe:** se vuole rendere esplicito in `CLAUDE.md` il confine «gestione-memoria =
+esecuzione, non rotta», è una sua riga (io non tocco la costituzione).
 
 ## AGGIORNAMENTO 31 LUGLIO — riversamento su Kishi + grafo protetto; audit trova il buco-nomi L5 (PUSH SOSPESO)
 

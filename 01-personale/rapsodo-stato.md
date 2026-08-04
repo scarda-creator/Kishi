@@ -1,4 +1,4 @@
-Ultimo aggiornamento: 2026-06-17
+Ultimo aggiornamento: 2026-08-02
 
 # Rapsodo — stato modulo Personale
 
@@ -19,6 +19,10 @@ abitudini attive, strumenti in uso, eventuali blocchi)*
 
 *(cose su cui il Rapsodo si è ripromesso di vigilare: derive da monitorare,
 pattern da verificare, impegni da follow-up)*
+
+- **Voti esami estivi:** quando arrivano (Geometria 14-07, AV 17-07), vanno registrati nel sistema. Oggi non ci sono. Vedi bilancio `2026-08-02-primo-bilancio.md`.
+- **Meccanica settembre:** nessuna misura dello stato di preparazione nel sistema. Da monitorare nelle prossime settimane.
+- **Carenaggio Fable punti 2-3:** CLAUDE.md diet e anti-drift audit aperti da 25 giorni. Chi li prende in carico?
 
 ---
 

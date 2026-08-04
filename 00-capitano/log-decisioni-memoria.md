@@ -60,3 +60,42 @@ Non modificare le righe esistenti. Solo append.
   prossima revisione, non la promuovo da sola nella stessa sessione in cui l'ho decisa.
 - **Nota tecnica**: `memoria-indice.py` gira solo in `scripts/voce-venv` — non era documentato,
   annotato nel docstring. Uno script che nessuno sa più lanciare è un ricordo perso con passi in più.
+
+## 2026-08-02 — Mnemosyne (dispaccio di Dedalo, direttiva di Giuseppe)
+
+- **REVISIONE DI CANCELLO** | "L3→L4 non richiede più conferma Giuseppe" | Fonte, testuale
+  (Giuseppe, 2026-08-02): «La gestione della memoria, per quanto deve essere mia, non lo è
+  attivamente. Sto creando questo ecosistema per crescere, non per studiarmi. Gli intake, L4 e
+  tutti i passaggi sulla memoria voglio che siano gestiti da Mnemosyne e dal Rapsodo. Mia deve
+  essere la rotta: come migliorare, cosa creare, cosa applicare. La gestione dell'esistente è
+  vostra.» Decade la riga «L3 → L4 (mai automatica — richiede conferma Giuseppe)» del
+  `protocollo-promozione.md`. La promozione L4 è ora decisa e scritta da Mnemosyne, criterio di
+  merito. Registrato anche in `archivio-fondazione.md` (2026-08-02).
+- **CONFINE / CLAUDE.md** | "gestione-memoria = esecuzione, non rotta" | La revisione raffina il
+  patto di autonomia esecutiva (2026-07-12): la gestione della memoria è gestione dell'esistente,
+  non rotta. Nessuna cementata di CLAUDE.md diceva «L4 richiede Giuseppe» (viveva solo nel
+  protocollo) → nessuna modifica a CLAUDE.md. **Segnalazione a Giuseppe:** se vuole esplicitare
+  quel confine in CLAUDE.md è una sua riga da aggiungere (confine costituzionale rispettato).
+- **CAPITANO promozione-L4** | "3 voci scritte in L4-fondazionale.md" | (1) velivolo monoposto —
+  progetto concreto con specifiche (source: stated); (2) criterio L1/L2 di validazione della
+  comprensione (source: stated, opera il principio 2 di come-penso); (3) grammatica
+  videoludica/avventurosa come estetica-identità (source: stated). Candidati fermi dall'intake
+  2026-07-02. Aereo → anche arricchimento di `profilo-giuseppe.md`.
+- **CAPITANO scarto-L4 motivato** | "Business + RSI-L1+" | Modulo Business come L4 → scartato,
+  resta L3 (già voce riframe 17/18, è direzione strategica non identità fondazionale). Posizione
+  RSI L1+ come L4 → scartata, già assorbita in L4/archivio (patto dataset-evoluzione 2026-06-26);
+  il framing RSI è vocabolario, non nuovo fondamento. Motivo comune: un L4 gonfio è peggio di un
+  L4 vuoto.
+- **CAPITANO allineamento-protocolli** | "buco D6 applicato ai propri file" | `protocollo-promozione.md`
+  (sezioni L3→L4 e →L5/psicologica) e `protocollo-riemersione-l5.md` riscritti perché dicano ciò
+  che il sistema fa davvero: L4 senza cancello-Giuseppe; L5 «scrivo quando osservo» (soglia N≥3
+  smontata già il 22/7, documento allineato solo ora).
+- **CAPITANO cantiere-consensi** | "coda arretrata chiusa" | Le voci di memoria della sezione
+  «RICHIEDE CONSENSO» del `cantiere-notturno.md` (promozioni L4, deposito L5, arricchimento profilo,
+  eliminazioni intake, verifica capitano.md) marcate ESEGUITE. Le eliminazioni erano già risolte per
+  migrazione (8 file ELIMINA già in `chat-archive/assorbiti-2026-07-02/`, cartella `intake/` pulita —
+  niente oblio). Restata a Giuseppe (merito, non memoria): calibrazione cap. 2 Geometria.
+- **CAPITANO fix-agent-def** | "capitano.md — 2 regole mancanti aggiunte" | «mai bypassare i passivi»
+  (esisteva solo in archivio-fondazione 2026-06-30) e «notifica cambiamento strutturale» aggiunte
+  come sezione «Regole strutturali» in `.claude/agents/capitano.md`. P2 dell'intake 2026-07-02, mai
+  evasa.

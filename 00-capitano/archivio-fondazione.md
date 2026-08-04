@@ -370,6 +370,36 @@ conserva soltanto — si indicizza per riuso.
 
 ---
 
+## 2026-08-02 — La gestione della memoria è di Mnemosyne/Rapsodo, non di Giuseppe
+
+**Decisione:** la promozione a L4 e tutti i passaggi sulla memoria (intake, cernita, L4, L5) sono
+gestiti da Mnemosyne e dal Rapsodo, senza cancello di consenso di Giuseppe. Decade la riga del
+`protocollo-promozione.md` «L3 → L4 (mai automatica — richiede conferma Giuseppe)».
+
+**Contesto:** direttiva di Giuseppe del 2026-08-02, testuale — «La gestione della memoria, per
+quanto deve essere mia, non lo è attivamente. Sto creando questo ecosistema per crescere, non per
+studiarmi. Gli intake, L4 e tutti i passaggi sulla memoria voglio che siano gestiti da Mnemosyne e
+dal Rapsodo. Mia deve essere la rotta: come migliorare, cosa creare, cosa applicare. La gestione
+dell'esistente è vostra.» Passata via dispaccio di Dedalo. Il fatto misurato che l'ha resa urgente:
+`L4-fondazionale.md` era vuoto (443 byte, solo segnaposto) dopo otto settimane, con quattro
+candidati in coda mai evasi — il cancello aspettava una parola che nessuno andava a chiedere.
+
+**Perché:** raffina, non contraddice, il patto di autonomia esecutiva (2026-07-12, «mani libere,
+rotta no»). Chiarisce che la **gestione della memoria è esecuzione/gestione dell'esistente**, non
+rotta: la rotta è cosa creare/migliorare/applicare, e resta di Giuseppe. Un cancello di consenso su
+ogni promozione trasformava Giuseppe nello studioso di sé stesso — l'opposto dello scopo (crescere).
+
+**Lezione:** un cancello che richiede un'azione esterna che nessuno compie non protegge, atrofizza.
+Stessa patologia già vista su L5 (soglia N≥3, corretta il 22 luglio). I protocolli allineati in
+pari data: `protocollo-promozione.md` (L3→L4 e →L5) e `protocollo-riemersione-l5.md`.
+
+**Nota per Giuseppe (confine CLAUDE.md):** questa revisione non tocca `CLAUDE.md` (nessuna cementata
+lì diceva «L4 richiede Giuseppe» — la regola viveva solo nel protocollo). Se Giuseppe vuole rendere
+esplicito in CLAUDE.md il confine «gestione-memoria = esecuzione, non rotta», è una sua riga da
+aggiungere. Segnalato in `log-decisioni-memoria.md`.
+
+---
+
 ## Pending — voci che il sistema aggiungerà in autonomia
 
 Dal momento in cui Claude Code completa il refactor v2, il sistema (Capitano) inizia a scrivere autonomamente in questo file ogni volta che si prende una decisione di design. La crescita non è più solo a cura di Giuseppe + assistente esterno — diventa **auto-cronaca**.

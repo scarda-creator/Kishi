@@ -116,9 +116,23 @@ def salva_store(istinti):
     STORE.write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in istinti), encoding="utf-8")
 
 
+def fonti_segnali():
+    """Tutte le code, viva e storiche.
+
+    Accensione 2026-08-02: `CODA_ARCH` puntava a `coda-apprendimento-archivio.jsonl`,
+    un file che nessun procedimento ha mai creato — le code svuotate da /riflessione si
+    chiamano `coda-processata-<data>.jsonl`. Il motore leggeva quindi solo la coda viva
+    e perdeva tutto lo storico: stessa famiglia dell'hook banca-dati puntato al canale
+    sbagliato. Ora si prende ogni coda che esiste davvero.
+    """
+    f = [CODA, CODA_ARCH]
+    f += sorted(BASE.glob("coda-processata-*.jsonl"))
+    return f
+
+
 def leggi_segnali():
     seg = []
-    for f in (CODA, CODA_ARCH):
+    for f in fonti_segnali():
         if f.exists():
             for l in f.read_text(encoding="utf-8").splitlines():
                 if l.strip():
