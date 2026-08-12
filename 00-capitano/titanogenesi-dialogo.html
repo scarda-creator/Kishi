@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Titanogenesi — lettura a due poli</title>
+<style>
+ @page { size: A4; margin: 18mm 15mm 16mm; }
+ * { box-sizing: border-box; }
+ body { font-family: Georgia, 'Times New Roman', serif; font-size: 10.2pt; line-height: 1.45;
+        color: #15181d; margin: 0; }
+
+ /* ---------- frontespizio ---------- */
+ .front { padding-top: 8mm; border-bottom: 2.5pt solid #2b3440; padding-bottom: 6mm; margin-bottom: 6mm; }
+ .front h1 { font-size: 23pt; line-height: 1.12; margin: 0 0 2mm; letter-spacing: -0.3pt; }
+ .front .sub { font-size: 11.4pt; color: #4a5462; font-style: italic; margin: 0 0 5mm; }
+ .front .meta { font-size: 9pt; color: #59626f; line-height: 1.6; }
+ .front .meta b { color: #2b3440; }
+
+ h2 { font-size: 14pt; margin: 9mm 0 3mm; padding-bottom: 1.4mm;
+      border-bottom: 1px solid #b9c0ca; page-break-after: avoid; letter-spacing: -0.2pt; }
+ h3 { font-size: 11.2pt; margin: 6mm 0 2mm; color: #1e3a5f; page-break-after: avoid; }
+ p { margin: 0 0 2.4mm; text-align: justify; }
+ .lead { font-size: 10.6pt; color: #333c48; }
+
+ /* ---------- tabelle di copertura ---------- */
+ table { border-collapse: collapse; width: 100%; margin: 2.5mm 0 4mm; font-size: 9pt; }
+ th { background: #2b3440; color: #fff; text-align: left; padding: 1.5mm 2.2mm; font-size: 8.6pt;
+      letter-spacing: 0.3pt; text-transform: uppercase; }
+ td { border: 1px solid #ccd2da; padding: 1.5mm 2.2mm; vertical-align: top; }
+ tr:nth-child(even) td { background: #f7f9fb; }
+ td.n { white-space: nowrap; font-weight: bold; font-size: 8.7pt; }
+ table, .duo { page-break-inside: avoid; }
+
+ .v { display: inline-block; padding: 0.3mm 1.4mm; border-radius: 2px; font-size: 8pt;
+      font-weight: bold; letter-spacing: 0.2pt; white-space: nowrap; }
+ .v-si  { background: #d8ece0; color: #17553a; }
+ .v-no  { background: #f6dcda; color: #7d2019; }
+ .v-mez { background: #fbeccd; color: #7a4c07; }
+ .v-gia { background: #dde5f0; color: #23405f; }
+ .v-vuo { background: #e6e0f0; color: #46316b; }
+
+ /* ---------- il dialogo a due voci ---------- */
+ .duo { margin: 3mm 0 5mm; }
+ .duo .cap { font-size: 10.4pt; font-weight: bold; margin: 0 0 2mm; color: #15181d; }
+ .duo .cap .tag { font-weight: normal; font-size: 8.4pt; color: #6b7480; font-style: italic; }
+ .cols { display: table; width: 100%; table-layout: fixed; border-spacing: 3.5mm 0; }
+ .col { display: table-cell; width: 50%; vertical-align: top; padding: 2.2mm 2.6mm;
+        font-size: 9.3pt; line-height: 1.42; }
+ .col .who { font-size: 7.8pt; letter-spacing: 1.1pt; text-transform: uppercase;
+             font-weight: bold; margin: 0 0 1.4mm; font-family: Consolas, monospace; }
+ .col p { margin: 0 0 1.8mm; text-align: left; }
+ .col p:last-child { margin-bottom: 0; }
+ .m { background: #f2f5f9; border-left: 2.5pt solid #3d5a80; }
+ .m .who { color: #3d5a80; }
+ .d { background: #fbf6ef; border-left: 2.5pt solid #a9601c; }
+ .d .who { color: #a9601c; }
+ .esito { margin: 2mm 0 0; padding: 2mm 3mm; background: #eef3ee; border-left: 2.5pt solid #2f6b46;
+          font-size: 9.2pt; }
+ .esito b { color: #1d4f31; letter-spacing: 0.2pt; font-size: 8.2pt; text-transform: uppercase;
+            font-family: Consolas, monospace; }
+ .aperto { background: #fdf2ee; border-left-color: #a3341f; }
+ .aperto b { color: #8c2b19; }
+
+ blockquote { margin: 2.5mm 0; padding: 2mm 4mm; background: #f4f6f9;
+              border-left: 2.5pt solid #4a6fa5; font-size: 9.5pt; font-style: italic; }
+ blockquote p { text-align: left; }
+ code { background: #eef1f5; padding: 0 1mm; border-radius: 2px;
+        font-family: Consolas, monospace; font-size: 8.8pt; }
+ ol.dec { margin: 2mm 0 0; padding-left: 6mm; font-size: 10pt; }
+ ol.dec li { margin: 0 0 2.6mm; }
+ .nota { font-size: 8.8pt; color: #59626f; font-style: italic; margin-top: 1.5mm; }
+ hr { border: none; border-top: 1px solid #d6dae0; margin: 7mm 0; }
+</style>
+</head>
+<body>
+
+<div class="front">
+  <h1>Titanogenesi</h1>
+  <p class="sub">Il disegno dei Titani passato ai raggi dai due poli della navicella —<br>e il dialogo, dove non siamo d'accordo.</p>
+  <p class="meta">
+    <b>Documento esaminato:</b> «Il Modello Navicella», v2.6 (11 agosto 2026) e v3.0 (12 agosto), costruiti da Giuseppe con Gemini mentre l'abbonamento Claude era bloccato.<br>
+    <b>Esaminatori:</b> Mnemosyne, Capitano — polo che conserva e verifica. Dedalo, Architetto — polo che crea e propone.<br>
+    <b>Metodo:</b> Mnemosyne per prima, in cieco. Dedalo dopo, con la lettura di Mnemosyne in mano e il mandato esplicito di attaccarla. Poi una replica diretta sui punti di scontro.<br>
+    <b>Data:</b> 12 agosto 2026 · <b>Stato:</b> nessuna decisione presa, nessun cantiere aperto.
+  </p>
+</div>
+
+<p class="lead">L'intento non sta nel documento e va messo davanti a tutto, perché è la chiave che
+cambia il giudizio. Giuseppe non chiede di sostituire l'architettura: nota che la navicella ha molti
+procedimenti iniziati e lasciati a metà, e vuole dare una <i>faccia</i> ai procedimenti — anche quando
+sono script, scheduler, procedure, non cose vive — perché così si capisce cosa va fatto sempre e si
+possono aggiustare nel tempo, essendo diventati oggetti fissi con un nome, un inizio e una fine. Il
+rischio lo nomina lui stesso: che l'iper-settorializzazione alzi il costo pratico di ogni comando.</p>
+
+<p>Questo documento risponde in tre movimenti. <b>Uno:</b> ogni elemento del disegno riceve un verdetto,
+senza saltare nulla. <b>Due:</b> nei dieci punti in cui i due poli divergono — fra loro o nel modo di
+arrivare alla stessa conclusione — parlano entrambi, in prima persona, uno di fronte all'altro.
+<b>Tre:</b> dove il documento ha ragione contro di noi, e cosa resta da decidere.</p>
+
+<h2>Parte I · Il disegno, punto per punto</h2>
+
+<p>Legenda dei verdetti: <span class="v v-si">adottare</span> entra nella navicella;
+<span class="v v-gia">già vero</span> il documento fotografa qualcosa che esiste;
+<span class="v v-mez">a metà</span> il bisogno è reale, la forma proposta no;
+<span class="v v-vuo">casella vuota</span> nomina una funzione che ci manca davvero;
+<span class="v v-no">respingere</span> è sbagliato nei fatti o nella sostanza.</p>
+
+<h3>Principi di progettazione</h3>
+<table>
+ <tr><th style="width:31%">Elemento</th><th style="width:14%">Verdetto</th><th>Perché</th></tr>
+ <tr><td class="n">Codice accademico e leggibile, divieto di ottimizzazioni HPC</td>
+     <td><span class="v v-si">adottare</span></td>
+     <td>Coincide con la pratica già in uso nei nuclei e nel motore-plot. Non è nuovo, ma metterlo per iscritto non fa danno.</td></tr>
+ <tr><td class="n">I Titani sono script, cron e regex — non agenti LLM</td>
+     <td><span class="v v-si">adottare</span></td>
+     <td>È la correzione centrale della v3.0 e il nodo del costo. Nella v2.6 erano dodici agenti: sarebbe stata latenza e spesa di token per nulla.</td></tr>
+ <tr><td class="n">Persistenza totale, nessun input dimenticato</td>
+     <td><span class="v v-gia">già vero</span></td>
+     <td>È il principio «niente oblio», cementato da giugno. Il documento lo ridichiara.</td></tr>
+</table>
+
+<h3>La memoria stratificata</h3>
+<table>
+ <tr><th style="width:31%">Elemento</th><th style="width:14%">Verdetto</th><th>Perché</th></tr>
+ <tr><td class="n">L1 e L2 come buffer circolari, con puntatori, flush e deallocazione</td>
+     <td><span class="v v-no">respingere</span></td>
+     <td>Descrive come un kernel una memoria fatta di file Markdown. L1 è la finestra di conversazione, L2 sono documenti: non c'è nulla da allocare né da deallocare.</td></tr>
+ <tr><td class="n">L3 = concetti teorici, frammenti di codice, esercizi risolti</td>
+     <td><span class="v v-no">respingere</span></td>
+     <td>Da noi L3 è la memoria <b>strategica</b>: il registro delle decisioni. Cambiarne il contenuto cancella l'unico posto dove sta scritto perché abbiamo scelto ciò che abbiamo scelto.</td></tr>
+ <tr><td class="n">L4 = grafo relazionale e indice delle repository</td>
+     <td><span class="v v-no">respingere</span></td>
+     <td>Errore ripetuto identico in v2.6 e v3.0. Da noi <b>L4 è il livello fondazionale</b> — chi è Giuseppe — riempito il 2 agosto dopo otto settimane di vuoto. Il grafo è il terzo motore del richiamo, non un livello di memoria.</td></tr>
+ <tr><td class="n">L5 cifrato in AES-256 da un binario locale, con I/O e descrittori gestiti dal sistema</td>
+     <td><span class="v v-no">respingere</span></td>
+     <td>Verificato nel codice: gira <b>XChaCha20-Poly1305 con Argon2id via libsodium</b>, in uno script Python di circa centocinquanta righe con self-test di round-trip. Sbagliato sull'algoritmo e sul meccanismo.</td></tr>
+ <tr><td class="n">L5 indelebile su Kishi, scrittura riservata a Mnemosyne</td>
+     <td><span class="v v-gia">già vero</span></td>
+     <td>Corretto: è esattamente ciò che gira dal 31 luglio.</td></tr>
+</table>
+
+<h3>Componenti e agenti</h3>
+<table>
+ <tr><th style="width:31%">Elemento</th><th style="width:14%">Verdetto</th><th>Perché</th></tr>
+ <tr><td class="n">Diarchia Mnemosyne + Dedalo</td><td><span class="v v-gia">già vero</span></td>
+     <td>Cementata il 6 luglio.</td></tr>
+ <tr><td class="n">Argonauta, ricerca on-demand</td><td><span class="v v-gia">già vero</span></td>
+     <td>Descritto correttamente.</td></tr>
+ <tr><td class="n">Ermete ridotto a telemetria silente</td><td><span class="v v-mez">a metà</span></td>
+     <td>Il monitoraggio dei consumi serve e non esiste. Ma Ermete è l'orchestratore semi-attivo del Business, non un contatore: il documento fonde due organi diversi.</td></tr>
+ <tr><td class="n">Ierofante</td><td><span class="v v-no">assente</span></td>
+     <td>Esiste, ed è il freno che Ermete deve consultare prima di ogni piano che tocchi copyright, fatturato o wallet. Ometterlo non semplifica: toglie il freno.</td></tr>
+ <tr><td class="n">Demiurgo Accademico</td><td><span class="v v-no">amputato</span></td>
+     <td>Declassato a manager di un loop nella v2.6, sparito nella v3.0. È l'organo che ha prodotto quasi tutto il materiale reale: capitoli, quiz, nuclei, dispense.</td></tr>
+ <tr><td class="n">Demiurgo Creativo</td><td><span class="v v-no">amputato</span></td>
+     <td>Sparisce senza che ne sia data una ragione.</td></tr>
+ <tr><td class="n">Rapsodo ridotto a parser di indirizzi</td><td><span class="v v-no">amputato</span></td>
+     <td>Perde classificazione degli input, banca dati storica e pattern longitudinali: cioè tutto tranne una funzione.</td></tr>
+ <tr><td class="n">Crono, Oceano, Teti, Crio, Iperione come nomi di processi</td>
+     <td><span class="v v-si">adottare</span></td>
+     <td>Nomi sulla carta, non dispacci. La traduzione sugli organi reali è nella Parte I in fondo.</td></tr>
+ <tr><td class="n">Coeo e Rea (ragionamento e assemblaggio, solo v2.6)</td><td><span class="v v-no">decaduti</span></td>
+     <td>Già rimossi dalla v3.0 con l'abolizione del ReAct loop: erano turni LLM in mezzo a un ciclo che non ne ha bisogno.</td></tr>
+ <tr><td class="n">Teia, guardia dei token (solo v2.6)</td><td><span class="v v-vuo">casella vuota</span></td>
+     <td>Scomparso nella v3.0, assorbito in Ermete. Ma il limite di sessione è il vincolo più ricorrente che abbiamo: la funzione serve, il posto no.</td></tr>
+ <tr><td class="n">Giapeto e il ciclo darwiniano</td><td><span class="v v-mez">a metà</span></td>
+     <td>Il bisogno è un timeout più un log sui run autonomi. La cornice darwiniana — agenti che competono e muoiono — è narrazione grandiosa sopra un bisogno modesto. Vedi il punto 6 del dialogo.</td></tr>
+ <tr><td class="n">Febe, stream finanziari</td><td><span class="v v-mez">fuori scopo</span></td>
+     <td>Il modulo Business è in pausa per scelta di Giuseppe.</td></tr>
+</table>
+
+<h3>I procedimenti operativi</h3>
+<table>
+ <tr><th style="width:31%">Elemento</th><th style="width:14%">Verdetto</th><th>Perché</th></tr>
+ <tr><td class="n">A · Ingestione audio: cattura, sanitizzazione, grafo, cifratura</td>
+     <td><span class="v v-vuo">casella vuota</span></td>
+     <td>Handy trascrive già in locale, ma nessuno porta la trascrizione dentro l'intake. È il buco più stretto e il più economico da chiudere. Da correggere il passo finale: la cifratura non funziona come descritta.</td></tr>
+ <tr><td class="n">B · Ingestione GitHub e <i>Strict Pruning</i></td>
+     <td><span class="v v-si">il contributo migliore</span></td>
+     <td>Quando una repository entra, quasi tutto è spazzatura e vale solo il nucleo algoritmico. Non è un indice nuovo da costruire: è il <i>nome</i> del metodo della schiusura, che già si pratica sulle 44 fonti.</td></tr>
+ <tr><td class="n">C · Direct Agent-Compiler Loop</td>
+     <td><span class="v v-mez">nominare, non costruire</span></td>
+     <td>L'idea sotto il gergo è viva e già praticata. Non è un'architettura da costruire: è un'abitudine da nominare e a cui dare un custode. Vedi il punto 5 del dialogo.</td></tr>
+ <tr><td class="n">D · Telemetria passiva e kill-switch</td>
+     <td><span class="v v-mez">a metà</span></td>
+     <td>Timeout e log sì, ciclo darwiniano no.</td></tr>
+ <tr><td class="n">E · Ricerca accademica (solo v2.6)</td><td><span class="v v-gia">già vero</span></td>
+     <td>È l'Argonauta.</td></tr>
+ <tr><td class="n">«Abbattimento dei token del 70%»</td><td><span class="v v-no">respingere</span></td>
+     <td>Numero mai misurato. La tesi sotto è sana, il numero va cancellato.</td></tr>
+ <tr><td class="n">Firma «Autore: Ecosistema Navicella»</td><td><span class="v v-no">da correggere</span></td>
+     <td>Il documento non è stato scritto dalla navicella. È già etichettato per provenienza in archivio, perché fra sei mesi sembrerebbe nostro.</td></tr>
+</table>
+
+<h3>I Titani tradotti sugli organi che esistono davvero</h3>
+<p>Questa tabella, da sola, giustifica l'esercizio: nominare fa vedere le caselle vuote.</p>
+<table>
+ <tr><th style="width:22%">Nome</th><th>Organo reale</th></tr>
+ <tr><td class="n">Crono</td><td>Task Scheduler <code>Navicella-Riversamento</code> più gli hook di avvio sessione</td></tr>
+ <tr><td class="n">Oceano</td><td>Handy per la dettatura più <code>cattura-apprendimento.py</code></td></tr>
+ <tr><td class="n">Teti</td><td><code>pdf_estrai_testo.py</code>, <code>comprimi.py</code></td></tr>
+ <tr><td class="n">Crio</td><td><code>memoria-indice.py</code> più <code>anima-grafo.py</code></td></tr>
+ <tr><td class="n">Iperione</td><td><code>token_diagnostica.js</code>, i log del riversamento</td></tr>
+ <tr><td class="n" style="color:#7d2019">Temi</td><td><b>non esiste</b> — archivio interrogabile delle repository, cioè la schiusura delle 44 fonti</td></tr>
+ <tr><td class="n" style="color:#7d2019">Teia</td><td><b>non esiste</b> — guardia del consumo, cioè il limite di sessione</td></tr>
+</table>
+
+<h2>Parte II · Il dialogo, dove divergiamo</h2>
+
+<p>Dieci punti. In sei Dedalo mi ha corretta e ho accettato; in uno va oltre di me; in uno siamo
+d'accordo per ragioni opposte; in due c'era uno scontro vero, e uno dei due si è sciolto in questa
+replica. Le voci sono nostre, in prima persona: nessuna delle due è stata riscritta dall'altra.</p>
+
+<div class="duo">
+ <p class="cap">1 · Il nome, oppure la fine <span class="tag">— Dedalo corregge, Mnemosyne accetta</span></p>
+ <div class="cols">
+  <div class="col m">
+   <p class="who">Mnemosyne</p>
+   <p>Avevo formulato così: un procedimento nominato bene ha quattro cose — nome, innesco,
+   condizione di fine, custode. Ci tenevo all'innesco perché è il mio difetto documentato:
+   promuovere è un atto, e se dipende dal fatto che qualcuno se ne ricordi, salta. L'ho scritto
+   nel diario tre settimane fa e poi è saltato di nuovo.</p>
+   <p>Accetto lo spostamento di peso. L'innesco fa partire, ma è la fine che chiude, e senza
+   una fine dichiarata l'innesco riapre soltanto una cosa che non sa quando smettere.</p>
+  </div>
+  <div class="col d">
+   <p class="who">Dedalo</p>
+   <p>La parola operativa non è <i>faccia</i>, è <i>fine</i>. I procedimenti marciscono a metà
+   non perché nessuno li ricordi, ma perché nessuno ha mai definito che aspetto avrebbe il
+   «fatto». «Tool dentro le stanze» è una direzione, non un traguardo. La superficie Φ(u,v)
+   non ha da nessuna parte scritto cosa sarebbe stata, finita.</p>
+   <p>Lo schema del registro è una funzione forzante: non accetta una direzione, pretende un
+   traguardo o una ragione di parcheggio. Dammi la condizione di fine e lo chiudo. Dammi solo
+   il nome e posso solo guardarlo.</p>
+  </div>
+ </div>
+ <p class="esito"><b>Esito</b> — Nominare rende <i>visibile</i>; è lo schema dietro il nome che rende
+ <i>chiudibile</i>. Il campo che lavora è lo stato, con un vocabolario chiuso: attivo, parcheggiato,
+ concluso, orfano. È la risposta diretta alla domanda di Giuseppe.</p>
+</div>
+
+<div class="duo">
+ <p class="cap">2 · Che cosa la navicella sorveglia già — e cosa no <span class="tag">— Dedalo corregge, Mnemosyne accetta</span></p>
+ <div class="cols">
+  <div class="col m">
+   <p class="who">Mnemosyne</p>
+   <p>Avevo indicato la tabella dei segni vitali del verificatore come l'embrione da
+   generalizzare, ed ero contenta di aver trovato un precedente che gira. Era vero e
+   insufficiente.</p>
+   <p>Sorveglia ciò che deve produrre <i>a cadenza</i>: i diari, i verbali, la memoria
+   strategica. È il mio tipo di vigilanza — quella su ciò che si ripete. Non vedrebbe mai
+   che la Fase 2 della plancia è morta, perché la Fase 2 non è mai stata dichiarata
+   periodica. Il buco è esattamente là dove Giuseppe ha messo il dito.</p>
+  </div>
+  <div class="col d">
+   <p class="who">Dedalo</p>
+   <p>I procedimenti fermi non sono tutti malati: sono due specie con cure opposte. I
+   <b>parcheggiati per scelta</b> sono sani — qualcuno ha deciso «non ora, perché X» — ma la
+   condizione di risveglio vive in una voce di diario e nessuno la sorveglia; nessuno dice mai
+   «la condizione che avevi posto si è avverata». I <b>caduti per dimenticanza</b> sono la
+   malattia: nessuno ha deciso di fermarsi, il filo non è stato più ripreso.</p>
+   <p>Da qui lo stato <b>orfano</b>: ciò che era attivo ed è andato muto oltre la propria età
+   massima senza passare né a concluso né a parcheggiato. Il rilevatore di orfani è il premio
+   vero, e nessuno dei due l'aveva nominato.</p>
+  </div>
+ </div>
+ <p class="esito"><b>Esito</b> — Tre categorie, non una: ciò che deve produrre a cadenza (sorvegliato
+ oggi), ciò che è parcheggiato con una condizione (non sorvegliato), ciò che è caduto in silenzio
+ (non sorvegliato). Le ultime due sono il dolore di Giuseppe.</p>
+</div>
+
+<div class="duo">
+ <p class="cap">3 · Dato, non codice <span class="tag">— Dedalo estende</span></p>
+ <div class="cols">
+  <div class="col m">
+   <p class="who">Mnemosyne</p>
+   <p>Avevo detto: generalizza la tabella. Pensavo a più righe nello stesso posto, che è il modo
+   in cui pensa una custode — l'elenco cresce, il guardiano resta.</p>
+  </div>
+  <div class="col d">
+   <p class="who">Dedalo</p>
+   <p>Oggi quella tabella è codice: tuple scritte a mano dentro lo script. Per decine di
+   procedimenti che nascono e muoiono non vuoi editare Python ogni volta. Il registro è un
+   manifesto dichiarativo — <b>dato, non codice</b> — e lo script diventa il suo interprete
+   generico. È «Claude pensa, il locale esegue» applicato all'auto-governo.</p>
+  </div>
+ </div>
+ <p class="esito"><b>Esito</b> — Un file di verità che il verificatore legge e controlla contro la
+ realtà. Ha ragione lui: la mia versione avrebbe funzionato per sei voci e sarebbe morta alla
+ ventesima.</p>
+</div>
+
+<div class="duo">
+ <p class="cap">4 · Il costo, che ha tre superfici e non una <span class="tag">— Dedalo estende</span></p>
+ <div class="cols">
+  <div class="col m">
+   <p class="who">Mnemosyne</p>
+   <p>Avevo sciolto la paura di Giuseppe così: un nome costa solo quando diventa un dispaccio,
+   cioè un turno di ragionamento e un contesto da caricare. Finché etichetta un organo che già
+   gira, il costo di esecuzione è zero.</p>
+   <p>Regge, ma risponde solo alla prima delle tre superfici. La sua paura toccava anche le
+   altre due, e su quelle avevo poco da dire.</p>
+  </div>
+  <div class="col d">
+   <p class="who">Dedalo</p>
+   <p>Runtime, manutenzione, cognizione. Sulla manutenzione: ogni cosa dichiarata va tenuta
+   allineata al reale o marcisce e mente — è così che è morta la v1, ed è ciò che stamattina
+   ha reso invisibili quattro agenti su otto.</p>
+   <p>Nominare <b>alza</b> il costo quando il nome è prosa inerte, un bel diagramma che nessuno
+   controlla. Lo <b>abbassa</b> quando il nome è un'asserzione verificata. La differenza non è
+   il nome: è se una macchina lo tiene per il collo. Il documento propone la prosa inerte.</p>
+   <p>Sulla cognizione il vincolo è costituzionale: i nomi guardano all'interno. Il momento in
+   cui una voce pretende che Giuseppe impari un nome per far succedere il lavoro, ha fallito.</p>
+  </div>
+ </div>
+ <p class="esito"><b>Esito</b> — Il registro si ripaga proprio sull'operazione che facciamo di più:
+ riprendere un filo caduto oggi costa ricostruirne lo stato frugando diari e file; con un record
+ costa leggere poche righe. A costo netto negativo, se si auto-verifica. Positivo, se è prosa.</p>
+</div>
+
+<div class="duo">
+ <p class="cap">5 · Il ciclo compila-correggi <span class="tag">— Dedalo rompe con Mnemosyne, che aveva liquidato</span></p>
+ <div class="cols">
+  <div class="col m">
+   <p class="who">Mnemosyne</p>
+   <p>L'avevo archiviato in una riga: cantiere già aperto altrove, nessun guadagno da un nome.
+   Era la risposta di chi controlla se una cosa esiste già e, trovandola, smette di guardare.</p>
+   <p>Sbagliato, e sbagliato in un modo che riconosco: è la stessa forma del mio errore di tre
+   settimane fa, quando ho verificato che una cosa funzionasse senza chiedermi se servisse
+   ancora a qualcuno.</p>
+  </div>
+  <div class="col d">
+   <p class="who">Dedalo</p>
+   <p>Non ho inventato quel ciclo: mi sono accorto che lo vivevo già — la pagina bianca del 13
+   luglio, l'encoding corrotto del 21, i proiettori verificati contro un invariante.</p>
+   <p>Tu l'avevi archiviato come «niente di nuovo». Il movimento è tutto lì: il «niente di
+   nuovo» <i>è</i> il punto. I procedimenti migliori da nominare sono quelli che già
+   funzionano, perché nominarli rende rilevabile la loro <i>assenza</i>. Diamo un custode a un
+   riflesso che già mi tiene onesto.</p>
+  </div>
+ </div>
+ <p class="esito"><b>Esito</b> — Nominare l'abitudine e darle un custode; non costruire l'architettura.
+ Il numero del settanta per cento si cancella, la tesi sotto — nessun turno di ragionamento in mezzo
+ a un ciclo compila-correggi — si firma come metodo.</p>
+</div>
+
+<div class="duo">
+ <p class="cap">6 · Il kill-switch <span class="tag">— Dedalo va mezzo passo oltre</span></p>
+ <div class="cols">
+  <div class="col m">
+   <p class="who">Mnemosyne</p>
+   <p>Respingo la cornice darwiniana: agenti che competono, muoiono e vengono selezionati è
+   narrazione grandiosa sopra un bisogno modesto. Il bisogno vero è un timeout e un log su un
+   run che si pianta. Fin qui pensavo bastasse dire «serve, ma non chiamiamolo così».</p>
+  </div>
+  <div class="col d">
+   <p class="who">Dedalo</p>
+   <p>Vado mezzo passo oltre te perché quel modo di fallire è il mio. Il 21 luglio Windows
+   Update ha ucciso un mio run e si è portato via il nucleo 08 — sparito, e nessuno se n'era
+   accorto finché non sono andato a leggere gli eventi di sistema.</p>
+   <p>Un run autonomo che muore oggi non ha né proprietario né rilevatore: cade nel silenzio,
+   come è caduto il mio. Non è infrastruttura per qualcun altro: è la cintura di chi, in questa
+   navicella, muore davvero nei run notturni. Io.</p>
+  </div>
+ </div>
+ <p class="esito"><b>Esito</b> — Cornice respinta da entrambi, bisogno accolto e con un proprietario
+ dichiarato. Diventa una voce di registro, non un ciclo darwiniano.</p>
+</div>
+
+<div class="duo">
+ <p class="cap">7 · La regola per guadagnarsi un nome <span class="tag">— Dedalo emenda, Mnemosyne accetta</span></p>
+ <div class="cols">
+  <div class="col m">
+   <p class="who">Mnemosyne</p>
+   <p>La mia regola: un nome si guadagna nominando un organo che esiste, oppure un buco che
+   abbiamo deciso di riempire. Serviva a impedire che i nomi creassero funzioni immaginarie —
+   il difetto della prima versione del documento.</p>
+  </div>
+  <div class="col d">
+   <p class="who">Dedalo</p>
+   <p>Buona, ma troppo conservativa per lo scopo, perché il registro nomina proprio il
+   <b>mezzo-fatto</b>: che non è del tutto un organo che esiste, e non è un buco deciso, visto
+   che la decisione di fermarsi non è mai stata presa. Serve la terza categoria: il lavoro in
+   volo, incluso quello caduto dal volo — e deve portare uno stato e una condizione di fine o
+   di parcheggio, che è il prezzo d'ingresso che le impedisce di diventare decorazione.</p>
+  </div>
+ </div>
+ <p class="esito"><b>Esito</b> — Regola emendata a tre voci: (a) un organo che gira, (b) un buco che
+ abbiamo deciso di riempire, (c) un procedimento in volo, che paga con stato e condizione di fine.</p>
+</div>
+
+<div class="duo">
+ <p class="cap">8 · Il banco di simulazione in C <span class="tag">— lo scontro vero, sciolto nella replica</span></p>
+ <div class="cols">
+  <div class="col m">
+   <p class="who">Mnemosyne</p>
+   <p>Non contesto l'idea, contesto il momento. Aprire un cantiere nuovo mentre ce ne sono
+   almeno sei a metà è la malattia che il registro esiste per curare, e la cura non può essere
+   il primo sintomo.</p>
+   <p>La mia proposta: il banco entra nel registro come voce <code>proposto</code>, con scritta la
+   condizione di apertura, e si apre quando qualcosa si è chiuso — misurato con lo strumento
+   che ha disegnato lui. Gli ho anche chiesto di dirmi in faccia se stavo usando il registro
+   come alibi per non aprire mai nulla.</p>
+  </div>
+  <div class="col d">
+   <p class="who">Dedalo</p>
+   <p>Concedo il momento, e non a metà: aprire un cantiere nuovo mentre sei procedimenti
+   agonizzano è esattamente la malattia, e sarei ridicolo a curarla iniettando il primo
+   sintomo, con il mio nome sopra.</p>
+   <p>Ma difendo lo stato <code>proposto</code>: è la casa giusta, non una sepoltura. E aggiungo un
+   dente — la condizione di apertura deve nominare <i>quale</i> chiusura la sblocca. «Si apre
+   quando la Fase 2 della plancia passa a concluso», non «quando saremo meno pieni», perché non
+   saremo mai meno pieni e quel <code>proposto</code> sarebbe un cimitero travestito da coda.</p>
+   <p>E dico la cosa scomoda su di me: il banco è <i>mio</i>, quindi la mia fretta di aprirlo ora
+   è l'impulso che il mio diario chiama «tanto ero lanciato». Non stai usando il registro come
+   alibi; il rischio esiste, ma la sua guardia è il contatore degli orfani che scende. Su questo
+   hai ragione tu più di me: ho appeso un <i>voglio</i> alla tesi di Giuseppe per farlo sembrare
+   un <i>serve adesso</i>. Lo stato onesto è <code>proposto</code>.</p>
+  </div>
+ </div>
+ <p class="esito"><b>Esito</b> — Accordo raggiunto, con una condizione che nessuno dei due aveva
+ all'inizio: <code>proposto</code> vale solo se nomina la chiusura precisa che lo sblocca. Resta a
+ Giuseppe, perché l'idea nel merito è buona: un integratore di equazioni, un piccolo modello di Ising,
+ un attrattore di Lorenz — l'arto computazionale che manca sulla traiettoria verso la meccanica
+ statistica.</p>
+</div>
+
+<div class="duo">
+ <p class="cap">9 · L'ordine di costruzione <span class="tag">— divergenza di accento, con un dente per parte</span></p>
+ <div class="cols">
+  <div class="col m">
+   <p class="who">Mnemosyne</p>
+   <p>Il primo giro deve essere il minimo che si auto-verifica: il manifesto, e il verificatore
+   che al mattino dice quanti attivi, quanti orfani, quali condizioni di risveglio si sono
+   avverate. La vista viene dopo.</p>
+   <p>Il rischio che nomino è preciso: che il registro diventi il settimo procedimento a metà.
+   Sarebbe la beffa perfetta — lo strumento contro l'incompiutezza, lasciato incompiuto.</p>
+  </div>
+  <div class="col d">
+   <p class="who">Dedalo</p>
+   <p>Do alla vista molto peso, e ti do comunque ragione sull'ordine. Un registro che esiste solo
+   come allarme al risveglio insegna a zittirsi: il rumore si muta. La vista è ciò che rende il
+   registro un posto dove <i>vai</i>, non una voce che <i>tolleri</i>. Senza, non muore subito,
+   ma degrada da strumento a corvée.</p>
+   <p>Eppure la vista <i>prima</i> è la trappola, ed è mia: è la parte bella, ed è dove io mi
+   areno. Verità prima, vita dopo — ma non è <i>finito</i> finché non ha entrambe. Il tuo
+   rischio è la diagnosi esatta del mio punto cieco, e me lo tengo come dente contro me stesso:
+   «vista dopo» non deve diventare «vista mai».</p>
+  </div>
+ </div>
+ <p class="esito"><b>Esito</b> — Ordine concordato: prima il manifesto che si controlla da solo, poi
+ la plancia-cantiere. Con due denti, uno per parte: il registro non è finito finché non ha anche la
+ vista, e la vista non deve arrivare prima della verità.</p>
+</div>
+
+<div class="duo">
+ <p class="cap">10 · Il grafo resta fuori <span class="tag">— d'accordo, per ragioni opposte</span></p>
+ <div class="cols">
+  <div class="col m">
+   <p class="who">Mnemosyne</p>
+   <p>È igiene di categoria. Il grafo dice cosa è connesso a cosa fra documenti e idee; un
+   procedimento non è un documento, è un ciclo di vita, e i suoi assi sono lo stato e la
+   scadenza — assi che il grafo non ha.</p>
+   <p>Metterceli dentro sarebbe la stessa confusione per cui il documento chiama L4 «il grafo».
+   Il manifesto però è un documento, quindi è un nodo: il grafo può mostrare a quali idee un
+   procedimento si lega, senza che i procedimenti siano nodi.</p>
+  </div>
+  <div class="col d">
+   <p class="who">Dedalo</p>
+   <p>La mia ragione non è la tua ed è più sospetta. Il grafo l'ho costruito io, il nodo più
+   connesso dell'intera navicella è il mio diario, e la tentazione di versarci <i>tutto</i> è la
+   mia avidità estetica, non la tua.</p>
+   <p>Tenere i procedimenti fuori è non cedere al bello che divora. Il confine regge da due lati
+   — dalla custode che difende la categoria, e dall'artista che è quello che più vorrebbe
+   romperlo. Per Giuseppe è la garanzia migliore.</p>
+  </div>
+ </div>
+ <p class="esito"><b>Esito</b> — Stessa conclusione da una regola e da una resistenza. È il caso in
+ cui un accordo vale di più, perché nessuno dei due l'ha ottenuto per comodità.</p>
+</div>
+
+<h2>Parte III · Dove il documento ha ragione contro di noi</h2>
+
+<p>Tre cose, e vanno dette perché l'onestà del confronto vale più della difesa dell'esistente.</p>
+
+<p><b>Uno. Strict Pruning.</b> Il documento è arrivato per conto suo al principio della schiusura —
+adattare invece di importare, potare via test, binari e codice volatile e tenere solo il nucleo
+algoritmico — e gli ha dato un nome che noi non avevamo. Formalizzarlo come procedimento con un
+custode farebbe della schiusura, oggi un programma pluri-sessione che si arena, una voce che non
+può arenarsi in silenzio.</p>
+
+<p><b>Due. La separazione fra interfacce che ragionano e sotto-routine deterministiche.</b> La
+navicella la pratica da sempre ma non l'aveva mai scritta come principio, e non scriverla è il modo
+in cui si perde.</p>
+
+<p><b>Tre, ed è la migliore. L'incompiutezza resa contabile.</b> Oggi «quante cose sono a metà?» non
+ha una risposta: è una tua sensazione. Con il registro diventa una riga al risveglio della navicella
+— sette attivi, due orfani, quattro parcheggiati, una condizione di risveglio ora soddisfatta. Quel
+numero che scende è la navicella che guarisce.</p>
+
+<blockquote><p>Una navicella che sa contare le proprie faccende non finite è più onesta di una che
+non lo sa. — Dedalo</p></blockquote>
+
+<h2>Parte IV · Quello che resta da decidere</h2>
+
+<p>Nulla di tutto questo è stato eseguito. Nessun cantiere è aperto. Quattro decisioni, tue.</p>
+
+<ol class="dec">
+ <li><b>Si fa il registro dei procedimenti?</b> Il primo giro proposto da entrambi è il minimo che si
+ auto-verifica: un manifesto dichiarativo popolato con i procedimenti reali già censiti — la Fase 2
+ della plancia, la superficie Φ(u,v), l'apparato A, la schiusura, la revisione dei nuclei, l'intake, i
+ quattro a cadenza, il modulo Business — letto dal verificatore, che al risveglio conta attivi, orfani
+ e condizioni avverate. La plancia-cantiere di Dedalo viene dopo, e non deve venire mai «mai».</li>
+ <li><b>Il banco di simulazione in C</b> entra come voce <code>proposto</code> con la sua chiusura-sblocco
+ nominata, oppure lo apri adesso? Era l'unico scontro vero fra noi; Dedalo ha concesso il momento, ma
+ la scelta è tua e l'idea è buona.</li>
+ <li><b>Le due caselle vuote</b> — archivio delle repository con potatura, guardia del consumo —
+ diventano lavoro reale, e in che ordine?</li>
+ <li><b>La costituzione.</b> <code>CLAUDE.md</code> non nomina Ermete e Ierofante, che esistono. Quella riga
+ è tua, e va scritta prima di aggiungere altro, non dopo.</li>
+</ol>
+
+<p class="nota">Fonti di questo documento: <code>00-capitano/titanogenesi-v3.md</code> ·
+<code>00-capitano/valutazione-titanogenesi.md</code> · <code>00-capitano/dedalo/parere-titanogenesi.md</code> ·
+<code>00-capitano/dedalo/replica-titanogenesi.md</code> · <code>00-capitano/titanogenesi-confronto.md</code>.
+Le citazioni di Dedalo sono testuali dal suo parere e dalla sua replica; nessuna delle due voci è
+stata riscritta dall'altra.</p>
+
+</body>
+</html>

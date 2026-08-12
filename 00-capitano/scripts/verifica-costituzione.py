@@ -34,21 +34,76 @@ SETTINGS = os.path.join(NAV, ".claude", "settings.json")
 CLAUDEMD = os.path.join(NAV, "CLAUDE.md")
 CANTIERE = os.path.join(NAV, "00-capitano", "cantiere-notturno.md")
 INTAKE = os.path.join(NAV, "00-capitano", "intake")
+REGISTRO = os.path.join(NAV, "00-capitano", "dedalo", "registro-procedimenti.md")
 
 OGGI = datetime.now(timezone.utc)
 
 
-# --- SEGNI VITALI ---------------------------------------------------------
-# path relativo -> (etichetta, eta' massima in giorni prima di segnalare).
-# La regola dell'Accensione: un procedimento dichiarato vivo che non produce
-# entro la propria cadenza e' morto, e va detto. Se qualcosa qui e' parcheggiato
-# per scelta, si toglie da questa tabella - non si lascia a suonare a vuoto.
-SEGNI_VITALI = [
-    ("00-capitano/verbali",                        "verbali di fine sessione",   3),
-    ("00-capitano/memoria/L3-strategica.md",       "memoria L3 strategica",     14),
-    ("00-capitano/log-decisioni-memoria.md",       "log decisioni memoria",     14),
-    ("00-capitano/mnemosyne-diario.md",            "diario di Mnemosyne",        7),
-]
+# --- REGISTRO DEI PROCEDIMENTI --------------------------------------------
+# Fino al 12-08-2026 la lista dei procedimenti sorvegliati era QUI, hardcoded
+# (la vecchia tabella SEGNI_VITALI: verbali, L3, log-decisioni, diario). Non
+# reggeva la scala: per decine di fili che nascono e muoiono non si edita Python
+# ogni volta. Ora la lista e' DATO - il manifesto scritto dai due attivi - e
+# questo script ne e' l'interprete.
+#
+# La divisione del lavoro e' il cuore del meccanismo:
+#   il manifesto dichiara l'INTENZIONE   (attivo / cadenza / parcheggiato / proposto)
+#   il disco dichiara la REALTA'         (quando l'artefatto e' stato toccato)
+#   lo script calcola lo STATO DERIVATO  (orfano / scaduto) confrontandole.
+# Nessuno scrive «orfano» a mano: e' cosi' che il registro non puo' mentire in
+# silenzio, ed e' la sola forma di documentazione che abbassa il costo di
+# manutenzione invece di alzarlo.
+
+
+def leggi_registro():
+    """Estrae le voci dal blocco ```dati del manifesto.
+    Riga: nome | intenzione | custode | eta_max | path osservato | fine o condizione"""
+    testo = leggi(REGISTRO)
+    if not testo:
+        return []
+    blocco = re.search(r"```dati\r?\n(.*?)```", testo, re.S)
+    if not blocco:
+        return []
+    voci = []
+    for riga in blocco.group(1).splitlines():
+        riga = riga.strip()
+        if not riga or riga.startswith("#"):
+            continue
+        campi = [c.strip() for c in riga.split("|")]
+        if len(campi) < 6:
+            continue
+        try:
+            massimo = int(campi[3])
+        except ValueError:
+            massimo = None                      # '-' : dorme legittimamente
+        voci.append({"nome": campi[0], "intenzione": campi[1], "custode": campi[2],
+                     "massimo": massimo, "path": campi[4], "nota": campi[5]})
+    return voci
+
+
+def conto_registro():
+    """La riga che Giuseppe guarda: quanti fili, e quanti sono freddi.
+    Il numero che scende e' la navicella che guarisce."""
+    voci = leggi_registro()
+    if not voci:
+        return None
+    c = {"attivo": 0, "orfano": 0, "scaduto": 0, "parcheggiato": 0, "proposto": 0,
+         "concluso": 0}
+    for v in voci:
+        if v["massimo"] is None:
+            c[v["intenzione"]] = c.get(v["intenzione"], 0) + 1
+            continue
+        eta = eta_giorni(os.path.join(NAV, v["path"]))
+        fuori = eta is not None and eta > v["massimo"]
+        if v["intenzione"] == "attivo":
+            c["orfano" if fuori else "attivo"] += 1
+        elif v["intenzione"] == "cadenza" and fuori:
+            c["scaduto"] += 1
+    # separatore ASCII di proposito: questa riga finisce nella console di Windows,
+    # dove un carattere fuori dalla codepage arriva a Giuseppe come mojibake.
+    return ("registro: %d attivi | %d ORFANI | %d cadenze scadute | %d parcheggiati | "
+            "%d proposti | %d conclusi" % (c["attivo"], c["orfano"], c["scaduto"],
+                                           c["parcheggiato"], c["proposto"], c["concluso"]))
 
 
 def leggi(path):
@@ -103,6 +158,17 @@ def c1_agenti_caricabili():
             problemi.append("agente %s: manca il campo `name` -> NON viene caricato" % fn)
         elif m.group(1).strip() != atteso:
             problemi.append("agente %s: name='%s' non corrisponde al file" % (fn, m.group(1)))
+        # Il controllo che sarebbe servito il 12 agosto: il frontmatter e' YAML, e
+        # un valore scalare NON quotato che contiene ": " lo rompe. Il runtime
+        # scarta la definizione in silenzio (4 agenti su 8 invisibili, fra cui
+        # Dedalo). Regola: description sempre fra virgolette doppie.
+        d = re.search(r"^description:[ \t]*(.*)$", testa, re.M)
+        if d:
+            val = d.group(1).strip()
+            if not (val.startswith('"') or val.startswith("'") or val.startswith("|")
+                    or val.startswith(">")) and ": " in val:
+                problemi.append("agente %s: description non quotata e contiene ': ' -> "
+                                "frontmatter YAML rotto, NON viene caricato" % fn)
     # sotto-cartelle dentro agents/: il runtime le scandaglia, e archivi vecchi
     # possono rubare il nome agli agenti veri (successo il 16/6 con legacy-v1).
     for d in sorted(os.listdir(AGENTI)):
@@ -154,15 +220,43 @@ def c3_hook_cablati():
     return problemi
 
 
-def c4_segni_vitali():
+def c4_registro():
+    """Confronta l'intenzione dichiarata nel manifesto con l'eta' reale dell'artefatto.
+    Qui nascono gli stati derivati: orfano (un attivo andato muto) e scaduto (cadenza
+    mancata). L'orfano e' la malattia che Giuseppe ha nominato - un filo che nessuno ha
+    deciso di fermare e che nessun meccanismo, prima di oggi, sorvegliava."""
+    voci = leggi_registro()
+    if not voci:
+        return ["registro dei procedimenti illeggibile o vuoto: 00-capitano/dedalo/"
+                "registro-procedimenti.md (il conto degli orfani non gira)"]
     problemi = []
-    for rel, etichetta, massimo in SEGNI_VITALI:
-        eta = eta_giorni(os.path.join(NAV, rel))
+    for v in voci:
+        if v["massimo"] is None:
+            # dorme per scelta: l'unico obbligo e' che la condizione sia scritta,
+            # altrimenti «parcheggiato» e' solo un modo elegante di dire «dimenticato»
+            if v["intenzione"] in ("parcheggiato", "proposto") and len(v["nota"]) < 12:
+                problemi.append("%s: %s senza condizione di risveglio/apertura scritta"
+                                % (v["nome"], v["intenzione"]))
+            continue
+        pieno = os.path.join(NAV, v["path"])
+        eta = eta_giorni(pieno)
         if eta is None:
-            problemi.append("%s: nessun output, mai" % etichetta)
-        elif eta > massimo:
-            problemi.append("%s: fermo da %d giorni (cadenza dichiarata: %d)"
-                            % (etichetta, int(eta), massimo))
+            # due casi diversi che non vanno confusi: il path sbagliato rende il
+            # controllo cieco (colpa nostra), la cartella vuota e' un dato vero
+            if os.path.exists(pieno):
+                problemi.append("%s: nessun output finora in %s (custode %s)"
+                                % (v["nome"], v["path"], v["custode"]))
+            else:
+                problemi.append("%s: l'artefatto osservato non esiste (%s) - controllo cieco"
+                                % (v["nome"], v["path"]))
+        elif eta > v["massimo"]:
+            if v["intenzione"] == "attivo":
+                problemi.append("ORFANO %s: dichiarato attivo, muto da %d giorni "
+                                "(soglia %d, custode %s)"
+                                % (v["nome"], int(eta), v["massimo"], v["custode"]))
+            elif v["intenzione"] == "cadenza":
+                problemi.append("%s: fermo da %d giorni (cadenza dichiarata: %d)"
+                                % (v["nome"], int(eta), v["massimo"]))
     return problemi
 
 
@@ -180,7 +274,9 @@ def c5_in_attesa_di_giuseppe():
                 problemi.append("%d decisioni aspettano una tua parola (cantiere-notturno, "
                                 "fermo da %d giorni)" % (len(voci), int(eta or 0)))
     if os.path.isdir(INTAKE):
-        n = len([f for f in os.listdir(INTAKE) if f.endswith(".md")])
+        # il README della cartella e' la sua spec, non materiale da processare
+        n = len([f for f in os.listdir(INTAKE)
+                 if f.endswith(".md") and f.lower() != "readme.md"])
         if n:
             eta = eta_giorni(INTAKE)
             problemi.append("intake: %d file non processati (il piu' recente ha %d giorni)"
@@ -192,7 +288,7 @@ CONTROLLI = [
     ("agenti non caricabili", c1_agenti_caricabili),
     ("costituzione disallineata", c2_costituzione_allineata),
     ("hook rotti", c3_hook_cablati),
-    ("procedimenti fermi", c4_segni_vitali),
+    ("procedimenti fermi", c4_registro),
     ("in attesa di te", c5_in_attesa_di_giuseppe),
 ]
 
@@ -212,7 +308,11 @@ def main():
     urgenti = [(n, p) for n, p in esiti if p and n in URGENTI]
     tutti = [(n, p) for n, p in esiti if p]
 
+    conto = conto_registro()
+
     if "--umano" in sys.argv:
+        if conto:
+            sys.stdout.write(conto + "\n")
         if not tutti:
             sys.stdout.write("Costituzione allineata: nessun problema rilevato.\n")
             return
@@ -230,14 +330,22 @@ def main():
     for nome, probs in (urgenti or tutti):
         for p in probs:
             righe.append("- " + p)
-    extra = len(righe) - 4
-    righe = righe[:4]
-    if extra > 0:
-        righe.append("- e altre %d segnalazioni (`python 00-capitano/scripts/"
-                     "verifica-costituzione.py --umano`)" % extra)
+    # il conto apre il messaggio: e' il numero che deve scendere, e vederlo
+    # scendere e' il solo modo in cui un registro resta vivo invece che temuto
+    capo = [conto] if conto else []
+    posti = 4 - len(capo)                     # 5 righe totali, intestazione compresa
+    if len(righe) > posti:
+        extra = len(righe) - (posti - 1)
+        righe = righe[:posti - 1]
+        righe.append("- e %s (`python 00-capitano/scripts/verifica-costituzione.py --umano`)"
+                     % ("un'altra segnalazione" if extra == 1
+                        else "altre %d segnalazioni" % extra))
+    righe = capo + righe
 
     # --- dettaglio completo per l'agente attivo ---
     dett = ["VERIFICA COSTITUZIONE (SessionStart, %s):" % OGGI.strftime("%Y-%m-%d %H:%M UTC")]
+    if conto:
+        dett.append("  " + conto)
     for nome, probs in tutti:
         dett.append("  [%s]" % nome)
         for p in probs:

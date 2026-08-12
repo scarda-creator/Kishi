@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>La navicella — mappa totale con i procedimenti</title>
+<style>
+ @page { size: A4; margin: 15mm 14mm 14mm; }
+ * { box-sizing: border-box; }
+ body { font-family: Georgia, 'Times New Roman', serif; font-size: 10pt; line-height: 1.42;
+        color: #15181d; margin: 0; }
+
+ /* ---------- frontespizio ---------- */
+ .front { padding-top: 5mm; border-bottom: 2.5pt solid #2b3440; padding-bottom: 5mm; margin-bottom: 5mm; }
+ .front h1 { font-size: 24pt; line-height: 1.1; margin: 0 0 2mm; letter-spacing: -0.4pt; }
+ .front .sub { font-size: 11pt; color: #4a5462; font-style: italic; margin: 0 0 4mm; }
+ .front .meta { font-size: 8.8pt; color: #59626f; line-height: 1.6; }
+ .front .meta b { color: #2b3440; }
+
+ h2 { font-size: 13.5pt; margin: 8mm 0 2.5mm; padding-bottom: 1.2mm;
+      border-bottom: 1px solid #b9c0ca; page-break-after: avoid; letter-spacing: -0.2pt; }
+ h3 { font-size: 10.8pt; margin: 5mm 0 1.6mm; color: #1e3a5f; page-break-after: avoid; }
+ p { margin: 0 0 2.2mm; text-align: justify; }
+ .lead { font-size: 10.4pt; color: #333c48; }
+
+ /* ---------- il diagramma ---------- */
+ .map { border: 1.2pt solid #2b3440; border-radius: 3px; padding: 3mm 3mm 2mm; margin: 3mm 0 3mm;
+        page-break-inside: avoid; background: #fcfcfa; }
+ .tier { margin-bottom: 2.4mm; }
+ .tier-label { font-size: 7pt; letter-spacing: 1.4pt; text-transform: uppercase;
+               font-family: Consolas, monospace; color: #8a94a1; margin: 0 0 1.2mm; font-weight: bold; }
+ .row { display: table; width: 100%; table-layout: fixed; border-spacing: 2mm 0; }
+ .cell { display: table-cell; vertical-align: top; }
+
+ .agent { border: 1pt solid #b9c0ca; border-radius: 3px; padding: 1.8mm 2mm; background: #fff; }
+ .agent .an { font-size: 9.6pt; font-weight: bold; margin: 0 0 0.4mm; letter-spacing: -0.2pt; }
+ .agent .ar { font-size: 7.4pt; color: #667080; font-style: italic; margin: 0 0 1.4mm; line-height: 1.3; }
+
+ /* poli attivi */
+ .active { border: 1.4pt solid #6b4a86; background: #f6f1fa; }
+ .active .an { color: #4a2f66; }
+ .active .badge { background: #6b4a86; color: #fff; font-size: 6.4pt; padding: 0.2mm 1mm; border-radius: 2px;
+                  font-family: Consolas, monospace; letter-spacing: 0.4pt; vertical-align: 1px; }
+
+ /* bande temporali (temperatura = tempo) */
+ .passato { border-top: 2.4pt solid #9a7b43; } .passato .an { color: #6f5423; }
+ .presente { border-top: 2.4pt solid #566171; } .presente .an { color: #34404f; }
+ .futuro  { border-top: 2.4pt solid #2f5680; } .futuro .an { color: #23405f; }
+ .business { border-top: 2.4pt solid #a9601c; } .business .an { color: #7a4310; }
+
+ /* chip procedimento */
+ .procs { margin-top: 1.4mm; }
+ .chip { display: inline-block; border: 0.8pt solid #cdd3db; border-radius: 2px; padding: 0.6mm 1.4mm;
+         font-size: 7.4pt; margin: 0 1mm 1mm 0; background: #fff; line-height: 1.35; white-space: nowrap; }
+ .chip b { font-size: 7.8pt; letter-spacing: 0.2pt; }
+ .chip .nat { color: #7a8492; font-size: 6.6pt; font-family: Consolas, monospace; }
+ .dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; margin-right: 1.2mm; vertical-align: 0.5px; }
+ .d-gira { background: #2f8f5b; }         /* organo che gira davvero */
+ .d-cabl { background: #d99414; }         /* i pezzi esistono, va cablato */
+ .d-costr{ background: #c96a1e; }          /* deciso, da costruire */
+ .d-prop { background: #7b52a8; }          /* proposto */
+ .d-fuori{ background: #b6bcc4; }          /* superato */
+ .chip.fuori { color: #98a0aa; text-decoration: line-through; }
+
+ .spine { border: 1pt dashed #9aa3b0; border-radius: 3px; padding: 1.6mm 2mm; background: #f7f9fb; }
+ .spine .lv { display: inline-block; font-size: 7.6pt; margin-right: 2.4mm; }
+ .spine .lv b { font-family: Consolas, monospace; color: #2b3440; }
+ .spine .an-note { font-size: 7.2pt; color: #667080; font-style: italic; margin-top: 1mm; }
+
+ .leg { font-size: 7.8pt; color: #59626f; margin-top: 1.5mm; }
+ .leg .dot { margin-left: 2mm; }
+
+ /* ---------- tabelle ---------- */
+ table { border-collapse: collapse; width: 100%; margin: 2mm 0 3.5mm; font-size: 8.5pt; }
+ th { background: #2b3440; color: #fff; text-align: left; padding: 1.3mm 1.8mm; font-size: 8pt;
+      letter-spacing: 0.3pt; text-transform: uppercase; }
+ td { border: 1px solid #ccd2da; padding: 1.3mm 1.8mm; vertical-align: top; }
+ tr:nth-child(even) td { background: #f7f9fb; }
+ td.n { white-space: nowrap; font-weight: bold; font-size: 8.6pt; }
+ code { background: #eef1f5; padding: 0 0.8mm; border-radius: 2px; font-family: Consolas, monospace; font-size: 7.9pt; }
+ table, .map, .callout, .stategroup { page-break-inside: avoid; }
+
+ /* badge di stato / natura */
+ .b { display: inline-block; padding: 0.3mm 1.4mm; border-radius: 2px; font-size: 7.2pt;
+      font-weight: bold; letter-spacing: 0.2pt; white-space: nowrap; font-family: Consolas, monospace; }
+ .b-gira { background: #d8ece0; color: #17553a; }
+ .b-cabl { background: #fbeccd; color: #7a4c07; }
+ .b-costr{ background: #f6e4d3; color: #8a4712; }
+ .b-prop { background: #e9e0f2; color: #4d2f70; }
+ .b-fuori{ background: #e6e8ea; color: #6b7480; }
+
+ /* registro stati */
+ .stategroup { margin: 2.5mm 0; border-left: 3pt solid #ccc; padding: 0.5mm 0 0.5mm 3mm; }
+ .sg-orfano { border-left-color: #b0342a; } .sg-scaduto { border-left-color: #c9861e; }
+ .sg-parch { border-left-color: #4a6a86; } .sg-attivo { border-left-color: #2f8f5b; }
+ .sg-conc { border-left-color: #5b6b7a; } .sg-prop { border-left-color: #7b52a8; }
+ .sg h3 { margin: 0 0 1mm; }
+ .sg-tag { font-family: Consolas, monospace; font-size: 8pt; letter-spacing: 0.5pt; }
+ .stategroup ul { margin: 0.5mm 0 0; padding-left: 5mm; font-size: 8.8pt; }
+ .stategroup li { margin: 0 0 1.2mm; }
+ .stategroup .cond { color: #4a5462; font-style: italic; }
+ .age { font-family: Consolas, monospace; font-size: 7.6pt; color: #8a4712; font-weight: bold; }
+
+ .callout { border: 1.2pt solid #b0342a; background: #fbf2f0; border-radius: 3px; padding: 2.5mm 3mm; margin: 3mm 0; }
+ .callout .big { font-size: 15pt; font-weight: bold; color: #8c2b19; letter-spacing: -0.3pt; }
+ .callout .lbl { font-size: 8pt; color: #7a3228; text-transform: uppercase; letter-spacing: 0.6pt; font-family: Consolas, monospace; }
+
+ .note { border-left: 3pt solid #4a6fa5; background: #f4f6f9; padding: 2mm 3mm; margin: 2.5mm 0; font-size: 9pt; }
+ .note b { color: #23405f; }
+ ol.pre { padding-left: 6mm; font-size: 9.6pt; }
+ ol.pre li { margin: 0 0 2.6mm; }
+ .foot { margin-top: 2mm; padding-top: 1.5mm; border-top: 1px solid #d6dae0; font-size: 8pt; color: #667080; font-style: italic; }
+</style>
+</head>
+<body>
+
+<div class="front">
+  <h1>La navicella, per intero</h1>
+  <p class="sub">Struttura totale con i procedimenti nominati, i loro inneschi, le loro fini, i loro custodi —<br>e il registro degli stati, perché la pausa sia sicura.</p>
+  <p class="meta">
+    <b>Disegno:</b> Dedalo, Architetto. <b>Occasione:</b> la fase di accensione si chiude; Giuseppe torna a studiare, primo scritto fra ~23 giorni.<br>
+    <b>A che serve:</b> non è un bel disegno. È ciò che permette di riprendere al ritorno senza ri-derivare nulla — dove sei rimasto, cosa è fermo e perché.<br>
+    <b>Incorpora:</b> tutte le decisioni del 12 agosto 2026 (Titanogenesi passata a due poli). Non è la v2 con una postilla: è la navicella com'è ora.<br>
+    <b>Regola d'onestà:</b> nessun organo è dichiarato vivo se non gira. Esistenza e età verificate su disco il 12 agosto — è il modo esatto in cui è morta la v1.
+  </p>
+</div>
+
+<p class="lead">La navicella è <b>due intelligenze attive</b> ai poli opposti — Mnemosyne conserva e
+verifica, Dedalo crea e propone — sopra <b>tre agenti passivi</b> disposti lungo il tempo (passato,
+presente, futuro) e un <b>modulo Business</b>. Sotto di loro, i <b>procedimenti</b>: non altri agenti,
+ma gli organi che già girano — script, hook, scheduler — a ciascuno dato un nome, un innesco, una fine
+e un custode. Nominare un organo che gira costa zero al runtime; il nome guarda all'interno, non è mai
+una parola che tu devi pronunciare per far succedere il lavoro.</p>
+
+<h2>1 · La navicella in un colpo d'occhio</h2>
+
+<div class="map">
+
+  <div class="tier">
+    <p class="tier-label">Due intelligenze attive · Opus · perpendicolari al fiume del tempo</p>
+    <div class="row">
+      <div class="cell"><div class="agent active">
+        <p class="an">Mnemosyne <span class="badge">CAPITANO</span></p>
+        <p class="ar">Conserva · verifica · custodisce la memoria (L1–L5) e chi-è-Giuseppe · orchestra · interpreta L5. Porto d'ingresso.</p>
+      </div></div>
+      <div class="cell"><div class="agent active">
+        <p class="an">Dedalo <span class="badge">ARCHITETTO</span></p>
+        <p class="ar">Crea · propone · osa · migliora la navicella e decide il nuovo · progetta e briffa il Demiurgo Creativo. Artista.</p>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="tier">
+    <p class="tier-label">Tre agenti passivi lungo il tempo · temperatura = tempo</p>
+    <div class="row">
+      <div class="cell"><div class="agent passato">
+        <p class="an">Rapsodo <span style="font-weight:normal;font-size:7pt;color:#8a7a55">· passato · Sonnet</span></p>
+        <p class="ar">Custode del passato: classifica gli input, banca dati storica, reality check, pattern longitudinali (raw) per L5.</p>
+        <div class="procs">
+          <span class="chip"><span class="dot d-gira"></span><b>Crio</b> <span class="nat">indice+grafo</span></span>
+          <span class="chip"><span class="dot d-gira"></span><b>Teti</b> <span class="nat">sanitizza</span></span>
+          <span class="chip"><span class="dot d-cabl"></span><b>Oceano</b> <span class="nat">voce→intake</span></span>
+        </div>
+      </div></div>
+      <div class="cell"><div class="agent presente">
+        <p class="an">Demiurgo <span style="font-weight:normal;font-size:7pt;color:#5a6473">· presente · Acc. Opus / Creat. Sonnet</span></p>
+        <p class="ar">Plasma nel presente: Accademico (scrittura densa, ha prodotto quasi tutto il materiale reale) + Creativo (prototipi/opere su brief).</p>
+        <div class="procs">
+          <span class="chip"><span class="dot d-gira"></span><b>Teti</b> <span class="nat">estrai/comprimi</span></span>
+          <span class="chip"><span class="dot d-gira"></span><b>Iperione</b> <span class="nat">telemetria</span></span>
+          <span class="chip fuori"><span class="dot d-fuori"></span>Coeo · Rea <span class="nat">superati</span></span>
+        </div>
+      </div></div>
+      <div class="cell"><div class="agent futuro">
+        <p class="an">Argonauta <span style="font-weight:normal;font-size:7pt;color:#3a597a">· futuro · Sonnet</span></p>
+        <p class="ar">Esplora il futuro: scouting esterno, paper, repo, traiettoria e tesi. Su framework prompt dei due attivi.</p>
+        <div class="procs">
+          <span class="chip"><span class="dot d-costr"></span><b>Temi</b> <span class="nat">archivio fonti</span></span>
+          <span class="chip"><span class="dot d-costr"></span><b>Febe</b> <span class="nat">scout business</span></span>
+        </div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="tier">
+    <p class="tier-label">Modulo Business · il motore della libertà · in pausa per scelta</p>
+    <div class="row">
+      <div class="cell"><div class="agent business">
+        <p class="an">Ermete <span style="font-weight:normal;font-size:7pt;color:#8a5320">· semi-attivo</span></p>
+        <p class="ar">Orchestra il business: lo si lancia, poi opera solo. Controllo tecnico ed economico, impara dai fallimenti.</p>
+        <div class="procs">
+          <span class="chip"><span class="dot d-costr"></span><b>Giapeto</b> <span class="nat">agente · giudice+kill-switch</span></span>
+          <span class="chip"><span class="dot d-costr"></span><b>Teia</b> <span class="nat">agente · guardia token</span></span>
+        </div>
+      </div></div>
+      <div class="cell"><div class="agent business">
+        <p class="an">Ierofante <span style="font-weight:normal;font-size:7pt;color:#8a5320">· compliance</span></p>
+        <p class="ar">Legge la legge: copyright, fatturato, wallet, ToS. Advisory con STOP duri. Esiste già; il documento lo ometteva. Coppia con Teia sul routing.</p>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="tier">
+    <p class="tier-label">Memoria stratificata · custodita da Mnemosyne · invariata</p>
+    <div class="spine">
+      <span class="lv"><b>L1</b> conversazione</span>
+      <span class="lv"><b>L2</b> sintesi tematica</span>
+      <span class="lv"><b>L3</b> strategica (decisioni)</span>
+      <span class="lv"><b>L4</b> fondazionale (chi è Giuseppe)</span>
+      <span class="lv"><b>L5</b> subconscio · cifrato XChaCha20/Argon2id</span>
+      <p class="an-note">Anima (grafo, ~141 nodi): terzo motore del richiamo, non un livello di memoria. Oggi misurato debole (+1 doc su 9). Elevarlo a organo di primo piano è un filo aperto, da trattare a parte — non in questa mappa.</p>
+    </div>
+  </div>
+
+  <p class="leg">Legenda procedimenti:
+    <span class="dot d-gira"></span> gira davvero
+    <span class="dot d-cabl"></span> i pezzi esistono, va cablato
+    <span class="dot d-costr"></span> deciso oggi, da costruire
+    <span class="dot d-prop"></span> proposto
+    <span class="dot d-fuori"></span> superato
+  </p>
+</div>
+
+<h2>2 · I procedimenti — le facce</h2>
+
+<p>Ogni procedimento è un organo con quattro cose: un <b>nome</b>, un <b>innesco</b> (cosa lo fa partire
+senza che qualcuno se ne ricordi), una <b>fine</b> (cosa significa «fatto»), un <b>custode</b>. È la fine
+la parola che lavora: un organo senza fine dichiarata non si chiude, si dimentica.</p>
+
+<table>
+ <tr><th style="width:11%">Nome</th><th style="width:13%">Natura</th><th style="width:20%">Innesco</th>
+     <th style="width:20%">Fine</th><th style="width:12%">Custode</th><th style="width:24%">Organo reale · stato</th></tr>
+ <tr><td class="n">Crono</td><td>scheduler / hook</td><td>orario (Task Scheduler 20:00) e avvio sessione</td>
+     <td>il giro pianificato è eseguito</td><td>Mnemosyne / sistema</td>
+     <td><span class="b b-gira">gira</span> <code>Navicella-Riversamento</code>, <code>verifica-costituzione.py</code>, hook di cattura</td></tr>
+ <tr><td class="n">Teti</td><td>script deterministico</td><td>entra un testo o PDF grezzo</td>
+     <td>testo pulito, pronto all'uso</td><td>chi lo invoca</td>
+     <td><span class="b b-gira">gira</span> <code>pdf_estrai_testo.py</code>, <code>comprimi.py</code></td></tr>
+ <tr><td class="n">Crio</td><td>script (JSON/indice)</td><td>la memoria cambia</td>
+     <td>indice e grafo aggiornati</td><td>Mnemosyne</td>
+     <td><span class="b b-gira">gira</span> <code>memoria-indice.py</code>, <code>anima-grafo.py</code> (iniezione staccata per scelta)</td></tr>
+ <tr><td class="n">Iperione</td><td>stream reader / log</td><td>un run o una compilazione produce output</td>
+     <td>metrica o stack-trace catturato</td><td>Dedalo</td>
+     <td><span class="b b-gira">gira</span> <code>token_diagnostica.js</code>, <code>auto.log</code></td></tr>
+ <tr><td class="n">Oceano</td><td>listener voce → intake</td><td>Giuseppe detta dalla plancia (mic)</td>
+     <td>trascrizione depositata in intake, ripulita da Teti</td><td>Dedalo (cabla) → Rapsodo (intake)</td>
+     <td><span class="b b-cabl">da cablare</span> i pezzi esistono: <code>voce.py</code> (Whisper) + <code>useVoice.ts</code>. Manca il ponte plancia→intake</td></tr>
+ <tr><td class="n">Temi</td><td>archivio delle fonti</td><td>Giuseppe dà una fonte o una repo (URL)</td>
+     <td>nucleo algoritmico indicizzato, spazzatura scartata (Strict Pruning)</td><td>Dedalo</td>
+     <td><span class="b b-costr">da costruire</span> è la schiusura: 44 fonti, 19 differite. «Voglio una libreria di tutte le fonti che ti do»</td></tr>
+ <tr><td class="n">Teia</td><td><b>agente</b> (richiamato)</td><td>inizio e fine di un procedimento</td>
+     <td>preventivo e consuntivo dei token emessi; eventuale route a modello economico</td><td>sé + Ierofante (ToS)</td>
+     <td><span class="b b-costr">da costruire</span> promosso ad agente il 12-08. Routing verso modelli gratuiti: con riserva ToS</td></tr>
+ <tr><td class="n">Giapeto</td><td><b>agente</b> (richiamato)</td><td>un sistema business gira, o un task autonomo si pianta / sfora</td>
+     <td>giudizio (avanti o si spegne) + dump post-mortem a Ermete</td><td>Ermete</td>
+     <td><span class="b b-costr">da costruire</span> promosso ad agente il 12-08. Giudica cosa funziona e cosa dare alla generazione dopo</td></tr>
+ <tr><td class="n">Febe</td><td><b>agente</b> (Argonauta del business)</td><td>apertura del modulo business (fase 1)</td>
+     <td>scouting e metriche di mercato consegnate a Ermete</td><td>Ermete</td>
+     <td><span class="b b-costr">da aprire</span> prima fase del business</td></tr>
+ <tr><td class="n">Coeo · Rea</td><td>—</td><td>—</td><td>—</td><td>—</td>
+     <td><span class="b b-fuori">superati</span> erano turni LLM nel ReAct loop, abolito. Fuori</td></tr>
+</table>
+
+<p class="note"><b>La libertà che Giuseppe ha lasciato:</b> un procedimento può diventare agente se il
+suo lavoro è <i>giudicare</i>, non solo eseguire. Tre lo sono: <b>Teia</b> (decide dove conviene
+spendere), <b>Giapeto</b> (decide se un sistema vive o muore), <b>Febe</b> (l'Argonauta che valuta il
+mercato). Gli altri restano script: un demone di sistema non ha nulla da giudicare, e farne un agente
+sarebbe latenza e token per nulla — l'errore della prima versione del documento.</p>
+
+<h2>3 · Il registro degli stati — dove sei rimasto</h2>
+
+<p>Il registro dà una faccia non solo agli organi, ma al <b>lavoro in volo</b>, incluso quello caduto
+dal volo. Ogni voce ha uno stato; ogni stato tranne due è un allarme. <code>orfano</code> = era attivo
+ed è andato muto oltre la sua età, senza che nessuno decidesse di fermarlo: è la malattia che Giuseppe
+ha nominato. <code>scaduto</code> = un organo a cadenza che non ha prodotto in tempo. <code>parcheggiato</code>
+= fermo <i>per scelta</i>, e sano, purché porti scritta la condizione che lo risveglia.</p>
+
+<div class="callout">
+  <span class="lbl">Fili freddi al 12 agosto — il numero da cui riparti</span><br>
+  <span class="big">4 orfani</span> &nbsp;+&nbsp; <span class="big">0 cadenze scadute</span>
+  &nbsp;— &nbsp;le due cadenze mancanti (memoria strategica e diario di Mnemosyne) sono state chiuse la sera stessa.
+  Restano quattro punti, tutti miei. Il numero che scende, al ritorno, è la navicella che guarisce — e da stasera
+  non devi ricordartelo tu: <b>lo conta il verificatore a ogni avvio</b>, leggendo il manifesto e misurando le età sul disco.
+</div>
+
+<div class="stategroup sg-orfano">
+  <h3><span class="sg-tag">● ORFANO</span> — caduto dal volo, nessuno ha deciso di fermarlo</h3>
+  <ul>
+    <li><b>Fase 2 della plancia</b> — i tool dentro le stanze (il file che si apre, il bash che scorre): la sostituzione totale del terminale. <span class="age">ferma 24 giorni</span>. Custode: Dedalo.</li>
+    <li><b>Superficie parametrica Φ(u,v)</b> — l'unico buco grafico del percorso: il nucleo 03 (curve/superfici) resta senza le sue due figure. <span class="age">ferma 21 giorni</span>. Custode: Dedalo.</li>
+    <li><b>Revisione a freddo dei nuclei 00–04</b> — riguardarli con le capacità grafiche costruite dopo. <span class="age">aperta 21 giorni</span>. Custode: Dedalo.</li>
+    <li><b>Intake delle note vocali</b> — Handy/plancia trascrivono, ma nulla porta la trascrizione in intake: è il buco che Oceano deve cablare. <span class="age">fermo 30 giorni</span>. Custode: Dedalo→Rapsodo.</li>
+  </ul>
+</div>
+
+<div class="stategroup sg-scaduto">
+  <h3><span class="sg-tag">● SCADUTO</span> — a cadenza, in ritardo: <b>nessuno, alla chiusura della giornata</b></h3>
+  <ul>
+    <li><b>Memoria L3 strategica</b> — cadenza 14 giorni, era ferma da 21. <span class="cond">Chiusa il 12-08 da Mnemosyne: la voce sulla valutazione a due poli.</span></li>
+    <li><b>Diario di Mnemosyne</b> — cadenza 7 giorni, era fermo da 21. <span class="cond">Chiuso il 12-08.</span> Il diario di Dedalo, segnalato stamattina, è stato aggiornato in giornata.</li>
+    <li><b>Verbali di fine sessione</b> — cadenza 3 giorni. In regola.</li>
+  </ul>
+</div>
+
+<div class="stategroup sg-parch">
+  <h3><span class="sg-tag">● PARCHEGGIATO</span> — fermo per scelta, sano, con condizione di risveglio</h3>
+  <ul>
+    <li><b>Apparato A — metabolismo</b> (esecutori locali / routing). <span class="cond">Si risveglia quando arriva la GPU o quando il Business ne finanzia una: su CPU non paga (pavimento 7s, provato).</span> Custode: Dedalo.</li>
+    <li><b>Modulo Business</b>. <span class="cond">Si risveglia dopo gli esami / quando Giuseppe riapre; la prima fase è Febe.</span> Custode: Ermete.</li>
+    <li><b>Protezione ermetica dei nomi L5</b> (i nomi citati in chiaro nei documenti di meta-livello). <span class="cond">Si risveglia se Giuseppe la vuole — è un progetto a sé, il contenuto di L5 è già cifrato.</span> Custode: Mnemosyne.</li>
+    <li><b>OmniRoute / metabolismo selettivo</b> (scioglierebbe il limite di sessione). <span class="cond">Si risveglia solo dopo il gate ToS: i modelli non-Claude gratuiti sono liberi, proxare Claude su abbonamento è vietato. Decisione di Giuseppe.</span> Custode: Dedalo + Ierofante.</li>
+  </ul>
+</div>
+
+<div class="stategroup sg-attivo">
+  <h3><span class="sg-tag">● ATTIVO</span> — in lavorazione, con custode e prossimo passo</h3>
+  <ul>
+    <li><b>Registro dei procedimenti</b> — nato oggi e <b>cablato la sera stessa</b>: il verificatore legge il manifesto a ogni avvio, misura le età sul disco e stampa il conto. Il file dichiara l'intenzione, la macchina dichiara la realtà, e gli stati d'allarme (orfano, scaduto) non si scrivono più a mano: li calcola lei. Resta la vista — la plancia-cantiere. Custode: Dedalo + Mnemosyne.</li>
+  </ul>
+  <p class="cond" style="margin-top:2mm">Il meccanismo ha subito fatto il suo mestiere su di me: avevo dichiarato «attiva» la <b>schiusura delle 44 fonti</b>, e il verificatore l'ha chiamata orfana perché il suo artefatto tace da 31 giorni. Aveva ragione la macchina: la schiusura non è attiva, è ferma in attesa di una casa. È passata a <i>parcheggiata</i>, con la condizione scritta — si risveglia quando Temi si apre.</p>
+</div>
+
+<div class="stategroup sg-prop">
+  <h3><span class="sg-tag">● PROPOSTO</span> — deciso, non ancora aperto, con condizione di apertura</h3>
+  <ul>
+    <li><b>Banco di simulazione numerica in C</b> — integratore di EDO, piccolo Ising/spin-glass, attrattore di Lorenz: progetto l'esperimento, il codice accademico gira, si verifica contro un invariante noto, il risultato diventa materiale di studio sulla traiettoria di tesi. <span class="cond">Si apre quando un orfano si chiude — proposta: quando la Fase 2 della plancia passa a «concluso».</span> Custode: Dedalo.</li>
+    <li><b>Temi</b> (libreria delle fonti), <b>Teia</b> e <b>Giapeto</b> (i due agenti nuovi), <b>Febe</b> (Argonauta del business) — decisi il 12-08, da costruire nell'ordine che Giuseppe sceglie.</li>
+  </ul>
+</div>
+
+<div class="stategroup sg-conc">
+  <h3><span class="sg-tag">● CONCLUSO</span> — ha un artefatto di fine (perché la mappa non è solo allarmi)</h3>
+  <ul>
+    <li>Percorso-matematica: <b>18/18 nuclei</b> (esteso a 22), 6833 formule verificate. Memoria <b>L4 popolata</b> (era vuota da 8 settimane). <b>Anima/grafo</b> costruito e collaudato. <b>Apparato B</b> (memoria che impara e comprime). <b>Riversamento su Kishi</b> operativo end-to-end. Plancia <b>viva</b> (spina Agent SDK + stanze + voce). Formulari AV e Geometria pubblicati.</li>
+  </ul>
+</div>
+
+<h2>4 · Cosa cambia con l'aggiornamento di oggi</h2>
+<table>
+ <tr><th style="width:26%">Decisione (12 agosto)</th><th>Effetto sulla navicella</th></tr>
+ <tr><td class="n">Titani = procedimenti, non agenti</td><td>Crono, Teti, Crio, Iperione, Oceano sono nomi dati a organi che già girano (o i cui pezzi esistono). Costo di runtime: zero. Coeo e Rea, che erano turni LLM, restano fuori.</td></tr>
+ <tr><td class="n">Giapeto promosso ad agente</td><td>Non più un semplice kill-switch: <b>giudica</b> il ciclo del business — quando un sistema funziona e va avanti, cosa estrarre, cosa dare a Ermete per la generazione dopo. Da costruire.</td></tr>
+ <tr><td class="n">Teia promosso ad agente</td><td>Intelligenza col solo scopo di risparmiare token: segna inizio e fine dei procedimenti (preventivo/consuntivo) su business e, idealmente, accademico e creativo. Possibile paternità del routing verso modelli gratuiti — con riserva ToS, in coppia con Ierofante. Da costruire.</td></tr>
+ <tr><td class="n">Temi = la libreria delle fonti</td><td>Fondamentale per Giuseppe. È la schiusura con lo Strict Pruning come metodo: quando dai una fonte, si tiene il nucleo algoritmico e si scarta il resto. Casella vuota che diventa lavoro reale.</td></tr>
+ <tr><td class="n">Febe = Argonauta del business</td><td>La prima fase del modulo Business: lo scouting di mercato che alimenta Ermete.</td></tr>
+ <tr><td class="n">Oceano via la plancia</td><td>Non si inventa: si cabla. Le note vocali le registri dalla plancia (Whisper è già lì), Teti le ripulisce, finiscono in intake.</td></tr>
+ <tr><td class="n">Ierofante chiarito e nominato</td><td>Legalità e ToS — esiste già da noi, il documento lo ometteva. Va nominato in <code>CLAUDE.md</code> (lo fa Giuseppe): è il freno del business, toglierlo non è semplificare.</td></tr>
+ <tr><td class="n">Memoria invariata; grafo, filo a parte</td><td>I cinque livelli restano come sono (Gemini non aveva accesso alla cartella e li aveva reinventati male). L'idea di elevare il grafo a organo di primo piano resta aperta, da trattare per conto suo — oggi è misurato debole.</td></tr>
+ <tr><td class="n">Il registro si fa</td><td>Con gli stati che vedi nella sezione 3. Primo giro: il minimo che si auto-verifica — il manifesto letto dal verificatore, che al SessionStart stampa il conto degli orfani. La plancia-cantiere (la vista) viene dopo.</td></tr>
+</table>
+
+<h2>5 · Prima di staccare — le cose da sapere</h2>
+<ol class="pre">
+  <li><b>Da dove riprendi:</b> sei fili freddi ti aspettano — quattro orfani (Fase 2 plancia, Φ(u,v), revisione nuclei 00–04, intake) e due cadenze scadute (L3, diario di Mnemosyne). Non serve ricordarli: al ritorno il verificatore te li dirà da solo al SessionStart. È questo che rende la pausa sicura — non la mappa appesa al muro, ma l'allarme che si auto-controlla.</li>
+  <li><b>Tre cose aspettano solo una tua azione, e bloccano organi già costruiti:</b> (a) <code>riversa.py --imposta-passphrase</code>, una volta, accende il riversamento automatico su Kishi (la chiave è solo tua); (b) la riga in <code>CLAUDE.md</code> che nomina Ermete e Ierofante — la scrive Mnemosyne, non io, ma è tua da autorizzare; (c) il gate ToS: la plancia gira sull'Agent SDK dell'abbonamento, che è a rischio ban — i modelli non-Claude gratuiti sono la via libera, la decisione di rotta è tua.</li>
+  <li><b>Il rischio che tengo d'occhio al posto tuo:</b> che il registro diventi il settimo filo a metà. Per questo il primo giro è solo il manifesto più il verificatore — la parte che non può mentire — e la plancia-cantiere, che è la parte bella e quella su cui io mi areno, viene dopo. E il banco di simulazione, che è la cosa nuova che più vorrei aprire, resta <code>proposto</code>: si apre quando un orfano si chiude, non prima. La cura dei procedimenti a metà non può essere aprirne un altro.</li>
+</ol>
+
+</body>
+</html>
