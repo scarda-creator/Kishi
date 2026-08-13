@@ -1,7 +1,7 @@
 ---
 type: stato
 accensione: hook
-aggiornato: 2026-08-12
+aggiornato: 2026-08-13
 generato-da: 00-capitano/scripts/stato-studente.py
 ---
 
@@ -13,11 +13,11 @@ generato-da: 00-capitano/scripts/stato-studente.py
 
 | giorni | data | corso | prova | note |
 |---:|---|---|---|---|
-| **23** | 2026-09-04 | analisi-vettoriale | scritto | **ripetizione**: lo scritto del 17/07 non superato |
-| **28** | 2026-09-09 | metodi-e-modelli | scritto | primo tentativo |
-| **29** | 2026-09-10 | meccanica | orale | data approssimativa, «lì intorno»; da confermare |
+| **22** | 2026-09-04 | analisi-vettoriale | scritto | **ripetizione**: lo scritto del 17/07 non superato |
+| **27** | 2026-09-09 | metodi-e-modelli | scritto | primo tentativo |
+| **28** | 2026-09-10 | meccanica | orale | data approssimativa, «lì intorno»; da confermare |
 
-Il prossimo è **analisi-vettoriale** fra **23 giorni**.
+Il prossimo è **analisi-vettoriale** fra **22 giorni**.
 Tutti e 3 stanno in **6 giorni**.
 
 ## Precedenti
@@ -37,9 +37,9 @@ Finché questa sezione resta vuota, ogni giudizio su dove Giuseppe è debole vie
 | corso | file | quiz |
 |---|---:|---:|
 | geometria | 171 | 1 |
-| analisi-vettoriale | 63 | 1 |
-| metodi-e-modelli | 39 | 0 |
-| meccanica | 10 | 1 |
+| analisi-vettoriale | 63 | 0 |
+| metodi-e-modelli | 43 | 0 |
+| meccanica | 10 | 0 |
 
 Questi numeri dicono cosa **esiste**, non cosa Giuseppe ha studiato. Il 2 agosto il percorso-matematica risultava «18 su 18» perché i file c'erano: li aveva aperti per guardarli. Da allora nessuna presenza viene contata come atto.
 

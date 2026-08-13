@@ -198,11 +198,16 @@ function shuffle(a){
      la matematica (quella la fa KaTeX); entita' HTML solo per il testo (accenti).
    - Stringhe a DOPPI apici: raddoppia i backslash LaTeX ("\\iint", "\\nabla\\times").
 
-   ESEMPIO (cancellare quando si popola):
-   var POOLS = [
+   ESEMPIO (cancellare quando si popola). NB: qui sotto le dichiarazioni sono
+   scritte SENZA la parola-chiave di dichiarazione, di proposito: le due righe reali
+   piu' in basso sono le ANCORE che quiz_assembla.js cerca per trovare la zona dati,
+   e nessun commento deve riprodurle alla lettera -
+   se comparissero anche in questo commento, l'assemblatore scriverebbe i dati qui
+   dentro e il quiz risulterebbe vuoto (successo il 12-08-2026 col quiz di Metodi).
+   POOLS = [
      {id:'esempio', name:'1 &middot; Esempio', diff:'3', status:'full'}
    ];
-   var Q = {};
+   Q = {};
    Q.esempio = [
      { pool:'esempio', src:'tipo X · manuale', steps:[{
          t:'Il campo $F=(-y,x)$ su $\\mathbb{R}^2\\setminus\\{0\\}$ e\\u2019 conservativo?',

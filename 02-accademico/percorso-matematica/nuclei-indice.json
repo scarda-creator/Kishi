@@ -1,5 +1,5 @@
 {
- "generato": "2026-07-21",
+ "generato": "2026-08-13",
  "movimenti": {
   "1": "Calcolo multivariabile e vettoriale",
   "2": "Ponte: spazi di funzioni",
@@ -797,7 +797,7 @@
    "nn": "90",
    "file": "meccanica/Quiz_Meccanica_Orale_v1.html",
    "mov": 5,
-   "titolo": "Meccanica — 457 domande e 103 dimostrazioni per l’orale",
+   "titolo": "Meccanica — 451 domande e 33 dimostrazioni per l’orale",
    "tappe": [
     {
      "num": "01",
@@ -842,6 +842,94 @@
     {
      "num": "11",
      "titolo": "Onde"
+    }
+   ]
+  },
+  {
+   "nn": "89",
+   "file": "analisi-vettoriale/Quiz_AnalisiVettoriale_v1.html",
+   "mov": 1,
+   "titolo": "Analisi Vettoriale — 305 esercizi sui 10 tipi dello scritto",
+   "tappe": [
+    {
+     "num": "01",
+     "titolo": "EDO e problema di Cauchy"
+    },
+    {
+     "num": "02",
+     "titolo": "Superfici: parametrizzazione, area, bordo"
+    },
+    {
+     "num": "03",
+     "titolo": "Curve e integrali di linea"
+    },
+    {
+     "num": "04",
+     "titolo": "Volume e flusso (Gauss)"
+    },
+    {
+     "num": "05",
+     "titolo": "Stokes e circuitazione"
+    },
+    {
+     "num": "06",
+     "titolo": "Ottimizzazione e Lagrange"
+    },
+    {
+     "num": "07",
+     "titolo": "Serie e successioni di funzioni"
+    },
+    {
+     "num": "08",
+     "titolo": "Campi conservativi"
+    },
+    {
+     "num": "09",
+     "titolo": "Differenziabilità con parametro"
+    },
+    {
+     "num": "10",
+     "titolo": "Funzioni implicite (Dini)"
+    }
+   ]
+  },
+  {
+   "nn": "91",
+   "file": "metodi/Quiz_MetodiModelli_v1.html",
+   "mov": 4,
+   "titolo": "Metodi e Modelli — 79 esercizi sugli 8 tipi che escono davvero",
+   "tappe": [
+    {
+     "num": "01",
+     "titolo": "Funzione di Green (sorgente regolare)"
+    },
+    {
+     "num": "02",
+     "titolo": "Green con δ e δ′"
+    },
+    {
+     "num": "03",
+     "titolo": "Funzioni polidrome: tagli e integrali"
+    },
+    {
+     "num": "04",
+     "titolo": "Funzioni di matrice (spettrale)"
+    },
+    {
+     "num": "05",
+     "titolo": "Fourier via residui"
+    },
+    {
+     "num": "06",
+     "titolo": "Integrali reali per contorno"
+    },
+    {
+     "num": "07",
+     "titolo": "Laurent, singolarità, residui"
+    },
+    {
+     "num": "08",
+     "titolo": "Operatori: autofunzioni e spettro"
     }
    ]
   }

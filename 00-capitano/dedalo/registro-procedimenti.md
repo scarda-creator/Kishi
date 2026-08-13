@@ -54,9 +54,9 @@ intake-note-vocali      | attivo       | Dedalo->Rapsodo  | 14 | plancia/backend
 schiusura-44-fonti      | parcheggiato | Dedalo           |  - | 00-capitano/dedalo/schiusura-bilancio-fonti.md | risveglio = quando Temi si apre; senza una casa dove mettere le fonti potate si arena ogni volta
 registro-procedimenti   | attivo       | Dedalo+Mnemosyne | 21 | 00-capitano/dedalo/registro-procedimenti.md | manifesto letto dal verificatore -> fatto; resta la vista (plancia-cantiere)
 Temi-catalogo-fonti     | attivo       | Dedalo           | 21 | 00-capitano/temi/catalogo-fonti.md | ogni fonte che Giuseppe da' entra e si puo' interrogare -> nato il 12-08 con 58 fonti
-quiz-analisi-vettoriale | attivo       | Demiurgo Acc.    | 10 | 02-accademico/corsi/analisi-vettoriale/03-note-mie/Quiz_AnalisiVettoriale_v1.html | pool 6-10 estesi e verificati -> scritto del 4 settembre
-quiz-meccanica-lavagne  | attivo       | Demiurgo Acc.    | 10 | 02-accademico/corsi/meccanica/03-note-mie/Quiz_Meccanica_Orale_v1.html | dimostrazioni-lavagna da 44 a ~105 -> orale di settembre
-quiz-metodi-e-modelli   | attivo       | Demiurgo Acc.    | 10 | 02-accademico/corsi/metodi-e-modelli/03-note-mie | il quiz di Metodi NON esiste e l'esame e' il 9 settembre -> primo pool
+quiz-analisi-vettoriale | attivo       | Demiurgo Acc.    | 10 | 02-accademico/percorso-matematica/analisi-vettoriale/Quiz_AnalisiVettoriale_v1.html | pool 6-10 estesi e verificati -> scritto del 4 settembre
+quiz-meccanica-lavagne  | attivo       | Demiurgo Acc.    | 10 | 02-accademico/percorso-matematica/meccanica/Quiz_Meccanica_Orale_v1.html | dimostrazioni-lavagna da 44 a ~105 -> orale di settembre
+quiz-metodi-e-modelli   | attivo       | Demiurgo Acc.    | 10 | 02-accademico/corsi/metodi-e-modelli/banca-esercizi/frags | il quiz di Metodi NON esiste e l'esame e' il 9 settembre -> primo pool
 raccolta-atti           | attivo       | Rapsodo          | 10 | 02-accademico/esiti | i quiz tracciano dal 31 luglio ma nessun tentativo e' mai arrivato -> senza atti la navicella giudica per sentito dire
 percorso-matematica     | concluso     | Dedalo           |  - | 02-accademico/percorso-matematica | 18/18 nuclei, 6833 formule verificate; artefatto di fine = mappa-percorso.html
 quiz-geometria-intake   | concluso     | Demiurgo Acc.    |  - | 02-accademico/corsi/geometria | decaduto per superamento dell'esame il 14 luglio: non si riapre
@@ -71,7 +71,7 @@ protezione-ermetica-L5  | parcheggiato | Mnemosyne        |  - | 00-capitano/mem
 omniroute-metabolismo   | parcheggiato | Dedalo+Ierofante |  - | 00-capitano/dedalo/omniroute-visione.md | risveglio = gate ToS sciolto; gratuiti non-Claude liberi, Claude via proxy vietato
 banco-simulazione-C     | proposto     | Dedalo           |  - | 00-capitano/dedalo/parere-titanogenesi.md | apertura = quando Fase-2-plancia passa a concluso
 Temi-libreria-fonti     | proposto     | Dedalo           |  - | 00-capitano/dedalo/schiusura-bilancio-fonti.md | apertura = decisione di ordine di Giuseppe; e la casa della schiusura
-Teia-agente             | proposto     | se+Ierofante     |  - | 00-capitano/titanogenesi-confronto.md | apertura = decisione di ordine di Giuseppe; routing verso gratuiti solo col vaglio ToS
+Teia-guardia-consumo    | attivo       | Dedalo           | 21 | 00-capitano/scripts/teia.py | misura del margine FATTA (12-08, dopo due build morte); resta il preventivo per lavoro e il routing, che passa da Ierofante per il ToS
 Giapeto-agente          | proposto     | Ermete           |  - | 00-capitano/titanogenesi-confronto.md | apertura = con il Business; giudice darwiniano e kill-switch
 Febe-argonauta-business | proposto     | Ermete           |  - | 00-capitano/dedalo/business-modello-v3.md | apertura = fase 1 del Business
 ```

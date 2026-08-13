@@ -284,8 +284,30 @@ def c5_in_attesa_di_giuseppe():
     return problemi
 
 
+def c6_margine_teia():
+    """Teia in guardia: se la sessione si apre gia' in zona rossa, dirlo PRIMA
+    che qualcuno lanci una build. Il 12 agosto due Demiurghi sono morti a meta'
+    lavoro perche' nessuno guardava il margine. Silenzio sotto l'85%: un allarme
+    che suona sempre insegna a zittirsi."""
+    teia = os.path.join(HERE, "teia.py")
+    if not os.path.exists(teia):
+        return []
+    try:
+        import subprocess
+        r = subprocess.run([sys.executable, teia], capture_output=True, text=True, timeout=25)
+    except Exception:
+        return []                       # una guardia che rompe la sessione e' peggio del rischio
+    testo = r.stdout or ""
+    if "ROSSO" in testo:
+        m = re.search(r"consumato\s+(\S+)", testo)
+        return ["margine token quasi esaurito (%s consumati nella finestra): "
+                "non lanciare build lunghe" % (m.group(1) if m else "?")]
+    return []
+
+
 CONTROLLI = [
     ("agenti non caricabili", c1_agenti_caricabili),
+    ("margine token", c6_margine_teia),
     ("costituzione disallineata", c2_costituzione_allineata),
     ("hook rotti", c3_hook_cablati),
     ("procedimenti fermi", c4_registro),
@@ -294,7 +316,7 @@ CONTROLLI = [
 
 # Quello che finisce davanti agli occhi di Giuseppe: solo le categorie che
 # richiedono lui, o che rompono il sistema in silenzio. Il resto va nel dettaglio.
-URGENTI = {"agenti non caricabili", "hook rotti", "in attesa di te"}
+URGENTI = {"agenti non caricabili", "hook rotti", "in attesa di te", "margine token"}
 
 
 def main():
