@@ -1,0 +1,5 @@
+
+# indici e database: contengono il testo di cio' che indicizzano (anche L5)
+*.db
+*.sqlite
+*.sqlite3
