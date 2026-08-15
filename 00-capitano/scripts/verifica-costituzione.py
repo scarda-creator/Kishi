@@ -77,7 +77,8 @@ def leggi_registro():
         except ValueError:
             massimo = None                      # '-' : dorme legittimamente
         voci.append({"nome": campi[0], "intenzione": campi[1], "custode": campi[2],
-                     "massimo": massimo, "path": campi[4], "nota": campi[5]})
+                     "massimo": massimo, "path": campi[4], "nota": campi[5],
+                     "sonda": campi[6] if len(campi) > 6 else ""})
     return voci
 
 
@@ -220,6 +221,44 @@ def c3_hook_cablati():
     return problemi
 
 
+def valuta_sonda(sonda, voci):
+    """Una condizione di risveglio serve solo se qualcuno la controlla. La sonda
+    e' la parte MACCHINA della condizione, in una di quattro forme:
+      esiste:<path>              -> il file/cartella esiste
+      manca:<path>               -> il file NON esiste (ancora)
+      stato:<nome>=<intenzione>  -> un altro procedimento e' arrivato a quello stato
+      dopo:<AAAA-MM-GG>          -> la data e' passata
+      chiedi:<ogni N giorni>     -> nessuna macchina puo' deciderlo: si ripropone a Giuseppe
+    Ritorna (soddisfatta, spiegazione) oppure (None, motivo) se non valutabile."""
+    sonda = (sonda or "").strip()
+    if not sonda:
+        return None, "nessuna sonda: la condizione e' solo prosa"
+    if sonda.startswith("esiste:"):
+        p = sonda[7:].strip()
+        return os.path.exists(os.path.join(NAV, p)), "esiste %s" % p
+    if sonda.startswith("manca:"):
+        p = sonda[6:].strip()
+        return (not os.path.exists(os.path.join(NAV, p))), "manca ancora %s" % p
+    if sonda.startswith("stato:"):
+        corpo = sonda[6:].strip()
+        if "=" not in corpo:
+            return None, "sonda stato malformata"
+        nome, atteso = [x.strip() for x in corpo.split("=", 1)]
+        for v in voci:
+            if v["nome"] == nome:
+                return v["intenzione"] == atteso, "%s e' '%s'" % (nome, v["intenzione"])
+        return None, "procedimento '%s' non in registro" % nome
+    if sonda.startswith("dopo:"):
+        try:
+            d = datetime.strptime(sonda[5:].strip(), "%Y-%m-%d").replace(tzinfo=timezone.utc)
+        except ValueError:
+            return None, "data malformata"
+        return OGGI >= d, "dopo il %s" % sonda[5:].strip()
+    if sonda.startswith("chiedi:"):
+        return None, "decisione di Giuseppe: %s" % sonda[7:].strip()
+    return None, "sonda sconosciuta"
+
+
 def c4_registro():
     """Confronta l'intenzione dichiarata nel manifesto con l'eta' reale dell'artefatto.
     Qui nascono gli stati derivati: orfano (un attivo andato muto) e scaduto (cadenza
@@ -232,11 +271,28 @@ def c4_registro():
     problemi = []
     for v in voci:
         if v["massimo"] is None:
-            # dorme per scelta: l'unico obbligo e' che la condizione sia scritta,
-            # altrimenti «parcheggiato» e' solo un modo elegante di dire «dimenticato»
-            if v["intenzione"] in ("parcheggiato", "proposto") and len(v["nota"]) < 12:
+            # Dorme per scelta. Ma una condizione che nessuno valuta e' un
+            # abbandono con una frase gentile sopra: qui si CONTROLLA se si e'
+            # avverata, e se non e' controllabile a macchina si ripropone a
+            # Giuseppe invece di tacere.
+            if v["intenzione"] not in ("parcheggiato", "proposto"):
+                continue
+            if len(v["nota"]) < 12:
                 problemi.append("%s: %s senza condizione di risveglio/apertura scritta"
                                 % (v["nome"], v["intenzione"]))
+                continue
+            esito, perche = valuta_sonda(v.get("sonda"), voci)
+            if esito is True:
+                problemi.append("SVEGLIA %s: la condizione che avevi posto si e' avverata (%s) "
+                                "- custode %s" % (v["nome"], perche, v["custode"]))
+            elif esito is None:
+                eta = eta_giorni(os.path.join(NAV, v["path"]))
+                # non valutabile: si ripropone ogni 30 giorni, cosi' non sparisce
+                if eta is None or eta > 30:
+                    problemi.append("%s: %s da %s, e la condizione non e' verificabile da sola "
+                                    "(%s) - va guardata a mano"
+                                    % (v["nome"], v["intenzione"],
+                                       ("%d giorni" % int(eta)) if eta else "sempre", perche))
             continue
         pieno = os.path.join(NAV, v["path"])
         eta = eta_giorni(pieno)

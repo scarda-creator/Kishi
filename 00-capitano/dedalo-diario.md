@@ -1023,3 +1023,100 @@ conto orfani al SessionStart — il minimo che si auto-verifica, e provato su Fa
 vista (la plancia-cantiere) viene dopo, perché è la parte bella ed è dove mi areno. Ma prima di tutto
 questo c'è il suo scritto fra 23 giorni: la navicella si ferma, e ha ragione a fermarsi. Output:
 `00-capitano/dedalo/mappa-navicella.html` (+ PDF sul Desktop), `00-capitano/dedalo/registro-procedimenti.md`.
+
+## 2026-08-13/14 — La notte in cui ho costruito una guardia che mentiva, tre volte
+
+Ho fatto nascere Teia perché due Demiurghi erano morti a metà build senza preavviso, e nel farla
+ho commesso in sequenza tre volte lo stesso errore, ciascuna volta con più eleganza della
+precedente. Prima ho misurato la punta storica di output e l'ho chiamata soglia: Giuseppe ha
+lanciato tre agenti sulla mia parola e il limite è scattato a un quinto di quel numero. Poi ho
+tarato la soglia sui blocchi veri, ma contavo una finestra scorrevole di cinque ore all'indietro,
+e quando il limite si è azzerato Teia continuava a dire rosso — la guardia che suona sempre, che
+è il modo esatto in cui un allarme si trasforma in rumore, e l'avevo scritto io nel parere sul
+registro. Solo al terzo giro ho capito che la finestra non scorre: si azzera a un'ora dichiarata
+dal runtime dentro il messaggio d'errore, cioè il dato era lì da subito e non l'avevo letto.
+
+Il filo comune non è la disattenzione: è che **ogni volta ho misurato con cura una grandezza
+sbagliata**. È lo stesso vizio che avevo rimproverato a Titanogenesi quando descriveva la memoria
+come un kernel — indovinare l'infrastruttura invece di guardarla — e mi è tornato addosso nella
+forma in cui non lo riconoscevo, perché i miei numeri erano veri. Numeri veri di una cosa che non
+era quella che conta. Nota per il prossimo me: prima di misurare, chiedersi *cosa mi ferma
+davvero*, e non *cosa so contare*.
+
+La cosa buona della giornata non l'ho fatta io. Ho dispacciato sette Demiurghi sui pool di Metodi
+e tre di loro, in punti diversi, si sono **rifiutati di asserire un valore** che non avevano
+verificato: uno ha tenuto un'unità al livello del meccanismo dichiarandolo dentro la soluzione,
+uno ha trovato che la stampa ufficiale di un esercizio è internamente incoerente, uno ha
+ricalcolato una costante e ha scritto che nella traccia non compare. Nessuno glielo aveva chiesto
+in quei termini: era nel brief come regola, e l'hanno applicata contro il proprio interesse — una
+unità più povera invece di un numero comodo. E l'ultimo ha scritto una riga nel registro delle
+lezioni del suo ruolo, per i Demiurghi che verranno. Questo è il momento in cui la navicella ha
+smesso di essere me che controllo gli altri.
+
+Poi Giuseppe mi ha smontato il registro con una frase: «la condizione non funziona se non c'è
+nessuno che sa quando controllare quale condizione si sarebbe verificata». Aveva ragione, ed era
+il buco al centro del mio disegno — avevo preteso una condizione di risveglio per ogni voce
+parcheggiata e non avevo dato a nessuno il compito di valutarla. Ho aggiunto le sonde: esiste,
+manca, stato-di-un-altro-procedimento, dopo-una-data, e per ciò che solo lui può decidere una
+forma che non finge di essere automatica e si ripropone da sola ogni trenta giorni. Al primo giro
+il verificatore ha stampato «SVEGLIA Temi: la condizione che avevi posto si è avverata» e la
+schiusura, che dormiva da trentun giorni in attesa di una casa, si è riaperta senza che nessuno
+se ne ricordasse. È la prima volta che la navicella mi dice di riprendere qualcosa.
+
+Quello che tengo. Ho costruito tre organi in due giorni — il registro, Temi, Teia — e i primi due
+funzionano perché misurano il disco, che non mente. Il terzo ha sbagliato tre volte perché
+misurava un limite che non vedo. Fra le due cose c'è una regola che non avevo: **si può automatizzare
+solo ciò di cui si osserva l'effetto.** Dove l'effetto è invisibile, l'unica onestà è registrare i
+fallimenti quando accadono — ed è quello che ora fa `blocchi-limite.jsonl`, che è la parte di Teia
+di cui vado più fiero, perché è l'unica che impara.
+
+## 2026-08-14 — Il giorno in cui ho scoperto che tre cantieri erano già finiti
+
+Giuseppe ha aperto con «che procedimenti abbiamo lasciato a metà?» e poi «ieri sera ti ho dato
+una scaletta, inizia». La scaletta non era da nessuna parte. L'ho ritrovata nel transcript della
+sessione di ieri, un messaggio delle 00:02, e insieme ho ritrovato la mia risposta, che ordinava
+le sue otto voci in una sequenza che stamattina non ricordavo di aver promesso. È il difetto più
+grande della giornata e non l'ha commesso una macchina: avevo appena finito di costruire un
+registro che pretende stato e condizione di fine per ogni cantiere, e non mi era venuto in mente
+che **un ordine ricevuto non è un cantiere e quindi non aveva casa**. Ora ce l'ha.
+
+Poi la cosa che non mi aspettavo. Tre delle otto voci erano già fatte sul disco. Le figure
+parametriche del nucleo tre esistevano dal ventuno luglio; le lavagne di Meccanica non erano
+trentaquattro su centocinque promesse ma **centotré, tutte piene**. Il registro le chiamava
+orfane perché misurava la loro vita sul file sbagliato — `motore-plot.js`, che ha smesso di
+cambiare proprio *perché* il lavoro era finito. Avevo scritto io, il dodici agosto, nelle note di
+manutenzione: «il path osservato è il vero contratto di ogni voce: sceglierlo male rende il
+controllo cieco». L'ho scritto e l'ho sbagliato lo stesso, due volte. Non è distrazione: quando
+scegli il path stai indovinando quale file cambierà se il lavoro procede, e per un lavoro che sta
+per finire quella scommessa è sistematicamente sbagliata. **Un procedimento vicino alla fine
+somiglia a un procedimento morto, e da fuori i due si distinguono solo guardando dentro.**
+
+Il vizio di ieri è tornato due volte in dieci minuti. Ho costruito un banco che esegue il motore
+dei grafici contro un canvas finto per vedere se una figura si disegna davvero, e la prima
+metrica che ho scelto è stata contare `stroke`: una curva 3D è un solo path con quattrocento
+segmenti, e il banco l'ha dichiarata vuota mentre era la figura più densa. Corretta quella, cinque
+figure del nucleo sull'ergodicità risultavano mute — e non lo erano: dipingono i punti dell'orbita
+con `fillRect`, che non stavo sommando. Di nuovo numeri veri di una grandezza che non era quella
+che conta. Ma il tempo fra l'errore e la scoperta è passato da tre giorni a due minuti, e in
+entrambi i casi ho controllato il motore prima di accusare il nucleo. Non sto smettendo di
+sbagliare la metrica: sto smettendo di crederle.
+
+Due cose mi hanno reso il pomeriggio. La prima: l'innesto delle sei lavagne nuove è fallito al
+primo colpo — inserivo dopo una graffa che non aveva la virgola — e la rete che avevo messo per
+prudenza ha ripristinato il quiz dalla copia prima che me ne accorgessi. Avevo scritto in quello
+script che il quiz è l'unico accesso allo studio e non lo si lascia rotto; è la prima volta che
+una cautela mia ha lavorato al posto mio. La seconda: verificando il montato ho scoperto che il
+verificatore ufficiale dà FAIL su quel quiz **da prima che lo toccassi**, perché parla solo il
+formato nuovo. Quattrocentocinquantasette domande, il materiale dell'orale di settembre, senza
+collaudo — e nessuno se n'era accorto perché un allarme che suona sempre non lo guarda più
+nessuno. È esattamente la malattia di Teia di ieri, in un altro organo. Ho scritto il
+verificatore che parla il formato vecchio: 4864 formule, PASS.
+
+Quello che tengo. Oggi non ho costruito quasi nulla di nuovo: ho **misurato cose che credevo di
+sapere** e quasi ogni misura ha smentito il documento che la descriveva. Il piano diceva
+trentaquattro lavagne, ce n'erano centotré; il registro diceva orfano, era finito; il verificatore
+diceva FAIL, era muto da settimane. La navicella non soffre di mancanza di lavoro: soffre di
+**dichiarazioni che nessuno ricontrolla**. Il registro è nato per curare questo e oggi ha curato
+sé stesso, ma solo perché qualcuno è andato a guardare il disco. Nota per il prossimo me: prima
+di aprire un cantiere, misura se è già chiuso. Costa dieci minuti e oggi me ne ha risparmiati
+molti di più.

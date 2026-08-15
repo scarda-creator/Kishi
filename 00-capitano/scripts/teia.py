@@ -94,7 +94,44 @@ def barra(frazione, largo=34):
     return "[" + "#" * pieni + "." * (largo - pieni) + "]"
 
 
+BLOCCHI = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                       "..", "memoria", "blocchi-limite.jsonl")
+
+
+def blocchi_osservati():
+    """I blocchi VERI, annotati quando sono successi. Sono l'unica evidenza che
+    non mente: la punta storica di output non e' la grandezza che il limite
+    conta (il 13-08 il limite e' scattato a 176k mentre la punta storica era
+    873k - un fattore cinque di ottimismo)."""
+    fuori = []
+    try:
+        with io.open(BLOCCHI, encoding="utf-8") as f:
+            for riga in f:
+                riga = riga.strip()
+                if not riga:
+                    continue
+                d = json.loads(riga)
+                t = datetime.strptime(d["quando"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+                fuori.append((t, d.get("agenti"), d.get("contesto", "")))
+    except (OSError, ValueError, KeyError):
+        pass
+    return fuori
+
+
 def soglia(picchi):
+    """Con blocchi osservati: il consumo misurato al momento del blocco piu'
+    BASSO, scontato del 15%. Senza: la punta storica, dichiarata inaffidabile.
+    Conservativo di proposito - una guardia che sbaglia deve sbagliare fermando,
+    non lasciando partire una build che morira' a meta'."""
+    obs = blocchi_osservati()
+    if obs and picchi:
+        letture = []
+        for t, _, _ in obs:
+            vicini = [s for tp, s in picchi if abs((tp - t).total_seconds()) < 3600]
+            if vicini:
+                letture.append(max(vicini))
+        if letture:
+            return int(min(letture) * 0.85)
     return max((s for _, s in picchi), default=0)
 
 
@@ -104,12 +141,26 @@ def cmd_ora(ev, picchi):
         return
     tetto = soglia(picchi)
     adesso = datetime.now(timezone.utc)
-    corrente = sum(o for t, o, _, _ in ev if t > adesso - timedelta(hours=FINESTRA_H))
+    # La finestra NON scorre: si azzera a un orario che il runtime dichiara nel
+    # messaggio di blocco ("resets 11:20pm"). Contare le ultime 5 ore a ritroso
+    # teneva dentro il consumo gia' azzerato e dava ROSSO perpetuo - cioe' la
+    # guardia inutile che suona sempre. Si conta dall'ultimo reset noto in poi.
+    inizio = adesso - timedelta(hours=FINESTRA_H)
+    obs = blocchi_osservati()
+    if obs:
+        ultimo_blocco = max(t for t, _, _ in obs)
+        reset = ultimo_blocco + timedelta(minutes=10)   # il reset segue di poco il blocco
+        if reset < adesso:
+            inizio = max(inizio, reset)
+    corrente = sum(o for t, o, _, _ in ev if t > inizio)
     resta = max(0, tetto - corrente)
     frazione = corrente / tetto if tetto else 0
     print("TEIA - finestra di %d ore\n" % FINESTRA_H)
     print("  consumato   %8s   %s %3d%%" % (umano(corrente), barra(frazione), round(frazione * 100)))
-    print("  soglia      %8s   (la punta piu' alta mai raggiunta: misurata, non dichiarata)" % umano(tetto))
+    obs = blocchi_osservati()
+    fonte = ("dal blocco reale piu' basso, meno 15%% di margine (%d blocchi osservati)" % len(obs)
+             if obs else "punta storica: nessun blocco osservato, stima ottimista")
+    print("  soglia      %8s   (%s)" % (umano(tetto), fonte))
     print("  margine     %8s\n" % umano(resta))
     ultimo = ev[-1][0]
     print("  ultimo evento: %s UTC" % ultimo.strftime("%H:%M"))

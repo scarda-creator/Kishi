@@ -1,0 +1,254 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8">
+<title>D7 — L'economia: senza pagare e senza ban (31 lug)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+ @page{size:A4;margin:19mm 17mm 20mm}
+ body{font-family:Georgia,'Times New Roman',serif;font-size:10.6pt;line-height:1.48;color:#14171c;margin:0}
+ h1{font-size:20pt;margin:0 0 2mm;line-height:1.2}
+ h2{font-size:13.5pt;margin:8mm 0 2mm;padding-bottom:1mm;border-bottom:1px solid #c9ced6;page-break-after:avoid}
+ h3{font-size:11.6pt;margin:5mm 0 1.5mm;color:#1e3a5f;page-break-after:avoid}
+ h4{font-size:10.6pt;margin:4mm 0 1mm;font-style:italic;page-break-after:avoid}
+ p{margin:0 0 2.2mm;text-align:justify}
+ ul{margin:0 0 2.6mm;padding-left:5.5mm} li{margin:0 0 1.2mm}
+ hr{border:none;border-top:1px solid #d6dae0;margin:6mm 0}
+ blockquote{margin:2.5mm 0;padding:2mm 4mm;background:#f4f6f9;border-left:2.5pt solid #4a6fa5;font-size:10pt}
+ table{border-collapse:collapse;width:100%;margin:2.5mm 0;font-size:9.6pt}
+ td{border:1px solid #ccd2da;padding:1.4mm 2.2mm;vertical-align:top}
+ tr:first-child td{background:#eef1f5;font-weight:bold}
+ code{background:#eef1f5;padding:0 1mm;border-radius:2px;font-family:Consolas,monospace;font-size:9.2pt}
+ a{color:#1e4a80;text-decoration:none}
+ .katex{font-size:1.02em}
+ .katex-display{margin:2.5mm 0;page-break-inside:avoid}
+ h2,h3{page-break-after:avoid} table,blockquote{page-break-inside:avoid}
+</style></head><body>
+<h1>D7 — L'economia: fare tutto questo senza pagare e senza rischiare il ban</h1>
+<h2>Risposta in tre righe</h2>
+<p>Il gate si chiude, e si chiude più permissivo di quanto la scottatura del 25/7 avesse</p>
+<p>concluso. Su fonte primaria (<code>code.claude.com/docs/en/legal-and-compliance</code>, sezione</p>
+<p>"Authentication and credential use", più Consumer Terms §3.7, <code>authentication</code>, <code>headless</code>,</p>
+<p><code>llm-gateway-connect</code>, <code>costs</code>, tutte lette il 31/7/2026): (a) <code>claude -p</code> headless/schedulato</p>
+<p>sull'abbonamento è esplicitamente previsto e fatturato come uso ordinario, stesso monte</p>
+<p>settimanale dell'uso interattivo — nessuna piscina separata, il che chiude anche il</p>
+<p>"non confermato" più pesante di D4; (b) l'Agent SDK per costruire un "prodotto" dovrebbe</p>
+<p>usare API key, ma il testo non distingue esplicitamente un tool mono-utente sul proprio</p>
+<p>abbonamento da un prodotto offerto a terzi — resta zona grigia dichiarata, non chiusa; (c) un</p>
+<p>gateway locale che si limita a inoltrare a <code>api.anthropic.com</code> <b>senza</b> impostare una</p>
+<p>credenziale-gateway è un caso normativamente descritto e trattato come comportamento</p>
+<p>ordinario ("Subscriptions and gateways") — instradare le stesse richieste verso modelli</p>
+<p>non-Claude tramite lo stesso gateway resta invece "not supported" (non certificato, non</p>
+<p>vietato per iscritto). Sul fronte gratis: il candidato principale del 25/7 — "DeepSeek V3 su</p>
+<p>SiliconFlow gratis per sempre" — è <b>falso oggi</b>: la pagina prezzi ufficiale (istantanea</p>
+<p>22/7/2026) mostra DeepSeek a pagamento in ogni versione; il vero free tier SiliconFlow è tre</p>
+<p>modelli diversi (gpt-oss-120b, GLM-4.7, Gemma-4-31b) a 5 richieste/minuto, un limite che</p>
+<p>rende inutilizzabile qualunque agente multi-turno.</p>
+<h2>Candidati (ordinati per utilità reale, non per fama)</h2>
+<p><b>1. <code>claude -p</code> / <code>claude setup-token</code> (headless CLI, non Agent SDK separato)</b> ·</p>
+<p><code>code.claude.com/docs/en/headless</code>, <code>.../authentication</code>, <code>.../costs</code> · prodotto Anthropic,</p>
+<p>documentazione viva, letta 31/7/2026 · fa: esegue Claude Code in modo non interattivo con lo</p>
+<p>stesso motore, gli stessi hook, la stessa autenticazione dell'uso interattivo; `claude</p>
+<p>setup-token` genera un token OAuth di un anno per script/CI, esplicitamente "requires a Pro,</p>
+<p>Max, Team, or Enterprise plan" · risolverebbe: è la via per un battito/tick che non tocca</p>
+<p>l'Agent SDK e non richiede una API key a pagamento — copre gran parte di ciò che D4 cercava ·</p>
+<p>costo: <b>zero oltre l'abbonamento</b>, confermato — vedi meccanismo sotto · rischio: nessuno</p>
+<p>identificato su fonte primaria per questo specifico percorso · fonte del giudizio: pagine</p>
+<p>ufficiale, citazioni verbatim sotto.</p>
+<p>**2. Gateway locale in modalità pass-through (<code>ANTHROPIC_BASE_URL</code> senza credenziale</p>
+<p>gateway)** · <code>code.claude.com/docs/en/llm-gateway</code>, <code>.../llm-gateway-connect</code> · meccanismo</p>
+<p>Anthropic documentato, non un prodotto · fa: instrada il traffico di Claude Code attraverso</p>
+<p>un proxy locale (es. OmniRoute, LiteLLM) che si limita a inoltrare a <code>api.anthropic.com</code>,</p>
+<p>lasciando attivo il login OAuth dell'abbonamento — "Setting only that variable, without a</p>
+<p>gateway credential, doesn't replace the subscription. Requests still route through the</p>
+<p>gateway, but a saved claude.ai login remains the active credential, so its usage limits and</p>
+<p>billing apply." · risolverebbe: il punto d'aggancio tecnico esatto che la visione di Dedalo</p>
+<p>del 25/7 cercava per il routing selettivo, con un fondamento documentale che allora mancava ·</p>
+<p>costo: zero, stesso abbonamento · rischio: **instradare le stesse richieste verso modelli</p>
+<p>non-Claude tramite lo stesso gateway è esplicitamente "not supported"** — non è scritto come</p>
+<p>violazione contrattuale, è scritto come "non auditato, non garantito"; il provider "Claude</p>
+<p>Web" di OmniRoute (cookie di sessione claude.ai, non OAuth Claude Code) resta un caso diverso</p>
+<p>e più grave, perché bypassa Claude Code come client — coerente con quanto già scartato da P7</p>
+<p>il 25/7 · fonte: pagine gateway ufficiali, citazioni sotto.</p>
+<p><b>3. Groq (free tier)</b> · <code>console.groq.com/docs/rate-limits</code>, <code>.../your-data</code>,</p>
+<p><code>.../tool-use</code> · piattaforma commerciale, non open source, documentazione letta 31/7/2026 ·</p>
+<p>fa: inferenza su Llama 3.1/3.3, GPT-OSS 120B/20B, Qwen3.6-27B, MiniMax-M2.7 · limiti free</p>
+<p>esatti per modello: <code>llama-3.1-8b-instant</code> 30 RPM / 14.400 RPD / 6K TPM / 500K TPD;</p>
+<p><code>llama-3.3-70b-versatile</code> 30 RPM / 1K RPD / 12K TPM / 100K TPD; <code>gpt-oss-120b</code> 30 RPM / 1K</p>
+<p>RPD / 8K TPM / 200K TPD · tool-calling: <b>confermato su fonte primaria</b> per tutti e tre più</p>
+<p><code>qwen/qwen3.6-27b</code>, <code>minimaxai/minimax-m2.7</code>, <code>groq/compound[-mini]</code> · privacy: "By default,</p>
+<p>Groq does not retain customer data for inference requests" salvo log temporanei per abuso/</p>
+<p>troubleshooting fino a 30 giorni, Zero Data Retention self-serve attivabile; nessuna</p>
+<p>dichiarazione di training sui dati trovata (assenza di ritenzione implica assenza di</p>
+<p>training, ma non è una frase esplicita "we don't train") · risolverebbe: bulk leggero e</p>
+<p>classificazione con tool-calling reale, TPD abbastanza alto da reggere una giornata di lavoro</p>
+<p>meccanico · costo: zero · rischio: RPM 30 è stretto per un loop agentivo multi-step (un</p>
+<p>Argonauta consuma ~100K token di input in pochi minuti su Sonnet; qui satura in secondi) ·</p>
+<p>fonte: pagine ufficiali, citazioni sotto.</p>
+<p><b>4. Cerebras (free tier)</b> · <code>inference-docs.cerebras.ai/support/rate-limits</code>,</p>
+<p><code>cerebras.ai/privacy-policy</code> · fa: inferenza ad alta velocità su hardware proprietario ·</p>
+<p>free tier reale confermato su fonte primaria: <b>tre modelli</b> — <code>gpt-oss-120b</code>,</p>
+<p><code>zai-glm-4.7</code>, <code>gemma-4-31b</code> — non gli stessi che le fonti secondarie (free-llm.com,</p>
+<p>getaiperks.com) attribuivano a Cerebras nel 2026 (Llama4 Scout, 1M tok/giorno "flat") — a</p>
+<p>5 RPM / 30K TPM / 1M TPH / 1M TPD · privacy: dichiarazione esplicita e pulita — "We do not</p>
+<p>retain inputs and outputs associated with our training, inference and chatbot Services",</p>
+<p>effective 27 agosto 2024, <b>nessuna differenziazione fra tier gratuito e a pagamento</b> ·</p>
+<p>tool-calling: non verificato su questa pagina per lo specifico free tier (i tre modelli</p>
+<p>sono generalmente tool-capable altrove, ma non è una citazione Cerebras) · risolverebbe:</p>
+<p>poco di più di Groq, con lo stesso collo di bottiglia RPM · costo: zero · rischio: 5 RPM è</p>
+<p>il limite più stretto fra tutti i candidati misurati · fonte: pagina rate-limit ufficiale +</p>
+<p>privacy policy ufficiale.</p>
+<p><b>5. SiliconFlow (free tier, corretto rispetto al 25/7)</b> · <code>docs.siliconflow.com</code>,</p>
+<p><code>siliconflow.com/pricing</code> (istantanea 22/7/2026), `docs.siliconflow.com/en/legals/privacy-</p>
+<p>policy` (aggiornata 31/3/2025) · **correzione a P3 (findings Argonauta 25/7): "DeepSeek V3</p>
+<p>via SiliconFlow gratis per sempre" non è più vero, e forse non lo è mai stato per la</p>
+<p>versione internazionale** — la pagina prezzi ufficiale datata 22 luglio 2026 elenca</p>
+<p>DeepSeek-V3, V3.2, V4-Pro, V4-Flash tutti a pagamento, $0.13–$1.50/M token · il free tier</p>
+<p>reale, dalla pagina rate-limit ufficiale: <code>gpt-oss-120b</code>, <code>zai-glm-4.7</code>, <code>gemma-4-31b</code> a</p>
+<p>5 RPM / 30K TPM / 1M TPH / 1M TPD — "Free Trial tier", nessun RPD dichiarato · tool-calling:</p>
+<p>confermato per gpt-oss-120b (nativo, "function calling, browsing, structured output") e</p>
+<p>GLM-4.7 ("Tools support: Supported") · privacy: <b>gate aperto</b> — la privacy policy</p>
+<p>ufficiale non contiene alcuna frase esplicita su training sui dati di input/output,</p>
+<p>gratuiti o a pagamento; si descrive come "neutral technology service provider" che processa</p>
+<p>"strictly in accordance with your instructions", che non è una garanzia di non-training ·</p>
+<p>risolverebbe: stesso ruolo di Groq/Cerebras, con privacy meno chiara · costo: zero, ma</p>
+<p>verificare caso per caso · rischio: privacy non dichiarata esplicitamente è un gate-privacy</p>
+<p>aperto, non chiuso · fonte: pagine ufficiali, citazioni sotto.</p>
+<p><b>6. OpenRouter (free, suffisso <code>:free</code>)</b> · <code>openrouter.ai/docs/api-reference/limits</code>,</p>
+<p><code>.../docs/features/privacy-and-logging</code> · aggregatore, non provider proprio · limiti</p>
+<p>confermati su fonte primaria: <b>20 RPM / 50 RPD</b> sotto i 10 USD di credito acquistato</p>
+<p>one-time, <b>20 RPM / 1000 RPD</b> sopra — conferma esatta di quanto D4/omniroute-integrazioni</p>
+<p>avevano già misurato da brainroad.com, ora su fonte primaria · privacy: **gate esplicito e</p>
+<p>configurabile, non di default sicuro** — "you can set whether you would like to allow</p>
+<p>routing to providers that may train on your data" con "separate settings for paid and free</p>
+<p>models": significa che i modelli gratuiti possono instradare verso provider che *allenano</p>
+<p>sui dati* se l'interruttore non è disattivato esplicitamente per il tier free · tool-calling:</p>
+<p>dipendente dal modello instradato (routing non deterministico su <code>openrouter/free</code>, come già</p>
+<p>misurato il 25/7) · risolverebbe: la copertura più ampia di modelli, ma con l'incognita</p>
+<p>peggiore delle sei per il gate-privacy · costo: zero sotto soglia · rischio: privacy</p>
+<p><b>non passiva</b>, va disattivata a mano; instradamento non deterministico rende impossibile</p>
+<p>promettere tool-calling affidabile · fonte: pagine ufficiali, citazioni sotto.</p>
+<p><b>7. Together AI — scartato come "free tier reale"</b> · <code>together.ai/pricing</code> (pagina</p>
+<p>ufficiale letta 31/7/2026) · non esiste un free tier generale: un solo modello sperimentale</p>
+<p>a $0.00 (PrismML Ternary Bonsai 27B), nessun limite di richieste dichiarato in pagina,</p>
+<p>nessuna clausola su training. Riportato solo per escluderlo esplicitamente dalla mappa —</p>
+<p>le fonti terze che lo elencano come "free tier" fanno riferimento al credito di benvenuto</p>
+<p>una tantum, non a un tier permanente.</p>
+<h2>Il meccanismo, spiegato bene</h2>
+<p>Il nodo centrale, quello che la scottatura del 25/7 aveva lasciato "da confermare", è la</p>
+<p>distinzione fra tre superfici che condividono la parola "Claude Code" ma non condividono le</p>
+<p>stesse regole: la CLI in modalità <code>-p</code>, l'Agent SDK come libreria, e un gateway interposto.</p>
+<p>La CLI in modalità <code>-p</code> non è un prodotto diverso dalla CLI interattiva — è lo stesso</p>
+<p>binario, la stessa autenticazione, la stessa fattura. La pagina <code>authentication</code> elenca</p>
+<p>l'ordine di precedenza delle credenziali e al sesto e ultimo posto mette "Subscription OAuth</p>
+<p>credentials from <code>/login</code>. This is the default for Claude Pro, Max, Team, and Enterprise</p>
+<p>users", specificando poi per l'<code>ANTHROPIC_API_KEY</code> che "In non-interactive mode (<code>-p</code>), the</p>
+<p>key is always used when present" — la simmetria implica che in assenza di una API key</p>
+<p>esplicita, <code>-p</code> eredita esattamente la stessa credenziale OAuth di sessione che useresti</p>
+<p>interattivamente. La pagina <code>costs</code>, letta per intero, non introduce mai una categoria di</p>
+<p>spesa separata per l'uso automatizzato: parla di "seat-based usage window on a subscription</p>
+<p>plan" condivisa fra Claude chat, Cowork e Claude Code, e quando arriva a spiegare perché il</p>
+<p>consumo di una sessione lunga sale, elenca "scheduled tasks" nello stesso paragrafo di</p>
+<p>"long context" e "cache misses" — un fattore che aumenta il consumo dentro lo stesso monte,</p>
+<p>non un monte diverso. Questo chiude, su fonte primaria, il "non confermato" più pesante che</p>
+<p>D4 aveva lasciato aperto: la voce di maggio 2026 su una fatturazione programmatica separata,</p>
+<p>rientrata o cancellata a seconda della fonte secondaria, oggi — 31/7/2026, sulla pagina viva</p>
+<p>— semplicemente non esiste nella documentazione corrente. Non è una prova che non sia mai</p>
+<p>esistita; è la prova che lo stato attuale del prodotto non la applica a Pro/Max.</p>
+<p>Il gateway locale funziona diversamente e la pagina <code>llm-gateway</code> lo spiega con una frase</p>
+<p>che vale più di mille secondarie: quando imposti <code>ANTHROPIC_BASE_URL</code> per puntare Claude</p>
+<p>Code a un proxy locale ma <b>non</b> imposti anche una credenziale-gateway</p>
+<p>(<code>ANTHROPIC_AUTH_TOKEN</code> o <code>ANTHROPIC_API_KEY</code>), Claude Code continua a usare il login</p>
+<p>claude.ai salvato — il proxy si limita a essere un salto di rete in più sulla strada verso</p>
+<p><code>api.anthropic.com</code>, non un sostituto di identità. È esattamente la forma "bisturi" che</p>
+<p>Dedalo aveva proposto il 25/7 senza poterla fondare su un testo ufficiale: un router locale</p>
+<p>(OmniRoute, LiteLLM) che per le richieste dirette a Claude si limita a fare da tubo, mentre</p>
+<p>per le richieste dirette a modelli gratuiti prende in carico la parte che gli compete. Il</p>
+<p>limite dichiarato è che Anthropic "doesn't endorse, maintain, or audit third-party gateway</p>
+<p>products, and doesn't support routing Claude Code to non-Claude models through any</p>
+<p>gateway" — una clausola di irresponsabilità tecnica, non un divieto contrattuale: se il</p>
+<p>proxy rompe una feature futura di Claude Code, non è un problema di Anthropic; se il proxy</p>
+<p>smista lo stesso traffico verso Llama o Qwen, quella parte del flusso non ha alcuna garanzia</p>
+<p>di compatibilità, ma non risulta vietata da nessun testo letto in questa ricerca.</p>
+<p>Il caso diverso, e quello dove il rischio resta reale, è quando l'identità stessa cambia</p>
+<p>mano: il provider "Claude Web" di OmniRoute non usa il token OAuth di Claude Code, usa i</p>
+<p>cookie di sessione del sito claude.ai (<code>sessionKey</code>, <code>cf_clearance</code> e altri) per far</p>
+<p>credere ai server di Anthropic che sta parlando con un browser autenticato, mentre in realtà</p>
+<p>sta parlando con un tool terzo. Qui il client che accede al servizio non è più "Claude</p>
+<p>Code" in nessun senso tecnico — è OmniRoute che si spaccia per una sessione web. Questo</p>
+<p>scenario collima con la lettura più severa di <code>legal-and-compliance</code> ("third-party</p>
+<p>developers... route requests through Free, Pro, or Max plan credentials on behalf of their</p>
+<p>users") anche nell'interpretazione più stretta possibile, perché non c'è alcuna ambiguità</p>
+<p>sul "chi" sta accedendo: non è l'utente con il proprio client ufficiale, è un tool</p>
+<p>intermedio che finge di esserlo. Rimane il candidato da non toccare, per le stesse ragioni</p>
+<p>già scritte da Argonauta il 25/7 in P7 — solo che ora la ragione ha un fondamento testuale</p>
+<p>diretto, non solo una deduzione da articoli di terzi.</p>
+<p>Resta aperta, e va dichiarata aperta, la zona grigia dell'Agent SDK per uso personale</p>
+<p>mono-utente. Il testo che la riguarda compare due volte, in forma leggermente diversa. Su</p>
+<p><code>agent-sdk/overview</code>: "Unless previously approved, Anthropic does not allow third party</p>
+<p>developers to offer claude.ai login or rate limits for their products, including agents</p>
+<p>built on the Claude Agent SDK. Use the API key authentication methods described in the</p>
+<p>Quickstart instead." Su <code>legal-and-compliance</code>: "Developers building products or services</p>
+<p>that interact with Claude's capabilities, including those using the Agent SDK, should use</p>
+<p>API key authentication... Anthropic does not permit third-party developers to offer</p>
+<p>Claude.ai login or to route requests through Free, Pro, or Max plan credentials **on behalf</p>
+<p>of their users**." Entrambe le frasi sono costruite intorno a "prodotti", "servizi",</p>
+<p>"third-party developers" e "on behalf of their users" — linguaggio che descrive un</p>
+<p>developer che rivende o redistribuisce accesso ad altri utenti finali usando le proprie</p>
+<p>credenziali di abbonamento. La navicella di Giuseppe non fa questo: è mono-utente, non</p>
+<p>distribuita, non offerta a nessun altro. Ma nessuna delle due pagine scrive esplicitamente</p>
+<p>"tranne se sei l'unico utente del tuo stesso abbonamento" — l'assenza di quella clausola è</p>
+<p>un vuoto, non una conferma. Contemporaneamente, <code>authentication</code> elenca l'Agent SDK come uno</p>
+<p>dei percorsi di login OAuth validi e ne discute l'enforcement di <code>forceLoginOrgUUID</code> come se</p>
+<p>fosse un caso d'uso normale, non un'eccezione tollerata. La tensione fra questi due registri</p>
+<p>— "should use API key" da un lato, "login funziona e viene gestito" dall'altro — è reale e</p>
+<p>non si scioglie leggendo altre pagine: va portata a Dedalo/Mnemosyne come fatto, non come</p>
+<p>raccomandazione.</p>
+<h2>Contro</h2>
+<ul>
+<li>La zona grigia sull'Agent SDK mono-utente non si chiude con questa ricerca: il testo non   lo vieta esplicitamente ma nemmeno lo assolve. Chi userà l'Agent SDK sull'abbonamento della   navicella lo fa sapendo che la lettura più severa possibile del linguaggio ufficiale lo   classificherebbe come il caso descritto, anche se lo scopo è diverso da quello che il testo   sembra voler colpire.</li>
+<li>"Not supported" per il routing verso modelli non-Claude attraverso un gateway non è una   garanzia di stabilità: una futura versione di Claude Code potrebbe introdurre un campo o un   header che un gateway non aggiorna in tempo, rompendo silenziosamente la sessione — il   rischio è tecnico (rottura), non legale.</li>
+<li>Ogni free tier misurato ha un RPM fra 5 e 30 — nessuno regge il pattern reale di un   Argonauta (decine di migliaia di token di input in pochi minuti, come misurato da   Mnemosyne il 31/7). Sono utilizzabili solo per passate meccaniche a bassa cadenza, non per   ragionamento agentivo continuo.</li>
+<li>SiliconFlow non ha una dichiarazione esplicita di non-training: è un gate-privacy aperto,   non uno chiuso, nonostante il tono rassicurante del marketing ("zero data retention")   trovato solo in fonti secondarie, mai nella privacy policy ufficiale stessa.</li>
+<li>OpenRouter free ha un default di routing che <i>può</i> permettere il training sui dati salvo   disattivazione esplicita — è l'unico dei sei candidati dove il gate-privacy richiede   un'azione attiva dell'utente, non è già chiuso di default.</li>
+<li>I numeri di rate limit su tutti i provider commerciali (Groq, Cerebras, SiliconFlow,   OpenRouter) sono dichiarati "soggetti a cambiare senza preavviso" nella prassi di settore;   nessuno di essi porta una data di validità sulla pagina stessa — sono fotografie del   31/7/2026, non garanzie.</li>
+</ul>
+<h2>Innesto proposto</h2>
+<p>Non deciso qui — competenza di Dedalo/Mnemosyne, art. 6 del mandato. Punti di aggancio, se</p>
+<p>la direzione scelta fosse "usare quanto verificato qui":</p>
+<ul>
+<li>Se si vuole un battito/tick (D4) che non tocchi l'Agent SDK: <code>claude -p</code> con   <code>claude setup-token</code> per generare un <code>CLAUDE_CODE_OAUTH_TOKEN</code> di lungo periodo, invocabile   da Task Scheduler senza login interattivo — copre esattamente il candidato 2 di D4 con la   base legale ora confermata.</li>
+<li>Se si vuole la forma "bisturi" di OmniRoute proposta da Dedalo il 25/7: configurare   <code>ANTHROPIC_BASE_URL</code> verso il proxy locale <b>senza</b> impostare <code>ANTHROPIC_AUTH_TOKEN</code> o   <code>ANTHROPIC_API_KEY</code> per il traffico diretto a Claude — il login OAuth resta attivo e la   fattura resta l'abbonamento. Il resto del traffico (passivi/bulk verso Groq, Cerebras,   SiliconFlow) passa dallo stesso proxy con credenziali proprie di quei provider.   File toccato: la configurazione del proxy, non gli agenti stessi — zero refactoring,   coerente con quanto già scoperto da Argonauta il 25/7 (P1).</li>
+<li>Provider consigliato per un primo innesto bulk, in ordine di preferenza sui dati misurati   qui: Cerebras (privacy più pulita, dichiarazione esplicita e datata) o Groq (tool-calling   ampiamente confermato, retention zero di default) — non SiliconFlow finché non arriva una   dichiarazione di training esplicita, non OpenRouter free finché l'interruttore   anti-training non è verificato attivo.</li>
+<li>Il provider "Claude Web" di OmniRoute va escluso per iscritto da qualunque configurazione   — punto fermo, non negoziabile su questa ricerca.</li>
+</ul>
+<h2>Non confermato</h2>
+<ul>
+<li>Se la lettura permissiva di "Agent SDK mono-utente non è il target del divieto" regga in   pratica — nessuna pagina Anthropic la conferma né la smentisce esplicitamente; è   un'interpretazione a partire dal linguaggio "on behalf of their users" / "third-party   developers... for their products", non un fatto scritto.</li>
+<li>Se il meccanismo di gateway pass-through descritto in <code>llm-gateway</code> sia inteso anche per   utenti individuali Pro/Max al di fuori di un contesto "organizzazione" — le pagine sono   scritte con linguaggio da amministratore IT, ma il meccanismo tecnico (<code>ANTHROPIC_BASE_URL</code>   senza credenziale) non è condizionato a nessun controllo di piano nel testo letto.</li>
+<li>Tool-calling per Cerebras sui suoi tre modelli free specificamente (gpt-oss-120b, GLM-4.7,   Gemma-4-31b) non è stato confermato su una pagina Cerebras dedicata al tool-use — solo   inferito dal fatto che gli stessi modelli lo supportano su SiliconFlow e Groq.</li>
+<li>Se le tabelle di rate-limit di Groq, Cerebras, SiliconFlow, OpenRouter cambino prima che   Dedalo agisca su questa ricerca — nessuna porta una data di ultimo aggiornamento visibile.</li>
+<li>Se <code>code.claude.com/docs/en/legal-and-compliance</code> porti una data di ultima revisione della   sezione "Authentication and credential use" — la pagina non mostra un changelog o una data   di modifica; è stata letta come stato corrente al 31/7/2026, non come testo stabile da una   data nota.</li>
+</ul>
+<hr>
+<h2>Fonti primarie consultate (tutte lette 31/7/2026)</h2>
+<ul>
+<li><code>anthropic.com/legal/consumer-terms</code> — Effective Date: 8 ottobre 2025, §3.7</li>
+<li><code>anthropic.com/legal/commercial-terms</code>, <code>anthropic.com/legal/aup</code> — consultate, nessuna   clausola specifica trovata sul nodo OAuth/Agent SDK</li>
+<li><code>code.claude.com/docs/en/legal-and-compliance</code> — sezione "Authentication and credential use"</li>
+<li><code>code.claude.com/docs/en/agent-sdk/overview</code> — nota sui third-party developer</li>
+<li><code>code.claude.com/docs/en/authentication</code> — precedenza credenziali, <code>claude setup-token</code></li>
+<li><code>code.claude.com/docs/en/headless</code> — meccanica <code>-p</code></li>
+<li><code>code.claude.com/docs/en/llm-gateway</code> — "Subscriptions and gateways"</li>
+<li><code>code.claude.com/docs/en/llm-gateway-connect</code> — configurazione gateway per superficie</li>
+<li><code>code.claude.com/docs/en/costs</code> — fatturazione, finestre di utilizzo, scheduled tasks</li>
+<li><code>code.claude.com/docs/en/scheduled-tasks</code> — Routines/Desktop/<code>/loop</code>, confronto</li>
+<li><code>console.groq.com/docs/rate-limits</code>, <code>.../your-data</code>, <code>.../tool-use</code></li>
+<li><code>inference-docs.cerebras.ai/support/rate-limits</code>, <code>cerebras.ai/privacy-policy</code></li>
+<li><code>docs.siliconflow.com/en/userguide/rate-limits/rate-limit-and-upgradation</code>,   <code>siliconflow.com/pricing</code> (istantanea 22/7/2026),   <code>docs.siliconflow.com/en/legals/privacy-policy</code> (Update Date: 31/3/2025)</li>
+<li><code>openrouter.ai/docs/api-reference/limits</code>, <code>.../docs/features/privacy-and-logging</code></li>
+<li><code>together.ai/pricing</code></li>
+</ul>
+<script>window.addEventListener('DOMContentLoaded',function(){
+ renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});
+});</script>
+</body></html>

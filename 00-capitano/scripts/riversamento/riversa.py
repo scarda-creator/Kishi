@@ -42,6 +42,12 @@ EXCLUDE = ["*venv*", "node_modules", "__pycache__", ".git", "*.enc",
            # anima locale (anima-dati.js) contiene la FORMA di L5: mai in chiaro.
            # Il grafo pulito per il remoto e' generato a parte (grafo.json).
            "anima",
+           # indici e database: un indice contiene IL TESTO di tutto cio' che indicizza,
+           # quindi anche dei documenti che le righe qui sopra escludono con cura.
+           # Trovato il 14-08 su repo PUBBLICA: memoria-indice.db conteneva 24 frammenti
+           # di L5-subconscio in chiaro, cioe' esattamente cio' che L5.enc protegge.
+           # Le esclusioni per nome non bastano quando un file ne contiene altri.
+           "*.db", "*.sqlite", "*.sqlite3",
            # modelli voce (Piper .onnx): pesanti (~60MB) e inutili in viaggio.
            "*.onnx"]
 MAX_FILE_MB = 95  # GitHub rifiuta i file > 100 MB: i piu' grandi (es. libri PDF) vengono
@@ -191,6 +197,12 @@ def _audit_repo(repo):
         for f in files:
             if fnmatch.fnmatch(f, "coda-*.jsonl"):
                 problemi.append(f"coda in chiaro: {f}")
+            # Contenitori opachi: l'audit legge testo, non sa guardare dentro un
+            # database. Un indice porta con se' il testo dei documenti esclusi —
+            # e' cosi' che L5 e' finito in chiaro su una repo pubblica il 14-08.
+            # Regola: cio' che l'audit non sa leggere non attraversa il cancello.
+            if fnmatch.fnmatch(f, "*.db") or fnmatch.fnmatch(f, "*.sqlite*"):
+                problemi.append(f"database opaco nel repo: {f} (puo' contenere L5 indicizzato)")
     for f in ["L5.enc", "coda.enc", "grafo.json", "mappa-grafo.enc"]:
         if not os.path.isfile(os.path.join(repo, f)):
             problemi.append(f"blob atteso mancante: {f}")

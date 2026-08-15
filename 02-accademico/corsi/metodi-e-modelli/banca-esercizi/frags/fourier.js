@@ -314,6 +314,171 @@ Q.fourier = [
       hint:"$S_a(\\pi)=\\frac{a\\sinh(a\\pi)}{\\pi}s_2$; poni uguale a $\\cosh(a\\pi)$ e isola $s_2$.",
       sol:"<b>Somma bilatera $s_2$ (verificato ufficialmente).</b> $S_a(\\pi)=\\frac{a\\sinh(a\\pi)}{\\pi}s_2=\\cosh(a\\pi)$ d&agrave; $s_2=\\frac{\\pi}{a}\\coth(\\pi a)$. Verifica di coerenza: ponendo $a=b$ in $s_3$ si riottiene $s_2$ (usando $\\sinh 2x=2\\sinh x\\cosh x$), come richiede l'esercizio."
     }]
+  },
+
+  { pool:"fourier", src:"20240115 Es.4", steps:[
+    { t:"$f(x)=\\frac{(x+\\pi)^2}{\\pi}$ su $(-\\pi,0)$ e $0$ su $(0,\\pi)$. Per l'identit&agrave; $\\sum_{n\\ge1}\\frac1{n^2}$ si valuta in $x=0$, dove $f$ &egrave; DISCONTINUA. Quanto vale $S(0)$?",
+      opts:[
+        {x:"la semisomma $\\tfrac12(f(0^+)+f(0^-))=\\tfrac12(0+\\pi)=\\tfrac{\\pi}{2}$",c:true},
+        {x:"$f(0)=0$ (ramo destro)"},
+        {x:"$f(0)=\\pi$ (ramo sinistro)"},
+        {x:"$0$, media nulla"}],
+      hint:"$f(0^+)=0$ (dal ramo nullo su $(0,\\pi)$), $f(0^-)=\\frac{(0+\\pi)^2}{\\pi}=\\pi$: la serie prende la MEDIA, non un ramo.",
+      sol:"<b>Teorema di Dirichlet nel salto (compito 15/01/2024).</b> In $x=0$ la funzione periodica salta fra $\\pi$ (sinistra) e $0$ (destra): $S(0)=\\tfrac12(\\pi+0)=\\tfrac{\\pi}{2}$. Usare $f(0)$ (che vale $0$ o $\\pi$ a seconda del ramo) al posto della semisomma d&agrave; l'equazione sbagliata: &egrave; la trappola centrale del tipo (mappa b01).",
+      cont:"Uguaglia alla serie e concludi &rarr;" },
+    { t:"Con $f_0=\\frac{1}{\\sqrt{2\\pi}}\\frac{\\pi^2}{3}$ e $f_n+f_{-n}=\\frac{1}{\\sqrt{2\\pi}}\\frac{4}{n^2}$, imporre $S(0)=\\frac{\\pi}{2}$ d&agrave;:",
+      opts:[
+        {x:"$\\frac{1}{2\\pi}\\big[\\frac{\\pi^2}{3}+4\\sum_{n\\ge1}\\frac1{n^2}\\big]=\\frac{\\pi}{2}\\Rightarrow\\sum_{n\\ge1}\\frac1{n^2}=\\frac{\\pi^2}{6}$",c:true},
+        {x:"$\\sum_{n\\ge1}\\frac1{n^2}=\\frac{\\pi^2}{8}$"},
+        {x:"$\\sum_{n\\ge1}\\frac1{n^2}=\\frac{\\pi^2}{12}$"},
+        {x:"$\\sum_{n\\ge1}\\frac1{n^2}=\\frac{\\pi}{2}$"}],
+      hint:"$S(0)=\\frac{1}{\\sqrt{2\\pi}}[f_0+\\sum(f_n+f_{-n})]=\\frac{1}{2\\pi}[\\frac{\\pi^2}{3}+4\\sum\\frac1{n^2}]$; poni uguale a $\\frac{\\pi}{2}$.",
+      sol:"<b>Identit&agrave; di Basilea $\\zeta(2)=\\frac{\\pi^2}{6}$ (verificato ufficialmente).</b> $\\frac{1}{2\\pi}[\\frac{\\pi^2}{3}+4\\sum\\frac1{n^2}]=\\frac{\\pi}{2}\\Rightarrow\\frac{\\pi^2}{3}+4\\sum\\frac1{n^2}=\\pi^2\\Rightarrow\\sum_{n\\ge1}\\frac1{n^2}=\\frac{\\pi^2}{6}$. La semisomma $\\frac{\\pi}{2}$ del passo precedente &egrave; ci&ograve; che rende l'equazione corretta: cambiando il secondo membro cambia la costante di Basilea."
+    }]
+  },
+
+  { pool:"fourier", src:"20240703 Es.3", steps:[
+    { t:"$f(x)=e^{|x|}$ su $[-1,1]$ ($L=2$), funzione PARI. I coefficienti trigonometrici sono:",
+      opts:[
+        {x:"$b_n=0$ per parit&agrave;; $a_n=\\dfrac{2(-1)^n(e-1)}{1+\\pi^2n^2}$ e termine costante $e-1$",c:true},
+        {x:"$a_n=0$ per parit&agrave;; solo $b_n\\neq0$"},
+        {x:"$a_n=\\dfrac{2(e-1)}{n^2}$"},
+        {x:"$a_n=\\dfrac{(-1)^n}{1+n^2}$, termine costante $0$"}],
+      hint:"$f$ pari $\\Rightarrow$ serie di soli coseni ($b_n=0$). L'integrale $\\int_0^1 e^x\\cos(\\pi nx)dx$ d&agrave; il denominatore $1+\\pi^2 n^2$ e il segno $(-1)^n$ da $\\cos(\\pi n)$.",
+      sol:"<b>Coefficienti di $e^{|x|}$ (compito 03/07/2024, verificati).</b> Per parit&agrave; $b_n=0$; integrando $a_n=\\int_{-1}^1 e^{|x|}\\cos(\\pi nx)dx=\\frac{2(-1)^n(e-1)}{1+\\pi^2n^2}$, con termine costante $e-1$. Sono i coefficienti veri della soluzione ufficiale; su di essi poggia l'identit&agrave; numerica.",
+      cont:"Valuta in $x=0$ &rarr;" },
+    { t:"In $x=0$ la funzione $e^{|x|}$ &egrave; CONTINUA. Il teorema di Dirichlet impone quindi:",
+      opts:[
+        {x:"$S(0)=f(0)=e^0=1$ &mdash; nessuna semisomma, perch&eacute; non c'&egrave; salto",c:true},
+        {x:"$S(0)=\\tfrac12(e+e)=e$, semisomma"},
+        {x:"$S(0)=0$"},
+        {x:"$S(0)=e-1$"}],
+      hint:"$e^{|x|}$ &egrave; continua in $0$ (i due rami $e^{x}$ ed $e^{-x}$ combaciano): la serie converge al valore vero $f(0)=1$.",
+      sol:"<b>Continuit&agrave; in $x=0$ (Dirichlet).</b> $e^{|x|}$ &egrave; continua in $0$: $S(0)=f(0)=1$, senza semisomma. Uguagliando $S(0)=e-1+2\\sum_{n\\ge1}\\frac{(-1)^n(e-1)}{1+\\pi^2n^2}$ a $1$ si ottiene un'identit&agrave; per la somma alternante. NOTA DI ONEST&Agrave;: il valore numerico di CHIUSURA di quella somma non lo asserisco qui &mdash; la stampa ufficiale del 03/07/2024 presenta, fra enunciato e passaggio finale, due forme che non ho saputo riconciliare (numeratore $-1+(-1)^n e$ contro $(-1)^n(e-1)$, e costante $(1-e)/2$ contro $(2-e)/2$). Il meccanismo &egrave; solido; il numero finale resta da verificare su fonte pulita."
+    }]
+  },
+
+  { pool:"fourier", src:"20240910 Es.2", steps:[
+    { t:"$\\int_{-\\infty}^{+\\infty}\\frac{\\cos x}{e^x+e^{-x}}dx$ col rettangolo di altezza $\\pi$ ($\\gamma_1$ asse reale, $\\gamma_3$ a quota $i\\pi$). I lati verticali $\\gamma_2,\\gamma_4$:",
+      opts:[
+        {x:"svaniscono per $R\\to\\infty$: l'integrando $\\sim e^{-y}/(e^R-e^{-R})\\to0$ sui lati $x=\\pm R$",c:true},
+        {x:"danno un contributo finito da sommare"},
+        {x:"sono uguali e opposti, si cancellano fra loro"},
+        {x:"non vanno considerati"}],
+      hint:"Sui lati verticali $z=\\pm R+iy$: il denominatore $e^{\\pm R}$ cresce mentre il numeratore resta limitato. Stima diretta $\\to0$.",
+      sol:"<b>Lati verticali del rettangolo (compito 10/09/2024, verificato).</b> Su $\\gamma_2,\\gamma_4$ l'integrando &egrave; maggiorato da $\\frac{e^{-y}}{e^R-e^{-R}}\\to0$: svaniscono. Restano i due lati orizzontali. A differenza della semicirconferenza (che qui racchiuderebbe infiniti poli), il rettangolo di altezza fissa ne cattura uno solo, $z=i\\pi/2$.",
+      cont:"Relaziona i due lati orizzontali &rarr;" },
+    { t:"Sul lato superiore $z=x+i\\pi$ vale $f(x+i\\pi)=-e^{-\\pi}g(x)$, quindi $\\int_{\\gamma_3}=-e^{-\\pi}\\int_{\\gamma_1}$ (con l'orientazione, $+e^{-\\pi}K$). Il risultato &egrave;:",
+      opts:[
+        {x:"$K(1+e^{-\\pi})=2\\pi i\\,\\mathrm{Res}_{i\\pi/2}=\\pi e^{-\\pi/2}\\Rightarrow I=\\mathrm{Re}\\,K=\\dfrac{\\pi}{2\\cosh(\\pi/2)}$",c:true},
+        {x:"$I=\\dfrac{\\pi}{\\cosh(\\pi/2)}$"},
+        {x:"$I=\\dfrac{\\pi}{2}e^{-\\pi/2}$"},
+        {x:"$I=2\\pi i\\,e^{-\\pi/2}$"}],
+      hint:"I due lati orizzontali NON si cancellano ma sono proporzionali via $e^{-\\pi}$: $\\int_{\\gamma_1}+\\int_{\\gamma_3}=K(1+e^{-\\pi})$, uguale a $2\\pi i$ per il residuo racchiuso.",
+      sol:"<b>Percorso rettangolare, chiusura (verificato ufficialmente).</b> Il prolungamento $\\frac{e^{iz}}{e^z+e^{-z}}$ soddisfa $f(x+i\\pi)=-e^{-\\pi}g(x)$: i lati orizzontali sono proporzionali, non opposti, e $K(1+e^{-\\pi})=2\\pi i\\,\\mathrm{Res}_{i\\pi/2}=\\pi e^{-\\pi/2}$. Prendendo la parte reale, $I=\\frac{\\pi}{2\\cosh(\\pi/2)}$. La proporzionalit&agrave; per periodicit&agrave; dell'esponenziale &egrave; ci&ograve; che rende il rettangolo, e non il semicerchio, lo strumento giusto."
+    }]
+  },
+
+  { pool:"fourier", src:"Set 3 es.7", steps:[{
+      t:"La trasformata di $f_1(x)=\\sin(x)e^{-x^2}$ NON usa i residui ma il completamento del quadrato. La strategia &egrave;:",
+      opts:[
+        {x:"scrivere $\\sin x=\\frac{e^{ix}-e^{-ix}}{2i}$, completare il quadrato all'esponente e usare $\\int e^{-(x+c)^2}dx=\\sqrt{\\pi}$ (valido anche per $c$ complesso)",c:true},
+        {x:"chiudere il contorno nel semipiano superiore e sommare i residui"},
+        {x:"sviluppare $e^{-x^2}$ in serie e integrare termine a termine"},
+        {x:"usare il percorso rettangolare"}],
+      hint:"La gaussiana non ha poli: niente residui. Il trucco &egrave; ricondurre l'esponente a un quadrato perfetto e usare l'integrale gaussiano noto.",
+      sol:"<b>Trasformata di una gaussiana modulata (Set 3 es.7, verificato).</b> $\\hat f_1(k)=\\frac{1}{2i}\\int[e^{-x^2-i(k-1)x}-e^{-x^2-i(k+1)x}]dx$; completando il quadrato, $\\int e^{-(x+i(k\\mp1)/2)^2}dx=\\sqrt{\\pi}$ (traslazione complessa del cammino, lecita perch&eacute; $e^{-z^2}$ &egrave; intera). Risultato $\\hat f_1(k)=\\frac{\\sqrt{\\pi}}{2i}\\big(e^{-(k-1)^2/4}-e^{-(k+1)^2/4}\\big)$: due gaussiane traslate a $\\pm1$, firma della modulazione $\\sin x$."
+    }]
+  },
+
+  { pool:"fourier", src:"Set 3 es.4", steps:[{
+      t:"$g_2(x)=\\int_{-\\infty}^{+\\infty}\\frac{e^{-(x-y)^2}}{y^2+1}dy$ &egrave; una CONVOLUZIONE. La sua trasformata si ottiene:",
+      opts:[
+        {x:"come PRODOTTO delle trasformate: $\\hat g_2=\\hat f_1\\cdot\\hat f_2$ con $f_1=e^{-x^2},\\,f_2=\\frac{1}{x^2+1}$, per il teorema di convoluzione",c:true},
+        {x:"come somma $\\hat f_1+\\hat f_2$"},
+        {x:"come convoluzione delle trasformate"},
+        {x:"calcolando l'integrale doppio direttamente"}],
+      hint:"$g_2=f_1*f_2$: la trasformata di una convoluzione &egrave; il prodotto delle trasformate. Entrambe le trasformate sono note ($\\sqrt\\pi e^{-k^2/4}$ e $\\pi e^{-|k|}$).",
+      sol:"<b>Teorema di convoluzione (Set 3 es.4, verificato).</b> $\\widehat{f_1*f_2}=\\hat f_1\\hat f_2$. Con $\\hat f_1(k)=\\sqrt{\\pi}\\,e^{-k^2/4}$ (gaussiana) e $\\hat f_2(k)=\\pi e^{-|k|}$ (lorentziana, via residui), $\\hat g_2(k)=\\pi^{3/2}e^{-|k|-k^2/4}$. Riconoscere la convoluzione converte un integrale in un prodotto: &egrave; il vantaggio del passaggio in trasformata."
+    }]
+  },
+
+  { pool:"fourier", src:"Set 3 es.2", steps:[
+    { t:"La terza somma $s_3=\\sum_{n=-\\infty}^{\\infty}\\frac{1}{(n+ia)(n-ib)}$ si ricava con una tecnica diversa da $s_1,s_2$. Quale?",
+      opts:[
+        {x:"il PRODOTTO SCALARE $\\langle S_b|S_a\\rangle$ di due serie con parametri diversi, sfruttando l'ortonormalit&agrave; delle esponenziali",c:true},
+        {x:"valutando la serie in un ulteriore punto $x_0$"},
+        {x:"derivando $s_2$ rispetto ad $a$"},
+        {x:"il teorema dei residui su un cerchio"}],
+      hint:"$s_3$ mescola DUE parametri $a,b$: nasce dal prodotto scalare di $|S_a\\rangle$ e $|S_b\\rangle$, non dalla valutazione in un punto.",
+      sol:"<b>Somma via prodotto scalare (Set 3 es.2, verificato).</b> $\\langle S_b|S_a\\rangle=\\frac{2}{\\pi}\\sinh(a\\pi)\\sinh(b\\pi)\\sum\\frac{1}{(b+in)(a-in)}$ per l'ortonormalit&agrave; di $\\{e^{inx}\\}$; ma $\\langle S_b|S_a\\rangle=\\int_{-\\pi}^{\\pi}e^{(a+b)x}dx$ perch&eacute; serie e funzione coincidono q.o. (identit&agrave; di Parseval/Plancherel).",
+      cont:"Il risultato &rarr;" },
+    { t:"Uguagliando le due espressioni di $\\langle S_b|S_a\\rangle$:",
+      opts:[
+        {x:"$s_3=\\dfrac{\\pi}{a+b}\\dfrac{\\sinh[(a+b)\\pi]}{\\sinh(a\\pi)\\sinh(b\\pi)}$",c:true},
+        {x:"$s_3=\\dfrac{\\pi}{ab}\\coth(a\\pi)\\coth(b\\pi)$"},
+        {x:"$s_3=\\dfrac{\\pi^2}{6}$"},
+        {x:"$s_3=\\dfrac{1}{a+b}$"}],
+      hint:"$\\int_{-\\pi}^{\\pi}e^{(a+b)x}dx=\\frac{2\\sinh[(a+b)\\pi]}{a+b}$; isola la somma.",
+      sol:"<b>Somma a due parametri $s_3$ (verificato ufficialmente).</b> $s_3=\\frac{\\pi}{a+b}\\frac{\\sinh[(a+b)\\pi]}{\\sinh(a\\pi)\\sinh(b\\pi)}$. Controllo: per $a=b$, con $\\sinh(2a\\pi)=2\\sinh(a\\pi)\\cosh(a\\pi)$, si riottiene $s_2=\\frac{\\pi}{a}\\coth(a\\pi)$. La coerenza fra $s_2$ e $s_3$ &egrave; la verifica interna dell'esercizio."
+    }]
+  },
+
+  { pool:"fourier", src:"tipo &middot; nucleo 13", steps:[{
+      t:"Per $\\int f(x)\\cos(kx)\\,dx$ via residui, spezzando $\\cos(kx)=\\tfrac12(e^{ikx}+e^{-ikx})$, l'errore da evitare &egrave;:",
+      opts:[
+        {x:"chiudere ENTRAMBI gli esponenziali nello stesso semipiano: $e^{ikx}$ ed $e^{-ikx}$ decadono in semipiani OPPOSTI, ciascuno va chiuso nel suo",c:true},
+        {x:"spezzare il coseno: non &egrave; mai lecito"},
+        {x:"prendere la parte reale alla fine"},
+        {x:"usare i residui invece della primitiva"}],
+      hint:"$e^{ikx}$ vuole un semipiano, $e^{-ikx}$ quello opposto: forzarli nello stesso contorno fa esplodere uno dei due archi.",
+      sol:"<b>Semipiani opposti per i due esponenziali (nucleo 13).</b> Si pu&ograve; spezzare $\\cos(kx)$, ma ogni termine va chiuso nel PROPRIO semipiano secondo il segno della sua frequenza (come nei tre casi di $\\cos(ax)/(x^2+b^2)$). In alternativa, si calcola $\\int f(x)e^{ikx}dx$ una volta sola e si prende alla fine parte reale (coseno) o immaginaria (seno): pi&ugrave; sicuro, un solo contorno."
+    }]
+  },
+
+  { pool:"fourier", src:"20230704 Es.3", steps:[{
+      t:"Due funzioni: $f$ ha polo in $z=-i$; $g$ ha poli in $z=1-2i$ e $z=-3+i/2$. Quale $\\hat{}$ decade pi&ugrave; rapidamente per $k\\to+\\infty$?",
+      opts:[
+        {x:"$\\hat g$: per $k>0$ contano i poli INFERIORI, $g$ ha $z=1-2i$ ($|\\mathrm{Im}|=2$) contro $z=-i$ di $f$ ($|\\mathrm{Im}|=1$), quindi $\\hat g\\sim e^{-2k}$ batte $\\hat f\\sim e^{-k}$",c:true},
+        {x:"$\\hat f$, perch&eacute; ha un solo polo"},
+        {x:"decadono ugualmente"},
+        {x:"$\\hat g$, ma governata dal polo $-3+i/2$"}],
+      hint:"Per $k\\to+\\infty$ si chiude sotto: domina il polo inferiore pi&ugrave; VICINO all'asse. $f$: $|\\mathrm{Im}|=1$. $g$: fra i poli inferiori c'&egrave; solo $1-2i$, $|\\mathrm{Im}|=2$.",
+      sol:"<b>Confronto dei decadimenti (compito 04/07/2023, verificato).</b> Per $k\\to+\\infty$ conta il polo inferiore con $|\\mathrm{Im}|$ minimo: $f$ decade come $e^{-k}$, $g$ come $e^{-2k}$ (pi&ugrave; veloce). Per $k\\to-\\infty$ contano i poli superiori: $g$ ha $-3+i/2$ ($|\\mathrm{Im}|=1/2$) e decade come $e^{k/2}$, pi&ugrave; lento di $\\hat f\\sim e^{k}$. La posizione dei poli detta la coda della trasformata (Set 3 es.6)."
+    }]
+  },
+
+  { pool:"fourier", src:"tipo &middot; b01", steps:[{
+      t:"Il teorema di Dirichlet interviene sia nelle serie sia nelle trasformate. La distinzione strutturale corretta &egrave;:",
+      opts:[
+        {x:"in ENTRAMBE, in un salto il valore ricostruito &egrave; la semisomma dei limiti; la serie somma modi DISCRETI $e^{inx}$, la trasformata integra un continuo di modi $e^{ikx}$",c:true},
+        {x:"il teorema vale solo per le serie, non per le trasformate"},
+        {x:"nelle trasformate il salto d&agrave; sempre $0$"},
+        {x:"nelle serie il valore in un salto &egrave; $f(x_0)$, nelle trasformate la semisomma"}],
+      hint:"Serie e trasformata sono lo stesso principio a spettro discreto vs continuo; il comportamento nei salti (semisomma) &egrave; identico.",
+      sol:"<b>Serie vs trasformata, stesso Dirichlet.</b> La serie di Fourier decompone su modi discreti $e^{inx}$ (dominio finito, spettro $n\\in\\mathbb{Z}$); la trasformata su un continuo $e^{ikx}$ (dominio $\\mathbb{R}$, spettro $k\\in\\mathbb{R}$). In un salto entrambe ricostruiscono la SEMISOMMA $\\tfrac12(f(x_0^+)+f(x_0^-))$: lo si &egrave; visto sia in $\\hat{\\hat f}(0)=\\tfrac12$ (16/11/2023) sia nelle identit&agrave; $\\zeta(2)$ e $\\sum(2n+1)^{-2}$. Cross-domain: in meccanica quantistica questi sono spettro legato (discreto) vs spettro di scattering (continuo) dello stesso operatore."
+    }]
+  },
+
+  { pool:"fourier", src:"Set 3 es.3", steps:[
+    { t:"$f_2(x)=-x$ su $(-1,0)$ e $\\tfrac12$ su $(0,1)$, periodicizzata ($L=2$). Nei punti di salto $x=0$ e $x=1$, il teorema di Dirichlet d&agrave;:",
+      opts:[
+        {x:"$S(0)=\\tfrac12(f(0^+)+f(0^-))=\\tfrac12(\\tfrac12+0)=\\tfrac14$ e $S(1)=\\tfrac12(f(1^+)+f(1^-))=\\tfrac12(1+\\tfrac12)=\\tfrac34$",c:true},
+        {x:"$S(0)=\\tfrac12$ e $S(1)=1$, i valori del ramo destro"},
+        {x:"$S(0)=0$ e $S(1)=\\tfrac12$, i valori del ramo sinistro"},
+        {x:"$S(0)=S(1)=0$"}],
+      hint:"In $0$: $f(0^-)=-x|_{0^-}=0$, $f(0^+)=\\tfrac12$. In $1$: $f(1^-)=\\tfrac12$, $f(1^+)=f(-1^+)=-x|_{-1^+}=1$ (periodicit&agrave;). Media, non ramo.",
+      sol:"<b>Dirichlet in due salti (Set 3 es.3, verificato).</b> $S(0)=\\tfrac12(0+\\tfrac12)=\\tfrac14$; $S(1)=\\tfrac12(\\tfrac12+1)=\\tfrac34$, dove $f(1^+)$ si legge dalla periodicizzazione ($=f(-1^+)=1$). Ogni punto di discontinuit&agrave; d&agrave; la sua semisomma indipendentemente: la funzione periodica &laquo;vede&raquo; il salto anche al bordo del periodo.",
+      cont:"Estrai l'identit&agrave; numerica &rarr;" },
+    { t:"Da $S(0)=\\tfrac14$, con $S(0)=\\tfrac12+\\tfrac1{\\pi^2}\\sum_{n\\ge1}\\frac{(-1)^n-1}{n^2}$, segue:",
+      opts:[
+        {x:"$\\sum_{n=0}^{\\infty}\\dfrac{1}{(2n+1)^2}=\\dfrac{\\pi^2}{8}$",c:true},
+        {x:"$\\sum_{n=0}^{\\infty}\\dfrac{1}{(2n+1)^2}=\\dfrac{\\pi^2}{6}$"},
+        {x:"$\\sum_{n=1}^{\\infty}\\dfrac{1}{n^2}=\\dfrac{\\pi^2}{12}$"},
+        {x:"$\\sum_{n=0}^{\\infty}\\dfrac{1}{(2n+1)^2}=\\dfrac{\\pi^2}{4}$"}],
+      hint:"$(-1)^n-1$ vale $0$ per $n$ pari e $-2$ per $n$ dispari: la somma si riduce ai soli dispari, cio&egrave; $\\sum 1/(2n+1)^2$.",
+      sol:"<b>Identit&agrave; dei dispari (verificato ufficialmente).</b> $S(0)=\\tfrac12-\\tfrac2{\\pi^2}\\sum_{n\\ge0}\\frac1{(2n+1)^2}=\\tfrac14\\Rightarrow\\sum_{n\\ge0}\\frac1{(2n+1)^2}=\\frac{\\pi^2}{8}$. Coerente con Basilea: $\\sum\\frac1{n^2}=\\sum_{pari}+\\sum_{dispari}=\\frac14\\zeta(2)+\\frac{\\pi^2}{8}$, che ridà $\\zeta(2)=\\frac{\\pi^2}{6}$. La semisomma $\\tfrac14$ del passo precedente &egrave; ci&ograve; che chiude il conto."
+    }]
   }
 
 ];

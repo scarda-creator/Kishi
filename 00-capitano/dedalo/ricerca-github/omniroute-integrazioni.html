@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8">
+<title>OmniRoute — integrazioni, fallback, ToS (Argonauta, 25 lug)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+ @page{size:A4;margin:19mm 17mm 20mm}
+ body{font-family:Georgia,'Times New Roman',serif;font-size:10.6pt;line-height:1.48;color:#14171c;margin:0}
+ h1{font-size:20pt;margin:0 0 2mm;line-height:1.2}
+ h2{font-size:13.5pt;margin:8mm 0 2mm;padding-bottom:1mm;border-bottom:1px solid #c9ced6;page-break-after:avoid}
+ h3{font-size:11.6pt;margin:5mm 0 1.5mm;color:#1e3a5f;page-break-after:avoid}
+ h4{font-size:10.6pt;margin:4mm 0 1mm;font-style:italic;page-break-after:avoid}
+ p{margin:0 0 2.2mm;text-align:justify}
+ ul{margin:0 0 2.6mm;padding-left:5.5mm} li{margin:0 0 1.2mm}
+ hr{border:none;border-top:1px solid #d6dae0;margin:6mm 0}
+ blockquote{margin:2.5mm 0;padding:2mm 4mm;background:#f4f6f9;border-left:2.5pt solid #4a6fa5;font-size:10pt}
+ table{border-collapse:collapse;width:100%;margin:2.5mm 0;font-size:9.6pt}
+ td{border:1px solid #ccd2da;padding:1.4mm 2.2mm;vertical-align:top}
+ tr:first-child td{background:#eef1f5;font-weight:bold}
+ code{background:#eef1f5;padding:0 1mm;border-radius:2px;font-family:Consolas,monospace;font-size:9.2pt}
+ a{color:#1e4a80;text-decoration:none}
+ .katex{font-size:1.02em}
+ .katex-display{margin:2.5mm 0;page-break-inside:avoid}
+ h2,h3{page-break-after:avoid} table,blockquote{page-break-inside:avoid}
+</style></head><body>
+<h1>Findings — OmniRoute: integrazioni agentiche, pattern fallback, nodo ToS — 2026-07-25</h1>
+<p>Ricerca condotta dall'Argonauta Personale su brief di Dedalo (Architetto).</p>
+<p>Obiettivo: dati grezzi sul meccanismo di integrazione di OmniRoute e router simili</p>
+<p>(LiteLLM, OpenRouter) in sistemi multi-agente; gestione fallback + nodo ToS Claude.</p>
+<p>Interpretazione e decisione progettuale restano a Dedalo.</p>
+<hr>
+<h2>1. Sistemi/progetti agentici reali che integrano questi router</h2>
+<p><b>OpenAI Agents SDK + LiteLLM</b> (docs.litellm.ai/docs/projects/openai-agents)</p>
+<p>Integrazione ufficiale documentata: ogni Agent istanzia un <code>LitellmModel</code> con</p>
+<p><code>base_url="http://localhost:4000"</code> e referenzia il nome del modello definito nel</p>
+<p>config.yaml centrale del proxy. Ogni agente può usare un modello diverso —</p>
+<p>l'orchestrazione della diversità avviene a livello di istanziazione Python, non di</p>
+<p>routing dinamico.</p>
+<p><b>OmniRoute</b> (github.com/diegosouzapw/OmniRoute)</p>
+<p>Gateway locale, porta 20128, endpoint <code>/v1/chat/completions</code> OpenAI-compatibile.</p>
+<p>Supporta MCP (94 tool), A2A (JSON-RPC 2.0 + SSE), integrazione dichiarata con</p>
+<p>Claude Code, Codex, Cursor, Cline, Continue, Aider (33+ tool configurabili via</p>
+<p><code>base_url: http://localhost:20128/v1</code>). 500+ contributor su GitHub. Rilascio</p>
+<p>attivo: v3.8.49 al 22 luglio 2026.</p>
+<p><b>LiteLLM Proxy</b> (docs.litellm.ai)</p>
+<p>Il router self-hosted più usato in produzione per sistemi agentici. Config YAML</p>
+<p>centralizzata, endpoint su localhost:4000, RBAC per chiavi, osservabilità integrata.</p>
+<p>Usato in tandem con OpenRouter: LiteLLM gestisce logging/RBAC locale, OpenRouter</p>
+<p>gestisce la breadth dei provider a monte.</p>
+<p><b>projdevbench</b> (deepwiki.com/zsworld6/projdevbench)</p>
+<p>Esempio documentato di configurazione LiteLLM + OpenRouter con ANTHROPIC_BASE_URL</p>
+<p>e OPENAI_BASE_URL puntati al proxy locale. Pattern usato per sviluppo agente</p>
+<p>multi-modello.</p>
+<p>Nessun sistema agentivo di terze parti (AutoGen, CrewAI, LangGraph) risulta avere</p>
+<p>un'integrazione nativa ufficiale con OmniRoute. L'integrazione avviene sempre via</p>
+<p>base_url redirect — non è framework-specifica.</p>
+<hr>
+<h2>2. Meccanismo tecnico di integrazione</h2>
+<h3>Come si punta il router</h3>
+<p>Pattern uniforme in tutti i sistemi trovati:</p>
+<p>```</p>
+<p>OPENAI_BASE_URL=http://localhost:4000     # per LiteLLM</p>
+<p>ANTHROPIC_BASE_URL=http://localhost:20128/v1  # per OmniRoute (se intercetta Anthropic)</p>
+<p>```</p>
+<p>Oppure, a livello di codice:</p>
+<p>```python</p>
+<h1>OpenAI Agents SDK + LiteLLM: per-agent model assignment</h1>
+<p>agente_orchestratore = Agent(</p>
+<p>    model=LitellmModel(model="gpt-4o", base_url="http://localhost:4000", api_key="sk-...")</p>
+<p>)</p>
+<p>agente_coder = Agent(</p>
+<p>    model=LitellmModel(model="claude-sonnet", base_url="http://localhost:4000", api_key="sk-...")</p>
+<p>)</p>
+<p>```</p>
+<p>Il proxy riceve la richiesta, la trasforma nel formato del provider reale, la spedisce.</p>
+<p>Il chiamante non vede il provider — vede solo il nome-modello definito nel config.</p>
+<h3>Config YAML LiteLLM (pattern verificato dalla doc ufficiale)</h3>
+<p>```yaml</p>
+<p>model_list:</p>
+<p>  - model_name: "gpt-4o"</p>
+<p>    litellm_params:</p>
+<p>      model: openai/gpt-4o</p>
+<p>      api_key: os.environ/OPENAI_API_KEY</p>
+<p>  - model_name: "claude-sonnet"</p>
+<p>    litellm_params:</p>
+<p>      model: anthropic/claude-sonnet-4</p>
+<p>      api_key: os.environ/ANTHROPIC_API_KEY</p>
+<p>router_settings:</p>
+<p>  fallbacks: [{"gpt-4o": ["claude-sonnet"]}]</p>
+<p>  context_window_fallbacks: [{"claude-sonnet": ["gpt-4o"]}]</p>
+<p>  default_fallbacks: ["gpt-4o"]</p>
+<p>```</p>
+<h3>Come scatta il fallback</h3>
+<p>LiteLLM implementa tre strati separati:</p>
+<ul>
+<li><b>Provider circuit breaker</b> — se l'intero provider è down, rerouting immediato</li>
+<li><b>Connection cooldown</b> — exponential backoff per chiave API specifica al rate-limit</li>
+<li><b>Model lockout</b> — modello specifico flaggato fuori per finestra temporale</li>
+</ul>
+<p>Tipi di fallback distinti:</p>
+<ul>
+<li><code>fallbacks</code> — per RateLimitError, errori 429/500 generici</li>
+<li><code>context_window_fallbacks</code> — pre-call, se il prompt supera il contesto del modello   (richiede <code>enable_pre_call_checks: true</code>)</li>
+<li><code>content_policy_fallbacks</code> — per violazioni di policy</li>
+<li><code>default_fallbacks</code> — catch-all per il resto</li>
+</ul>
+<p>Il fallback è trasparente al chiamante: il client riceve la risposta senza sapere</p>
+<p>quale modello ha risposto. L'header <code>x-litellm-model-id</code> nella risposta identifica</p>
+<p>il modello che ha effettivamente servito.</p>
+<h3>Routing per-agente/per-task</h3>
+<p>Pattern trovato (da zylos.ai/research, verificato):</p>
+<p>```python</p>
+<h1>routing interno all'agente per tipo di task</h1>
+<p>if task_type == "ragionamento_denso":</p>
+<p>    return await self.invoke(task, model="claude-opus-4")</p>
+<p>elif task_type == "generazione_codice":</p>
+<p>    return await self.invoke(task, model="claude-sonnet-4")</p>
+<p>else:</p>
+<p>    return await self.invoke(task, model="gpt-4o-mini")</p>
+<p>```</p>
+<p>Framework MasRouter (trovato in letteratura): tre livelli — collaboration determiner</p>
+<p>(task singolo vs multi-agente), role allocator (che ruoli servono), LLM router</p>
+<p>(quale modello per ogni ruolo). Non è un prodotto commerciale documentato, è un</p>
+<p>pattern architetturale.</p>
+<hr>
+<h2>3. Il nodo ToS — dati certi</h2>
+<h3>Cosa è successo (verificato su 4 fonti)</h3>
+<p>Febbraio 2026: Anthropic ha aggiornato i ToS vietando esplicitamente l'uso dei</p>
+<p>token OAuth delle subscription (Free, Pro, Max) fuori dai client ufficiali. Enforcement</p>
+<p>attivo da aprile 2026. Fonte principale: winbuzzer.com/2026/02/19 + gigazine.net +</p>
+<p>dev.to/mcrolly.</p>
+<p>Citazione esatta (da documentazione Anthropic riportata): "OAuth tokens obtained with</p>
+<p>the Free, Pro, and Max plans are for use exclusively with Claude Code and Claude.ai,</p>
+<p>and use of these tokens with any other products, tools, or services, including the</p>
+<p>Agent SDK, is unauthorized and a violation of its consumer terms of service."</p>
+<h3>OmniRoute e il provider "Claude Web"</h3>
+<p>OmniRoute espone un provider chiamato "Claude Web" che usa cookie-session di claude.ai</p>
+<p>(6 cookie: sessionKey, routingHint, cf_clearance, __cf_bm, _cfuvid + metadata routing).</p>
+<p>La wiki di OmniRoute non contiene disclaimer ToS espliciti su questo provider.</p>
+<p>La sostanza tecnica — autenticazione via cookie di sessione estratti da claude.ai —</p>
+<p>è funzionalmente equivalente al ban OAuth: usa credenziali di subscription al di fuori</p>
+<p>del client ufficiale. Rischio concreto: sospensione account.</p>
+<p>OmniRoute cataloga "15 provider ToS-flagged" (auto-dichiarazione del progetto) e li</p>
+<p>segnala nel dashboard perché "l'utente decide". iflytek/Sparkdesk e Antigravity</p>
+<p>risultano fra i flaggati. Non è confermato se "Claude Web" sia esplicitamente nel</p>
+<p>gruppo flagged — la wiki tratta il provider in modo tecnico senza avvertenze legali.</p>
+<h3>Cosa resta legale per usare Claude in sistemi agentici</h3>
+<ul>
+<li><b>Claude Code CLI</b> su macchina locale o server via SSH — esplicitamente permesso    nei ToS, incluso in pipeline automatizzate e cron CI/CD</li>
+<li><b>API key da Anthropic Console</b> — sempre consentita, costo a consumo ($0.80/M    input per Sonnet 4 secondo kersai.com)</li>
+<li><b>AWS Bedrock / Google Vertex AI</b> — provider cloud che offrono Claude via API,    fuori dai ToS consumer, regolati da accordi enterprise</li>
+</ul>
+<p>Fonte: autonomee.ai/blog/claude-code-tos + kersai.com/workarounds</p>
+<hr>
+<h2>4. Pattern concreti di fallback chain al rate-limit</h2>
+<h3>Cosa succede al contesto quando il modello cambia a metà</h3>
+<p>Dato critico trovato in github.com/BerriAI/litellm/discussions/25703:</p>
+<p>"switching the horse mid-conversation is going to be non-trivial because frontier</p>
+<p>LLMs are increasingly particular about continuing existing conversation threads."</p>
+<p>Il proxy passa il contesto originale al modello di fallback — tecnicamente funziona.</p>
+<p>Ma il problema è semantico: un modello diverso ha stile, training, e risposte di sistema</p>
+<p>diversi. Il cambio a metà di una chain agentiva può produrre incoerenze sottili.</p>
+<p>Non è un problema di infrastruttura; è un problema di continuità cognitiva del task.</p>
+<p>La workaround documentata è architetturale: il routing per-task (non per-sessione)</p>
+<p>è più sicuro del routing mid-session. Si assegna il modello al tipo di task prima</p>
+<p>che inizi, non si cambia strada facendo.</p>
+<h3>Pattern OpenRouter per free tier al limite</h3>
+<p>Da brainroad.com (verificato):</p>
+<ul>
+<li>Limite free OpenRouter: 50 richieste/giorno (shared fra tutti i modelli free) +   20 RPM; $10 una-tantum eleva il daily a 1000 mantenendo 20 RPM</li>
+<li>Fallback chain consigliata per free tier: DeepSeek Chat v3 → Llama 4 Maverick →   Qwen3-235b (unici tre che reggono tool-calling in modo affidabile sui test)</li>
+<li>Routing endpoint <code>openrouter/free</code> = auto-selezione fra tutti i free, non   deterministica — non sai quale modello risponde</li>
+</ul>
+<h3>OmniRoute: 4 tier di fallback dichiarati</h3>
+<p>Tier 1 Subscription → Tier 2 API Key → Tier 3 Cheap → Tier 4 Free</p>
+<p>19 strategie di routing disponibili. Le principali rilevanti per uso agentivo:</p>
+<ul>
+<li><code>priority</code>: drena quota del provider corrente poi passa al successivo</li>
+<li><code>cost-optimized</code>: prezzi live, minimizza costo per request</li>
+<li><code>auto</code>: 12-factor scoring su salute/quota/latenza/success-rate</li>
+<li><code>fusion</code>: fan-out su N modelli + judge sintetizza (costoso ma robusto)</li>
+<li><code>pipeline</code>: output sequenziale attraverso provider diversi (tipo chain-of-thought   cross-model)</li>
+</ul>
+<p>Tre layer di resilienza: circuit breaker provider, cooldown per chiave, lockout</p>
+<p>per modello specifico.</p>
+<h3>Openai Agents SDK: integrazione LiteLLM router NON supportata nativamente</h3>
+<p>Issue #813 su github.com/openai/openai-agents-python: la classe <code>Router</code> di LiteLLM</p>
+<p>non può essere passata direttamente come <code>model</code> a <code>Agent()</code> — solo <code>LitellmModel</code>.</p>
+<p>Non è pianificato il supporto. Quindi: il fallback deve essere configurato lato proxy</p>
+<p>(LiteLLM server), non lato agente. L'agente punta al proxy, il proxy gestisce il</p>
+<p>fallback in modo trasparente. Questa è la separazione di responsabilità corretta.</p>
+<hr>
+<h2>5. Pattern riusabili per la navicella — dati grezzi (Dedalo decide)</h2>
+<p>Questi sono i pattern tecnici trovati, senza interpretazione architetturale.</p>
+<p><b>P1 — Base URL redirect per-agente</b></p>
+<p>Ogni agente ha <code>base_url</code> separato che punta al proxy. Il proxy assegna il modello</p>
+<p>reale per nome. Cambio di modello = cambio del name nel config.yaml, non nel codice</p>
+<p>dell'agente. Zero refactoring agente per cambiare provider.</p>
+<p><b>P2 — Fallback chain dichiarativa in YAML</b></p>
+<p>Separazione: il codice agente non sa dei fallback. Il proxy li gestisce. Configurazione</p>
+<p>in config.yaml: modello principale → fallback list → default fallback. Il modello di</p>
+<p>fallback riceve il contesto originale invariato.</p>
+<p><b>P3 — Free tier chain affidabile (se si vuole abbassare il costo agenti secondari)</b></p>
+<p>DeepSeek V3 via SiliconFlow (gratis forever) o via OpenRouter (:free variant) per</p>
+<p>agenti leggeri (Rapsodo, Argonauta). I free tier reggono task semplici ma non task</p>
+<p>agentivi complessi multi-step. Limite: 50 req/giorno OpenRouter free, oppure ~2.4M</p>
+<p>token/giorno SiliconFlow free per DeepSeek V3.</p>
+<p><b>P4 — Claude in produzione agentiva: solo API key o Claude Code CLI</b></p>
+<p>Subscription OAuth = ban dal febbraio 2026. Claude Web via cookie = stesso rischio.</p>
+<p>L'unica via per Claude in pipeline automatizzata è: (a) API key console.anthropic.com,</p>
+<p>(b) Claude Code CLI direttamente, (c) Bedrock/Vertex per contratti enterprise.</p>
+<p><b>P5 — Routing per-task vs routing mid-session</b></p>
+<p>Il cambio modello a metà di una conversazione agentiva è tecnicamente supportato</p>
+<p>dai proxy ma semanticamente rischioso (incoerenza stile/comportamento). Pattern</p>
+<p>consolidato: assegna il modello per tipo di agente/task PRIMA che la sessione inizi,</p>
+<p>non cambiarlo mentre è attiva.</p>
+<p><b>P6 — Compressione token OmniRoute: RTK+Caveman</b></p>
+<p>RTK filtra risultati di tool ridondanti. Caveman comprime prosa con rule-based</p>
+<p>stripping. LLMLingua-2 (opzionale, ML-based). Risparmio dichiarato: 89.2% su</p>
+<p>sessioni tool-heavy (dato auto-riportato, non validato da terzi). Rilevante per</p>
+<p>la navicella se il contesto degli agenti cresce molto per sessione.</p>
+<p><b>P7 — OmniRoute Claude Web: da evitare</b></p>
+<p>Usa cookie di sessione claude.ai estratti manualmente. Funzionalmente è un proxy</p>
+<p>della subscription, vietato dai ToS Anthropic. OmniRoute non ha disclaimer espliciti</p>
+<p>su questo nel wiki tecnico — è responsabilità dell'utente. Non adottare questo</p>
+<p>provider nella navicella.</p>
+<hr>
+<h2>Fonti verificate</h2>
+<ul>
+<li>github.com/diegosouzapw/OmniRoute (repo principale + AGENTS.md + wiki Claude-Web)</li>
+<li>docs.litellm.ai/docs/proxy/reliability (fallback types e config YAML)</li>
+<li>docs.litellm.ai/docs/projects/openai-agents (integrazione OpenAI Agents SDK)</li>
+<li>docs.litellm.ai/docs/routing (routing groups, ordering, config)</li>
+<li>github.com/openai/openai-agents-python/issues/813 (LiteLLM Router non supportato in Agent())</li>
+<li>github.com/BerriAI/litellm/discussions/25703 (problema mid-conversation switch)</li>
+<li>zylos.ai/research/2026-03-02-ai-agent-model-routing/ (pattern per-task routing, MasRouter, fallback chain config)</li>
+<li>winbuzzer.com/2026/02/19/anthropic-bans-claude-subscription-oauth-in-third-party-apps-xcxwbn/</li>
+<li>gigazine.net/gsc_news/en/20260220-anthropic-third-party-block/</li>
+<li>autonomee.ai/blog/claude-code-terms-of-service-explained/</li>
+<li>kersai.com/anthropic-killed-third-party-claude-access-heres-every-workaround-that-still-works/</li>
+<li>mindstudio.ai/blog/anthropic-openclaw-ban-oauth-authentication</li>
+<li>brainroad.com/openrouter-free-models-which-ones-actually-work-for-ai-agents/</li>
+<li>wavect.io/blog/llm-gateway-router-comparison-2026/</li>
+<li>aitoolly.com/ai-news/article/2026-07-21-omniroute-a-universal-mit-licensed-ai-gateway</li>
+<li>explainx.ai/blog/omniroute-ai-gateway-free-llm-proxy-claude-code-2026</li>
+</ul>
+<script>window.addEventListener('DOMContentLoaded',function(){
+ renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});
+});</script>
+</body></html>

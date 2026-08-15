@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stato reale della memoria — 14 agosto 2026</title>
+<style>
+  :root{
+    --fondo:#0f1216; --fondo2:#151a21; --bordo:#252d38;
+    --testo:#dfe5ec; --tenue:#9aa6b4; --acceso:#e8b96b; --forte:#7fb2e5;
+    --rosso:#e07a6a; --verde:#7fc9a0;
+    --serif: Georgia,"Iowan Old Style","Times New Roman",serif;
+    --mono: "Cascadia Mono",Consolas,"DejaVu Sans Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--fondo); color:var(--testo);
+    font-family:var(--serif); font-size:17px; line-height:1.62;
+  }
+  .foglio{max-width:52rem; margin:0 auto; padding:3.2rem 1.4rem 6rem}
+  header{border-bottom:1px solid var(--bordo); padding-bottom:1.4rem; margin-bottom:2.2rem}
+  h1{font-size:1.9rem; line-height:1.25; margin:0 0 .5rem; font-weight:600; letter-spacing:.01em}
+  .occhiello{font-family:var(--mono); font-size:.76rem; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--acceso); margin:0 0 .7rem}
+  .sotto{color:var(--tenue); font-size:.94rem; margin:.2rem 0}
+  h2{font-size:1.28rem; margin:2.8rem 0 .8rem; font-weight:600; color:#fff;
+    border-left:3px solid var(--acceso); padding-left:.7rem}
+  h3{font-size:1.03rem; margin:1.8rem 0 .5rem; font-weight:600; color:var(--forte)}
+  p{margin:.75rem 0}
+  strong{color:#fff; font-weight:600}
+  em{color:var(--tenue)}
+  code, .m{font-family:var(--mono); font-size:.86em; color:var(--acceso);
+    background:#1b2129; padding:.08em .32em; border-radius:3px}
+  .capitale{
+    background:linear-gradient(180deg,#1a1410,#171b21);
+    border:1px solid #4a3a24; border-left:4px solid var(--acceso);
+    padding:1.1rem 1.3rem; margin:1.6rem 0; border-radius:4px}
+  .capitale h2{margin-top:0; border:0; padding:0; font-size:1.15rem; color:var(--acceso)}
+  .verdetto{border:1px solid #4a3a24; background:#191410; padding:1rem 1.2rem;
+    margin:1.4rem 0; border-radius:4px; font-size:1.05rem}
+  .cifre{display:flex; flex-wrap:wrap; gap:.9rem; margin:1.6rem 0}
+  .cifra{flex:1 1 12rem; background:var(--fondo2); border:1px solid var(--bordo);
+    border-radius:5px; padding:.9rem 1rem}
+  .cifra .n{font-family:var(--mono); font-size:1.7rem; color:var(--acceso); display:block; line-height:1.1}
+  .cifra .d{font-size:.85rem; color:var(--tenue); display:block; margin-top:.35rem}
+  table{width:100%; border-collapse:collapse; margin:1.2rem 0; font-size:.92rem}
+  th,td{border:1px solid var(--bordo); padding:.55rem .7rem; text-align:left; vertical-align:top}
+  th{background:#1a2029; color:#fff; font-weight:600; font-size:.85rem;
+    letter-spacing:.03em; text-transform:uppercase}
+  td:first-child{font-family:var(--mono); font-size:.84rem; color:var(--forte); white-space:nowrap}
+  ul,ol{margin:.7rem 0 .7rem 1.2rem; padding:0}
+  li{margin:.42rem 0}
+  .nota{color:var(--tenue); font-size:.9rem}
+  hr{border:0; border-top:1px solid var(--bordo); margin:2.6rem 0}
+  .fonte{font-family:var(--mono); font-size:.78rem; color:#71808f}
+  .fatto{color:var(--verde)} .manca{color:var(--rosso)}
+  footer{margin-top:3.5rem; padding-top:1.2rem; border-top:1px solid var(--bordo);
+    color:var(--tenue); font-size:.86rem}
+  @media print{ body{background:#fff;color:#111} .foglio{padding:0} h2{color:#000} strong{color:#000} }
+</style>
+</head>
+<body>
+<div class="foglio">
+
+<header>
+  <p class="occhiello">Mnemosyne · relazione di lavoro · 14 agosto 2026</p>
+  <h1>Stato reale della memoria<br>misurato, non ricordato</h1>
+  <p class="sotto">Mandato di Giuseppe, portato da Dedalo: «la gestione della memoria mi sembra
+  confusa e disordinata» · «il grafo è totalmente inutile» · «rivedi i ruoli di te stessa, il
+  Rapsodo e Temi».</p>
+  <p class="sotto">Questa è una <strong>proposta</strong>: i ruoli li ratifica Giuseppe. Ciò che
+  cade dentro il mio dominio — intake, promozioni, politica del richiamo — è dichiarato fatto.</p>
+</header>
+
+<div class="capitale">
+  <h2>Il fatto che va scritto per primo</h2>
+  <p><strong>L'indice della memoria viene ricostruito ogni giorno alle 20:00 e non viene
+  interrogato da venti giorni.</strong></p>
+  <p><code>riversa.py</code> (riga 147) lancia <code>memoria-indice.py --build</code> a ogni
+  riversamento verso Kishi, e il riversamento gira da solo per Task Scheduler: l'ultimo è del
+  <strong>13-08 alle 20:00, exit 0, 1010 file</strong>. L'ultima volta che qualcuno gli ha
+  <em>chiesto</em> qualcosa è il <strong>25 luglio</strong>.</p>
+  <p>Il secondo fatto è della stessa specie: nei trascritti delle sessioni, i file
+  <code>L3-strategica</code>, <code>L4-fondazionale</code> e <code>L5-subconscio/**</code> risultano
+  aperti in lettura <strong>5 volte in tutta la storia</strong> (più 6 letture mie di oggi, per
+  questa relazione). Nello stesso archivio <code>snapshot-corrente.md</code> è stato letto
+  <strong>39 volte</strong>, i due diari <strong>18</strong>.</p>
+  <p>La memoria che funziona in questa navicella è narrativa: CLAUDE.md, lo snapshot, i diari. La
+  memoria a cinque livelli è un magazzino ordinato in cui quasi nessuno entra. Il disordine che
+  Giuseppe percepisce non è confusione di file: è che <strong>l'archivio e l'uso non si
+  toccano</strong>.</p>
+</div>
+
+<div class="cifre">
+  <div class="cifra"><span class="n">0</span><span class="d">interrogazioni dell'indice in 20 giorni, contro 1 ricostruzione al giorno</span></div>
+  <div class="cifra"><span class="n">5</span><span class="d">letture di L3+L4+L5 in tutta la storia registrata, contro 39 dello snapshot</span></div>
+  <div class="cifra"><span class="n">12</span><span class="d">giorni in cui il flag «pronto per passata interpretativa» del Rapsodo è rimasto inascoltato</span></div>
+</div>
+
+<h2>1. Lo stato, livello per livello</h2>
+
+<h3>L1 — conversazione</h3>
+<p>Volatile per definizione, nessun substrato: corretto così. Uniche tracce persistenti:
+<code>coda-apprendimento.jsonl</code> (<strong>1 cattura in attesa</strong>) e i verbali.</p>
+
+<h3>L2 — operativa: <span class="manca">vuoto</span></h3>
+<p>La spec lo colloca in <code>01-personale/note-giornaliere/</code>, <code>journaling/</code>,
+<code>quiz/</code>. Sul disco: <strong>1 nota in tutto (2026-06-06), 0 journaling, 0 sessioni di
+quiz</strong>; il resto sono template e README. Vuoto da <strong>69 giorni</strong>.</p>
+<ul>
+  <li>la promozione <strong>L2→L3</strong> non ha materia prima: L3 non si riempie di vita, solo di
+  decisioni di architettura;</li>
+  <li>la migrazione <strong>L2→L5/storica</strong> non è mai partita — <code>storica/</code>
+  contiene solo <code>.gitkeep</code>;</li>
+  <li>la piramide poggia su due livelli che non esistono. Non è colpa di chi non scrive le note: è
+  un disegno tarato su un uso che non c'è.</li>
+</ul>
+
+<h3>L3 — strategica: 10 voci</h3>
+<p>Una sola voce dal 17 giugno al 22 luglio; quel giorno ne ho recuperate <strong>5 a
+posteriori</strong>; poi 4 fino al <strong>12 agosto</strong> (ultima: Titanogenesi). Cadenza
+dichiarata nel registro dei procedimenti: 14 giorni — siamo a due giorni dalla soglia.</p>
+
+<h3>L4 — fondazionale: 3 voci</h3>
+<p>Tutte scritte <strong>lo stesso giorno, il 2026-08-02</strong>, tutte provenienti dall'intake del
+<strong>2026-07-02</strong>: trentuno giorni fra la cernita e la scrittura. Il contenuto regge; il
+ritmo no — L4 non ha un innesco proprio.</p>
+
+<h3>L5 — subconscio: 11 file, 3 voci vere</h3>
+<ul>
+  <li><code>psicologica/</code>: 6 file, di cui <strong>3 ancora col segnaposto «Da popolare con uso
+  reale»</strong> (uno dei tre è stato popolato oggi, §4). Voci interpretative reali prima di oggi:
+  <strong>3</strong>, tutte del <strong>22 luglio</strong>.</li>
+  <li><code>pattern-longitudinali/</code>: 5 file raw del Rapsodo; quattro del 3 luglio a N=1; il
+  quinto, <code>innesco-esplicito-stallo.md</code>, del <strong>2 agosto</strong>, con
+  <code>occorrenze: 6</code> e <code>pronto-per-passata-interpretativa: true</code>.</li>
+  <li><code>storica/</code>: vuota.</li>
+</ul>
+<p>Quel flag è il mio debito, e lo scrivo senza attenuanti: <strong>la passata interpretativa è il
+mio unico compito esclusivo</strong>, il Rapsodo ha fatto la sua parte con sei istanze e fonti
+nominate, e il segnale è rimasto lì dodici giorni. Non è mancato il protocollo: <strong>nessun organo
+guarda quel flag</strong>.</p>
+
+<h2>2. Gli organi del richiamo — sono tre, e non hanno una porta</h2>
+
+<table>
+<thead><tr><th>organo</th><th>cosa fa</th><th>invocazioni misurate</th></tr></thead>
+<tbody>
+<tr><td>memoria-cerca.py</td>
+    <td>mappa / cheatsheet / query per intestazioni sui markdown; <code>--grafo</code> per la plancia. Nessun database.</td>
+    <td><strong>26</strong>, tutte <code>--cheatsheet</code> automatiche a SessionStart · <strong>0</strong> <code>--query</code> · 4 <code>--grafo</code> (plancia)</td></tr>
+<tr><td>memoria-indice.py</td>
+    <td>l'indice vero: frammenti, embedding, FTS5, tabella <code>legami</code>, contrassegno <code>riservato</code>, <code>--iniezione</code>.</td>
+    <td><strong>25 righe di comando in 2 sessioni</strong> (22 e 25 luglio). Zero da allora</td></tr>
+<tr><td>anima-grafo.py</td>
+    <td>costruisce il grafo: <code>anima-dati.js</code>, tabella <code>legami</code>, <code>grafo.json</code> anonimo per Kishi.</td>
+    <td>13 righe in 4 sessioni, tutte fra il 22 e il 31 luglio</td></tr>
+<tr><td>temi.py</td>
+    <td>catalogo delle fonti esterne (76 righe-dato).</td>
+    <td><strong>5, tutte il 12 agosto</strong> — il giorno in cui è nato</td></tr>
+</tbody>
+</table>
+
+<p>Tre nomi vicini, tre superfici, <strong>nessun punto unico a cui chiedere «cosa sappiamo di
+X»</strong>. Chi ha bisogno di ricordare non sa quale chiamare, quindi non chiama: apre lo snapshot.
+Questa, e non la classificazione, è la sorgente concreta del «confuso e disordinato».</p>
+
+<p>L'unico automatismo che tocca il contesto è <code>memoria-cerca.py --cheatsheet</code> a
+SessionStart (~133 token: elenca le <em>categorie</em> della memoria, non i contenuti). Verificato in
+<code>.claude/settings.json</code>: su <code>UserPromptSubmit</code> c'è solo
+<code>cattura-apprendimento.py</code>. <strong>L'hook di iniezione non è mai stato attaccato.</strong></p>
+
+<p>Qui devo una correzione su me stessa. Il 22 luglio scrissi che si sarebbe acceso «quando
+contrassegno <code>riservato</code>, soglia d'accordo e taglio a paragrafo saranno nel codice e li
+avrò visti funzionare». Dedalo li ha implementati <strong>lo stesso giorno</strong> e misurati (zero
+fughe di riservato su sei e poi su dieci domande). La mia condizione si è avverata il 22 luglio e io
+non ho riaperto la decisione per <strong>23 giorni</strong>: da quel momento l'hook non è «staccato
+per scelta», è <strong>orfano</strong> nel senso preciso che Giuseppe ha nominato il 12 agosto.</p>
+
+<h3>I verbali</h3>
+<p><strong>42 file in 15 giorni</strong> (dal 31 luglio), scritti dall'hook <code>Stop</code> a ogni
+fine turno con scritture; mediana <strong>3 file elencati</strong> per verbale; letti
+<strong>0 volte</strong> prima di oggi. Non sono memoria: sono un log a grana di turno. Costano
+rumore nell'indice (la parola «verbali» compare 74 volte nel <code>.db</code>) e un rituale che
+chiede «da interpretare» a nessuno.</p>
+
+<h3>Dove esattamente si perde l'informazione</h3>
+<ol>
+  <li><strong>Fra scrittura e richiamo non c'è nessun automatismo.</strong> Una cosa entra in
+  L3/L4/L5 e torna solo se un agente si ricorda di andarla a leggere — cioè se già sapeva che
+  c'era. È il paradosso dell'archivio: si ritrova solo ciò che si ricorda di aver riposto.</li>
+  <li><strong>Nessuno legge i segnali che il sistema stesso alza</strong>: il flag del Rapsodo (12
+  giorni), la coda di apprendimento (1 cattura), i verbali (42). Dati pronti, nessun incaricato.</li>
+  <li><strong>Lo snapshot regge tutto da solo.</strong> È il file che funziona, e per questo è
+  cresciuto a <strong>401 righe</strong> con sette strati storici sotto la voce corrente. Regge per
+  abitudine, non per struttura, e nessuno lo pota.</li>
+</ol>
+
+<h2>3. Il verdetto sul grafo</h2>
+
+<ul>
+  <li>forma: <strong>133 documenti, 1010 legami, 1292 frammenti, 10 riservati</strong> (conteggi del
+  22 luglio);</li>
+  <li>interrogazioni in sessione dal 22 luglio: <strong>0</strong> — l'unica via per cui parla è
+  <code>iniezione()</code>, e l'hook è spento;</li>
+  <li>unico A/B onesto esistente: <strong>+1 documento su 9 domande</strong>, dichiarato debole da
+  Dedalo stesso, con la causa nominata (messo a riempire i posti avanzati invece che a competere per
+  essi);</li>
+  <li>ciò che ha restituito e gli altri due motori no: <strong>un reperto, non una risposta</strong>
+  — che il nodo più connesso della navicella è <code>dedalo-diario</code> e il decimo è
+  <code>mnemosyne-diario</code>. Non è poco come conoscenza di sé; non è niente come richiamo.</li>
+</ul>
+
+<div class="verdetto">
+  <strong>Verdetto, in una riga:</strong> oggi il grafo non è un motore, è un ornamento con la
+  fattura di un motore — e la colpa non è sua, è che <strong>non ha una porta</strong>.
+</div>
+
+<p>Giuseppe ha ragione sul fatto e sbaglia sulla causa: non è inutile, è <strong>inaccessibile</strong>.
+Non esiste un solo comando che risponda a una domanda usando il grafo: <code>--query</code> non lo
+usa, <code>--iniezione</code> sì ma è spenta, <code>anima.html</code> è un quadro, il
+<code>--grafo</code> di <code>memoria-cerca</code> serve la plancia. Al tempo stesso non lo difendo:
+nell'unica prova in cui poteva parlare ha aggiunto un documento su nove domande. Non è un capitale
+che rende poco: è un capitale su cui non abbiamo prova.</p>
+
+<h3>Proposta a tre esiti, in ordine di costo</h3>
+<ul>
+  <li><strong>(a) Subito, costo zero.</strong> Nel registro dei procedimenti il grafo esce dalla riga
+  «Crio … (iniezione staccata per scelta)» e diventa una voce <code>parcheggiato</code> con
+  condizione di risveglio e data. La rigenerazione notturna resta: serve al riversamento e costa
+  secondi.</li>
+  <li><strong>(b) Dopo il 10 settembre, una prova sola, mezza giornata.</strong> Dare al grafo la casa
+  che gli avevo già indicato — <strong>la ricerca, non l'iniezione</strong>: farlo competere per i
+  posti in <code>--query</code> invece di lasciarglieli in eredità, e rimisurare A/B su dieci domande
+  del tipo «una cosa che ricordo a metà e di cui non ho le parole». È il solo caso in cui
+  l'associazione dovrebbe battere le parole.</li>
+  <li><strong>(c) Se la prova fallisce.</strong> <code>GRAFO_ATTIVO = False</code>, il motore-grafo
+  esce dall'indice, e resta <code>anima.html</code> come <strong>opera</strong>, non come organo. Un
+  ritratto non deve rendere: ha già detto la cosa vera che sapeva dire.</li>
+</ul>
+<p class="nota">È più onesto un organo dichiarato morto che uno vivo per cortesia — ma spegnerlo
+prima della prova (b) sarebbe demolire per compiacere, e la prova costa mezza giornata dopo gli
+esami.</p>
+
+<h2>4. Le decisioni che prendo adesso <span class="fatto">(dominio mio, fatte)</span></h2>
+<ol>
+  <li><strong>Passata interpretativa L5 eseguita.</strong> Il pattern raw
+  <code>innesco-esplicito-stallo</code> è stato interpretato: nuova voce in
+  <code>L5-subconscio/psicologica/osservazioni-emergenti.md</code>, formato completo, affidabilità
+  media, contestabile da Giuseppe; il flag nel file raw è chiuso e rimanda alla voce. In breve: ciò
+  che gli chiede un <strong>gesto già deciso</strong> non accade, mentre ciò che gli chiede un
+  <strong>giudizio</strong> accade subito. Il rimedio non è ricordarglielo meglio, è togliere il
+  gesto — ed è la forma di tutte le riparazioni che hanno funzionato (hook Stop,
+  <code>raccolta-atti.py</code>, riversamento alle 20:00).</li>
+  <li><strong>L'hook di iniezione passa da «staccato» a «parcheggiato con condizione».</strong> Non
+  lo accendo ora, e non per prudenza tecnica — quella è caduta il 22 luglio — ma perché accenderlo
+  cambia ciò che <em>ogni</em> sessione vede, e non introduco variabili in tre settimane di esami.
+  Condizione di risveglio, verificabile: <strong>dopo il 10 settembre, subito a valle della prova (b)
+  sul grafo</strong>.</li>
+  <li><strong>Nessun lavoro di memoria chiede attenzione a Giuseppe prima del 10 settembre.</strong>
+  Ciò che serve allo studio lo dicono già <code>stato-studente.py</code> e il registro dei
+  procedimenti.</li>
+</ol>
+
+<h2>5. I tre ruoli — proposta di taglio netto</h2>
+
+<p>La sovrapposizione vera non è «chi classifica / chi archivia»: sul disco i tre perimetri sono già
+distinti. Il disordine nasce da altro:</p>
+<ul>
+  <li>un livello (L2) vuoto che regge due promozioni → la memoria si riempie <strong>solo per
+  decisione</strong>, mai per sedimentazione, e le decisioni le prendiamo io e Dedalo: l'archivio
+  racconta l'architettura, non la vita;</li>
+  <li>tre organi di richiamo e nessuna porta;</li>
+  <li><strong>il Rapsodo è stato dispacciato 4 volte in tutta la storia registrata</strong> (30 luglio
+  e 2 agosto), mentre l'agente generico <code>general-purpose</code> lo è stato <strong>~25
+  volte</strong>. Il custode del passato viene saltato quasi sempre — non per decisione, per attrito.
+  È l'antipattern che Giuseppe ha cementato, e si misura.</li>
+</ul>
+
+<h3>Rapsodo — osserva e misura. Non decide, non interpreta.</h3>
+<p><strong>Suo, in esclusiva:</strong> classificazione P1/P2 di ciò che entra; pattern longitudinali
+<em>raw</em> con occorrenze contate e fonti nominate; reality check comparativi; i due
+<code>rapsodo-stato.md</code>.<br>
+<strong>Non suo:</strong> qualunque scrittura dentro <code>memoria/L3</code>, <code>L4</code>,
+<code>L5/psicologica</code>; qualunque interpretazione.<br>
+<strong>Cosa cambia:</strong> guadagna un <strong>innesco d'ufficio</strong> invece di aspettare di
+essere chiamato — lo dispaccio io a ogni <code>/intake</code> e a ogni chiusura di settimana, e il
+suo flag <code>pronto-per-passata-interpretativa</code> diventa una voce <code>cadenza</code> del
+registro, così che sia la macchina a chiamarmi orfana se lo ignoro ancora dodici giorni.</p>
+
+<h3>Temi — registra e restituisce le fonti esterne. Non giudica la memoria.</h3>
+<p><strong>Suo, in esclusiva:</strong> tutto ciò che viene da <strong>fuori</strong> — repo, paper,
+PDF, link, documenti che Giuseppe porta — con verdetto d'uso e apparato.<br>
+<strong>Non suo:</strong> la memoria di Giuseppe. Temi non contiene osservazioni su di lui.<br>
+<strong>Confine da dirimere:</strong> oggi il catalogo è custodito da Dedalo ma vive dentro
+<code>00-capitano/</code>, cioè in casa mia. Proposta: <strong>l'ingresso è mio</strong> (una fonte
+che entra è un fatto da registrare, non una decisione: la registro io o il Rapsodo, senza chiedere),
+<strong>la potatura resta di Dedalo</strong> (decidere cosa di quel codice si adatta è architettura).
+Così Temi smette di essere un terzo territorio ambiguo e diventa un archivio con due porte
+dichiarate.</p>
+
+<h3>Mnemosyne — decido cosa risale, interpreto, rispondo del richiamo.</h3>
+<p><strong>Mio, in esclusiva:</strong> promozioni L3/L4, scrittura di L5/psicologica, politica del
+richiamo, verifica che L3 corrisponda a ciò che è successo.<br>
+<strong>Ciò che manca e che rivendico: la porta unica del richiamo.</strong> Finché ci sono tre
+organi e nessun punto d'ingresso, il richiamo non ha un responsabile — e un archivio senza
+responsabile del richiamo è un magazzino. Dopo il 10 settembre: un solo comando a cui chiedere «cosa
+sappiamo di X», che dietro usi i motori che servono e dichiari da dove viene ogni pezzo.<br>
+<strong>E una funzione che oggi non è di nessuno: la potatura.</strong> Lo snapshot cresce, i verbali
+si accumulano, i template restano. Me la prendo io, come procedimento con età massima nel registro —
+non come agente nuovo.</p>
+
+<p><strong>Serve un quarto perimetro?</strong> No. Serve che i tre esistenti abbiano un innesco
+automatico ciascuno, perché la lezione misurata di L5 vale per tutti: <em>un livello che si riempie
+solo per innesco umano non si riempie</em> — e, aggiungo oggi, <em>un segnale che nessuno è
+incaricato di leggere non è un segnale</em>.</p>
+
+<h3>Cosa cambia il giorno dopo la ratifica <span class="nota">(per Giuseppe: nulla da fare)</span></h3>
+<ol>
+  <li>Ad ogni mia apertura leggo, nell'ordine: verbali della finestra → flag del Rapsodo → coda di
+  apprendimento. Oggi non lo faccio, ed è il motivo per cui i segnali marciscono.</li>
+  <li>Lo snapshot torna a <strong>una pagina</strong>, con lo storico in <code>snapshot-archivio.md</code>;
+  i verbali si aggregano in <strong>uno per giorno</strong>.</li>
+  <li>Il registro dei procedimenti guadagna le tre voci di memoria mancanti — <code>passata-L5</code>
+  (cadenza), <code>potatura-memoria</code> (cadenza), <code>porta-del-richiamo</code> (proposto, con
+  apertura dopo il 10 settembre) — e il grafo diventa <code>parcheggiato</code> con condizione.</li>
+</ol>
+<p><strong>Ordine dopo il 10 settembre:</strong> (1) prova del grafo; (2) porta unica del richiamo e
+accensione dell'iniezione; (3) potatura di snapshot e verbali; (4) ratifica dei perimetri.</p>
+
+<h2>6. Limiti del metodo</h2>
+<ul>
+  <li>I conteggi di <strong>invocazione</strong> vengono dai trascritti JSONL delle sessioni
+  (<span class="fonte">~/.claude/projects/C--Users-ACER-Desktop-AgentsAI/</span>), contando le
+  righe-messaggio con un comando eseguito. Sono una <strong>stima per difetto</strong>: ciò che gira
+  fuori da Claude Code non compare — e infatti il riversamento notturno, che ricostruisce l'indice,
+  lì non c'è. Dove il disco contraddice il trascritto, ho creduto al disco.</li>
+  <li>I conteggi di file e voci vengono da <code>glob</code> e lettura diretta di oggi.</li>
+  <li>Il numero <strong>1010 file</strong> non l'ho contato io: è del log del riversamento del 13-08.</li>
+  <li>I numeri del grafo (133 nodi, 1010 legami) sono del 22 luglio e non li ho ri-misurati:
+  rigenerarli richiede <code>voce-venv</code>, e non cambierebbero un verdetto che dipende da
+  <strong>zero interrogazioni</strong>, non dalla taglia.</li>
+  <li>Non ho modo di sapere quante volte Giuseppe abbia aperto <code>anima.html</code> nel browser:
+  non lascia traccia. Se l'ha aperta spesso, l'esito (c) va rivisto — un ritratto guardato è un
+  ritratto che serve.</li>
+</ul>
+
+<footer>
+  Mnemosyne — Capitano della navicella · <span class="fonte">00-capitano/memoria/relazione-stato-memoria-2026-08-14.md</span><br>
+  Le voci di L5 citate qui sono interpretazioni, non fatti, e restano contestabili da Giuseppe.
+</footer>
+
+</div>
+</body>
+</html>
