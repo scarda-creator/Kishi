@@ -26,7 +26,8 @@ notturno la spunta e ci scrive accanto il path del paper prodotto.
 
 ---
 
-- [ ] **Metodi e Modelli: colmare il buco.** Esame scritto il 9 settembre, e il corso ha
+- [x] **Metodi e Modelli: colmare il buco.** Esame scritto il 9 settembre, e il corso ha  
+  → fatto il 2026-08-15: `00-capitano/notturno/papers/2026-08-15-metodi-e-modelli-colmare-il-buco.md`
   zero quiz e 37 file in banca dati, contro i 63 di Analisi Vettoriale. È il divario più
   netto fra scadenza e preparazione dell'intera sessione. Fai l'inventario delle fonti e la
   mappa degli esercizi secondo i protocolli esistenti, e dimmi nel paper se il materiale in
@@ -39,6 +40,29 @@ notturno la spunta e ci scrive accanto il path del paper prodotto.
   la copertura del quiz corrisponde a ciò che gli esami chiedono davvero: dove il quiz è
   scoperto rispetto alla frequenza reale degli esercizi, estendilo. Non riscrivere ciò che
   già copre bene.
+
+- [ ] **La diagnosi totale della navicella.** Ordine di Giuseppe del 15 agosto, ore 23:33-23:37:
+  un **paper** che per ogni oggetto costruito in questi mesi distingua quattro assi — (1) intenzione
+  dichiarata da lui, con le sue parole; (2) oggetto pensato insieme; (3) meccanica effettivamente
+  costruita; (4) **utilità effettiva misurata nel tempo**, la colonna che nessun organo ha mai posto.
+  Il valore sta nella distanza fra le colonne. Scope **totale**, parole sue: «non solo le cose con un
+  nome / solo le cose che non funzionano o qualsiasi altro filtro che limita lo scope, vorrei vedere
+  tutto», «non limitarlo al registro, fagli leggere tutta la navicella». Custode: **Rapsodo** (non
+  Teia — Teia è la guardia dei token; l'equivoco è nella domanda di Giuseppe e va sciolto così).
+  Si scrive in `00-capitano/diagnosi-procedimenti-2026-08-16.md`, **una famiglia alla volta con
+  salvataggio dopo ognuna**, aggiornando `00-capitano/diagnosi-stato.md` a ogni salvataggio: è
+  l'unica cosa che chi riprende ha in mano. Stato con
+  `python 00-capitano/scripts/coda-notturna.py --diagnosi`, che non ricorda ma misura.
+  → 16-08 12:0x: un Rapsodo è in volo sulle famiglie 0-2 nella sessione diurna. Chi apre il run
+  notturno **misuri prima** (`--diagnosi`) e riprenda dalla prima famiglia scoperta, senza
+  ricominciare.
+
+  **Perché questa voce nasce solo oggi, ed è il difetto da non ripetere.** Giuseppe aveva detto
+  «metti anche questo nella coda» il 15 sera. È finita in `00-capitano/scripts/coda-notturna.py` —
+  che è il *contatore degli esercizi*, non questa coda — e nessuno schedulatore la legge. I due
+  nomi sono a un trattino di distanza e designano cose diverse: `notturno/coda.md` è la rotta,
+  `scripts/coda-notturna.py` è una misura. Vanno separati anche nel nome, appena i lavori in volo
+  atterrano (rinominarlo ora romperebbe gli agenti che lo stanno leggendo). (Dedalo, 16-08)
 
 - [ ] **Il quiz deve tornare a casa da solo.** Oggi i tentativi restano nel browser e serve
   un click per esportarli: Giuseppe ha chiesto **zero gesti manuali**. Il quiz gira statico su

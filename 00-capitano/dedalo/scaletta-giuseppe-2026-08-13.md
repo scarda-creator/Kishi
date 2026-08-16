@@ -24,8 +24,8 @@ stesso, con il suo stato accanto.
 | 4 | Lavagne di Meccanica fino in fondo — «fondamentale per studiare quell'esame» | **costruzione chiusa** 14-08: 457 domande, **109 lavagne**, 4864 formule, PASS. Erano gia' 103 e non 34; coperti i 6 buchi del programma. Resta il ricontrollo sul Focardi, che richiede lui e la copia cartacea |
 | 5 | Raccolta degli atti — «la leva piu' alta al costo piu' basso» | **causa trovata e ponte costruito** 14-08: manca un solo click suo |
 | 6 | Oceano — ponte note vocali, e il canale Telegram che riempie la coda mentre il limite e' fermo | **aperto, non iniziato** |
-| 7 | Riorganizzazione della memoria + grafo + ruoli Mnemosyne/Rapsodo/Temi | **dispacciato a Mnemosyne** il 14-08 su mandato diretto di Giuseppe. Proposta, non esecuzione: i ruoli li ratifica lui |
-| 8 | Revisione dei primi dieci nuclei — «un agente per volta, con integrazione e aggiustamenti automatici» | **non iniziata**. Il banco-plot headless e' il pezzo di verifica automatica che le serviva |
+| 7 | Riorganizzazione della memoria + grafo + ruoli Mnemosyne/Rapsodo/Temi | **relazione consegnata** il 14-08 (`memoria/relazione-stato-memoria-2026-08-14.html`). Il grafo non e' inutile, e' inaccessibile: 0 interrogazioni dal 22 luglio. Le tre voci di memoria e il grafo parcheggiato sono entrati nel registro; restano da ratificare i perimetri |
+| 8 | Revisione dei primi dieci nuclei — «un agente per volta, con integrazione e aggiustamenti automatici» | **in corso**, un agente per volta come chiesto. Fatto il **02** (da 2 a 10 figure, 812 formule OK); in lavorazione il **01**. Collaudo automatico = `banco-plot-headless.js` + `verifica-nucleo.js` |
 
 ## Quello che ho imparato ricostruendola
 

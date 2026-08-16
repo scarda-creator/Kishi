@@ -24,12 +24,38 @@ function conta(rel) {
   try {
     const s = fs.readFileSync(path.join(dir, '..', rel), 'utf8');
     const dom = (s.match(/^\s*q\s*:/gm) || []).length;
-    const lav = (s.match(/^\s*steps\s*:/gm) || []).length;
+    // Le «dimostrazioni» si contano in due modi perche' i quiz hanno due formati.
+    // Nel formato vecchio (Meccanica) una dimostrazione e' un item `type:6`, e i
+    // campi `steps` sono invece le domande di ORDINAMENTO dei passaggi: contando
+    // quelli si otteneva 33 su 103 lavagne reali, ed e' il numero che il 12-08 ha
+    // fatto credere che il lavoro fosse a un terzo quando era gia' finito.
+    // Nel formato nuovo (Metodi, AV) le unita' multi-passo sono proprio `steps`.
+    // Si conta solo DENTRO la banca dati: sopra c'e' il commento che documenta
+    // lo schema, e contiene un `{type:6, ...}` e un `src:` d'esempio che falsavano
+    // il conto (110 lavagne invece di 109, 272 esercizi invece di 270).
+    // Due formati, due coppie di ancore: quiz vecchio (Meccanica) e template nuovo.
+    let i0 = s.indexOf('const Q = {};'), i1 = s.indexOf('const TYPE_LABEL');
+    if (i0 < 0 || i1 < 0) { i0 = s.indexOf('var POOLS = ['); i1 = s.indexOf('var S = {'); }
+    const banca = (i0 >= 0 && i1 > i0) ? s.slice(i0, i1) : s;
+    const t6 = (banca.match(/type\s*:\s*6\b/g) || []).length;
+    const lav = t6 > 0 ? t6 : (s.match(/^\s*steps\s*:/gm) || []).length;
     // un'unità = un `src`. Il quiz montato è JSON compatto ("src":...), il
     // frammento sorgente è JS (src:...): il conteggio deve reggere entrambi.
-    const uni = (s.match(/["']?src["']?\s*:/g) || []).length;
-    return { dom, lav, uni };
-  } catch (e) { return null; }
+    // ...e si conta nella BANCA, non nel file intero: l'unita' d'esempio del
+    // commento porta anche lei un `src` e gonfiava il totale di due.
+    const uni = (banca.match(/["']?src["']?\s*:/g) || []).length;
+    // Anche il NUMERO DI TIPI va contato, non scritto a mano nel titolo: il pool
+    // edp e' nato il 16-08 e il titolo continuava a promettere «8 tipi».
+    const tipi = new Set((banca.match(/["']?pool["']?\s*:\s*["'](\w+)["']/g) || [])
+                         .map(m => m.replace(/.*["'](\w+)["']$/, '$1'))).size;
+    return { dom, lav, uni, tipi };
+  } catch (e) {
+    // Un catch muto trasformava QUALUNQUE errore in «file non trovato», che e' un
+    // messaggio falso: il 16-08 un mio refuso ha svuotato i tre titoli e l'indice
+    // ha detto che mancavano i file. Un allarme che mente e' peggio di nessun allarme.
+    console.log('  ! conta(' + rel + ') fallita: ' + e.message);
+    return null;
+  }
 }
 const MECC = conta('meccanica/Quiz_Meccanica_Orale_v1.html');
 const AV   = conta('analisi-vettoriale/Quiz_AnalisiVettoriale_v1.html');
@@ -49,7 +75,7 @@ const MATERIALI_ESTERNI = [
     ]},
   { nn: '89', file: 'analisi-vettoriale/Quiz_AnalisiVettoriale_v1.html', mov: 1,
     titolo: AV
-      ? `Analisi Vettoriale — ${AV.uni} esercizi sui 10 tipi dello scritto`
+      ? `Analisi Vettoriale — ${AV.uni} esercizi sui ${AV.tipi} tipi dello scritto`
       : 'Analisi Vettoriale — quiz dello scritto (file non trovato)',
     tappe: [
       {num:'01',titolo:'EDO e problema di Cauchy'},{num:'02',titolo:'Superfici: parametrizzazione, area, bordo'},
@@ -60,13 +86,14 @@ const MATERIALI_ESTERNI = [
     ]},
   { nn: '91', file: 'metodi/Quiz_MetodiModelli_v1.html', mov: 4,
     titolo: MET && MET.uni
-      ? `Metodi e Modelli — ${MET.uni} esercizi sugli 8 tipi che escono davvero`
+      ? `Metodi e Modelli — ${MET.uni} esercizi sui ${MET.tipi} tipi che escono davvero`
       : 'Metodi e Modelli — quiz dello scritto (in costruzione)',
     tappe: [
-      {num:'01',titolo:'Funzione di Green (sorgente regolare)'},{num:'02',titolo:'Green con δ e δ′'},
-      {num:'03',titolo:'Funzioni polidrome: tagli e integrali'},{num:'04',titolo:'Funzioni di matrice (spettrale)'},
-      {num:'05',titolo:'Fourier via residui'},{num:'06',titolo:'Integrali reali per contorno'},
-      {num:'07',titolo:'Laurent, singolarità, residui'},{num:'08',titolo:'Operatori: autofunzioni e spettro'}
+      {num:'01',titolo:'Equazioni alle derivate parziali (esercizio 4)'},{num:'02',titolo:'Funzione di Green (sorgente regolare)'},
+      {num:'03',titolo:'Green con δ e δ′'},{num:'04',titolo:'Funzioni polidrome: tagli e integrali'},
+      {num:'05',titolo:'Funzioni di matrice (spettrale)'},{num:'06',titolo:'Fourier via residui'},
+      {num:'07',titolo:'Integrali reali per contorno'},{num:'08',titolo:'Laurent, singolarità, residui'},
+      {num:'09',titolo:'Operatori: autofunzioni e spettro'}
     ]}
 ];
 

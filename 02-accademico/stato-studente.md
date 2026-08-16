@@ -1,7 +1,7 @@
 ---
 type: stato
 accensione: hook
-aggiornato: 2026-08-15
+aggiornato: 2026-08-16
 generato-da: 00-capitano/scripts/stato-studente.py
 ---
 
@@ -13,11 +13,11 @@ generato-da: 00-capitano/scripts/stato-studente.py
 
 | giorni | data | corso | prova | note |
 |---:|---|---|---|---|
-| **20** | 2026-09-04 | analisi-vettoriale | scritto | **ripetizione**: lo scritto del 17/07 non superato |
-| **25** | 2026-09-09 | metodi-e-modelli | scritto | primo tentativo |
-| **26** | 2026-09-10 | meccanica | orale | data approssimativa, «lì intorno»; da confermare |
+| **19** | 2026-09-04 | analisi-vettoriale | scritto | **ripetizione**: lo scritto del 17/07 non superato |
+| **24** | 2026-09-09 | metodi-e-modelli | scritto | primo tentativo |
+| **25** | 2026-09-10 | meccanica | orale | data approssimativa, «lì intorno»; da confermare |
 
-Il prossimo è **analisi-vettoriale** fra **20 giorni**.
+Il prossimo è **analisi-vettoriale** fra **19 giorni**.
 Tutti e 3 stanno in **6 giorni**.
 
 ## Precedenti
@@ -34,12 +34,19 @@ Tutti e 3 stanno in **6 giorni**.
 Finché questa sezione resta vuota, ogni giudizio su dove Giuseppe è debole viene da ciò che *dichiara*, non da ciò che *fa* — ed è esattamente il limite che l'Accensione esiste per superare.
 ## Materiale disponibile — presenze, non studio
 
-| corso | file | quiz |
-|---|---:|---:|
-| geometria | 171 | 1 |
-| analisi-vettoriale | 63 | 0 |
-| metodi-e-modelli | 48 | 0 |
-| meccanica | 16 | 0 |
+| corso | file | quiz | pool | domande |
+|---|---:|---:|---:|---:|
+| geometria | 171 | 1 | 12 | 310 |
+| analisi-vettoriale | 63 | 1 | 10 | 328 |
+| metodi-e-modelli | 52 | 1 | 9 | 402 |
+| meccanica | 16 | 1 | 11 | 457 |
+
+Dove stanno i quiz montati (il contatore li cerca lì, non nella cartella del corso — dal 12 agosto è quello l'unico accesso di Giuseppe):
+
+- `percorso-matematica/analisi-vettoriale/Quiz_AnalisiVettoriale_v1.html` — analisi-vettoriale
+- `corsi/geometria/03-note-mie/Quiz_Geometria_v1.html` — geometria
+- `percorso-matematica/meccanica/Quiz_Meccanica_Orale_v1.html` — meccanica
+- `percorso-matematica/metodi/Quiz_MetodiModelli_v1.html` — metodi-e-modelli
 
 Questi numeri dicono cosa **esiste**, non cosa Giuseppe ha studiato. Il 2 agosto il percorso-matematica risultava «18 su 18» perché i file c'erano: li aveva aperti per guardarli. Da allora nessuna presenza viene contata come atto.
 

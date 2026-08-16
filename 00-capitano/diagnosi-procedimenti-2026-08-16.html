@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnosi totale della navicella — Rapsodo, 2026-08-16</title>
+<style>
+  :root {
+    --bg: #f9f8f5;
+    --text: #1a1a1a;
+    --muted: #555;
+    --accent: #2a4a7f;
+    --accent-light: #e8eef7;
+    --border: #d0d0c8;
+    --red: #8b1a1a;
+    --green: #1a5c1a;
+    --yellow: #6b5200;
+    --code-bg: #f0efe9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    padding: 2rem 1rem;
+  }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+  .meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    font-family: monospace;
+  }
+  h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--accent);
+    margin-top: 2.5rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3rem;
+  }
+  h3 {
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: var(--text);
+    margin-top: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  h4 {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: var(--muted);
+    margin-top: 1.2rem;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  p { margin-bottom: 0.8rem; }
+  strong { color: var(--text); }
+  em { font-style: italic; color: var(--muted); }
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 1.2rem 0;
+    font-size: 0.92rem;
+    font-family: monospace;
+  }
+  th {
+    background: var(--accent-light);
+    color: var(--accent);
+    text-align: left;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid var(--border);
+    font-weight: bold;
+  }
+  td {
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f4f3ee; }
+  .zero { color: var(--red); font-weight: bold; }
+  .high { color: var(--red); }
+  .low { color: var(--green); }
+  .med { color: var(--yellow); }
+  code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.88em;
+    background: var(--code-bg);
+    padding: 0.1em 0.3em;
+    border-radius: 2px;
+    border: 1px solid var(--border);
+  }
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 0.85em;
+    margin: 0.8rem 0;
+    line-height: 1.5;
+  }
+  blockquote {
+    border-left: 3px solid var(--accent);
+    margin: 1rem 0;
+    padding: 0.4rem 1rem;
+    background: var(--accent-light);
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.95em;
+  }
+  .asse {
+    margin: 0.8rem 0;
+    padding: 0.5rem 0.8rem;
+    border-left: 3px solid var(--border);
+  }
+  .asse-1 { border-left-color: #7a9cbf; }
+  .asse-2 { border-left-color: #9abf7a; }
+  .asse-3 { border-left-color: #bfa97a; }
+  .asse-4 { border-left-color: #bf7a7a; }
+  .distanza {
+    background: #fdf8ee;
+    border: 1px solid #e0d4a0;
+    border-radius: 4px;
+    padding: 0.5rem 0.8rem;
+    margin: 0.8rem 0;
+    font-size: 0.93em;
+  }
+  .distanza::before {
+    content: "Distanza — ";
+    font-weight: bold;
+    color: var(--muted);
+  }
+  .conclusione {
+    background: var(--accent-light);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    padding: 0.7rem 1rem;
+    margin: 0.8rem 0;
+  }
+  .conclusione strong { color: var(--accent); }
+  .sintesi {
+    background: #f0efe9;
+    border-top: 2px solid var(--border);
+    border-bottom: 2px solid var(--border);
+    padding: 0.7rem 1rem;
+    margin: 1.2rem 0;
+    font-size: 0.94em;
+  }
+  .nota-nuova {
+    background: #fff8e8;
+    border-left: 3px solid #d4a017;
+    padding: 0.5rem 0.8rem;
+    margin: 0.8rem 0;
+    font-size: 0.93em;
+  }
+  @media print {
+    body { background: white; padding: 1cm; font-size: 11pt; }
+    h2 { page-break-before: auto; }
+    .page { max-width: 100%; }
+    code { border: none; background: #f5f5f5; }
+    pre { border: 1px solid #ccc; }
+  }
+  .toc {
+    background: var(--accent-light);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    font-size: 0.92em;
+  }
+  .toc a { color: var(--accent); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .toc li { margin: 0.25rem 0; }
+  .toc ul { margin-left: 1.2rem; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<h1>Diagnosi totale della navicella</h1>
+<div class="meta">Rapsodo · 2026-08-16 · mandato di Giuseppe del 15-08 sera, completato il 16-08 · 10 famiglie + abstract + HTML</div>
+
+<div class="toc">
+<strong>Indice</strong>
+<ul>
+  <li><a href="#s0">(0) Abstract e metodo</a></li>
+  <li><a href="#s1">(1) Gli agenti — tutti e otto</a></li>
+  <li><a href="#s2">(2) Registro dei procedimenti e verificatore</a></li>
+  <li><a href="#s3">(3) Materiali di studio</a></li>
+  <li><a href="#s4">(4) Memoria a 5 livelli e organi del richiamo</a></li>
+  <li><a href="#s5">(5) Infrastrutture</a></li>
+  <li><a href="#s6">(6) Hook, comandi slash, script</a></li>
+  <li><a href="#s7">(7) Modulo Business</a></li>
+  <li><a href="#s8">(8) Patti e protocolli</a></li>
+  <li><a href="#s9">(9) Abbandonati e superati</a></li>
+  <li><a href="#s10">(10) Documenti di visione e ricerche</a></li>
+  <li><a href="#s11">(11) Procedimenti reali fuori dal registro</a></li>
+  <li><a href="#s12">(12) Pattern trasversali e conclusioni operative</a></li>
+</ul>
+</div>
+
+<hr id="s0">
+<h2>(0) Abstract e metodo</h2>
+
+<p>Mandato di Giuseppe del 15 agosto sera, ripreso il 16 agosto. Scope totale per istruzione esplicita: <em>«non mettere solo le cose con un nome / solo le cose che non funzionano o qualsiasi altro filtro che limita lo scope, vorrei vedere tutto»</em>, <em>«non limitarlo al registro, fagli leggere tutta la navicella»</em> (ore 23:36-23:37 del 15-08). Il registro dei procedimenti non è il perimetro del paper — se lo fosse, il paper misurerebbe la contabilità di Dedalo invece del sistema.</p>
+
+<p>La navicella accumula documentazione di sé stessa in modo asimmetrico: il <em>cosa si vuole</em> e il <em>cosa si è deciso</em> sono documentati in profondità; il <em>cosa è stato costruito</em> è parzialmente documentato negli artefatti su disco; il <em>quanto è stato usato</em> non è documentato da nessuna parte. Nessun organo del sistema ha mai posto la quarta domanda. Il valore del paper sta nella distanza fra le colonne.</p>
+
+<h3>I quattro assi</h3>
+<p><strong>Asse 1 — Intenzione dichiarata.</strong> Le parole di Giuseppe, quando esistono nelle fonti leggibili (archivio-fondazione.md, CLAUDE.md, brief su disco). Non parafrasi.</p>
+<p><strong>Asse 2 — Oggetto pensato insieme.</strong> Ruolo, confini, modello assegnato, posizione nel sistema. Si legge dai file di definizione e dall'archivio-fondazione.</p>
+<p><strong>Asse 3 — Meccanica costruita.</strong> Cosa esiste su disco: file, path, tool, bug noti, data di nascita e riparazioni.</p>
+<p><strong>Asse 4 — Utilità effettiva misurata nel tempo.</strong> Dispacci, invocazioni script, esistenza artefatti, mtime dove accessibile. È la colonna che dà valore al paper.</p>
+
+<h3>Fonti e metodo</h3>
+<p><strong>Dispacci:</strong> grep <code>"subagent_type":"&lt;nome&gt;"</code> sui 19 file <code>.jsonl</code> di sessione. Stima per difetto (hook e Task Scheduler non compaiono). Le sessioni <code>1d0f4adc</code> e <code>531b288a</code> probabilmente duplicate da un resume — dove pesa, dichiarate entrambe.</p>
+<p><strong>Invocazioni script:</strong> grep <code>"command":"[^\n]{0,400}?&lt;nome&gt;\.py</code>. Il pattern ingenuo con <code>[^"]*</code> dà falsi negativi (i comandi contengono caratteri escaped).</p>
+<p><strong>Sessioni totali:</strong> 19 file <code>.jsonl</code> di primo livello.</p>
+
+<hr id="s1">
+<h2>(1) Gli agenti — tutti e otto</h2>
+
+<table>
+<tr><th>agente</th><th>dispacci</th><th>sessioni</th><th>note</th></tr>
+<tr><td>general-purpose</td><td class="zero">27</td><td>4</td><td>non è un agente della navicella — è il fallback del runtime</td></tr>
+<tr><td>argonauta</td><td>23</td><td>5</td><td></td></tr>
+<tr><td>demiurgo-accademico</td><td>21</td><td>5</td><td></td></tr>
+<tr><td>rapsodo</td><td>5</td><td>3</td><td></td></tr>
+<tr><td>architetto</td><td>4</td><td>1</td><td>solo 12-08, giorno della riparazione YAML</td></tr>
+<tr><td>capitano</td><td>3</td><td>3</td><td>opera come persona principale, non sub-agente</td></tr>
+<tr><td class="zero">demiurgo-creativo</td><td class="zero">0</td><td class="zero">0</td><td class="zero">mai dispacciato</td></tr>
+<tr><td class="zero">ermete</td><td class="zero">0</td><td class="zero">0</td><td class="zero">mai dispacciato</td></tr>
+<tr><td class="zero">ierofante</td><td class="zero">2*</td><td class="zero">1</td><td class="zero">*oggi (16-08), per OmniRoute ToS — non per il Business</td></tr>
+</table>
+
+<p>La riga <strong>general-purpose a 27 dispacci</strong> — più di qualunque agente nominato — è il dato che trasforma «il routing ogni tanto sbaglia» in un numero che non si può discutere. Dice che in 4 sessioni diverse qualcosa ha cercato un agente e ha trovato il fallback. Le cause possibili: agenti rotti per YAML (37/26 giorni), invocazione di un nome non esistente, Mnemosyne che bypassa un passivo. Non sono distinguibili senza leggere i .jsonl sessione per sessione.</p>
+
+<h3>1.1 Capitano · Mnemosyne</h3>
+<div class="asse asse-1"><strong>Intenzione:</strong> custodire la memoria a 5 livelli, interpretare L5 attivamente, essere il contatto principale per tutto ciò che non è routine.</div>
+<div class="asse asse-3"><strong>Costruito:</strong> <code>.claude/agents/capitano.md</code>. Esiste dal 11-06. Tools: Read, Write, Edit, Glob, Grep, Task. Diario: <code>mnemosyne-diario.md</code>. Description non quotata ma senza <code>: </code> — nessun problema di parsing.</div>
+<div class="asse asse-4"><strong>Utilizzo:</strong> 3 dispacci come sub-agente. Strutturalmente depresso: Mnemosyne opera come persona principale nella conversazione — il dispaccio è raro per design. La metrica reale è il numero di sessioni in cui è la persona principale: tutte.</div>
+<div class="distanza">Bassa sui compiti fondazionali. Più alta sulla passata interpretativa L5 (cadenza eta_max=14, era ferma da 12 giorni al 14-08). La separazione persona/sub-agente crea un punto cieco nella metrica: i 3 dispacci sottostimano la presenza effettiva, ma la presenza non lascia tracce misurabili nei .jsonl.</div>
+
+<h3>1.2 Rapsodo</h3>
+<div class="asse asse-1"><strong>Intenzione:</strong> archivio, reality check, prima classificazione input, osservazione pattern longitudinali. Agente PASSIVO — resta archetipo, nessun nome proprio.</div>
+<div class="asse asse-3"><strong>Costruito:</strong> <code>.claude/agents/rapsodo.md</code>. File di stato in <code>01-personale/</code> e <code>02-accademico/</code>. <code>banca-fisica.md</code> esiste ma punta a path inesistente (<code>Quiz_Meccanica_Orale_v1.html</code>, migrato) e conta 391 domande contro le 457 attuali — fermo dal 03-07.</div>
+<div class="asse asse-4"><strong>Utilizzo:</strong> 5 dispacci in 3 sessioni. Il meno invocato fra i passivi operativi. La funzione di pattern-longitudinali è documentata ma non esercitata in proporzione (19 sessioni, 5 dispacci). La banca-fisica è inattiva da 44 giorni nonostante 3 sessioni di build del quiz Meccanica (+66 domande, +65 lavagne).</div>
+<div class="distanza">Il gap principale è sul secondo asse (banca-fisica stantia) e sulla cadenza dell'intake (poche invocazioni relative al volume di sessioni).</div>
+
+<h3>1.3 Demiurgo Accademico</h3>
+<div class="asse asse-1"><strong>Intenzione:</strong> <em>«Un agente che, dati i materiali di un corso (esami, slide, libri), costruisca un libro di testo cucito su di lui.»</em> (archivio-fondazione, 06-06). Pattern pedagogico: partire dagli esercizi reali, costruire verso i principi.</div>
+<div class="asse asse-3"><strong>Costruito:</strong> <code>.claude/agents/demiurgo-accademico.md</code>. Opus 4.8. 21 dispacci in 5 sessioni. Output prodotto: Quiz Meccanica (457 domande, 109 lavagne, PASS), Quiz AV (305 esercizi, 10 pool, PASS), Quiz Metodi (248 unità, 8 pool, PASS), 23 nuclei.</div>
+<div class="asse asse-4"><strong>Utilizzo:</strong> 21 dispacci — il più produttivo. quiz_verifica.js: 24 invocazioni in 5 sessioni. Verificatori Rea (banco-plot-headless, verifica-nucleo, innesta-lavagne, verifica-quiz-meccanica): 31 invocazioni in 3 sessioni — tutto output del Demiurgo Accademico. Tre lotti persi per limite di sessione (13-15 agosto) prima che il costo del metodo «aggiungi in coda al frammento» venisse misurato.</div>
+<div class="distanza">Bassa. L'agente che ha prodotto il volume maggiore in modo misurabile. Gap principale: metodo corretto solo il 16-08 (innesto), dopo aver perso 3 lotti.</div>
+
+<h3>1.4 Argonauta</h3>
+<div class="asse asse-1"><strong>Intenzione:</strong> esplorare il futuro — tesi triennale (ETH/decoerenza/gruppo Marinari), scelte magistrali, scouting fonti esterne. Metafora: avanguardia + bibliotecario.</div>
+<div class="asse asse-3"><strong>Costruito:</strong> <code>.claude/agents/argonauta.md</code>. Tools include WebSearch e WebFetch (unico passivo con accesso esterno insieme a Ierofante). File di lavoro: <code>argonauta-tesi.md</code>. Ultimo prodotto rilevante: <code>fonti-esercizi-2026-08-16.md</code>.</div>
+<div class="asse asse-4"><strong>Utilizzo:</strong> 23 dispacci in 5 sessioni — il più dispacciato. Ma l'uso effettivo è concentrato su inventario/mappa esercizi (preparazione per il Demiurgo) e scouting fonti esterne. La funzione di scouting tesi non risulta aggiornata recentemente. La catena Argonauta→Dedalo→Demiurgo Creativo non ha mai girato completa.</div>
+<div class="distanza">Alta fra mandato (esploratore di futuro) e uso effettivo (preparatore per il Demiurgo). La tesi e la magistrale sono la funzione dichiarata; le mappe-esercizi e le ricognizioni-fonti sono la funzione effettiva.</div>
+
+<h3>1.5 Architetto · Dedalo</h3>
+<div class="asse asse-1"><strong>Intenzione:</strong> <em>«Non lo voglio staccato dalla navicella, quanto un architetto a lei intrinseca, che costruisce e crea la navicella, nuovi agenti, specializzazioni, in base alle mie richieste.»</em> (archivio-fondazione, 26-06). Secondo attivo, polo generativo.</div>
+<div class="asse asse-3"><strong>Costruito:</strong> <code>.claude/agents/architetto.md</code>. Attivato il 06-07. <strong>Description conteneva <code>: </code> non quotato → invisibile al runtime dal 06-07 al 12-08 (37 giorni).</strong> Riparato il 12-08. Backup <code>.bak-20260812</code> ancora su disco.</div>
+<div class="asse asse-4"><strong>Utilizzo:</strong> 4 dispacci come sub-agente in 1 sola sessione (12-08). Come persona principale ha prodotto: registro-procedimenti.md, brief-lotto-esercizi.md, addendum innesto, annotazioni nel registro. Il split persona/sub-agente crea la stessa asimmetria di Mnemosyne.</div>
+<div class="distanza">La catena Argonauta→Dedalo→Demiurgo Creativo non ha mai girato: 37 giorni ciechi, poi pausa-studio. Il mandato creativo (libera iniziativa, proporre l'inatteso) non ha avuto sessioni dedicate.</div>
+
+<h3>1.6 Demiurgo Creativo</h3>
+<div class="asse asse-1"><strong>Intenzione:</strong> <em>«Modus operandi NON templato — ogni creazione è singolare, esegue brief che portano la creatività a monte.»</em> (CLAUDE.md, 06-07). Materializza il nuovo che Dedalo ha progettato.</div>
+<div class="asse asse-3"><strong>Costruito:</strong> <code>.claude/agents/demiurgo-creativo.md</code>. Creato il 06-07. <strong>Description conteneva <code>: </code> → invisibile dal 06-07 al 12-08 (37 giorni).</strong> Riparato il 12-08. Backup <code>.bak-20260812</code> ancora su disco. Tools: Read, Write, Edit, Glob (il toolkit più ristretto — nessun Grep né Task).</div>
+<div class="asse asse-4"><strong>Utilizzo:</strong> <strong class="zero">0 dispacci.</strong> Mai dispacciato in 19 sessioni. Progettato il 06-07, rotto il 06-07, riparato il 12-08, e da allora non è stato invocato una volta.</div>
+<div class="distanza">Massima. Ragioni: (a) nei 37 giorni ciechi era irraggiungibile; (b) dopo la riparazione, pausa-studio. Ma nemmeno nelle sessioni di Dedalo del 12-08 il Demiurgo Creativo è stato invocato. Sospetto strutturale: Dedalo nella pratica costruisce con le proprie mani invece di dispacciare.</div>
+
+<h3>1.7 Ermete</h3>
+<div class="asse asse-1"><strong>Intenzione:</strong> orchestratore SEMI-ATTIVO del Business. Giuseppe lo lancia, poi corre da solo. Tre pipeline a costo zero (quiz-fisica, clip-film, scifi). Bersaglio: ~100€/mese per il Max.</div>
+<div class="asse asse-3"><strong>Costruito:</strong> <code>.claude/agents/ermete.md</code>. Creato il 17-07. <strong>Description non quotata → invisibile dal 17-07 al 12-08 (26 giorni).</strong> Riparato il 12-08. Backup <code>.bak-20260812</code> ancora su disco. Unico agente con Bash nel toolkit.</div>
+<div class="asse asse-4"><strong>Utilizzo:</strong> <strong class="zero">0 dispacci.</strong> Modulo Business: <code>parcheggiato</code> nel registro, condizione <code>dopo:2026-09-11</code>. Costruito il 17-07, rotto il 17-07, riparato il 12-08, parcheggiato il 12-08. Non ha mai avuto una sessione operativa. <code>post-mortem.db</code> non esiste. <code>andamento-sistema.md</code> non esiste.</div>
+<div class="distanza">Massima per l'utilità. Giustificata dalla pausa-studio dichiarata. Il rischio: la condizione <code>dopo:2026-09-11</code> diventa default se non viene ripresa con la stessa energia con cui è stata dichiarata.</div>
+
+<h3>1.8 Ierofante</h3>
+<div class="asse asse-1"><strong>Intenzione:</strong> compliance legale e fiscale del modulo Business. Dispacciato da Ermete prima di ogni piano che tocca copyright, fatturato, wallet. Il default è abilitare, non bloccare.</div>
+<div class="asse asse-3"><strong>Costruito:</strong> <code>.claude/agents/ierofante.md</code>. Creato il 17-07. <strong>Description non quotata → invisibile dal 17-07 al 12-08 (26 giorni).</strong> Riparato il 12-08. Tools: Read, Write, Edit, Glob, Grep, WebSearch, WebFetch.</div>
+<div class="asse asse-4"><strong>Utilizzo:</strong> <strong>2 dispacci il 16-08</strong> — i suoi primi, mai per il Business. Contesto: Giuseppe ha installato OmniRoute, il routing verso modelli esterni passa da Ierofante per regola costituzionale. Documento prodotto: <code>00-capitano/ierofante/omniroute-gate-tos-2026-08.md</code>. Tre verdetti verdi/ambra e tre rossi motivati con clausole citate.</div>
+<div class="nota-nuova">Il primo uso reale di un agente del modulo Business è avvenuto <strong>fuori dal modulo Business</strong>, per una regola costituzionale scritta mesi dopo la sua creazione. Gli agenti sono più generali dei domini per cui sono stati nominati. Ierofante è un organo di compliance; che la compliance serva prima nell'infrastruttura che nel Business non è un errore di progetto — è la navicella che cresce in un ordine che non corrisponde a quello in cui le cose sono state scritte.</div>
+
+<div class="sintesi"><strong>Sintesi agenti.</strong> 3 agenti a zero dispacci (demiurgo-creativo, ermete, ierofante). 1 agente in 1 sola sessione (architetto). 2 operano come persona principale e non come sub-agente (capitano, architetto). 2 fanno il volume reale (argonauta 23, demiurgo-accademico 21). 1 fa poco relativo al volume (rapsodo 5). E 27 dispacci a general-purpose — il fallback — che nessun agente nominato ha superato.</div>
+
+<hr id="s2">
+<h2>(2) Registro dei procedimenti e verificatore</h2>
+
+<h3>Il registro</h3>
+<div class="asse asse-1"><strong>Intenzione:</strong> <em>«La navicella accumula procedimenti iniziati e lasciati a metà. Un nome, da solo, li rende solo più visibili; è lo schema — che pretende per ogni voce uno stato e una condizione di fine o di risveglio — a renderli chiudibili.»</em> (incipit del registro). Il manifesto dichiara l'intenzione; lo script misura la realtà. Gli stati d'allarme non si scrivono mai a mano.</div>
+<div class="asse asse-3"><strong>Costruito:</strong> <code>00-capitano/dedalo/registro-procedimenti.md</code>. Creato il 12-08, cablato con <code>verifica-costituzione.py</code> lo stesso giorno. 29 voci al 16-08: 8 attive, 4 cadenze, 5 parcheggiati, 4 proposti, 6 conclusi, 2 superati.</div>
+<div class="asse asse-4"><strong>Utilizzo:</strong> <code>verifica-costituzione.py</code> invocato 33 volte in 11 sessioni. Ha trovato 3 voci dichiarate «vive» che erano concluse (quiz AV, quiz Metodi, percorso-matematica). Il sistema corregge retroattivamente ciò che trova.</div>
+
+<h3>Il bug di <code>conto_registro()</code> — righe 96-101</h3>
+<pre>eta = eta_giorni(os.path.join(NAV, v["path"]))
+fuori = eta is not None and eta &gt; v["massimo"]
+if v["intenzione"] == "attivo":
+    c["orfano" if fuori else "attivo"] += 1</pre>
+<p>Quando <code>eta_giorni()</code> restituisce <code>None</code> (path inesistente), <code>fuori = False</code>. La voce dichiarata <code>attivo</code> con path assente viene contata come <strong>attivo</strong> nella riga che Giuseppe legge — non come orfana. La voce <code>raccolta-atti</code> (path <code>02-accademico/esiti/atti.jsonl</code>, inesistente) è colpita da questo bug oggi.</p>
+<p><strong>Correzione:</strong> <code>fuori = eta is None or eta &gt; v["massimo"]</code> — ma proteggere il caso <code>v["massimo"] is None</code>.</p>
+
+<h3>Cinque voci fuori sincrono al 16-08</h3>
+<table>
+<tr><th>voce</th><th>dichiarato</th><th>realtà</th></tr>
+<tr><td><code>percorso-matematica</code></td><td>concluso, 18/18 nuclei</td><td>23 nuclei su disco</td></tr>
+<tr><td><code>quiz-metodi-pool-edp</code></td><td>proposto, sonda <code>manca:edp.js</code></td><td>edp.js esiste — sonda falsa</td></tr>
+<tr><td><code>quiz-analisi-vettoriale</code></td><td>viva (era)</td><td>conclusa — trovata dal run del 15-08</td></tr>
+<tr><td><code>raccolta-atti</code></td><td>attivo</td><td>path osservato inesistente — bug §2.2</td></tr>
+<tr><td><code>banca-fisica.md</code></td><td>391 domande, path legacy</td><td>457 domande, path migrato — fermo dal 03-07</td></tr>
+</table>
+
+<hr id="s3">
+<h2>(3) Materiali di studio</h2>
+
+<h3>Il percorso-matematica — i nuclei</h3>
+<div class="asse asse-4"><strong>Utilizzo:</strong> 23 nuclei su disco (00-topologia → 22-irreversibilita). Registro dichiara 18. I nuclei 18-22 (integrali-multipli, asintotica, spazio-fasi, ergodicita, irreversibilita) coprono termodinamica statistica e teoria ergodica — zona tesi, non esame. Il percorso ha un nucleo accademico (00-17) e un'appendice tesi (18-22) mai dichiarata formalmente. Banco-plot-headless: 84 figure su 23 nuclei, 0 mute (14-08). Nuclei 01 e 02 revisionati il 15-08 (da 2-3 figure a 9-10). Il dato di utilizzo reale — quante volte un nucleo è stato aperto — non esiste: i nuclei non tracciano sessioni, e il localStorage è volatile.</div>
+<div class="distanza">Media. Il percorso esiste, è collaudato, copre più di quanto dichiarato. La quarta colonna è vuota per un artefatto di studio costruito per un esame fallito (AV, 17-07) e uno da dare (AV, 04-09).</div>
+
+<h3>Il quiz di Analisi Vettoriale — la misura che mancava</h3>
+<div class="asse asse-4"><strong>Utilizzo:</strong> 324 unità, 328 passi. <strong>Rapporto: 1,01 passi per unità.</strong> Quasi tutte le unità sono da un solo passo — allena il <em>riconoscimento</em>, non lo <em>svolgimento</em>. L'esame AV è uno scritto con esercizi da risolvere per intero. Giuseppe ha fallito quello scritto il 17-07. Il quiz esisteva, passava PASS a ogni build, veniva usato — e allenava la cosa sbagliata. Tre settimane senza che nessuno lo misurasse. Correzione iniziata il 16-08: <code>edo</code> 32→52, <code>curve</code> 30→53, con unità da 5-6 passi. I frammenti <code>diff</code>, <code>dini</code>, <code>ottim</code> erano in JSON invece di JS — dichiarati vuoti dalla coda invece di errore sul formato.</div>
+<div class="distanza"><strong class="high">Alta</strong> — caso più concreto del paper. Il quiz esiste, funziona, è verificato. La funzione dichiarata (preparare uno scritto di svolgimento) e la struttura effettiva (domande da un passo) divergono su un punto critico che nessuno aveva mai misurato.</div>
+
+<h3>Il quiz di Metodi e Modelli</h3>
+<p>341 passi su 248 unità = 1,37 media; 77 multi-passo (31%). Meglio di AV ma il rapporto non è mai stato usato come metrica di qualità nella build. Pool <code>edp</code> costruito il 15-08 (colma il buco degli appelli 2025-26), ma la sonda nel registro lo dichiara ancora mancante.</p>
+
+<h3>Il quiz di Meccanica (orale)</h3>
+<p>457 domande, 109 lavagne, PASS (via <code>verifica-quiz-meccanica.js</code>, formato vecchio). 95 lavagne su 109 dichiarano «da ricontrollare sul Focardi» — incertezza di contenuto dichiarata e non risolta. Il verificatore passa la sintassi; la correttezza fisica è verificabile solo da Giuseppe con il Focardi cartaceo.</p>
+
+<div class="sintesi"><strong>Sintesi materiali.</strong> Volume reale e misurabile. Tre problemi nella quarta colonna: (1) quiz AV allenava il riconoscimento, non lo svolgimento — tre settimane inosservato; (2) 95 lavagne di Meccanica con incertezza di contenuto; (3) nessuna misura di utilizzo effettivo per nessun artefatto. <code>raccolta-atti.py</code> è il primo tentativo di chiudere questo buco, ma il suo path osservato non esiste ancora.</div>
+
+<hr id="s4">
+<h2>(4) Memoria a 5 livelli e organi del richiamo</h2>
+
+<div class="asse asse-1"><strong>Intenzione:</strong> <em>«Vorrei in qualche modo creare qualcosa di vivo e dinamico, che cresca acquisendo tutte le informazioni possibili, anche in punti difficili come la salute mentale.»</em> — <em>«Niente nell'oblio, magari dopo X mesi sposta in un altro blocco che diventi tipo un subconscio da poter leggere.»</em> (archivio-fondazione, 11-06). L5 non è cestino: è substrato psicologico interpretato attivamente.</div>
+
+<p><strong>Su disco:</strong> L3 (<code>L3-strategica.md</code>), L4 (<code>L4-fondazionale.md</code>), L5/psicologica (5 file: pattern-emotivi, motivazioni-profonde, paure-non-nominate, conflitti-interni, osservazioni-emergenti), L5/pattern-longitudinali (5 file: traiettoria-avventura-strutturata, figure-storiche-domini, velivolo-liberta, pensiero-ingegneristico-trasversale, innesco-esplicito-stallo).</p>
+
+<h3>L'organo di memoria (indice + grafo)</h3>
+<p>Grafo: 133 documenti, 1010 legami. Organo Crio (<code>anima-grafo.py</code>) lo ricostruisce ogni sera insieme all'indice. <strong>Zero interrogazioni dal 25 luglio.</strong> L'unica porta di accesso (l'iniezione automatica) è staccata per scelta (politica-richiamo.md: L5 mai iniettato in automatico). La porta del richiamo — un unico comando che interroga i tre motori — è proposta e senza custode fino a settembre.</p>
+
+<div class="distanza"><strong class="high">Alta.</strong> Il grafo con 1010 legami è l'artefatto concettualmente più ricco del modulo memoria e ha zero utilizzi dall'estate. Il sistema conserva bene; non recupera. La porta del richiamo era l'unica cosa che avrebbe reso utile grafo+indice ed è rimasta proposta per mancanza di custode.</div>
+
+<hr id="s5">
+<h2>(5) Infrastrutture</h2>
+
+<h3>Plancia (Fase 2)</h3>
+<p>Backend FastAPI + frontend React/TypeScript, WebSocket. <code>voce.py</code> esiste in <code>plancia/backend/routers/</code>. Avvii <code>uvicorn/npm/vite</code>: 12 in 3 sessioni. Nel registro: <code>Fase-2-plancia</code> = <code>attivo</code>, eta_max=14. La plancia è un cantiere — non sostituisce il terminale perché Fase-2 non è conclusa.</p>
+<div class="distanza"><strong class="high">Alta</strong> per la funzione finale (sostituzione totale del terminale). Il cantiere è il più longevo della navicella (dall'06-06 all'attuale Fase-2).</div>
+
+<h3>Kishi — il riversamento</h3>
+<p><code>riversa.py</code>: 15 invocazioni in 4 sessioni. Gira da 14 giorni. Funzione core (backup) operativa. Problema aperto: <code>memoria-indice.db</code> era nella storia git dall'11 commit del 31-07 con 24 frammenti di L5 in chiaro — servono riscrittura della storia e force-push (decisione di Giuseppe). La cifratura XChaCha20-Poly1305 è specifica nel documento ma non implementata.</p>
+
+<h3>Temi</h3>
+<p><code>temi.py</code>: 2 invocazioni in 1 sessione (12-08). 75 fonti nel catalogo (12-08). Ruolo espanso il 16-08: da archivio di ciò che entra a cancello di ciò che esce verso modelli esterni. Il progetto-cancello-esterno.md esiste ma non ha meccanica costruita.</p>
+<div class="distanza"><strong class="high">Alta</strong> per la funzione di interrogazione. Temi fa tre cose (archivio, interrogazione, cancello) con una sola effettivamente usata (archiviazione passiva).</div>
+
+<h3>Oceano — voce→intake</h3>
+<p><code>voce.py</code> (ASR Whisper) esiste. Il ponte che porta l'output in <code>intake/</code> non è costruito. Il registro marca <code>intake-note-vocali</code> come <code>attivo</code> con path osservato <code>voce.py</code> — che non cambia quando il cablaggio avanza. Contratto sbagliato.</p>
+<div class="distanza"><strong class="high">Alta.</strong> L'intenzione è integra; il 60% del percorso è costruito; l'utilità è zero perché manca il collegamento.</div>
+
+<div class="sintesi"><strong>Pattern infrastrutture.</strong> Componenti che funzionano individualmente ma non sono cablati in circuiti end-to-end. Il riversamento funziona perché è lineare. Tutto il resto richiede un collegamento che manca.</div>
+
+<hr id="s6">
+<h2>(6) Hook, comandi slash, script</h2>
+
+<h3>Gli hook — settings.json</h3>
+<p>SessionStart: 6 script (<code>promemoria-coda.py</code>, <code>memoria-cerca.py --cheatsheet</code>, <code>verifica-costituzione.py</code> timeout 15s, <code>banca-dati-scan.py</code> timeout 20s, <code>stato-studente.py --scrivi</code> timeout 20s, <code>raccolta-atti.py --zitto</code> timeout 20s). UserPromptSubmit: <code>cattura-apprendimento.py</code>. Stop: <code>fine-sessione.py</code> timeout 30s. PreToolUse/PostToolUse/UserPromptSubmit/Notification/SubagentStop: curl asincrono alla plancia (<code>http://127.0.0.1:8000</code>), timeout 2s, async, <code>|| true</code>.</p>
+<p>Il curl plancia è l'hook più distribuito (6 tipi di evento) e non può fallire visibilmente. Quando il backend non gira, i 6 hook sparano nel vuoto senza log di errore — è il caso estremo del componente non cablato: progettato per non segnalare che il circuito è aperto.</p>
+
+<h3>I 17 comandi slash</h3>
+<p>quiz, nota-oggi, inventario, mappa, stato-traiettoria, promuovi-l4, memoria-status, analisi-psicologica, aggiungi-corso, riepilogo, intake, genera-manuale, oroboro, atlante-fisica, riflessione, capitolo, indice. I comandi slash si espandono in testo nel prompt — non lasciano firma nei .jsonl, le invocazioni non sono grep-abili. CLAUDE.md dichiara 4 protocolli operativi; su disco ce ne sono 11.</p>
+
+<hr id="s7">
+<h2>(7) Modulo Business</h2>
+
+<p>Costruito il 17-07. Rotto il 17-07 (YAML). Riparato il 12-08. Parcheggiato il 12-08. <strong>Non ha mai avuto una sessione operativa.</strong> Ermete: 0 dispacci. <code>post-mortem.db</code> non esiste. <code>andamento-sistema.md</code> non esiste. Tre pipeline (quiz-fisica, clip-film, scifi) non costruite.</p>
+
+<div class="nota-nuova"><strong>Ierofante ha due dispacci — oggi, per OmniRoute, non per il Business.</strong> Il primo uso reale di un agente del modulo Business è avvenuto fuori dal suo dominio, per una regola costituzionale scritta mesi dopo la sua creazione. Il documento prodotto: <code>00-capitano/ierofante/omniroute-gate-tos-2026-08.md</code> — tre verdetti verdi/ambra e tre rossi motivati con clausole citate. Un organo costruito per un dominio si è rivelato utile in un altro: la navicella cresce in un ordine che la colonna «intenzione dichiarata» da sola non cattura.</div>
+
+<hr id="s8">
+<h2>(8) Patti e protocolli</h2>
+
+<p><strong>Protocolli:</strong> CLAUDE.md dichiara 4; su disco ce ne sono 11 in <code>00-capitano/protocolli/</code>. Il documento di partenza che tutti gli agenti leggono all'avvio non riflette il sistema reale.</p>
+
+<p><strong>Patto di autonomia esecutiva</strong> — regge sul versante tecnico (<code>bypassPermissions</code> in settings.json). Il limite di sessione che ha ucciso build e agenti non è governabile dal patto — è un limite di infrastruttura, non di permessi. Nessun episodio di violazione del patto sulla <em>rotta</em> (la direzione resta di Giuseppe).</p>
+
+<p><strong>Patto sui ruoli — superficie scoperta.</strong> La regola «costruzione → Dedalo» è stata violata il 16-08: Mnemosyne ha progettato e scritto due script nel cantiere dei pool. Se n'è accorto Giuseppe, non il sistema. Nessun organo controlla lo smistamento fra i due agenti attivi: è una regola in prosa che qualcuno deve ricordarsi di applicare mentre fa altro. <code>general-purpose</code> a 27 dispacci è la stessa malattia sul versante passivo: nessun organo controlla se un Task dispaccia l'agente giusto o il fallback. Due versanti, stessa assenza.</p>
+
+<hr id="s9">
+<h2>(9) Abbandonati e superati</h2>
+
+<p><strong>Architettura v1</strong> (7 agenti, due triadi, 11-06): costruita e smontata nella stessa sessione. Spostata in <code>legacy/</code> il 31-07 — finché stava in <code>.claude/agents/legacy-v1/</code> il runtime la caricava al posto della v2 per 6 settimane.</p>
+
+<p><strong>C.N.A.C.</strong> — cifrario caotico proposto da Giuseppe, scartato con motivazione tecnica (Álvarez &amp; Li 2006, chaos-crypto rotta). Archiviato come esplorazione. Alternativa specificata (XChaCha20-Poly1305) non ancora implementata.</p>
+
+<p><strong>Oroboro</strong> — ciclo autonomo via Claude Code Routines, proposta in attesa di ratifica. Non dichiarato formalmente superato nel registro. Il comando slash <code>/oroboro</code> esiste ancora nell'interfaccia.</p>
+
+<p><strong>Coeo</strong> — turno del ReAct loop, abolito. Dichiarato nei Superati del registro. Il nome è stato ripreso per il banco di collaudo (Rea) — superato l'organo, non il nome.</p>
+
+<div class="nota-nuova"><strong>Categoria nuova: «mai nato per omonimia».</strong> Il 15-08 sera Giuseppe ordina «metti anche questo nella coda». L'ordine finisce in <code>coda-notturna.py</code> (il misuratore dei lotti di esercizi) invece di <code>notturno/coda.md</code> (il manifesto dello scheduler). Due oggetti con nomi a un trattino di distanza e funzioni completamente diverse. La diagnosi non è mai partita di notte. Non è un abbandonato: è un intento che ha trovato il contenitore sbagliato senza produrre nessun segnale di fallimento. La forma generale: un ordine che finisce nel posto sbagliato non lascia traccia di errore, e quindi non entra in nessun conto.</div>
+
+<hr id="s10">
+<h2>(10) Documenti di visione e ricerche</h2>
+
+<p><code>00-capitano/dedalo/</code> contiene 30+ file — brief, visioni, piani, ricerche. Tra essi: navicella-mobile-visione, navicella2d-visione, business-visione-v2, business-modello-v3, omniroute-visione, app-mobile-visione, visione-cervello-memoria, apparato-A-metabolismo, apparato-B-completo, parere-titanogenesi, replica-titanogenesi, notte-progetti, plancia-blueprint, progetto-memoria-diretta, progetto-cancello-esterno. Ricerche GitHub: 8 file in <code>ricerca-github/</code>.</p>
+
+<p><strong>Misurato per impatto:</strong> titanogenesi → registro-procedimenti (impatto diretto). omniroute-visione + omniroute-integrazioni → installazione di OmniRoute oggi (impatto diretto). navicella-mobile-visione, app-mobile-visione, visione-cervello-memoria, navicella2d-visione: nessuna decisione in archivio-fondazione direttamente collegata.</p>
+
+<div class="distanza">Alta per i documenti senza seguito (visioni archiviate). Il problema non è che non abbiano prodotto costruzione — esplorare senza costruire è legittimo. Il problema è che questi documenti non hanno stato: nessun registro li dichiara, il verificatore non li misura. Sono prosa che potrebbe essere un inizio o un ricordo, e dal file non si capisce quale.</div>
+
+<hr id="s11">
+<h2>(11) Procedimenti reali fuori dal registro</h2>
+
+<p>Il registro è nato il 12-08. Prima di allora, e in parallelo, sono accadute cose che non hanno voce.</p>
+
+<p><strong>Il YAML repair (12-08).</strong> 4 agenti invisibili per 26-37 giorni, trovati e riparati nella stessa sessione. La riparazione ha richiesto lettura dei .jsonl, aggiornamento dei 4 file, scrittura di <code>verifica-costituzione.py</code>. Nessuna di queste azioni è in nessun registro.</p>
+
+<p><strong>Le tre build morte (13-15 agosto).</strong> Tre sessioni di Demiurgo interrotte dal limite mentre il lavoro era in pancia. L'effetto: <code>brief-lotto-esercizi.md</code>, <code>coda-notturna.py</code>, metodo di stazionamento, <code>lotto_innesta.js</code>. Una crisi ripetuta tre volte ha prodotto architettura più solida, ma la crisi non è tracciata da nessuna parte come lezione formale.</p>
+
+<p><strong>La scoperta del quiz AV (16-08).</strong> 324 unità, 1,01 passi medi — trovato misurando per questo paper. Non era un procedimento noto. Non esiste un meccanismo per tracciare i difetti trovati per caso durante un'analisi non dedicata.</p>
+
+<p><strong>L'installazione di OmniRoute (16-08).</strong> Giuseppe installa OmniRoute, Ierofante viene dispacciato due volte, progetto-cancello-esterno.md viene scritto. Tre artefatti in una giornata per risposta a una crisi. Nessuno era in nessun registro prima di oggi.</p>
+
+<p><strong>Il pattern.</strong> Il registro richiede che qualcuno apra una voce <em>prima</em>: presuppone un sistema abbastanza ordinato da pianificare. Un sistema sotto pressione produce lavoro senza pianificazione, e quel lavoro non entra nel registro.</p>
+
+<hr id="s12">
+<h2>(12) Pattern trasversali e conclusioni operative</h2>
+
+<h3>I tre pattern</h3>
+
+<div class="nota-nuova">
+<strong>Pattern 1 — Il caso-che-non-so-leggere travestito da caso-normale.</strong>
+<ul style="margin-top:0.5rem;margin-left:1.5rem;">
+  <li><code>conto_registro()</code>: <code>eta is None</code> → <code>fuori = False</code> → voce contata come <code>attivo</code>. Path inesistente dà lo stesso risultato di path esistente e aggiornato.</li>
+  <li>Strumento misura frammenti: JSON invece di JS → parser restituisce 0 unità invece di errore.</li>
+  <li><code>lotto_innesta.js</code>: «sintassi rotta» per una causa diversa dalla sintassi.</li>
+</ul>
+<p style="margin-top:0.5rem;">La struttura è identica: uno strumento con un ramo per il dato-valido e un ramo implicito per tutto il resto. Il ramo implicito collassa silenziosamente in un valore (<code>0</code>, <code>False</code>, <code>attivo</code>) che sembra un risultato. Il costo non è il singolo errore: è che lo strumento non segnala il proprio limite di comprensione.</p>
+</div>
+
+<div class="nota-nuova">
+<strong>Pattern 2 — Componenti funzionanti non cablati.</strong>
+<p style="margin-top:0.5rem;">Il riversamento funziona perché è lineare: navicella → git. Non richiede nessun altro componente. Ogni altra funzione end-to-end richiede un circuito: voce → ASR → intake → Rapsodo (il ponte manca); grafo → porta-del-richiamo → risposta (la porta manca); Argonauta → Dedalo → Demiurgo Creativo (mai girato completo).</p>
+<p>Il caso estremo: il curl plancia in 6 tipi di hook — asincrono, timeout 2s, <code>|| true</code>. Non può fallire visibilmente. Progettato per non segnalare che il circuito è aperto.</p>
+</div>
+
+<div class="nota-nuova">
+<strong>Pattern 3 — Mai nato per omonimia.</strong>
+<p style="margin-top:0.5rem;">L'ordine del 15-08 che finisce nel contenitore sbagliato. La forma generale: un intento che trova un nome simile a quello giusto, ci entra, e non produce segnale di fallimento perché il contenitore sbagliato accetta l'input. Il silenzio è peggio dell'errore — un errore si corregge, il silenzio non segnala nulla da correggere.</p>
+<p>Versione sistemica: il comando slash <code>/oroboro</code> esiste per un concetto descritto altrove come superato. Un agente che cerca <code>/oroboro</code> lo trova nell'interfaccia; l'intenzione che sia superato non è visibile lì.</p>
+</div>
+
+<p>Un quarto pattern non si impone. I tre reggono su evidenza diretta — non aggiungo un quarto per completezza retorica.</p>
+
+<h3>Conclusioni operative — per chi apre il documento a freddo</h3>
+<p>Ordinate per rapporto guadagno/lavoro. Per essere usate: aprire questo file dopo gli esami, leggere dall'alto, fare nell'ordine.</p>
+
+<div class="conclusione"><strong>1. Correggere il bug di <code>conto_registro()</code> — 1 riga, 30 minuti.</strong><br>
+<code>fuori = eta is None or eta &gt; v["massimo"]</code> (proteggere il caso <code>v["massimo"] is None</code>). La riga che Giuseppe legge all'avvio rifletterà la realtà. File: <code>00-capitano/scripts/verifica-costituzione.py</code> righe 96-101.</div>
+
+<div class="conclusione"><strong>2. Ripulire i quattro .bak in .claude/agents/ — 5 minuti.</strong><br>
+<code>architetto.md.bak-20260812</code>, <code>demiurgo-creativo.md.bak-20260812</code>, <code>ermete.md.bak-20260812</code>, <code>ierofante.md.bak-20260812</code>. Non fanno danni, ma il runtime scandaglia la cartella.</div>
+
+<div class="conclusione"><strong>3. Aggiornare CLAUDE.md — 20 minuti.</strong><br>
+(a) «quattro protocolli operativi» → 11 presenti; (b) aggiungere regola YAML description-sempre-quotata come nota permanente (oggi è solo nelle note di manutenzione dei file agente); (c) chiarire distinzione <code>coda-notturna.py</code> vs <code>notturno/coda.md</code>; (d) aggiungere il ruolo cancello-esterno di Temi.</div>
+
+<div class="conclusione"><strong>4. Aggiornare la sonda di quiz-metodi-pool-edp nel registro — 10 minuti.</strong><br>
+La sonda <code>manca:...frags/edp.js</code> è falsa: il file esiste. La voce resta proposta in silenzio. File: <code>00-capitano/dedalo/registro-procedimenti.md</code>.</div>
+
+<div class="conclusione"><strong>5. Costruire la porta del richiamo — 2-4 ore, dopo gli esami.</strong><br>
+Un solo comando (<code>cosa sappiamo di X</code>) che interroga i tre motori (indice, grafo, ricerca testuale) e dichiara da dove viene ogni pezzo. Il grafo ha 1010 legami e <strong>zero interrogazioni dal 25 luglio</strong>. L'indice si ricostruisce ogni sera e non viene letto. Entrambi diventano utili nel momento in cui esiste una porta.</div>
+
+<div class="conclusione"><strong>6. Aggiornare banca-fisica.md — 30 minuti.</strong><br>
+Fermo dal 03-07. Path puntato: <code>Quiz_Meccanica_Orale_v1.html</code> → migrato in <code>percorso-matematica/meccanica/</code>. Conteggio: 391 domande → 457. Il secondo asse (gioco-fisica) riprende da dati veri.</div>
+
+<div class="conclusione"><strong>7. Dare al Demiurgo Creativo il primo brief reale — 1 sessione, dopo gli esami.</strong><br>
+L'agente ha 0 dispacci. La prima sessione dopo gli esami deve contenere un brief concreto di Dedalo → Demiurgo Creativo su qualcosa di reale. È l'unico modo per sapere se la catena funziona e se Sonnet regge o richiede Opus. Dati invece di assunzioni su un terzo dell'architettura creativa.</div>
+
+<div class="conclusione"><strong>8. Misurare i passi per pool nei quiz prima di studiare — 2 ore.</strong><br>
+Quiz AV: 1,01 medio (quasi tutte single-step). Quiz Metodi: 1,37 (non misurato per pool). Sapere quali pool allena il riconoscimento e quali lo svolgimento, prima di usarli per prepararsi all'esame.</div>
+
+<div class="conclusione"><strong>9. Dare stato ai documenti di visione — 1 ora.</strong><br>
+I 30+ documenti in <code>00-capitano/dedalo/</code> non hanno stato: il verificatore non li vede. Quelli con decisione seguita → <code>concluso</code>; quelli aperti → <code>proposto</code> con condizione. Il verificatore inizia a vedere anche la pipeline delle idee.</div>
+
+<div class="conclusione"><strong>10. Aprire il modulo Business con una sessione breve (1-2h) — dopo gli esami.</strong><br>
+Non per costruire le pipeline: per sapere se Ermete funziona. La catena Ermete → Ierofante → pubblicazione non ha mai girato. Un test di 1-2h produce la prima misura reale di un sistema oggi senza storia operativa.</div>
+
+<hr>
+<div class="meta" style="text-align:center;margin-top:2rem;">
+  Rapsodo · navicella di Giuseppe Scarda · 2026-08-16<br>
+  Sorgente: <code>00-capitano/diagnosi-procedimenti-2026-08-16.md</code><br>
+  Stato: <code>00-capitano/diagnosi-stato.md</code>
+</div>
+
+</div>
+</body>
+</html>

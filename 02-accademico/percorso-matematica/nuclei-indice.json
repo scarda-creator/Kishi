@@ -1,5 +1,5 @@
 {
- "generato": "2026-08-14",
+ "generato": "2026-08-15",
  "movimenti": {
   "1": "Calcolo multivariabile e vettoriale",
   "2": "Ponte: spazi di funzioni",
@@ -797,7 +797,7 @@
    "nn": "90",
    "file": "meccanica/Quiz_Meccanica_Orale_v1.html",
    "mov": 5,
-   "titolo": "Meccanica — 451 domande e 33 dimostrazioni per l’orale",
+   "titolo": "Meccanica — 457 domande e 109 dimostrazioni per l’orale",
    "tappe": [
     {
      "num": "01",
@@ -897,38 +897,42 @@
    "nn": "91",
    "file": "metodi/Quiz_MetodiModelli_v1.html",
    "mov": 4,
-   "titolo": "Metodi e Modelli — 250 esercizi sugli 8 tipi che escono davvero",
+   "titolo": "Metodi e Modelli — 270 esercizi sui 9 tipi che escono davvero",
    "tappe": [
     {
      "num": "01",
-     "titolo": "Funzione di Green (sorgente regolare)"
+     "titolo": "Equazioni alle derivate parziali (esercizio 4)"
     },
     {
      "num": "02",
-     "titolo": "Green con δ e δ′"
+     "titolo": "Funzione di Green (sorgente regolare)"
     },
     {
      "num": "03",
-     "titolo": "Funzioni polidrome: tagli e integrali"
+     "titolo": "Green con δ e δ′"
     },
     {
      "num": "04",
-     "titolo": "Funzioni di matrice (spettrale)"
+     "titolo": "Funzioni polidrome: tagli e integrali"
     },
     {
      "num": "05",
-     "titolo": "Fourier via residui"
+     "titolo": "Funzioni di matrice (spettrale)"
     },
     {
      "num": "06",
-     "titolo": "Integrali reali per contorno"
+     "titolo": "Fourier via residui"
     },
     {
      "num": "07",
-     "titolo": "Laurent, singolarità, residui"
+     "titolo": "Integrali reali per contorno"
     },
     {
      "num": "08",
+     "titolo": "Laurent, singolarità, residui"
+    },
+    {
+     "num": "09",
      "titolo": "Operatori: autofunzioni e spettro"
     }
    ]

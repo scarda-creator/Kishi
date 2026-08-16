@@ -110,24 +110,103 @@ def tentativi():
     return per_corso
 
 
+def _domande_nel_quiz(percorso):
+    """(pool, domande) leggendo il montato.
+
+    In giro ci sono due motori: quello a frammenti (`var POOLS = [...]` + unita' JSON con
+    `"pool"` e `"opts"`, usato da Geometria/AV/Metodi) e quello dell'orale di Meccanica
+    (`POOLS = {chiave: {...status:"full"}}` con domande `q:"..."`). Si contano entrambi e si
+    prende il massimo, invece di privilegiare un motore e dare zero sull'altro: un contatore
+    che va a zero quando cambia la forma del file e' peggio di nessun contatore, perche' lo
+    zero sembra un'assenza reale.
+
+    Se il file c'e' ma non si riesce a leggerlo si torna (0, 0), e si vede.
+    """
+    t = leggi(percorso)
+    if not t:
+        return 0, 0
+    # i template portano un blocco di istruzioni per il Demiurgo con un'unita' di esempio:
+    # contarla gonfia il totale e lo fa divergere da quello di quiz_verifica.js
+    t = re.sub(r"<!--.*?-->", "", t, flags=re.S)
+    t = re.sub(r"/\*.*?\*/", "", t, flags=re.S)
+    pool = max(
+        len(set(re.findall(r'"?pool"?\s*:\s*"([^"]+)"', t))),
+        len(re.findall(r'"?status"?\s*:\s*"', t)),
+    )
+    dom = max(
+        len(re.findall(r'"?opts"?\s*:', t)),
+        len(re.findall(r'\bq\s*:\s*"', t)),
+    )
+    return pool, dom
+
+
+def quiz_montati(slug_corsi):
+    """I quiz montati NON stanno piu' dentro la cartella del corso.
+
+    Dal 2026-08-12 vivono nel percorso unico, che e' l'unico accesso di Giuseppe
+    (`02-accademico/percorso-matematica/<cartella>/Quiz_*.html`); la cartella del corso
+    tiene solo le sorgenti. Vedi `corsi/metodi-e-modelli/03-note-mie/DOVE-VIVE-IL-QUIZ.md`.
+
+    Un contatore che guarda dove le cose non stanno piu' non e' un contatore: e' una
+    presenza mancata scambiata per assenza. Il 15/08 questo ha fatto risultare Metodi e
+    Modelli il corso piu' scoperto della sessione mentre era il secondo piu' coperto.
+
+    Le cartelle del percorso non ripetono lo slug del corso (`metodi` per
+    `metodi-e-modelli`): si accoppia per prefisso, sul match piu' lungo, senza tabella di
+    alias da tenere aggiornata a mano.
+    """
+    out = {}
+    base = os.path.join(ACC, "percorso-matematica")
+    if not os.path.isdir(base):
+        return out
+    for cartella in sorted(os.listdir(base)):
+        d = os.path.join(base, cartella)
+        if not os.path.isdir(d) or cartella.startswith(("_", ".")):
+            continue
+        quiz = sorted(f for f in os.listdir(d)
+                      if f.startswith("Quiz_") and f.endswith(".html"))
+        if not quiz:
+            continue
+        cand = [c for c in slug_corsi if c == cartella
+                or c.startswith(cartella) or cartella.startswith(c)]
+        corso = max(cand, key=len) if cand else cartella
+        v = out.setdefault(corso, {"quiz": 0, "pool": 0, "domande": 0, "dove": []})
+        for f in quiz:
+            p, dm = _domande_nel_quiz(os.path.join(d, f))
+            v["quiz"] += 1
+            v["pool"] += p
+            v["domande"] += dm
+            v["dove"].append("percorso-matematica/%s/%s" % (cartella, f))
+    return out
+
+
 def materiale():
     """PRESENZE, non atti. Riportato separatamente e mai contato come studio."""
     out = {}
     corsi = os.path.join(ACC, "corsi")
     if not os.path.isdir(corsi):
         return out
-    for c in sorted(os.listdir(corsi)):
+    slug = [c for c in sorted(os.listdir(corsi))
+            if os.path.isdir(os.path.join(corsi, c)) and not c.startswith("_")]
+    montati = quiz_montati(slug)
+    for c in slug:
         base = os.path.join(corsi, c)
-        if not os.path.isdir(base):
-            continue
-        n = quiz = 0
+        n = 0
+        quiz = dict(montati.get(c, {"quiz": 0, "pool": 0, "domande": 0, "dove": []}))
         for root, dirs, files in os.walk(base):
             dirs[:] = [d for d in dirs if d not in ("_txt", "__pycache__")]
             for f in files:
                 n += 1
+                # residui non ancora migrati nel percorso: si contano, ma si dice dove sono
                 if f.startswith("Quiz_") and f.endswith(".html"):
-                    quiz += 1
-        out[c] = {"file": n, "quiz": quiz}
+                    p, dm = _domande_nel_quiz(os.path.join(root, f))
+                    quiz["quiz"] += 1
+                    quiz["pool"] += p
+                    quiz["domande"] += dm
+                    quiz["dove"].append(os.path.relpath(os.path.join(root, f), ACC)
+                                        .replace("\\", "/"))
+        out[c] = {"file": n, "quiz": quiz["quiz"], "pool": quiz["pool"],
+                  "domande": quiz["domande"], "dove": quiz["dove"]}
     return out
 
 
@@ -220,11 +299,20 @@ def rapporto():
 
     R.append("## Materiale disponibile — presenze, non studio")
     R.append("")
-    R.append("| corso | file | quiz |")
-    R.append("|---|---:|---:|")
+    R.append("| corso | file | quiz | pool | domande |")
+    R.append("|---|---:|---:|---:|---:|")
     for c, m in sorted(mat.items(), key=lambda x: -x[1]["file"]):
-        R.append("| %s | %d | %d |" % (c, m["file"], m["quiz"]))
+        R.append("| %s | %d | %d | %d | %d |"
+                 % (c, m["file"], m["quiz"], m["pool"], m["domande"]))
     R.append("")
+    dove = [(c, p) for c, m in sorted(mat.items()) for p in m["dove"]]
+    if dove:
+        R.append("Dove stanno i quiz montati (il contatore li cerca lì, non nella cartella "
+                 "del corso — dal 12 agosto è quello l'unico accesso di Giuseppe):")
+        R.append("")
+        for c, p in dove:
+            R.append("- `%s` — %s" % (p, c))
+        R.append("")
     R.append("Questi numeri dicono cosa **esiste**, non cosa Giuseppe ha studiato. "
              "Il 2 agosto il percorso-matematica risultava «18 su 18» perché i file c'erano: "
              "li aveva aperti per guardarli. Da allora nessuna presenza viene contata come atto.")

@@ -1,0 +1,4 @@
+File di test per il cancello esterno.
+Contenuto anonimo: nessun dato personale, nessuna parola bloccata.
+Termine di serie di Fourier: f(x) = sum_{n=1}^{N} a_n sin(n x) + b_n cos(n x).
+Questo file passa tutti e tre i livelli del cancello.

@@ -1,0 +1,39 @@
+# Cosa copre gia' il pool `laurent` (metodi)
+
+Misura generata da `coperture.py`. Serve a NON riscrivere cio' che c'e'.
+Ogni riga: numero, provenienza, quanti passi, apertura della prima domanda.
+
+### metodi / laurent
+  32 unita', 44 passi totali
+   1. [nucleo 12, tappa 04] (1 passi) La serie di Laurent di $f$ attorno a $z_0$, valida nella corona $r<|z-z_0|<R$, e':
+   2. [nucleo 12, tappa 04 (trabocchetto dichiarato)] (1 passi) Quante serie di Laurent DISTINTE ha $f(z)=\dfrac{1}{z(z-1)}$ centrate in $z_0=0$?
+   3. [nucleo 12, tappa 04] (1 passi) Come si classifica una singolarit ISOLATA $z_0$ guardando la parte principale della sua serie di Laurent?
+   4. [nucleo 13, tappa 01 (modus)] (1 passi) MODUS OPERANDI. Davanti a una $f$ di cui serve il residuo in $z_0$, come si decide fra USARE LA FORMULA del re...
+   5. [nucleo 12, tappa 04] (1 passi) Perch il coefficiente $a_{-1}$ (il residuo) ha uno statuto speciale fra tutti i coefficienti di Laurent?
+   6. [nucleo 13, tappa 01] (1 passi) Le formule per il residuo in un polo. Quale terna e' corretta?
+   7. [nucleo 12, tappa 04 (modus)] (1 passi) MODUS OPERANDI. Sequenza corretta per classificare la singolarit in $z_0$ di un QUOZIENTE e trovarne il residu...
+   8. [nucleo 12, tappa 04 (Casorati-Weierstrass)] (1 passi) Vicino a una singolarit ESSENZIALE $z_0$, il comportamento di $f$ e' descritto da:
+   9. [nucleo 13 (residuo all] (1 passi) Il residuo all'infinito si calcola con:
+  10. [20240910 Es.1 (singolarita] (1 passi) $f(z)=\dfrac{1}{\sin(z^{-2})}$ ha in $z=0$:
+  11. [nucleo 12, tappa 04] (1 passi) Che tipo di singolarit ha $\dfrac{\sin z}{z}$ in $z=0$, e quale $\dfrac{e^z}{z^3}$?
+  12. [nucleo 12, tappa 03/04 (Taylor vs Laurent)] (1 passi) MODUS OPERANDI. Per ottenere la parte principale di un quoziente $\dfrac{N(z)}{D(z)}$ in $z_0$, quando convien...
+  13. [nucleo 12, tappa 04 (essenziale, R vs C)] (1 passi) La funzione reale $e^{-1/x^2}$ (con $e^{-1/0^2}:=0$) e' $C^\infty$ con serie di Taylor identicamente nulla in ...
+  14. [nucleo 12, tappa 04] (1 passi) Perch il residuo (coefficiente $a_{-1}$) e' l'UNICA informazione dello sviluppo di Laurent che conta per integ...
+  15. [nucleo 13 (trappola b01: ordine del polo)] (1 passi) TRAPPOLA. Prima di applicare la formula del residuo, la cosa da verificare e':
+  16. [nucleo 12, tappa 04 (esercizio guidato)] (3 passi) $f(z)=\dfrac{1}{z(z-1)}$, sviluppo di Laurent centrato in $0$. Primo passo: la decomposizione in fratti sempli...
+  17. [20240115 Es.1] (3 passi) $f(z)=\dfrac{\sin z}{\cos(z^2)-1}$: qual e' l'ordine del polo in $z=0$?
+  18. [20230620 Es.1] (3 passi) $f(z)=\dfrac{1}{\cos(e^z-1)-1}$: sviluppando $e^z-1=z+\frac{z^2}{2}+\cdots$ e poi $\cos(w)-1=-\frac{w^2}{2}+\c...
+  19. [20240618 turno A Es.1] (3 passi) $f(z)=\dfrac{3+z}{z^3+2z^2}=\dfrac{3+z}{z^2(z+2)}$: fratti semplici. Quale decomposizione?
+  20. [20240910 Es.1] (2 passi) $f(z)=\dfrac{1}{\sin(z^{-2})}$: stabilito che $z=0$ e' singolarit non isolata, i poli finiti sono in $z_k=\pm(...
+  21. [nucleo 12, tappa 04 (collaudo)] (1 passi) Che singolarit ha $\dfrac{1-\cos z}{z^3}$ in $z=0$, e quanto vale il residuo?
+  22. [nucleo 13, tappa 01 (essenziale)] (1 passi) $\mathrm{Res}(e^{1/z},0)$ vale, e con quale metodo si ottiene?
+  23. [nucleo 13, tappa 01] (1 passi) $\mathrm{Res}\!\left(\dfrac{e^z}{(z-2)^3},\,2\right)$ vale:
+  24. [nucleo 12, tappa 05 (esercizio guidato)] (2 passi) $f(z)=\dfrac{z^2\sin z}{(1-\cos z)^2}$ in $z=0$: ordine del polo?
+  25. [nucleo 13, tappa 01] (1 passi) $\mathrm{Res}\!\left(\dfrac{z}{z^2+1},\,i\right)$ vale:
+  26. [20231116 Es.1] (2 passi) Per $\dfrac{1}{\sin z}$ i coefficienti di Laurent negli anelli attorno a $0$ si ottengono da $d_{-n}=\frac{1}{...
+  27. [nucleo 13, tappa 01] (1 passi) $\mathrm{Res}\!\left(\dfrac{\cos z-1}{z^5},\,0\right)$ conviene calcolarlo:
+  28. [nucleo 13, tappa 01 (polo doppio via derivata)] (1 passi) $\mathrm{Res}\!\left(\dfrac{1}{(z^2+1)^2},\,i\right)$ (polo doppio in $z=i$) vale:
+  29. [20230704 Es.1 (residuo all] (2 passi) Per $g(z)=\dfrac{z^2}{(z-1)(z-2)}$, il residuo all'infinito si trova ponendo $z=1/w$. Il modo piu' rapido, in ...
+  30. [nucleo 12, tappa 04 (riconoscimento)] (1 passi) COMPLESSA. Quale delle seguenti classificazioni in $z=0$ e' corretta?
+  31. [nucleo 13 (modus complessa)] (1 passi) MODUS OPERANDI (complessa). Per $\oint_\gamma f\,dz$ con $f$ che ha in $z_0$ interno una singolarit di natura ...
+  32. [nucleo 12, tappa 04 (raggio/prossima singolarita] (1 passi) COMPLESSA. Lo sviluppo di Laurent di $\dfrac{1}{z(z-1)(z-3)}$ centrato in $z_0=0$ ammette quante corone, delim...

@@ -54,14 +54,15 @@ Il path è l'artefatto su cui si misura la vita: se il lavoro avanza, quel file 
 ```dati
 Fase-2-plancia          | attivo       | Dedalo           | 14 | plancia/frontend/src | tool renderizzati dentro le stanze -> terminale sostituito
 Phi-uv-nucleo-03        | concluso     | Dedalo           |  - | 02-accademico/percorso-matematica/nuclei/03-curve-superfici.html | FATTO il 14-08, e in realta' era gia' fatto sul disco: sfera+cilindro con normale, campo/flusso, Mobius non orientabile. Collaudato headless (5 figure su 5 disegnano). Il path osservato era sbagliato — guardava il motore, che non cambia piu' perche' il lavoro e' finito
-revisione-nuclei-00-04  | attivo       | Dedalo           | 14 | 02-accademico/percorso-matematica/nuclei/contenuti | rilettura con le capacita grafiche nuove -> nuclei rivisti
+revisione-nuclei-00-04  | attivo       | Dedalo           | 14 | 02-accademico/percorso-matematica/nuclei/01-differenziabilita.html | rilettura con le capacita grafiche nate DOPO la scrittura dei nuclei, un agente per volta (metodo chiesto da Giuseppe il 13-08). Misura d'ingresso: 00=12 figure, 01=3, 02=2, 03=6, 04=4. FATTI il 15-08: **02** Dini/ottimizzazione (2->10 figure, 812 formule) e **01** differenziabilita' (3->9 figure, 617 formule), 0 mute al banco. Corretti due difetti del motore trovati strada facendo: yr degenere quando nessun campione e' finito, e `width` ignorato nel contour. Restano 04, 03, 00
 intake-note-vocali      | attivo       | Dedalo->Rapsodo  | 14 | plancia/backend/routers/voce.py | ponte plancia->intake (cablaggio di Oceano) -> nota vocale depositata e ripulita
 schiusura-44-fonti      | attivo       | Dedalo           | 21 | 00-capitano/dedalo/schiusura-bilancio-fonti.md | RISVEGLIATA il 14-08: Temi esiste, la condizione si e' avverata; prossimo passo = potare le prime fonti nel catalogo
 registro-procedimenti   | attivo       | Dedalo+Mnemosyne | 21 | 00-capitano/dedalo/registro-procedimenti.md | manifesto letto dal verificatore -> fatto; resta la vista (plancia-cantiere)
 Temi-catalogo-fonti     | attivo       | Dedalo           | 21 | 00-capitano/temi/catalogo-fonti.md | ogni fonte che Giuseppe da' entra e si puo' interrogare -> nato il 12-08 con 58 fonti
-quiz-analisi-vettoriale | attivo       | Demiurgo Acc.    | 10 | 02-accademico/percorso-matematica/analisi-vettoriale/Quiz_AnalisiVettoriale_v1.html | pool 6-10 estesi e verificati -> scritto del 4 settembre
+quiz-analisi-vettoriale | concluso     | Demiurgo Acc.    |  - | 02-accademico/percorso-matematica/analisi-vettoriale/Quiz_AnalisiVettoriale_v1.html | MISURATO il 15-08 ed era gia' finito: 10 pool su 10, 305 esercizi, 328 passi, 4993 formule, PASS. La condizione di fine («pool 6-10 estesi e verificati») era soddisfatta e nessuno l'aveva verificata — terza voce dichiarata viva che era conclusa. Quel che resta per il 4 settembre non e' costruire: e' usarlo, e depositare gli atti
 quiz-meccanica-lavagne  | parcheggiato | Demiurgo Acc.    |  - | 02-accademico/percorso-matematica/meccanica/Quiz_Meccanica_Orale_v1.html | COSTRUZIONE CHIUSA il 14-08: 457 domande, 109 lavagne, 4864 formule, PASS. Erano gia' 103 e non 34 (il piano del 12-08 misurava male); la fine non era un numero ma la COPERTURA del programma di Pisano, e i 6 buchi sono coperti (giroscopio, urti fra corpi estesi, oscillatori accoppiati, massa ridotta, maree, onde piane e sferiche). Resta il difetto che una macchina non puo' sciogliere: 95 lavagne su 109 dicono «da ricontrollare sul Focardi» e l'OCR corrompe proprio le formule | chiedi:ricontrollo delle lavagne sulla copia cartacea del Focardi - solo Giuseppe puo' farlo
 quiz-metodi-e-modelli   | concluso     | Demiurgo Acc.    |  - | 02-accademico/percorso-matematica/metodi/Quiz_MetodiModelli_v1.html | FATTO il 14-08: 8 pool su 8, 248 unita', 341 passi, 77 multi-passo, 5676 formule verificate, PASS. Da fare: caricamento sulla repo del percorso
+quiz-metodi-pool-edp    | proposto     | Demiurgo Acc.    |  - | 02-accademico/corsi/metodi-e-modelli/banca-esercizi/frags/edp.js | buco trovato dal run notturno del 15-08: l'esercizio 4 e' una PDE negli ULTIMI SEI appelli su sei (dal 23-06-2025), e i pool non ne hanno una domanda; `green`+`greendelta` sono 64 domande su un tipo comparso 1 volta in 9 appelli. Causa: i pool furono costruiti su b01 (2023-24) + eserciziari, e b02 (i 9 esami 2025-26) non era mai stata censita — la deriva viveva tutta nella finestra non letta. Materiale gia' puntato, nulla serve da fuori: mappa in 02-libro-di-testo/01-mappa-esercizi.md §4. Apertura = prossima sessione di Demiurgo Accademico, prima del 9 settembre | manca:02-accademico/corsi/metodi-e-modelli/banca-esercizi/frags/edp.js
 raccolta-atti           | attivo       | Rapsodo          | 10 | 02-accademico/esiti/atti.jsonl | CAUSA TROVATA il 14-08: il quiz e' una pagina statica, tracciava in localStorage e offriva un file da scaricare che nessuno spostava. Ora raccolta-atti.py pesca i .jsonl dai Download al SessionStart e deduplica -> resta UN click a Giuseppe, il bottone «esporta» in fondo al quiz. Fine = il primo atto depositato
 percorso-matematica     | concluso     | Dedalo           |  - | 02-accademico/percorso-matematica | 18/18 nuclei, 6833 formule verificate; artefatto di fine = mappa-percorso.html
 quiz-geometria-intake   | concluso     | Demiurgo Acc.    |  - | 02-accademico/corsi/geometria | decaduto per superamento dell'esame il 14 luglio: non si riapre
@@ -74,6 +75,7 @@ passata-L5              | cadenza      | Mnemosyne        | 14 | 00-capitano/mem
 potatura-memoria        | cadenza      | Mnemosyne        | 30 | 00-capitano/snapshot-corrente.md | snapshot potato a una pagina e verbali aggregati: cresce da solo (401 righe, 7 strati storici) e non e' di nessuno
 grafo-anima             | parcheggiato | Mnemosyne+Dedalo |  - | 00-capitano/anima/anima-dati.js | NON inutile: INACCESSIBILE (0 interrogazioni dal 22 luglio, l'unica porta e' l'iniezione ed e' spenta). Risveglio = prova A/B nella RICERCA, dove compete per i posti invece di ereditarli; se fallisce esce dall'indice e anima.html resta come opera | dopo:2026-09-11
 porta-del-richiamo      | proposto     | Mnemosyne        |  - | 00-capitano/memoria/politica-richiamo.md | apertura = dopo gli esami: un solo comando «cosa sappiamo di X» che usa i tre motori e dichiara da dove viene ogni pezzo. Oggi il richiamo non ha un responsabile | dopo:2026-09-11
+ricostruzione-memoria   | proposto     | Mnemosyne+Dedalo |  - | 00-capitano/memoria/relazione-stato-memoria-2026-08-14.md | il cantiere unico in cui Giuseppe ha deciso il 16-08 di trattare INSIEME le tre scelte rimandate — storia git di Kishi (force-push), grafo.json sulla repo pubblica, confine di Temi — piu' la ratifica dei perimetri e la porta del richiamo. Rimandate per scelta, non dimenticate: sono decisioni di rotta e vanno prese in una sola seduta, non a pezzi a tarda sera | dopo:2026-09-11
 apparato-A-metabolismo  | parcheggiato | Dedalo           |  - | 00-capitano/dedalo/apparato-A-metabolismo.md | risveglio = GPU disponibile, o Business che la finanzia | chiedi:GPU disponibile o Business che la finanzia
 modulo-business         | parcheggiato | Ermete           |  - | 00-capitano/dedalo/business-modello-v3.md | risveglio = dopo gli esami, quando Giuseppe riapre; fase 1 = Febe | dopo:2026-09-11
 protezione-ermetica-L5  | parcheggiato | Mnemosyne        |  - | 00-capitano/memoria/cancello-L5-cifratura.md | risveglio = se Giuseppe la vuole; il contenuto e gia cifrato | chiedi:solo se Giuseppe la vuole
@@ -94,13 +96,15 @@ Non hanno ciclo di vita né età d'allarme: sono macchina, verificata viva il 12
 Crono     | scheduler + hook | Navicella-Riversamento (20:00) · verifica-costituzione.py · cattura-apprendimento.py
           |                  | · raccolta-atti.py --zitto (dal 14-08: importa gli esiti dei quiz al SessionStart)
 Teti      | sanitizzazione   | pdf_estrai_testo.py · comprimi.py
-(?)       | collaudo         | quiz_verifica.js · verifica-nucleo.js · banco-plot-headless.js (nuovo 14-08:
+Rea       | collaudo         | quiz_verifica.js · verifica-nucleo.js · banco-plot-headless.js (nuovo 14-08:
           |                  | esegue il motore contro un canvas finto — 84 figure su 23 nuclei, 0 mute)
           |                  | · verifica-quiz-meccanica.js (nuovo 14-08: quiz_verifica.js parla solo il
           |                  | template nuovo e dava FAIL sul quiz di Meccanica da prima che lo toccassi —
           |                  | 457 domande senza collaudo. Questo parla il formato vecchio: PASS)
           |                  | · innesta-lavagne.js (monta i frammenti nel monolite, con ripristino se non gira).
-          |                  | Organi di verifica senza un nome collettivo: nome da decidere con Giuseppe.
+          |                  | BATTEZZATA da Giuseppe il 16-08. Il nome era fra i superati (turno del ReAct
+          |                  | loop, abolito) e torna qui accanto a Crono: e' cio' che impedisce che a
+          |                  | Giuseppe arrivi materiale rotto. Niente si monta senza il suo PASS.
 Crio      | indice + grafo   | memoria-indice.py · anima-grafo.py   (l'indice si ricostruisce ogni sera
           |                  | dentro il riversamento e non viene interrogato dal 25 luglio: il grafo e'
           |                  | ora una voce parcheggiata qui sopra, non una nota a margine)
@@ -111,7 +115,9 @@ Oceano    | voce -> intake   | voce.py (Whisper) e useVoice.ts ESISTONO; il pont
 ## Superati
 
 ```
-Coeo · Rea | erano i turni LLM del ReAct loop, abolito. Non rientrano.
+Coeo      | era un turno LLM del ReAct loop, abolito. Non rientra.
+Rea       | era l'altro turno, abolito — ma il NOME e' stato ripreso il 16-08 da Giuseppe
+          | per gli organi di collaudo (vedi sopra). Superato l'organo, non il nome.
 ```
 
 ## Note di manutenzione
