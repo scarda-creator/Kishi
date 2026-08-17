@@ -41,7 +41,33 @@ notturno la spunta e ci scrive accanto il path del paper prodotto.
   scoperto rispetto alla frequenza reale degli esercizi, estendilo. Non riscrivere ciò che
   già copre bene.
 
-- [ ] **La diagnosi totale della navicella.** Ordine di Giuseppe del 15 agosto, ore 23:33-23:37:
+- [ ] **Il cancello di Temi — finirlo.** Progetto completo in
+  `00-capitano/dedalo/progetto-cancello-esterno.md`, deciso e non da rimettere in discussione.
+  Un Demiurgo Creativo era a meta' del lavoro quando il limite l'ha ucciso il 16 agosto alle
+  17:07. Due comandi in `temi.py`: `--puo-uscire <file>` (tre livelli in ordine — percorso,
+  contenuto, dimensione — e il primo che dice no chiude, dichiarando **quale** livello e
+  perche') e `--posso-mandare <provider>` (finestra scorrevole, tetto all'80%, contatore sul
+  file e non in memoria perche' due processi paralleli che contano ciascuno per se' sfondano
+  il tetto insieme). Il dato sta in `00-capitano/temi/cancello-esterno.md`, il registro delle
+  chiamate in `chiamate-esterne.jsonl`. **Il cancello non tocca chiavi**: decide se e quando,
+  mai con cosa. Prima di chiudere, esercita i cinque casi elencati nel progetto e riporta
+  l'esito vero di ciascuno.
+
+- [ ] **I pool di esercizi — arrivare a 50 su tutti e diciotto.** `python
+  00-capitano/scripts/coda-notturna.py --prossimo` dice quale tocca; il metodo sta in
+  `00-capitano/dedalo/brief-lotto-esercizi.md` e va letto per intero, incluso l'addendum
+  sull'innesto. Al 16 agosto: `edo` 52, `curve` 53, gli altri sedici fermi a ~30. Regole che
+  sono costate care e non vanno riscoperte: il numero chiesto e' un **pavimento**, se ne
+  producono due in piu' perche' un Demiurgo sbaglia il proprio conto di uno; almeno tre unita'
+  per lotto da **cinque passi o piu'**, perche' il quiz di Analisi Vettoriale stava a 324
+  unita' e 328 passi, cioe' allenava il riconoscimento per un esame che si supera svolgendo;
+  il conto vero lo fa `lotto_innesta.js` eseguendo il file, mai il rapporto dell'agente. Dopo
+  ogni lotto: innesto, `quiz_assembla.js`, `quiz_verifica.js`, e se da' FAIL si corregge, non
+  si monta.
+
+- [x] **La diagnosi totale della navicella.** FATTA il 16 agosto:
+  `00-capitano/diagnosi-procedimenti-2026-08-16.md` (902 righe, 13 famiglie su 13) e
+  l'impaginato `...-2026-08-16.html`. Ordine di Giuseppe del 15 agosto, ore 23:33-23:37:
   un **paper** che per ogni oggetto costruito in questi mesi distingua quattro assi — (1) intenzione
   dichiarata da lui, con le sue parole; (2) oggetto pensato insieme; (3) meccanica effettivamente
   costruita; (4) **utilità effettiva misurata nel tempo**, la colonna che nessun organo ha mai posto.

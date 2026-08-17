@@ -1,7 +1,7 @@
 ---
 type: stato
 accensione: hook
-aggiornato: 2026-08-16
+aggiornato: 2026-08-17
 generato-da: 00-capitano/scripts/stato-studente.py
 ---
 
@@ -13,11 +13,11 @@ generato-da: 00-capitano/scripts/stato-studente.py
 
 | giorni | data | corso | prova | note |
 |---:|---|---|---|---|
-| **19** | 2026-09-04 | analisi-vettoriale | scritto | **ripetizione**: lo scritto del 17/07 non superato |
-| **24** | 2026-09-09 | metodi-e-modelli | scritto | primo tentativo |
-| **25** | 2026-09-10 | meccanica | orale | data approssimativa, «lì intorno»; da confermare |
+| **18** | 2026-09-04 | analisi-vettoriale | scritto | **ripetizione**: lo scritto del 17/07 non superato |
+| **23** | 2026-09-09 | metodi-e-modelli | scritto | primo tentativo |
+| **24** | 2026-09-10 | meccanica | orale | data approssimativa, «lì intorno»; da confermare |
 
-Il prossimo è **analisi-vettoriale** fra **19 giorni**.
+Il prossimo è **analisi-vettoriale** fra **18 giorni**.
 Tutti e 3 stanno in **6 giorni**.
 
 ## Precedenti
@@ -37,7 +37,7 @@ Finché questa sezione resta vuota, ogni giudizio su dove Giuseppe è debole vie
 | corso | file | quiz | pool | domande |
 |---|---:|---:|---:|---:|
 | geometria | 171 | 1 | 12 | 310 |
-| analisi-vettoriale | 63 | 1 | 10 | 328 |
+| analisi-vettoriale | 63 | 1 | 10 | 428 |
 | metodi-e-modelli | 52 | 1 | 9 | 402 |
 | meccanica | 16 | 1 | 11 | 457 |
 
