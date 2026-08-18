@@ -149,61 +149,44 @@ def stato():
         print("\nATTENZIONE: esiste il file STOP — il ciclo si fermerebbe subito.")
 
 
-def ponte_e_gateway():
-    """Se il ponte e' alzato, il gateway diventa l'unico motore: senza di lui ogni
-    `claude -p` fallisce all'istante.
+def ponte_alzato():
+    """Il ciclo notturno NON gira sul ponte. Mai. Ordine di Giuseppe, 18-08:
+    «il ponte deve rimanere giu'».
 
-    Perche' esiste questo controllo (domanda di Giuseppe, 17-08): col ponte su, il
-    pericolo per la notte non e' piu' il limite di sessione — e' che OmniRoute non
-    stia girando. In quel caso il ciclo brucerebbe quindici voci in due minuti
-    scrivendo quindici fallimenti, e al risveglio la coda sarebbe intatta ma il
-    turno perso. Meglio non partire affatto e dirlo.
+    Cosa faceva prima e perche' e' cambiato: la stesura del 17-08 accettava il
+    ponte se lo trovava alzato, e si limitava a controllare che il gateway
+    rispondesse. Cioe' se qualcuno lasciava il ponte su per distrazione, la notte
+    ci girava sopra senza che nessuno l'avesse deciso — ed e' successo davvero:
+    il run del 18-08 alle 03:00 ha lavorato su nvidia/nemotron perche' il ponte
+    non era ancora stato abbassato. Un automatismo che sfrutta una configurazione
+    residua sta scegliendo al posto di Giuseppe. Ora, se il ponte e' su, non si
+    parte e lo si dice: e' una situazione anomala rispetto alla decisione in
+    vigore, e va vista da lui, non aggirata di notte.
 
-    **Si interroga la stessa porta, con le stesse credenziali e sullo stesso
-    percorso che usera' la sessione notturna.** La prima stesura chiedeva
-    `/v1/models` senza chiave: quella richiesta non riceve un 401, resta appesa
-    finche' non scade il timeout, e il ciclo concludeva «gateway spento» con il
-    gateway acceso e funzionante (misurato stanotte, 17-08 00:04). Era il difetto
-    di sempre in forma nuova — una guardia che misura una grandezza vicina a
-    quella giusta e riporta con sicurezza l'esito sbagliato. Qui si manda una
-    richiesta vera al modello dichiarato in ANTHROPIC_MODEL: e' l'unica prova che
-    valga, ed e' la stessa lezione del pallino verde della dashboard.
+    **Si guardano ENTRAMBI i livelli.** Lezione del 18-08 pagata cara: il settings
+    di PROGETTO vince su quello utente, e `ponte.py --giu` puliva solo il secondo.
+    Per due giorni tutto e' passato dal gateway mentre lo si credeva spento,
+    perche' lo strumento guardava un file solo. Una guardia che controlla meta'
+    dei posti da cui la cosa puo' arrivare non e' una guardia.
 
-    Ritorna (ponte_alzato, dettaglio): `dettaglio` e' la stringa da scrivere nel
-    diario — chi ha servito, oppure perche' non ha servito. `None` significa
-    gateway muto. Se il ponte e' giu', il gateway non c'entra e non lo si
-    interroga."""
-    impostazioni = os.path.join(os.path.expanduser("~"), ".claude", "settings.json")
+    Non si interroga il gateway: non ci si gira sopra, quindi se erogo o no non
+    e' piu' una domanda di questo ciclo.
+
+    Ritorna (alzato, dove): `dove` e' il file in cui si e' trovata la traccia."""
     import json
-    try:
-        env = json.loads(io.open(impostazioni, encoding="utf-8").read()).get("env", {})
-    except Exception:                                            # noqa
-        return False, None
-    base = env.get("ANTHROPIC_BASE_URL")
-    if not base:
-        return False, None
-    corpo = json.dumps({"model": env.get("ANTHROPIC_MODEL") or "nav-ragiona",
-                        "max_tokens": 200,
-                        "messages": [{"role": "user", "content": "Scrivi: vivo"}]
-                        }).encode("utf-8")
-    try:
-        from urllib.request import Request, urlopen
-        req = Request(base.rstrip("/") + "/v1/messages", data=corpo, headers={
-            "Content-Type": "application/json", "anthropic-version": "2023-06-01",
-            "x-api-key": env.get("ANTHROPIC_AUTH_TOKEN", ""),
-            "User-Agent": "navicella-oroboro/1.0"})
-        d = json.loads(urlopen(req, timeout=60).read().decode("utf-8", "replace"))
-        # Basta che abbia servito un modello: un'uscita senza testo qui non e' un
-        # guasto, e' un modello che ha speso il tetto ragionando — e per la notte
-        # l'unica domanda e' se la catena eroga.
-        if d.get("model") or d.get("content"):
-            return True, "servito da %s" % (d.get("model") or "?")
-        return True, None
-    except Exception as e:                                       # noqa
-        # Il motivo finisce nel diario: «spento» senza il perche' costa a Giuseppe
-        # la mattina dopo passata a indovinare quale pezzo manca.
-        annota("  la prova al gateway e' fallita: %s" % (u"%s" % e)[:160])
-        return True, None
+    radice = os.path.dirname(os.path.dirname(HERE))
+    posti = [os.path.join(os.path.expanduser("~"), ".claude", "settings.json"),
+             os.path.join(radice, ".claude", "settings.json"),
+             os.path.join(radice, ".claude", "settings.local.json")]
+    for p in posti:
+        try:
+            env = json.loads(io.open(p, encoding="utf-8").read()).get("env", {})
+        except Exception:                                        # noqa
+            continue
+        if env.get("ANTHROPIC_BASE_URL") or env.get("ANTHROPIC_AUTH_TOKEN") or \
+           any(k.startswith("ANTHROPIC_") and k.endswith("_MODEL") for k in env):
+            return True, p
+    return False, None
 
 
 def gira(ore, secco):
@@ -212,16 +195,17 @@ def gira(ore, secco):
     annota("OROBORO parte. Budget %.1f ore, fino alle %s."
            % (ore, scadenza.strftime("%H:%M")))
 
-    alzato, dettaglio = ponte_e_gateway()
-    if alzato and not dettaglio:
-        annota("PONTE ALZATO MA GATEWAY SPENTO. Non parto.")
-        annota("  Ogni sessione fallirebbe all'istante e il turno andrebbe perso a vuoto.")
-        annota("  Rimedi: accendere OmniRoute, oppure `ponte.py --giu` per tornare")
-        annota("  sull'abbonamento — e in quel caso il limite torna a essere il vincolo,")
-        annota("  che questo ciclo sa gestire.")
+    alzato, dove = ponte_alzato()
+    if alzato:
+        annota("PONTE ALZATO. Non parto.")
+        annota("  La decisione in vigore (Giuseppe, 18-08) e' che si gira")
+        annota("  sull'abbonamento e il ponte resta giu'. Trovata traccia in:")
+        annota("  %s" % dove)
+        annota("  Non aggiro la cosa di notte: abbassalo con `ponte.py --giu`")
+        annota("  (che pulisce il settings utente) e controlla anche quello di")
+        annota("  progetto, perche' vince sul primo.")
         return
-    annota("ponte: %s" % ("ALZATO, %s" % dettaglio if alzato else
-                          "giu' — si gira sull'abbonamento, col limite gestito"))
+    annota("ponte: giu' — si gira sull'abbonamento, col limite gestito")
     fatte, fallite = 0, 0
 
     while datetime.now() < scadenza:

@@ -31,6 +31,7 @@ Uso:
   ponte.py --su                  alza il ponte (dopo averlo provato)
   ponte.py --giu                 lo abbassa: si torna sull'abbonamento
   ponte.py --prova <modello>     interroga un modello attraverso il ponte
+  ponte.py --traffico            cosa e' passato DAVVERO: gira la catena o no?
 """
 import io
 import json
@@ -51,6 +52,48 @@ IMPOSTAZIONI = os.path.join(CASA_UTENTE, "settings.json")
 # Le variabili che spostano Claude Code sul gateway. Sono le sole tre che tocchiamo:
 # tutto il resto delle impostazioni resta com'e'.
 CHIAVI_ENV = ("ANTHROPIC_BASE_URL", "ANTHROPIC_AUTH_TOKEN", "ANTHROPIC_MODEL")
+
+# --- il guasto del 18 agosto: --giu diceva il vero e non spegneva niente -------
+# Questo script conosce UN SOLO file, `~/.claude/settings.json` (livello utente).
+# Ma Claude Code legge anche `<progetto>/.claude/settings.json`, che ha priorita'
+# piu' alta — e li' dentro c'era una configurazione OmniRoute completa (BASE_URL,
+# AUTH_TOKEN, e cinque ANTHROPIC_*_MODEL su `auto/best-free`) messa fuori da qui.
+# Risultato: `--giu` ripuliva il file utente, stampava «PONTE GIU'», e la navicella
+# continuava a passare dal gateway servita da una catena gratuita — senza che
+# nessuno lo sapesse, per due giorni, mentre Giuseppe credeva di studiare
+# sull'abbonamento.
+#
+# E' la STESSA malattia del 17 agosto, un piano piu' su: allora il `model` di primo
+# livello vinceva su `ANTHROPIC_MODEL` dentro lo stesso file; qui e' un intero file
+# che vince su quello che guardo. La regola non cambia e va ricordata prima di
+# rialzare il ponte: **questo script dichiara lo stato di cio' che controlla, non
+# dello stato del sistema.** Finche' `--stato` non legge TUTTI i livelli di
+# configurazione (progetto + utente) e non conferma col traffico, la sua parola
+# non e' una prova.
+#
+# Cosa manca, quando si riaprira' il cantiere: leggere e scrivere anche il settings
+# di progetto in `su()`, `giu()` e `stato()`. Non fatto il 18-08 perche' il reparto
+# e' in pausa per scelta di Giuseppe (studio, tre esami a settembre) e riparare un
+# organo spento non era il lavoro richiesto.
+IMPOSTAZIONI_PROGETTO = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+    ".claude", "settings.json")
+
+# --- il guasto del 17 agosto, e perche' questa riga esiste ---------------------
+# Per due giorni il ponte e' stato alzato su `--modello nav-ragiona` e la catena
+# **non e' mai stata interrogata**: i log del gateway di quelle sei ore contano 117
+# richieste a `claude-opus-5` e ZERO a `nav-ragiona`. Il motivo e' che `settings.json`
+# porta anche un `"model"` al livello principale, e quello vince su `ANTHROPIC_MODEL`:
+# Claude Code lo risolve nel nome del modello vero e manda quello. Il gateway riceve
+# il nome di un modello, non di una catena, e lo consegna dritto alla connessione
+# Claude — dove sotto non c'e' nessun anello. Al 429 non c'era niente da scavalcare.
+#
+# Costo dell'errore: due blocchi di lavoro di Giuseppe, e un giorno speso a
+# correggere il comportamento di caduta delle catene, che era il posto sbagliato.
+# La lezione, ed e' generale: **una configurazione non e' attiva finche' non si e'
+# guardato il traffico.** Il ponte dichiarava «SU, cima nav-ragiona» ed era vero;
+# semplicemente non era cio' che viaggiava sul filo.
+CHIAVE_MODELLO = "model"
 
 
 def leggi_json(percorso, difetto=None):
@@ -215,10 +258,24 @@ def su(modello=None):
     env["ANTHROPIC_AUTH_TOKEN"] = k
     if modello:
         env["ANTHROPIC_MODEL"] = modello
+        # E qui il pezzo che mancava: il `model` di primo livello vince su
+        # ANTHROPIC_MODEL, quindi va scritto anche lui, altrimenti Claude Code
+        # continua a chiedere `claude-opus-5` e la catena non entra mai in gioco.
+        # Il valore di prima si conserva fuori dalla navicella, cosi' `--giu` sa
+        # a cosa tornare invece di indovinare.
+        d = leggi_json(SEGRETO)
+        d["modello_prima_del_ponte"] = imp.get(CHIAVE_MODELLO)
+        scrivi_json(SEGRETO, d)
+        imp[CHIAVE_MODELLO] = modello
     imp["env"] = env
     scrivi_json(IMPOSTAZIONI, imp)
     print("PONTE SU. Riavvia Claude Code perche' abbia effetto.")
+    if modello:
+        print("  modello richiesto al gateway: %s (env E impostazione di primo livello)"
+              % modello)
     print("Per tornare indietro in qualunque momento: ponte.py --giu")
+    print("\nControlla che sia DAVVERO la catena a girare, dopo il riavvio:")
+    print("  ponte.py --traffico")
 
 
 def giu():
@@ -228,9 +285,85 @@ def giu():
     for c in tolte:
         del env[c]
     imp["env"] = env
+    # Si rimette il modello che c'era prima. Se il ponte non l'aveva mai cambiato,
+    # non si tocca: abbassare il ponte non deve riscrivere una scelta di Giuseppe.
+    d = leggi_json(SEGRETO)
+    if "modello_prima_del_ponte" in d:
+        prima = d.pop("modello_prima_del_ponte")
+        if prima is None:
+            imp.pop(CHIAVE_MODELLO, None)
+        else:
+            imp[CHIAVE_MODELLO] = prima
+        scrivi_json(SEGRETO, d)
+        print("modello ripristinato: %s" % (prima if prima is not None else "(nessuno)"))
     scrivi_json(IMPOSTAZIONI, imp)
     print("PONTE GIU'%s. Riavvia Claude Code." %
           (" (tolte: %s)" % ", ".join(tolte) if tolte else " — era gia' abbassato"))
+
+
+def traffico(quante=40):
+    """Cosa e' passato DAVVERO sul filo, secondo il gateway.
+
+    Previene il guasto che e' costato due giorni: un ponte che si dichiara alzato
+    sulla catena giusta mentre Claude Code chiede tutt'altro modello. La
+    configurazione non e' la prova; il traffico lo e'.
+
+    **Cosa questo log dice e cosa non dice** — misurato il 17-08 e scritto qui
+    perche' la prima versione di questa funzione ci si e' rotta il naso. Il campo
+    modello di `/api/usage/request-logs` porta il modello **servito**, non quello
+    chiesto: interrogando `nav-estrae` la riga che compare e'
+    `gemini-flash-lite-latest | GEMINI`. Quindi non si puo' contare il nome della
+    catena e concludere qualcosa: una catena servita dalla sua testa Claude e una
+    richiesta diretta a Claude scrivono la stessa identica riga.
+
+    Cio' che il log distingue davvero e' la **firma della caduta**: dopo un 429 o
+    un 5xx su un anello, una catena viva apre entro pochi secondi una riga su un
+    provider DIVERSO. Se dopo il fallimento non succede piu' niente, nessuna
+    catena era coinvolta. E' cosi' che si e' visto il guasto vero: i due 429 del
+    17 agosto (14:52 e 18:04) non hanno nessun tentativo dietro."""
+    try:
+        req = Request(BASE + "/api/auth/login",
+                      data=json.dumps({"password": "4110"}).encode("utf-8"),
+                      headers={"Content-Type": "application/json"})
+        ck = urlopen(req, timeout=20).headers.get("Set-Cookie", "").split(";")[0]
+        q = Request(BASE + "/api/usage/request-logs?limit=%d" % quante)
+        q.add_header("Cookie", ck)
+        righe = json.loads(urlopen(q, timeout=40).read().decode("utf-8", "replace"))
+    except Exception as e:                                    # noqa
+        return print("non riesco a leggere i log del gateway: %s" % e)
+    voci, conta, esiti = [], {}, {}
+    for r in righe:
+        p = [c.strip() for c in ("%s" % r).split("|")]
+        if len(p) < 7:
+            continue
+        voci.append({"quando": p[0], "modello": p[1], "provider": p[2], "esito": p[6]})
+        conta[p[1]] = conta.get(p[1], 0) + 1
+        esiti[p[6]] = esiti.get(p[6], 0) + 1
+
+    print("ultime %d richieste, per modello SERVITO (non chiesto):" % len(voci))
+    for k2, v in sorted(conta.items(), key=lambda z: -z[1]):
+        print("  %-38s %4d" % (k2, v))
+    print("esiti: %s" % ", ".join("%s x%d" % (k2, v) for k2, v in sorted(esiti.items())))
+
+    # La firma della caduta. Le voci arrivano dalla piu' recente: le rovescio per
+    # leggere il tempo in avanti, poi per ogni fallimento guardo cosa e' successo
+    # subito dopo su un provider diverso.
+    voci.reverse()
+    guasti = [(i, v) for i, v in enumerate(voci)
+              if v["esito"] not in ("200", "connection-test") and v["modello"] != "connection-test"]
+    if not guasti:
+        return print("\nnessun fallimento nella finestra: la caduta non e' osservabile qui.")
+    print("\nfirma della caduta — cosa e' successo DOPO ogni fallimento:")
+    for i, v in guasti[-12:]:
+        dopo = [w for w in voci[i + 1:i + 4] if w["modello"] != "connection-test"]
+        salto = next((w for w in dopo if w["provider"] != v["provider"]), None)
+        if salto:
+            esito = "SCAVALCATO -> %s (%s)" % (salto["provider"], salto["modello"])
+        elif dopo:
+            esito = "riprovato sullo stesso provider (%s)" % dopo[0]["provider"]
+        else:
+            esito = "NESSUN TENTATIVO DOPO — nessuna catena coinvolta"
+        print("  %s  %s %s  ->  %s" % (v["quando"][11:19], v["esito"], v["provider"], esito))
 
 
 def main():
@@ -256,6 +389,8 @@ def main():
         return su(m)
     if "--giu" in a:
         return giu()
+    if "--traffico" in a:
+        return traffico()
     if "--prova" in a:
         i = a.index("--prova")
         m = a[i + 1] if i + 1 < len(a) else modello_di_prova()

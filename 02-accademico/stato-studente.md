@@ -1,7 +1,7 @@
 ---
 type: stato
 accensione: hook
-aggiornato: 2026-08-17
+aggiornato: 2026-08-18
 generato-da: 00-capitano/scripts/stato-studente.py
 ---
 
@@ -13,11 +13,11 @@ generato-da: 00-capitano/scripts/stato-studente.py
 
 | giorni | data | corso | prova | note |
 |---:|---|---|---|---|
-| **18** | 2026-09-04 | analisi-vettoriale | scritto | **ripetizione**: lo scritto del 17/07 non superato |
-| **23** | 2026-09-09 | metodi-e-modelli | scritto | primo tentativo |
-| **24** | 2026-09-10 | meccanica | orale | data approssimativa, «lì intorno»; da confermare |
+| **17** | 2026-09-04 | analisi-vettoriale | scritto | **ripetizione**: lo scritto del 17/07 non superato |
+| **22** | 2026-09-09 | metodi-e-modelli | scritto | primo tentativo |
+| **23** | 2026-09-10 | meccanica | orale | data approssimativa, «lì intorno»; da confermare |
 
-Il prossimo è **analisi-vettoriale** fra **18 giorni**.
+Il prossimo è **analisi-vettoriale** fra **17 giorni**.
 Tutti e 3 stanno in **6 giorni**.
 
 ## Precedenti
