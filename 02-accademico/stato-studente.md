@@ -1,7 +1,7 @@
 ---
 type: stato
 accensione: hook
-aggiornato: 2026-08-18
+aggiornato: 2026-08-19
 generato-da: 00-capitano/scripts/stato-studente.py
 ---
 
@@ -13,11 +13,11 @@ generato-da: 00-capitano/scripts/stato-studente.py
 
 | giorni | data | corso | prova | note |
 |---:|---|---|---|---|
-| **17** | 2026-09-04 | analisi-vettoriale | scritto | **ripetizione**: lo scritto del 17/07 non superato |
-| **22** | 2026-09-09 | metodi-e-modelli | scritto | primo tentativo |
-| **23** | 2026-09-10 | meccanica | orale | data approssimativa, «lì intorno»; da confermare |
+| **16** | 2026-09-04 | analisi-vettoriale | scritto | **ripetizione**: lo scritto del 17/07 non superato |
+| **21** | 2026-09-09 | metodi-e-modelli | scritto | primo tentativo |
+| **22** | 2026-09-10 | meccanica | orale | data approssimativa, «lì intorno»; da confermare |
 
-Il prossimo è **analisi-vettoriale** fra **17 giorni**.
+Il prossimo è **analisi-vettoriale** fra **16 giorni**.
 Tutti e 3 stanno in **6 giorni**.
 
 ## Precedenti
@@ -39,7 +39,7 @@ Finché questa sezione resta vuota, ogni giudizio su dove Giuseppe è debole vie
 | geometria | 171 | 1 | 12 | 310 |
 | analisi-vettoriale | 63 | 1 | 10 | 428 |
 | metodi-e-modelli | 52 | 1 | 9 | 402 |
-| meccanica | 16 | 1 | 11 | 457 |
+| meccanica | 36 | 1 | 11 | 457 |
 
 Dove stanno i quiz montati (il contatore li cerca lì, non nella cartella del corso — dal 12 agosto è quello l'unico accesso di Giuseppe):
 

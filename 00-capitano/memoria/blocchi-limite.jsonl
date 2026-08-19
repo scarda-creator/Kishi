@@ -1,2 +1,3 @@
 {"quando": "2026-08-12T21:30:00Z", "reset_locale": "23:30 Europe/Rome", "contesto": "due Demiurghi in parallelo su frammenti di Metodi", "agenti": 2}
 {"quando": "2026-08-13T21:20:00Z", "reset_locale": "23:20 Europe/Rome", "contesto": "tre Demiurghi in parallelo (fourier, integrali, laurent)", "agenti": 3}
+{"quando": "2026-08-18T21:52:31Z", "reset_locale": "-", "contesto": "tre Demiurghi in parallelo sulle lavagne di Meccanica (rigidi, gravitazione, onde): tutti e tre stallati dopo la prima riga, watchdog a 600s. Stesso schema del 13-08 gia' registrato qui sotto e non riletto prima di lanciare", "agenti": 3, "esito": "stallo, nessun output"}
