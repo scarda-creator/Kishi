@@ -40,10 +40,10 @@ lim
 questo vale 0 per ogni scelta di θ se e solo se 6 −2β > 0, ovvero β < 3. Questo ci assicura che per β ≥3 la funzione non pu`o essere
 continua.
 D’altra parte per β < 3 `e facile fare una stima uniforme in θ. Infatti si ha
-
+
 ρ6 cos4 θ sin2 θ
 ρ2β
- ≤ρ6−2β,
+ ≤ρ6−2β,
 che tende a zero per ρ che tende a zero se β < 3. Per cui la funzione `e continua se e solo se β < 3.
 La funzione f `e nulla (in particolare `e costante) sugli assi coordinati per ogni β > 0, da cui deduciamo che la funzione `e derivabile
 per ogni β > 0.
@@ -352,9 +352,9 @@ z2+3
 ρdρ = π
 Z 2
 1
-
+
 (3z + 1) −(z2 + 3)
-
+
 dz = π
 6.
 iii. Il campo F ∈C1(3). Si ha divF = 3 quindi per il teorema della divergenza
@@ -367,10 +367,10 @@ Z
 F · Ndσ =
 Z
 D
- x(−2
+x(−2
 3 x) + y(−2
 3y) + 1
-3(x2 + y2 −1)dxdy = −1
+3(x2 + y2 −1)dxdy = −1
 3
 Z
 D
@@ -493,10 +493,10 @@ uc(t)2 −1 > 0
 uc monotona crescente.
 iii. Per studiare la concavit`a delle soluzioni u ricaviamo un’espressione per la loro derivata seconda:
 u′′ =
-
+
 u
 u2 −1
-′
+′
 = u′(u2 −1) −2u2u′
 (u −1)2
 = −u′(1 + u2)

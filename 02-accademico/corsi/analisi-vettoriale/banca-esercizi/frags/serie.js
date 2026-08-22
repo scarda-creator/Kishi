@@ -369,3 +369,137 @@ Q.serie = [
   }
 
 ];
+
+
+/* ===================================================================
+   ESTENSIONE serie — run notturno 2026-08-22
+   Motivo: 9 sedute su 21 chiudono l'esercizio di serie/successioni con
+   una domanda di SCAMBIO limite/serie <-> integrale, oppure con la somma
+   della serie, oppure con la derivata della somma. Il pool a 30 unita'
+   aveva 1 sola domanda che sfiorava "termine a termine" e 0 su "somma
+   della serie". Qui si allena la coda dell'esercizio, non la testa.
+   Carico da quiz_assembla.js insieme a serie.js (concat).
+   =================================================================== */
+Q.serie = (Q.serie || []).concat([
+
+{"pool":"serie","src":"modus operandi &middot; coda ricorrente","steps":[
+ {"t":"Il compito chiede $\\lim_{n\\to\\infty}\\int_1^2 f_n(x)\\,dx$ dopo aver studiato la convergenza di $f_n$. Qual &egrave; il primo passo?",
+  "opts":[
+   {"x":"Verificare che $f_n\\to f$ UNIFORMEMENTE su $[1,2]$: allora il limite entra nell'integrale e si calcola $\\int_1^2 f$","c":true},
+   {"x":"Calcolare $\\int_1^2 f_n(x)\\,dx$ in funzione di $n$ e poi passare al limite"},
+   {"x":"Verificare la convergenza puntuale su tutto $\\mathbb{R}$: basta quella"},
+   {"x":"Applicare de l'H&ocirc;pital al rapporto fra integrali"}],
+  "hint":"L'intervallo di integrazione &egrave; un COMPATTO scelto apposta dal testo: quasi mai coincide con l'insieme dove la convergenza &egrave; uniforme in senso globale.",
+  "sol":"<b>Teorema di passaggio al limite sotto il segno di integrale.</b> Se $f_n\\to f$ uniformemente su un intervallo LIMITATO $[a,b]$ e le $f_n$ sono integrabili, allora $\\lim_n\\int_a^b f_n=\\int_a^b\\lim_n f_n=\\int_a^b f$. La domanda &egrave; costruita per essere risolta in trenta secondi citando il teorema: chi calcola $\\int_1^2 f_n$ esplicitamente fa il lavoro che il testo voleva risparmiargli e spesso non ci arriva. Il compito 24/01/2022 (Es.2), 04/05/2023 (Es.2), 05/07/2023 (Es.1), 09/02/2024 (Es.3), 04/07/2024 (Es.4), 27/01/2025 (Es.4), 27/06/2025 (Es.4) hanno TUTTI questa terza domanda."}]},
+
+{"pool":"serie","src":"20220124 Es.2 iii","steps":[
+ {"t":"Sia $f_n(x)=\\dfrac{x}{1+2^{-n}+\\frac{x^2}{n^2}}$. Quanto vale $\\lim_{n\\to\\infty}\\int_1^2 f_n(x)\\,dx$?",
+  "opts":[
+   {"x":"$\\frac{3}{2}$","c":true},
+   {"x":"$0$"},
+   {"x":"$\\log 2$"},
+   {"x":"Il limite non esiste perch&eacute; la convergenza non &egrave; uniforme su $\\mathbb{R}$"}],
+  "hint":"Su $[1,2]$ sia $2^{-n}$ sia $x^2/n^2$ sono infinitesimi CONTROLLATI uniformemente: $|x|\\le 2$ d&agrave; $x^2/n^2\\le 4/n^2$.",
+  "sol":"<b>Passaggio al limite sotto integrale.</b> Puntualmente $f_n(x)\\to x$. Su $[1,2]$: $\\big|f_n(x)-x\\big|=|x|\\dfrac{2^{-n}+x^2/n^2}{1+2^{-n}+x^2/n^2}\\le 2\\big(2^{-n}+4/n^2\\big)\\to 0$ indipendentemente da $x$, quindi la convergenza &egrave; uniforme su $[1,2]$. Allora $\\lim_n\\int_1^2 f_n=\\int_1^2 x\\,dx=\\left[\\frac{x^2}{2}\\right]_1^2=\\frac{3}{2}$. Nota: la convergenza NON &egrave; uniforme su tutto $\\mathbb{R}$ (per $x$ grande il termine $x^2/n^2$ non &egrave; piccolo), e il testo lo chiede a parte: le due risposte sono diverse e non si contraddicono."}]},
+
+{"pool":"serie","src":"20240704 Es.4 iii","steps":[
+ {"t":"$f_n(x)=x^n(1-x^n)$ su $[0,+\\infty)$. Il testo chiede di provare, SENZA calcolare l'integrale, che $\\lim_n\\int_0^{1/2}f_n=0$. Qual &egrave; l'argomento?",
+  "opts":[
+   {"x":"Su $[0,\\frac12]$ vale $0\\le f_n(x)\\le x^n\\le 2^{-n}$, quindi $\\sup_{[0,1/2]}|f_n|\\to0$: convergenza uniforme a $0$ su un compatto","c":true},
+   {"x":"$f_n\\to0$ puntualmente su $[0,\\frac12]$, e la convergenza puntuale basta per scambiare"},
+   {"x":"$f_n$ &egrave; continua e $[0,\\frac12]$ &egrave; compatto: per Weierstrass l'integrale tende a $0$"},
+   {"x":"$\\int_0^{1/2}f_n=\\frac{(1/2)^{n+1}}{n+1}-\\frac{(1/2)^{2n+1}}{2n+1}\\to0$"}],
+  "hint":"'Senza calcolare l'integrale' significa: stima il SUP, non la primitiva. E l'ultima opzione, pur essendo vera, &egrave; esattamente quello che il testo vieta.",
+  "sol":"<b>Stima uniforme sul compatto.</b> Per $x\\in[0,\\frac12]$ si ha $0\\le x^n\\le 2^{-n}$ e $0\\le 1-x^n\\le1$, quindi $0\\le f_n(x)\\le 2^{-n}$ per ogni $x$ dell'intervallo. Dunque $\\|f_n\\|_{\\infty,[0,1/2]}\\le 2^{-n}\\to0$: convergenza uniforme a $0$. Per il teorema di passaggio al limite, $\\lim_n\\int_0^{1/2}f_n=\\int_0^{1/2}0=0$. La convergenza puntuale da sola NON basta (opzione 2): serve un controluesempio in mente, e ce n'&egrave; uno nel pool."}]},
+
+{"pool":"serie","src":"20230504 Es.2 &middot; controesempio","steps":[
+ {"t":"$f_n(x)=e^{-(n-x)^2}$ su $\\mathbb{R}$. Quale affermazione &egrave; corretta?",
+  "opts":[
+   {"x":"$f_n\\to0$ puntualmente ma NON uniformemente su $\\mathbb{R}$ (la gobba trasla e non si abbassa); tuttavia $\\int_0^1 f_n\\to0$","c":true},
+   {"x":"$f_n\\to0$ uniformemente su $\\mathbb{R}$ perch&eacute; l'esponenziale schiaccia tutto"},
+   {"x":"$f_n$ non converge puntualmente: in $x=n$ vale sempre $1$"},
+   {"x":"$\\int_0^1 f_n\\to1$ perch&eacute; il massimo di $f_n$ vale $1$"}],
+  "hint":"Fissa $x$ e manda $n$: la distanza $|n-x|$ esplode. Ma il punto di massimo $x=n$ scappa a destra, e $\\sup_{\\mathbb{R}}f_n=1$ per ogni $n$.",
+  "sol":"<b>La gobba viaggiante.</b> Per $x$ fissato $(n-x)^2\\to+\\infty$, quindi $f_n(x)\\to0$: convergenza puntuale. Ma $\\sup_{\\mathbb{R}}|f_n-0|=f_n(n)=1$ per ogni $n$: la convergenza non &egrave; uniforme su $\\mathbb{R}$. Su $[0,1]$ invece, per $n\\ge2$, $|n-x|\\ge n-1$ e quindi $\\sup_{[0,1]}f_n\\le e^{-(n-1)^2}\\to0$: uniforme, e $\\int_0^1f_n\\to0$. <b>Lezione</b>: 'non uniforme su $\\mathbb{R}$' e 'scambio lecito su $[0,1]$' convivono; il compito chiede spesso proprio questa coppia."}]},
+
+{"pool":"serie","src":"20220907 Es.1 &middot; trappola dell'intervallo illimitato","steps":[
+ {"t":"$f_n\\to f$ uniformemente su $[0,+\\infty)$. Si pu&ograve; concludere $\\lim_n\\int_0^{+\\infty}f_n=\\int_0^{+\\infty}f$?",
+  "opts":[
+   {"x":"No: il teorema di passaggio al limite richiede un intervallo LIMITATO; su un intervallo illimitato serve una dominazione (o una stima diretta della coda)","c":true},
+   {"x":"S&igrave;, la convergenza uniforme basta sempre"},
+   {"x":"S&igrave;, purch&eacute; le $f_n$ siano continue"},
+   {"x":"No, perch&eacute; su un intervallo illimitato la convergenza uniforme non pu&ograve; mai valere"}],
+  "hint":"Controesempio: $f_n=\\frac1n\\mathbf{1}_{[0,n]}$ tende a $0$ uniformemente ma $\\int_0^{+\\infty}f_n=1$ per ogni $n$.",
+  "sol":"<b>Dove cade il teorema.</b> L'ipotesi $[a,b]$ limitato serve perch&eacute; la stima &egrave; $\\big|\\int_a^b(f_n-f)\\big|\\le(b-a)\\|f_n-f\\|_\\infty$: se $b-a=+\\infty$ il prodotto $\\infty\\cdot0$ non si controlla. Con $f_n=\\frac1n$ su $[0,n]$, $0$ altrove: $\\|f_n\\|_\\infty=\\frac1n\\to0$ ma l'integrale vale $1$ sempre. Su intervalli illimitati si usa la convergenza dominata (esiste $g$ integrabile con $|f_n|\\le g$) oppure si stima esplicitamente la coda."}]},
+
+{"pool":"serie","src":"20240122 Es.2 ii &middot; scambio serie-integrale","steps":[
+ {"t":"Perch&eacute; vale $\\displaystyle\\int_1^{10}\\sum_{k\\ge0}\\frac{e^{-kx}}{3^{k+1}(k+e^{-k})}dx=\\sum_{k\\ge0}\\int_1^{10}\\frac{e^{-kx}}{3^{k+1}(k+e^{-k})}dx$?",
+  "opts":[
+   {"x":"Perch&eacute; su $[1,10]$ la serie converge TOTALMENTE (i termini sono maggiorati da $\\frac{1}{3^{k+1}(k+e^{-k})}$, serie numerica convergente): la totale implica l'uniforme, e l'uniforme su un compatto autorizza l'integrazione termine a termine","c":true},
+   {"x":"Perch&eacute; ogni addendo &egrave; integrabile su $[1,10]$"},
+   {"x":"Perch&eacute; la serie converge puntualmente per ogni $x\\in[1,10]$"},
+   {"x":"Perch&eacute; $[1,10]$ &egrave; compatto e le somme parziali sono continue"}],
+  "hint":"Il criterio da citare per nome ha tre parole ed &egrave; quello che d&agrave; la convergenza TOTALE.",
+  "sol":"<b>Integrazione per serie.</b> Su $[1,10]$, $0\\le e^{-kx}\\le e^{-k}\\le1$, quindi $\\sup_{[1,10]}\\big|u_k(x)\\big|\\le M_k=\\frac{1}{3^{k+1}(k+e^{-k})}$ e $\\sum M_k<\\infty$ (dominata da $\\sum 3^{-k-1}$). Per il <b>criterio di Weierstrass</b> la serie converge totalmente, quindi uniformemente, su $[1,10]$. Il teorema di integrazione termine a termine per serie uniformemente convergenti su un intervallo limitato d&agrave; l'uguaglianza. <b>Catena da ricordare</b>: totale $\\Rightarrow$ uniforme $\\Rightarrow$ (su compatto) scambio con l'integrale. La puntuale da sola non basta mai."}]},
+
+{"pool":"serie","src":"20240619 Es.4 iii","steps":[
+ {"t":"Sia $S(x)=\\sum_{n\\ge0}\\dfrac{\\log^n(x)}{n^2+1}$. Il testo chiede $S'(1)$. Quanto vale?",
+  "opts":[
+   {"x":"$\\tfrac12$","c":true},
+   {"x":"$0$"},
+   {"x":"$1$"},
+   {"x":"$S$ non &egrave; derivabile in $x=1$: la serie delle derivate diverge"}],
+  "hint":"Deriva termine a termine e poi valuta in $x=1$, dove $\\log x=0$: quasi tutti i termini muoiono. Sopravvive solo quello con esponente $n-1=0$.",
+  "sol":"<b>Derivazione termine a termine.</b> Posto $u_n(x)=\\frac{\\log^n x}{n^2+1}$, si ha $u_n'(x)=\\frac{n\\log^{n-1}x}{(n^2+1)x}$. In un intorno di $x=1$ vale $|\\log x|\\le q<1$, e $\\sum\\frac{n q^{n-1}}{n^2+1}\\cdot\\frac1x$ converge totalmente: per il teorema di derivazione per serie $S$ &egrave; derivabile e $S'=\\sum u_n'$. In $x=1$: $\\log 1=0$, quindi $\\log^{n-1}(1)=0$ per $n\\ge2$ e $=1$ per $n=1$. Resta il solo $n=1$: $S'(1)=\\frac{1}{1^2+1}\\cdot\\frac11=\\frac12$. <b>Ipotesi da citare</b>: la serie delle derivate deve convergere uniformemente in un intorno, e la serie di partenza deve convergere in almeno un punto."}]},
+
+{"pool":"serie","src":"20220706 Es.1 ii &middot; somma della serie","steps":[
+ {"t":"$\\displaystyle\\sum_{k\\ge1}\\frac{\\big(\\log(x-1)\\big)^k}{k}$. Nell'insieme di convergenza puntuale, quanto vale la somma?",
+  "opts":[
+   {"x":"$-\\log\\!\\big(1-\\log(x-1)\\big)$","c":true},
+   {"x":"$\\dfrac{\\log(x-1)}{1-\\log(x-1)}$"},
+   {"x":"$e^{\\log(x-1)}-1=x-2$"},
+   {"x":"$\\log\\!\\big(1+\\log(x-1)\\big)$"}],
+  "hint":"Cambio di variabile $y=\\log(x-1)$: resta una serie di potenze notevole in $y$, quella il cui termine generale &egrave; $y^k/k$.",
+  "sol":"<b>Riconduzione a una serie di potenze notevole.</b> Con $y=\\log(x-1)$ (definita per $x>1$) la serie diventa $\\sum_{k\\ge1}\\frac{y^k}{k}$, che ha raggio di convergenza $1$ e somma $-\\log(1-y)$ per $|y|<1$ (converge anche in $y=-1$ per Leibniz, dove d&agrave; $-\\log2$; diverge in $y=+1$, serie armonica). Tornando alla variabile $x$: la somma vale $-\\log\\big(1-\\log(x-1)\\big)$ sull'insieme $-1\\le\\log(x-1)<1$, cio&egrave; $1+e^{-1}\\le x<1+e$. <b>Mossa da riconoscere</b>: quando l'argomento &egrave; una funzione composta, il primo gesto &egrave; sempre la sostituzione che riporta a $\\sum y^k$, $\\sum y^k/k$ o $\\sum y^k/k!$."}]},
+
+{"pool":"serie","src":"20250214 Es.4 ii &middot; segni alterni","steps":[
+ {"t":"$f_n(x)=[\\arctan(x^2)]^n$ e la serie $\\sum_{n\\ge0}\\dfrac{(-1)^n f_n(x)}{\\sqrt{n+3}}$. Dove converge UNIFORMEMENTE ma non TOTALMENTE?",
+  "opts":[
+   {"x":"Su ogni insieme dove $\\arctan(x^2)$ resta $\\le1$, cio&egrave; su tutto $\\mathbb{R}$: la stima del resto di Leibniz d&agrave; l'uniforme, mentre $\\sum\\frac{1}{\\sqrt{n+3}}$ diverge e nega la totale","c":true},
+   {"x":"Su nessun insieme: se converge uniformemente converge anche totalmente"},
+   {"x":"Solo su $[-1,1]$, dove $\\arctan(x^2)<\\pi/4$"},
+   {"x":"Su $\\mathbb{R}$, e converge anche totalmente perch&eacute; $\\frac{1}{\\sqrt{n+3}}\\to0$"}],
+  "hint":"La convergenza totale chiede che $\\sum\\sup|u_n|$ converga: qui $\\sup|u_n|$ vale al pi&ugrave; $\\frac{1}{\\sqrt{n+3}}$ e quella serie diverge. Ma l'alternanza di segno d&agrave; comunque il controllo del resto.",
+  "sol":"<b>Leibniz uniforme.</b> Con $t=\\arctan(x^2)\\in[0,\\pi/2)$, i termini $a_n(x)=\\frac{t^n}{\\sqrt{n+3}}$ sono decrescenti in $n$ e tendono a $0$; per il criterio di Leibniz la serie converge e il resto &egrave; maggiorato dal primo termine trascurato: $|R_N(x)|\\le\\frac{t^{N+1}}{\\sqrt{N+4}}\\le\\frac{1}{\\sqrt{N+4}}$ per $t\\le1$, stima INDIPENDENTE da $x$: convergenza uniforme. La totale invece richiederebbe $\\sum_n\\sup_x\\frac{t^n}{\\sqrt{n+3}}$, e su $x$ con $t\\to1$ il sup vale $\\frac{1}{\\sqrt{n+3}}$, la cui serie diverge. <b>Totale $\\Rightarrow$ uniforme, ma non viceversa</b>: questo &egrave; il controesempio che l'esame usa."}]},
+
+{"pool":"serie","src":"modus operandi &middot; 20240209 Es.3","steps":[
+ {"t":"Il testo chiede la convergenza uniforme di $f_n$ negli intervalli $[-2,2]$, $[2,+\\infty)$ e $[2,10]$. Perch&eacute; tre intervalli e non uno?",
+  "opts":[
+   {"x":"Perch&eacute; la risposta cambia: la convergenza uniforme &egrave; una propriet&agrave; DELL'INSIEME, e il compito verifica che si sappia dove si rompe (tipicamente dove il sup della differenza non si abbassa)","c":true},
+   {"x":"Perch&eacute; su intervalli diversi il limite puntuale &egrave; diverso"},
+   {"x":"Per far calcolare tre volte lo stesso integrale"},
+   {"x":"Perch&eacute; su $[2,+\\infty)$ la convergenza puntuale non vale"}],
+  "hint":"$[2,10]\\subset[2,+\\infty)$: se fosse uniforme sul grande lo sarebbe sul piccolo. Il caso interessante &egrave; l'inverso.",
+  "sol":"<b>La convergenza uniforme non &egrave; ereditaria verso l'alto.</b> Se $f_n\\to f$ uniformemente su $A$ e $B\\subseteq A$, allora &egrave; uniforme su $B$. Il contrario &egrave; falso, ed &egrave; il motivo per cui l'esame elenca un compatto, una semiretta e un compatto contenuto nella semiretta. Ricetta operativa: calcola $M_n=\\sup_{x\\in A}|f_n(x)-f(x)|$ studiando la funzione $x\\mapsto f_n(x)-f(x)$ (punti critici o comportamento agli estremi) e guarda se $M_n\\to0$. Sulle semirette illimitate il sup &egrave; spesso realizzato 'all'infinito' o in un punto che dipende da $n$ e scappa: quello &egrave; il segnale che l'uniforme cade."}]},
+
+{"pool":"serie","src":"20230123 Es.5 v-vi &middot; ibrido EDO x successioni","steps":[
+ {"t":"$y_n$ &egrave; la soluzione massimale di $y'=x^3(y-3)\\arctan y$, $y(0)=\\frac1n$. Il testo chiede di provare che $y_n\\to0$ uniformemente su $\\mathbb{R}$. Con quale strumento, non avendo la formula esplicita?",
+  "opts":[
+   {"x":"Con le soluzioni costanti come barriere: $y\\equiv0$ &egrave; soluzione, l'unicit&agrave; impedisce l'attraversamento, quindi $0<y_n(x)\\le\\frac1n$ per ogni $x$ dove &egrave; definita $\\Rightarrow \\sup_{\\mathbb{R}}|y_n|\\le\\frac1n\\to0$","c":true},
+   {"x":"Risolvendo l'equazione a variabili separabili e passando al limite nella formula"},
+   {"x":"Applicando il criterio di Weierstrass alla serie $\\sum y_n$"},
+   {"x":"Non si pu&ograve;: senza formula esplicita la convergenza uniforme non &egrave; dimostrabile"}],
+  "hint":"La stima uniforme che serve non viene dal calcolo: viene dal fatto che due soluzioni distinte non si toccano mai.",
+  "sol":"<b>Barriere + unicit&agrave;.</b> $f(x,y)=x^3(y-3)\\arctan y$ &egrave; $C^1$, quindi vale l'unicit&agrave; locale (Cauchy-Lipschitz) e due grafici di soluzione non si intersecano. $y\\equiv0$ e $y\\equiv3$ sono soluzioni costanti. Il dato $y_n(0)=\\frac1n\\in(0,3)$ per $n\\ge1$, quindi $0<y_n(x)<3$ ovunque. Inoltre per $\\frac1n<y<3$ si ha $y-3<0$ e $\\arctan y>0$, dunque $y_n'$ ha il segno di $-x^3$: $y_n$ cresce su $(-\\infty,0)$ e decresce su $(0,+\\infty)$, quindi il MASSIMO &egrave; in $x=0$ e vale $\\frac1n$. Ne segue $0<y_n(x)\\le\\frac1n$ per ogni $x\\in\\mathbb{R}$, cio&egrave; $\\|y_n\\|_\\infty\\le\\frac1n\\to0$: convergenza uniforme a $0$. <b>Il ponte fra i due capitoli &egrave; sempre questo</b>: la stima $\\sup$-uniforme la d&agrave; la teoria qualitativa delle EDO, non l'integrazione."}]},
+
+{"pool":"serie","src":"modus operandi &middot; ordine delle domande","steps":[
+ {"t":"In quale ordine logico vanno le quattro convergenze quando il testo chiede 'puntuale, assoluta, uniforme e totale'?",
+  "opts":[
+   {"x":"Prima puntuale e assoluta (dove ha senso la serie), poi totale (Weierstrass, la pi&ugrave; facile da verificare) e infine uniforme, che si deduce dalla totale dove c'&egrave; e va discussa a mano dove la totale manca","c":true},
+   {"x":"Prima uniforme, poi totale: l'uniforme &egrave; pi&ugrave; forte"},
+   {"x":"L'ordine &egrave; indifferente: le quattro nozioni sono indipendenti"},
+   {"x":"Prima assoluta, poi puntuale: l'assoluta implica la puntuale"}],
+  "hint":"Fra le quattro c'&egrave; una sola catena di implicazioni vera, e conviene percorrerla nel verso che fa risparmiare lavoro.",
+  "sol":"<b>Le implicazioni.</b> totale $\\Rightarrow$ uniforme $\\Rightarrow$ puntuale; totale $\\Rightarrow$ assoluta $\\Rightarrow$ puntuale. Nessun'altra implicazione vale. Strategia da compito: (1) trova l'insieme di convergenza puntuale/assoluta, di solito con radice o rapporto (per serie di potenze, il raggio); (2) su ogni compatto interno prova Weierstrass, che &egrave; un conto sui $\\sup$ e chiude d'un colpo totale+uniforme; (3) resta solo la frontiera dell'insieme di convergenza, dove Weierstrass fallisce: l&igrave; si discute a mano (Leibniz, Abel, o negazione tramite $\\sup|R_N|\\not\\to0$). &Egrave; sempre l&igrave; che il compito mette il punto difficile."}]}
+
+]);

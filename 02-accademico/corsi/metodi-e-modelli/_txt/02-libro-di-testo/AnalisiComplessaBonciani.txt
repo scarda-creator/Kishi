@@ -405,13 +405,13 @@ x2
 2 + y2
 2
 −y1
-
+
 −
 y2
 x2
 2 + y2
 2
-
+
 = x1x2 + y1y2
 x2
 2 + y2
@@ -421,13 +421,13 @@ x2
 y
 =
 x1
-
+
 −
 y2
 x2
 2 + y2
 2
-
+
 + y1
 x2
 x2
@@ -486,9 +486,9 @@ z1 ± z2 = z1 ± z2 ,
 (1.47)
 z1z2 = z1z2 ,
 (1.48)
-z1
+z1
 z2
-
+
 = z1
 z2
 ,
@@ -508,10 +508,10 @@ Proprietà 1.2.7
 (1.52)
 |z1z2...zn| = |z1||z2|...|zn| ,
 (1.53)
-
+
 z1
 z2
- = |z1|
+ = |z1|
 |z2| ,
 (1.54)
 |z1 + z2|2 = (z1 + z2)((z1 + z2) = (z1 + z2)(z1 + z2)
@@ -784,16 +784,16 @@ x2 + y2 ,
 θ
 =
 arctan
-y
+y
 x
-
+
 ,
 (1.83)
 tenendo conto del fatto che l’arcotangente ha come codominio l’intervallo
- −π
+−π
 2, π
 2
-
+
 e non (−π, π).
 Quindi per raggiungere tutti i quadranti del piano, dovremo aggiungere (o levare) a mano π.
 Infatti, se x e y sono concordi, y/x > 0 e quindi l’argomento di un punto nel primo quadrante
@@ -808,20 +808,20 @@ Arg(z) =
 
 
 arctan
-  y
+ y
 x
-
+
 + π
 x < 0 , y > 0
 arctan
-  y
+ y
 x
-
+
 x ≥0 , (x, y)̸ = 0
 arctan
-  y
+ y
 x
-
+
 −π
 x < 0 , y < 0
 (1.84)
@@ -895,28 +895,28 @@ y
 x2 + y2 ,
 (1.94)
 da cui
-
+
 1
 z
-
+
 =
 1
 |z| ,
 (1.95)
 arg
-1
+1
 z
-
+
 =
 arctan
-
+
 −y
 x
-
+
 = −arctan
-y
+y
 x
-
+
 = −arg(z) .
 (1.96)
 Da cui il rapporto di due numeri complessi si può trovare facilmente come
@@ -960,25 +960,25 @@ Sviluppiamo l’esponenziale in serie di Taylor. Avremo
 reiθ
 =
 r
-
+
 1 + iθ −θ2
 2! −iθ3
 3! + ...
-
+
 ,
 (1.103)
 =
 r
-
+
 1 −θ2
 2! + −θ4
 4! + ...
-
+
 + i
-
+
 θ −θ3
 3! + ...
-
+
 .
 (1.104)
 La prima serie è quella che individua il sin θ, mentre la seconda il cos θ, provando così la (1.100).
@@ -986,7 +986,7 @@ La prima serie è quella che individua il sin θ, mentre la seconda il cos θ, p
 Potenza n−esima
 Utilizzando la formula di Eulero, si avrà
 zn =
- reiθn = rn(cos (nθ) + i sin (nθ)) ,
+reiθn = rn(cos (nθ) + i sin (nθ)) ,
 (1.105)
 che per r = 1 dà la cosiddetta formula di de Moivre
 (cos (θ) + i sin (θ))n = cos (nθ) + i sin (nθ)) .
@@ -1353,9 +1353,9 @@ Mettere in forma polare i seguenti numeri complessi:
 Per fare ciò ci rifacciamo alla deﬁnizione
 z = x + iy = |z|eiφ ,
 φ = arctan
-y
+y
 x
-
+
 .
 (1.152)
 Quindi
@@ -1409,8 +1409,8 @@ cos (φ + 2φ) = cos (φ) cos (2φ) −sin (φ) sin (2φ) ,
 (1.155)
 =
 cos (φ)
- cos2 (φ) −sin2 (φ)
-
+cos2 (φ) −sin2 (φ)
+
 −sin (φ) (2 sin (φ) cos (φ)) ,
 (1.156)
 =
@@ -1506,12 +1506,12 @@ k=1
 X
 k=0
 (1+i)k = −1+i
-
+
 1 −
-√
+√
 2ei π
 4
-20
+20
 = ... = −1+i1025 .
 (1.169)
 1.4.7
@@ -1523,10 +1523,10 @@ z = ie−1−5i(1 + i)3
 (1.170)
 Utilizzando le proprietà dei numeri complessi si può arrivare rapidamente alla soluzione
 |z| =
-
+
 ie−1−5i(1 + i)3
 1 + 3i
- = |ie−1−5i(1 + i)3|
+ = |ie−1−5i(1 + i)3|
 |1 + 3i|
 = |i||e−1||e−5i||(1 + i)|3
 |1 + 3i|
@@ -1850,16 +1850,16 @@ h
 ma allora, siccome il limite del prodotto è il prodotto dei limiti si ha anche
 0 = lim
 h→0
-f(z0 + h) −f(z0)
+f(z0 + h) −f(z0)
 h
-
+
 lim
 h→0 h = lim
 h→0
-f(z0 + h) −f(z0)
+f(z0 + h) −f(z0)
 h
 h
-
+
 = lim
 h→0(f(z0 + h) −f(z0)) .
 (2.38)
@@ -1884,11 +1884,11 @@ z −z0
 =
 lim
 z→z0
-(f(z) −f(z0))
+(f(z) −f(z0))
 z −z0
 + (g(z) −g(z0))
 z −z0
-
+
 = f ′(z0) + g′(z0) .
 (2.39)
 27
@@ -1912,20 +1912,20 @@ h
 =
 lim
 h→0
-f(z0 + h) −f(z0)
+f(z0 + h) −f(z0)
 h
 g(z0 + h) + f(z0)g(z0 + h) −g(z0)
 h
-
+
 ,
 =
 f ′(z0)g(z0) + f(z0)g′(z0) .
 (2.40)
 3. Partiamo con la derivata dell’inverso della funzione. Sfruttando le proprietà dei limiti si
 ha
-1
+1
 g
-′
+′
 (z0)
 =
 lim
@@ -1939,30 +1939,30 @@ h
 =
 lim
 h→0
-
+
 −g(z0 + h) −g(z0)
 h
 1
 g(z0 + h)g(z0)
-
+
 = −g′(z0)
 g2(z0) .
 (2.41)
 Allora
 (f/g)′(z0) =
-
+
 f 1
 g
-′
+′
 (z0) = f ′(z0)
-
+
 1
 g(z0)
-
+
 + f(z0)
-1
+1
 g
-′
+′
 (z0) = (f ′g −fg′)(z0)
 g2(z0)
 . (2.42)
@@ -2030,7 +2030,7 @@ con funzione inversa f −1(w) = z continua in V = f(U). Allora se f è derivabi
 f ′(z)̸ = 0, f −1 è derivabile in w = f(z) e ;a sua derivata è
 d
 dwf −1(w)
-
+
 w=f(z)
 =
 1
@@ -2055,7 +2055,7 @@ w′→w=f(z) f −1(w′) = f −1(w) = f −1(f(z)) ,
 cioè quando w′ →w = f(z) in V , si ha che z′ →z in D. Allora
 d
 dwf −1(w)
-
+
 w=f(z)
 = lim
 w′→w
@@ -2172,17 +2172,17 @@ Allora
 f(z0 + ξ) −f(z0)
 ξ
 =
-
+
 ∂u
 ∂xh + ∂u
 ∂yk + ǫ1
-
+
 + i
-
+
 ∂v
 ∂xh + ∂v
 ∂yk + ǫ2
-
+
 h + ik
 ,
 (2.62)
@@ -2223,10 +2223,10 @@ Siccome la derivata deve essere la stessa, si deve avere
 ∂y ,
 (2.66)
 ovvero
- ∂
+ ∂
 ∂x + i ∂
 ∂y
-
+
 f(z0) = 0 .
 (2.67)
 Vediamo a cosa corrisponde la relazione (2.67). Avendo z = x + iy e z = x −iy si possono
@@ -2267,10 +2267,10 @@ Di conseguenza, possiamo riesprimere le derivate in x e y in termini di derivate
 (2.70)
 Quindi:
 0 =
- ∂
+ ∂
 ∂x + i ∂
 ∂y
-
+
 f(z0) = 2 ∂
 ∂zf(z0) .
 (2.71)
@@ -2361,11 +2361,11 @@ h
 h
 = lim
 h→0
-
+
 n zn−1 + n(n −1)
 2
 zn−2h + ...
-
+
 = n zn−1 ,
 (2.81)
 quindi la derivata esiste ∀n ∈N e z ∈C.
@@ -2400,27 +2400,27 @@ u(x, y) e v(x, y) rispetto a x, per esempio, ottenendo:
 ∂2u
 ∂x2 = ∂
 ∂x
-∂u
+∂u
 ∂x
-
+
 = ∂
 ∂x
-∂v
+∂v
 ∂y
-
+
 = ∂
 ∂y
-∂v
+∂v
 ∂x
-
+
 = −∂2u
 ∂y2 .
 (2.85)
 Quindi
- ∂2
+ ∂2
 ∂x2 + ∂2
 ∂y2
-
+
 u(x, y) = 0 .
 (2.86)
 Analogamente troviamo che
@@ -2435,10 +2435,10 @@ Analogamente troviamo che
 ∂x2 ,
 (2.87)
 ovvero:
- ∂2
+ ∂2
 ∂x2 + ∂2
 ∂y2
-
+
 v(x, y) = 0 .
 (2.88)
 Quindi, se f(z) è analitica in D ⊂C, la sua parte reale e la sua parte immaginaria sono
@@ -2489,33 +2489,33 @@ dv ,
 Z x
 x0
 dx′
-∂v
+∂v
 ∂x
-
+
 (x′, y0) +
 Z y
 y0
 dy′
-∂v
+∂v
 ∂y
-
+
 (x, y′) ,
 (2.94)
 =
 Z x
 x0
 dx′
-
+
 −∂u
 ∂y
-
+
 (x′, y0) +
 Z y
 y0
 dy′
-∂u
+∂u
 ∂x
-
+
 (x, y′) .
 (2.95)
 La conoscenza di u(x, y) determina v(x, y) a meno della costante v(x0, y0).
@@ -2837,8 +2837,8 @@ quindi
 ∂y = ∂v
 ∂x = ∂
 ∂x
- 3x2y −y3 + φ(x)
-
+3x2y −y3 + φ(x)
+
 = 6xy + φ′(x) .
 (2.139)
 Si ricava un’equazione diﬀerenziale banale per determinare φ(x):
@@ -3124,26 +3124,26 @@ X
 n=0
 |anzn
 0 |
-
+
 zn
 zn
 0
- ≤g
+ ≤g
 ∞
 X
 n=0
-
+
 zn
 zn
 0
- = g
+ = g
 ∞
 X
 n=0
-
+
 z
 z0
-
+
 n
 .
 (3.29)
@@ -3341,10 +3341,10 @@ h
 (z0 + h)n−1
 h
 1 −
-
+
 z0
 (z0+h)
-ni
+ni
 h
 z0+h
 ,
@@ -3353,10 +3353,10 @@ z0+h
 (z0 + h)n−1
 h
 1 −
-
+
 z0
 (z0+h)
-ni
+ni
 1 −
 z0
 z0+h
@@ -3368,10 +3368,10 @@ z0+h
 1 +
 z0
 z0 + h + ... +
-
+
 z0
 z0 + h
-n−1#
+n−1#
 ,
 (3.45)
 =
@@ -3380,14 +3380,14 @@ z0 + h
 .
 (3.46)
 Quindi
-
+
 (z0 + h)n −zn
 0
 h
- =
-(z0 + h)n−1 + (z0 + h)n−2z0 + ... + zn−1
+ =
+(z0 + h)n−1 + (z0 + h)n−2z0 + ... + zn−1
 0
- < ρn−1+ρn−2ρ+...+ρn−1 = nρn−1
+ < ρn−1+ρn−2ρ+...+ρn−1 = nρn−1
 (3.47)
 45
 
@@ -3571,26 +3571,26 @@ Se z1 = x e z2 = iy si ha
 ex+iy
 =
 exeiy = ex
-
+
 1 + iy −y2
 2 −iy3
 3! + ...
-
+
 ,
 (4.12)
 =
 ex
-
+
 1 −y2
 2! + y4
 4!
-
+
 + i
-
+
 y −y3
 3! + y5
 5! + ...
-
+
 ,
 (4.13)
 =
@@ -3717,10 +3717,10 @@ dz sin z
 =
 1
 2i
- d
+ d
 dzeiz −d
 dze−iz
-
+
 = eiz + e−iz
 2
 = cos z ,
@@ -3730,10 +3730,10 @@ dz cos z
 =
 1
 2
- d
+ d
 dzeiz + d
 dze−iz
-
+
 = −eiz −e−iz
 2i
 = −sin z .
@@ -3757,13 +3757,13 @@ cos z
 =
 1
 2
-
+
 1 + iz + (iz)2
 2!
 + ... + 1 −iz + (−iz)2
 2!
 + ...
-
+
 =
 ∞
 X
@@ -3775,17 +3775,17 @@ sin z
 =
 1
 2i
-
+
 1 + iz + (iz)2
 2!
 + ...
-
+
 −
-
+
 1 −iz + (−iz)2
 2!
 + ...
-
+
 (4.30)
 =
 ∞
@@ -3796,13 +3796,13 @@ z2n+1
 (4.31)
 5. Si ha
 sin2 z + cos2 z =
-eiz −e−iz
+eiz −e−iz
 2i
-2
-+
-eiz + e−iz
 2
-2
++
+eiz + e−iz
+2
+2
 = 1 .
 (4.32)
 6. Si ha
@@ -4130,9 +4130,9 @@ sinh x sin y
 (4.82)
 che sono veriﬁcate per x = 0 e y = π
 2 + kπ, quindi z = i
- π
+π
 2 + kπ
-
+
 .
 Così come abbiamo fatto per le funzioni trigonometriche, possiamo deﬁnire e studiare la
 tangente e la cotangente iperbolica dal rapporto di seno e coseno o coseno e seno. Si ha
@@ -4215,7 +4215,7 @@ eln z = eln |z|+iθ+i2kπ = |z|eiθ+i2kπ = z .
 (4.91)
 Invece
 ln ez = ln
- exeiy+2kπi
+exeiy+2kπi
 = z + 2kπi ,
 (4.92)
 che rende manifesta la natura polidroma della funzione inversa.
@@ -4272,11 +4272,11 @@ d
 dwf −1(w) =
 1
 f ′(z)
-
+
 z=f−1(w)
 = 1
 ez
-
+
 z=ln w
 = 1
 w .
@@ -4291,9 +4291,9 @@ In coordinate cartesiane abbiamo:
 ln z = ln |z| + iθ = ln
 p
 x2 + y2 + i arctan
-y
+y
 x
-
+
 .
 (4.99)
 Abbiamo
@@ -4379,9 +4379,9 @@ r
 e quindi sono veriﬁcate.
 6. Consideriamo adesso l’andamento del logaritmo nel punto all’inﬁnito. Studiamo quindi
 in ω = 0 il ln
-  1
+ 1
 ω
-
+
 . Infatti
 z →1
 ω ,
@@ -4416,11 +4416,11 @@ n ) = |z|nein(arg(z)e2kπ = |z|nein(arg(z) .
 Allora, la potenza n-esima è caratterizzata da n domini di monodromia, che sono degli spicchi
 di ampiezza 2π:
 Dk =
-(2k −1)π
+(2k −1)π
 n
 < arg (z) ≤(2k + 1)π
 n
-
+
 ,
 k = 0, ..., n −1 ,
 (4.114)
@@ -4485,12 +4485,12 @@ f −1
 w
 Ogni ramo è analitico, ad eccezione che sul taglio. Infatti le equazioni di Cauchy-Riemann
 danno, per r̸ = 0,
- ∂
+ ∂
 ∂r + i
 r
 ∂
 ∂θ
-
+
 r
 1
 nei θ
@@ -4712,11 +4712,11 @@ Andiamo a vedere il comportamento della funzione nel punto all’inﬁnito. Sost
 w abbiamo
 p
 (z −a)(z −b) →
-s 1
+s 1
 w −a
-  1
+  1
 w −b
-
+
 =
 p
 (1 −wa)(1 −wb)
@@ -4880,10 +4880,10 @@ r
 (4.142)
 mentre il secondo membro è sempre negativo per t ∈[0, ∞)
 −(t + iw) = −
-
+
 t −t2 −1
 2t
-
+
 = −(t2 + 1)
 2t
 < 0 ,
@@ -4898,13 +4898,13 @@ dz arcsin z
 =
 1
 f ′(w)
-
+
 w=f−1(z)
 =
 1
 d
 dw sin w
-
+
 w=arcsin z
 =
 1
@@ -4938,13 +4938,13 @@ dz arccos z
 =
 1
 f ′(w)
-
+
 w=f−1(z)
 =
 1
 d
 dw cos w
-
+
 w=arccos z
 = −
 1
@@ -4959,17 +4959,17 @@ p
 (4.147)
 Per la deﬁnizione dell’arcotangente si ha
 w = tan z = −i
-eiz −e−iz
+eiz −e−iz
 eiz + e−iz
-
+
 ,
 (4.148)
 da cui
 arctan w = −i
 2 ln
-1 + iw
+1 + iw
 1 −iw
-
+
 .
 (4.149)
 Il ramo principale è dato dal ramo principale del logaritmo, ovvero
@@ -4988,13 +4988,13 @@ dz arctan z
 =
 1
 f ′(w)
-
+
 w=f−1(z)
 =
 1
 d
 dw tan w
-
+
 w=arctan z
 =
 1
@@ -5214,7 +5214,7 @@ k) ,
 con t′
 k ∈[tk−1, tk]. Allora scelto un ǫ > 0, ∃δ > 0 tale che, se (tk −tk−1) < δ, ∀k = 1, ..., n, si
 abbia
-
+
 n
 X
 k=1
@@ -5222,9 +5222,9 @@ f(ξk)(zk −zk−1) −
 Z b
 a
 f(γ(t))γ′(t) dt
-
+
 =
-
+
 n
 X
 k=1
@@ -5234,7 +5234,7 @@ k)(tk −tk−1) −
 Z b
 a
 f(γ(t))γ′(t) dt
- < ǫ .
+ < ǫ .
 (5.19)
 L’integrale (5.16) è invariante per riparametrizzazione della curva. Infatti, se t = t(τ) e
 γ1(t(τ)) = γ2(τ), allora
@@ -5320,12 +5320,12 @@ Z
 π
 2
 0
-eit2 ieitdt =
+eit2 ieitdt =
 Z
 π
 2
 0
-ieitdt = eit
+ieitdt = eit
 π
 2
 0 = i −1 .
@@ -5382,24 +5382,24 @@ f(z) dz .
 (5.32)
 Teorema 5.2.2 (di Darboux). Sia γ : [a, b] →C una curva semplice regolare (o regolare a
 tratti) di lunghezza Lγ e f(z) una funzione continua su D ⊃{γ}. Allora
-
+
 Z
 γ
 f(z) dz
- ≤Lγ supz∈{γ} |f(z)| .
+ ≤Lγ supz∈{γ} |f(z)| .
 (5.33)
 Dimostrazione. Infatti
-
+
 Z
 γ
 f(z) dz
-
+
 =
-
+
 Z b
 a
 f(γ(t))γ′(t) dt
- ≤
+ ≤
 Z b
 a
 |f(γ(t))γ′(t)| dt ,
@@ -5434,20 +5434,20 @@ Lγ
 ,
 (5.36)
 per n > n0 e per ∀z ∈{γ}. Allora, per il thm di Darboux, si ha
-
+
 Z
 γ
 fn(z)dz −
 Z
 γ
 f(z)dz
-
+
 =
-
+
 Z
 γ
 [fn(z) −f(z)] dz
- ≤
+ ≤
 Z
 γ
 |fn(z) −f(z)| dz ,
@@ -5530,10 +5530,10 @@ t2dt ,
 4
 3i −4
 3 −i
-
+
 t −t2 + t3
 3
-1
+1
 0
 + 1
 3 ,
@@ -5562,7 +5562,7 @@ e3itdt ,
 =
 R3
 3 e3it
-
+
 2π
 0
 = 0 .
@@ -5582,7 +5582,7 @@ e2itdt ,
 =
 R2
 2 e2it
-
+
 2π
 0
 = 0 .
@@ -5599,7 +5599,7 @@ Z 2π
 0
 eitdt ,
 =
-Rc eit2π
+Rc eit2π
 0 = 0 .
 (5.46)
 Esempio 5. Consideriamo adesso una potenza inversa. Prendiamo
@@ -5702,28 +5702,28 @@ Z 2
 (5.54)
 =
 i
-
+
 (1 −i)t + it2
 2
-2
+2
 0
 −
-
+
 (1 + i)t −t2
 2
-2
+2
 0
 −i
-
+
 (−1 + i)t −it2
 2
-2
+2
 0
 +
-
+
 −(1 + i)t + t2
 2
-2
+2
 0
 ,
 = 0
@@ -5766,23 +5766,23 @@ ln (−1 −i + t)2
 (5.57)
 =
 2
-
+
 −1
 4π
-
+
 + 2
-3
+3
 4π
-
+
 −2
-
+
 −3
 4π
-
+
 −2
-1
+1
 4π
-
+
 = 2πi .
 (5.58)
 Quindi le proprietà che abbiamo elencato qui sopra non sembrano dipendere dal fatto che
@@ -5875,10 +5875,10 @@ I
 ∂D+ω =
 Z
 D
-∂B
+∂B
 ∂x −∂A
 ∂y
-
+
 dx dy .
 (5.64)
 76
@@ -5888,18 +5888,18 @@ dx dy .
 =
 Z
 Int(γ)
-
+
 −∂u
 ∂y −∂v
 ∂x
-
+
 dx dy + i
 Z
 Int(γ)
-∂u
+∂u
 ∂x −∂v
 ∂y
-
+
 dx dy .
 (5.66)
 Se f(z) è analitica in D ⊃{γ} e ux(x, y), uy(x, y), vx(x, y) e vy(x, y) sono continue, valendo le
@@ -5954,70 +5954,70 @@ R4
 
 ===== PAGINA 79 =====
 Dalla disuguaglianza triangolare segue che:
-
+
 Z
 ∂R
 f(z) dz
- ≤
-
+ ≤
+
 Z
 ∂R1
 f(z) dz
- +
-
+ +
+
 Z
 ∂R2
 f(z) dz
- +
-
+ +
+
 Z
 ∂R3
 f(z) dz
- +
-
+ +
+
 Z
 ∂R4
 f(z) dz
- .
+ .
 (5.71)
 Ci sarà almeno uno dei quattro rettangoli per il quale il contributo alla somma di destra è
 massima. Diciamo che si tratti del rettangolo i-esimo. Allora potremo scrivere
-
+
 Z
 ∂R
 f(z) dz
- ≤4
-
+ ≤4
+
 Z
 ∂Ri
 f(z) dz
- .
+ .
 (5.72)
 (Se ci dovessero essere più rettangoli che danno lo stesso contributo, potremmo comunque
 individuare un algoritmo che permette di sceglierne uno e il ragionamento rimane lo stesso).
 Ripetiamo lo stesso ragionamento, dividendo il rettangolo i-esimo in 4 e scegliendo il
 rettangolo che massimizza il contributo alla somma dei moduli. All’n-esimo passaggio avremo
-
+
 Z
 ∂R
 f(z) dz
- ≤4n
-
+ ≤4n
+
 Z
 ∂Rn
 f(z) dz
- ,
+ ,
 (5.73)
 dove R ⊃R1 ⊃R2 ⊃... ⊃Rn.
 Consideriamo i centri dei rettangoli Rn. Questi hanno un punto di accumulazione, z0, che
 sarà per costruzione nel rettangolo R, z0 ∈R. Quindi f(z) è analitica in un intorno di z0 (ciò
 vale anche se z0 ∈∂R). Quindi, scelto un ǫ > 0, ∃δ > 0 tale che se |z −z0| < δ (e questo
 succederà per n suﬃcientemente grande) si abbia
-
+
 f(z) −f(z0)
 z −z0
 −f ′(z0)
- < ǫ ,
+ < ǫ ,
 (5.74)
 ovvero
 |f(z) −f(z0) −f ′(z0)(z −z0)| < ǫ |z −z0| < ǫ dn ,
@@ -6038,17 +6038,17 @@ Z
 [f(z0) + f ′(z0)(z −z0)] dz = 0 .
 (5.78)
 Quindi:
-
+
 Z
 ∂Rn
 f(z) dz
-
+
 =
-
+
 Z
 ∂Rn
 [f(z) −f(z0) −f ′(z0)(z −z0)] dz
- ,
+ ,
 (5.79)
 78
 
@@ -6075,16 +6075,16 @@ uno zero; poi passando da (5.79) a (5.80) abbiamo usato il teorema di Darboux; d
 perimetro dell’n-esimo rettangolo è dato dal perimetro del rettangolo R, L, diviso per 2n e così
 la sua diagonale.
 Sostituendo inﬁne la (5.83) nella (5.73) si ha
-
+
 Z
 ∂R
 f(z) dz
- ≤4n
-
+ ≤4n
+
 Z
 ∂Rn
 f(z) dz
- ≤d L ǫ ,
+ ≤d L ǫ ,
 (5.84)
 che per l’arbitrarietà dell’ǫ dimostra l’assunto.
 NB. La stessa identica dimostrazione si trova a volte riferita ad un triangolo isoscele, invece
@@ -6180,11 +6180,11 @@ lk
 ∀z ∈∂Qk .
 (5.93)
 Allora, per il teorema di Darboux
-
+
 Z
 ∂Qk
 f(z) dz
- ≤4lk supz∈∂Qk |f(z)| < 4lk
+ ≤4lk supz∈∂Qk |f(z)| < 4lk
 2ǫ
 lk
 = 8ǫ .
@@ -6207,7 +6207,7 @@ f(z) dz = 0 .
 (5.95)
 Dimostrazione. È facile capire come il teorema di Cauchy-Goursat valga per una poligonale
 chiusa. Prendiamo una poligonale inscritta nella curva γ. Per deﬁnizione di integrale si avrà
-
+
 Z
 γ
 f(z) dz −
@@ -6215,10 +6215,10 @@ n
 X
 k=1
 (zk −zz−1)f(zk)
- < ǫ ,
+ < ǫ ,
 (5.96)
 che si può anche scrivere come
-
+
 Z
 γ
 f(z) dz −
@@ -6228,7 +6228,7 @@ k=1
 Z zk
 zk−1
 f(zk)dz
- < ǫ ,
+ < ǫ ,
 (5.97)
 poiché
 R zk
@@ -6242,7 +6242,7 @@ zk−1
 f(z)dz = 0 .
 (5.98)
 Ma allora
-
+
 Z
 γ
 f(z) dz −
@@ -6258,9 +6258,9 @@ k=1
 Z zk
 zk−1
 f(z)dz
- ,
+ ,
 =
-
+
 Z
 γ
 f(z) dz −
@@ -6270,23 +6270,23 @@ k=1
 Z zk
 zk−1
 (f(zk) −f(z))dz
- < ǫ .
+ < ǫ .
 (5.99)
 Usando le proprietà dei numeri complessi, possiamo scrivere
-
+
 Z
 γ
 f(z) dz
- −
-
+ −
+
 n
 X
 k=1
 Z zk
 zk−1
 (f(zk) −f(z))dz
- ≤
-
+ ≤
+
 Z
 γ
 f(z) dz −
@@ -6296,49 +6296,49 @@ k=1
 Z zk
 zk−1
 (f(zk) −f(z))dz
-
+
 (5.100)
 e quindi
-
+
 Z
 γ
 f(z) dz
- −
-
+ −
+
 n
 X
 k=1
 Z zk
 zk−1
 (f(zk) −f(z))dz
- < ǫ .
+ < ǫ .
 (5.101)
 Ne segue che
-
+
 Z
 γ
 f(z) dz
-
+
 <
 ǫ +
-
+
 n
 X
 k=1
 Z zk
 zk−1
 (f(zk) −f(z))dz
- ,
+ ,
 <
 ǫ +
 n
 X
 k=1
-
+
 Z zk
 zk−1
 (f(zk) −f(z))dz
- ,
+ ,
 81
 
 
@@ -6432,19 +6432,19 @@ z1 −z
 =
 1
 z1 −z
-Z z1
+Z z1
 z0
 f(z) dz −
 Z z
 z0
 f(z) dz
-
+
 ,
 (5.112)
 =
 1
 z1 −z
-Z z
+Z z
 z0
 f(z) dz +
 Z z1
@@ -6453,7 +6453,7 @@ f(z) dz −
 Z z
 z0
 f(z) dz
-
+
 ,
 (5.113)
 =
@@ -6499,21 +6499,21 @@ Ora ricordiamoci che f(z), essendo analitica in tutto D, è anche continua. Allo
 |f(z) −f(z1)| < ǫ .
 (5.118)
 Ma allora
-
+
 F(z1) −F(z)
 z1 −z
 −f(z1)
-
+
 =
-
+
 1
 z1 −z
-
-
+
+
 Z z1
 z
 [f(z) −f(z1)] dz
- ,
+ ,
 (5.119)
 ≤
 1

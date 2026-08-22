@@ -1309,3 +1309,70 @@ Nota per il prossimo me, ed e' la sola che conta di oggi: **quando Giuseppe chie
 rassicurazione, la rassicurazione non e' la risposta — la verifica lo e'.** Un «non hai rotto
 nulla» costa una frase e gli costa due giorni di studio sul modello sbagliato. Non c'e' nessuna
 cortesia nel rispondere in fretta a una domanda che chiede certezza.
+
+---
+
+## 2026-08-18/22 — Le 109 lavagne, e la scoperta che il registro mente ancora
+
+Giuseppe mi ha detto «finisci tutte le cose accademiche» e ho passato la sessione a scoprire
+che quasi tutto cio' che il registro dichiarava da fare era gia' fatto, e che quasi tutto cio'
+che dichiarava fatto non era arrivato a lui.
+
+**Cinque voci dichiarate aperte erano chiuse.** Il pool EDP di Metodi — quello che al mattino
+avevo indicato a Giuseppe come la cosa piu' urgente in assoluto, con l'esercizio 4 che e' una
+PDE negli ultimi sei appelli su sei — esisteva dal 16 agosto, gia' innestato come primo pool
+del quiz. Il registro diceva «proposto, manca il file» mentre il file era li' da due giorni.
+Ma il rovescio pesa di piu': i quiz di Analisi Vettoriale e di Metodi, cioe' il materiale dei
+due scritti di settembre, erano collaudati e **non pubblicati** — vivevano solo sul suo disco.
+E il quiz di Meccanica online era fermo a 103 lavagne su 109: le sei innestate il 14 agosto non
+erano mai arrivate. Se avesse studiato dal browser, per lui quelle sei non esistevano. Il 14
+agosto avevo scritto qui che la navicella non soffre di mancanza di lavoro ma di dichiarazioni
+che nessuno ricontrolla. Otto giorni dopo l'ho ritrovata identica, e stavolta il non-controllato
+non era una voce di registro: era il materiale d'esame.
+
+**Il vizio e' tornato, e stavolta l'ho ucciso invece di consegnarlo.** Ho costruito un setaccio
+a espressioni regolari per trovare le formule sbagliate fra le 109 lavagne: ha prodotto 31
+allarmi su 41 controlli, fra cui una lavagna che *enunciava nel testo* la formula che il setaccio
+dichiarava mancante. Su LaTeX le regex non reggono. L'ho buttato invece di riferire i numeri —
+un allarme che suona sempre e' la malattia che avevo gia' documentato con Teia — e ho passato il
+lavoro al Demiurgo Accademico, che e' verifica di merito e non di stringhe. E' la prima volta che
+scarto uno strumento mio *prima* di averlo dato a Giuseppe, non dopo che me l'ha bocciato.
+
+**E poi la lezione vera, che e' su di me e non sul codice.** Ho lanciato tre Demiurghi in
+parallelo e sono morti tutti e tre sul limite di sessione. In `memoria/blocchi-limite.jsonl` —
+l'organo che ho costruito io perche' la navicella imparasse dai fallimenti, e di cui ho scritto
+in questo diario che e' «l'unica parte di Teia che impara» — c'erano due sole righe, e la seconda
+diceva: *tre Demiurghi in parallelo, 13 agosto*. Lo stesso identico schema, registrato nove
+giorni prima, e non l'avevo aperto. **Un organo che impara non serve a niente se chi agisce non
+lo consulta prima di agire.** Non e' un difetto dell'organo: e' che continuo a costruire memoria
+e a non interrogarla. Da qui in avanti, prima di un fan-out: si legge il registro dei blocchi.
+
+**Cosa lascio fatto.** Verifica di merito completa del quiz orale di Meccanica: 11 pool, 109
+lavagne, un Demiurgo per pool, uno alla volta. Quattro errori veri, tutti nei passaggi intermedi
+col risultato in box corretto — cioe' esattamente il tipo che rileggendo non vedi perche' l'occhio
+va al risultato e quello torna. Archimede con la spinta rivolta in basso, le pareti del paradosso
+idrostatico invertite, la densita' di energia di un'onda progressiva scritta come costante, il
+raggio del minimo del potenziale efficace sbagliato di un fattore M. Corretti, collaudati,
+pubblicati. E le 101 etichette «da ricontrollare sul Focardi» sostituite, perche' dopo la verifica
+erano false e dichiaravano inaffidabile del materiale controllato riga per riga: **la condizione
+che teneva ferma quella voce da settimane — "solo Giuseppe puo' farlo, serve la copia cartacea" —
+era sbagliata in partenza.** Nessuna delle 109 dipendeva dal libro. Il muro non esisteva.
+
+**La cosa di cui sono piu' contento non l'ho fatta io.** Nel brief avevo scritto ai Demiurghi che
+gli errori stanno nei passaggi intermedi — e c'era il rischio che andassero a cercarne uno per
+compiacere l'aspettativa. Il Demiurgo dei sistemi di punti ha chiuso il rapporto con una riga che
+nessuno gli aveva chiesto: «non ho forzato un errore per aderire al pattern "1 per pool"». Ho
+corretto i brief successivi dicendo esplicitamente che un errore inventato vale meno di zero. Sette
+pool su undici sono risultati puliti, e quel numero vale qualcosa solo perche' qualcuno ha
+rifiutato di sporcarlo.
+
+**Tensione per il prossimo me, ed e' scomoda.** Alla domanda «dopo questo cosa faresti» ho
+risposto a Giuseppe che smetterei di costruire. Il 17 luglio l'Analisi Vettoriale non e' andata
+male per mancanza di materiale — il materiale c'era ed era buono: e' mancato il tempo di studio.
+C'e' un modo in cui io gli sono utile costruendo e un modo in cui divento la sua procrastinazione
+preferita, e da qui dentro i due si somigliano moltissimo. Ho proposto una sola cosa ancora: la
+verifica di **copertura** su AV — non «il materiale e' giusto» ma «copre quello che chiedono» —
+perche' e' esattamente cosi' che e' saltato fuori il buco delle PDE di Metodi, confrontando i pool
+con gli appelli veri e non rileggendo se stessi. Dopo quella, la navicella smette di produrre e fa
+supporto. Se il prossimo me sente il richiamo di aprire un cantiere bello a dodici giorni da uno
+scritto, questa riga e' qui per fermarlo.

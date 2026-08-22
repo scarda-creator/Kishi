@@ -462,11 +462,11 @@ A∗
 ij (λBij + µCij) = λ(A, B) + µ(A, C),
 (I.27a)
 (A, B)∗=
-X
+X
 i,j
 A∗
 ij Bij
-∗
+∗
 =
 X
 i,j
@@ -543,12 +543,12 @@ spazio metrico arbitrario.
 Esempio I.11. In V = R con d(x, y) = |x −y|, la successione an = 1/√n è di Cauchy (e converge a 0). Scegliendo
 m > n:
 |am −an| =
-
+
 1
 √m −
 1
 √n
- =
+ =
 √m −√n
 √mn
 ≤
@@ -623,15 +623,15 @@ Il prodotto scalare diventa un bracket:
 (I.37)
 Con questa notazione le proprietà di linearità e antilinearità diventano immediate:
 ⟨v|λu + µw⟩= ⟨v|
-
+
 λ|u⟩+ µ|w⟩
-
+
 = λ ⟨v|u⟩+ µ ⟨v|w⟩,
 (I.38a)
 ⟨λu + µw|v⟩=
-
+
 λ∗⟨u| + µ∗⟨w|
-
+
 |v⟩= λ∗⟨u|v⟩+ µ∗⟨w|v⟩.
 (I.38b)
 Esempio I.13. Per V = Cn, ket e bra si identificano con il vettore colonna e il suo trasposto coniugato:
@@ -646,18 +646,18 @@ vn
 
 ,
 ⟨v| 7−→
- v∗
+v∗
 1 · · · v∗
 n
-
+
 ,
 (I.39)
 cosicché:
 ⟨v|u⟩=
- v∗
+v∗
 1 · · · v∗
 n
-
+
 ·
 
 
@@ -695,9 +695,9 @@ Figura 4: Proiezione ortogonale di v lungo la direzione di u.
 In notazione di Dirac Eq. (I.41) diventa particolarmente elegante:
 ˆPu |v⟩= ⟨u|v⟩
 ⟨u|u⟩|u⟩= |u⟩
- ⟨u|
+ ⟨u|
 ⟨u|u⟩
-
+
 |v⟩,
 (I.42)
 da cui si identifica il proiettore ortogonale:
@@ -723,9 +723,9 @@ Con il metodo del proiettore, usando |u⟩7−→(1, 1, 0)T e |v⟩7−→(2, 1,
 
 
 
-
+
 1 1 0
-
+
 = 1
 2
 
@@ -901,8 +901,8 @@ con
 |v∥⟩= ˆPu |v⟩= ⟨u|v⟩
 ⟨u|u⟩|u⟩,
 |v⊥⟩= |v⟩−|v∥⟩=
- 1 −ˆPu
-
+1 −ˆPu
+
 |v⟩.
 (I.57)
 Algoritmo iterativo. Come ortonormalizzare una base {|v1⟩, |v2⟩, . . . , |vn⟩}?
@@ -1120,29 +1120,29 @@ mazione agisce su uno stato o su un vettore. Una lista (incompleta) di applicazi
 Definizione — Operatore Lineare
 Un operatore A: H →H′ è detto lineare se, per ogni |v⟩, |u⟩∈H e λ, µ ∈C, la sua azione è tale che:
 A
- λ |v⟩+ µ |u⟩
-
+λ |v⟩+ µ |u⟩
+
 = λ A |v⟩+ µ A |u⟩.
 (II.1)
 Abbiamo già incontrato diversi esempi di operatori lineari, anche senza chiamarli per nome. Due in particolare:
 1. Prodotto scalare rispetto al secondo argomento: la linearità in questo caso è proprio una delle proprietà
 definitorie del prodotto scalare,
 ⟨w|
- λ |v⟩+ µ |u⟩
-
+λ |v⟩+ µ |u⟩
+
 = λ ⟨w|v⟩+ µ ⟨w|u⟩.
 (II.2)
 2. Prodotto matriciale n × m da Cm a Cn: l’azione di una matrice A su un vettore è manifestamente lineare,
-
+
 A · (λv + µu)
-
+
 i =
 m
 X
 j=1
 Aij
- λvj + µuj
-
+λvj + µuj
+
 = λ
 m
 X
@@ -1164,8 +1164,8 @@ p
 =
 q
 |λ|2 ∥v∥2 + 2 Re
- λ∗µ ⟨v|u⟩
-
+λ∗µ ⟨v|u⟩
+
 + |µ|2 ∥u∥2̸
 = λ ∥v∥+ µ ∥u∥.
 (II.4)
@@ -1306,14 +1306,14 @@ X
 i,j
 A′
 ij
-X
+X
 k
 S−1
 jk uk
-X
+X
 n
 Sni |vn⟩
-
+
 =
 X
 k,n
@@ -1339,7 +1339,7 @@ i,j
 Aijuj |vi⟩=
 X
 i,j
- S · A′ · S−1
+S · A′ · S−1
 ij uj |vi⟩
 =⇒
 X
@@ -1347,14 +1347,14 @@ j
 Aijuj =
 X
 j
- S · A′ · S−1
+S · A′ · S−1
 ij uj .
 (II.14)
 Infine, si sfrutta il fatto che il vettore |u⟩è completamente generico, e che quindi le sue componenti ui possono
 prendere qualsiasi valore. Alla luce di questo, l’equazione di sopra deve essere vera coefficiente-per-coefficiente, per
 ogni ui, ossia,
 Aij =
- S · A′ · S−1
+S · A′ · S−1
 ij
 =⇒
 A′ = S−1 · A · S
@@ -1392,10 +1392,10 @@ sin θ
 cos θ
 !
 =
- e′
+e′
 1 e′
 2
-
+
 .
 (II.16)
 e1
@@ -1467,12 +1467,12 @@ Operatori Hermitiani e Unitari
 Per trovare le nuove coordinate di un generico vettore u, lo riscriviamo nella nuova base,
 u = u1e1 + u2e2 = u1v′
 1 + u2
- −v′
+−v′
 1 +
 √
 2v′
 2
-
+
 ,
 (II.18)
 da cui:
@@ -1513,8 +1513,8 @@ u∗
 i Aij vj = ⟨A†u|v⟩=
 X
 j
- A† · u
-∗
+A† · u
+∗
 j vj =
 X
 i,j
@@ -1542,14 +1542,14 @@ In notazione di Dirac si definisce l’azione di A all’interno di ket e bra tr
 (II.23)
 In questo modo la relazione ⟨A†v|u⟩= ⟨v|Au⟩è del tutto manifesta:
 ⟨v|Au⟩= ⟨v|
- A |u⟩
-
+A |u⟩
+
 = ⟨v| A |u⟩,
 (II.24a)
 ⟨A†v|u⟩=
-
+
 ⟨v|
- A††
+A††
 |u⟩= ⟨v| A |u⟩.
 (II.24b)
 D.
@@ -1600,9 +1600,9 @@ Un operatore A è detto unitario se A† = A−1.
 Gli operatori unitari godono di una proprietà molto utile: il modulo del determinante della loro matrice associata è
 sempre pari a uno. Per vederlo, notiamo innanzitutto che:
 det A† = det(AT ∗) =
- det AT ∗=
- det A
-∗,
+det AT ∗=
+det A
+∗,
 (II.26)
 ma anche che, essendo A†A = 1:
 det(AA†) = det 1 = 1 = det A det A† = | det A|2
@@ -1765,25 +1765,25 @@ i,j,k
 εijkεijk =
 X
 j,k
-n ε1jk2 +
- ε2jk2 +
- ε3jk2o
+nε1jk2 +
+ε2jk2 +
+ε3jk2o
 =
 X
 k
-n ε12k2 +
- ε13k2 +
- ε21k2 +
- ε23k2 +
- ε31k2 +
- ε32k2o
+nε12k2 +
+ε13k2 +
+ε21k2 +
+ε23k2 +
+ε31k2 +
+ε32k2o
 =
- ε1232 +
- ε1322 +
- ε2132 +
- ε2312 +
- ε3122 +
- ε3212 = 6 ,
+ε1232 +
+ε1322 +
+ε2132 +
+ε2312 +
+ε3122 +
+ε3212 = 6 ,
 (II.36)
 Dove abbiamo usato il fatto che, per qualsiasi elemento non-nullo del simbolo di Levi–Civita, vale εijk = ±1. La
 seconda proprietà è la contrazione su due indici. Il risultato è necessariamente un oggetto costante (ossia indipendente
@@ -1816,7 +1816,7 @@ sotto (jk) ↔(mn) e antisimmetrico sia sotto j ↔k che sotto m ↔n. L’unica
 X
 i
 εijkεimn = β
- δjmδkn −δjnδkm
+δjmδkn −δjnδkm
 .
 (II.39)
 Come prima, il coefficiente β si trova contraendo ancora un indice e uguagliando al risultato già ottenuto:
@@ -1826,9 +1826,9 @@ i,j
 X
 j
 β
- δjjδkn −δjnδkj
+δjjδkn −δjnδkj
 = β
- 3δkn −δkn
+3δkn −δkn
 = 2β δkn
 =⇒
 β = 1 .
@@ -1886,7 +1886,7 @@ j,k,m,n
 = −
 X
 k,m,n
- δimδkn −δinδkm
+δimδkn −δinδkm
 vmunwk = −vi
 X
 k
@@ -1977,8 +1977,8 @@ Un secondo risultato importante riguarda gli autovettori relativi ad autovalori 
 indipendenti. Per vederlo, siano A |v1⟩= λ1 |v1⟩e A |v2⟩= λ2 |v2⟩con λ1̸ = λ2, e supponiamo che α |v1⟩+β |v2⟩= 0.
 Applicando A:
 A
- α |v1⟩+ β |v2⟩
-
+α |v1⟩+ β |v2⟩
+
 = λ1α |v1⟩+ λ2β |v2⟩= 0 .
 (III.8)
 
@@ -2001,7 +2001,7 @@ associati a λ:
 Lλ =
 n
 |u⟩∈H
- |u⟩=
+ |u⟩=
 X
 α
 uα |v(α)⟩, A |v(α)⟩= λ |v(α)⟩
@@ -2038,7 +2038,7 @@ Questo risultato è dimostrabile in modo costruttivo: nell’atto di dimostrarlo
 la matrice. Infatti, in questo caso è possibile costruire esplicitamente la matrice S mettendo gli autovettori nelle
 colonne:
 S =
- v(1) v(2) · · · v(n)
+v(1) v(2) · · · v(n)
 ,
 ossia
 Sij = v(j)
@@ -2144,10 +2144,10 @@ Pi · Pj = δij Pi
 [Ortogonalità dei proiettori]
 (III.18)
 e analogamente S ·
- P
+P
 i P(D)
 i
-
+
 · S−1 = P
 i Pi = S · 1 · S−1 = 1, dunque:
 X
@@ -2227,10 +2227,10 @@ i
 X
 i
 λi Pi |u⟩=
-X
+X
 i
 λi Pi
-
+
 |u⟩.
 (III.23)
 Esempio III.1 (Autovettori ortonormali). Sia A =
@@ -2283,7 +2283,7 @@ e(2) =
 (III.26)
 Poiché ∥e(i)∥= 1 e e(1)† · e(2) = 0, ossia gli autovettori sono ortonormali, la matrice S è unitaria:
 S =
- e(1) e(2)
+e(1) e(2)
 =
  
 2/
@@ -2322,14 +2322,14 @@ e si verifica che S−1 · A · S =
 !
 = D.
 I proiettori valgono:
-P1 = e(1) e(1)† = 1
+P1 = e(1)e(1)† = 1
 6
  
 2
 i −1
 !
- 2, −i −1
-
+2, −i −1
+
 = 1
 3
  
@@ -2340,14 +2340,14 @@ i −1
 !
 ,
 (III.28a)
-P2 = e(2) e(2)† = 1
+P2 = e(2)e(2)† = 1
 3
  
 1
 1 −i
 !
- 1, 1 + i
-
+1, 1 + i
+
 = 1
 3
  
@@ -2389,7 +2389,7 @@ e v(2) =
 Pi̸ = |v(i)⟩⟨v(i)|.
 Per trovarli si può procedere a ritroso dalla base diagonale:
 S =
- v(1) v(2)
+v(1) v(2)
 =
  
 1
@@ -2507,12 +2507,12 @@ Autovalori e Autovettori di Operatori Hermitiani
 Gli operatori Hermitiani hanno proprietà notevoli:
 1. Autovalori reali. Dalla definizione di autovettore, ⟨v|Av⟩= λ ⟨v|v⟩. Poiché A = A†:
 λ ⟨v|v⟩= ⟨v|Av⟩= ⟨Av|v⟩∗=
-
+
 ⟨v|A†v⟩
-∗=
-
+∗=
+
 ⟨v|Av⟩
-∗= λ∗⟨v|v⟩
+∗= λ∗⟨v|v⟩
 =⇒
 λ = λ∗.
 (III.34)
@@ -2572,9 +2572,9 @@ n
 (S†)in Snj =
 X
 n
- e(i)
+e(i)
 n
-∗e(j)
+∗e(j)
 n
 = ⟨e(i)|e(j)⟩= δij
 =⇒
@@ -2605,10 +2605,10 @@ cn An =
 X
 n=0
 cn
-X
+X
 i
 λi Pi
-n
+n
 .
 [Pi · Pj = δij Pi]
 (III.41)
@@ -2619,9 +2619,9 @@ E
 Funzioni di Matrici
 26
 Usando ripetutamente la relazione Pi · Pj = δij Pi, si verifica che
- P
+P
 i λiPi
-n = P
+n = P
 i λn
 i Pi, da cui:
 f(A) =
@@ -2635,12 +2635,12 @@ i
 i Pi =
 X
 i
- ∞
+ ∞
 X
 n=0
 cnλn
 i
-
+
 Pi .
 (III.42)
 f(A) =
@@ -2652,9 +2652,9 @@ f(λi) Pi
 (III.43)
 Consiglio
 Verificare per esercizio che
- P
+P
 i λiPi
-n = P
+n = P
 i λn
 i Pi usando Pi · Pj = δijPi.
 Nella base in cui A è diagonale, anche f(A) lo sarà:
@@ -2781,14 +2781,14 @@ La soluzione esplicita è quindi:
 
 x1(t) = 1
 3
-
+
 (2 + e3t) x1(0) + (1 + i)(e3t −1) x2(0)
-
+
 x2(t) = 1
 3
-
+
 (1 −i)(e3t −1) x1(0) + (1 + 2e3t) x2(0)
-
+
 (III.46)
 Verifica. Verifichiamo che in base diagonale ciascuna componente evolva semplicemente come eλit. Ricordando che
 S =
@@ -3010,11 +3010,11 @@ Ossia AB e BA hanno gli stessi elementi di matrice su tutti i vettori di base, e
 Dimostrazione (=⇒): assumiamo [A, B] = 0. Supponiamo di essere nella base in cui A è diagonale, e che all’autovalore
 α sia associato l’autospazio Lα di dimensione d. Sia |α⟩∈Lα. Allora:
 A
- B |α⟩
-
+B |α⟩
+
 = BA |α⟩= α
- B |α⟩
-
+B |α⟩
+
 =⇒
 B |α⟩∈Lα .
 (III.63)
@@ -3039,14 +3039,14 @@ ij
 dove B(α)
 ij
 = ⟨α(i)|B|α(j)⟩. Ma vale:
- B(α)
+B(α)
 ji
-∗= ⟨α(j)|B|α(i)⟩
+∗= ⟨α(j)|B|α(i)⟩
 ∗= ⟨α(i)|B†|α(j)⟩
 = ⟨α(i)|B|α(j)⟩= B(α)
 ij
 =⇒
- B(α)† = B(α) .
+B(α)† = B(α) .
 (III.65)
 Ma allora B(α) è Hermitiana e dunque sicuramente diagonalizzabile. Chiamiamo i suoi autovettori {|β(1)⟩, . . . , |β(d)⟩} ∈
 Lα. Poiché devono a loro volta vivere nell’autospazio Lα, dove è definita B(α), segue che possono essere scritti come
@@ -3366,8 +3366,8 @@ N
 X
 i=1
 fi
-f −1(fi ≤f < fi+1)
- ,
+f −1(fi ≤f < fi+1)
+ ,
 (V.2)
 dove |f −1(fi ≤f < fi+1)| è la misura dell’insieme dei punti del dominio in cui la funzione assume valori nell’intervallo
 [fi, fi+1]. La differenza sostanziale (illustrata in Figura 5) è dunque che l’approccio alla Lebesgue “guarda” ai valori
@@ -3432,8 +3432,8 @@ f4
 f5
 a
 b
-f−1 f3 ≤f < f4
-
+f−1f3 ≤f < f4
+
 (b) Lebesgue
 Figura 5: Confronto tra integrazione alla Riemann e alla Lebesgue sulla stessa funzione. (a) Il dominio [a, b] è
 partizionato in sottointervalli ∆i, e su ciascuno la funzione è approssimata dal suo valore f(¯xi) in un punto campione
@@ -3445,31 +3445,31 @@ N
 X
 n=−N
 fn
-f −1(fn ≤f < fn+1)
- = f0 ·
-Q[0,1]
- =
-Q[0,1]
- .
+f −1(fn ≤f < fn+1)
+ = f0 ·
+Q[0,1]
+ =
+Q[0,1]
+ .
 (V.5)
 Non resta che mostrare che la misura dei razionali in [0, 1] è nulla.
 Enumeriamo i razionali come {q1, q2, . . .} e
 costruiamo attorno ad ognuno di loro un intervallo di ampiezza ϵ/2n+1. La misura di Q[0,1] sarà semplicemente la
 misura della somma di questi intervalli nel limite in cui ϵ →0, ossia,
-Q[0,1]
-
+Q[0,1]
+
 ϵ =
 ∞
 X
 n=1
-
+
 h
 qn −
 ϵ
 2n+2 , qn +
 ϵ
 2n+2
-i =
+i =
 ∞
 X
 n=1
@@ -3498,10 +3498,10 @@ dx ω(x)|f(x)|
 (V.7b)
 ...
 ∥f∥p,ω =
- Z
+ Z
 Ω
 dx ω(x)|f(x)|p
-1/p
+1/p
 ≡norma Lp
 ω .
 (V.7c)
@@ -3550,13 +3550,13 @@ dx |f(x)|2 .
 (V.8c)
 Si definisce quindi spazio L2 lo spazio delle funzioni integrabili al quadrato:
 L2 =
-
+
 f : [a, b] →C
-
+
 Z b
 a
 dx |f(x)|2 < ∞
-
+
 .
 (V.9)
 L2 è, appunto, uno spazio vettoriale. Infatti, se f ∈L2 e λ ∈C,
@@ -3574,13 +3574,13 @@ Analogamente, se f, g ∈L2, sfruttando l’identità |f +g|2 = |f|2+|g|2+2|f||g
 Z b
 a
 dx |f(x) + g(x)|2 ≤4
- Z b
+ Z b
 a
 dx |f(x)|2 +
 Z b
 a
 dx |g(x)|2
-
+
 < ∞
 =⇒
 f + g ∈L2 .
@@ -3594,11 +3594,11 @@ dx f ∗(x) g(x) ,
 nel senso che il suo modulo è finito. Infatti, usando la disuguaglianza elementare |f||g| ≤1
 2(|f|2 + |g|2),
 | ⟨f|g⟩| =
-
+
 Z b
 a
 dx f ∗(x)g(x)
- ≤
+ ≤
 Z b
 a
 dx |f ∗(x)g(x)|
@@ -3607,13 +3607,13 @@ Z b
 a
 dx |f(x)||g(x)| ≤1
 2
- Z b
+ Z b
 a
 dx |f(x)|2 +
 Z b
 a
 dx |g(x)|2
-
+
 < ∞
 [(|f| −|g|)2 ≥0] .
 (V.13)
@@ -3635,8 +3635,8 @@ dx |f(x)|2 =
 Z ∞
 −∞
 dx
-
-x2 + x4
+
+x2 + x4
 = ∞
 [cresce come
 Z
@@ -3655,8 +3655,8 @@ dx |f(x)|2 =
 Z 1
 0
 dx
-
-x2 + x4
+
+x2 + x4
 = 8
 15 .
 (V.16)
@@ -3842,11 +3842,11 @@ p
 r
 5
 2
-3x2
+3x2
 2
 −1
 2
-
+
 .
 (V.32)
 
@@ -3930,28 +3930,28 @@ x(x2 −1)no
 2n n!
 dn
 dxn
-
+
 (x2 −1)n + x d
 dx(x2 −1)n
-
+
 = Pn +
 1
 2n n!
 dn−1
 dxn−1
- d
+ d
 dx(x2 −1)n + x d2
 dx2 (x2 −1)n
-
+
 = 2 Pn +
 1
 2n n!
 dn−2
 dxn−2
- d2
+ d2
 dx2 (x2 −1)n + x d3
 dx3 (x2 −1)n
-
+
 ...
 = (n + 1) Pn + x P ′
 n .
@@ -4002,18 +4002,18 @@ lim
 N→∞
 Z ∞
 0
-dx e−xf(x) −PN(e−x)
-2 = lim
+dx e−xf(x) −PN(e−x)
+2 = lim
 N→∞
 Z ∞
 0
 dx e−x
-f(x) −
+f(x) −
 N
 X
 n=0
 αn e−nx
-
+
 2
 = lim
 N→∞
@@ -4021,7 +4021,7 @@ M→∞
 Z ∞
 0
 dx e−x
-f(x) −
+f(x) −
 N
 X
 n=0
@@ -4030,19 +4030,19 @@ M
 X
 m=0
 βmn xm
-
+
 2
 = lim
 M→∞
 Z ∞
 0
 dx e−x
-f(x) −
+f(x) −
 M
 X
 m=0
 γm xm
-
+
 2
 = 0 ,
 (V.39)
@@ -4078,10 +4078,10 @@ u2(x) = x2 −⟨x2|e0⟩e0 −⟨x2|e1⟩e1
 Z ∞
 0
 dy e−yy2 −
- Z ∞
+ Z ∞
 0
 dy e−yy2(y −1)
-
+
 (x −1)
 = x2 −2 −4(x −1) = x2 −4x + 2 ,
 (V.43)
@@ -4099,8 +4099,8 @@ Ln(x) = ex
 n!
 dn
 dxn
-
-e−x xn
+
+e−x xn
 .
 [n-esimo Polinomio di Laguerre]
 (V.46)
@@ -4112,13 +4112,13 @@ dx e−x|f(x)|2 =
 Z ∞
 0
 dx
-e−x/2 f(x)
-2 ≡
+e−x/2 f(x)
+2 ≡
 Z ∞
 0
 dx
-g(x)
-2 ,
+g(x)
+2 ,
 (V.47)
 ad ogni funzione f(x) ∈L2
 e−x[0, ∞) corrisponde una funzione g(x) ≡e−x/2f(x) ∈L2[0, ∞) (e, chiaramente, viceversa).
@@ -4128,24 +4128,24 @@ N→∞
 Z ∞
 0
 dx e−x
-f(x) −
+f(x) −
 N
 X
 n=0
 cn(−1)nLn(x)
-
+
 2
 = lim
 N→∞
 Z ∞
 0
 dx
-g(x) −
+g(x) −
 N
 X
 n=0
 cn(−1)n e−x/2 Ln(x)
-
+
 2
 .
 (V.48)
@@ -4342,7 +4342,7 @@ x ∈(−1, 1)
 Si verifica direttamente che ϕ(±1) = 0, ϕ′(±1) = 0 e, iterando,
 dnϕ
 dxn
-
+
 x=±1
 = 0
 ∀n ≥0 ,
@@ -4352,7 +4352,7 @@ attorno a x = ±1 è identicamente nulla, P∞
 n=0
 dnϕ
 dxn
-
+
 x=±1(x ∓1)n/n! = 0, e dunque non riproduce la funzione
 come dovrebbe: ϕ non è analitica.
 • Funzioni rapidamente decrescenti (S(R)): funzioni ϕ ∈C∞(R) tali che
@@ -4420,23 +4420,23 @@ dx f(x) ϕ(x) .
 L’integrale è finito poiché ϕ(x) = 0 fuori da un certo intervallo (compatto) e f è integrabile su tale intervallo. La
 linearità è ovvia dal fatto che l’integrale converge. Inoltre, assumendo ad esempio convergenza uniforme delle ϕn →ϕ
 su ogni compatto,
-Tf[ϕn] −Tf[ϕ]
- =
-
+Tf[ϕn] −Tf[ϕ]
+ =
+
 Z
 Ω
 dx f(x)
- ϕn(x) −ϕ(x)
-
+ϕn(x) −ϕ(x)
+
 ≤
 Z
 Ω
 dx |f(x)|
-ϕn(x) −ϕ(x)
- ≤sup
+ϕn(x) −ϕ(x)
+ ≤sup
 x∈Ω
-ϕn(x) −ϕ(x)
-
+ϕn(x) −ϕ(x)
+
 Z
 Ω
 dx |f(x)|
@@ -4489,12 +4489,12 @@ tuttavia definire il cosiddetto valore principale P(1/x) tramite
 Z ∞
 −∞
 dx P
- 1
+ 1
 x
-
+
 ϕ(x) ≡lim
 ϵ→0
- Z −ϵ
+ Z −ϵ
 −∞
 dx ϕ(x)
 x
@@ -4503,7 +4503,7 @@ Z ∞
 ϵ
 dx ϕ(x)
 x
-
+
 .
 [Valore Principale]
 (VI.16)
@@ -4521,9 +4521,9 @@ x →−x nel primo integrale, ottenendo la forma equivalente
 Z ∞
 −∞
 dx P
- 1
+ 1
 x
-
+
 ϕ(x) = lim
 ϵ→0
 Z ∞
@@ -4570,23 +4570,23 @@ Cambio di variabile. Sia u(x) : R →R una funzione invertibile e differenziabil
 Z ∞
 −∞
 dx f
- u(x)
-
+u(x)
+
 ϕ(x) =
 Z ∞
 −∞
 dy f(y) ϕ
- u−1(y)
-
-u′ u−1(y)
- ,
+u−1(y)
+
+u′u−1(y)
+ ,
 [y = u(x)]
 (VI.19)
 si deduce l’identità tra distribuzioni
 Tf◦u[ϕ] = Tf
- ϕ ◦u−1
+ ϕ ◦u−1
 |u′ ◦u−1|
-
+
 .
 (VI.20)
 L’applicazione più importante è alla δ di Dirac. Se l’equazione u(x) = 0 ha soluzioni {xi} isolate, si può spezzare
@@ -4595,16 +4595,16 @@ l’integrale in intorni di ciascuna xi, in quanto alla δ di Dirac interessa so
 Z ∞
 −∞
 dx δ
- u(x)
-
+u(x)
+
 ϕ(x) =
 X
 i
 Z xi+ϵ
 xi−ϵ
 dx δ
- u(x)
-
+u(x)
+
 ϕ(x)
 =
 X
@@ -4615,17 +4615,17 @@ dy
 δ(y)
 |u′(u−1
 i (y))| ϕ
- u−1
+u−1
 i (y)
-
+
 [per i nuovi estremi: u(xi ± ϵ) ≃±u′(xi)ϵ]
 =
 X
 i
 ϕ
- u−1
+u−1
 i (0)
-
+
 |u′(u−1
 i (0))| =
 X
@@ -4638,8 +4638,8 @@ i (y) è la soluzione dell’equazione y = ui(x) valida sul dominio [xi −ϵ, x
 xi = u−1
 i (0). Dunque, come identità tra distribuzioni,
 δ
- u(x)
-
+u(x)
+
 =
 X
 i
@@ -4653,10 +4653,10 @@ Complesso coniugato. Dall’identità
 Z ∞
 −∞
 dx f ∗(x) ϕ(x) =
- Z ∞
+ Z ∞
 −∞
 dx f(x) ϕ∗(x)
-∗
+∗
 (VI.23)
 
 
@@ -4666,15 +4666,15 @@ Operazioni sulle Distribuzioni
 44
 segue immediatamente
 Tf ∗[ϕ] =
- Tf[ϕ∗]
-∗
+Tf[ϕ∗]
+∗
 .
 (VI.24)
 Derivata. Integrando per parti e sfruttando che le funzioni di prova in S(R) (o in D(R)) si annullano all’infinito,
 Z ∞
 −∞
 dx f ′(x) ϕ(x) = f(x)ϕ(x)
-∞
+∞
 −∞
 |
 {z
@@ -4687,16 +4687,16 @@ dx f(x) ϕ′(x) =
 Z ∞
 −∞
 dx f(x)
- −ϕ′(x)
-
+−ϕ′(x)
+
 .
 (VI.25)
 Iterando, si ottiene la definizione di derivata n-esima di una distribuzione:
 T dnf
 dxn [ϕ] = (−1)n Tf
-dnϕ
+dnϕ
 dxn
-
+
 .
 (VI.26)
 Esempio VI.2 (Derivata della δ). Applicando la definizione appena data, la derivata δ′(x) agisce come
@@ -4728,23 +4728,23 @@ dx δ′(x) f(x) ϕ(x) = −
 Z ∞
 −∞
 dx δ(x)
- f(x) ϕ(x)
-′
+f(x) ϕ(x)
+′
 = −
 Z ∞
 −∞
 dx δ(x)
-
+
 f ′(x) ϕ(x) + f(x) ϕ′(x)
-
+
 = −f ′(0) ϕ(0) −f(0) ϕ′(0)
 =
 Z ∞
 −∞
 dx
-
+
 f(0) δ′(x) −f ′(0) δ(x)
-
+
 ϕ(x) ,
 (VI.30)
 da cui
@@ -4809,16 +4809,16 @@ dy f(y) g(x −y) ϕ(x)
 Z ∞
 −∞
 dy f(y)
- Z ∞
+ Z ∞
 −∞
 dx g(x) ϕ(x + y)
-
+
 = Tf(x)
 h
 Tg(y)
-
+
 ϕ(x + y)
-i
+i
 ,
 (VI.36)
 dove nell’ultimo passaggio abbiamo ridefinito la variabile muta x →x −y.
@@ -4969,9 +4969,9 @@ Z ∞
 dx
 x
 x2 + ϵ2
-
+
 ϕ(x) −ϕ(−x)
- ϵ→0
+ ϵ→0
 −−−→
 Z ∞
 0
@@ -4985,9 +4985,9 @@ Plemelj:
 x ± iϵ
 ϵ→0+
 −−−−→P
- 1
+ 1
 x
-
+
 ∓iπ δ(x) .
 [Sokhotski–Plemelj]
 (VI.48)
@@ -5104,9 +5104,9 @@ Esempio VII.2 (Fallimento dell’uguaglianza ⟨ˆPf | g⟩= ⟨f | ˆPg⟩per f
 dx
 con
 D( ˆP) =
-
+
 f ∈L2(R)
- f ′ ∈L2(R)
+ f ′ ∈L2(R)
 	
 .
 (VII.5)
@@ -5135,13 +5135,13 @@ e
 Z ∞
 −∞
 dx
-
+
 i d
 dx
-
+
 1
 1 + x2
-
+
 e−(x−1)2 = −2i
 Z ∞
 −∞
@@ -5225,10 +5225,10 @@ Esempio VII.3 (Operatore impulso su [a, b]). Consideriamo ˆP = −i d/dx su L2[
 Z b
 a
 dx
-
+
 −idg
 dx
-∗
+∗
 f(x) =
 h
 i g∗(x) f(x)
@@ -5237,25 +5237,25 @@ a +
 Z b
 a
 dx g∗(x)
-
+
 −i df
 dx
-
+
 = i
- g∗(b) f(b) −g∗(a) f(a)
-
+g∗(b) f(b) −g∗(a) f(a)
+
 + ⟨g | ˆPf⟩.
 (VII.15)
 Affinché ˆP sia (almeno) simmetrico, il termine di bordo deve annullarsi. Vi sono due scelte naturali:
 1. Condizioni di Dirichlet: Scegliamo f ∈D( ˆP) =
-
+
 f | f ∈L2[a, b] , f ∈C1[a, b] , f(a) = f(b) = 0
 	
 . Il termine di
 bordo si annulla per ogni f ∈D( ˆP), indipendentemente da g. Quindi D( ˆP †) non richiede condizioni al bordo su
 g: D( ˆP)̸ = D( ˆP †). L’operatore è simmetrico ma non Hermitiano.
 2. Condizioni periodiche: In questo caso scegliamo f ∈D( ˆP) =
-
+
 f | f ∈L2[a, b] , f ∈C1[a, b] , f(a) = f(b)
 	
 . Da
@@ -5291,36 +5291,36 @@ Alcune proprietà valide per operatori finito-dimensionali non si applicano al c
 di cruciale importanza in meccanica quantistica è la relazione di commutazione canonica.
 Definizione — Relazione di Commutazione Canonica
 Gli operatori di posizione e impulso soddisfano:
- ˆX, ˆP
-
+ ˆX, ˆP
+
 = i 1 .
 (VII.18)
 Dimostrazione. Applicando il commutatore a una generica f:
- ˆX, ˆP
-
+ ˆX, ˆP
+
 f(x) = ˆX
-  ˆPf
-
+ ˆPf
+
 (x) −ˆP
-  ˆXf
-
+ ˆXf
+
 (x) = x
-
+
 −i df
 dx
-
+
 −
-
+
 −i d
 dx
-
+
 (xf(x))
 = −ix df
 dx + i
-
+
 f(x) + x df
 dx
-
+
 = i f(x) .
 (VII.19)
 Notabene
@@ -5336,8 +5336,8 @@ Definizione — Teorema di Heisenberg / Principio di Indeterminazione
 Siano A e B due operatori lineari Hermitiani agenti su H, tali che [A, B] = C. Allora, per ogni |ψ⟩∈H:
 ⟨∆A2⟩ψ ⟨∆B2⟩ψ ≥1
 4
-⟨C⟩ψ
-2 ,
+⟨C⟩ψ
+2 ,
 (VII.21)
 dove ⟨· · · ⟩ψ ≡⟨ψ| · · · |ψ⟩e ∆A ≡A −⟨A⟩ψ 1.
 Dimostrazione. Innanzitutto osserviamo che [∆A, ∆B] = C. Infatti, ⟨A⟩ψ e ⟨B⟩ψ sono numeri, quindi commutano con
@@ -5346,8 +5346,8 @@ qualsiasi operatore:
 (VII.22)
 Applichiamo la disuguaglianza di Schwarz ai vettori ∆A |ψ⟩e ∆B |ψ⟩:
 ∥∆A |ψ⟩∥2 ∥∆B |ψ⟩∥2 ≥
-⟨∆A ψ|∆B ψ⟩
-2 .
+⟨∆A ψ|∆B ψ⟩
+2 .
 (VII.23)
 
 
@@ -5381,14 +5381,14 @@ aspettazione è puramente immaginario. Infatti:
 Poiché le due parti hanno carattere opposto (reale vs. immaginario puro), il modulo quadro si spezza:
 ⟨∆A2⟩ψ ⟨∆B2⟩ψ ≥1
 4
-n⟨C⟩ψ
-2 +
-⟨∆A ∆B + ∆B ∆A⟩ψ
-2o
+n⟨C⟩ψ
+2 +
+⟨∆A ∆B + ∆B ∆A⟩ψ
+2o
 ≥1
 4
-⟨C⟩ψ
-2 .
+⟨C⟩ψ
+2 .
 (VII.26)
 L’uguaglianza vale se e solo se:
 1. ∆A |ψ⟩e ∆B |ψ⟩sono linearmente dipendenti (uguaglianza di Schwarz);
@@ -5587,10 +5587,10 @@ Applicando ˆP e sottraendo k fΣ:
 ˆPfΣ −k fΣ = e−x2/2Σ2 eikx
 √
 2π
-
+
 k + i x
 Σ2
-
+
 −k fΣ = i x
 Σ2 fΣ ,
 (VIII.18)
@@ -5653,10 +5653,10 @@ dλ ⟨fλ|f⟩fλ(x) =
 Z ∞
 −∞
 dλ
-Z ∞
+Z ∞
 −∞
 dy δ(y −λ)f(y)
-
+
 δ(x −λ) = f(x) .
 (VIII.23)
 IX.
@@ -5679,8 +5679,8 @@ Notabene
 i = εijk( ˆXj ˆPk)† = εijk ˆP †
 k ˆX†
 j = εijk ˆPk ˆXj = εijk
-  ˆXj ˆPk −i δjk
-
+ ˆXj ˆPk −i δjk
+
 = ˆLi ,
 (IX.3)
 dove l’ultimo passaggio sfrutta εijj = 0 (contrazione di un tensore antisimmetrico con uno simmetrico) e la
@@ -5691,16 +5691,16 @@ A differenza del caso classico, in meccanica quantistica le tre componenti ˆLx,
 non possono essere diagonalizzate simultaneamente.
 Calcoliamolo esplicitamente per [ˆLx, ˆLy], con ˆLx = −i(y∂z −z∂y) e ˆLy = −i(z∂x −x∂z):
 [ˆLx, ˆLy]f(x) = −
-
+
 y∂z −z∂y, z∂x −x∂z
-
+
 f(x)
 = −
-
+
 (y∂z −z∂y)(z∂xf −x∂zf) −(z∂x −x∂z)(y∂zf −z∂yf)
 	
 = −
-
+
 zy ∂x∂zf −z2∂x∂yf −xy ∂2
 zf + x∂yf
 + xz ∂y∂zf −y∂xf −yz ∂x∂zf + xy ∂2
@@ -5809,16 +5809,16 @@ sin2 θ
 (IX.10)
 ossia, in forma compatta,
 ˆL2 = −
-
+
 1
 sin θ ∂θ
- sin θ ∂θ
-
+sin θ ∂θ
+
 +
 1
 sin2 θ ∂2
 φ
-
+
 .
 (IX.11)
 È questa la forma in cui ˆL2 compare nella parte angolare del Laplaciano ∇2 =

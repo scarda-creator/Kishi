@@ -47,17 +47,17 @@ Diremo che un polinomio p ∈R[t] ha almeno una radice intera se esiste n ∈Z t
 Quali dei seguenti sono sottospazi vettoriali di R[t]?
 (Giustiﬁcare la propria risposta con una dimostrazione oppure un controesempio.)
 (a) W =
-
+
 p ∈R[t] : p ha almeno una radice intera
 	
 .
 (b) Z =
-
+
 p ∈R[t] : |p(1)| ≥|p(0)|
 	
 .
 (c) U =
-
+
 p ∈R[t] : p(2)2 + p(3)4 = 0
 	
 .

@@ -93,10 +93,10 @@ Autovalori ed autofunzioni di operatori differenziali lineari. . . . . . . . . .
 4.5
 autovalori ed autofunzioni di 1
 2
-
+
 −d2
 dx2 + x2
-
+
 . Polinomi di Hermite. . . . . . . . . 117
 4.6
 Completezza. Sviluppo in serie di autofunzioni. Connessione con il formalismo
@@ -255,8 +255,8 @@ x(t0) = a ,
 (1.2.3)
 In forma esplicita:
 A =
-
-a2 + (b/ω)21/2 ,
+
+a2 + (b/ω)21/2 ,
 (5a)
 φ = −ωt0 −arctan [b/(ωa)] .
 (5b)
@@ -291,13 +291,13 @@ verificare che la realtà di C ed S è necessaria e sufficiente per la validità
 eiz = cos z + i sin z ,
 cos z = 1
 2
-
-eiz + e−iz
+
+eiz + e−iz
 ,
 sin z = 1
 2i
-
-eiz −e−iz
+
+eiz −e−iz
 .
 1.3
 Equazioni differenziali lineari a coefficienti costanti.
@@ -725,10 +725,10 @@ x(t) = eαt h
 B+eβt + B−e−βti
 +
 + (aN/c0) tN +
-
+
 (aN−1/c0) −(c1NaN/c2
 0)
-
+
 tN−1+
 + PN−2(t) ,
 con α e β dati dalle eq. (3) e (6), B+ e B−costanti arbitrarie, e PN−2(t) polinomio di
@@ -754,8 +754,8 @@ Supponendo che sia positivo
 (1.6.2)
 e indicando come al solito con α il coefficiente di smorzamento, α = −c1/(2c2), otteniamo per la
 più generale soluzione della (1) la espressione
-x(t) = eαt  ¯C cos(ωt) + ¯S sin(ωt)
-
+x(t) = eαt  ¯C cos(ωt) + ¯S sin(ωt)
+
 +
 + [A/(ωc2)]
 Z t
@@ -765,11 +765,11 @@ dt′ sin[ω(t −t′)] eα(t−t′) sin(Ωt′ + ϕ) .
 Effettuando esplicitamente la integrazione otteniamo
 x(t) = eαt [C cos(ωt) + S sin(ωt)] +
 + [A/c2]
-
-α2 + (ω + Ω)2 
-α2 + (ω −Ω)2	−1
+
+α2 + (ω + Ω)2 
+α2 + (ω −Ω)2	−1
 ·
-
+
 2Ωα cos(Ωt + ϕ) −(α2 + Ω2 −ω2) sin(Ωt + ϕ)
 	
 ,
@@ -815,22 +815,22 @@ e−iΩt−iϕ −e(α+iω)t−iϕi
 eiΩt+iϕ −e(α+iω)t+iϕio
 = 1
 2
-
-−[α2 + (ω + Ω)2]−1 
+
+−[α2 + (ω + Ω)2]−1 
 α[cos(Ωt + ϕ) −eαt cos(ωt −ϕ)]
 −(ω + Ω)[sin(Ωt + ϕ) −eαt sin(ωt −ϕ)]
-
+
 +
-+ [α2 + (ω −Ω)2]−1 
++ [α2 + (ω −Ω)2]−1 
 α[cos(Ωt + ϕ) −eαt cos(ωt + ϕ)]
 +(ω −Ω)[sin(Ωt + ϕ) −eαt sin(ωt + ϕ)]
-	
+	
 =
-
+
 [α2 + (ω + Ω)2][α2 + (ω −Ω)2]
 	−1 ω
 ·
-
+
 2Ωα cos(Ωt + ϕ) −(α2 + Ω2 −ω2) sin(Ωt + ϕ)
 	
 +
@@ -857,13 +857,13 @@ che è del tutto equivalente alla precedente se
 Le nuove costanti ˜C ed ˜S sono naturalmente sempre arbitrarie, finché non siano fissate dalle
 condizioni iniziali. Usando inoltre l’identità trigonometrica
 sin A −sin B = 2 sin
-1
+1
 2(A −B)
-
+
 cos
-1
+1
 2(A + B)
-
+
 14
 
 
@@ -873,13 +873,13 @@ TERMINE NOTO “TRANSIENTE”. CONDIZIONI ASINTOTICHE.
 si scrive
 x(t) = ˜C cos(ωt) + ˜S sin(ωt)+
 + [A/c2] (ω2 −Ω2)−1 2 sin
-1
+1
 2(Ω−ω)t
-
+
 cos
-1
+1
 2(ω + Ω)t + ϕ
-
+
 .
 (9)
 Questa espressione è particolarmente conveniente per studiare il caso in cui la pulsazione Ωdel
@@ -905,9 +905,9 @@ e supponiamo che il termine noto si annulli asintoticamente per |t| →∞, più
 1/t. (Più precisamente: supponiamo che esista un numero ε positivo tale che
 lim
 |t|→∞
-
+
 t1+εf(t)
-
+
 = 0 ,
 ε > 0 .
 (2)
@@ -951,9 +951,9 @@ dt′ sin[ω(t −t′)] g(t′) ,
 l’integrazione risultando convergente grazie alla ipotesi
 lim
 t→−∞
-
+
 t1+εg(t)
-
+
 = 0 ,
 ε > 0 .
 (8)
@@ -969,11 +969,11 @@ i
 allora è facile dimostrare che
 lim
 t→+∞
-
+
 x(t) −
-
+
 C′ cos(ωt) + S′ sin(ωt)
-	
+	
 = 0 ,
 (10)
 con
@@ -990,18 +990,18 @@ dt cos(ωt) g(t) .
 Dimostrazione
 Dalle (7) e (11) segue
 x(t) −
-
+
 C′ cos(ωt) + S′ sin(ωt)
-
+
 = −ω−1
 Z ∞
 t
 dt′ sin[ω(t −t′)] g(t′) .
 Da questa segue
-x(t) −
-
+x(t) −
+
 C′ cos(ωt) + S′ sin(ωt)
- < ω−1
+ < ω−1
 Z ∞
 t
 dt′ |g(t′)| .
@@ -1010,10 +1010,10 @@ Ma la condizione (9) implica che, per t sufficientemente grande, esistono costan
 |g(t)| < A t−(1+ε) ,
 ε > 0 .
 Pertanto, per t sufficientemente grande,
-x(t) −
-
+x(t) −
+
 C′ cos(ωt) + S′ sin(ωt)
- < [A/(ωε)] t−ε ,
+ < [A/(ωε)] t−ε ,
 ε > 0 ,
 da cui segue la (10), c.v.d.
 16
@@ -1029,27 +1029,27 @@ Esercizi
 condizione asintotica
 lim
 t→−∞
-
-x(t) e−iωt
+
+x(t) e−iωt
 = 1 .
 Calcolare la x(t) e valutarne l’andamento per t →+∞.
 3. La funzione x(t) è soluzione della equazione differenziale
 ¨x(t) + 9x(t) = Θ(t)
-
-e−t −e−3t
+
+e−t −e−3t
 con Θ(t) = 0 per t < 0, Θ(t) = 1 per t ≥0, ed è caratterizzata dalla condizione asintotica
 lim
 t→−∞[x(t) −sin(3t)] = 0 .
 Calcolare la x(t).
 4. La funzione x(t) è soluzione della equazione differenziale
 ¨x(t) + 4x(t) = 16 Θ
- t + 1
+t + 1
 2T
-
+
 Θ
-  1
+ 1
 2T −t
-
+
 ,
 T > 0 ,
 con Θ(u) = 0 per u < 0, Θ(u) = 1 per u ≥0, ed è caratterizzata dalla condizione asintotica
@@ -1121,24 +1121,24 @@ c1(t) ˙x(t) + c0(t)x(t) = f(t) .
 (7)
 La soluzione generale di questa equazione si può scrivere esplicitamente:
 x(t) = a exp
-
+
 −
 Z t
 ¯t
-dt′ 
+dt′ 
 c0(t′)/c1(t′)
-
+
 +
 Z t
 ¯t
-dt′ 
+dt′ 
 f(t′)/c1(t′)
-
+
 exp
-Z t
-t′ dt′′ 
+Z t
+t′ dt′′ 
 c0(t′′)/c1(t′′)
-
+
 . (8)
 La costante a può essere fissata dalla condizione iniziale
 x(t0) = a .
@@ -1150,14 +1150,14 @@ c2(t)¨x(t) + c1(t) ˙x(t) + c0(t)x(t) = f(t) .
 Le soluzioni di queste equazioni non si sanno scrivere, in generale, in forma esplicita.
 La equazione (10) può essere trasformata in forma canonica con la posizione
 x(t) = exp
-
+
 −1
 2
 Z t
 ¯t
-dt′ 
+dt′ 
 c1(t′)/c2(t′)
-
+
 y(t) ,
 (11)
 18
@@ -1178,14 +1178,14 @@ dt [c1(t)/c2(t)]
 (13)
 e
 g(t) = [f(t)/c2(t)] exp
-
+
 1
 2
 Z t
 ¯t
-dt′ 
+dt′ 
 c1(t′)/c2(t′)
-
+
 .
 (14)
 La soluzione generale della (12) può essere scritta come somma di una soluzione particolare y(t)
@@ -1217,9 +1217,9 @@ Esplicitamente
 z2(t) = −W12 z1(t)
 Z t
 ¯t
-dt′ 
+dt′ 
 z1(t′)
-−2 .
+−2 .
 (18)
 Inoltre, note due soluzioni linearmente indipendenti z1(t) e z2(t) della equazione omogenea (15),
 è possibile costruire la più generale soluzione della equazione differenziale non omogenea (12).
@@ -1228,9 +1228,9 @@ y(t) = A1z1(t) + A2z2(t)+
 + (W12)−1
 Z t
 ¯t
-dt′ 
+dt′ 
 z1(t)z2(t′) −z1(t′)z2(t)
-
+
 g(t′) .
 (19)
 Dunque in generale una equazione differenziale lineare del secondo ordine può essere risolta
@@ -1319,16 +1319,16 @@ precedente.
 y(t) = 1/(3 + t2)
 è una soluzione della equazione differenziale
 ¨y(t) +
-
-6(1 −t2)/(t2 + 3)2
+
+6(1 −t2)/(t2 + 3)2
 y(t) = 0 .
 Trovare la soluzione di questa equazione differenziale che soddisfa le condizioni iniziali:
 y(0) = 0 ,
 ˙y(0) = 1 .
 Trovare la soluzione della equazione differenziale non omogenea
 ¨x(t) +
-
-6(1 −t2)/(t2 + 3)2
+
+6(1 −t2)/(t2 + 3)2
 x(t) = −6(t2 + 3)
 con condizioni al contorno x(0) = ˙x(0) = 0.
 1.S — Soluzione degli esercizi del capitolo 1
@@ -1348,21 +1348,21 @@ OSCILLATORE ARMONICO ED EQ. DIFFERENZIALI
 2. x(t) = e−t [2 cos(5t) + sin(5t)]
 3. x(t) = e−t [5 cos(5t) + sin(5t)]
 4. x(t) = et sin(5t)
-5. x(t) = et 
+5. x(t) = et 
 2 cos(5t) + 1
 5 sin(5t)
-
+
 6. x(t) = et [5 cos(5t) −sin(5t)]
 7. x(t) = et −e−3t
 8. x(t) = 1
 4
-
-et + 3e−3t
+
+et + 3e−3t
 9. x(t) = e−3t
 10. x(t) = 1
 4
-
-−et + 5e−3t
+
+−et + 5e−3t
 11. x(t) = e−t
 12. x(t) = −t e−t
 13. x(t) = (1 −t) e−t
@@ -1389,8 +1389,8 @@ x(t) = 1
 z = e−3t ,
 P(z) = 6 + 5a −12z + (6 + a)z2 ;
 P(z) = 0 dà ¯z± =
-
-6 ± (−5a2 −36a)1/2
+
+6 ± (−5a2 −36a)1/2
 /(6 + a). Condizione di realtà di ¯z±: −(36/5) ≤a ≤0.
 Nell’intervallo −6 < a ≤0 la ¯z+ varia in modo monotono e continuo fra ∞e 1; nell’intervallo
 −(36/5) ≤a < −6 la ¯z+ varia in modo monotono e continuo fra −5 e −∞. Nell’intervallo
@@ -1483,10 +1483,10 @@ Z t
 dt′ sin[ω(t −t′)] g(t′) ,
 lim
 t→∞
-
+
 x(t) −
-
-(1 + A)eiωt + A∗e−iωt	
+
+(1 + A)eiωt + A∗e−iωt	
 = 0 ,
 A = (2iω)−1
 Z +∞
@@ -1494,10 +1494,10 @@ Z +∞
 dt′ e−iωt′g(t′) .
 6–3
 x(t) = sin(3t) + Θ(t)
- 1
+ 1
 10
-
-e−t −e−3t
+
+e−t −e−3t
 −1
 15 sin(3t)
 	
@@ -1512,15 +1512,15 @@ per t ≥T/2 .
 Le funzioni x(t) e ˙x(t) sono continue; la ¨x(t) no, essendo discontinua in t = −T/2 e t = T/2.
 6–5
 x(t) =
-
+
 A/(γ2 + ω2)
-
+
 e|γ|t
 per t ≤0 ,
 x(t) =
-
+
 A/(γ2 + ω2)
- h
+ h
 e−|γ|t + (2|γ|/ω) sin(ωt)
 i
 per t ≥0 .
@@ -1668,14 +1668,14 @@ dt = ∂L
 N
 X
 j=1
-
+
 ˙qj
 ∂L
 ∂qj
 + ¨qj
 ∂L
 ∂˙qj
-
+
 .
 D’altronde differenziando la (9) rispetto al tempo si ottiene
 2dT
@@ -1683,7 +1683,7 @@ dt =
 N
 X
 j=1
-
+
 ˙qj
 d
 dt
@@ -1692,7 +1692,7 @@ dt
 + ¨qj
 ∂T
 ∂˙qj
-
+
 .
 Sottraendo la prima di queste equazioni dalla seconda, e osservando che le definizioni (11) e (2)
 implicano
@@ -1704,21 +1704,21 @@ dt = ∂H
 N
 X
 j=1
-
+
 ˙qj
- d
+ d
 dt
 ∂T
 ∂˙qj
 −∂L
 ∂qj
-
+
 + ¨qj
- ∂T
+ ∂T
 ∂˙qj
 −∂L
 ∂˙qj
-
+
 .
 Questa equazione si riduce alla (10) per effetto delle (6) e (5) (q.e.d.). Alla funzione H si dà il
 nome di funzione hamiltoniana. Nel caso in cui essa non dipenda esplicitamente dal tempo,
@@ -1745,13 +1745,13 @@ N
 X
 k,l=1
 ˙qk(t) ˙ql(t)
-∂Mjk(q1, . . . , qN)
+∂Mjk(q1, . . . , qN)
 ∂ql
 −1
 2
 ∂Mkl(q1, . . . , qN)
 ∂qj
-
+
 = −∂U(q1, . . . , qN)
 ∂qj
 ,
@@ -1958,10 +1958,10 @@ mjklxl
 N
 X
 k,l=1
-
+
 mjkl −1
 2mklj
-
+
 ˙xk ˙xl +
 N
 X
@@ -2485,12 +2485,12 @@ T = 1
 2) ,
 U = −Rg(m1 cos α1 + m2 cos α2) −e2/{2R sin[|α2 −α1|/2]} ,
 ≈−Rg
-
+
 (m1 + m2) −1
 2(m1α2
 1 + m2α2
 2)
-
+
 + e2/(R|α2 −α1|) ,
 |α1| ≪π
 2 ,
@@ -2504,11 +2504,11 @@ Posizione di equilibrio:
 ¯α1 = −m2¯α ,
 ¯α2 = m1¯α ,
 ¯α =
-
+
 e2/
-
+
 gR2(m1 + m2)2m1m2
-	1/3 .
+	1/3 .
 2–3
 Una configurazione caratterizzata dai valori ¯qj delle coordinate dicesi di equilibrio stabile se,
 oltre a soddisfare la condizione di equilibrio (2.2), è tale che assegnati comunque 2N numeri
@@ -2591,10 +2591,10 @@ n
 o
 /D ,
 D =
-
+
 (M + m)
-
-m(L + ℓ)2 + M(L −ℓ)2
+
+m(L + ℓ)2 + M(L −ℓ)2
 /(m2ℓ2)
 	1/2 .
 2. Per M = 3m, L = ℓsi ha
@@ -2607,12 +2607,12 @@ Poiché ω(1)/ω(2) =
 3 non è razionale, il moto non è necessariamente periodico.
 3.
 Θ(t) = Φ ·
-
+
 cos[ω(2)(t −t0)] −cos[ω(1)(t −t0)]
 	
 con
 Φ = φ0 · {mℓ/[(m + M)(ℓ+ L)]}
-
+
 1 −4MℓL/[(m + M)(ℓ+ L)2]
 	−1/2 ,
 ∆′ = 2π/[ω(1) −ω(2)] ,
@@ -2643,7 +2643,7 @@ Ne segue l’assunto, con
 4. Se ω(1) ≥3ω(2), ∆T = ∆′ −∆′′; se ω(1) ≤3ω(2), ∆T = ∆′′.
 5.
 ˙Θ(t) = Φ ·
-
+
 ω(1) sin[ω(1)(t −t0)] −ω(2) sin[ω(2)(t −t0)]
 	
 ,
@@ -2737,9 +2737,9 @@ esercizio 2-2).
 No. Supponendo che la legge di forza fra le due particelle sia e2r−p, p > 0 (caso coulombiano
 p = 2), si ottengono le seguenti formule (valide con le limitazioni già specificate) per le posizioni
 di equilibrio, le equazioni delle piccole oscillazioni e le frequenze caratteristiche:
-¯αj = (−)j 
+¯αj = (−)j 
 e2/(Rgmj)
- 
+ 
 gm1m2/[e2(m1 + m2)]
 	p/(1+p) ,
 j = 1, 2 ,
@@ -2783,8 +2783,8 @@ R
 dt. Passando alla variabile z = β2 si effettua facilmente
 l’integrale a primo membro, e risolvendo poi per β si ottiene con qualche passaggio
 β(t) =
-n
-b2 + (λ/ω)21/2 + b sin[2ω(t −¯t)]
+n
+b2 + (λ/ω)21/2 + b sin[2ω(t −¯t)]
 o1/2
 ,
 dove abbiamo introdotto per convenienza la nuova costante b = (C2 −λ2ω2)1/2/ω2. Questa
@@ -2810,7 +2810,7 @@ equilibrio ¯β1. E nel limite in cui questo rapporto (il cui valore dipende, co
 condizioni iniziali) è molto minore di 1, espandendo la soluzione esatta per β1(t) si ottiene
 β1(t) ≈¯β1 + 1
 2b sin[2ω(2)(t −¯t)] + O
-
+
 [b/(λ/ω)]2	
 ,
 che riproduce per l’appunto i risultati per le piccole oscillazioni (vedi la soluzione degli esercizi
@@ -2834,8 +2834,8 @@ con C costante di integrazione, che risulta fissata da questa stessa equazione s
 le condizioni iniziali del moto. Converrà introdurre la notazione 2C = 3ω2 ¯β2(1 + η), dove η è
 chiaramente una costante non negativa e η = 0 corrisponde alla soluzione banale dell’equilibrio,
 β(t) = ¯β, ˙β(t) = 0. Con questa posizione possiamo scrivere [ ˙β(t)]2 = f[β(t)] con
-f(β) = −ω2 
-β3 −3¯β2β(1 + η) + 2¯β3
+f(β) = −ω2 
+β3 −3¯β2β(1 + η) + 2¯β3
 /β = ω2[β(1) −β][β −β(2)][β −β(3)]/β .
 Esaminando la struttura di f(β) come funzione di β (fare il grafico!) è chiaro che, per η > 0,
 le 3 radici β(j) sono reali, due di esse positive (rispettivamente una maggiore e una minore di
@@ -2853,7 +2853,7 @@ T = (4/ω)
 Z π/2
 0
 dx
-
+
 [β(2) + (β(1) −β(2)) sin2 x] · [β(2) −β(3) + (β(1) −β(2)) sin2 x]−1	1/2 .
 Usando ora la espressione esplicita delle 3 soluzioni di una equazione di terzo grado (vedi, per
 esempio, M. Picone e G. Fichera, Trattato di Analisi Matematica, I, Tumminelli, Roma 1954,
@@ -2886,13 +2886,13 @@ n
 ovvero, in funzione delle condizioni iniziali
 φ = 1
 3 arctan
-h
+h
 [ ˙β(t0)]2 + ω2[β(t0)]2 + 2λ2/β(t0)
-
+
 /[3λ4/3ω2/3] −1
 i3/2
 · [3λω]−1
-1/2
+1/2
 .
 Queste formule danno una espressione esplicita (sotto forma però di un integrale non effettuabile
 in termini di funzioni elementari) per il periodo del moto, mettendo in evidenza la dipendenza
@@ -2902,7 +2902,7 @@ confermando i risultati dell’esercizio 5-2.
 Sviluppando la radice per tan φ piccolo si ottiene
 facilmente
 T = T1
-
+
 1 −1
 4 tan2 φ + O[(tan φ)4]
 	
@@ -2910,14 +2910,14 @@ T = T1
 e, poiché in questa approssimazione possiamo anche identificare tan φ con φ con η, si ottiene
 infine
 T = T1
-
+
 1 −1
 4
 h
 [ ˙β(t0)/(3ω ¯β)]2 + [β(t0) −¯β]2 · [1 + 2¯β/β(t0)]/(3¯β2)
 i2
 + O(ε6)
-
+
 ,
 43
 
@@ -2932,13 +2932,13 @@ il risultato per il periodo delle oscillazioni di β(t) fornito dalla teoria del
 valido a meno di correzioni di ordine ε4. Una espressione un po’ più semplice e un po’ meno
 accurata del risultato testè trovato si scrive
 T = T1
-
+
 1 −1
 4
 h
 [ ˙β(t0)/(3ω ¯β)]2 + [(β(t0) −¯β)/¯β]2i2
 + O(ε5)
-
+
 .
 44
 
@@ -3005,9 +3005,9 @@ CAPITOLO 3.
 VETTORI E MATRICI
 Possiamo pertanto scrivere
 |v| =
- v∗
+v∗
 j vj
- 1
+ 1
 2 .
 (1b)
 Evidentemente il solo vettore a modulo nullo è il vettore nullo.
@@ -3126,38 +3126,38 @@ ANN
 Due matrici sono uguali se tutti i loro elementi sono uguali.
 La somma algebrica di due matrici è la matrice che ha per componenti la somma algebrica
 delle componenti di due matrici; per esempio, per N = 2,
-A11
+A11
 A12
 A21
 A22
-
+
 +
-B11
+B11
 B12
 B21
 B22
-
+
 =
-A11 + B11
+A11 + B11
 A12 + B12
 A21 + B21
 A22 + B22
-
+
 .
 Il prodotto di una matrice per un numero complesso è la matrice che ha per elementi il pro-
 dotto degli elementi per il numero complesso; per esempio, per N = 2,
 c
-A11
+A11
 A12
 A21
 A22
-
+
 =
-cA11
+cA11
 cA12
 cA21
 cA22
-
+
 .
 Il prodotto di una matrice per un vettore (ovvero, l’effetto di applicare una matrice ad un
 vettore) è un nuovo vettore la cui componente j-esima è ottenuta moltiplicando il complesso
@@ -3223,8 +3223,8 @@ vettore come somma dei prodotti delle sue componenti (in un sistema di coordinat
 ortogonali) per i versori degli assi.
 Si ha inoltre, come è immediato verificare,
 Ajk =
-
-e(j), A e(k)
+
+e(j), A e(k)
 ,
 (j, k = 1, 2, . . . , N),
 (10)
@@ -3258,21 +3258,21 @@ per specificare l’ordine in cui le diverse operazioni vanno eseguite.
 La matrice nulla è quella avente tutti gli elementi nulli. Si noti che, diversamente dal caso
 dei numeri complessi, il fatto che il prodotto di due matrici sia nullo non implica che almeno una
 delle due matrici sia nulla. Per esempio, per N = 2
-1
+1
 0
 0
 0
- 0
+ 0
 0
 0
 1
-
+
 =
-0
 0
 0
 0
-
+0
+
 .
 Non è inoltre generalmente valida la proprietà commutativa, cioè generalmente
 AB̸ = BA.
@@ -3311,27 +3311,27 @@ di una matrice per sé stessa p volte. Per convenzione
 A0 = I.
 (19)
 Si noti che può darsi il caso di matrici non nulle aventi potenze nulle. Per esempio, per N = 2
-0
+0
 1
 0
 0
-2
+2
 =
-0
+0
 1
 0
 0
- 0
+ 0
 1
 0
 0
-
+
 =
-0
 0
 0
 0
-
+0
+
 .
 Se una funzione F(z) ammette lo sviluppo in serie di potenze
 F(z) =
@@ -3358,10 +3358,10 @@ che restano valide anche per le matrici
 sin2 A + cos2 A = I ;
 lim
 n→∞
-
+
 1 + 1
 nA
-n = exp(A) ;
+n = exp(A) ;
 exp(A) exp(B) = exp(A + B),
 se [A, B] = 0 ;
 dF(t)
@@ -3373,7 +3373,7 @@ F(t) = B exp[At]
 se [A, B] = 0.
 La matrice trasposta di una matrice data è la matrice i cui elementi sono ottenuti da quelli
 della matrice data scambiando fra loro righe e colonne. In formula
- AT 
+AT 
 jk = Akj,
 (22)
 dove con AT indichiamo la matrice trasposta di A. Se una matrice coincide con la sua trasposta
@@ -3387,10 +3387,10 @@ indipendenti. La più generale matrice può sempre essere scomposta nella somma 
 simmetrica ed una antisimmetrica, scrivendo
 A = 1
 2
- A + AT 
+A + AT 
 + 1
 2
- A −AT 
+A −AT 
 .
 50
 
@@ -3403,12 +3403,12 @@ due matrici, ma prese in ordine inverso:
 (AB)T = BT AT .
 (23)
 Infatti
-
-(AB)T 
+
+(AB)T 
 jk = AkℓBℓj,
 (24a)
-
-BT AT 
+
+BT AT 
 jk = Bℓj Akℓ.
 (24b)
 Per le operazioni di somma e prodotto per un numero si ha invece semplicemente
@@ -3417,7 +3417,7 @@ Per le operazioni di somma e prodotto per un numero si ha invece semplicemente
 (cA)T = c AT .
 (26)
 Inoltre ovviamente
- AT T = A.
+AT T = A.
 (27)
 La matrice complessa coniugata di una matrice è la matrice i cui elementi sono i complessi
 coniugati degli elementi della matrice stessa.
@@ -3443,12 +3443,12 @@ A = 1
 La matrice hermitiana coniugata di una matrice è quella ottenuta scambiando le righe con le
 colonne ed inoltre prendendo il complesso coniugato di ogni elemento. L’operazione di coniuga-
 zione hermitiana verrà indicata con una croce:
- A+
+A+
 jk = A∗
 kj.
 (32)
 Valgono ovviamente le seguenti proprietà:
- A++ = A,
+A++ = A,
 (33)
 (A + B)+ = A+ + B+,
 (34)
@@ -3472,10 +3472,10 @@ La più generale matrice A può essere scomposta nella somma di una matrice herm
 una matrice antihermitiana (cioè tale che cambia segno sotto coniugazione hermitiana), scrivendo
 A = 1
 2
- A + A+
+A + A+
 + 1
 2
- A −A+
+A −A+
 .
 Una proprietà importante della operazione di coniugazione hermitiana è espressa dalla se-
 guente formula
@@ -3520,7 +3520,7 @@ reale.
 Altra quantità importante associata ad una matrice è il determinante della matrice, che viene
 indicato generalmente con la notazione
 det[A] =
-
+
 A11
 A12
 A13
@@ -3541,7 +3541,7 @@ AN2
 AN3
 · · ·
 ANN
-
+
 .
 52
 
@@ -3582,13 +3582,13 @@ det[AT ] = det[A];
 (48)
 2.
 det[A∗] =
- det[A]
-∗;
+det[A]
+∗;
 (49)
 3.
 det[A+] =
- det[A]
-∗;
+det[A]
+∗;
 (50)
 4. Il determinante di una matrice reale è ovviamente reale; il determinante di una matrice
 hermitiana è anche reale.
@@ -3613,8 +3613,8 @@ VETTORI E MATRICI
 9. Se nella j-esima riga della matrice A solo il k-esimo elemento Ajk è diverso da zero, ovvero
 se nella k-esima colonna solo il j-esimo elemento Ajk è diverso da zero,
 det[A] = (−1)j+k Ajk det
-
-A(jk)
+
+A(jk)
 (51)
 (niente somme su j e k), essendo A(jk) la matrice in uno spazio ad N−1 dimensioni ottenuta
 da A eliminando la j-esima riga e la k-esima colonna. La matrice A(jk) così definita si dice
@@ -3627,8 +3627,8 @@ N
 X
 k=1
 (−1)j+k Ajk det
-
-A(jk)
+
+A(jk)
 ,
 (52a)
 j fisso arbitrario, (1 ≤j ≤N),
@@ -3637,8 +3637,8 @@ N
 X
 j=1
 (−1)j+k Ajk det
-
-A(jk)
+
+A(jk)
 ,
 (52b)
 k fisso arbitrario, (1 ≤k ≤N).
@@ -3667,18 +3667,18 @@ det[A−1] det[A] = 1,
 (56a)
 ovvero
 det[A−1] =
- det[A]
-−1.
+det[A]
+−1.
 (56b)
 12. Come vedremo nella seguente sezione, le condizioni di esistenza ed unicità, e la esplicita
 costruzione, della matrice inversa di una matrice data, sono assai importanti. Segue dalle
 (56) che condizione necessaria per l’esistenza di A−1 è det[A]̸ = 0. Questa condizione è in
 effetti necessaria e sufficiente per la esistenza ed unicità di A−1, i cui elementi di matrice
 risultano dati dalla formula esplicita
- A−1
+A−1
 jk = (−1)j+k det
-
-A(kj).
+
+A(kj).
 det[A]
 (57)
 54
@@ -3698,11 +3698,11 @@ A(22) = A11,
 (58)
 sicché
 A−1 =
- A22/D
+ A22/D
 −A12/D
 −A21/D
 A11/D
-
+
 ,
 (59)
 con D = det[A].
@@ -3762,15 +3762,15 @@ N
 14. Il determinante di una matrice antisimmetrica è nullo se N è dispari, ed è pari al quadrato
 di un polinomio omogeneo di grado N/2 negli N(N −1)/2 elementi della matrice, se N è
 pari (e dunque è positivo se la matrice è reale). Esempi:
-
+
 0
 A12
 −A12
 0
- = A2
+ = A2
 12,
 (64a)
-
+
 0
 A12
 A13
@@ -3780,10 +3780,10 @@ A23
 −A13
 −A23
 0
-
+
 = 0,
 (64b)
-
+
 0
 A12
 A13
@@ -3800,10 +3800,10 @@ A34
 −A24
 −A34
 0
-
+
 =
- A12A34 + A23A14 −A13A24
-2.
+A12A34 + A23A14 −A13A24
+2.
 (64c)
 55
 
@@ -3839,12 +3839,12 @@ matrici diagonali restano diagonali.
 6. Se la matrice A è triangolare, F(A) è triangolare? E appartiene o no alla stessa classe (vedi
 esercizio precedente)? E la matrice A−1 (se esiste)?
 7. Dimostrare le seguenti proprietà:
- F[A]
-T = F[AT ],
- F[A]
-∗= F ∗[A∗],
- F[A]
-+ = F ∗[A+].
+F[A]
+T = F[AT ],
+F[A]
+∗= F ∗[A∗],
+F[A]
++ = F ∗[A+].
 8. Condizione sufficiente affinché
 exp(iH) = I
 è che
@@ -3873,18 +3873,18 @@ Hadamard.
 13. Siano u e v due vettori reali, di componenti u1, u2 e v1, v2. Se li si considera come due
 vettori nel piano (essendo dunque u1, u2, v1, v2 le loro componenti cartesiane), quale è il
 significato geometrico del determinante
-
+
 u1
 u2
 v1
 v2
-?
+?
 E quale è il significato geometrico della disuguaglianza di Hadamard?
 E nel caso di 3
 vettori nello spazio a 3 dimensioni?
 * Calcolare il determinante (di Vandermonde o delle differenze)
 VN(z) =
-
+
 1
 1
 1
@@ -3917,32 +3917,32 @@ zN−1
 · · ·
 zN−1
 N
-
+
 .
 14. Dimostrare le prime 11 delle 13 proprietà dei determinanti riportate nel testo e contras-
 segnate da un numero romano. (Suggerimento: si lasci per ultima la dimostrazione della
 viii), che è la meno facile; e la si dimostri a partire dall’ultima osservazione ivi riportata).
 15. Le 3 matrici hermitiane e a tracce nulle
 σ1 =
-0
+0
 1
 1
 0
-
+
 ,
 σ2 =
-0
+0
 −i
 i
 0
-
+
 ,
 σ3 =
-1
+1
 0
 0
 −1
-
+
 sono dette matrici di Pauli e giocano un ruolo importante nella teoria delle particelle con
 spin 1/2. (Si noti che, in deroga alla convenzione usata generalmente in queste dispense,
 usiamo qui lettere greche minuscole per indicare delle matrici 2 × 2; ciò per conformarci
@@ -4332,9 +4332,9 @@ Dimostrazione. Infatti
 (per la (13)),
 e
 eA+ =
- UAU−1+
+UAU−1+
 =
- UAU++
+UAU++
 (per la (13))
 = UA+U+
 (per la (1-36))
@@ -4463,24 +4463,24 @@ generale di quella data nella sezione 1 (ma che naturalmente coincide con quella
 tutti i casi in cui essa è applicabile). Cominciamo con l’osservare che, se la matrice A è diagonale,
 anche la matrice F(A) è diagonale ed ha per elementi i valori della funzione F calcolati in
 corrispondenza degli elementi (diagonali) corrispondenti:
- F[A]
-
+F[A]
+
 jj = F(Ajj)
 (niente somma su j; j = 1, 2, . . . , N).
 (21a)
 Per esempio, per N = 2,
 F
-A11
+A11
 0
 0
 A22
-
+
 =
-F(A11)
+F(A11)
 0
 0
 F(A22)
-
+
 .
 (21b)
 Ma questa formula si può mantenere valida anche se la funzione F(x)
@@ -4537,8 +4537,8 @@ Questa relazione può essere riscritta nella forma
 (A −aI) ν = 0,
 (25a)
 ovvero, per le componenti
- Ajk −a δjk
-
+Ajk −a δjk
+
 νk = 0,
 (j = 1, 2, . . . , N).
 (25b)
@@ -4555,7 +4555,7 @@ det[A −aI] = 0,
 3.3.
 AUTOVALORI DI UNA MATRICE. DIAGONALIZZAZIONE.
 ovvero
-
+
 A11 −a
 A12
 A13
@@ -4575,7 +4575,7 @@ AN2
 AN3
 · · ·
 ANN −a
-
+
 = 0.
 (26b)
 Questa equazione, una volta sviluppata, prende la forma
@@ -4605,14 +4605,14 @@ A ν(ℓ) = a(ℓ)ν(ℓ),
 (niente somma su ℓ; ℓ= 1, 2, . . . , N),
 (30a)
 ovvero, in forma esplicita,
- Ajk −a(ℓ)δjk
-
+Ajk −a(ℓ)δjk
+
 ν(ℓ)
 k
 = 0,
-niente somma su ℓ; ℓ= 1, 2, . . . , N;
+niente somma su ℓ; ℓ= 1, 2, . . . , N;
 j = 1, 2, . . . , N.
-
+
 (30b)
 Una volta noto l’autovalore a(ℓ), le componenti del corrispondente vettore ν(ℓ) possono essere
 calcolate esplicitamente dal sistema (30) di N equazioni lineari omogenee nelle N incognite ν(ℓ)
@@ -4622,10 +4622,10 @@ Se la matrice A è hermitiana, i suoi autovalori a(ℓ) sono tutti reali; assume
 siano tutti distinti, i corrispondenti autovettori saranno tutti mutuamente ortogonali. Ciascun
 autovettore risulta naturalmente definito a meno di una costante moltiplicativa arbitraria, che
 può essere (parzialmente) fissata imponendo la condizione di normalizzazione
-ν(ℓ) = 1.
+ν(ℓ) = 1.
 (3.3.21)
 In tal caso possiamo dunque scrivere
- ν(ℓ), ν(m)
+ν(ℓ), ν(m)
 = δℓm,
 (ℓ, m = 1, 2, . . . , N).
 (3.3.22)
@@ -4652,7 +4652,7 @@ hanno autovalori degeneri; per esempio vale ancora per tutti gli N autovalori la
 ortonormalità (32).
 Un insieme costituito da N vettori ν(ℓ), ℓ= 1, 2, . . . , N, si dice in generale ortonormale se
 valgono le relazioni
- ν(ℓ), ν(m)
+ν(ℓ), ν(m)
 = δℓm,
 (ℓ, m = 1, 2, . . . , N).
 (3.3.23)
@@ -4662,11 +4662,11 @@ u =
 N
 X
 ℓ=1
- ν(ℓ), u
-
+ν(ℓ), u
+
 ν(ℓ) =
- ν(ℓ), u
-
+ν(ℓ), u
+
 ν(ℓ),
 (3.3.24)
 la cui validità segue immediatamente dalla ortonormalità dei vettori ν(ℓ), eq. (33) (per verificarlo,
@@ -4698,8 +4698,8 @@ della ortonormalità dei ν(ℓ), eq. (33), vale la formula
 N
 X
 ℓ=1
-(ν(ℓ), u)
-
+(ν(ℓ), u)
+
 2
 ,
 (3.3.26)
@@ -4708,14 +4708,14 @@ o, più in generale,
 N
 X
 ℓ=1
- w, ν(ℓ) ν(ℓ), u
-
+w, ν(ℓ)ν(ℓ), u
+
 .
 (3.3.27)
 Si definiscono inoltre come elementi di una generica matrice B nella base formata dall’insieme
 di vettori ortonormali ν(ℓ) gli N 2 numeri
 eBjk =
- ν(j), B ν(k)
+ν(j), B ν(k)
 ,
 (j, k = 1, 2, . . . , N).
 (3.3.28)
@@ -4813,13 +4813,13 @@ Si noti che, come conseguenza della ortonormalità e completezza dei vettori ν(
 UU+ = U+U = I.
 (3.3.30)
 Dimostrazione. Infatti dalla definizione delle matrici U e U + segue
- UU+
+UU+
 jk =
- ν(j), ν(k)
+ν(j), ν(k)
 = δjk
 e
- U+U
-
+U+U
+
 jk = ν(ℓ)∗
 j
 ν(ℓ)
@@ -4834,8 +4834,8 @@ eAjk = a(j) δjk
 (3.3.31)
 Dimostrazione. Infatti per definizione
 eAjk =
- ν(j), A ν(k)
-= a(k) ν(j), ν(k)
+ν(j), A ν(k)
+= a(k)ν(j), ν(k)
 (niente somma su k), per la (30)
 = a(k) δjk
 (niente somma su k), per la (33).
@@ -4871,8 +4871,8 @@ se la matrice A è hermitiana, la complessa coniugata della equazione (43) si sc
 (niente somme su n; n = 1, 2, . . . , N).
 (3.3.33)
 Dimostrazione.
- A |an⟩
-∗= A∗⟨an|
+A |an⟩
+∗= A∗⟨an|
 = ⟨an| A+
 (vedi la 1-6d)
 = ⟨an| A.
@@ -4901,14 +4901,14 @@ Questa formula definisce completamente la matrice Pa,
 poiché specifica come essa agisce su un generico vettore. La forma esplicita della matrice Pa in
 una qualunque base
 specificata da un insieme ortonormale di vettori ν(j), si ricava immediatamente dalla formula
- ν(j), Pa ν(k)
+ν(j), Pa ν(k)
 = ⟨ν(j)|a⟩⟨a|ν(k)⟩.
 (3.3.38)
 In particolare nella base specificata dall’insieme dei vettori ortonormali |an⟩la matrice Pam
 ha tutti gli elementi nulli salvo uno solo, precisamente l’elemento diagonale sulla riga e colonna
 m-esima.
- Pam
-
+Pam
+
 jk = ⟨aj|Pam|ak⟩= δjm δmk
 (niente somma su m).
 (3.3.39)
@@ -4968,36 +4968,36 @@ p = 0, 1, 2, . . .
 (ak gli autovalori della matrice A, supposta diagonalizzabile).
 2. Trovare una rappresentazione esplicita delle matrici
 (a) exp
- 0
+ 0
 iφ
 iφ
 0
-
+
 ;
 (b) ln
-1
+1
 2
-e + 1 + (e −1) cos φ
+e + 1 + (e −1) cos φ
 (e −1) sin φ
 (e −1) sin φ
 e + 1 −(e −1) cos φ
-
+
 ,
 (ln e = 1).
 3. Si determinino gli autovalori e gli autovettori normalizzati delle seguenti matrici hermitiane:
 (a)
- 2
+ 2
 1 + i
 1 −i
 3
-
+
 ;
 (b)
- 4
+ 4
 2 + i
 2 −i
 0
-
+
 .
 71
 
@@ -5022,11 +5022,11 @@ trasformazione unitaria, si realizza in ciascun caso la diagonalizzazione delle 
 
 .
 5. Trovare autovalori ed autovettori della matrice (non hermitiana!)
-1
+1
 0
 1
 1
-
+
 .
 Questa matrice è diagonalizzabile?
 6. Dimostrare che una matrice A tale che
@@ -5055,18 +5055,18 @@ siano autovettori di ambedue le matrici) è che esse commutino. Tale condizione 
 sufficiente?
 11. Date le matrici A e B
 A =
- 2
+ 2
 1 + i
 1 −i
 3
-
+
 ,
 B =
- 4
+ 4
 2 + i
 2 −i
 0
-
+
 (vedi esercizio 3), esprimerle ambedue nella base in cui A oppure B è diagonale.
 72
 
@@ -5235,8 +5235,8 @@ che si ottiene al variare del vettore x con la condizione che esso sia normalizz
 j xj = 1,
 (3.4.10)
 e che valgano inoltre le seguenti ℓ−1 condizioni:
- u(p), x
-
+u(p), x
+
 = 0,
 p = 1, 2, . . . , ℓ−1
 (3.4.11)
@@ -5257,8 +5257,8 @@ a(s) |exs|2,
 |ex|2 = ex∗
 j exj = 1,
 (14)
- eu(p), ex
-
+eu(p), ex
+
 = 0,
 p = 1, 2, . . . , ℓ−1.
 (15)
@@ -5329,7 +5329,7 @@ FORME QUADRATICHE ED HERMITTIANE, MINIMAX, RITZ
 vettori ortonormali; il numero n non può naturalmente superare N, e se n < N l’insieme dei
 vettori u(p) non è completo. Si costruisca ora la matrice di elementi
 ¯Apq =
- u(p), A u(q)
+u(p), A u(q)
 ,
 (p, q = 1, 2, . . . , n).
 È immediato dimostrare che anche questa matrice è hermitiana; è però una matrice n × n, con
@@ -5356,13 +5356,13 @@ a(N) ≥(x, Ax) / (x, x),
 dove a(1) è il più piccolo autovalore di A, ed a(N) è il più grande. Un enunciato più preciso di
 questo risultato è il seguente:
 a(1) = Minx
-
+
 (x, Ax) / (x, x)
 	
 ,
 (21a)
 a(N) = Maxx
-
+
 (x, Ax) / (x, x)
 	
 .
@@ -5505,7 +5505,7 @@ con altre componenti in un altro sistema di riferimento.
 Un sistema di riferimento è caratterizzato da N vettori ortonormali u(n) (sono l’analogo
 dei versori dei 3 assi di un sistema di coordinate cartesiane ortogonali, nello spazio ordinario),
 soddisfacenti dunque le relazioni di ortonormalità,
- u(n), u(m)
+u(n), u(m)
 = δnm,
 (n, m = 1, 2, . . . , N),
 (3.5.1)
@@ -5519,8 +5519,8 @@ k
 (3.5.2)
 Poiché il generico vettore ν può essere espresso nella forma
 ν =
- u(n), ν
-
+u(n), ν
+
 u(n),
 (3.5.3)
 79
@@ -5530,8 +5530,8 @@ u(n),
 CAPITOLO 3.
 VETTORI E MATRICI
 gli N numeri complessi
- u(n), ν
-
+u(n), ν
+
 , n = 1, 2, . . . , N, andranno interpretati come le componenti del
 vettore ν nel sistema di riferimento caratterizzato dai versori u(n), ovvero, secondo la locuzione
 già introdotta precedentemente, nella base degli u(n).
@@ -5551,27 +5551,27 @@ w = A ν,
 (3.5.5)
 con
 w =
- u(n), w
-
+u(n), w
+
 u(n),
 (6)
 ν =
- u(n), ν
-
+u(n), ν
+
 u(n),
 (7)
- u(n), w
-
+u(n), w
+
 = Anm
- u(m), ν
-
+u(m), ν
+
 ,
 (n = 1, 2, . . . , N).
 (8)
 Questa definizione implica dunque per gli elementi della matrice A nella base u(n) la espres-
 sione
 Anm =
- u(n), A u(m)
+u(n), A u(m)
 ,
 (3.5.6)
 dove la lettera A a secondo membro indica ora l’operatore A. L’uso della stessa lettera per
@@ -5708,27 +5708,27 @@ A+|1⟩= 0.
 Questi operatori sono dunque rappresentabili mediante matrici 2 × 2, e nella base fornita
 dagli autovettori di F la loro rappresentazione esplicita è
 F =
-0
+0
 0
 0
 1
-
+
 ,
 (22a)
 A =
-0
+0
 1
 0
 0
-
+
 ,
 (22b)
 A+ =
-0
+0
 0
 1
 0
-
+
 ,
 (22c)
 con i vettori |0⟩ed |1⟩rappresentati da |0⟩= (1, 0) e |1⟩= (0, 1). È facile ed istruttivo verificare
@@ -6301,31 +6301,31 @@ L3 |ℓ, m⟩= m |ℓ, m⟩,
 La più semplice scelta di fasi per questi stati implica per gli operatori di innalzamento ed
 abbassamento le relazioni
 L+|ℓ, m⟩=
-
+
 ℓ(ℓ+ 1) −m(m + 1)
-1/2 |ℓ, m + 1⟩,
+1/2 |ℓ, m + 1⟩,
 (69a)
 L−|ℓ, m⟩=
-
+
 ℓ(ℓ+ 1) + m(−m + 1)
-1/2 |ℓ, m −1⟩.
+1/2 |ℓ, m −1⟩.
 (69b)
 Dimostrazione. Per dimostrare le (69) basta controllare che il fattore moltiplicativo che compare
 a secondo membro sia compatibile con la assunta normalizzazione degli stati |ℓ, m⟩e |ℓ, m ± 1⟩
 (infatti, che L±|ℓ, m⟩siano ancora autostati di L2 e di L3 con autovalori ℓ(ℓ+ 1) e m ± 1 è già
 stato dimostrato, vedi le eq. (58) e (59)). Prendendo il modulo delle (69) otteniamo
 ⟨ℓ, m|L∓L±|ℓ, m⟩=
-
+
 ℓ(ℓ+ 1) ∓m(±m + 1)
-
+
 ,
 avendo usato le (48). Ma le (52) implicano
 L∓L± = L2 ∓L3(±L3 + I).
 Si ottiene così
 ⟨ℓ, m|L2 ∓L3(±L3 + I)|ℓ, m⟩=
-
+
 ℓ(ℓ+ 1) ∓m(±m + 1)
-
+
 ,
 che è per l’appunto una identità (per renderla esplicita usare le (66), (67) e (68)).
 Una regola utile per ricordare i coefficienti che compaiono a secondo membro delle (69) è la
@@ -6334,9 +6334,9 @@ deve annichilare (cioè dare un risultato nullo se applicato a) il vettore |ℓ,
 grande autovalore di L3, ed L−deve annichilare l’autovettore |ℓ, −ℓ⟩. Le (69) implicano per gli
 elementi di matrice degli operatori L+ ed L−le formule
 ⟨ℓ′, m′|L±|ℓ, m⟩= δℓℓ′ δm′,m±1
-
+
 ℓ(ℓ+ 1) ∓m(±m + 1)
-1/2.
+1/2.
 (3.5.35)
 Da queste e dalle definizioni (46) di L+ ed L−, che implicano
 L1 = 1
@@ -6356,26 +6356,26 @@ si ottengono gli elementi di matrice di L1 ed L2,
 2 δℓℓ′
 n
 δm′,m+1
-
+
 ℓ(ℓ+ 1) −m(m + 1)
-1/2
+1/2
 + δm′,m−1
-
+
 ℓ(ℓ+ 1) + m(−m + 1)
-1/2o
+1/2o
 ,
 (72a)
 ⟨ℓ′, m′|L2|ℓ, m⟩= 1
 2i δℓℓ′
 n
 δm′,m+1
-
+
 ℓ(ℓ+ 1) −m(m + 1)
-1/2
+1/2
 −δm′,m−1
-
+
 ℓ(ℓ+ 1) + m(−m + 1)
-1/2o
+1/2o
 .
 (72b)
 Per gli elementi di matrice di L2 ed L3 si ottiene naturalmente la forma diagonale
@@ -6515,9 +6515,9 @@ cℓ,ℓ−2
 (76c)
 con
 cℓ,m =
-
+
 ℓ(ℓ+ 1) −m(m + 1)
-1/2.
+1/2.
 (3.5.37)
 Gli autovettori di L3, |ℓ, m⟩, essendo i vettori di base, hanno per componenti δj,ℓ−m+1, cioè
 |ℓ, ℓ⟩= (1, 0, 0, . . . , 0),
@@ -6651,8 +6651,8 @@ Soluzioni degli esercizi del capitolo 3.
 a = −7/3, b = −17/16, c = 3/8.
 1-2
 a̸ =
-
-7 ± (25 −32i)1/2
+
+7 ± (25 −32i)1/2
 /2.
 1-3
 |u + ν|2 = |u|2 + |ν|2 + (u, ν) + (ν, u)
@@ -6665,12 +6665,12 @@ Pertanto |u + ν| ≤|u| + |ν|.
 v = eiφ cu, φ reale arbitrario, c = 1/
 √
 8, u =
- −
+−
 √
 5
 2 , 1, −1−5i
 2
-
+
 .
 1-5
 C =
@@ -6705,21 +6705,21 @@ C =
 u1 = 0 oppure u1 = −2.
 1-7
 A =
-
+
 a
 ab
 −a/b
 −a
-
+
 .
 1-8
 B =
-
+
 a
 [a(1 −a)]1/2 b
 [a(1 −a)]1/2 b
 1 −a
-
+
 ,
 a, b arbitrari.
 93
@@ -6848,11 +6848,11 @@ Sì. Sì. A−1, se esiste, è triangolare, ma appartiene all’altra classe.
 La condizione non è necessaria, ovvero la prima equazione dell’esercizio ammette soluzioni non
 rappresentate dalla seconda equazione. Per esempio
 H = 2π
-0
+0
 1
 0
 1
-
+
 è una tale soluzione (per verificarlo osservare che H2 = 2πH e usare i risultati dell’esercizio 7).
 95
 
@@ -6942,19 +6942,19 @@ la matrice A(jℓ) ha due righe uguali, e pertanto det[A(jℓ)] = 0. Risulta cos
 (salvo a ripetere, in modo del tutto analogo, l’argomento per le righe anziché le colonne).
 1-26
 U = eiφ
- α + iβ
+ α + iβ
 γ + iδ
 −γ + iδ
 α −iβ
-
+
 ,
 α, β, γ, δ, φ reali, α2 + β2 + γ2 + δ2 = 1;
 U =
- cos θ
+ cos θ
 sin θ
 −sin θ
 cos θ
-
+
 .
 1-27
 [A, BC] = ABC −BCA
@@ -7007,25 +7007,25 @@ k. Inoltre la traccia di eAp è chiaramente
 uguale alla traccia di Ap.
 3-2
 1.
- cos φ
+ cos φ
 i sin φ
 i sin φ
 cos φ
-
+
 = cos φ I + i sin φ
-0
+0
 1
 1
 0
-
+
 ;
 2. 1
 2
-1 + cos φ
+1 + cos φ
 sin φ
 sin φ
 1 −cos φ
-
+
 .
 3-3
 1. a(1) = 4, a(2) = 1;
@@ -7071,11 +7071,11 @@ Si noti che questo risultato implica che ciascuna delle matrici di Pauli ha auto
 3-9
 Vera. Indichiamo con
 A =
- α + δ
+ α + δ
 β + iγ
 β −iγ
 α −δ
-
+
 la più generale matrice hermitiana 2 × 2 (α, β, γ e δ reali), e con a(1) e a(2) i suoi autovalori.
 Questa notazione (scelta in conformità a quella usata nell’esercizio precedente) implica che α è
 il “baricentro” dei due elementi diagonali, e 2|δ| la “distanza” fra i due elementi diagonali. Un
@@ -7094,7 +7094,7 @@ autovalori), dimostra l’assunto. Naturalmente la stessa conclusione si sarebbe
 più rapidamente utilizzando i risultati dell’esercizio precedente, in particolare la forma esplicita
 degli autovalori da cui risulta chiaramente che
 |a(1) −a(2)| = 2
-(β2 + γ2 + δ2)1/2 ≥2|δ|.
+(β2 + γ2 + δ2)1/2 ≥2|δ|.
 99
 
 
@@ -7121,11 +7121,11 @@ autovettori corrispondenti all’autovalore degenere di A che siano mutuamente o
 siano autovettori di B (in generale, corrispondenti a diversi autovalori di B).
 3-11
 eA =
-4
+4
 0
 0
 1
-
+
 ,
 eB = 1
 3
@@ -7164,11 +7164,11 @@ e−i(φ2−φ1)
 
 ,
 eB =
-5
+5
 0
 0
 −1
-
+
 .
 3-12
 Falsa, poiché tr[A] = −1 < 0.
@@ -7182,8 +7182,8 @@ loro calcolo.
 A ν(ℓ) = a(ℓ) B ν(ℓ),
 (niente somma su ℓ).
 Moltiplicando da sinistra per ν(m) si ottiene
- ν(m), A ν(ℓ)
-= a(ℓ) ν(m), B ν(ℓ)
+ν(m), A ν(ℓ)
+= a(ℓ)ν(m), B ν(ℓ)
 ,
 (niente somma su ℓ).
 100
@@ -7197,30 +7197,30 @@ vedi la (1.38b)); è così dimostrato che a(ℓ) è reale. Inoltre da
 A ν(m) = a(m) B ν(m),
 (niente somma su m)
 segue
- ν(ℓ), A ν(m)
-= a(m) ν(ℓ), B ν(m)
+ν(ℓ), A ν(m)
+= a(m)ν(ℓ), B ν(m)
 ,
 (niente somma su m).
 Prendendo il complesso coniugato di ambo i membri e usando la (1-38a), la hermiticità di A e
 B, e la realtà di a(m) testé dimostrata, si ottiene
- ν(m), A ν(ℓ)
-= a(m) ν(m), B ν(ℓ)
+ν(m), A ν(ℓ)
+= a(m)ν(m), B ν(ℓ)
 ,
 (niente somma su m).
 Sottraendo questa dalla seconda equazione scritta sopra, si ottiene
- a(ℓ) −a(m) ν(m), B ν(ℓ)
+a(ℓ) −a(m)ν(m), B ν(ℓ)
 = 0,
 (niente somma su ℓe m),
 che implica la tesi da dimostrare.
 4-1
 Gli autovalori della matrice
- 2
+ 2
 √
 2
 √
 2
 3
-
+
 sono 1 e 4 e i corrispondenti autovettori normalizzati sono ν(1) = (
 p
 2/3, −
@@ -7251,11 +7251,11 @@ Si ponga x = (1, z) con z arbitrario (complesso) e si calcoli il massimo e il mi
 R(z) = (x, Ax) / (x, x).
 Ponendo
 A =
- α + δ
+ α + δ
 β + iγ
 β −iγ
 α −δ
-
+
 con α, β, γ, δ reali, otteniamo
 R(z) = α −δ + 2 δ + βu −γv
 1 + u2 + v2
@@ -7280,11 +7280,11 @@ R = α −δ −(β/u) = α −δ + (γ/v).
 A questo punto si possono risolvere le equazioni per u e v che, usando la espressione del rapporto
 u/v, diventano una equazione di secondo grado per u oppure per v. Si ot-
 tiene così
-u = −β(β2 + γ2)−1
-δ ± (β2 + γ2 + δ2)1/2
+u = −β(β2 + γ2)−1
+δ ± (β2 + γ2 + δ2)1/2
 ,
-v = γ(β2 + γ2)−1
-δ ± (β2 + γ2 + δ2)1/2
+v = γ(β2 + γ2)−1
+δ ± (β2 + γ2 + δ2)1/2
 .
 Alternativamente si sarebbero potuti cercare i valori estremi di R, considerato funzione solo di
 u o solo di v, secondo l’espressione data; ottenendo naturalmente lo stesso risultato per u e per
@@ -7302,19 +7302,19 @@ per x = (1, −1, 0), dà
 Il principio di Ritz afferma che
 a = min
 x
-
+
 (x, Ax) / (x, x)
 	
 ,
 b = min
 x
-
+
 (x, Bx) / (x, x)
 	
 ,
 c = min
 x
-
+
 [(x, Ax) + (x, Bx)] / (x, x)
 	
 .
@@ -7348,13 +7348,13 @@ A =
 3.5.
 MATRICI COME RAPPRESENTAZIONE DI OPERATORI LINEARI
 5-2
-|9⟩= (1/13)1/2
+|9⟩= (1/13)1/2
 3 |1⟩+ 2 |2⟩
-
+
 ,
-| −4⟩= (1/13)1/2
+| −4⟩= (1/13)1/2
 2 |1⟩−3 |2⟩
-
+
 .
 5-4
 Sì, perché la traccia del commutatore di due matrici è nulla e ciascuna Lj è proporzionale al
@@ -7374,24 +7374,24 @@ m2 = 1
 3 ℓ(ℓ+ 1)(2ℓ+ 1).
 5-6
 1.
- 1
+ 1
 2(1 + α)
-
+
 =
-
+
 a |0⟩+ (1 + α) |1⟩
-
+
 2α(1 + α)
-−1/2,
- 1
+−1/2,
+ 1
 2(1 −α)
-
+
 =
-
+
 −(1 + α) |0⟩−a |1⟩
-
+
 2α(1 + α)
-−1/2,
+−1/2,
 con α = (1 + 4a2)1/2;
 *ii) |n −a2⟩= e−a2 e−aA+ eaA |n⟩.
 103
@@ -7483,13 +7483,13 @@ di quelle date nella prima parte della sezione 3.1.
 L’introduzione del prodotto scalare (2) ci permette di istituire, nello spazio funzionale, una
 metrica, definendo come distanza fra due elementi f e g il numero reale non negativo
 |f −g| =
-
+
 (f −g, f −g)
-1/2 =
-Z β
+1/2 =
+Z β
 α
 dx |f(x) −g(x)|2
-1/2
+1/2
 .
 (4.1.7)
 Chiaramente se gli elementi f e g coincidono, la loro distanza è nulla; e viceversa, se la loro
@@ -7526,7 +7526,7 @@ OPERATORI DIFFERENZIALI LINEARI.
 (f) α = −∞, β = +∞, f(x) = (x2 −3)−1/3;
 (g) α = −∞, β = +∞, f(x) = (x2 −3)−2/5;
 (h) α = 0, β = 1, f(x) =
-
+
 e[(x−1)−1]	
 / {sin2(x −1)}.
 2. Indicare per quali valori della costante reale c le funzioni sotto indicate forniscono un
@@ -7660,7 +7660,7 @@ Z +∞
 dx g∗(x) d
 dxf(x)
 = g∗(x) f(x)
-
+
 x=+∞
 x=−∞−
 Z +∞
@@ -7757,16 +7757,16 @@ che moltiplica per x le funzioni f(x) cui viene applicato).
 l’operatore che moltiplica per F(x) le funzioni f(x) a cui è applicato).
 8. Dati i due operatori
 A = 2−1/2
-
+
 x + d
 dx
-
+
 ,
 A+ = 2−1/2
-
+
 x −d
 dx
-
+
 ,
 110
 
@@ -7802,8 +7802,8 @@ indici a, b; per distinguere kets diversi si possono inoltre usare parentesi di 
 esempio si può scrivere | ⟩oppure | }⟩). Per i kets si suppongono definite le operazioni di somma
 e di prodotto per un numero complesso c, con le notazioni |a⟩+ |b⟩e c |a⟩e la ovvia proprietà
 c
- |a⟩+ |b⟩
-
+|a⟩+ |b⟩
+
 = c |a⟩+ c |b⟩.
 (4.3.1)
 In aggiunta allo spazio dei kets si introduce un secondo spazio, duale del precedente, i cui
@@ -7844,24 +7844,24 @@ Per tale prodotto scalare valgono le seguenti proprietà:
 (4.3.2)
 2. Il prodotto scalare dipende linearmente dal ket, cioè:
 ⟨a|
-
+
 |b1⟩+ |b2⟩
 	
 = ⟨a|b1⟩+ ⟨a|b2⟩,
 (5a)
 ⟨a|
-
+
 c |b⟩
 	
 = c ⟨a|b⟩.
 (5b)
 3. Il prodotto scalare dipende linearmente dal bra, cioè:
-
+
 ⟨a1| + ⟨a2|
 	
 |b⟩= ⟨a1|b⟩+ ⟨a2|b⟩,
 (6a)
-
+
 ⟨a|c
 	
 |b⟩= c ⟨a|b⟩.
@@ -7888,19 +7888,19 @@ formula si scrive
 per indicare che l’operatore A, agendo su |a⟩, lo trasforma in |b⟩. Si prendono in considerazione
 solo operatori lineari, caratterizzati dalle proprietà
 A
-
+
 |a1⟩+ |a2⟩
 	
 = A |a1⟩+ A |a2⟩,
 (9a)
 A
-
+
 c |a⟩
 	
 = c A |a⟩,
 (9b)
 e si definiscono la somma e il prodotto di due o più operatori secondo le formule
-
+
 A + B
 	
 |a⟩= A |a⟩+ B |a⟩,
@@ -7911,11 +7911,11 @@ A + B
 ===== PAGINA 113 =====
 4.3.
 LA NOTAZIONE DI DIRAC.
-
+
 AB
 	
 |a⟩= A
-
+
 B |a⟩
 	
 .
@@ -7930,11 +7930,11 @@ tutti gli altri operatori, come risulta dalla (9b).
 Finora si è definito l’effetto di un operatore sui kets. L’effetto dell’operatore A sul bra ⟨b|
 si indica con la notazione ⟨b|A e, per definizione, produce un bra il cui prodotto scalare con un
 generico ket |a⟩coincide col prodotto scalare di ⟨b| con A |a⟩:
-
+
 ⟨b|A
 	
 |a⟩= ⟨b|
-
+
 A |a⟩
 	
 .
@@ -7946,21 +7946,21 @@ soddisfare (linearità, etc.).
 Dati due kets |a1⟩e |a2⟩, in questo ordine, si introduce inoltre l’operatore |a1⟩⟨a2| come quello
 che, applicato al generico ket |b⟩, produce il ket |a1⟩moltiplicato per il numero complesso ⟨a2|b⟩,
 e applicato al generico bra ⟨b|, produce il bra ⟨a2| moltiplicato per il numero complesso ⟨b|a1⟩:
-
+
 |a1⟩⟨a2|
 	
 |b⟩=
-
+
 ⟨a2|b⟩
 	
 |a1⟩,
 (13a)
 ⟨b|
-
+
 |a1⟩⟨a2|
 	
 = ⟨a2|
-
+
 ⟨b|a1⟩
 	
 .
@@ -7982,8 +7982,8 @@ Si dimostrano facilmente le seguenti formule:
 (15c)
 (ABC · · · D)+ = D+ · · · C+B+A+,
 (15d)
- |a⟩⟨b|
-+ = |b⟩⟨a|,
+|a⟩⟨b|
++ = |b⟩⟨a|,
 (15e)
 nonché l’importante proprietà
 ⟨a|A|b⟩= ⟨b|A+|a⟩∗.
@@ -8167,9 +8167,9 @@ Esercizi
 sommabile con tutte le loro derivate, indicare quali delle seguenti funzioni sono autofunzioni
 (non necessariamente normalizzate) dell’operatore 1
 2
-
+
 −d2
-dx2 + x2
+dx2 + x2
 , e, nel caso in cui siano
 autofunzioni, normalizzarle e indicare l’autovalore corrispondente:
 (a) ψ(x) = x e−1
@@ -8184,10 +8184,10 @@ autofunzioni, normalizzarle e indicare l’autovalore corrispondente:
 4.5.
 AUTOVALORI ED AUTOFUNZIONI DI 1
 2
-
+
 −d2
 dx2 + x2
-
+
 . POLINOMI DI HERMITE.
 (d) ψ(x) = (2 −4x2) e−1
 2 x2;
@@ -8197,19 +8197,19 @@ spazio funzionale, l’operatore hermitiano H = A+A può avere autovalori negati
 4.5
 Autovalori ed autofunzioni dell’operatore 1
 2
-
+
 −d2
 dx2 + x2
-
+
 . Po-
 linomi di Hermite.
 In questa sezione deriviamo e discutiamo gli autovalori e le autofunzioni dell’operatore
 H = 1
 2
-
+
 −d2
 dx2 + x2
-
+
 (4.5.1)
 nello spazio funzionale delle funzioni differenziabili e di quadrato sommabile con tutte le loro
 derivate nell’intervallo −∞< x < ∞. È facile verificare che H è, in questo spazio funzionale, un
@@ -8373,10 +8373,10 @@ da x (e dipende dunque solo da h) sia nullo (vedi la sezione 1.7). È questa dun
 4.5.
 AUTOVALORI ED AUTOFUNZIONI DI 1
 2
-
+
 −d2
 dx2 + x2
-
+
 . POLINOMI DI HERMITE.
 che determina i valori di h per cui esiste una ψh(x) soluzione della (3) e normalizzabile, cioè gli
 autovalori dell’operatore H.
@@ -8394,29 +8394,29 @@ ottenuta sostituendo la (11) nella (3).
 Dimostrazione. Dalla posizione (11) segue
 ψ′
 h(x) =
-
+
 χ′
 h(x) −x χh(x)
-
+
 e−1
 2 x2,
 ψ′′
 h(x) =
-
+
 χ′′
 h(x) −2x χ′
 h(x) + (x2 −1) χh(x)
-
+
 e−1
 2 x2,
 sicché
 ψ′′
 h + [−x2 + 2h] ψh =
-
+
 χ′′
 h −2x χ′
 h + (2h −1) χh
-
+
 e−1
 2 x2.
 Le considerazioni fatte finora ci suggeriscono che una generica soluzione della (12) divergerà
@@ -8431,16 +8431,16 @@ h−(x) e χ(−)
 h−(x) tali che, per ogni ε > 0,
 lim
 x→+∞
-
+
 χ(+)
-h−(x) e−εx2
+h−(x) e−εx2
 = 0,
 (14a)
 lim
 x→−∞
-
+
 χ(−)
-h−(x) e−εx2
+h−(x) e−εx2
 = 0,
 (14b)
 ma che in generale queste soluzioni divergeranno dall’altra parte, cioè
@@ -8459,8 +8459,8 @@ speciali di h tali due soluzioni coincideranno (a meno di una costante moltiplic
 dunque una soluzione tale che, per ogni ε positivo,
 lim
 x→±∞
-
-χh(x) e−εx2
+
+χh(x) e−εx2
 = 0,
 ε > 0,
 (4.5.12)
@@ -8521,9 +8521,9 @@ h(x) + (2h −1) χh(x) =
 ∞
 X
 n=0
-
+
 (n + 2)(n + 1) cn+2 −(2n + 1 −2h) cn
-
+
 xn.
 Le soluzioni delle relazioni ricorrenti (18) possono evidentemente essere divise in due classi,
 quella per cui tutti i cn con n dispari sono nulli (che dà origine a funzioni χh(x) pari in x, cioè
@@ -8562,10 +8562,10 @@ h = 1
 4.5.
 AUTOVALORI ED AUTOFUNZIONI DI 1
 2
-
+
 −d2
 dx2 + x2
-
+
 . POLINOMI DI HERMITE.
 oppure h non è esprimibile in questa forma.
 Nel primo caso, le (21) implicano anzitutto che an+1 è nullo, e quindi che tutti gli am con
@@ -8662,20 +8662,20 @@ A =
 1
 √
 2
-
+
 x + d
 dx
-
+
 ,
 (31a)
 A+ =
 1
 √
 2
-
+
 x −d
 dx
-
+
 .
 (31b)
 È chiaro che, nello spazio delle funzioni continue e sommabili con tutte le loro derivate,
@@ -8714,10 +8714,10 @@ tecnica che si era usata.
 4.5.
 AUTOVALORI ED AUTOFUNZIONI DI 1
 2
-
+
 −d2
 dx2 + x2
-
+
 . POLINOMI DI HERMITE.
 Indichiamo con |ν⟩l’autofunzione normalizzata di N corrispondente all’autovalore ν:
 N |ν⟩= ν |ν⟩.
@@ -8864,10 +8864,10 @@ derivarsi
 4.5.
 AUTOVALORI ED AUTOFUNZIONI DI 1
 2
-
+
 −d2
 dx2 + x2
-
+
 . POLINOMI DI HERMITE.
 alcune interessanti proprietà dei polinomi di Hermite.
 Indichiamo dunque con ψ0(x) l’autofunzione corrispondente all’autovalore più basso (n = 0).
@@ -8887,10 +8887,10 @@ dx |ψ0(x)|2 = 1
 (è stata scelta reale per semplicità).
 Una volta nota la ψ0(x), tutte le altre autofunzioni normalizzate sono date dalla formula
 ψn(x) = π−1/4(n!)−1/2 2−n/2
-
+
 x −d
 dx
-n
+n
 e−1
 2 x2,
 (4.5.38)
@@ -8899,10 +8899,10 @@ Confrontando questa formula con la (29) ed adottando per i polinomi di Hermite l
 lizzazione di uso più corrente, scriviamo pertanto
 Hn(x) = e
 1
-2 x2 
+2 x2 
 x −d
 dx
-n
+n
 e−1
 2 x2,
 (52a)
@@ -9001,10 +9001,10 @@ oscillatorio).
 4.5.
 AUTOVALORI ED AUTOFUNZIONI DI 1
 2
-
+
 −d2
 dx2 + x2
-
+
 . POLINOMI DI HERMITE.
 6. Si dimostri la formula (funzione generatrice dei polinomi di Hermite)
 e−t2+2xt =
@@ -9027,11 +9027,11 @@ Z +∞
 −∞
 dx e−x2 xn Hm(x) =
 n! √π
-2n−m   n−m
+2n−m  n−m
 2
-
+
 !
-,
+,
 n −m = 0, 2, 4, . . . ;
 = 0 altrimenti.
 * Usando la funzione generatrice (vedi esercizio 6) si dimostri la formula (n, m interi non
@@ -9050,43 +9050,43 @@ H2n+1(0) = 0,
 H′
 2n+1(0) = lim
 x→0
-
+
 H2n+1(x)/x
-
+
 = (−1)n · 2 · (2n + 1)! / n!.
 9. Si dimostri la formula (n intero non negativo):
 Hn(x + y) = 2−n/2
 n
 X
 m=0
-n
+n
 m
-
+
 Hm(
 √
 2 x) Hn−m(
 √
 2 y),
 dove
- n
+n
 m
-
+
 è il coefficiente binomiale.
 * 12. Si dimostri la formula (generalizzazione di quella dell’esercizio precedente) (n, p interi
 non negativi):
- α2
+α2
 1 + α2
 2 + · · · + α2
 p
-n/2
+n/2
 n!
 Hn
  
 α1x1 + α2x2 + · · · + αpxp
- α2
+α2
 1 + α2
 2 + · · · + α2p
-1/2
+1/2
 !
 =
 =
@@ -9114,9 +9114,9 @@ Hn(x cos θ + y sin θ) =
 n
 X
 m=0
-n
+n
 m
-
+
 (cos θ)m(sin θ)n−m,
 Hn(λx) =
 [n/2]
@@ -9158,23 +9158,23 @@ j=1
 |cj|2 ≤|f|2 .
 (4.6.3)
 Dimostrazione.
-
+
 f −
 n
 X
 j=1
 cjψj
-
+
 2
 ≥0 .
 Ma
-
+
 f −
 n
 X
 j=1
 cjψj
-
+
 2
 = |f|2 −
 n
@@ -9260,10 +9260,10 @@ ovvero
 ∞
 X
 j=1
- |cj|2 + |dj|2 + c∗
+|cj|2 + |dj|2 + c∗
 jdj + cjd∗
 j
-
+
 = |f|2 + |g|2 + (f, g) + (g, f) ,
 da cui, per la (5),
 ∞
@@ -9289,13 +9289,13 @@ n→∞
 Z β
 α
 dx
-
+
 f(x) −
 n
 X
 j=1
 cj ψj(x)
-
+
 2
 = 0
 (4.6.7)
@@ -9379,13 +9379,13 @@ converge uniformemente, la (7) implica la (8); infatti in tal caso la (7) implic
 Z β
 α
 dx
-
+
 f(x) −
 ∞
 X
 j=1
 cj ψj(x)
-
+
 2
 = 0 ,
 che a sua volta implica la (8).
@@ -9649,16 +9649,16 @@ dell’operatore −d2
 dx2 + x2 (vedi i risultati della sezione precedente).
 4. Si calcoli la traccia dell’operatore e−βH, con H = 1
 2
-
+
 −d2
-dx2 + x2
+dx2 + x2
 e β > 0.
 5. Si calcoli il determinante dell’operatore exp
-
+
 α
-.
+.
 d2
-dx2 + x22
+dx2 + x22
 .
 134
 
@@ -9676,9 +9676,9 @@ connesso ai risultati finora esposti. Si preferisce però darne una formulazione
 la notazione abitualmente adottata nei testi di matematica, salvo a mettere in luce, alla fine della
 sezione, le connessioni, e le differenze, con i problemi trattati finora.
 Si consideri l’equazione differenziale omogenea del secondo ordine
-
+
 p(x) y′(x)
-′ −q(x) y(x) + λ ρ(x) y(x) = 0 .
+′ −q(x) y(x) + λ ρ(x) y(x) = 0 .
 (1a)
 In questa equazione (e nel seguito) l’apice indica differenziazione; la y(x) è la funzione inco-
 gnita, e le 3 funzioni reali p(x), q(x) e ρ(x) sono supposte note. Si suppone inoltre che tanto
@@ -9712,14 +9712,14 @@ alla y(β) = 0; invece solo per valori speciali del parametro λ esisteranno sol
 ad ambedue le condizioni (4). A questi valori λn si dà il nome di autovalori, e alle corrispondenti
 funzioni yn(x) il nome di autofunzioni.
 È facile dimostrare che gli autovalori sono reali.
-
+
 p(x) y′
 n(x)
-′ −q(x) yn(x) + λn ρ(x) yn(x) = 0 ,
-
+′ −q(x) yn(x) + λn ρ(x) yn(x) = 0 ,
+
 p(x) y′∗
 n (x)
-′ −q(x) y∗
+′ −q(x) y∗
 n(x) + λ∗
 n ρ(x) y∗
 n(x) = 0 .
@@ -9744,21 +9744,21 @@ dx
 n
 y∗
 n(x)
-
+
 p(x) y′
 n(x)
-′ −yn(x)
-
+′ −yn(x)
+
 p(x) y′∗
 n (x)
-′o
+′o
 =
-
+
 y∗
 n(x) p(x) y′
 n(x) −yn(x) p(x) y′∗
 n (x)
-	 
+	 
 β
 α
 = 0 .
@@ -9783,14 +9783,14 @@ m(x) yn(x) = 0 ,
 m̸ = n .
 (6)
 Dimostrazione della (6).
-
+
 p(x) y′
 n(x)
-′ −q(x) yn(x) + λn ρ(x) yn(x) = 0 ,
-
+′ −q(x) yn(x) + λn ρ(x) yn(x) = 0 ,
+
 p(x) y′∗
 m(x)
-′ −q(x) y∗
+′ −q(x) y∗
 m(x) + λm ρ(x) y∗
 m(x) = 0 .
 Moltiplicando la seconda equazione per yn(x) e la prima per y∗
@@ -9807,21 +9807,21 @@ dx
 n
 y∗
 m(x)
-
+
 p(x) y′
 n(x)
-′ −yn(x)
-
+′ −yn(x)
+
 p(x) y′∗
 m(x)
-′o
+′o
 =
-
+
 y∗
 m(x) p(x) y′
 n(x) −yn(x) p(x) y′∗
 m(x)
-	 
+	 
 β
 α
 = 0 .
@@ -9893,19 +9893,19 @@ n = 1, 2, 3, . . . ,
 ed inoltre dalle funzioni (pari)
 p
 1/π cos
- n −1
+n −1
 2
-
+
 x
-
+
 ,
 n = 1, 2, 3, . . . ,
 (11b)
 cui corrispondono gli autovalori
 λn =
- n −1
+n −1
 2
-2 ,
+2 ,
 n = 1, 2, 3, . . . .
 (12b)
 L’equazione differenziale (1), con questa scelta delle funzioni p(x), q(x) e ρ(x), diventa
@@ -9953,13 +9953,13 @@ f(x) =
 ∞
 X
 n=1
-
+
 sn sin(nx) + cn cos
- n −1
+n −1
 2
-
+
 x
-	
+	
 ,
 (13)
 essendo i coefficienti sn e cn espressi dalle formule
@@ -9974,11 +9974,11 @@ cn = 1
 Z π
 −π
 dx f(x) cos
- n −1
+n −1
 2
-
+
 x
-
+
 ,
 (14b)
 avendo la funzione f(x) la proprietà di annullarsi per x = ±π, oltre ad essere continua, e ad avere
@@ -10001,9 +10001,9 @@ di per sé, perché ricorrono in molte applicazioni.
 Diamo poi anche un esempio di problema di tipo misto, anche esso di notevole interesse per
 le sue applicazioni in fisica.
 Il primo problema è caratterizzato dalla equazione differenziale
-
+
 (1 −x2) y′(x)
-′ + λ y(x) = 0 ,
+′ + λ y(x) = 0 ,
 (15a)
 138
 
@@ -10058,13 +10058,13 @@ X
 n=0
 n
 λ cnxn +
-
-n cn(1 −x2)xn−1′o
+
+n cn(1 −x2)xn−1′o
 =
 ∞
 X
 n=0
-
+
 [λ −n(n + 1)] cnxn + n(n −1) cnxn−2	
 =
 ∞
@@ -10113,22 +10113,22 @@ Osserviamo anzitutto che le relazioni ricorrenti (18) possono scriversi
 cm+2 = cm
 m
 m + 2
-
+
 1 −
 λ
 m(m + 1)
-
+
 .
 Conviene pertanto introdurre i coefficienti bm ponendo
 cm = bm/m,
 m = 1, 2, 3, . . . ,
 per i quali le relazioni ricorrenti si scrivono
 bm+2 = bm
-
+
 1 −
 λ
 m(m + 1)
-
+
 ,
 m = 1, 2, 3, . . .
 Fissiamo inoltre l’attenzione sul caso delle funzioni pari, per le quali dunque solo i bm con m pari
@@ -10137,11 +10137,11 @@ b2m = am,
 m = 1, 2, 3, . . .
 Per i coefficienti am si ottengono pertanto le relazioni ricorrenti
 am+1 = am
-
+
 1 −
 λ
 2m(2m + 1)
-
+
 ,
 m = 1, 2, 3, . . . ,
 ()
@@ -10169,20 +10169,20 @@ effettuare la dimostrazione per λ reale, poiché già sappiamo che tutti gli au
 che consideriamo debbono essere reali.
 Per λ < 0, la dimostrazione è immediata. In tal caso infatti tutti i coefficienti am hanno lo
 stesso segno, e sono di modulo maggiore di a1. Pertanto in questo caso
-
+
 ∞
 X
 m=1
 am
 m x2m
- >
-a1
+ >
+a1
 ∞
 X
 m=1
 x2m
 m
- .
+ .
 Ma, come è noto,
 ∞
 X
@@ -10190,15 +10190,15 @@ m=1
 x2m
 m = −ln(1 −x2) ,
 sicché possiamo concludere che
-
+
 ∞
 X
 m=1
 am
 m x2m
- >
-a1 ln(1 −x2)
- ,
+ >
+a1 ln(1 −x2)
+ ,
 e pertanto chiaramente per x →±1 la serie diverge (logaritmicamente).
 Se invece λ > 0, indichiamo con ¯m un valore di m che sia sufficientemente grande da garantire
 che
@@ -10224,13 +10224,13 @@ La prima somma a secondo membro è un polinomio e pertanto è sempre finita; bas
 considerare la seconda somma, da ¯m a ∞.
 Ma le regole di ricorrenza per i coefficienti am
 assicurano che, per m ≥¯m, tutti gli am hanno lo stesso segno. Pertanto, per x reale,
-
+
 ∞
 X
 m= ¯m
 am
 m x2m
- =
+ =
 ∞
 X
 m= ¯m
@@ -10267,8 +10267,8 @@ m=1
 x2m
 m
 =
-ln(1 −x2)
- −
+ln(1 −x2)
+ −
 ¯m−1
 X
 m=1
@@ -10289,11 +10289,11 @@ Resta da dimostrare che
 A questo scopo torniamo a considerare le relazioni ricorrenti, che
 per m ≥¯m implicano
 |am+1| = |am|
-
+
 1 −
 λ
 2m(2m + 1)
-
+
 .
 Poniamo
 |am| = eαm ,
@@ -10303,11 +10303,11 @@ Dobbiamo ora dimostrare che esiste un numero finito η = ln ε tale che, per ogn
 αm > η .
 Infatti prendendo il logaritmo delle equazioni ricorrenti per gli |am| otteniamo
 αm+1 = αm + ln
-
+
 1 −
 λ
 2m(2m + 1)
-
+
 ,
 sicché per n ≥¯m
 αn = α ¯m +
@@ -10315,11 +10315,11 @@ n
 X
 m= ¯m+1
 ln
-
+
 1 −
 λ
 2m(2m + 1)
-
+
 .
 Per ogni n finito αn è dunque finito (si ricordi che per m ≥¯m l’argomento del logaritmo è
 positivo e minore di 1); l’esistenza di un numero (negativo ma) finito η che minorizza tutti gli
@@ -10328,11 +10328,11 @@ positivo e minore di 1); l’esistenza di un numero (negativo ma) finito η che 
 X
 m= ¯m
 ln
-
+
 1 −
 λ
 2m(2m + 1)
-
+
 = finito.
 Per discutere la convergenza di questa serie numerica basta come è noto considerare il compor-
 tamento dei coefficienti per m grande. Usando la formula
@@ -10341,11 +10341,11 @@ t→0 {[ln(1 −t)] /t} = −1 ,
 vediamo dunque che la convergenza della serie sopra scritta è assicurata se converge la serie che
 si ottiene rimpiazzando
 ln
-
+
 1 −
 λ
 2m(2m + 1)
-
+
 con
 −λ
 2m(2m + 1) ,
@@ -10365,9 +10365,9 @@ n= ¯m
 esista una costante p > 0 tale che
 lim
 n→∞
-
+
 n1+p βn
-
+
 = 0 .
 142
 
@@ -10427,8 +10427,8 @@ Per questi polinomi si hanno inoltre le seguenti proprietà:
 Formula di Rodrigues:
 Pn(x) = (2nn!)−1 dn
 dxn
- x2 −1
-n .
+x2 −1
+n .
 (25)
 Relazioni ricorrenti
 (n + 1) Pn+1(x) = (2n + 1) x Pn(x) −n Pn−1(x) .
@@ -10463,7 +10463,7 @@ Funzione generatrice:
 X
 n=0
 Pn(x) zn =
- 1 −2xz + z2−1
+1 −2xz + z2−1
 2 ,
 −1 < x < 1, |z| < 1 .
 (29)
@@ -10539,8 +10539,8 @@ PROBLEMI DI STURM-LIOUVILLE. ESEMPI (POLINOMI DI LEGENDRE E DI
 LAGUERRE).
 con
 cn =
- √π 2n n!
-−1
+√π 2n n!
+−1
 Z +∞
 −∞
 dx e−1
@@ -10557,8 +10557,8 @@ n=0
 γn Hn(x) ,
 (41)
 γn =
- √π 2n n!
-−1
+√π 2n n!
+−1
 Z +∞
 −∞
 dx e−x2 Hn(x) g(x) .
@@ -10566,13 +10566,13 @@ dx e−x2 Hn(x) g(x) .
 Consideriamo infine un terzo esempio di problema di Sturm-Liouville singolare, in cui la sin-
 golarità è dovuta tanto all’annullarsi del coefficiente p(x) (ad un estremo), quanto alla estensione
 infinita dell’intervallo. Tale problema è caratterizzato dalla equazione differenziale
-
+
 x y′(x)
-′ +
-  1
+′ +
+ 1
 2 −1
 4x
-
+
 y + λ y = 0 ,
 (42)
 corrispondente alla (1) con
@@ -10626,8 +10626,8 @@ Per i polinomi di Laguerre si hanno le seguenti proprietà:
 Formula di Rodrigues
 Ln(x) = (n!)−1 ex dn
 dxn
-
-xne−x
+
+xne−x
 .
 (47)
 Equazione differenziale
@@ -10649,9 +10649,9 @@ Funzione generatrice
 X
 n=0
 Ln(x) zn = (1 −z)−1 exp
- xz
+ xz
 1 −z
-
+
 ,
 |z| < 1 .
 (51)
@@ -10700,14 +10700,14 @@ Ricordiamo anzitutto che si può passare dalla equazione (1) ad equazioni analog
 diversi coefficienti, effettuando un cambiamento nella variabile indipendente e/o nella variabile
 dipendente (cioè nella funzione incognita). In particolare dalla equazione (1), che riportiamo
 qui,
-
+
 p(x) y′(x)
-′ −q(x) y(x) + λ ρ(x) y(x) = 0 ,
+′ −q(x) y(x) + λ ρ(x) y(x) = 0 ,
 (1)
 si può passare alla equazione
-
+
 ¯p(x) z′(x)
-′ −¯q(x) z(x) + λ z(x) = 0 ,
+′ −¯q(x) z(x) + λ z(x) = 0 ,
 (55)
 avendo posto
 z(x) = [ρ(x)]
@@ -10719,11 +10719,11 @@ e con
 (57)
 ¯q(x) = q(x)/ρ(x) −[ρ(x)]−1
 2
-
+
 p(x) d
 dx [ρ(x)]−1
 2
-′
+′
 (58a)
 = q(x)/ρ(x) + 1
 2 ρ−3(x)
@@ -10741,9 +10741,9 @@ x dalla relazione
 t =
 Z x
 ¯x
-dx′ 
+dx′ 
 p(x′)/ρ(x′)
- 1
+ 1
 2 .
 (60)
 In questa relazione ¯x è a priori arbitrario (una scelta conveniente è ¯x = 0, con la quale t = 0
@@ -10758,9 +10758,9 @@ dove la x che appare a secondo membro va a sua volta pensata come funzione di t,
 quella funzione che si ottiene invertendo la (60). Quanto al nuovo coefficiente ˜q(t), esso è dato
 dalla formula
 ˜q(t) = q(x)/ρ(x) −
-
+
 p(x) φ′(x)
-′ .
+′ .
 [ρ(x) φ(x)] ,
 (62)
 con
@@ -10805,18 +10805,18 @@ dx f∗(x) L g(x)
 Z β
 α
 dx f∗(x)
-
+
 −d
 dx
-
+
 p(x) d
 dx
-
+
 + q(x)
-
+
 g(x)
 = −f∗(x) p(x) g′(x)
-
+
 β
 α +
 Z β
@@ -10826,17 +10826,17 @@ dx f∗(x) ·
 d
 dx
 ·
-
+
 p(x) d
 dx
-
+
 + q(x)
 o
 g(x)
 =
-
+
 −f∗(x) p(x) g′(x) + f∗′(x) p(x) g(x)
-	 
+	 
 β
 α+
 +
@@ -10858,22 +10858,22 @@ dx
 )
 g(x)
 =
-
+
 p(x)
-
+
 −f∗(x) g′(x) + f∗′(x) g(x)
-	 
+	 
 β
 α +
 Z β
 α
 dx g(x) L f∗(x)
 =
-
+
 p(x)
-
+
 −f∗(x) g′(x) + f∗′(x) g(x)
-	 
+	 
 β
 α + (L f, g)
 = (L+f, g) .
@@ -10887,13 +10887,13 @@ che l’operatore L è hermitiano,
 L = L+,
 se per tutte le funzioni dello spazio funzionale vale la proprietà
 p(α)
-
+
 f∗(α) g′(α) −f∗′(α) g(α)
-
+
 = p(β)
-
+
 f∗(β) g′(β) −f∗′(β) g(β)
-
+
 .
 È facile verificare che in tutti i casi considerati in questa sezione (compresi tutti quelli del-
 l’esercizio 1), le condizioni agli estremi sono appunto tali da far sì che questa condizione sia
@@ -11068,9 +11068,9 @@ dx e−x xn = n!
 ).
 15. Si consideri il problema di Sturm-Liouville caratterizzato dalla equazione differenziale
 singolare
-
+
 (1 −x2) y′(x)
-′ −p2(1 −x2)−1 y(x) + λ y(x) = 0 ,
+′ −p2(1 −x2)−1 y(x) + λ y(x) = 0 ,
 con p intero positivo, p = 1, 2, 3, . . ., e dalla condizione che la soluzione y(x) si man-
 tenga limitata in tutto l’intervallo −1 ≤x ≤1 (compresi gli estremi). Si dimostri che
 gli autovalori di questo problema sono dati dalla formula
@@ -11122,9 +11122,9 @@ dx e−x xn = n!
 ).
 * Si consideri il problema di Sturm-Liouville caratterizzato dalla equazione differenziale
 singolare
-
+
 (1 −x2) y′(x)
-′ −p2 (1 −x2)−1 y(x) + λ y(x) = 0,
+′ −p2 (1 −x2)−1 y(x) + λ y(x) = 0,
 con p intero positivo, p = 1, 2, 3, . . ., e dalla condizione che la soluzione y(x) si man-
 tenga limitata in tutto l’intervallo −1 ≤x ≤1 (compresi gli estremi). Si dimostri che
 gli autovalori di questo problema sono dati dalla formula
@@ -11177,9 +11177,9 @@ dx e−x xn = n!
 ).
 (h) Si consideri il problema di Sturm-Liouville caratterizzato dalla equazione differenziale
 singolare
-
+
 (1 −x2) y′(x)
-′ −p2 (1 −x2)−1 y(x) + λ y(x) = 0,
+′ −p2 (1 −x2)−1 y(x) + λ y(x) = 0,
 con p intero positivo, p = 1, 2, 3, . . ., e dalla condizione che la soluzione y(x) si man-
 tenga limitata in tutto l’intervallo −1 ≤x ≤1 (compresi gli estremi). Si dimostri che
 gli autovalori di questo problema sono dati dalla formula
@@ -11219,28 +11219,28 @@ i
 = jℓ−1(y) ,
 (2ℓ+ 1) jℓ(y) = y [jℓ+1(y) −jℓ−1(y)] ,
 jℓ(y) = yℓ
-
+
 −1
 y
 d
 dy
-ℓ
+ℓ
 j0(y) = yℓ
-
+
 −1
 y
 d
 dy
-ℓsin y
+ℓsin y
 y
 ,
-
+
 y2 j′
 ℓ(y)
-′ +
-
+′ +
+
 y2 −ℓ(ℓ+ 1)
-
+
 jℓ(y) = 0 ,
 jℓ(y) = yℓ
 ∞
@@ -11278,10 +11278,10 @@ SPAZI FUNZIONALI, OPERATORI DIFF. LINEARI, STURM-LIOUVILLE
 Si osservi che una rappresentazione equivalente (ma per certi aspetti più conveniente)
 è
 y jℓ(y) = sin
-
+
 y −ℓπ
 2
-
+
 ·
 [ℓ/2]
 X
@@ -11289,10 +11289,10 @@ n=0
 (−)n(2y)−2n(ℓ+ 2n)!
 (2n)! (ℓ−2n)!
 + cos
-
+
 y −ℓπ
 2
- [(ℓ−1)/2]
+ [(ℓ−1)/2]
 X
 n=0
 (−)n(2y)−2n−1(ℓ+ 2n + 1)!
@@ -11300,29 +11300,29 @@ n=0
 ,
 e che questa rappresentazione implica che, per y ≫ℓ2,
 jℓ(y) = y−1 sin
-
+
 y −ℓπ
 2
- 
+ 
 1 + O
-
-(ℓ2/y)2	
+
+(ℓ2/y)2	
 + 1
 2 ℓ(ℓ+ 1) y−2 cos
-
+
 y −ℓπ
 2
- 
+ 
 1 + O
-
-(ℓ2/y)2	
+
+(ℓ2/y)2	
 .
 In particolare
 j0(y) = y−1 sin y ,
 j1(y) = y−2 sin y −y−1 cos y ,
 j2(y) =
-
-3y−3 −y−1
+
+3y−3 −y−1
 sin y −3y−2 cos y .
 (Suggerimenti: per dimostrare la prima formula, che fornisce la rappresentazione in-
 tegrale delle funzioni sferiche di Bessel, si usino la (32) e la (25), e si integri ripe-
@@ -11332,9 +11332,9 @@ rappresentazione integrale).
 Z ∞
 0
 dx jℓ(x) jℓ′(x) =
-
+
 ℓ(ℓ+ 1) −ℓ′(ℓ+ 1)
-−1 sin
+−1 sin
 h
 (ℓ−ℓ′)π
 2
@@ -11651,8 +11651,8 @@ A =
 X
 n=1
 Pn
- an −¯A
-2 .
+an −¯A
+2 .
 (4.9.5)
 Dimostrazione (usando la notazione e i risultati della sezione precedente).
 ∆2
@@ -11690,8 +11690,8 @@ to degli scarti quadratici medi di due osservabili A e B nello stesso stato:
 A ∆2
 B ≥1
 4
- ¯C
-2 ,
+ ¯C
+2 ,
 (6)
 dove C è il commutatore di A e B,
 C = [A, B] ,
@@ -11747,28 +11747,28 @@ esempio
 (∆A∆B) = (stato| ∆A∆B |stato)
 ).
 Dunque
-(∆A∆B)
-
+(∆A∆B)
+
 2
 = 1
 4
-(∆A∆B + ∆B∆A)
-
+(∆A∆B + ∆B∆A)
+
 2
 + 1
 4
- ¯C
-2 .
+ ¯C
+2 .
 Combinando questi risultati otteniamo
 ∆2
 A ∆2
 B ≥1
 4
- ¯C
-2 + 1
+ ¯C
+2 + 1
 4
-(∆A∆B + ∆B∆A)
-
+(∆A∆B + ∆B∆A)
+
 2
 ,
 e pertanto a fortiori varrà la (6), c.v.d.
@@ -11803,8 +11803,8 @@ Esercizi
 1. Si dimostri la formula
 ∆2
 A = A2 −
-  ¯A
-2
+ ¯A
+2
 con ∆2
 A definito dalla (3).
 2. Nello spazio delle funzioni normalizzabili con le loro derivate nell’intervallo −∞< x < +∞,
@@ -11812,7 +11812,7 @@ gli operatori x e p = −i d/dx sono hermitiani, e il loro commutatore vale [x, 
 calcolino i valori medi di x e p, e i rispettivi scarti quadratici medi, nello stato descritto
 dalla funzione (normalizzata)
 ψ(x) = (α/√π)1/2 exp
-
+
 −1
 2α2(x −x0)2 + i β0 x
 	
@@ -11945,9 +11945,9 @@ E = (k/m)1/2 ℏλ = ω ℏλ .
 Se ne conclude immediatamente che i livelli energetici di questo problema sono dati dalla
 formula
 En = ℏω
- n + 1
+n + 1
 2
-
+
 ,
 n = 0, 1, 2, 3, . . . ,
 (8)
@@ -11961,8 +11961,8 @@ dove
 4 (n!)−1
 2 2−n
 2 Hn(αx) exp
- −1
-2α2x2
+−1
+2α2x2
 ,
 (10)
 con
@@ -12044,8 +12044,8 @@ che sia limitato inferiormente e che goda della proprietà (12), o meglio della 
 stringente
 lim
 x→±∞
-x1+ε V (x)
- = 0 ,
+x1+ε V (x)
+ = 0 ,
 ε > 0 ,
 (14)
 gli autovalori negativi dell’hamiltoniana sono discreti ed in numero finito; si può inoltre dimo-
@@ -12074,8 +12074,8 @@ SPETTRO DISCRETO E CONTINUO
 con
 ν = 1
 2
-h −8m V0 a2 ℏ−2 + 1
-1/2 −1
+h−8m V0 a2 ℏ−2 + 1
+1/2 −1
 i
 ,
 (18)
@@ -12329,9 +12329,9 @@ dovrà essere piccola; ed il valore di questa quantità è una misura di quanto 
 (a parte la normalizzazione) da |a1⟩.
 Ma d’altra parte si dimostra facilmente che
 (u | A | u)/(u | u) = a1 +
-
+
 ε2/(1 + ε2)
-
+
 [(|A|) −a1] ,
 (19)
 che mostra appunto come (u | A | u)/(u | u) differisce da a1 solo per termini di ordine ε2.
@@ -12342,12 +12342,12 @@ nonché
 (u | A | u) = a1 |c1|2 + |η|2 (|A|) .
 Pertanto
 (u | A | u)/(u | u) =
-
+
 a1 |c1|2 + |η|2 (|A|)
-
+
 /
-
-|c1|2 + |η|2
+
+|c1|2 + |η|2
 ,
 e da questa segue, con elementari passaggi, la (19), c.v.d.
 Si noti per inciso che la (19) costituisce una ulteriore dimostrazione del teorema di Ritz, se
@@ -12465,32 +12465,32 @@ C = [A, B]
 implica
 C† = −C .
 2-6
- d
+ d
 dx, x
-
+
 = I.
 2-7
- d
+ d
 dx, F(x)
-
+
 = F ′(x).
 2-8
 H = 1
 2
-
+
 −d2
 dx2 + x2 −1
-
+
 ,
 [A, A†] = I,
 [H, A] = −A,
 [H, A†] = A†.
 2-9
 exp
-
+
 α d
 dx
-
+
 f(x) =
 ∞
 X
@@ -12573,8 +12573,8 @@ e−x2
 (per la (52b))
 = ex2 e−tD e−x2
 = ex2 exp
-
-−(x −t)2
+
+−(x −t)2
 (vedi l’esercizio 2-9)
 = e2xt−t2 .
 In questi passaggi, per comodità di scrittura, si è indicato con D l’operatore d/dx.
@@ -12652,17 +12652,17 @@ Z +∞
 dx e−x2 Hn−2ℓ(x) Hm(x)
 =
 n! m! 2m√π
-2n 
+2n 
 (n
 2 −m)!
-
+
 m! ,
 che corrisponde per l’appunto alla formula che si voleva dimostrare.
 5-9
 exp
-
+
 −(t + y)2 + 2x(t + y)
-
+
 =
 ∞
 X
@@ -12679,9 +12679,9 @@ Hℓ(x)
 X
 m=0
 tℓ−mym
- ℓ
+ ℓ
 m
-
+
 (usando la formula della potenza di un binom
 =
 ∞
@@ -12707,21 +12707,21 @@ m!
 ,
 (ℓ−m = n)
 exp
-
+
 −(t + y)2 + 2x(t + y)
-
+
 = exp
-
+
 −y2 + 2xy
-
+
 exp
-
+
 −t2 + 2t(x −y)
-
+
 = exp
-
+
 −y2 + 2xy
- ∞
+ ∞
 X
 n=0
 tn
@@ -12731,9 +12731,9 @@ Identificando i coefficienti di tn nelle due espressioni date si ottiene il risu
 vedi l’esercizio 5-2.
 5-11
 exp
-
+
 −t2 + 2(x + y) t
-
+
 =
 ∞
 X
@@ -12741,63 +12741,63 @@ n=0
 tn
 n! Hn(x + y) ,
 exp
-
+
 −1
 2t2 + 2x t
-
+
 exp
-
+
 −1
 2t2 + 2y t
-
+
 = exp
-
+
 −
-
+
 t
 √
 2
-2
+2
 + 2
 √
 2 x
 t
 √
 2
-
+
 exp
-
+
 −
-
+
 t
 √
 2
-2
+2
 + 2
 √
 2 y
 t
 √
 2
-
+
 =
 ∞
 X
 m=0
- t
+ t
 √
 2
-m Hm(
+m Hm(
 √
 2 x)
 m!
 ∞
 X
 ℓ=0
- t
+ t
 √
 2
-ℓHℓ(
+ℓHℓ(
 √
 2 y)
 ℓ!
@@ -12833,11 +12833,11 @@ p
 Y
 s=1
 exp
-
+
 −α2
 s
 α2 t2 + 2t αsxs
-
+
 con
 α2 =
 p
@@ -12869,17 +12869,17 @@ xnm = (n | x | m) =
 1
 √
 2
- √m δn,m−1 + √n δm,n−1
-
+√m δn,m−1 + √n δm,n−1
+
 ,
 Dnm =
-
+
 n
-
+
 d
 dx
- m
-
+ m
+
 =
 1
 √
@@ -12888,66 +12888,66 @@ dx
 1
 √
 2
- √m δn,m−1 −√n δm,n−1
-
+√m δn,m−1 −√n δm,n−1
+
 ,
 (x2)nm = (n | x2 | m) = xnℓxℓm
 = 1
 2
-p
+p
 (n + 1)m δn,m−2 +
 p
 (m + 1)n δm,n−2 +
-√nm +
+√nm +
 p
 (n + 1)(m + 1)
-
+
 δn,m
-
+
 ,
 (D2)nm =
-
+
 n
-
+
 d2
 dx2
- m
-
+ m
+
 = DnℓDℓm
 = 1
 2
-p
+p
 (n + 1)m δn,m−2 +
 p
 (m + 1)n δm,n−2 −
-√nm +
+√nm +
 p
 (n + 1)(m + 1)
-
+
 δn,m
-
+
 .
 6-4
 tr
-
+
 exp
-
+
 −β
 2
-
+
 −d2
 dx2 + x2
-
+
 =
 ∞
 X
 n=0
 exp
-
+
 −β
- n + 1
+n + 1
 2
-	
+	
 = e−β/2 h
 1 −e−βi−1
 (serie geometrica)
@@ -12956,16 +12956,16 @@ exp
 det
 "
 α
-. d2
+. d2
 dx2 −x2
-2#
+2#
 =
 ∞
 Y
 n=0
 exp
-
-α/(2n + 1)2
+
+α/(2n + 1)2
 = exp
 "
 α
@@ -12975,9 +12975,9 @@ n=0
 (2n + 1)−2
 #
 = exp
-
+
 απ2/8
-
+
 .
 7-1 Tutti, salvo in qualche caso eccezionale la non degenerazione degli autovalori (vedi l’esercizio
 7-3).
@@ -13107,8 +13107,8 @@ dx2n (x2 −1)n = (2n)! .
 Pertanto
 Z 1
 −1
-dx Pn(x) Pm(x) = δnm (−)n  2nn!
-−2(2n)!
+dx Pn(x) Pm(x) = δnm (−)n 2nn!
+−2(2n)!
 Z 1
 −1
 dx (x2 −1)n .
@@ -13127,8 +13127,8 @@ sicché
 Z 1
 −1
 dx Pn(x) Pm(x) = δnm 2
- 2nn!
-2(2n)! (2n)!! / (2n + 1)!! .
+2nn!
+2(2n)! (2n)!! / (2n + 1)!! .
 Il risultato richiesto segue usando le ovvie formule
 (2n)!! = 2n n! ,
 (2n + 1)!! (2n)!! = (2n + 1)! .
@@ -13151,17 +13151,17 @@ i
 ,
 (x2)nm = [(2n + 1)(2m + 1)]−1
 2
-n(n −1)
+n(n −1)
 2n −1 δn,m+2 + m(m −1)
 2n −1
 δm,n+2 +
-
+
 n2
 2n −1 + (n + 1)2
 2n + 3
-
+
 δn,m
-
+
 ,
 Dnm = [(2n + 1)(2m + 1)]1/2
 se m = n + 1, n + 3, n + 5, . . . ,
@@ -13175,44 +13175,44 @@ nell’esercizio precedente. Oltre alle equazioni indicate, si è naturalmente a
 7-13
 V (r, θ) = q1/r1 + q2/r2
 = q1/
-
+
 r2 + d2 + 2rd cos θ
- 1
+ 1
 2 + q2/
-
+
 r2 + d2 −2rd cos θ
- 1
+ 1
 2
 = (q1/d)
-
-1 + 2(r/d) cos θ + (r/d)2−1
+
+1 + 2(r/d) cos θ + (r/d)2−1
 2 + (q2/d)
-
-1 −2(r/d) cos θ + (r/d)2−1
+
+1 −2(r/d) cos θ + (r/d)2−1
 2
 = (q1/r)
-
-1 + 2(d/r) cos θ + (d/r)2−1
+
+1 + 2(d/r) cos θ + (d/r)2−1
 2 + (q2/r)
-
-1 −2(d/r) cos θ + (d/r)2−1
+
+1 −2(d/r) cos θ + (d/r)2−1
 2
 V (r, θ) = d−1
 ∞
 X
 n=0
-
+
 q2 + (−)nq1
-
+
 (r/d)nPn(cos θ),
 r < d,
 V (r, θ) = r−1
 ∞
 X
 n=0
-
+
 q2 + (−)nq1
-
+
 (d/r)nPn(cos θ),
 r > d.
 Per q1 = −q, q2 = q:
@@ -13234,11 +13234,11 @@ V (r, θ) = (µ/r2) P1(cos θ) = µ cos θ/r2.
 Z 1
 −1
 dx Pn,p(x) Pm,p(x) = δn,m
-
+
 2/(2n + 1)
- 
+ 
 (n + p)! / (n −p)!
-
+
 .
 7-16 Definizione:
 eixy =
@@ -13258,15 +13258,15 @@ dx eixy Pℓ(x).
 CAPITOLO 4.
 SPAZI FUNZIONALI, OPERATORI DIFF. LINEARI, STURM-LIOUVILLE
 = [(2ℓ+ 1)/2]
- 2ℓℓ!
-−1
+2ℓℓ!
+−1
 Z 1
 −1
 dx eixy dℓ
 dxℓ(x2 −1)ℓ
 = [(2ℓ+ 1)/2]
- 2ℓℓ!
-−1(−)ℓ(iy)ℓ
+2ℓℓ!
+−1(−)ℓ(iy)ℓ
 Z 1
 −1
 dx eixy(x2 −1)ℓ.
@@ -13276,9 +13276,9 @@ jℓ(y) = (2ℓℓ!)−1 yℓ1
 Z 1
 −1
 dx
-
+
 cos(xy) + i sin(xy)
-
+
 (1 −x2)ℓ
 = (2ℓℓ!)−1 yℓ
 Z 1
@@ -13297,9 +13297,9 @@ dθ (cos θ)2ℓ+1 cos[y sin θ]
 e poi integrando una volta per parti in dθ si ottiene
 d
 dy
-
+
 y−ℓjℓ(y)
-
+
 = −(2ℓℓ!)−1
 Z π/2
 0
@@ -13312,9 +13312,9 @@ Z π/2
 dθ (cos θ)2ℓ+2 d
 dθ sin[y sin θ]
 = −
-
+
 2ℓ+1(ℓ+ 1)!
-−1 y
+−1 y
 Z π/2
 0
 dθ (cos θ)2ℓ+3 cos[y sin θ]
@@ -13322,9 +13322,9 @@ dθ (cos θ)2ℓ+3 cos[y sin θ]
 Analogamente:
 d
 dy
-
+
 yℓ+1jℓ(y)
-
+
 = (2ℓ+ 1) yℓjℓ(y) −(2ℓℓ!)−1 y2ℓ+1
 Z π/2
 0
@@ -13334,8 +13334,8 @@ Z π/2
 0
 dθ cos[y sin θ] d
 dθ
-
-sin θ (cos θ)ℓ
+
+sin θ (cos θ)ℓ
 = (2ℓ+ 1) yℓjℓ(y) −yℓjℓ(y) + (2ℓℓ!)−1 y2ℓ2ℓ
 Z π/2
 0
@@ -13364,16 +13364,16 @@ dy j0(y) ,
 PRINCIPIO DI RITZ
 j2(y) = −y d
 dy
-
+
 y−1 j1(y)
-
+
 = y2
-
+
 −1
 y
 d
 dy
-2
+2
 j0(y) ,
 etc. La espressione
 j0(y) = sin y
@@ -13387,9 +13387,9 @@ La equazione differenziale
 y2 j′′
 ℓ(y) + 2y j′
 ℓ(y) +
-
+
 y2 −ℓ(ℓ+ 1)
-
+
 jℓ(y) = 0
 segue da
 jℓ(y) = −yℓ−1 d
@@ -13399,15 +13399,15 @@ y−(ℓ−1) jℓ−1(y)
 i
 = −yℓ−1 d
 dy
-
+
 y−(ℓ−1) y−(ℓ+1) d
 dy
 h
 yℓ+1 jℓ(y)
-i
+i
 = −yℓ−1 d
 dy
-
+
 y−2ℓd
 dy
 h
@@ -13442,17 +13442,17 @@ y d{sin[y sin θ]}
 oppure
 dθ cos θ sin[y sin θ] = −1
 y d{cos[y sin θ]}
-
+
 .
 7-17
-
+
 x2 j′
 ℓ(x)
-′ + x2 jℓ(x) = ℓ(ℓ+ 1) jℓ(x) ,
-
+′ + x2 jℓ(x) = ℓ(ℓ+ 1) jℓ(x) ,
+
 x2 j′
 ℓ′(x)
-′ + x2 jℓ′(x) = ℓ′(ℓ′ + 1) jℓ′(x) .
+′ + x2 jℓ′(x) = ℓ′(ℓ′ + 1) jℓ′(x) .
 Moltiplicando la prima per jℓ′(x) e la seconda per jℓ(x), sottraendo l’una dall’altra e
 integrando da 0 ad ∞si ottiene
 Z ∞
@@ -13460,18 +13460,18 @@ Z ∞
 dx
 n
 jℓ′(x)
-
+
 x2j′
 ℓ(x)
-′ −jℓ(x)
-
+′ −jℓ(x)
+
 x2j′
 ℓ′(x)
-′o
+′o
 =
-
+
 ℓ(ℓ+ 1) −ℓ′(ℓ′ + 1)
- Z ∞
+ Z ∞
 0
 dx jℓ(x) jℓ′(x) .
 179
@@ -13482,18 +13482,18 @@ CAPITOLO 4.
 SPAZI FUNZIONALI, OPERATORI DIFF. LINEARI, STURM-LIOUVILLE
 Integrando per parti a primo membro (una volta in ciascun termine) e approfittando della
 cancellazione si ottiene
-
-x2
+
+x2
 jℓ′(x) j′
 ℓ(x) −jℓ(x) j′
 ℓ′(x)
-	 
+	 
 ∞
 0
 =
-
+
 ℓ(ℓ+ 1) −ℓ′(ℓ′ + 1)
- Z ∞
+ Z ∞
 0
 dx jℓ(x) jℓ′(x) .
 Per x = 0, il contributo a primo membro è nullo. Per x →∞, basta tenere il termine
@@ -13529,13 +13529,13 @@ j2(π/2) = 3(π/2)−3 −(π/2)−1 ≈0.13 ,
 j4(π/2) = 105(π/2)−5−45(π/2)−3+(π/2)−1 ≈
 1
 945(π/2)4
-
+
 1 −(π/2)2
 22
 + (π/2)4
 532
 + · · ·
-
+
 ≈0.005 .
 Si osservi che per calcolare jℓ(x) per ℓ2 ≫x conviene usare la formula
 jℓ(x) =
@@ -13581,23 +13581,23 @@ n
 n
 X
 m=0
-n + α
+n + α
 m
-n + β
+n + β
 n −m
-
+
 (x −1)n−m(x + 1)m
 con
-p
+p
 q
-
+
 =
 p!
 q! (p −q)! ;
 e in particolare, per n, m interi nonnegativi, n ≥m e α reale
-n + α
+n + α
 m
-
+
 = (n + α)(n + α −1) · · · (n + α −m + 1)
 m!
 ;
@@ -13621,9 +13621,9 @@ n! (n + α + β)! ;
 dx2 P (α,β)
 n
 (x)+
-
+
 β −α−(α+β +2)x
- d
+ d
 dxP (α,β)
 n
 (x)+n(n+α+β +1) P (α,β)
@@ -13632,9 +13632,9 @@ n
 2(n + 1)(n + α + β + 1)(2n + α + β) P (α,β)
 n+1 (x) =
 (2n+α+β+1)
-
+
 (2n+α+β)(2n+α+β+2) x+(α+β)(α−β)
-
+
 P (α,β)
 n
 (x)−2(n+α)(n+β)(2n+α+β+2) P (α,β)
@@ -13643,9 +13643,9 @@ n−1 (
 dxP (α,β)
 n
 (x) = n
-
+
 α−β(2n+α+β) x
-
+
 P (α,β)
 n
 (x)+2(n+α)(n+β) P (α,β)
@@ -13708,9 +13708,9 @@ dx x e−α2(x−x0)2
 Z +∞
 −∞
 dt
- x0 + t
+x0 + t
 α
-
+
 e−t2
 (α(x −x0) = t)
 = x0 ;
@@ -13718,17 +13718,17 @@ e−t2
 Z +∞
 −∞
 dx
-
+
 iα2(x −x0) + p0
-
+
 e−α2(x−x0)2
 = (1/√π)
 Z +∞
 −∞
 dt
-
+
 iαt + p0
-
+
 e−t2
 = p0 ;
 ∆2x = (α/√π)
@@ -13744,16 +13744,16 @@ dx e−α2(x−x0)2
 = −(α/√π)
 d
 d(α2)
- √π/α
-
+√π/α
+
 = 1/(2α2) ;
 ∆2p = (p −p0)2 = α2 −α4 ∆2x = 1
 2α2 ;
 (il secondo passaggio segue dalla formula
 (p −p0)2 e−1
 2 α2(x−x0)2+ip0x =
-
-α2 −α4(x −x0)2
+
+α2 −α4(x −x0)2
 e−1
 2 α2(x−x0)2+ip0x ,
 che a sua volta segue dalla definizione dell’operatore hermitiano p). Dunque
@@ -13762,7 +13762,7 @@ che a sua volta segue dalla definizione dell’operatore hermitiano p). Dunque
 sicché in questo caso particolare il teorema di Heisenberg vale col segno di uguaglianza.
 9.3
 ψ(x) = (γ/π)1/4 exp
-
+
 −1
 2γ(x −¯x)2 + i¯p x + iφ
 	
@@ -13772,10 +13772,10 @@ Re γ > 0;
 Infatti affinché possa valere il segno di uguaglianza il ket ∆∆|stato⟩deve essere proporzio-
 nale al ket ∆B|stato⟩(vedi la dimostrazione della (6)). Nel nostro caso questo corrisponde
 alla equazione
-
+
 −i d
 dx −¯p
-
+
 ψ(x) = β (x −¯x) ψ(x) ,
 con β, ¯x e ¯p costanti, la prima arbitraria, le altre legate a ψ(x) da
 ¯p = −i
@@ -13798,16 +13798,16 @@ Z +∞
 dx |ψ(x)|2 = 1 .
 La più generale soluzione della equazione differenziale su scritta è
 ψ(x) = c exp
- i
+ i
 2β(x −¯x)2 + i¯p x
-
+
 ,
 ovvero
 ψ(x) = c exp
-
+
 −1
 2γ(x −¯x)2 + i¯p x
-
+
 avendo posto γ = −iβ. La condizione Re γ > 0 è richiesta affinché la ψ(x) sia normaliz-
 zabile; se vale tale condizione, la costante di normalizzazione c si ottiene facilmente e vale
 eiφ(γ/π)1/4 con φ arbitraria (reale). È inoltre facile verificare che le quantità reali ¯x e ¯p
@@ -13851,9 +13851,9 @@ Pertanto nello stato corrispondente all’autovalore n + 1
 ∆2x = ∆2p = n + 1
 2 ,
 ∆2x ∆2p =
- n + 1
+n + 1
 2
-2 ≥1
+2 ≥1
 4 .
 10.1 I livelli energetici corrispondenti ad autofunzioni normalizzabili sono dati dalla formula
 En = −ℏ2α2
@@ -13949,8 +13949,8 @@ Le energie esatte degli stati ad energia negativa sono date dalle radici della e
 trascendente
 J′
 2√−η
- 2√ν
-
+2√ν
+
 = 0 ,
 dove J′
 ν(z) indica la derivata prima rispetto all’argomento z della funzione di Bessel di
@@ -13958,16 +13958,16 @@ ordine ν (questa equazione segue dalla condizione che la soluzione della equazi
 dinger sia continua, con la sua derivata, in x = 0). Pertanto il valore esatto di νn tale che,
 per ν > νn, esistono n stati ad energia negativa, è
 νn =
- j′
+j′
 0,n/2
-2 ,
+2 ,
 con j′
 0,n definito dalla equazione
 J′
 0
- j′
+j′
 0,n
-
+
 = 0
 (l’indice n denota le successive radici di questa equazione). Si trova (vedi per esempio
 l’Handbook of Mathematical Functions citato nell’enunciato dell’esercizio, a p. 411)
@@ -13980,9 +13980,9 @@ j′
 dunque il valore esatto di Vm è
 Vm = −ℏ2µ2
 2m
-3.832
+3.832
 2
-2
+2
 = −ℏ2µ2
 2m 3.671 .
 Il valore approssimato ottenuto è abbastanza lontano da quello esatto; ciò accade perché
@@ -14092,11 +14092,11 @@ c′
 ∞
 X
 n=1
-
+
 c′
 n cos(nx) + s′
 n sin(nx)
-
+
 ,
 (6)
 con
@@ -14132,18 +14132,18 @@ f(x) = c0 +
 ∞
 X
 n=1
-
+
 cn cos(nx) + sn sin(nx)
-
+
 ,
 (8a)
 =
 ∞
 X
 n=0
-
+
 cn cos(nx) + sn sin(nx)
-
+
 ,
 (8b)
 con
@@ -14178,16 +14178,16 @@ f(x) = fp(x) + fd(x) ,
 con
 fp(x) = 1
 2
-
+
 f(x) + f(−x)
-
+
 ,
 (11a)
 fd(x) = 1
 2
-
+
 f(x) −f(−x)
-
+
 ,
 (11b)
 188
@@ -14250,8 +14250,8 @@ dx |f(x)|2 = |c0|2 + 1
 ∞
 X
 n=1
-
-|cn|2 + |sn|2
+
+|cn|2 + |sn|2
 ,
 (15)
 formula che del resto può essere facilmente verificata a partire dalla (8), utilizzando le relazioni
@@ -14283,11 +14283,11 @@ dx F ∗(x) f(x) = C∗
 ∞
 X
 n=1
-
+
 C∗
 n cn + S∗
 n sn
-
+
 .
 (17)
 Dove i coefficienti Cn ed Sn sono legati alla F(x) dalle stesse relazioni, eq. (8) e (9), che legano i
@@ -14342,14 +14342,14 @@ eiz = cos z + i sin z ,
 (22)
 cos z = 1
 2
-
-eiz + e−iz
+
+eiz + e−iz
 ,
 (23a)
 sin z = 1
 2i
-
-eiz −e−iz
+
+eiz −e−iz
 .
 (23b)
 In questa nuova formulazione la formula di Parseval si scrive (con ovvio significato dei simboli)
@@ -14429,9 +14429,9 @@ t2 −n2
 (t2 + n2)2 = 1
 2
 n
-π2
+π2
 sinh(πt)
-−2 −t−2o
+−2 −t−2o
 .
 (Suggerimento: si applichi la formula di Parseval (17) alle due funzioni exp(±tx)).
 * Si dimostrino le formule (valide nell’intervallo −π ≤x ≤π, la seconda in −π < x < π;
@@ -14455,20 +14455,20 @@ n sin(nx) ,
 con
 c(ℓ)
 n = 2(−)ℓπ2ℓ
- d2ℓ
+ d2ℓ
 dt2ℓ
-sin t
+sin t
 t
-
+
 t=nπ
 ,
 s(ℓ)
 n = 2(−)ℓ+1 π2ℓ+1
- d2ℓ+1
+ d2ℓ+1
 dt2ℓ+1
-sin t
+sin t
 t
-
+
 t=nπ
 .
 191
@@ -14492,9 +14492,9 @@ f(x) =
 ∞
 X
 n=0
-
+
 cn cos(nx) + sn sin(nx)
-
+
 ,
 (1)
 con cn ed sn definiti dalle (1–9), non sono in realtà corrette, poiché sembrerebbe implicare che
@@ -14515,10 +14515,10 @@ che la successione di funzioni fn(x), definita nell’intervallo α ≤x ≤β, 
 funzione f(x), definita nello stesso intervallo, se
 lim
 n→∞
-Z β
+Z β
 α
 dx |fn(x) −f(x)|2
-
+
 = 0 ;
 (2)
 diremo che la successione di funzioni fn(x) converge puntualmente (o semplicemente converge)
@@ -14556,9 +14556,9 @@ fn(x) =
 n
 X
 m=0
-
+
 cm cos(mx) + sm sin(mx)
-
+
 .
 (4)
 Diremo che la serie di Fourier converge, o converge in media, se la successione di funzioni fn(x)
@@ -14574,14 +14574,14 @@ n→∞
 Z π
 −π
 dx
-f(x) −
+f(x) −
 n
 X
 m=0
-
+
 cm cos(mx) + sm sin(mx)
-
-
+
+
 2
 
 = 0 ,
@@ -14602,16 +14602,16 @@ f±(x) = lim
 la serie di Fourier della f(x) (cioè la serie a secondo membro della (1), con i coefficienti cn ed sn forniti dalle (
 1
 2
-
+
 f+(x) + f−(x)
-
+
 ;
 e se i due limiti f−(π) e f+(−π) (vedi la (6)) esistono, la serie di Fourier converge, per x = ±π, al valore
 1
 2
-
+
 f−(π) + f+(−π)
-
+
 .
 3
 Se la funzione f(x) è continua nell’intervallo −π ≤x ≤π, in ogni punto si avrà
@@ -14685,9 +14685,9 @@ fn(x) =
 n
 X
 m=0
-
+
 cm cos(mx) + sm sin(mx)
-
+
 ,
 (10)
 per n grande ed x nelle vicinanze di un punto di discontinuità xc. Consideriamo per semplicità il
@@ -14695,9 +14695,9 @@ caso di funzioni reali. Sia f+(x0) il limite della f(x) in x0 da destra, f−(x0
 ¯f(x0) la media aritmetica di questi due valori,
 ¯f(x0) = 1
 2
-
+
 f+(x0) + f−(x0)
-
+
 ,
 (11)
 194
@@ -14714,9 +14714,9 @@ Si può allora dimostrare che, per n sufficientemente grande, la funzione fn(x) 
 comportamento (come funzione di x): nel punto x0 coincide essenzialmente con ¯f(x0); per x > x0,
 raggiunge e poi supera il valore f+(x0) fino ad arrivare, per x ≈x0 + π/n, ad un valore massimo
 circa pari a f+(x0) + 0.09
-
+
 f+(x0) −f−(x0)
-
+
 . Dopodiché cala di nuovo ad un valore dell’ordine di
 f+(x0), anzi un po’ inferiore. È interessante sottolineare che, per n →∞, il valore del massimo di
 fn(x) al di là della discontinuità si mantiene essenzialmente costante, superando il valore f+(x0)
@@ -14797,8 +14797,8 @@ per essi vale la relazione
 ∞
 X
 n=1
-
-|cn|2 + |sn|2
+
+|cn|2 + |sn|2
 = 1
 2π
 Z π
@@ -14827,10 +14827,10 @@ nomi di Riemann e Lebesgue:
 Se la funzione f(x) è assolutamente integrabile nell’intervallo α ≤x ≤β, allora
 lim
 t→∞
-Z β
+Z β
 α
 dx sin(tx + γ) f(x)
-
+
 = 0 ,
 t reale, γ arbitrario.
 (4)
@@ -14843,16 +14843,16 @@ t reale, γ arbitrario.
 Se inoltre la funzione f(x) è doppiamente differenziabile in ogni punto dell’intervallo da α a β, con ambedu
 Z β
 α
-dx sin(tx + γ) f(x) = t−1
+dx sin(tx + γ) f(x) = t−1
 f(α) cos(tα + γ) −f(β) cos(tβ + γ)
-
+
 + o(t−1) .
 (6)
 La notazione
 f(t) = O
-
+
 g(t)
-
+
 indica che esiste un T tale che, per t > T,
 A < f(t)/g(t) < B ,
 196
@@ -14866,9 +14866,9 @@ DELLA SERIE DI FOURIER.
 con A e B costanti finite (potrebbero anche essere nulle); si dice allora che f(t) è dell’ordine di
 g(t) per t che tende ad ∞. La notazione
 f(t) = o
-
+
 g(t)
-
+
 per t →∞, indica invece che
 lim
 t→∞[f(t)/g(t)] = 0 .
@@ -14886,17 +14886,17 @@ dx sin(tx + γ) f(x) .
 (7)
 Le ipotesi del teorema ci permettono di integrare per parti due volte, ottenendo
 I(t) =
-
+
 −t−1 cos(tx + γ) f(x) + t−2 sin(tx + γ) f′(x)
-x=β
+x=β
 x=α −t−2
 Z β
 α
 dx sin(tx + γ) f′′(x) , (8a)
 cioè
-I(t) = t−1
+I(t) = t−1
 cos(tα + γ) f(α) −cos(tβ + γ) f(β)
-
+
 = C/t2
 (8b)
 con
@@ -14916,17 +14916,17 @@ X
 n=0
 t−n−1 h
 cos
- tα + γ + n
+tα + γ + n
 2 π
-
+
 f(n)(α) −cos
- tβ + γ + n
+tβ + γ + n
 2 π
-
+
 f(n)(β)
 i
 + O
- t−N−2
+t−N−2
 ,
 (10)
 in questa formula f (n)(x) indica ovviamente la derivata ennesima della funzione f(x). Il risul-
@@ -14934,30 +14934,30 @@ tato (10) costituisce un importante corollario del teorema di Riemann-Lebesgue, 
 sviluppo asintotico dell’integrale I(t), eq. (7). Questo risultato è particolarmente utile nel caso
 in cui, sussistendo le condizioni richieste per la validità della (10), risulti inoltre
 cos
- tα + γ + n
+tα + γ + n
 2 π
-
+
 f(n)(α) −cos
- tβ + γ + n
+tβ + γ + n
 2 π
-
+
 f(n)(β) = 0
 per n = 0, 1, 2, . . . , m −1 ,
 (11)
 nel qual caso la (10) fornisce, come primo termine dello sviluppo asintotico di I(t) per t →∞,
 I(t) = t−m−1 h
 cos
- tα + γ + m
+tα + γ + m
 2 π
-
+
 f(m)(α) −cos
- tβ + γ + m
+tβ + γ + m
 2 π
-
+
 f(m)(β)
 i
 + O
- t−m−2
+t−m−2
 .
 (12)
 Passiamo ora alla discussione di un altro risultato, cui è anche associato il nome di Riemann.
@@ -14984,9 +14984,9 @@ fn(x) = c0 +
 n
 X
 m=1
-
+
 cm cos(mx) + sm sin(mx)
-
+
 ,
 (13)
 dipende solo dal valore della funzione nel punto x, o tutt’al più in un intorno arbitrariamente
@@ -15002,10 +15002,10 @@ fn(x) = 1
 Z π−x
 −π−x
 dy sin
-
+
 (n + 1
 2)y
-
+
 2 sin(y/2)
 f(x + y) .
 (14)
@@ -15032,10 +15032,10 @@ f(t)
 Z π
 −π
 dt sin
-
+
 (n + 1
 2)(t −x)
-
+
 2 sin[(t −x)/2]
 f(t)
 = 1
@@ -15043,10 +15043,10 @@ f(t)
 Z π−x
 −π−x
 dy sin
-
+
 (n + 1
 2)y
-
+
 2 sin(y/2)
 f(x + y) .
 L’ultimo passaggio, che riproduce l’equazione da dimostrare, è effettuato con la posizione t−x =
@@ -15065,11 +15065,11 @@ eimz
 (z reale)
 = 1
 2 + Re
-n
-eiz −ei(n+1)z
+n
+eiz −ei(n+1)z
 /
-
-1 −eizo
+
+1 −eizo
 (serie geometrica)
 = 1
 2 −Re
@@ -15081,16 +15081,16 @@ eiz/2 −ei(n+ 1
 = 1
 2 −1
 2 + sin
-
+
 (n + 1
 2)z
-
+
 2 sin(z/2)
 = sin
-
+
 (n + 1
 2)z
-
+
 2 sin(z/2)
 .
 198
@@ -15106,10 +15106,10 @@ sin(θ1 + θ2) = sin θ1 cos θ2 + cos θ1 sin θ2 ,
 (15a)
 che implica
 sin
-
+
 (n + 1
 2)y
-
+
 sin(y/2)
 = sin(ny)
 tan(y/2) + cos(ny) ,
@@ -15120,27 +15120,27 @@ fn(x) = 1
 Z π−x
 −π−x
 dy
- sin(ny)
+ sin(ny)
 tan(y/2) + cos(ny)
-
+
 f(x + y) .
 (16)
 Passando ora al limite per n →∞, ed utilizzando il teorema di Riemann-Lebesgue, possiamo
 trascurare il secondo termine a secondo membro, scrivendo dunque
 lim
 n→∞
-
+
 fn(x)
-
+
 = lim
 n→∞
- 1
+ 1
 2π
 Z π−x
 −π−x
 dy sin(ny)
 tan(y/2) f(x + y)
-
+
 .
 (17)
 Indichiamo con ε ed ε′ due quantità piccole quanto si vuole ma positive, e scriviamo
@@ -15165,9 +15165,9 @@ Possiamo applicare il teorema di Riemann-Lebesgue al primo e terzo integrale a s
 membro della (18), sicché in luogo della (17) possiamo scrivere5
 lim
 n→∞
-
+
 fn(x)
-
+
 = lim
 n→∞
 "
@@ -15195,9 +15195,9 @@ tan(y/2) ≈y/2 ,
 ottenendo
 lim
 n→∞
-
+
 fn(x)
-
+
 = lim
 n→∞
 "
@@ -15215,9 +15215,9 @@ Consideriamo ora la funzione nell’intorno di un suo punto di discontinuità x0
 al solito
 lim
 ε→0
-
+
 f(x0 ± |ε|)
-
+
 = f±(x0) .
 (22)
 5Infatti per −π−x ≤y ≤−ε e ε′ ≤y ≤π−x la funzione f(x+y)/ tan(y/2) della variabile y non ha singolarità
@@ -15308,12 +15308,12 @@ z
 e dunque
 lim
 n→∞
-
+
 fn(x0)
-
+
 = 1
 π
-
+
 f−(x0)
 Z 0
 −∞
@@ -15324,13 +15324,13 @@ Z ∞
 0
 dz sin z
 z
-
+
 (25a)
 = 1
 2
-
+
 f−(x0) + f+(x0)
-
+
 .
 (25b)
 L’ultimo passaggio, che riproduce il risultato del teorema di Fejér, è giustificato dalle formule
@@ -15365,9 +15365,9 @@ n(x) = 1
 π
 sin[n(x −x0)]
 x −x0
-
+
 f+(x0) −f−(x0)
-
+
 (28)
 sicché
 xM = x0 + π/n .
@@ -15415,7 +15415,7 @@ z
 (30b)
 ≈1
 π
-
+
 f−(x0)
 Z −π
 −∞
@@ -15426,17 +15426,17 @@ Z ∞
 −π
 dz sin z
 z
-
+
 (30c)
 = 1
 2
-
+
 f−(x0) + f+(x0)
-
+
 +
-
+
 f+(x0) −f−(x0)
- 1
+ 1
 π
 Z π
 0
@@ -15445,18 +15445,18 @@ z
 (30d)
 = 1
 2
-
+
 f+(x0) + f−(x0)
-
+
 + 0.59
-
+
 f+(x0) −f−(x0)
-
+
 (30e)
 = f+(x0) + 0.09
-
+
 f+(x0) −f−(x0)
-
+
 .
 (30f)
 Il terzultimo passaggio è giustificato da
@@ -15474,7 +15474,7 @@ dz sin z
 z
 = 1
 π
-Z ∞
+Z ∞
 0
 dz sin z
 z
@@ -15483,7 +15483,7 @@ Z π
 0
 dz sin z
 z
-
+
 ,
 1
 π
@@ -15493,7 +15493,7 @@ dz sin z
 z
 = 1
 π
-Z ∞
+Z ∞
 0
 dz sin z
 z
@@ -15502,10 +15502,10 @@ Z 0
 −π
 dz sin z
 z
-
+
 = 1
 π
-Z ∞
+Z ∞
 0
 dz sin z
 z
@@ -15514,7 +15514,7 @@ Z π
 0
 dz sin z
 z
-
+
 e dalla (26). Il penultimo, dalla formula (che segue da una valutazione numerica dell’integrale)
 1
 π
@@ -15563,7 +15563,7 @@ Z 4π
 dz sin z
 z
 = 0.475
-
+
 .
 201
 
@@ -15591,11 +15591,11 @@ almeno nei punti x interni all’intervallo da −π a π, nei quali la f(x) è 
 la introduzione formale della “funzione”
 δ(y) = lim
 n→∞
- 1
+ 1
 π
 sin ny
 y
-
+
 ,
 (2)
 con la proprietà
@@ -15681,20 +15681,20 @@ Naturalmente si hanno altre definizioni analoghe alla (5) usando a secondo membr
 diverse da una gaussiana, per esempio
 δ(y) = lim
 ν→∞
- 1
+ 1
 π
 ν
 1 + ν2y2
-
+
 .
 (8)
 7
 L’espressione (2) della delta funzione invece con un meccanismo un po’ diverso; infatti per n
 grande la funzione
 gn(y) =
-
+
 sin(ny)
-2/(πy)
+2/(πy)
 (9)
 è si grande per y = 0 (vale n/π), ma non ha un solo picco, oscilla anzi molto rapidamente,
 prendendo nei punti
@@ -15803,9 +15803,9 @@ Nel caso particolare della serie di Fourier la (16) prenderà dunque la forma
 ∞
 X
 n=1
-
+
 cos(nx) cos(ny) + sin(nx) sin(ny)
-
+
 = δ(x −y) ,
 (19a)
 ovvero (si veda la tecnica usata per derivare la rappresentazione di Dirichlet (3-14))
@@ -15813,10 +15813,10 @@ ovvero (si veda la tecnica usata per derivare la rappresentazione di Dirichlet (
 n→∞
 (
 sin
-
+
 (n −1
 2)(x −y)
-
+
 2π sin[(x −y)/2]
 )
 .
@@ -15828,10 +15828,10 @@ n→∞
 1
 π
 sin
-
+
 (n −1
 2)z
-
+
 2 sin(z/2)
 #
 con la (2). Evidentemente fintantoché
@@ -15844,10 +15844,10 @@ n→∞
 1
 π
 sin
-
+
 (n −1
 2)z
-
+
 z
 #
 ,
@@ -15864,10 +15864,10 @@ n→∞
 1
 π
 sin
-
+
 (n −1
 2)z
-
+
 2 sin(z/2)
 #
 coincida con la δ(z) entro l’intervallo da −π a π. D’altronde i valori di questa espressione al di
@@ -15879,10 +15879,10 @@ n→∞
 1
 π
 sin
-
+
 (n −1
 2)z
-
+
 2 sin(z/2)
 #
 =
@@ -15894,10 +15894,10 @@ e questa equazione sarà ora valida su tutto l’asse reale, nella ipotesi che i
 venga fatto per valori interi di n (e con la solita convenzione per il significato da dare ad ogni
 equazione in cui compare la funzione delta di Dirac, vedi più sopra). Si osservi che la condizione
 che n sia intero è necessaria e sufficiente a garantire che il rapporto sin
-
+
 (n −1
 2)z
-
+
 / sin(z/2) si
 mantenga finito per ogni z, facendo sì che il numeratore si annulli in tutti i punti in cui si annulla
 il denominatore.
@@ -15913,9 +15913,9 @@ dalla equazione
 ∞
 X
 n=1
-
+
 cos(nx) cos(ny) + sin(nx) sin(ny)
-
+
 =
 +∞
 X
@@ -15932,9 +15932,9 @@ Si inseriscano nella serie di Fourier
 ∞
 X
 m=0
-
+
 cm cos(mx) + sm sin(mx)
-
+
 (considerata ora valida per ogni x, anche al di fuori dell’intervallo da −π a π) la definizione (1-9)
 dei coefficienti cm ed sm, si inverta l’ordine di integrazione e somma, si usi la (20), e poi si effettui
 l’integrale usando la definizione stessa della funzione delta, secondo cui
@@ -16003,10 +16003,10 @@ assegnate nell’intervallo −π ≤x ≤π. È importante, e facile, estendere
 funzioni assegnate nel generico intervallo α ≤x ≤β (con α e β finiti). Ciò si effettua con un
 semplice cambiamento di variabile, utilizzando cioè la trasformazione
 y =
-
+
 x −α + β
 2
-
+
 2π
 β −α ,
 (1a)
@@ -16031,19 +16031,19 @@ f(x) =
 ∞
 X
 n=0
-
+
 cn cos
-
+
 nx
 2π
 β −α
-
+
 + sn sin
-
+
 nx
 2π
 β −α
-
+
 (2a)
 =
 +∞
@@ -16052,48 +16052,48 @@ m=−∞
 bm eimx 2π/(β−α) ,
 (2b)
 c0 =
-
+
 1
 β −α
- Z β
+ Z β
 α
 dx f(x) ,
 (3a)
 cn =
-
+
 2
 β −α
- Z β
+ Z β
 α
 dx cos
-
+
 nx
 2π
 β −α
-
+
 f(x) ,
 n = 1, 2, 3, . . .
 (3b)
 sn =
-
+
 2
 β −α
- Z β
+ Z β
 α
 dx sin
-
+
 nx
 2π
 β −α
-
+
 f(x) ,
 n = 1, 2, 3, . . .
 (3c)
 bn =
-
+
 1
 β −α
- Z β
+ Z β
 α
 dx e−inx 2π/(β−α) f(x) ,
 n = 0, ±1, ±2, . . .
@@ -16107,8 +16107,8 @@ dx |f(x)|2 = |c0|2 + 1
 ∞
 X
 n=1
-
-|cn|2 + |sn|2
+
+|cn|2 + |sn|2
 (4a)
 =
 +∞
@@ -16126,11 +16126,11 @@ dx F ∗(x) f(x) = C∗
 ∞
 X
 n=1
-
+
 C∗
 n cn + S∗
 n sn
-
+
 (5a)
 =
 +∞
@@ -16143,9 +16143,9 @@ m bm ,
 X
 m=−∞
 δ
-
+
 x −y −(β −α)m
-
+
 =
 1
 β −α +
@@ -16156,21 +16156,21 @@ X
 n=1
 n
 cos
-
+
 nx 2π/(β −α)
-
+
 · cos
-
+
 ny 2π/(β −α)
-
+
 + sin
-
+
 nx 2π/(β −α)
-
+
 sin
-
+
 ny 2π/(β −α)
-o
+o
 (6a)
 =
 1
@@ -16208,40 +16208,40 @@ dalla successione
 φ0(x) = (β −α)−1
 2 ,
 φ1(x) =
-
+
 2/(β −α)
- 1
+ 1
 2 sin
-
+
 x 2π/(β −α)
-
+
 ,
 φ2(x) =
-
+
 2/(β −α)
- 1
+ 1
 2 cos
-
+
 x 2π/(β −α)
-
+
 ,
 φ3(x) =
-
+
 2/(β −α)
- 1
+ 1
 2 sin
-
+
 2x 2π/(β −α)
-
+
 ,
 φ4(x) =
-
+
 2/(β −α)
- 1
+ 1
 2 cos
-
+
 2x 2π/(β −α)
-
+
 ,
 . . . ,
 (9)
@@ -16251,18 +16251,18 @@ e anche dalla successione
 m = 0, ±1, ±2, . . .
 (10)
 I corrispondenti autovalori sono
-λn = n2
+λn = n2
 2π/(β −α)
-2 ,
+2 ,
 n = 0, 1, 2, 3, . . . ;
 (11)
 il primo non è degenere, tutti gli altri sono invece doppiamente degeneri.
 Si osservi che la
 differenza fra due autovalori contigui,
 λn+1 −λn = (2n + 1)
-
+
 2π/(β −α)
-2
+2
 (12)
 è tanto più piccola, quanto più grande è l’intervallo β −α. Questo infittimento degli autovalori al
 crescere di β−α è assai importante per capire cosa succede nel caso limite in cui l’ampiezza β−α
@@ -16547,16 +16547,16 @@ f(x) = fp(x) + fd(x) ,
 (19)
 fp(x) = 1
 2
-
+
 f(x) + f(−x)
-
+
 = fp(−x) ,
 (20a)
 fd(x) = 1
 2
-
+
 f(x) −f(−x)
-
+
 = −fd(−x) ,
 (20b)
 fp(x) = 1
@@ -16573,8 +16573,8 @@ dk ˆfd(k) sin(kx) ,
 (21b)
 ˆfp(k) = 1
 2
- ˆf(k) + ˆf(−k)
-
+ ˆf(k) + ˆf(−k)
+
 = 2
 Z ∞
 0
@@ -16582,8 +16582,8 @@ dx fp(x) cos(kx) ,
 (22a)
 ˆfd(k) = 1
 2
- ˆf(k) −ˆf(−k)
-
+ ˆf(k) −ˆf(−k)
+
 = 2i
 Z ∞
 0
@@ -16618,9 +16618,9 @@ Esercizi
 (su tutto l’asse x reale), ma sia discontinua in x0, con
 f±(x0) = lim
 ε→0
-
+
 f(x0 ± |ε|)
-
+
 .
 Sia ˆf(k) la trasformata di Fourier di f(x), e ¯f(x) la antitrasformata di ˆf(k) (sicché ¯f(x)
 coinciderà quasi ovunque con f(x)). Quanto varrà ¯f(x0)? (Suggerimento: si ricordi il
@@ -16635,9 +16635,9 @@ dk′
 di modo che
 lim
 K→∞
-
+
 fK(x)
-
+
 = ¯f(x)
 con ¯f(x) definita come nell’esercizio precedente. Si discuta il comportamento di fK(x), per
 K grande, nell’intorno del punto di discontinuità x0 (dimostrando, fra l’altro, il risultato
@@ -16712,27 +16712,27 @@ Z +∞
 −∞
 dk
 2π
-sin kc
+sin kc
 k
-2
+2
 ,
 (5a)
 ovvero
 Z +∞
 −∞
 dk
-sin kc
+sin kc
 k
-2
+2
 = πc ,
 (5b)
 ovvero
 Z +∞
 −∞
 dt
-sin t
+sin t
 t
-2
+2
 = π .
 (5c)
 La funzione ˆf(k) ha un picco in k = 0, dove prende il valore 2c; la ampiezza di tale picco è
@@ -16989,21 +16989,21 @@ f(x) = f1(x) ∗f2(x) .
 prodotto di convoluzione), è lineare (nel senso specificato dalla formula seguente), commutativo
 e associativo:
 f1(x) ∗
-
+
 f2(x) + f3(x)
-
+
 = f1(x) ∗f2(x) + f1(x) ∗f3(x) ,
 (14)
 f1(x) ∗f2(x) = f2(x) ∗f1(x) ,
 (15)
 f1(x) ∗
-
+
 f2(x) ∗f3(x)
-
+
 =
-
+
 f1(x) ∗f2(x)
-
+
 ∗f3(x) .
 (16)
 La (14) segue immediatamente dalla definizione (13); le (15) e (16), seguono anche dalla (13),
@@ -17226,10 +17226,10 @@ dx) f(x), ottenuta applicando alla f(x) l’operatore differenziale
 lineare F(x, d
 dx), è formalmente data da
 ˆg(k) = F
-
+
 −i d
 dk, ik
-
+
 ˆf(k) .
 * Si dimostri che la trasformata di Fourier di
 fn(x) = Hn(x) e−1
@@ -17277,10 +17277,10 @@ f(y) =
 Z +∞
 −∞
 dx
-
+
 (x2 + a2)
-
-(x −y)2 + b2	−1 .
+
+(x −y)2 + b2	−1 .
 5.9
 Uso della trasformata di Fourier per risolvere equazioni dif-
 ferenziali.
@@ -17409,9 +17409,9 @@ X
 n=1
 (−)nt
 (t2 + n2)
-
+
 t cos(nx) −n sin(nx)
-
+
 )
 ,
 sinh z ≡1
@@ -17513,35 +17513,35 @@ dx xm e−inx
 Z π
 −π
 dx
-
+
 i d
 dy
-m
+m
 e−iyx
-
+
 y=n
 = 1
 2π im
- d
+ d
 dy
-m Z π
+m Z π
 −π
 dx e−iyx
-
+
 y=n
 = im
- d
+ d
 dy
-m sin yπ
+m sin yπ
 yπ
-
+
 y=n
 = (iπ)m
- dm
+ dm
 dtm
-sin t
+sin t
 t
-
+
 t=nπ
 .
 222
@@ -17599,9 +17599,9 @@ e converge a sin(ax + b) in ogni punto x interno all’intervallo da −π a π,
 x = ±π converge al valore
 1
 2
-
+
 sin(aπ + b) + sin(−aπ + b)
-
+
 = sin b cos(aπ) .
 La convergenza è uniforme in tutto l’intervallo −π ≤x ≤π se a = ℓoppure b = (ℓ+ 1
 2)π,
@@ -17613,14 +17613,14 @@ asintotico di I(t), la formula
 Ias(t) = t−m−1
 (
 cos(nπ/2)
- dn
+ dn
 dθn (sinℓθ cosm θ)
-
+
 θ=0
 −cos[(t + n)π/2]
- dn
+ dn
 dθn (sinℓθ cosm θ)
-
+
 θ=π/2
 )
 ,
@@ -17630,9 +17630,9 @@ Ias(t) = (−)ℓ/2 ℓ! t−ℓ−1
 se ℓè pari e ℓ< m ,
 Ias(t) = (−)m+1 m! t−m−1 cos[(t + m)π/2]
 se ℓè dispari oppure se ℓ> m ,
-Ias(t) = (−)ℓ/2 ℓ! t−ℓ−1
+Ias(t) = (−)ℓ/2 ℓ! t−ℓ−1
 1 −cos(tπ/2)
-
+
 se ℓè pari e ℓ= m .
 Per ottenere queste formule si è utilizzato il fatto che il primo termine entro la parentesi
 graffa è nullo se ℓè dispari, poiché per n dispari si annulla cos(nπ/2) mentre per n pari la
@@ -17665,9 +17665,9 @@ z
 ,
 ¯f = 1
 2
-
+
 f+(x0) + f−(x0)
-
+
 ,
 ∆f = f+(x0) −f−(x0) .
 Per ℓdispari si hanno i massimi, per ℓpari i minimi; si suppone che n sia grande e che
@@ -17679,19 +17679,19 @@ Z β
 α
 dx δ(x) f(x) = lim
 t→∞
-
+
 (t/π)1/2
 Z β
 α
 dx e−tx2 f(x)
-
+
 = lim
 t→∞
-
+
 f(¯x) (t/π)1/2
 Z β
 α
-dx e−tx2
+dx e−tx2
 (α ≤¯x ≤β)
 = lim
 t→∞
@@ -17709,20 +17709,20 @@ Z β
 α
 dx δ(x) f(x) = lim
 t→∞
-
+
 (t/π)
 Z β
 α
 dx (1 + t2x2)−1 f(x)
-
+
 = lim
 t→∞
-
+
 f(¯x) (t/π)
 Z β
 α
 dx/(1 + t2x2)
-
+
 (α ≤¯x ≤β)
 = 0 .
 La stessa dimostrazione vale se β < α < 0.
@@ -17914,11 +17914,11 @@ e in x = 0;
 ∞
 X
 n=1
-cos(2nπx/c)
+cos(2nπx/c)
 (πn)2
 −sin(2nπx/c)
 (πn)
-
+
 , (0 < x < c), Gibbs agli estremi;
 (ix) e−ax = 1 −e−ac
 ac
@@ -17963,9 +17963,9 @@ tanto nell’intervallo 0 ≤x ≤π, che in −π ≤x ≤0 (dove la seconda se
 con periodo π, si ripeterà, assumendo dunque i valori | sin x| = −sin x).
 6.1 ¯f(x0) = 1
 2
-
+
 f+(x0) + f−(x0)
-
+
 .
 6.2
 fK(x) =
@@ -17996,7 +17996,7 @@ Z +∞
 dx′ f(x′) sin[K(x −x′)]
 π(x −x′)
 =
-Z x0−ε
+Z x0−ε
 −∞
 +
 Z x0+ε
@@ -18004,7 +18004,7 @@ x0−ε
 +
 Z +∞
 x0+ε
-
+
 dx′ f(x′) sin[K(x −x′)]
 π(x −x′)
 226
@@ -18015,9 +18015,9 @@ dx′ f(x′) sin[K(x −x′)]
 USO DELLA TRASFORMATA DI FOURIER PER RISOLVERE EQUAZIONI
 DIFFERENZIALI.
 fK(x0) =
-Z x0+ε
+Z x0+ε
 x0−ε
-
+
 dx′ f(x′) sin[K(x0 −x′)]
 π(x0 −x′)
 (per il teorema di Riemann-Lebesgue)
@@ -18028,16 +18028,16 @@ dy f(x0 + y) sin(Ky)
 πy
 (x′ = x0 + y)
 =
-Z 0
+Z 0
 −ε
 +
 Z ε
 0
-
+
 dy f(x0 + y) sin(Ky)
 πy
 ≈
-
+
 f−(x0)
 Z 0
 −ε
@@ -18048,10 +18048,10 @@ Z ε
 0
 dy sin(Ky)
 πy
-
+
 (ε piccolo)
 =
-
+
 f−(x0)
 Z 0
 −εK
@@ -18061,7 +18061,7 @@ Z εK
 0
 dz sin z
 πz
-
+
 (z = Ky)
 ≈f−(x0)
 Z 0
@@ -18074,13 +18074,13 @@ dz sin z
 πz
 = 1
 2
-
+
 f−(x0) + f+(x0)
-
+
 = ¯f(x0) .
 Ricerca del massimo di fK(x) per x subito a destra di x0 (e K grande):
 fK(x) =
-Z x0−ε
+Z x0−ε
 −∞
 +
 Z x0
@@ -18091,40 +18091,40 @@ x0
 +
 Z +∞
 x0+ε
-
+
 dx′ f(x′) sin[K(x −x′)]
 π(x −x′)
 =
-Z x0
+Z x0
 x0−ε
 +
 Z x0+ε
 x0
-
+
 dx′ f(x′) sin[K(x −x′)]
 π(x −x′)
 (per il teorema di Riemann-Lebesgue; ε è piccolo m
 =
-
+
 f−(x0)
 Z x0
 x0−ε
 +f+(x0)
 Z x0+ε
 x0
-
+
 dx′ sin[K(x −x′)]
 π(x −x′)
 (ε è piccolo rispetto agli intervalli in cui f(x) varia in modo apprezzabile)
 =
-
+
 f−(x0)
 Z x0−x
 x0−ε−x
 +f+(x0)
 Z x0+ε−x
 x0−x
-
+
 dy sin(Ky)
 πy
 ,
@@ -18145,32 +18145,32 @@ K +ε
 dy sin(Ky)
 πy
 =
-
+
 f−(x0)
 Z −t
 −t−εK
 +f+(x0)
 Z −t+εK
 −t
-
+
 dz sin z
 πz
 (z = Ky)
 ≈
-
+
 f−(x0)
 Z −t
 −∞
 +f+(x0)
 Z ∞
 −t
-
+
 dz sin z
 πz .
 Il primo massimo si avrà dove d fK(x0 + t/K)/dt = 0, cioè
-
+
 f+(x0) −f−(x0)
- sin t
+ sin t
 πt = 0 ,
 ovvero per t = π, dunque per x = x0 + π/K; ed in tal punto
 fK(x0 + π/K) ≈f−(x0)
@@ -18183,9 +18183,9 @@ Z ∞
 dz sin z
 πz
 = f+(x0) + 0.09
-
+
 f+(x0) −f−(x0)
-
+
 .
 Si noti la stretta analogia di questo risultato con quello discusso per le serie di Fourier.
 In modo altrettanto analogo si potrebbero discutere i successivi minimi e massimi (vedi
@@ -18252,18 +18252,18 @@ Z +∞
 −∞
 dk
 2π (4|ab|)−1 e−(|a|+|b|)|k| eiky = (|a| + |b|)
-. 
+. 
 2π · 2|ab|
-
-(|a| + |b|)2 + y2	
+
+(|a| + |b|)2 + y2	
 .
 9.2 Passando alle trasformate di Fourier (e usando la (7-10)) si ottiene
 (k4 + 3a2k2 + 2a4) ˆx(k) = 2b|c|/(c2 + k2) ,
 donde
 ˆx(k) = 2b|c|
-.
+.
 (k2 + a2)(k2 + 2a2)(k2 + c2)
-
+
 .
 Pertanto
 x(t) = 2b|c|
@@ -18271,13 +18271,13 @@ Z +∞
 −∞
 dk
 2π
-
+
 (k2 + a2)(k2 + 2a2)(k2 + c2)
-−1 eikx .
+−1 eikx .
 Questo integrale può essere fatto scomponendo il prodotto
-
+
 (k2 +a2)(k2 +2a2)(k2 +c2)
-−1
+−1
 in tre addendi, ed usando la (7.10).
 228
 
@@ -18336,9 +18336,9 @@ f(x0)
 per α < x0 < β e se f(x) è continua in x0
 1
 2
-
+
 f+(x0) + f−(x0)
-
+
 per α < x0 < β e se f(x) è discontinua in x0
 1
 2 f+(α)
@@ -18356,9 +18356,9 @@ ipotesi che manterremo sempre nel seguito, salvo esplicito contrario avviso; e s
 f+(x0) e f−(x0) come i limiti di f(x) nel punto x0 rispettivamente da destra e da sinistra,
 f±(x0) = lim
 ε→0
-
+
 f(x0 ± |ε|)
-
+
 ,
 (3)
 nella ipotesi che tali limiti esistano. Naturalmente se la funzione f(x) è continua in x0
@@ -18460,14 +18460,14 @@ dy P(y) = 1 .
 È infatti facile verificare che
 lim
 n→∞
-
+
 dn(x)
-
+
 ≡lim
 n→∞
-
+
 n P(nx)
-
+
 = δ(x) ,
 (14)
 dove al solito la eq. (14), come ogni altra in cui compare la delta, va intesa come valida dopo
@@ -18482,9 +18482,9 @@ Non è necessario, nella definizione testé data, che l’indice n sia discreto;
 scrivere
 δ(x) = lim
 ν→∞
-
+
 ν P(νx)
-
+
 ,
 (15)
 a condizione che la P(y) soddisfi le due condizioni (12) e (13).
@@ -18495,11 +18495,11 @@ Z +∞
 −∞
 dx lim
 ν→∞
-
+
 ν P
-
+
 ν(x −x0)
-
+
 f(x)
 	
 = f(x0) .
@@ -18507,14 +18507,14 @@ L’ipotesi di intercambiabilità dell’ordine delle operazioni di integrazione
 scrivere
 lim
 ν→∞
-Z +∞
+Z +∞
 −∞
 dx ν P
-
+
 ν(x −x0)
-
+
 f(x)
-
+
 = f(x0) .
 Ponendo ora nell’integrale a primo membro
 ν(x −x0) = t ,
@@ -18523,22 +18523,22 @@ x = x0 + t/ν ,
 questo diventa
 lim
 ν→∞
-Z +∞
+Z +∞
 −∞
 dt P(t) f
- x0 + t
+x0 + t
 ν
-
+
 =
 Z +∞
 −∞
 dt P(t) lim
 ν→∞
-
+
 f
- x0 + t
+x0 + t
 ν
-
+
 = f(x0)
 Z +∞
 −∞
@@ -18593,8 +18593,8 @@ presentazione della funzione delta adeguata alla classe delle funzioni f(x) defi
 reale, magari anche ivi continue, ma tali che, per ogni ε positivo
 lim
 |x|→∞
-
-f(x) e−εx2
+
+f(x) e−εx2
 = 0 ,
 ε > 0 ,
 (24)
@@ -18647,9 +18647,9 @@ f(x) δ(x −x0) = ¯f(x0) δ(x −x0)
 con
 ¯f(x0) = 1
 2
-
+
 f+(x0) + f−(x0)
-
+
 ,
 (27)
 con f+(x0) e f−(x0) definiti dalle (3). La formula (26a) è applicabile anche alle stesse funzioni
@@ -18676,21 +18676,21 @@ Esercizi
 δ(x2 −a2) =
 1
 2|a|
-
+
 δ(x −a) + δ(x + a)
-
+
 .
 4. Si dimostri la formula
 x2 δ(x3) = 1
 3 δ(x) .
 5. Si dimostri la formula
 (x −x0)2ℓδ
-
-a (x −x0)2ℓ+1
+
+a (x −x0)2ℓ+1
 =
-
+
 |a|(2ℓ+ 1)
-−1δ(x −x0) ,
+−1δ(x −x0) ,
 ℓ= 0, 1, 2, . . .
 6. Si dimostri la formula
 (x −x0)2ℓδ[F(x)] =
@@ -18704,7 +18704,7 @@ per s = 0, 1, 2, . . . , 2ℓ,
 con
 F (s)(x0) ≡dsF(x)
 dxs
-
+
 x=x0
 ,
 e se ne dia la generalizzazione al caso di funzioni con più zeri di ordine 2ℓ1 + 1, 2ℓ2 + 1, . . .
@@ -18718,12 +18718,12 @@ DELLE DISTRIBUZIONI)
 7. La validità della formula
 lim
 ν→∞
-
+
 ν
 Z +∞
 −∞
 dx P7(νx) f(x)
-
+
 = f(0)
 con P7(y) definito dalla (22), è implicata dalla dimostrazione data dopo la formula (15).
 D’altronde la P7(y) si annulla in y = 0, e dunque il valore della f(x) in x = 0 non dovrebbe
@@ -18741,13 +18741,13 @@ n=−∞
 X
 n=−∞
 δ
-
+
 x −
- n + 1
+n + 1
 2
-
+
 π
-
+
 ,
 δ[tan x] = δ[sin x] ,
 x δ(x) = 0 .
@@ -18769,14 +18769,14 @@ Z β
 α
 dx δ(x) f(x) = −¯f(0) ≡−1
 2
-
+
 f+(0) + f−(0)
-
+
 .
 14. Si cerchi di assegnare un significato alla espressione
-x2
+x2
 δ(x)
-3
+3
 usando le rappresentazioni esplicite della funzione delta, e si discuta il risultato.
 6.2
 La funzione theta; sua relazione con la delta
@@ -18827,7 +18827,7 @@ per parti e supponendo per semplicità che f(x) sia continua possiamo scrivere
 Z β
 α
 dx Θ′(x) f(x) = Θ(x) f(x)
-
+
 β
 α −
 Z β
@@ -18999,9 +18999,9 @@ dx f(x) =
 Z +∞
 −∞
 dx f(x)
-
+
 Θ(x −α) Θ(β −x) Θ(β −α) −Θ(x −β) Θ(α −x) Θ(α −β)
-
+
 .
 Per la funzione theta si hanno ovviamente le proprietà
 Θ(−x) = 1 −Θ(x) ,
@@ -19243,9 +19243,9 @@ Z β
 α
 dx x δ(x2) f(x) = 1
 4
-
+
 f+(0) + f−(0)
-
+
 se α < 0 < β
 = 1
 4 f+(0)
@@ -19276,9 +19276,9 @@ Si moltiplichino ambo i membri per una funzione f(x), arbitraria ma regolare in 
 si applichi la (4) al primo membro, e poi si usi la (1-1). Si noti che, se f(x) è regolare,
 dn
 dxn
-
+
 xn f(x)
-
+
 x=0
 = n! f(0) .
 3-2
@@ -19451,10 +19451,10 @@ dy [c0(y)/c1(y)]
 ,
 (7.2.6)
 essendo g(x, y) una qualunque soluzione della equazione
-
+
 c1(x) d
 dx + c0(x)
-
+
 g(x, y) = δ(x −y) .
 (7.2.7)
 Per determinare una tale soluzione, dividiamo la (7) per c1(x) e poi integriamola in dx da
@@ -19576,10 +19576,10 @@ dy G(x, y) f(y)
 (7.2.16)
 della equazione differenziale lineare non omogenea del primo ordine
 Lx φ(x) =
-
+
 c1(x) d
 dx + c0(x)
-
+
 φ(x) = f(x) ,
 (7.2.17)
 e che tale soluzione può mettersi nella forma (confronta con la (1.7-8))
@@ -19738,10 +19738,10 @@ con cℓcostanti (indipendenti da x).
 Lx ψ(x) = 0 ,
 con Lx dato dalla (1), la più generale funzione di Green dell’operatore Lx è
 G(x, y) =
-
+
 A + Θ(x −y)
 c1(y) ψ(y)
-
+
 ψ(x)
 con A indipendente da x ma altrimenti arbitraria.
 5. Si determini la più generale funzione di Green G(x, y) dell’operatore
@@ -19803,26 +19803,26 @@ dxG(x, y) = A1 ψ′
 1(x) + A2 ψ′
 2(x)
 +
-
+
 Θ(x −y) ψ′
 1(x) ψ2(y) + Θ(y −x) ψ1(y) ψ′
 2(x)
-
+
 /W12
 +
-
+
 Θ′(x −y) ψ1(x) ψ2(y) −Θ′(y −x) ψ1(y) ψ2(x)
-
+
 /W12
 = A1ψ′
 1(x) + A2ψ′
 2(x)+
 +
-
+
 Θ(x −y) ψ′
 1(x) ψ2(y) + Θ(y −x) ψ1(y) ψ′
 2(x)
-
+
 /W12 .
 Nella terza riga l’apice sulle funzioni theta indica differenziazione rispetto al loro argomento,
 Θ′(z) = d Θ(z)/dz.
@@ -19834,18 +19834,18 @@ dx2 G(x, y) = A1ψ′′
 1(x) + A2ψ′′
 2(x)
 +
-
+
 Θ(x −y) ψ′′
 2(x) ψ2(y) + Θ(y −x) ψ1(y) ψ′′
 2(x)
-
+
 /W12
 +
-
+
 Θ′(x −y) ψ′
 2(x) ψ2(y) −Θ′(y −x) ψ1(y) ψ′
 2(x)
-
+
 /W12
 = −C(x) G(x, y) + δ(x −y) .
 249
@@ -19958,10 +19958,10 @@ ed ammette la soluzione formale
 Z +∞
 −∞
 dy G(x, y)
-
+
 f(y) −L′
 y φ(y)
-
+
 .
 (4)
 Si verifichi per esercizio che la (4) soddisfa la (3), ovvero la (2).
@@ -20052,10 +20052,10 @@ An ψn(x) +
 Z +∞
 −∞
 dy G(x, y)
-
+
 f(y) −L′
 y φ(y)
-
+
 ,
 (5)
 essendo N l’ordine degli operatori differenziali L ed M, An N costanti arbitrarie, le ψn(x) N
@@ -20095,9 +20095,9 @@ con ν(x) funzione reale assegnata, limitata per ogni valore di x ≥0 e che si 
 più rapidamente di 1/x, cioè tale che esista una quantità ε positiva per cui
 lim
 x→∞
-
+
 x1+ε ν(x)
-
+
 = 0 .
 (2)
 253
@@ -20182,15 +20182,15 @@ Dalla (5) segue immediatamente una esplicita formula che esprime lo sfasamento �
 la sua tangente). Infatti considerando il limite asintotico della (5) per x →∞e confrontandolo
 con la (4) si ottiene immediatamente
 tan δ = −
-Z ∞
+Z ∞
 0
 dx sin x ν(x) ψ(x)
- , 
+ , 
 1 +
 Z ∞
 0
 dx cos x ν(x) ψ(x)
-
+
 .
 (6)
 Si noti che la esistenza (e in particolare la convergenza asintotica) degli integrali che entrano
@@ -20233,15 +20233,15 @@ di uno sviluppo, ottenuto iterando la (5) (a partire dalla approssimazione di or
 ψ(x) = ψ(0)(x) = sin x) e sostituendo la soluzione approssimata
 così ottenuta nella (6), scrivendo cioè
 tan δ(n) = −
-Z ∞
+Z ∞
 0
 dx sin x ν(x) ψ(n)(x)
- , 
+ , 
 1 +
 Z ∞
 0
 dx cos x ν(x) ψ(n)(x)
-
+
 (9)
 con ψ(n)(x) definito per ricorrenza da
 ψ(n)(x) = sin x +
@@ -20333,9 +20333,9 @@ tan δ = −S(∞) / [1 + C(∞)]
 che coincide con la (6).
 5–2
 tan δ ≈−2ν0 /
-
+
 α (α2 + 4)
-
+
 .
 5–3
 Approssimazione di Born:
@@ -20349,9 +20349,9 @@ sin(ρa) = A sin(a + δ)
 ρ cos(ρa) = A cos(a + δ)
 donde
 δ = −a + arctan
-tan(ρa)
+tan(ρa)
 ρ
-
+
 .
 257
 
@@ -20363,16 +20363,16 @@ DIFFERENZIALI IN EQUAZIONI INTEGRALI.
 Nota bene: queste formule sono valide anche se ν0 > 1, nel qual caso ρ è immaginario puro, e la
 espressione di δ si può riscrivere
 δ = −a + arctan
-tanh(qa)
+tanh(qa)
 q
-
+
 con
 ρ = iq .
 Se ν0 è piccolo rispetto ad 1, dalla espressione esatta di δ si ottiene
 δ = −1
 4 ν0 [2a −sin(2a)] + O
-
-(ν0)2
+
+(ν0)2
 ritrovando dunque, al primo ordine in ν0, il risultato fornito dalla approssimazione di Born (né
 potrebbe essere altrimenti). Inoltre, anche se ν0 non è piccolo rispetto ad 1, ma aν0 (e dunque
 anche a stesso) è molto piccolo rispetto ad 1, tanto la approssimazione di Born che la formula
@@ -20526,9 +20526,9 @@ guo, la definizione della derivata rispetto alla variabile complessa z. Infatti 
 nell’intorno del punto z0, il limite
 W ′(z0) = lim
 ∆z→0
-W(z0 + ∆z) −W(z0)
+W(z0 + ∆z) −W(z0)
 ∆z
-
+
 (7)
 non dipende dalla direzione secondo cui il punto z si avvicina a z0, cioè del modo come ∆z →0
 ((per esempio se più rapidamente la parte reale ∆x o la parte immaginaria ∆y).
@@ -20539,12 +20539,12 @@ W(z0 + ∆z) = u(x0 + ∆x, y0 + ∆y) + i v(x0 + ∆x, y0 + ∆y)
 avendo posto (per semplicità di scrittura)
 ux(x0, y0) = ∂u(x, y)
 ∂x
-
+
 x=x0, y=y0
 ,
 uy(x0, y0) = ∂u(x, y)
 ∂y
-
+
 x=x0, y=y0
 ,
 e analogamente per la v(x, y). Pertanto:
@@ -20564,7 +20564,7 @@ Al limite (7) daremo dunque il nome di derivata di W(z) rispetto a z (calcolata 
 z = z0) e scriveremo
 W ′(z0) = dW(z)
 dz
-
+
 z=z0
 .
 (8)
@@ -20657,10 +20657,10 @@ questo il caso su cui intendiamo ora concentrare l’attenzione, per la diretta 
 fra le funzioni armoniche di due variabili reali e le funzioni analitiche di una variabile complessa.
 Nel caso di due variabili reali, le funzioni armoniche f(x, y) sono dunque caratterizzate dalla
 equazione
- ∂2
+ ∂2
 ∂x2 + ∂2
 ∂y2
-
+
 f(x, y) = 0 .
 (3)
 Ebbene è una immediata conseguenza delle relazioni di Cauchy (4–5) la validità del seguente
@@ -20673,16 +20673,16 @@ W(z) = u(x, y) + i v(x, y) ;
 (5)
 allora tanto la funzione u(x, y) che la funzione v(x, y) sono funzioni armoniche delle due variabili
 x ed y:
- ∂2
+ ∂2
 ∂x2 + ∂2
 ∂y2
-
+
 u(x, y) = 0 ,
 (6a)
- ∂2
+ ∂2
 ∂x2 + ∂2
 ∂y2
-
+
 v(x, y) = 0 .
 (6b)
 Dimostrazione — (usando per comodità di scrittura la notazione ux per ∂u(x, y)/∂x, etc.).
@@ -20853,10 +20853,10 @@ membro della (2) è assolutamente convergente, se è convergente
 Z t1
 t0
 dt
-
+
 dz(t)
 dt
- |f[z(t)]| .
+ |f[z(t)]| .
 Separando parte reale e parte immaginaria della funzione f(z) ed esprimendole in funzione
 delle variabili x ed y, rappresentanti la parte reale ed immaginaria di z, di modo che
 dz = dx + i dy ,
@@ -20939,16 +20939,16 @@ Z
 C
 dz f2(z) ,
 (9)
-
+
 Z
 C
 dz f(z)
- ≤
-
+ ≤
+
 Z
 C
 dz |f(z)|
- ≤L M
+ ≤L M
 (10)
 dove L è la lunghezza della curva C ed M è il massimo valore assunto dal modulo di f(z) quando
 z varia lungo la curva C.
@@ -21026,20 +21026,20 @@ C
 dz w(z) =
 Z
 dx dy
-
+
 −∂u(x, y)
 ∂y
 −∂v(x, y)
 ∂x
-
+
 + i
 Z
 dx dy
-∂u(x, y)
+∂u(x, y)
 ∂x
 −∂v(x, y)
 ∂y
-
+
 (15)
 gli integrali bidimensionali a secondo membro essendo estesi a tutta la regione del piano xy
 inclusa dalla curva C. Ma se in ogni punto di tale regione la funzione w(z) è analitica, cioè
@@ -21236,9 +21236,9 @@ dz′ w(z′)/(z′ −z) =
 2πi
 Z
 C
-dz′ 
+dz′ 
 w(z′) −w(z)
-
+
 + w(z)
 	
 /(z′ −z)
@@ -21247,9 +21247,9 @@ w(z′) −w(z)
 2πi
 Z
 C
-dz′ 
+dz′ 
 w(z′) −w(z)
-
+
 /(z′ −z)
 + w(z)
 2πi
@@ -21311,9 +21311,9 @@ della (2), che ovviamente implica anche
 Z 2π
 0
 dθ
-w
+w
 h
-z + ρ eiθi
+z + ρ eiθi
 cioè che il modulo di w nel punto z sia pari al valor medio del modulo di w in un cerchio
 intorno a z. Ci dovrà dunque essere, a partire da qualunque punto interno al dominio di analiticità
 di w(z), qualche direzione in cui |w(z)| cresce (e, salvo per i punti in cui w(z) = 0 e dunque
@@ -21413,11 +21413,11 @@ del teorema, secondo cui esiste un numero M tale che, per ogni z,
 dalla relazione scritta segue ovviamente (vedi la (8-10))
 |w′(z)| ≤M
 2π
-
+
 Z
 C
 dz′ |z′ −z|−2
- .
+ .
 Scegliendo come cammino di integrazione un cerchio di raggio ρ intorno al punto z, da questa si
 ottiene
 |w′(z)| < M/ρ ,
@@ -21533,13 +21533,13 @@ geometrica
 ∞
 X
 n=0
-
+
 (z −z0)/(z′ −z0)
-n
+n
 risulta assolutamente convergente al valore
-
+
 1 −(z −z0)/(z′ −z0)
-−1 = (z′ −z0)/(z′ −z) ,
+−1 = (z′ −z0)/(z′ −z) ,
 (4)
 sicché possiamo scrivere
 (z′ −z)−1 =
@@ -21610,8 +21610,8 @@ dz W(z) =
 X
 n=0
 cn
-
-(z2 −z0)n+1 −(z1 −z0)n+1
+
+(z2 −z0)n+1 −(z1 −z0)n+1
 /(n + 1) ,
 (10)
 a condizione beninteso di mantenersi sempre entro il cerchio di convergenza.
@@ -21886,7 +21886,7 @@ Si consideri poi la funzione
 ∞
 X
 n=0
-cn (z −z0)n
+cn (z −z0)n
 n! ;
 (18)
 è facile dimostrare, usando il criterio di Hadamard testé fornito (insieme alla ipotesi R > 0), che
@@ -21989,7 +21989,7 @@ indichi la zona di validità di tale rappresentazione.
 W(z) =
 Z
 C
-dz′
+dz′
 ν(z, z′),
 essendo la curva c costituita dal segmento di estremi z0 = a e z1 = b. Sia ν(z, z′) funzione
 intera di z e z′. Si dimostri che w(z) è funzione analitica in tutto il piano della variabile
@@ -22028,7 +22028,7 @@ dall’esempio
 W(z) = 1/ cos(1/z)
 che è evidentemente singolare (diverge!) per
 z = 1
-
+
 [(2k + 1)π/2] ,
 k = 0, ±1, ±2, . . .
 È dunque chiaro che in ogni intorno del punto z = 0, per quanto piccolo, cadono infiniti punti
@@ -22061,7 +22061,7 @@ cn =
 Z
 C
 dz w(z)
-
+
 (z −z0)n+1,
 n = 0, ±1, ±2, . . . ,
 (2)
@@ -22148,7 +22148,7 @@ Taylor, osservando che si può scrivere
 ∞
 X
 n=0
-(z −z0)n
+(z −z0)n
 (z′′ −z0)n+1,
 287
 
@@ -22162,7 +22162,7 @@ convergente in z′′) se |z −z0| < |z′′ −z0|, e viceversa
 ∞
 X
 n=0
-(z′ −z0)n
+(z′ −z0)n
 (z −z0)n+1,
 risultando la serie a secondo membro assolutamente convergente (ed inoltre uniformemente con-
 vergente in z′) se |z −z0| > |z′ −z0|. Sostituendo dunque la prima formula nel primo integrale
@@ -22176,13 +22176,13 @@ an (z −z0)n +
 X
 m=0
 bm
-
+
 (z −z0)m+1
 con
 an =
 Z
 C′′ dz w(z)
-
+
 (z −z0)n+1
 bm =
 Z
@@ -22349,11 +22349,11 @@ N è facilitato dalla seguente formula:
 Res =
 1
 (N −1)!
- dN−1
+ dN−1
 dzN−1
-
+
 (z −z0)NW(z)
- 
+ 
 z=z0
 (10)
 che segue immediatamente dallo sviluppo di Laurent.
@@ -22374,9 +22374,9 @@ cm−N (z −z0)m
 secondo membro spariscono, e si ottiene
 dN−1
 dzN−1
-
+
 (z −z0)NW(z)
-
+
 =
 ∞
 X
@@ -22395,9 +22395,9 @@ RESIDUI.
 Ponendo ora z = z0, di tutta la somma resta solo il primo termine (per m = N −1), fornendo
 dN−1
 dzN−1
-
+
 (z −z0)NW(z)
-
+
 z=z0
 = (N −1)! c−1 ,
 che è per l’appunto la (10). C.V.D.
@@ -22447,14 +22447,14 @@ z0 = 1;
 iii) W(z) = [z(1 −z)]−1,
 z0 = ∞;
 iv) W(z) =
-
+
 z2 + 1
-−2,
+−2,
 z0 = i;
 v) W(z) =
-
+
 z2 + 1
-−2,
+−2,
 z0 = ∞;
 vi) W(z) = z2 exp(c/z),
 z0 = 0.
@@ -22558,9 +22558,9 @@ I =
 Z
 C
 dz
-. 
+. 
 (z −3)(z5 −1)
-
+
 esteso alla circonferenza C di raggio 2 e centro in z0 = 0. (Suggerimento: usare il corollario
 del teorema dell’esercizio precedente).
 8.7
@@ -22605,9 +22605,9 @@ dz w(z)
 (5)
 con
 W(z) = z−1 R
-
+
 (z + z−1)/2, (z −z−1)/(2i)
-
+
 .
 (6)
 La curva C è il cerchio di raggio unitario e centro nell’origine, percorso in senso antiorario.
@@ -22623,7 +22623,7 @@ unitario e centro nell’origine.
 Nella ipotesi summenzionata, che la funzione R(t1, t2) sia una funzione razionale dei suoi
 argomenti, anche w(z) sarà una funzione razionale, cioè del tipo
 w(z) = PN(z)
-
+
 QM(z) ,
 (8)
 con PN(z), QM(z) polinomi in z di grado N ed M rispettivamente. In tal caso il teorema dei
@@ -22641,19 +22641,19 @@ dθ
 n
 exp
 h
-a eiθio 
+a eiθio 
 [1 + b cos θ]
 con a e b costanti e |b| < 1. La prescrizione (7) fornisce allora
 W(z) = 2 exp(az)
-
+
 (bz2 + 2z + b) .
 Le singolarità di w(z) cadono dunque nei 2 punti
 z± =
-
+
 −1 ±
 p
 1 −b2
- 
+ 
 b .
 294
 
@@ -22666,11 +22666,11 @@ e l’altro esterno alla circonferenza di raggio unitario centrata nell’origin
 ovviamente alla condizione |z| = 1). È facile convincersi che il punto interno è z+. Riscrivendo
 la funzione w(z) nella forma
 W(z) = (2/b) [exp(az)]
-
+
 [(z −z−)(z −z+)]
 si vede subito che il residuo di W(z) in z+ è
 Res = (2/b) [exp(az+)]
-
+
 (z+ −z−)
 ovvero
 Res = exp
@@ -22678,8 +22678,8 @@ n
 (a/b)
 h
 (1 −b2)1/2 −1
-io  
-1 −b21/2 .
+io  
+1 −b21/2 .
 Sicché in conclusione
 Z 2π
 0
@@ -22687,7 +22687,7 @@ dθ
 n
 exp
 h
-a eiθio 
+a eiθio 
 [1 + b cos θ] = 2π (1 −b2)−1/2 exp
 n
 (a/b)
@@ -22708,7 +22708,7 @@ exp
 h
 a eiθio
 exp(inθ)
-
+
 [1 + b cos θ]
 = 2π (1 −b2)−1
 2
@@ -22747,9 +22747,9 @@ coincidendo il cammino C con l’intero asse reale, percorso da −∞a +∞.
 Si supponga ora che la funzione f(z) goda della proprietà
 lim
 z→∞
-
+
 |z|1+ε f(z)
-
+
 = 0
 per
 0 ≤arg z ≤π
@@ -22802,10 +22802,10 @@ E la dimostrazione è completata osservando che, nel limite R →∞, il primo i
 con l’integrale che si voleva calcolare,
 lim
 R→∞
-Z R
+Z R
 −R
 dx f(x)
-
+
 =
 Z +∞
 −∞
@@ -22813,10 +22813,10 @@ dx f(x) ,
 laddove il secondo si annulla
 lim
 R→∞
-Z
+Z
 SR
 dz f(z)
-
+
 = 0 .
 Infatti, parametrizzando tale semicerchio con la posizione
 z = R eiθ ,
@@ -22832,11 +22832,11 @@ h
 R eiθi
 .
 Da questa segue immediatamente
-
+
 Z
 SR
 dz f(z)
- ≤π MR
+ ≤π MR
 con
 MR = max
 0≤θ≤π
@@ -22867,9 +22867,9 @@ singolarità isolate, ela f(z) si annullasse per z che diverge in ogni direzione
 in modo che esista un ε positivo, ancorché piccolo, tale che
 lim
 z→∞
-
+
 |z|1+ε f(z)
-
+
 = 0 ,
 π ≤arg z ≤2π ,
 (13)
@@ -22917,9 +22917,9 @@ I(ρ) =
 Z ∞
 0
 dx
-sin(ρx)
+sin(ρx)
 x
-2
+2
 297
 
 
@@ -22934,9 +22934,9 @@ I(ρ) = 1
 Z +∞
 −∞
 dx
-sin(ρx)
+sin(ρx)
 x
-2
+2
 .
 È poi evidente che si può scrivere
 I(ρ) = 1
@@ -22944,9 +22944,9 @@ I(ρ) = 1
 Z
 C
 dz
-sin(ρz)
+sin(ρz)
 z
-2
+2
 essendo l’integrale sulla variabile complessa z esteso ad un contorno C che coincide con l’intero
 asse reale (percorso in senso positivo, cioè da sinistra a destra).
 Poiché l’integrando è chiaramente finito in z = 0 (ha il valore ρ2/2), una modifica del cam-
@@ -22962,19 +22962,19 @@ J1(ρ) = −1
 8
 Z
 C′ dz exp(2iρz)
-
+
 z2 ,
 J2(ρ) = −1
 8
 Z
 C′ dz exp(−2iρz)
-
+
 z2 ,
 J3(ρ) = 1
 4
 Z
 C′ dz
-
+
 z2 .
 Si noti che nessuno di questi integrali sarebbe separatamente definito se effettuato lungo
 l’originario cammino C; solo la loro somma I(ρ) è costruita in modo che i diversi contributi,
@@ -23020,9 +23020,9 @@ ovvero
 Z +∞
 −∞
 dx
-sin(ρx)
+sin(ρx)
 x
-2
+2
 = π|ρ|/2 ,
 (ρ reale),
 che fornisce il risultato finale.
@@ -23045,7 +23045,7 @@ t→∞[R(t)] = 0 .
 Si dimostra in tal caso che
 I = −
 h
-π e−iπ/n
+π e−iπ/n
 sin(π/n)
 i X
 k
@@ -23073,10 +23073,10 @@ Inoltre la (19), insieme alla condizione n ≥2, implica non solo che l’integr
 gente, ma anche che
 lim
 R→∞
-Z
+Z
 SR
 dz w(z)
-
+
 = 0
 essendo SR un arco di cerchio di raggio R nel piano complesso della variabile z. Infatti la (19),
 unita alla proprietà di R(t) di essere una funzione razionale, implica che R(t) si annulla almeno
@@ -23151,7 +23151,7 @@ exp
 h
 a eiθio
 exp(−inθ)
-
+
 [1 + b cos θ]
 con a e b costanti reali, |b| < 1, ed n intero positivo.
 2. Si calcolino i seguenti integrali:
@@ -23159,28 +23159,28 @@ i) I =
 R 2π
 0
 dθ
-
+
 (a + b cos θ)2,
 a > b > 0;
 ii) I =
 R 2π
 0
 dθ
-
+
 (a + b cos2 θ)2,
 a > 0, b > 0;
 iii) I =
 R 2π
 0
 dθ
-
+
 (1 −2c cos θ + c2),
 c complesso, |c|̸ = 1;
 iv) I =
 R 2π
 0
 dθ cos2(3θ)
-
+
 (1 −2c cos θ + c2),
 c complesso, |c|̸ = 1;
 v) In =
@@ -23202,38 +23202,38 @@ In(ρ) =
 Z ∞
 0
 dx
-sin(ρx)
+sin(ρx)
 x
-n
+n
 per n = 1, 3 e 4 (ρ costante reale non nulla).
 4. Si calcolino i seguenti integrali:
 i) I =
 R ∞
 0 dx
-
+
 (1 + x2);
 ii) I =
 R ∞
 −∞dx x
-
+
 (x2 + 4x + 13)2;
 iii) I =
 R ∞
-0 dx x2
+0 dx x2
 (x2 + a2)2,
 a reale non nullo;
 iv) I =
 R +∞
 −∞dx
- 
+ 
 (x2 + a2)(x2 + b2)
-
+
 ,
 a, b reali non nulli;
 v) I =
 R ∞
 0 dx (x2 + 1)
-
+
 (x4 + 1).
 5. Si calcolino gli integrali seguenti:
 i) I =
@@ -23250,23 +23250,23 @@ la convergenza in k = 0);
 ii) I =
 R ∞
 0 dx [cos(ax)]
-
+
 (x2 + b2),
 a, b reali, b̸ = 0;
 iii) I =
 R ∞
 0 dx [x sin(ax)]
-
+
 (x2 + b2),
 a, b reali;
 iv) I =
 R ∞
 0 dx
-
+
 (x2 −b2) sin(ax)
-  
+  
 x(x2 + b2)
-
+
 ,
 a, b reali;
 301
@@ -23278,35 +23278,35 @@ FUNZIONI DI VARIABILE COMPLESSA
 v) I =
 R ∞
 0 dx sin(ax)
- 
+ 
 x(x2 + b2)
-
+
 ,
 a, b reali, b̸ = 0;
 vi) I =
 R ∞
 0 dx sin(ax)
- 
+ 
 x(x2 + b2)
-
+
 ,
 a, b reali, b̸ = 0;
 vii) I =
 R ∞
 0 dx [cos(2ax) −cos(2bx)]
-
+
 x2,
 a, b reali.
 6. Si calcolino gli integrali seguenti:
 i) In =
 R ∞
 0 dx
-
+
 (1 + xn),
 n = 2, 3, 4, . . .;
 ii) Jn =
 R ∞
-0 dx xn
+0 dx xn
 (1 + x2n),
 n = 2, 3, 4, . . .
 8.8
@@ -23325,14 +23325,14 @@ Per fissare le idee, consideriamo dunque l’integrale
 Z +∞
 −∞
 dx f(x)
-
+
 (x −x0)
 con x0 reale ed f(x0)̸ = 0. Supponiamo inoltre che il comportamento di f(x) per x →±∞sia
 tale da escludere problemi di convergenza asintotica (è sufficiente che, per ε positivo ancorché
 piccolo, |x|εf(x) →0 per x →±∞), e che la funzione analitica sia con-tinuabile analiticamente,
 di modo che l’integrando sia la funzione analitica
 W(z) = f(z)
-
+
 (z −x0)
 (1)
 avente un polo semplice in z = x0, con residuo f(x0).
@@ -23347,15 +23347,15 @@ Z +∞
 −∞
 dx f(x)/(x −x0) = lim
 ε→0+
-Z x0−ε
+Z x0−ε
 −∞
 dx +
 Z ∞
 x0+ε
 dx
-
+
 f(x)/(x −x0)
-
+
 .
 (2)
 Come ora mostreremo, questo integrale ha un valore finito.
@@ -23386,9 +23386,9 @@ orario).
 È allora chiaro che, nel limite in cui ε →0,
 lim
 ε→0
-Z
+Z
 C(+) dz W(z)
-
+
 = P
 Z +∞
 −∞
@@ -23406,10 +23406,10 @@ x0 + ε eiθi
 sicché ovviamente
 lim
 ε→0
-Z
+Z
 Cε
 dz f(z)/(z −x0)
-
+
 = −iπ f(x0) .
 Possiamo dunque concludere che
 P
@@ -23436,12 +23436,12 @@ passando da sotto.
 Un modo equivalente di scrivere questi stessi risultati è fornito dalla formula
 lim
 ε→0+
-Z +∞
+Z +∞
 −∞
 dx f(x)
-
+
 [x −(x0 ± iε)]
-
+
 = P
 Z +∞
 −∞
@@ -23453,7 +23453,7 @@ C(±) dz f(z)/(z −x0) =
 Z +∞
 −∞
 dx f(x)
-
+
 [x −(x0 ∓iε)] ,
 in quanto non è diverso (nel limite ε →0) modificare il cammino di integrazione per evitare la
 singolarità, o spostare la singolarità (dal punto x0 al punto x0 ∓iε) per evitare che cada sull’asse
@@ -23548,7 +23548,7 @@ g(t) =
 Z +∞
 −∞
 dk
-2π eikt
+2π eikt
 (−k2 + ρ2) .
 Questa formula ha però solo un significato formale, essendo l’integrale a secondo membro a rigore
 divergente a causa dei due poli in k = ±ρ.
@@ -23581,13 +23581,13 @@ i) I(t) =
 R +∞
 −∞
 dk
-2π eikt
+2π eikt
 (k −ρ),
 ρ reale;
 ii) I =
 R 1
 0 dx
-
+
 (1 −2x).
 2. Si calcolino esplicitamente le 4 funzioni di Green ga(t) (“avanzata”), gr(t) (“ritardata”),
 gst(t) (“stazionaria”), gc(t) (“causale”), dell’operatore differenziale
@@ -23613,7 +23613,7 @@ definita dall’integrale
 W(z) =
 Z
 C
-dz′
+dz′
 z′
 (1)
 essendo la curva C un cammino che parte dal punto z0 = 1 e arriva al punto z, senza passare per
@@ -23641,7 +23641,7 @@ z = |z| eiΘ ,
 La formula (2) suggerisce di definire
 Z z
 1
-dz′
+dz′
 z′ = Log z .
 (5)
 Si introduce così la funzione polidroma log z (“logaritmo di z” — naturalmente in base e), che
@@ -23682,7 +23682,7 @@ log z = log z0 +
 ∞
 X
 n=1
-[(z −z0)/z0]n 
+[(z −z0)/z0]n 
 n
 (5)
 entro un cerchio di centro z0 e raggio |z0|, ovvero dello sviluppo (di Taylor in Z−Z0 = 1/z−1/z0)
@@ -23690,7 +23690,7 @@ log z = log z0 −
 ∞
 X
 n=1
-(−1)n [(z −z0)/z]n 
+(−1)n [(z −z0)/z]n 
 n
 (6)
 al di fuori dello stesso cerchio.
@@ -23733,8 +23733,8 @@ FUNZIONI DI VARIABILE COMPLESSA
 o inferiore, del taglio. Ed è evidente che, per i valori subito al di sopra e subito al disotto del
 taglio si ha la formula
 log
-
-ρ eiΘ
+
+ρ eiΘ
 −log
 n
 ρ e[(2π−ε)i]o
@@ -23902,8 +23902,8 @@ diversi casi. Ci riferiamo per semplicità al caso a = −1, b = +1, sicché la 
 W(z) = [(z + 1)(z −1)]1/2
 (15a)
 =
- z2 −1
-1/2 .
+z2 −1
+1/2 .
 (15b)
 In ogni caso indichiamo nella figura i valori che tale funzione assume nei punti z = 2, z = 0,
 z = −2; nel caso in cui tali punti cadano sul taglio, risulta dalla figura stessa quale è il valore
@@ -24234,9 +24234,9 @@ di eq. (1) si riduce ad una somma su un numero finito di residui, e precisamente
 Z ∞
 0
 dx xc R(x) = −
-
+
 πe−iπc/ sin(πc)
- X
+ X
 k
 Resk[zcR(z)] ,
 (5)
@@ -24311,8 +24311,8 @@ percorrenza dell’integrale è — vedi figura — opposto a quello che si ha n
 I, in cui si integra da 0 a ∞).
 Sicché in conclusione si ottiene
 J =
-
-1 −e2πic
+
+1 −e2πic
 I = −2i eπic sin(πc) I .
 Questa equazione, confrontata con la precedente espressione di J, fornisce per l’appunto la
 formula (5) che si voleva dimostrare.
@@ -24366,9 +24366,9 @@ dx (log x)2 R(x) = −1
 X
 k
 Resk
-n
+n
 π2 log z
-+ (−iπ + log z)3
++ (−iπ + log z)3
 R(z)
 o
 ,
@@ -24449,9 +24449,9 @@ nel foglio corrispondente alla determinazione principale della funzione logaritm
 n−1
 X
 m=0
-n
+n
 m
-
+
 (2πi)n−m(log x)m.
 (16)
 In particolare la discontinuità di log z (come del resto già sappiamo) è −2πi; osservazione
@@ -24529,9 +24529,9 @@ di cerchio di raggio divergente; per esempio, nel caso dell’integrale I della 
 R(x) con f(x) si avrebbe la condizione
 lim
 z→∞
-
+
 z−1+ε+Re c f(z)
-
+
 = 0
 (23)
 che deve valere per qualche ε positivo, ancorché piccolo, e per z →∞lungo qualunque direzione
@@ -24927,32 +24927,32 @@ zn = (x + iy)n
 n
 X
 ℓ=0
-n
+n
 ℓ
-
+
 iℓyℓxn−ℓ
 =
 [n/2]
 X
 j=0
- n
+ n
 2j
-
+
 (−1)jy2jxn−2j
 + i
 [(n−1)/2]
 X
 j=0
-
+
 n
 2j + 1
-
+
 (−1)jy2j+1xn−(2j+1).
 Il primo passaggio è stato effettuato usando la formula di Leibnitz (potenza ennesima di
 un binomio), il simbolo
-n
+n
 ℓ
-
+
 ≡
 n!
 ℓ! (n −ℓ)!
@@ -24966,9 +24966,9 @@ n (x, y) =
 X
 j=0
 (−1)j
- n
+ n
 2j
-
+
 y2jxn−2j,
 P (2)
 n (x, y) =
@@ -24976,24 +24976,24 @@ n (x, y) =
 X
 j=0
 (−1)j
-
+
 n
 2j + 1
-
+
 y2j+1xn−(2j+1).
 Questi polinomi sono ovviamente indipendenti (non consideriamo il caso banale n = 0),
 poiché il primo contiene solo potenze pari della y (e pari o dispari della x, a seconda che n
 sia pari o dispari), il secondo solo potenze dispari della y.
 Naturalmente il diverso ruolo delle variabili x ed y è solo apparente; in effetti, usando la
 simmetria dei coefficienti binomiali secondo cui
-n
+n
 ℓ
-
+
 =
-
+
 n
 n −ℓ
-
+
 è facile mostrare che, per n pari
 P (1)
 n (x, y) ∝P (1)
@@ -25045,16 +25045,16 @@ C
 du =
 Z y
 0
-dy′ 
+dy′ 
 −2 exp(2y′) cos(2x′)
-	 
+	 
 x′=0
 +
 Z x
 0
-dx′ 
+dx′ 
 2 exp(2y′) sin(2x′)
-	 
+	 
 y′=y
 = 1 −exp(2y) cos(2x).
 Pertanto
@@ -25071,15 +25071,15 @@ C
 du =
 Z x
 0
-dx′ 
+dx′ 
 −2 exp(2y′) cos(2x′)
-	 
+	 
 y′=0 +
 Z y
 0
-dy′ 
+dy′ 
 2 exp(2y′) sin(2x′)
-	 
+	 
 x′=x
 (che equivale a scegliere come cammino C i 2 segmenti da (0, 0) a (x, 0) a (x, y)), o anche
 scrivendo
@@ -25108,9 +25108,9 @@ dy′ = y dt
 W(z) = +i cos(2z) + a, a reale.
 2-5 A3(x, y) = Re [P3(x + iy)] = 1
 2
-
+
 5x3 −15xy2 −3x
-
+
 .
 3-2 Il quarto integrale è una immediata conseguenza del teorema di Cauchy; da esso e dal primo
 seguono immediatamente il secondo e terzo (basta usare la formula z = x + iy). Il primo
@@ -25138,35 +25138,35 @@ in z = 0.
 4-1 I1 = 0;
 I2 = 1
 2(2πi)
-1
+1
 2
-2
+2
 = 1
 4πi;
 I3 = 1
 2i 2πi (i/2)3 = −1
 8πi;
 I4 = 2πi (2!)−1
- d2
+ d2
 dz2 exp(iz)
-
+
 z=0
 = 1
 4πi;
 I5 = 1
 2 2πi
-
+
 −3
 2
-−2
+−2
 = 4
 9πi;
 I6 = 1
 4 2πi
- d
+ d
 dz
-
-(z −2)−1
+
+(z −2)−1
 z= 1
 2
 = −2
@@ -25185,9 +25185,9 @@ sezione 8.7).
 8.11.
 CAUSALITÀ ED ANALITICITÀ
 4-3 Se a < π/2, il valore massimo è
-
+
 (sinh a)2 + sin2 a
-1/2; se a ≥π/2, il valore massimo
+1/2; se a ≥π/2, il valore massimo
 è cosh a.
 Questo risultato si ottiene cercando il massimo di |W(z)| sulla frontiera del
 dominio dato (principio del massimo modulo di una funzione analitica); e dunque o per
@@ -25212,29 +25212,29 @@ n=1 in+1 [z −(i + 1)]n,
 d = 1;
 iv) zc = P∞
 n=0
- c
+c
 n
-
+
 (z −1)n,
 d = 1.
 Nella iv)
-c
+c
 n
-
+
 = c(c −1)(c −2) · · · [c −(n −1)] /n!
 Se c è un numero intero positivo, c = N, allora per n ≤N
-c
+c
 n
-
+
 =
-N
+N
 n
-
+
 = N!/ [n! (N −n)!] ,
 e per n > N
-c
+c
 n
-
+
 = 0,
 sicché la serie di Taylor si riduce ad un polinomio di grado N (e cade naturalmente la
 restrizione d = 1).
@@ -25276,8 +25276,8 @@ sviluppo di Taylor).
 In effetti, come è ovvio,
 W(z) = 1/(1 −z4) = 1
 4
-
-(1 −z)−1 + (1 + z)−1 + (1 −iz)−1 + (1 + iz)−1
+
+(1 −z)−1 + (1 + z)−1 + (1 −iz)−1 + (1 + iz)−1
 ,
 ed ha dunque 4 singolarità (4 poli semplici) nei 4 punti z1 = 1, z2 = −1, z3 = i, z4 = −i.
 5-4 Se φ(z, z′) è funzione intera di z e z′, le uniche singolarità dell’integrando sono i punti
@@ -25411,23 +25411,23 @@ io
 con
 Jn = (2π/n!) dn
 dzn
-
+
 2z exp(az)/
-
+
 bz2 + 2z + b
-	 
+	 
 z=0
 = 2π(1 −b2)−1
 2
 n−1
 X
 m=0
-am 
+am 
 zn−m
 +
 −zn−m
 −
-
+
 /m!
 ove
 z± =
@@ -25447,13 +25447,13 @@ bz2 + 2z + b =
 b(z −z+)(z −z−) =
 1
 b(z+ −z−)
-
+
 1
 z −z+
 −
 1
 z −z−
-
+
 =
 1
 b(z+ −z−)
@@ -25515,9 +25515,9 @@ se |c| > 1;
 I = π(c6 + 1)/(1 −c2)
 se |c| < 1,
 I = π(c6 + 1)/
-
+
 c6(c2 −1)
-
+
 se |c| > 1;
 v) I = 2π/n!
 per n = 0, 1, 2, 3, . . .,
@@ -25536,9 +25536,9 @@ In(ρ) = [(πnρn)/(2|ρ|)]
 [n/2]
 X
 m=0
-(−1)m n
+(−1)m n
 2 −m
-n−1
+n−1
 / [m! (n −m)!] ,
 I1(ρ) = 1
 2πρ/|ρ|,
@@ -25643,15 +25643,15 @@ I valori di (z2 −1)1/2 sull’altro foglio cambiando tutti i segni.
 9-4 D(x) = −2i [(x −a)/(b −x)]1/2 θ(x −a)θ(b −x).
 9-5 D(x) = −2i sin(cπ) [(x −a)/(b −x)]c θ(x −a)θ(b −x).
 9-6 D(x) =
-
+
 4π2 −4iπ log x
-
+
 θ(x).
 Sì, sarebbe diversa, e precisamente
 Dn(x) =
-
+
 4π2(2n + 1) −4iπ log x
-
+
 θ(x)
 con n intero (il valore di n fornisce l’indirizzo del foglio di Riemann in questione).
 10-1 La formula (5) vale ancora, solo che il contributo dei poli che cadono nel semiasse reale
@@ -25671,18 +25671,18 @@ iv) I = [π/ sin(πc)] [sin(cλ)/ sin λ],
 v) I = πc(1 −c) 2c/ [8 sin(πc)],
 −1 < Re c < 2;
 vi) I = [π/ sin(πc)]
-
+
 2c/2 cos(cπ/4) −1
-
+
 ,
 −1 < Re c < 2;
 vii) I = [π/ sin(πc)]
-
-2c  1 −c
+
+2c 1 −c
 2
-
+
 −1
-
+
 ,
 −1 < Re c < 2;
 viii) I = [π/ sin(πc)] [sin(πc/2) + cos(πc/2) −1],
@@ -25708,8 +25708,8 @@ per
 CAUSALITÀ ED ANALITICITÀ
 10-7 i) I = [π/(2|a|)] log |a|;
 ii) I = [π/(8|a|)]
- π2 + 4 log2 |a|
-
+π2 + 4 log2 |a|
+
 .
 11-1 La funzione ˆS(k) avrà un solo polo che, per la condizione di realtà, dovrà trovarsi sull’asse
 immaginario (vedi la (5.8-22)), e per la condizione di causalità, sul semiasse immaginario
@@ -25718,8 +25718,8 @@ S(τ) = −a θ(τ) exp(−bτ),
 a reale, b reale positivo.
 11-2
 ˆS(k) = a/
- k2 −2iαk −b
-
+k2 −2iαk −b
+
 con a, α e b reali, α e b positivi.
 Conviene porre b = ω2 + α2, con ω positivo (per
 convenzione), sicché ˆS(k) viene ad avere 2 poli nei punti k = ±ω + iα, e risulta

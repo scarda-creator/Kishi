@@ -77,7 +77,7 @@ U = Span
 ,
 e
 W =
-
+
 (x, y, z, w)t ∈R4 | x + y + 2z = x + z = 0
 	
 .

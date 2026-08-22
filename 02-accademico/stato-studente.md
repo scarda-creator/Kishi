@@ -37,9 +37,9 @@ Finché questa sezione resta vuota, ogni giudizio su dove Giuseppe è debole vie
 | corso | file | quiz | pool | domande |
 |---|---:|---:|---:|---:|
 | geometria | 171 | 1 | 12 | 310 |
-| analisi-vettoriale | 63 | 1 | 10 | 428 |
+| analisi-vettoriale | 65 | 1 | 10 | 428 |
 | metodi-e-modelli | 52 | 1 | 9 | 402 |
-| meccanica | 36 | 1 | 11 | 457 |
+| meccanica | 38 | 1 | 11 | 457 |
 
 Dove stanno i quiz montati (il contatore li cerca lì, non nella cartella del corso — dal 12 agosto è quello l'unico accesso di Giuseppe):
 

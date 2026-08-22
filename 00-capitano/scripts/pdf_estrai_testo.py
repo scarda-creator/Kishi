@@ -47,6 +47,21 @@ def sha1(path: Path) -> str:
     return h.hexdigest()
 
 
+_CTRL = {c: None for c in range(32) if c not in (9, 10, 13)}
+_CTRL[0x7F] = None
+
+
+def ripulisci(t: str) -> str:
+    """Toglie i caratteri di controllo (NUL in testa) dal testo estratto.
+
+    Un solo NUL basta a far classificare il file come BINARIO da grep/ripgrep:
+    il file esiste, e' leggibile a occhio, ma sparisce da ogni ricerca della
+    navicella (Grep, memoria-indice, le passate dell'Argonauta). E' successo su
+    20220706ScrittoSoluzioni.txt di Analisi Vettoriale, invisibile per un NUL
+    solo. Si toglie qui, all'origine, non a valle."""
+    return t.translate(_CTRL)
+
+
 def estrai(pdf: Path, out_txt: Path):
     """Ritorna (n_pagine, n_char, testo). Non scrive nulla."""
     doc = fitz.open(pdf)
@@ -55,7 +70,7 @@ def estrai(pdf: Path, out_txt: Path):
         t = page.get_text("text")
         parti.append(f"\n\n===== PAGINA {i + 1} =====\n{t}")
     doc.close()
-    testo = "".join(parti).strip()
+    testo = ripulisci("".join(parti).strip())
     return len(parti), len(testo), testo
 
 

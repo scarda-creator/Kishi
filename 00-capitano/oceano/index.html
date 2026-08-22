@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1016">
+<title>Oceano</title>
+<style>
+:root{--bg:#0b1016;--card:#151b23;--line:#28323d;--fg:#eef3f8;--muted:#93a2b3;--onda:#5eead4;--caldo:#f0a95a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--fg);
+ min-height:100dvh;display:flex;flex-direction:column;padding:20px 18px calc(20px + env(safe-area-inset-bottom))}
+h1{font-size:1.3rem;margin:0 0 2px;font-weight:600;letter-spacing:.3px}
+.sub{color:var(--muted);font-size:.83rem;margin:0 0 20px;line-height:1.45}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px}
+button{font:inherit;border:0;border-radius:14px;padding:16px;width:100%;font-weight:600;cursor:pointer}
+.reg{background:var(--onda);color:#06231f;font-size:1.05rem}
+.reg.attiva{background:#ff6b6b;color:#fff}
+.sec{background:transparent;color:var(--fg);border:1px solid var(--line)}
+textarea{width:100%;background:#0e141b;color:var(--fg);border:1px solid var(--line);border-radius:12px;
+ padding:12px;font:inherit;min-height:88px;resize:vertical}
+label.file{display:block;background:transparent;border:1px dashed var(--line);border-radius:14px;padding:16px;
+ text-align:center;color:var(--muted);font-weight:600}
+label.file input{display:none}
+.riga{display:flex;gap:10px;align-items:center;justify-content:space-between;font-size:.8rem;color:var(--muted)}
+.pallino{width:9px;height:9px;border-radius:50%;background:#6b7684;flex:none}
+.pallino.ok{background:var(--onda)} .pallino.ko{background:var(--caldo)}
+#coda{margin-top:6px;font-size:.78rem;color:var(--muted);line-height:1.6}
+#coda .v{display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-bottom:1px solid #1d252e}
+.tempo{font-variant-numeric:tabular-nums;font-size:2rem;text-align:center;margin:10px 0 4px;letter-spacing:1px}
+.esito{text-align:center;font-size:.85rem;min-height:1.2em;color:var(--onda);margin-top:8px}
+</style>
+</head>
+<body>
+<h1>Oceano</h1>
+<p class="sub">Versa un pensiero. Se il computer non risponde resta qui e parte da solo appena lo raggiungi.</p>
+
+<div class="card">
+  <div id="tempo" class="tempo" hidden>0:00</div>
+  <button id="reg" class="reg">Registra</button>
+  <label class="file" id="etichettaFile" hidden>
+    Registra col telefono
+    <input id="file" type="file" accept="audio/*" capture>
+  </label>
+  <div class="esito" id="esito"></div>
+</div>
+
+<div class="card">
+  <textarea id="testo" placeholder="…oppure scrivilo."></textarea>
+  <div style="height:10px"></div>
+  <button id="inviaTesto" class="sec">Versa il testo</button>
+</div>
+
+<div class="card">
+  <div class="riga">
+    <span><span class="pallino" id="pallino"></span> <span id="stato">controllo…</span></span>
+    <button id="riprova" class="sec" style="width:auto;padding:8px 14px;font-size:.8rem">Riprova</button>
+  </div>
+  <div id="coda"></div>
+</div>
+
+<script>
+// Oceano - bocca mobile. Dedalo, 2026-08-22.
+// Principio: NON perdere mai un pensiero. Tutto entra prima in una coda locale
+// (IndexedDB, sopravvive alla chiusura della pagina), e solo dopo si tenta
+// l'invio. Se il PC e' spento o sei fuori casa, la voce resta qui e riparte
+// da sola. Un organo che perde le note e' peggio di nessun organo.
+
+const $ = s => document.querySelector(s);
+let DB = null;
+
+function apriDB(){
+  return new Promise((ris, rif) => {
+    const r = indexedDB.open('oceano', 1);
+    r.onupgradeneeded = e => e.target.result.createObjectStore('coda', {keyPath:'id', autoIncrement:true});
+    r.onsuccess = e => ris(e.target.result);
+    r.onerror = () => rif(r.error);
+  });
+}
+function tx(modo){ return DB.transaction('coda', modo).objectStore('coda'); }
+function accoda(voce){
+  return new Promise((ris,rif) => { const r = tx('readwrite').add(voce); r.onsuccess=()=>ris(r.result); r.onerror=()=>rif(r.error); });
+}
+function tutte(){
+  return new Promise((ris,rif) => { const r = tx('readonly').getAll(); r.onsuccess=()=>ris(r.result); r.onerror=()=>rif(r.error); });
+}
+function togli(id){
+  return new Promise(ris => { const r = tx('readwrite').delete(id); r.onsuccess=()=>ris(); r.onerror=()=>ris(); });
+}
+
+function quando(ts){
+  const d = new Date(ts);
+  return d.toLocaleDateString('it-IT',{day:'2-digit',month:'2-digit'}) + ' ' +
+         d.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+}
+
+async function mostraCoda(){
+  const v = await tutte();
+  $('#coda').innerHTML = v.length
+    ? v.map(x => '<div class="v"><span>' + (x.tipo==='testo'?'testo':'vocale') + '</span><span>' + quando(x.ts) + '</span></div>').join('')
+    : '<div style="padding-top:6px">Niente in attesa.</div>';
+}
+
+async function versa(){
+  const v = await tutte();
+  if(!v.length){ await salute(); return; }
+  let passate = 0;
+  for(const x of v){
+    try{
+      const r = await fetch('/versa', {method:'POST', body:x.dati,
+        headers:{'Content-Type': x.mime || 'application/octet-stream',
+                 'X-Oceano-Tipo': x.tipo, 'X-Oceano-Nome': x.nome || ''}});
+      if(!r.ok) throw new Error('http ' + r.status);
+      await togli(x.id); passate++;
+    }catch(e){ break; }   // se cade il primo, cadranno tutti: si riprova dopo
+  }
+  await mostraCoda();
+  if(passate){ segna(true, 'versati ' + passate); $('#esito').textContent = 'Arrivato.'; setTimeout(()=>$('#esito').textContent='',2500); }
+  else await salute();
+}
+
+function segna(ok, testo){
+  $('#pallino').className = 'pallino ' + (ok ? 'ok' : 'ko');
+  $('#stato').textContent = testo;
+}
+async function salute(){
+  try{
+    const r = await fetch('/salute', {cache:'no-store'});
+    if(!r.ok) throw 0;
+    const n = (await tutte()).length;
+    segna(true, n ? 'collegato — ' + n + ' in attesa' : 'collegato');
+    if(n) versa();
+  }catch(e){
+    const n = (await tutte()).length;
+    segna(false, n ? 'non collegato — ' + n + ' al sicuro qui' : 'non collegato');
+  }
+}
+
+async function metti(dati, tipo, mime, nome){
+  await accoda({dati, tipo, mime, nome, ts: Date.now()});
+  await mostraCoda();
+  versa();
+}
+
+// --- registrazione dentro la pagina (solo dove il browser da' il microfono) ---
+let rec = null, pezzi = [], t0 = 0, cronometro = null;
+async function avviaRec(){
+  const flusso = await navigator.mediaDevices.getUserMedia({audio:true});
+  rec = new MediaRecorder(flusso);
+  pezzi = [];
+  rec.ondataavailable = e => { if(e.data.size) pezzi.push(e.data); };
+  rec.onstop = async () => {
+    flusso.getTracks().forEach(t => t.stop());
+    const b = new Blob(pezzi, {type: rec.mimeType || 'audio/webm'});
+    await metti(b, 'voce', b.type, 'vocale');
+  };
+  rec.start();
+  t0 = Date.now();
+  $('#tempo').hidden = false;
+  cronometro = setInterval(() => {
+    const s = Math.floor((Date.now()-t0)/1000);
+    $('#tempo').textContent = Math.floor(s/60) + ':' + String(s%60).padStart(2,'0');
+  }, 250);
+  $('#reg').textContent = 'Ferma';
+  $('#reg').classList.add('attiva');
+}
+function fermaRec(){
+  if(rec && rec.state !== 'inactive') rec.stop();
+  clearInterval(cronometro);
+  $('#tempo').hidden = true; $('#tempo').textContent = '0:00';
+  $('#reg').textContent = 'Registra';
+  $('#reg').classList.remove('attiva');
+}
+
+const puoRegistrare = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
+if(!puoRegistrare){
+  // niente microfono: succede su http:// non-locale, che non e' contesto sicuro.
+  // Non e' un guasto ed e' inutile spiegarlo qui: si offre il registratore del
+  // telefono, che fa la stessa cosa con un tocco in piu'.
+  $('#reg').hidden = true;
+  $('#etichettaFile').hidden = false;
+}
+$('#reg').addEventListener('click', async () => {
+  try{
+    if(rec && rec.state === 'recording') fermaRec();
+    else await avviaRec();
+  }catch(e){
+    $('#reg').hidden = true; $('#etichettaFile').hidden = false;
+    $('#esito').textContent = 'Uso il registratore del telefono.';
+  }
+});
+$('#file').addEventListener('change', async e => {
+  const f = e.target.files[0];
+  if(f) await metti(f, 'voce', f.type || 'audio/mp4', f.name);
+  e.target.value = '';
+});
+$('#inviaTesto').addEventListener('click', async () => {
+  const t = $('#testo').value.trim();
+  if(!t) return;
+  await metti(new Blob([t], {type:'text/plain'}), 'testo', 'text/plain; charset=utf-8', 'nota');
+  $('#testo').value = '';
+  $('#esito').textContent = 'Preso.';
+  setTimeout(()=>$('#esito').textContent='',2000);
+});
+$('#riprova').addEventListener('click', versa);
+
+(async () => {
+  DB = await apriDB();
+  await mostraCoda();
+  await salute();
+  setInterval(salute, 20000);
+  window.addEventListener('online', versa);
+})();
+</script>
+</body>
+</html>

@@ -1,17 +1,17 @@
 ===== PAGINA 1 =====
 Metodi Matematici per la Fisica
-Formulario operativo  algoritmi, teoremi, esempi degli appelli
+Formulario operativo  algoritmi, teoremi, esempi degli appelli
 Da stampare fronte-retro
-1. Spazi di Hilbert  denizioni e teoremi
-Denizione (spazio di Hilbert)
+1. Spazi di Hilbert  denizioni e teoremi
+Denizione (spazio di Hilbert)
 Uno spazio vettoriale H su C con prodotto scalare ⟨·|·⟩
 (sesquilineare, Hermitiano, def. pos.)
 e completo nella
 norma indotta.
 Riesz Ogni funzionale lineare continuo φ : H →C si rapp-
-resenta come φ(ψ) = ⟨η|ψ⟩per un unico η ∈H. (Identica
+resenta come φ(ψ) = ⟨η|ψ⟩per un unico η ∈H. (Identica
 H ≡H∗.)
-CauchySchwarz |⟨u|v⟩| ≤∥u∥∥v∥, con uguaglianza sse
+CauchySchwarz |⟨u|v⟩| ≤∥u∥∥v∥, con uguaglianza sse
 u ∥v.
 Parseval / Plancherel Per ONB {en}: ψ = P
 n⟨en|ψ⟩en,
@@ -35,7 +35,7 @@ L2(Ω):
 ⟨f|g⟩=
 R
 Ωf ∗g.
-GramSchmidt
+GramSchmidt
 e1 = v1/∥v1∥;
 uk = vk−P
 j<k⟨ej|vk⟩ej;
@@ -45,7 +45,7 @@ Proiettori
 Pi = |ei⟩⟨ei|, P2 = P = P†, PiPj = δijPi, P
 i Pi = ⊮,
 Tr P = dim Ran P, P⊥= ⊮−P.
-2. Matrici  autovalori e funzioni
+2. Matrici  autovalori e funzioni
 Algoritmo: autovalori e autovettori di A ∈Mn(C)
 1. Pol. caratteristico p(λ) = det(A −λ⊮).
 2. Autoval. λi: radici di p, mol. algebrica mi.
@@ -54,11 +54,11 @@ risolvi (A −λi⊮)v = 0.
 Mol. geom.
 gi = dim ker(A −λi⊮).
 4. Hermitiana ⇒λi ∈R, autovett. ortogonali (se λi̸ = λj);
-GramSchmidt su autospazi degeneri.
+GramSchmidt su autospazi degeneri.
 5. Diagonalizzabile ⇐⇒gi = mi∀i. Altrimenti: forma di
 Jordan.
 6. S = (v1| . . . |vn), D = S−1AS. Herm. ⇒S unitaria.
-Veriche rapide
+Veriche rapide
 P λi = Tr A,
 Q λi = det A,
 A† = A ⇒λ ∈R,
@@ -69,7 +69,7 @@ es-
 iste base ortonormale di autovettori; A = P
 i λiPi con
 Pi = |ei⟩⟨ei|.
-CayleyHamilton p(A) = 0.
+CayleyHamilton p(A) = 0.
 Conseguenza:
 ogni f(A)
 analitica è polinomio in A di grado < n.
@@ -80,7 +80,7 @@ autovett. non ortonorm.: Pi = SP(D)
 i
 S−1, NON |vi⟩⟨vi|.
 (b)
-CayleyHamilton:
+CayleyHamilton:
 R(z)
 =
 P
@@ -103,7 +103,7 @@ Diagonalizzazione simultanea
 [A, B] = 0 + entrambe diag. ⇐⇒esiste base che le diag-
 onalizza entrambe. Se λ degenere per A: diagonalizza B
 ristretto a Lλ.
-3. Operatori in H innito-dimensionale
+3. Operatori in H innito-dimensionale
 Operatore (lineare, denso)
 A : Dom(A) ⊂H →H, Dom(A) = H.
 Aggiunto A†
@@ -113,9 +113,9 @@ Quattro classi di operatori
  Autoaggiunto: A = A†, stessi domini.
  Essenzialmente autoagg.: chiusura A è autoagg.
  Unitario: UU † = U †U = ⊮, conserva norma.
-Simmetrico̸ ⇒autoagg. (è un errore tipico). Dierenza:
+Simmetrico̸ ⇒autoagg. (è un errore tipico). Dierenza:
 termini di bordo.
-Spettrale (Hilbertvon Neumann) A autoaggiunto ⇒
+Spettrale (Hilbertvon Neumann) A autoaggiunto ⇒
 esiste misura proiettoriale {Eλ} tale che A =
 R
 λdEλ con
@@ -125,9 +125,9 @@ f(λ)dEλ.
 Stone U(t) gruppo unitario fortemente continuo ⇐⇒es-
 iste A autoaggiunto con U(t) = e−itA. (Genera evoluzioni
 in QM.)
-HellingerToeplitz Se A è denito su tutto H e simmet-
+HellingerToeplitz Se A è denito su tutto H e simmet-
 rico ⇒A è limitato. (Quindi gli operatori illimitati come
-X, P NON sono deniti ovunque.)
+X, P NON sono deniti ovunque.)
 Spettro σ(A)
 σ(A) = {λ : A −λ⊮non invertibile}. Si scompone:
  Puntuale σp: λ con autofunzione in H.
@@ -138,13 +138,13 @@ tori autoagg.).
 Autoagg.: σr = ∅, σ ⊂R.
 Unitario: σ ⊂{|z| = 1}.
 Proiettore: σ ⊂{0, 1}.
-Algoritmo: spettro di A = op. dierenziale su [a, b]
+Algoritmo: spettro di A = op. dierenziale su [a, b]
 1. Scrivi l'ODE Aψ = λψ con λ parametro.
 2. Soluzione generale dell'ODE: ψλ(x) = c1ψ(1)
 λ (x) +
 c2ψ(2)
 λ (x). Metodi:
- Coe. costanti →caratter. algebrica.
+ Coe. costanti →caratter. algebrica.
  Eulero →ansatz xr.
  Prim'ordine A = −i∂x +g(x): ψλ =
 1
@@ -162,7 +162,7 @@ equazione Φ(λ) = 0. Radici = spettro discreto {λn}.
 6. Normalizza: ∥ψn∥2 =
 R b
 a |ψn|2dx = 1.
-7. Verica autoaggiuntezza: integrazione per parti →
+7. Verica autoaggiuntezza: integrazione per parti →
 ⟨Aψ|ϕ⟩−⟨ψ|Aϕ⟩= [bordo]. Annullamento
 ⇐⇒
 BC
@@ -256,7 +256,7 @@ x −δ(x) su R:
 e−|x|/2/
 √
 2; σc = [0, ∞).
-Buca innita −∂2
+Buca innita −∂2
 x su [0, L] Dir-Dir: come sopra.
 Heisenberg ∆ψA ∆ψB ≥
 1
@@ -266,11 +266,11 @@ Saturazione
 L2: appartenenza
 Locale |f|2 ∼|x −x0|−2β: convergente ⇐⇒2β < 1.
 Asintotica |f|2 ∼|x|−2γ: convergente ⇐⇒2γ > 1.
-RieszFischer L2 è completo.
+RieszFischer L2 è completo.
 (Garantisce che conver-
 genza in norma ⇒esistenza limite in L2.)
 4. Analisi complessa
-CauchyRiemann f = u + iv olom. su aperto Ω
+CauchyRiemann f = u + iv olom. su aperto Ω
 ⇐⇒
 ux = vy, uy = −vx
 ⇐⇒
@@ -309,10 +309,10 @@ f
 (z−z0)n+1 dz.
 Convergente in anello r < |z−z0| < R con r = sup |zn−z0|
 (zn singolarità interne).
-Classicazione singolarità isolate
+Classicazione singolarità isolate
 Eliminabile (parte princ. = 0); polo ord. m (c−m̸ = 0,
-c−k>m =0); essenziale (parte princ. innita).
-CasoratiWeierstrass / Picard Vicino a una singolar-
+c−k>m =0); essenziale (parte princ. innita).
+CasoratiWeierstrass / Picard Vicino a una singolar-
 ità essenziale, f assume valori densi in C (CW); ogni valore
 complesso eccetto al più uno (Picard).
 Sviluppi notevoli in 0
@@ -334,9 +334,9 @@ z −z
 45 −. . .
 1 −cos z = z2
 2
- 1 −z2
+1 −z2
 12 + . . .
-
+
 Residui (Cauchy)
 H
 γ f dz = 2πi P
@@ -348,9 +348,9 @@ Polo ord. m: Res =
 (m−1)! limz→z0
 dm−1
 dzm−1
-
+
 (z −z0)mf
-
+
 .
 Sfera Riemann: P
 tutti Res = 0 (compreso ∞).
@@ -402,7 +402,7 @@ R ∞
 xp/(1 + xn).
  Rettangolo altezza iπ se cosh, sinh nel denom.
  Keyhole su R+: (1 −e2πiα)I = 2πi P Res.
- Dog-bone attorno a taglio nito [a, b].
+ Dog-bone attorno a taglio nito [a, b].
 Polidromia
 log z = log |z| + i arg z. Taglio R+ →arg ∈[0, 2π); taglio
 R−→arg ∈(−π, π].
@@ -410,8 +410,8 @@ p
 (z −a)(z −b) con taglio [a, b]:
 olom. fuori, ∞NON
 branch.
-Sui lati: zα dierisce per e2πiα; √z cambia segno.
-SokhotskiPlemelj
+Sui lati: zα dierisce per e2πiα; √z cambia segno.
+SokhotskiPlemelj
 1
 x±i0
 =
@@ -423,7 +423,7 @@ tribuzioni).
 
 ===== PAGINA 3 =====
 5. Distribuzioni
-Denizione
+Denizione
 Funzionale lineare continuo T : D(Ω) →C su funzioni test
 ϕ ∈C∞
 c . Notazione ⟨T|ϕ⟩.
@@ -480,7 +480,7 @@ R
 P(a2
 n + b2
 n).
-RiemannLebesgue f ∈L1 ⇒cn →0 per |n| →∞.
+RiemannLebesgue f ∈L1 ⇒cn →0 per |n| →∞.
 Somme notevoli
 P
 n≥1
@@ -558,7 +558,7 @@ R
 | ˆf|2. (ˆ· /
 √
 2π è unitaria su L2.)
-RiemannLebesgue f
+RiemannLebesgue f
 ∈
 L1
 ⇒
@@ -567,8 +567,8 @@ L1
 C0 ( ˆf
 →
 0
-all'innito).
-PaleyWiener f supporto in [−A, A] ⇐⇒
+all'innito).
+PaleyWiener f supporto in [−A, A] ⇐⇒
 ˆf estendibile
 a C, intera, con | ˆf(k)| ≤CeA| Im k|.
 TF notevoli
@@ -629,11 +629,11 @@ Bromwich
 R c+i∞
 c−i∞F(s)estds,
 c > σ0. Per t > 0 chiudi a sinistra.
-9. ODE  variazione costanti
+9. ODE  variazione costanti
 Forma standard
 a2(x)f ′′ + a1(x)f ′ + a0(x)f = j(x).
 Soluzioni omogenee
-Coe. costanti: caratter. a2r2 + a1r + a0 = 0 →fh =
+Coe. costanti: caratter. a2r2 + a1r + a0 = 0 →fh =
 Aer+x + Ber−x (oppure erx(A + Bx) se radice doppia).
 Eulero a2x2f ′′ + a1xf ′ + a0f: ansatz f = xr →a2r(r −
 1) + a1r + a0 = 0. Radice doppia: f2 = xr log x.
@@ -659,17 +659,17 @@ a1/a2
 f2
 1
 dx.
-EsistenzaUnicità
-(PicardLindelöf) ODE
+EsistenzaUnicità
+(PicardLindelöf) ODE
 prim'ordine y′ = F(x, y) con F Lipschitz in y: soluzione
 unica locale.
 3
 
 
 ===== PAGINA 4 =====
-10. Funzione di Green per ODE  GUIDA
-Denizione e ruolo
-Per Lf = j con BC omogenee ssate, G(x, y) soddisfa
+10. Funzione di Green per ODE  GUIDA
+Denizione e ruolo
+Per Lf = j con BC omogenee ssate, G(x, y) soddisfa
 LxG(x, y) = δ(x −y),
 stesse BC nella variabile x.
 Allora f(x) =
@@ -685,7 +685,7 @@ nella
 forma
 Lf
 =
-a2(x)f ′′ +a1(x)f ′ +a0(x)f = j(x). Identica il dominio
+a2(x)f ′′ +a1(x)f ′ +a0(x)f = j(x). Identica il dominio
 [a, b] e le BC omogenee.
 2. Risolvi l'omogenea Lf = 0: trova due soluzioni in-
 dipendenti.
@@ -718,7 +718,7 @@ Forma compatta: G = f1(x<)f2(x>)
 a2(y)W (y)
 con x< = min(x, y),
 x> = max(x, y).
-7. Veriche:
+7. Veriche:
  G continua in x = y;
  Salto: ∂xG(y+, y) −∂xG(y−, y) = 1/a2(y);
  G soddisfa BC in x = a e x = b (per costruzione).
@@ -742,7 +742,7 @@ y G(x, y)|y=x0.
 Casi degeneri
 Se f1 e f2 risultano proporzionali (cioè esiste una soluzione
 omogenea che soddisfa entrambe le BC), W = 0 e G non
-esiste. Signicato: λ = 0 è autovalore di L. Soluzione: il
+esiste. Signicato: λ = 0 è autovalore di L. Soluzione: il
 problema Lf = j ha soluzione solo se j ⊥a tale autofun-
 zione (alternativa di Fredholm).
 Espansione in autofunzioni
@@ -769,8 +769,8 @@ sin(k(L −x)), W = −k sin(kL). G = sin(kx<) sin(k(L −
 x>))/[k sin(kL)].
 Eulero x2f ′′ + xf ′ −f = j su [1, 2]: fh = Ax + B/x,
 f1 = x −1/x, f2 = x −4/x, applica algoritmo.
-11. EDP  separazione di variabili
-Classicazione (2◦ord., 2 variabili)
+11. EDP  separazione di variabili
+Classicazione (2◦ord., 2 variabili)
 auxx + 2buxy + cuyy + . . . con discriminante ∆= b2 −ac:
  ∆< 0 ellittica (Laplace, Helmholtz): BC su frontiera.
  ∆= 0 parabolica (calore): cond. iniziale + BC.
@@ -789,7 +789,7 @@ LxX/X = −λ (costante).
 3. ODE in t: ˙Tn = −λnTn ⇒Tn(t) = cne−λnt.
 4. Sovrapposizione: u(t, x) = P
 n cne−λntXn(x).
-5. Coecienti dal dato iniziale:
+5. Coecienti dal dato iniziale:
 cn
 =
 ⟨Xn|u0⟩
@@ -841,21 +841,21 @@ Trucchi
 ∂tu = a(t)∂xxu: cambio τ =
 R t
 0 a(s)ds.
-Advect.-di. ∂tu + v∂xu = κ∂xxu: y = x −vt.
+Advect.-di. ∂tu + v∂xu = κ∂xxu: y = x −vt.
 Neumann →estensione pari del dato; Dirichlet →dispari.
 4
 
 
 ===== PAGINA 5 =====
-12. Funzione di Green per EDP  GUIDA
-Denizione
-Per Lu = j (operatore L in ∂t, ∂x, ev. a coecienti
+12. Funzione di Green per EDP  GUIDA
+Denizione
+Per Lu = j (operatore L in ∂t, ∂x, ev. a coecienti
 costanti):
 LG(t, x; t′, x′) = δ(t −t′)δ(x −x′),
-con condizioni che ssano l'unicità (ritardata: G = 0 per
+con condizioni che ssano l'unicità (ritardata: G = 0 per
 t < t′).
 Algoritmo:
-G via Fourier (problemi su Rn, coe.
+G via Fourier (problemi su Rn, coe.
 costanti)
 1. Trasforma: (t, x) →(ω, k). L diventa moltiplicazione:
 ˜L(iω, ik) ˜G(ω, k) = 1.
@@ -877,10 +877,10 @@ G(t, x) =
 R
 G(t, k)eikxdk.
 Spesso gaussiana o tabulata.
-5. Verica: G(t, x)|t→0+ →δ(x) per calore/Schrödinger;
+5. Verica: G(t, x)|t→0+ →δ(x) per calore/Schrödinger;
 supp. sul cono luce per onde.
 Algoritmo: G via espansione in autofunzioni (prob-
-lemi su dominio nito)
+lemi su dominio nito)
 1. Trova autofunzioni {Xn} di Lx con BC spaziali (sez. 3).
 2. Espandi: G(t, x; t′, x′) = P
 n Tn(t, t′)Xn(x)X∗
@@ -908,7 +908,7 @@ Onde 3D: GR(t, r) = δ(t−r/c)
 (sul cono luce)
 Poisson 3D (−∆): G = 1/(4π|r|)
 Helmholtz 3D (−∆−k2): GR = eikr/(4πr)
-KleinGordon eucl. (−∆+m2) in R3: G = e−mr/(4πr)
+KleinGordon eucl. (−∆+m2) in R3: G = e−mr/(4πr)
 (Yukawa)
 Prescrizione iϵ
 ˜G(ω) = 1/[(ω −ω+)(ω −ω−) + . . . ], spostamento ω± →
@@ -931,33 +931,33 @@ x′)j(t′, x′)dx′dt′.
 Sorgente δ(t −t0)δ(x −x0): u(t, x) = GR(t −t0, x −x0).
 13. Strategia d'esame
 Riconoscimento rapido del tipo di esercizio
- base ortonormale →GramSchmidt.
- calcola
-f(A)
+ base ortonormale →GramSchmidt.
+ calcola
+f(A)
 (matrice)
 →
 spettrale
 o
-Cayley
+Cayley
 Hamilton.
- spettro di un operatore →ODE + BC + quantiz-
+ spettro di un operatore →ODE + BC + quantiz-
 zazione (sez. 3).
- serie di Laurent / residui →classica singolarità.
- integrale
-reale
+ serie di Laurent / residui →classica singolarità.
+ integrale
+reale
 →
 scegli
 percorso
 (semicer-
 chio/keyhole/settore/rettangolo).
- √z, log z, taglio →disegna sempre il piano.
- TF / TF inversa →chiudi nel semipiano col decadi-
+ √z, log z, taglio →disegna sempre il piano.
+ TF / TF inversa →chiudi nel semipiano col decadi-
 mento.
- ODE non omogenea con BC →funzione di Green (sez.
+ ODE non omogenea con BC →funzione di Green (sez.
 10).
- EDP intervallo nito →separazione + serie autofunz.
- EDP su R con sorgente →Green ritardata.
- sorgente δ →valuta GR in (t −t0, x −x0).
+ EDP intervallo nito →separazione + serie autofunz.
+ EDP su R con sorgente →Green ritardata.
+ sorgente δ →valuta GR in (t −t0, x −x0).
 Errori killer
  Coniugato dimenticato in Cn.
  Branch sbagliato (sempre disegnare!).
@@ -968,18 +968,18 @@ Errori killer
  Dimenticare 1/(2π) in antitrasformata.
  Dimenticare BC compatibili con autoagg.
  Confondere mol. algebrica e geometrica.
-Veriche rapide universali
+Veriche rapide universali
 Tr, det, parità, dimensioni, casi limite (λ →0, λ →∞,
 L →∞, t →0).
 Le 10 idee che risolvono il 90%
 1. Decomposizione spettrale.
-2. CayleyHamilton per funzioni di matrice.
+2. CayleyHamilton per funzioni di matrice.
 3. Laurent + residui per integrali su circuiti.
 4. Chiusura a semicerchio + Jordan per Fourier.
 5. Keyhole/settore per xα, log.
 6. Separazione di variabili per EDP.
-7. Sviluppo in autofunzioni su intervallo nito.
-8. TF per problemi su R a coe. costanti.
+7. Sviluppo in autofunzioni su intervallo nito.
+8. TF per problemi su R a coe. costanti.
 9. Funzione di Green per sorgenti.
 10. Parita per dimezzare il lavoro ovunque.
 Nomi da citare a lezione
@@ -989,16 +989,16 @@ Parseval,
 Bessel,
 Dirichlet,
 Fejer,
-RiemannLebesgue,
-PaleyWiener,
+RiemannLebesgue,
+PaleyWiener,
 Jordan,
-Sokhotski
-Plemelj, CasoratiWeierstrass, Picard, Liouville, Cauchy
+Sokhotski
+Plemelj, CasoratiWeierstrass, Picard, Liouville, Cauchy
 Schwarz,
 Cauchy,
-PicardLindelof,
+PicardLindelof,
 Stone,
-Hellinger
+Hellinger
 Toeplitz, von Neumann, Fredholm, d'Alembert, Heisen-
-berg, CayleyHamilton, BCH.
+berg, CayleyHamilton, BCH.
 5

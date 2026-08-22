@@ -731,3 +731,117 @@ Lotto 2 per il pool EDO di Analisi Vettoriale (18 unita').
         sol:"Criterio di stabilit&agrave; per sistemi lineari: l'origine &egrave; asintoticamente stabile se e solo se tutti gli autovalori hanno parte reale negativa. Qui $\\mathrm{Re}\\,\\lambda=-1<0$: asintoticamente stabile." }
   ]}
 ];
+
+
+/* ===================================================================
+   ESTENSIONE edo — run notturno 2026-08-22
+   Motivo: 5 sedute su 21 chiedono la CONVESSITA'/CONCAVITA' della
+   soluzione di Cauchy senza risolverla (22/06/2022, 21/06/2023,
+   05/07/2023, 09/02/2024, 04/07/2024), e due chiedono retta tangente o
+   polinomio di Taylor della soluzione. Il pool a 52 unita' toccava la
+   derivata seconda in 2-3 domande. Qui si allena la mossa: derivare
+   l'equazione, non la soluzione.
+   =================================================================== */
+Q.edo = (Q.edo || []).concat([
+
+{"pool":"edo","src":"modus operandi &middot; coda ricorrente","steps":[
+ {"t":"Il testo chiede se la soluzione di $y'=f(t,y)$, $y(t_0)=y_0$ &egrave; convessa o concava in un intorno di $t_0$, SENZA risolvere. Qual &egrave; la mossa?",
+  "opts":[
+   {"x":"Derivare l'EQUAZIONE rispetto a $t$: $y''=f_t(t,y)+f_y(t,y)\\,y'=f_t+f_y\\cdot f$, e valutarla in $(t_0,y_0)$","c":true},
+   {"x":"Derivare due volte la soluzione esplicita e valutare il segno"},
+   {"x":"Guardare il segno di $y'(t_0)=f(t_0,y_0)$: se positivo la soluzione &egrave; convessa"},
+   {"x":"Studiare il segno di $f_y$: se $f_y>0$ la soluzione &egrave; convessa"}],
+  "hint":"La soluzione non ce l'hai, ma l'equazione s&igrave;. E l'equazione dice quanto vale $y'$ in OGNI punto: puoi sostituirla dentro la derivata.",
+  "sol":"<b>Derivare l'equazione.</b> Da $y'(t)=f(t,y(t))$, derivando in $t$ con la regola della catena: $y''(t)=f_t(t,y(t))+f_y(t,y(t))\\cdot y'(t)=f_t+f_y\\cdot f$. Tutto il secondo membro &egrave; noto in $(t_0,y_0)$ perch&eacute; $f$ &egrave; data e $y(t_0)=y_0$. Il segno di $y''(t_0)$ d&agrave; convessit&agrave; ($>0$) o concavit&agrave; ($<0$) in un intorno, per permanenza del segno (che vale perch&eacute; $y''$ &egrave; continua se $f\\in C^1$). <b>L'opzione 3 confonde monotonia e convessit&agrave;</b>: &egrave; l'errore che il compito vuole intercettare."}]},
+
+{"pool":"edo","src":"20240704 Es.5 iii","steps":[
+ {"t":"$y'=\\dfrac{y(y-2)}{1+t}$, $y(0)=1$. La soluzione &egrave; convessa o concava in un intorno di $t_0=0$?",
+  "opts":[
+   {"x":"Convessa: $y''(0)=1>0$","c":true},
+   {"x":"Concava: $y''(0)=-1<0$"},
+   {"x":"N&eacute; l'una n&eacute; l'altra: $y''(0)=0$, c'&egrave; un flesso"},
+   {"x":"Concava, perch&eacute; $y'(0)=-1<0$ e la soluzione decresce"}],
+  "hint":"Calcola prima $y'(0)$ dall'equazione, poi deriva l'equazione e sostituisci ANCHE $y'(0)$, non solo $y(0)$.",
+  "sol":"<b>Derivazione dell'equazione.</b> $f(t,u)=\\frac{u(u-2)}{1+t}=\\frac{u^2-2u}{1+t}$. In $(0,1)$: $y'(0)=\\frac{1-2}{1}=-1$. Poi $y''=\\frac{(2y-2)y'(1+t)-(y^2-2y)}{(1+t)^2}$. In $t=0$, $y=1$, $y'=-1$: numeratore $=(2-2)(-1)(1)-(1-2)=0+1=1$, denominatore $=1$. Quindi $y''(0)=1>0$: <b>convessa</b> in un intorno di $0$, pur essendo decrescente. Convessit&agrave; e monotonia sono indipendenti: qui la soluzione scende rallentando verso l'asintoto $y=0$ (soluzione costante che non pu&ograve; attraversare)."}]},
+
+{"pool":"edo","src":"20230705 Es.5 iii","steps":[
+ {"t":"$y'=\\dfrac2t y+4t^2y^3$, $y(1)=1$. Concava o convessa in un intorno di $t=1$?",
+  "opts":[
+   {"x":"Convessa: $y''(1)=90>0$","c":true},
+   {"x":"Concava: $y''(1)<0$"},
+   {"x":"Serve la soluzione esplicita (equazione di Bernoulli) per rispondere"},
+   {"x":"Convessa perch&eacute; $y'(1)=6>0$ e $y$ &egrave; crescente"}],
+  "hint":"Attenzione al termine $\\frac2t y$: derivando in $t$ produce sia $-\\frac{2}{t^2}y$ sia $\\frac2t y'$.",
+  "sol":"<b>Conto.</b> $y'(1)=2\\cdot1+4\\cdot1\\cdot1=6$. Derivando l'equazione: $y''=-\\frac{2}{t^2}y+\\frac2t y'+8t\\,y^3+12t^2y^2y'$. In $t=1$, $y=1$, $y'=6$: $y''(1)=-2+12+8+72=90>0$. <b>Convessa</b>. Nota che l'equazione &egrave; di Bernoulli ed &egrave; risolubile (il testo lo chiede al punto iv), ma la domanda sulla convessit&agrave; arriva PRIMA proprio perch&eacute; non serve la formula: chi si mette a risolvere per rispondere a iii perde tempo e spesso sbaglia il conto pi&ugrave; lungo."}]},
+
+{"pool":"edo","src":"20240209 Es.5 iv","steps":[
+ {"t":"$y'=\\sqrt{4y^2+e^t+1}$, $y(0)=2$. Perch&eacute; $y$ &egrave; convessa su $[0,+\\infty)$?",
+  "opts":[
+   {"x":"Perch&eacute; $y''=\\dfrac{8yy'+e^t}{2\\sqrt{4y^2+e^t+1}}$ e su $[0,+\\infty)$ si ha $y>0$ e $y'>0$, quindi il numeratore &egrave; positivo","c":true},
+   {"x":"Perch&eacute; $y'>0$: una funzione crescente &egrave; convessa"},
+   {"x":"Perch&eacute; la radice quadrata &egrave; una funzione concava e cambia segno alla derivata seconda"},
+   {"x":"Perch&eacute; $y$ &egrave; globale e i limiti a $+\\infty$ esistono"}],
+  "hint":"Qui non basta il segno in un punto: il testo chiede la convessit&agrave; su tutta una semiretta, quindi serve il segno di $y''$ dove $y$ &egrave; positiva e crescente.",
+  "sol":"<b>Convessit&agrave; su un intervallo.</b> Il secondo membro &egrave; sempre $\\ge1>0$, quindi $y'>0$ ovunque: $y$ &egrave; strettamente crescente e, partendo da $y(0)=2>0$, resta $y(t)\\ge2>0$ per $t\\ge0$ (punto iii del compito). Derivando l'equazione: $y''=\\frac{d}{dt}\\big(4y^2+e^t+1\\big)^{1/2}=\\frac{8y\\,y'+e^t}{2\\sqrt{4y^2+e^t+1}}$. Per $t\\ge0$: $y>0$, $y'>0$, $e^t>0$ $\\Rightarrow y''>0$. Dunque $y$ &egrave; convessa su $[0,+\\infty)$. <b>Struttura tipica</b>: i punti del compito sono in ordine perch&eacute; ciascuno serve al successivo (globalit&agrave; $\\to$ positivit&agrave; $\\to$ convessit&agrave; $\\to$ limite): saltarne uno rompe la catena."}]},
+
+{"pool":"edo","src":"20220622 Es.5 iii","steps":[
+ {"t":"$y'=y^4(t+e^t)$, $y(0)=1$. La soluzione &egrave; convessa in un intorno di $t=0$?",
+  "opts":[
+   {"x":"S&igrave;: $y''(0)=4\\cdot1\\cdot1\\cdot1+1\\cdot(1+1)=6>0$","c":true},
+   {"x":"No: $y''(0)=-2<0$"},
+   {"x":"$y''(0)=0$: c'&egrave; un flesso in $t=0$"},
+   {"x":"Non si pu&ograve; dire senza risolvere l'equazione a variabili separabili"}],
+  "hint":"$y''=4y^3y'(t+e^t)+y^4(1+e^t)$, e $y'(0)$ si legge dall'equazione.",
+  "sol":"<b>Conto.</b> $y'(0)=1^4\\cdot(0+1)=1$. Derivando: $y''=4y^3y'(t+e^t)+y^4(1+e^t)$. In $t=0$, $y=1$, $y'=1$: $y''(0)=4\\cdot1\\cdot1\\cdot(0+1)+1\\cdot(1+1)=4+2=6>0$: <b>convessa</b>. Utile ricordare che qui $y\\equiv0$ &egrave; soluzione costante e il dato &egrave; $y(0)=1>0$: per unicit&agrave; la soluzione resta positiva, e questo garantisce che $y^3,y^4>0$ nel ragionamento sul segno."}]},
+
+{"pool":"edo","src":"20220210 Es.5 ii &middot; Taylor della soluzione","steps":[
+ {"t":"Per il problema $6y'+y=e^t y^{-5}$, $y(0)=1$, il testo chiede il polinomio di Taylor di ordine $2$ della soluzione in $t=0$. Come si ottiene?",
+  "opts":[
+   {"x":"$P_2(t)=y(0)+y'(0)t+\\frac{y''(0)}{2}t^2$, con $y(0)$ dal dato, $y'(0)$ dall'equazione in forma normale e $y''(0)$ derivando l'equazione","c":true},
+   {"x":"Risolvendo l'equazione e sviluppando la soluzione esplicita"},
+   {"x":"Sviluppando in serie il secondo membro $e^t y^{-5}$"},
+   {"x":"Non si pu&ograve;: il polinomio di Taylor richiede la soluzione"}],
+  "hint":"Il dato iniziale d&agrave; il termine di ordine zero; l'equazione valutata nel dato d&agrave; il coefficiente di primo grado; l'equazione derivata d&agrave; quello di secondo.",
+  "sol":"<b>Taylor da un'equazione differenziale.</b> Forma normale: $y'=\\frac{e^ty^{-5}-y}{6}$. In $t=0,y=1$: $y'(0)=\\frac{1-1}{6}=0$. Derivando: $y''=\\frac{e^ty^{-5}-5e^ty^{-6}y'-y'}{6}$; in $t=0$ con $y=1,y'=0$: $y''(0)=\\frac{1-0-0}{6}=\\frac16$. Quindi $P_2(t)=1+0\\cdot t+\\frac{1}{12}t^2=1+\\frac{t^2}{12}$. <b>Stessa mossa</b> della retta tangente ($P_1$) e della convessit&agrave; (segno di $y''(0)$): il problema di Cauchy contiene tutte le derivate della soluzione nel dato iniziale, una alla volta, gratis."}]},
+
+{"pool":"edo","src":"trappola &middot; monotonia vs convessit&agrave;","steps":[
+ {"t":"La soluzione di un problema di Cauchy &egrave; strettamente decrescente in un intorno di $t_0$. Cosa se ne deduce sulla convessit&agrave;?",
+  "opts":[
+   {"x":"Nulla: monotonia e convessit&agrave; sono indipendenti, e i compiti chiedono spesso una soluzione decrescente E convessa","c":true},
+   {"x":"&Egrave; concava, perch&eacute; la derivata &egrave; negativa"},
+   {"x":"&Egrave; convessa, perch&eacute; la derivata negativa cresce verso zero"},
+   {"x":"Ha un flesso in $t_0$"}],
+  "hint":"$y=e^{-t}$ decresce ed &egrave; convessa; $y=-t^2$ decresce (per $t>0$) ed &egrave; concava. Due esempi bastano.",
+  "sol":"<b>Indipendenza.</b> Il segno di $y'$ (monotonia) e il segno di $y''$ (convessit&agrave;) sono informazioni separate. Il caso ricorrente all'esame &egrave; proprio quello 'contro-intuitivo': soluzione decrescente e convessa, cio&egrave; che scende rallentando verso un asintoto orizzontale — che &egrave; poi il tipico comportamento di una soluzione confinata fra due soluzioni costanti (04/07/2024 Es.5). Riconoscerlo aiuta anche a rispondere alla domanda successiva, quella sul $\\lim_{t\\to+\\infty}y(t)$."}]},
+
+{"pool":"edo","src":"20250721 Es.2","steps":[
+ {"t":"$y'=\\ln(1+y^2)(3-y)$, $y(0)=2$. Senza risolvere: quanto vale $\\lim_{t\\to+\\infty}y(t)$?",
+  "opts":[
+   {"x":"$3$","c":true},
+   {"x":"$+\\infty$"},
+   {"x":"$0$"},
+   {"x":"Il limite non esiste: la soluzione oscilla"}],
+  "hint":"Cerca le soluzioni COSTANTI (gli zeri del secondo membro) e usa l'unicit&agrave;: sono barriere che il grafico non pu&ograve; attraversare.",
+  "sol":"<b>Barriere + monotonia.</b> Il secondo membro si annulla per $y=0$ e $y=3$: $y\\equiv0$ e $y\\equiv3$ sono soluzioni costanti. Il dato $y(0)=2\\in(0,3)$ e l'unicit&agrave; (il campo &egrave; $C^1$) impediscono l'attraversamento: $0<y(t)<3$ per ogni $t$. In quella striscia $\\ln(1+y^2)>0$ e $3-y>0$, quindi $y'>0$: la soluzione &egrave; strettamente crescente e limitata superiormente da $3$, dunque ammette limite finito $L\\le3$ per $t\\to+\\infty$. Se fosse $L<3$, si avrebbe $y'\\to\\ln(1+L^2)(3-L)>0$, incompatibile con la convergenza a un limite finito (la derivata di una funzione con asintoto orizzontale deve tendere a $0$). Quindi $L=3$. <b>Schema in tre mosse</b>: barriere $\\to$ monotonia $\\to$ il limite &egrave; lo zero del campo pi&ugrave; vicino nel verso del moto."}]},
+
+{"pool":"edo","src":"20250214 Es.3","steps":[
+ {"t":"$y'=\\ln(1+y^4)(2-y)t^2$, $y(0)=1$. Intervalli di monotonia e limiti a $\\pm\\infty$?",
+  "opts":[
+   {"x":"Crescente su tutto $\\mathbb{R}$ (con $y'=0$ solo in $t=0$), e $\\lim_{t\\to+\\infty}y=2$, $\\lim_{t\\to-\\infty}y=0$","c":true},
+   {"x":"Crescente per $t>0$ e decrescente per $t<0$; entrambi i limiti valgono $2$"},
+   {"x":"Decrescente su $\\mathbb{R}$; i limiti valgono $0$ e $2$"},
+   {"x":"Crescente su $\\mathbb{R}$; entrambi i limiti sono infiniti"}],
+  "hint":"$t^2\\ge0$ non cambia mai segno: la monotonia dipende solo dal segno di $\\ln(1+y^4)(2-y)$, e $y$ resta intrappolata fra due soluzioni costanti.",
+  "sol":"<b>Barriere.</b> Il campo si annulla per $y=0$ e $y=2$, che sono soluzioni costanti; $y(0)=1\\in(0,2)$ e per unicit&agrave; $0<y(t)<2$ sempre. In quella striscia $\\ln(1+y^4)>0$ e $2-y>0$, e $t^2\\ge0$: quindi $y'\\ge0$ ovunque, con uguaglianza solo in $t=0$. La soluzione &egrave; monotona crescente su tutto $\\mathbb{R}$ (il singolo punto a derivata nulla non interrompe la stretta monotonia). Essendo monotona e limitata, ha limiti finiti agli estremi; con lo stesso argomento del caso precedente essi devono essere zeri del campo: $\\lim_{t\\to-\\infty}y=0$ e $\\lim_{t\\to+\\infty}y=2$. <b>La globalit&agrave;</b> segue dalla limitatezza: una soluzione confinata in una striscia limitata non pu&ograve; esplodere in tempo finito."}]},
+
+{"pool":"edo","src":"modus operandi &middot; ordine di attacco","steps":[
+ {"t":"Le domande dell'esercizio di Cauchy arrivano quasi sempre in quest'ordine: (a) esistenza e unicit&agrave;, (b) globalit&agrave;/intervallo massimale, (c) segno/monotonia, (d) convessit&agrave;, (e) limiti, (f) soluzione esplicita. Perch&eacute; l'esplicita &egrave; ULTIMA?",
+  "opts":[
+   {"x":"Perch&eacute; ogni punto precedente si risolve dall'equazione e dal dato, senza formula: l'esplicita &egrave; il pezzo pi&ugrave; lungo e serve solo a s&eacute;. Chi la calcola per prima spende met&agrave; del tempo e rischia di sbagliare tutto a cascata","c":true},
+   {"x":"Perch&eacute; l'esplicita vale pi&ugrave; punti degli altri quesiti messi insieme"},
+   {"x":"Perch&eacute; senza l'esplicita non si possono calcolare i limiti"},
+   {"x":"Perch&eacute; l'ordine &egrave; casuale e non ha significato"}],
+  "hint":"Guarda cosa serve davvero per rispondere a (c) e (e): il segno del campo e le soluzioni costanti. Nessuna primitiva.",
+  "sol":"<b>Struttura del quesito.</b> La sequenza &egrave; progettata come una scala: Cauchy-Lipschitz d&agrave; (a); una stima sublineare o il confinamento fra barriere d&agrave; (b); il segno del campo nella striscia d&agrave; (c); la derivazione dell'equazione d&agrave; (d); monotonia+limitatezza+zeri del campo danno (e). Solo (f) richiede l'integrazione (variabili separabili, lineare, Bernoulli, esatta). L'errore pi&ugrave; costoso all'esame &egrave; invertire l'ordine: si ottiene una formula implicita ingestibile e si perdono i punti facili. <b>Nel compito del 17/07 questa &egrave; esattamente la trappola su cui si va sotto tempo.</b>"}]}
+
+]);

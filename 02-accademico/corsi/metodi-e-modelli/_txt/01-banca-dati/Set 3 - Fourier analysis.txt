@@ -13,10 +13,10 @@ SN(x) =
 N
 X
 n=1
- an
+ an
 √π cos(nx) + bn
 √π sin(nx)
-
+
 .
 (1)
 Si rappresenti tale funzione tramite il vettore dei suoi coefficienti, S ≡(a1, . . . , aN, b1, . . . , bN). Si trovino le matrici,
@@ -82,12 +82,12 @@ dx |f(x)| ,
 ∆k =
 R
 dk
-k ˆf(k)
-
+k ˆf(k)
+
 R
 dk
- ˆf(k)
-
+ ˆf(k)
+
 .
 (5)
 Mostrare che il prodotto ∆x∆k `e sempre indipendente da L.
@@ -143,10 +143,10 @@ N(x) =
 N
 X
 n=1
-nbn
+nbn
 √π cos(nx) −nan
 √π sin(nx)
-
+
 = A·S·e(x) .
 (8)
 Da un rapido confronto, capiamo che deve essere,
@@ -226,24 +226,24 @@ A·S = (b1, 2b2, · · · , NbN, −a1, −2a2, · · · , −NaN) ⇒A =
 
 
 =
-
+
 0
 DN
 −DN
 0
-
+
 , (9)
 dove abbiamo definito la matrice N ×N diagonale, DN = diag(1, 2, . . . , N). La matrice associata alla derivata seconda,
 invece, `e chiaramente,
 B = A2 =
-
+
 −D2
 N
 0
 0
 −D2
 N
-
+
 =
 
 
@@ -339,11 +339,11 @@ N(x) = B·S·e(x) =
 N
 X
 n=1
-
+
 −n2an
 √π cos(nx) −n2bn
 √π sin(nx)
-
+
 .
 (11)
 Soluzione 2 – Calcoliamo i coefficienti di Fourier nella base esponenziale:
@@ -397,27 +397,27 @@ a +
 X
 n=1
 (−1)n
-
+
 1
 a −in +
 1
 a + in
-#
+#
 = sinh(aπ)
 π
-1
+1
 a + 2as1
-
+
 .
 (14)
 Poinch`e f(x) `e continua in x = 0, vale anche f(0) = Sa(0) e, quindi,
 s1 = 1
 2a
-
+
 π
 sinh(πa) −1
 a
-
+
 .
 (15)
 3
@@ -441,12 +441,12 @@ a +
 ∞
 X
 n=1
-
+
 1
 a −in +
 1
 a + in
-#
+#
 = sinh(aπ)
 π
 "
@@ -488,12 +488,12 @@ In x = π, tuttavia, f(x), intesa come funzione periodica, ha una discontinuit`a
 Sa(π) = 1
 2(fa(π) + fa(−π)). Perci´o,
 s2 =
-
+
 π
 a sinh(aπ)
 eaπ + e−aπ
 2
-
+
 = π
 a
 cosh(aπ)
@@ -569,7 +569,7 @@ dxf2(x) =
 1
 √
 2
-
+
 −
 Z 0
 −1
@@ -578,7 +578,7 @@ dx x + 1
 Z 1
 0
 dx
-
+
 =
 1
 √
@@ -589,7 +589,7 @@ fn =
 1
 √
 2
-
+
 −
 Z 0
 −1
@@ -598,40 +598,40 @@ dx x e−inπx + 1
 Z 1
 0
 dx e−inπx
-
+
 =
 1
 √
 2
- 1
+ 1
 iπ ∂n
 Z 0
 −1
 dx e−inπx + 1 −e−inπ
 2inπ
-
+
 =
 1
 √
 2
-
+
 −1
 π2 ∂n
-einπ −1
+einπ −1
 n
-
+
 + 1 −e−inπ
 2inπ
-
+
 =
 1
 √
 2
-einπ (1 −inπ) −1
+einπ (1 −inπ) −1
 n2π2
 + 1 −e−inπ
 2inπ
-
+
 = (−1)n [2 −2(−1)n −inπ (1 + (−1)n)]
 2
 √
@@ -826,11 +826,11 @@ dy f(y)θ(x −y) .
 Usando le propriet`a della trasformata di Fourier del prodotto di convoluzione, insieme alla trasformata di Fourier
 della funzione θ, otteniamo,
 ˆg(k) = ˆf(k)ˆθ(k) = ˆf(k)
-
+
 πδ(k) −iP
-1
+1
 k
-
+
 = π ˆf(0)δ(k) −iP
  ˆf(k)
 k
@@ -904,18 +904,18 @@ Z
 dx
 e−ikx
 (x + i)(x −i) = −2πi Res
- e−ikz
+ e−ikz
 z2 + 1, z = −i
-
+
 θ(k) + 2πi Res
- e−ikz
+ e−ikz
 z2 + 1, z = i
-
+
 θ(−k)
 = π
-
+
 e−kθ(k) + ekθ(−k)
-
+
 = πe−|k| ,
 (29a)
 ˆf2(k) = √π e−k2/4 .
@@ -1037,28 +1037,28 @@ h
 e−x2−i(k−1)x −e−x2−i(k+1)xi
 = 1
 2i
-
+
 e−(k−1)2
 4
 Z
 dx e−
- x+i(k−1)/2
-2
+x+i(k−1)/2
+2
 −e−(k+1)2
 4
 Z
 dx e−
- x+i(k+1)/2
-2
+x+i(k+1)/2
+2
 =
 √π
 2i
-
+
 e−(k−1)2
 4
 −e−(k+1)2
 4
-
+
 .
 (38)
 2. f2(x) =
@@ -1075,8 +1075,8 @@ dal polo in x = −i, ossia,
 x→−i
 d
 dx
-
-(x + i)2f2(x)e−ikx
+
+(x + i)2f2(x)e−ikx
 = −2πi lim
 x→−i
 d
@@ -1087,11 +1087,11 @@ x
 !
 = −2πi lim
 x→−i
- e−ikx
+ e−ikx
 (x −i)2 −2x e−ikx
 (x −i)3 −ik x e−ikx
 (x −i)2
-
+
 = −iπ
 4 ke−k .
 (40)
@@ -1139,15 +1139,15 @@ sia nullo, in questo caso dobbiamo chiudere entrambi gli integrali nel semipiano
 questo caso entrambi gli integrali ricevono contributo dal polo in z = −ib, e la trasformata di Fourier `e
 data da,
 ˆf3(k) = −iπ
-
+
 Resz=−ib
-ei(a−k)z
+ei(a−k)z
 z2 + b2
-
+
 + Resz=−ib
-e−i(a+k)z
+e−i(a+k)z
 z2 + b2
-
+
 = π
 2b
 h
@@ -1159,15 +1159,15 @@ In questo caso vale a −k > 0 e a + k > 0, il che vuol dire che il primo integr
 superiore, mentre il secondo in quello inferiore. Ricevaranno, quindi, contributi rispettivamente dal polo
 in z = +ib e z = −ib. La trasformata di Fourier, allora, `e data da,
 ˆf3(k) = iπ
-
+
 Resz=ib
-ei(a−k)z
+ei(a−k)z
 z2 + b2
-
+
 −Resz=−ib
-e−i(a+k)z
+e−i(a+k)z
 z2 + b2
-
+
 = π
 2b
 h
@@ -1178,15 +1178,15 @@ e−b(a−k) + e−b(a+k)i
 In questo caso a −k > 0 e a + k < 0, il che vuol dire che entrambi gli integrali vanno chiusi nel semipiano
 superiore, ed entrambi ricevono contributo dal polo in z = +ib. La trasformata di Fourier `e data da,
 ˆf3(k) = iπ
-
+
 Resz=ib
-ei(a−k)z
+ei(a−k)z
 z2 + b2
-
+
 + Resz=ib
-e−i(a+k)z
+e−i(a+k)z
 z2 + b2
-
+
 = π
 2b
 h
@@ -1215,30 +1215,30 @@ h
 e(4i−s)t + e−(2i+s)t −e(2i−s)t −e−(4i+s)ti
 = 1
 4i
-e(4i−s)t
+e(4i−s)t
 4i −s
-
+
 ∞
 0
 −e−(2i+s)t
 2i + s
-
+
 ∞
 0
 −e(2i−s)t
 2i −s
-
+
 ∞
 0
 + e−(4i+s)t
 4i + s
-
+
 ∞
 0
-
+
 = 1
 4i
-
+
 1
 s −4i +
 1
@@ -1247,7 +1247,7 @@ s −4i +
 s −2i −
 1
 s + 4i
-
+
 =
 2
 s2 + 16 −
@@ -1292,12 +1292,12 @@ d
 dλ
 1
 2
-
+
 1
 s −λ −i +
 1
 s −λ + i
-
+
 = lim
 λ→2
 d
@@ -1307,14 +1307,14 @@ s −λ
 = lim
 λ→2
 (s −λ)2 −1
-
+
 (s −λ)2 + 1
-2
+2
 =
 (s −2)2 −1
-
+
 (s −2)2 + 1
-2 .
+2 .
 (49)
 Affinch`e il contributo all’infinito sia nullo, abbiamo dovuto imporre Re s > λ →2, che quindi definisce il
 semipiano di esistenza e olomorfia della trasformata di Laplace. Questo coincide anche col fatto che, per la
@@ -1408,11 +1408,11 @@ Z s/
 dz′ e−z′2 =
 rπ
 2 erf
-
+
 s/
 √
 2
-
+
 ,
 (56)
 9
@@ -1437,11 +1437,11 @@ s2
 2
 h
 1 −erf
-
+
 s/
 √
 2
-i
+i
 .
 (57)
 L’error function `e una funzione definita su tutto il piano complesso. Questo `e consistente col fatto che la nostra
@@ -1466,8 +1466,8 @@ s = 1
 s2 ,
 (58a)
 L
-
-et
+
+et
 (s) =
 Z ∞
 0
@@ -1478,8 +1478,8 @@ s −1 ,
 dove nel primo caso abbiamo dovuto assumere Re s > 0, e nel secondo Re s > 1. La trasformata di Laplace della
 nostra funzione `e, allora,
 F4(s) = L[t](s)L
-
-et
+
+et
 (s) =
 1
 s2(s −1) .
